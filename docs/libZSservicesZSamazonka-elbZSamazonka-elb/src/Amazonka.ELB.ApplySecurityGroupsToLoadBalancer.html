@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ELB.ApplySecurityGroupsToLoadBalancer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates one or more security groups with your load balancer in a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- virtual private cloud (VPC). The specified security groups override the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- previously associated security groups.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELB.ApplySecurityGroupsToLoadBalancer</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier">ApplySecurityGroupsToLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#newApplySecurityGroupsToLoadBalancer"><span class="hs-identifier">newApplySecurityGroupsToLoadBalancer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancer_loadBalancerName"><span class="hs-identifier">applySecurityGroupsToLoadBalancer_loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancer_securityGroups"><span class="hs-identifier">applySecurityGroupsToLoadBalancer_securityGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier">ApplySecurityGroupsToLoadBalancerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#newApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier">newApplySecurityGroupsToLoadBalancerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancerResponse_securityGroups"><span class="hs-identifier">applySecurityGroupsToLoadBalancerResponse_securityGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancerResponse_httpStatus"><span class="hs-identifier">applySecurityGroupsToLoadBalancerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.html"><span class="hs-identifier">Amazonka.ELB.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Contains the parameters for ApplySecurityGroupsToLoadBalancer.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newApplySecurityGroupsToLoadBalancer' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679204044"><span id="local-6989586621679204045"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplySecurityGroupsToLoadBalancer"><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-var">ApplySecurityGroupsToLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplySecurityGroupsToLoadBalancer%27"><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-var">ApplySecurityGroupsToLoadBalancer'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AloadBalancerName%3AApplySecurityGroupsToLoadBalancer%27"><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancer -&gt; Text
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AloadBalancerName%3AApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The IDs of the security groups to associate with the load balancer. Note</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- that you cannot specify the name of the security group.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancer%27"><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancer -&gt; [Text]
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204037"><span id="local-6989586621679204039"><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancer
+-&gt; ApplySecurityGroupsToLoadBalancer -&gt; Bool
+(ApplySecurityGroupsToLoadBalancer
+ -&gt; ApplySecurityGroupsToLoadBalancer -&gt; Bool)
+-&gt; (ApplySecurityGroupsToLoadBalancer
+    -&gt; ApplySecurityGroupsToLoadBalancer -&gt; Bool)
+-&gt; Eq ApplySecurityGroupsToLoadBalancer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplySecurityGroupsToLoadBalancer
+-&gt; ApplySecurityGroupsToLoadBalancer -&gt; Bool
+$c/= :: ApplySecurityGroupsToLoadBalancer
+-&gt; ApplySecurityGroupsToLoadBalancer -&gt; Bool
+== :: ApplySecurityGroupsToLoadBalancer
+-&gt; ApplySecurityGroupsToLoadBalancer -&gt; Bool
+$c== :: ApplySecurityGroupsToLoadBalancer
+-&gt; ApplySecurityGroupsToLoadBalancer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204028"><span id="local-6989586621679204030"><span id="local-6989586621679204032"><span id="local-6989586621679204034"><span class="annot"><span class="annottext">ReadPrec [ApplySecurityGroupsToLoadBalancer]
+ReadPrec ApplySecurityGroupsToLoadBalancer
+Int -&gt; ReadS ApplySecurityGroupsToLoadBalancer
+ReadS [ApplySecurityGroupsToLoadBalancer]
+(Int -&gt; ReadS ApplySecurityGroupsToLoadBalancer)
+-&gt; ReadS [ApplySecurityGroupsToLoadBalancer]
+-&gt; ReadPrec ApplySecurityGroupsToLoadBalancer
+-&gt; ReadPrec [ApplySecurityGroupsToLoadBalancer]
+-&gt; Read ApplySecurityGroupsToLoadBalancer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplySecurityGroupsToLoadBalancer]
+$creadListPrec :: ReadPrec [ApplySecurityGroupsToLoadBalancer]
+readPrec :: ReadPrec ApplySecurityGroupsToLoadBalancer
+$creadPrec :: ReadPrec ApplySecurityGroupsToLoadBalancer
+readList :: ReadS [ApplySecurityGroupsToLoadBalancer]
+$creadList :: ReadS [ApplySecurityGroupsToLoadBalancer]
+readsPrec :: Int -&gt; ReadS ApplySecurityGroupsToLoadBalancer
+$creadsPrec :: Int -&gt; ReadS ApplySecurityGroupsToLoadBalancer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204021"><span id="local-6989586621679204023"><span id="local-6989586621679204025"><span class="annot"><span class="annottext">Int -&gt; ApplySecurityGroupsToLoadBalancer -&gt; ShowS
+[ApplySecurityGroupsToLoadBalancer] -&gt; ShowS
+ApplySecurityGroupsToLoadBalancer -&gt; String
+(Int -&gt; ApplySecurityGroupsToLoadBalancer -&gt; ShowS)
+-&gt; (ApplySecurityGroupsToLoadBalancer -&gt; String)
+-&gt; ([ApplySecurityGroupsToLoadBalancer] -&gt; ShowS)
+-&gt; Show ApplySecurityGroupsToLoadBalancer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplySecurityGroupsToLoadBalancer] -&gt; ShowS
+$cshowList :: [ApplySecurityGroupsToLoadBalancer] -&gt; ShowS
+show :: ApplySecurityGroupsToLoadBalancer -&gt; String
+$cshow :: ApplySecurityGroupsToLoadBalancer -&gt; String
+showsPrec :: Int -&gt; ApplySecurityGroupsToLoadBalancer -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplySecurityGroupsToLoadBalancer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplySecurityGroupsToLoadBalancer
+ -&gt; Rep ApplySecurityGroupsToLoadBalancer x)
+-&gt; (forall x.
+    Rep ApplySecurityGroupsToLoadBalancer x
+    -&gt; ApplySecurityGroupsToLoadBalancer)
+-&gt; Generic ApplySecurityGroupsToLoadBalancer
+forall x.
+Rep ApplySecurityGroupsToLoadBalancer x
+-&gt; ApplySecurityGroupsToLoadBalancer
+forall x.
+ApplySecurityGroupsToLoadBalancer
+-&gt; Rep ApplySecurityGroupsToLoadBalancer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplySecurityGroupsToLoadBalancer x
+-&gt; ApplySecurityGroupsToLoadBalancer
+$cfrom :: forall x.
+ApplySecurityGroupsToLoadBalancer
+-&gt; Rep ApplySecurityGroupsToLoadBalancer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ApplySecurityGroupsToLoadBalancer' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'loadBalancerName', 'applySecurityGroupsToLoadBalancer_loadBalancerName' - The name of the load balancer.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'securityGroups', 'applySecurityGroupsToLoadBalancer_securityGroups' - The IDs of the security groups to associate with the load balancer. Note</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- that you cannot specify the name of the security group.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#newApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">newApplySecurityGroupsToLoadBalancer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'loadBalancerName'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span>
+</span><span id="line-84"></span><span id="newApplySecurityGroupsToLoadBalancer"><span class="annot"><span class="annottext">newApplySecurityGroupsToLoadBalancer :: Text -&gt; ApplySecurityGroupsToLoadBalancer
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#newApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-var hs-var">newApplySecurityGroupsToLoadBalancer</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679204016"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204016"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancer' :: Text -&gt; [Text] -&gt; ApplySecurityGroupsToLoadBalancer
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:ApplySecurityGroupsToLoadBalancer' :: Text
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AloadBalancerName%3AApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204016"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:securityGroups:ApplySecurityGroupsToLoadBalancer' :: [Text]
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancer_loadBalancerName"><span class="hs-identifier hs-type">applySecurityGroupsToLoadBalancer_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="applySecurityGroupsToLoadBalancer_loadBalancerName"><span class="annot"><span class="annottext">applySecurityGroupsToLoadBalancer_loadBalancerName :: (Text -&gt; f Text)
+-&gt; ApplySecurityGroupsToLoadBalancer
+-&gt; f ApplySecurityGroupsToLoadBalancer
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancer_loadBalancerName"><span class="hs-identifier hs-var hs-var">applySecurityGroupsToLoadBalancer_loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplySecurityGroupsToLoadBalancer -&gt; Text)
+-&gt; (ApplySecurityGroupsToLoadBalancer
+    -&gt; Text -&gt; ApplySecurityGroupsToLoadBalancer)
+-&gt; Lens
+     ApplySecurityGroupsToLoadBalancer
+     ApplySecurityGroupsToLoadBalancer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204013"><span class="annot"><span class="annottext">Text
+loadBalancerName :: Text
+$sel:loadBalancerName:ApplySecurityGroupsToLoadBalancer' :: ApplySecurityGroupsToLoadBalancer -&gt; Text
+</span><a href="#local-6989586621679204013"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204013"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204012"><span class="annot"><span class="annottext">s :: ApplySecurityGroupsToLoadBalancer
+</span><a href="#local-6989586621679204012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancer
+</span><a href="#local-6989586621679204012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:ApplySecurityGroupsToLoadBalancer' :: Text
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AloadBalancerName%3AApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The IDs of the security groups to associate with the load balancer. Note</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- that you cannot specify the name of the security group.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancer_securityGroups"><span class="hs-identifier hs-type">applySecurityGroupsToLoadBalancer_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span id="applySecurityGroupsToLoadBalancer_securityGroups"><span class="annot"><span class="annottext">applySecurityGroupsToLoadBalancer_securityGroups :: ([Text] -&gt; f [Text])
+-&gt; ApplySecurityGroupsToLoadBalancer
+-&gt; f ApplySecurityGroupsToLoadBalancer
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancer_securityGroups"><span class="hs-identifier hs-var hs-var">applySecurityGroupsToLoadBalancer_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplySecurityGroupsToLoadBalancer -&gt; [Text])
+-&gt; (ApplySecurityGroupsToLoadBalancer
+    -&gt; [Text] -&gt; ApplySecurityGroupsToLoadBalancer)
+-&gt; Lens
+     ApplySecurityGroupsToLoadBalancer
+     ApplySecurityGroupsToLoadBalancer
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204010"><span class="annot"><span class="annottext">[Text]
+securityGroups :: [Text]
+$sel:securityGroups:ApplySecurityGroupsToLoadBalancer' :: ApplySecurityGroupsToLoadBalancer -&gt; [Text]
+</span><a href="#local-6989586621679204010"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679204010"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204009"><span class="annot"><span class="annottext">s :: ApplySecurityGroupsToLoadBalancer
+</span><a href="#local-6989586621679204009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204008"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679204008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancer
+</span><a href="#local-6989586621679204009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:ApplySecurityGroupsToLoadBalancer' :: [Text]
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679204008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; ApplySecurityGroupsToLoadBalancer
+ -&gt; f ApplySecurityGroupsToLoadBalancer)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; ApplySecurityGroupsToLoadBalancer
+-&gt; f ApplySecurityGroupsToLoadBalancer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679204002"><span class="annot"><span class="annottext">request :: ApplySecurityGroupsToLoadBalancer
+-&gt; Request ApplySecurityGroupsToLoadBalancer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ApplySecurityGroupsToLoadBalancer
+-&gt; Request ApplySecurityGroupsToLoadBalancer
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679203998"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ApplySecurityGroupsToLoadBalancer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ApplySecurityGroupsToLoadBalancer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ApplySecurityGroupsToLoadBalancer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ApplySecurityGroupsToLoadBalancer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ApplySecurityGroupsToLoadBalancer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplySecurityGroupsToLoadBalancerResult&quot;</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203995"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203994"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203994"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203993"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679203993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var">ApplySecurityGroupsToLoadBalancerResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; ApplySecurityGroupsToLoadBalancerResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; ApplySecurityGroupsToLoadBalancerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679203993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-115"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ApplySecurityGroupsToLoadBalancerResponse)
+-&gt; Either String Int
+-&gt; Either String ApplySecurityGroupsToLoadBalancerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203995"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679203982"><span id="local-6989586621679203984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679203979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679203975"><span class="annot"><span class="annottext">toHeaders :: ApplySecurityGroupsToLoadBalancer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ApplySecurityGroupsToLoadBalancer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679203970"><span class="annot"><span class="annottext">toPath :: ApplySecurityGroupsToLoadBalancer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ApplySecurityGroupsToLoadBalancer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679203966"><span class="annot"><span class="annottext">toQuery :: ApplySecurityGroupsToLoadBalancer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancer%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203963"><span id="local-6989586621679203964"><span class="annot"><span class="annottext">[Text]
+Text
+securityGroups :: [Text]
+loadBalancerName :: Text
+$sel:securityGroups:ApplySecurityGroupsToLoadBalancer' :: ApplySecurityGroupsToLoadBalancer -&gt; [Text]
+$sel:loadBalancerName:ApplySecurityGroupsToLoadBalancer' :: ApplySecurityGroupsToLoadBalancer -&gt; Text
+</span><a href="#local-6989586621679203963"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplySecurityGroupsToLoadBalancer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-06-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203964"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SecurityGroups&quot;</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679203963"><span class="hs-identifier hs-var">securityGroups</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Contains the output of ApplySecurityGroupsToLoadBalancer.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- /See:/ 'newApplySecurityGroupsToLoadBalancerResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679203959"><span id="local-6989586621679203960"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplySecurityGroupsToLoadBalancerResponse"><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-var">ApplySecurityGroupsToLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplySecurityGroupsToLoadBalancerResponse%27"><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var">ApplySecurityGroupsToLoadBalancerResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the security groups associated with the load balancer.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancerResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancerResponse -&gt; Int
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AhttpStatus%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203953"><span id="local-6989586621679203955"><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancerResponse
+-&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; Bool
+(ApplySecurityGroupsToLoadBalancerResponse
+ -&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; Bool)
+-&gt; (ApplySecurityGroupsToLoadBalancerResponse
+    -&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; Bool)
+-&gt; Eq ApplySecurityGroupsToLoadBalancerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplySecurityGroupsToLoadBalancerResponse
+-&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; Bool
+$c/= :: ApplySecurityGroupsToLoadBalancerResponse
+-&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; Bool
+== :: ApplySecurityGroupsToLoadBalancerResponse
+-&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; Bool
+$c== :: ApplySecurityGroupsToLoadBalancerResponse
+-&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203945"><span id="local-6989586621679203947"><span id="local-6989586621679203949"><span id="local-6989586621679203951"><span class="annot"><span class="annottext">ReadPrec [ApplySecurityGroupsToLoadBalancerResponse]
+ReadPrec ApplySecurityGroupsToLoadBalancerResponse
+Int -&gt; ReadS ApplySecurityGroupsToLoadBalancerResponse
+ReadS [ApplySecurityGroupsToLoadBalancerResponse]
+(Int -&gt; ReadS ApplySecurityGroupsToLoadBalancerResponse)
+-&gt; ReadS [ApplySecurityGroupsToLoadBalancerResponse]
+-&gt; ReadPrec ApplySecurityGroupsToLoadBalancerResponse
+-&gt; ReadPrec [ApplySecurityGroupsToLoadBalancerResponse]
+-&gt; Read ApplySecurityGroupsToLoadBalancerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplySecurityGroupsToLoadBalancerResponse]
+$creadListPrec :: ReadPrec [ApplySecurityGroupsToLoadBalancerResponse]
+readPrec :: ReadPrec ApplySecurityGroupsToLoadBalancerResponse
+$creadPrec :: ReadPrec ApplySecurityGroupsToLoadBalancerResponse
+readList :: ReadS [ApplySecurityGroupsToLoadBalancerResponse]
+$creadList :: ReadS [ApplySecurityGroupsToLoadBalancerResponse]
+readsPrec :: Int -&gt; ReadS ApplySecurityGroupsToLoadBalancerResponse
+$creadsPrec :: Int -&gt; ReadS ApplySecurityGroupsToLoadBalancerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203939"><span id="local-6989586621679203941"><span id="local-6989586621679203943"><span class="annot"><span class="annottext">Int -&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; ShowS
+[ApplySecurityGroupsToLoadBalancerResponse] -&gt; ShowS
+ApplySecurityGroupsToLoadBalancerResponse -&gt; String
+(Int -&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; ShowS)
+-&gt; (ApplySecurityGroupsToLoadBalancerResponse -&gt; String)
+-&gt; ([ApplySecurityGroupsToLoadBalancerResponse] -&gt; ShowS)
+-&gt; Show ApplySecurityGroupsToLoadBalancerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplySecurityGroupsToLoadBalancerResponse] -&gt; ShowS
+$cshowList :: [ApplySecurityGroupsToLoadBalancerResponse] -&gt; ShowS
+show :: ApplySecurityGroupsToLoadBalancerResponse -&gt; String
+$cshow :: ApplySecurityGroupsToLoadBalancerResponse -&gt; String
+showsPrec :: Int -&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplySecurityGroupsToLoadBalancerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplySecurityGroupsToLoadBalancerResponse
+ -&gt; Rep ApplySecurityGroupsToLoadBalancerResponse x)
+-&gt; (forall x.
+    Rep ApplySecurityGroupsToLoadBalancerResponse x
+    -&gt; ApplySecurityGroupsToLoadBalancerResponse)
+-&gt; Generic ApplySecurityGroupsToLoadBalancerResponse
+forall x.
+Rep ApplySecurityGroupsToLoadBalancerResponse x
+-&gt; ApplySecurityGroupsToLoadBalancerResponse
+forall x.
+ApplySecurityGroupsToLoadBalancerResponse
+-&gt; Rep ApplySecurityGroupsToLoadBalancerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplySecurityGroupsToLoadBalancerResponse x
+-&gt; ApplySecurityGroupsToLoadBalancerResponse
+$cfrom :: forall x.
+ApplySecurityGroupsToLoadBalancerResponse
+-&gt; Rep ApplySecurityGroupsToLoadBalancerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'ApplySecurityGroupsToLoadBalancerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'securityGroups', 'applySecurityGroupsToLoadBalancerResponse_securityGroups' - The IDs of the security groups associated with the load balancer.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'applySecurityGroupsToLoadBalancerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#newApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">newApplySecurityGroupsToLoadBalancerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newApplySecurityGroupsToLoadBalancerResponse"><span class="annot"><span class="annottext">newApplySecurityGroupsToLoadBalancerResponse :: Int -&gt; ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#newApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newApplySecurityGroupsToLoadBalancerResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679203936"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancerResponse' :: Maybe [Text] -&gt; Int -&gt; ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityGroups:ApplySecurityGroupsToLoadBalancerResponse' :: Maybe [Text]
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ApplySecurityGroupsToLoadBalancerResponse' :: Int
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AhttpStatus%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The IDs of the security groups associated with the load balancer.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancerResponse_securityGroups"><span class="hs-identifier hs-type">applySecurityGroupsToLoadBalancerResponse_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="applySecurityGroupsToLoadBalancerResponse_securityGroups"><span class="annot"><span class="annottext">applySecurityGroupsToLoadBalancerResponse_securityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ApplySecurityGroupsToLoadBalancerResponse
+-&gt; f ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancerResponse_securityGroups"><span class="hs-identifier hs-var hs-var">applySecurityGroupsToLoadBalancerResponse_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplySecurityGroupsToLoadBalancerResponse -&gt; Maybe [Text])
+-&gt; (ApplySecurityGroupsToLoadBalancerResponse
+    -&gt; Maybe [Text] -&gt; ApplySecurityGroupsToLoadBalancerResponse)
+-&gt; Lens
+     ApplySecurityGroupsToLoadBalancerResponse
+     ApplySecurityGroupsToLoadBalancerResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203935"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroups :: Maybe [Text]
+$sel:securityGroups:ApplySecurityGroupsToLoadBalancerResponse' :: ApplySecurityGroupsToLoadBalancerResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679203935"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203935"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203934"><span class="annot"><span class="annottext">s :: ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="#local-6989586621679203934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203933"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="#local-6989586621679203934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:ApplySecurityGroupsToLoadBalancerResponse' :: Maybe [Text]
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AsecurityGroups%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ApplySecurityGroupsToLoadBalancerResponse
+ -&gt; f ApplySecurityGroupsToLoadBalancerResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ApplySecurityGroupsToLoadBalancerResponse
+-&gt; f ApplySecurityGroupsToLoadBalancerResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancerResponse_httpStatus"><span class="hs-identifier hs-type">applySecurityGroupsToLoadBalancerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span id="applySecurityGroupsToLoadBalancerResponse_httpStatus"><span class="annot"><span class="annottext">applySecurityGroupsToLoadBalancerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ApplySecurityGroupsToLoadBalancerResponse
+-&gt; f ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#applySecurityGroupsToLoadBalancerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">applySecurityGroupsToLoadBalancerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplySecurityGroupsToLoadBalancerResponse -&gt; Int)
+-&gt; (ApplySecurityGroupsToLoadBalancerResponse
+    -&gt; Int -&gt; ApplySecurityGroupsToLoadBalancerResponse)
+-&gt; Lens
+     ApplySecurityGroupsToLoadBalancerResponse
+     ApplySecurityGroupsToLoadBalancerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203931"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ApplySecurityGroupsToLoadBalancerResponse' :: ApplySecurityGroupsToLoadBalancerResponse -&gt; Int
+</span><a href="#local-6989586621679203931"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203931"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203930"><span class="annot"><span class="annottext">s :: ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="#local-6989586621679203930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySecurityGroupsToLoadBalancerResponse
+</span><a href="#local-6989586621679203930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ApplySecurityGroupsToLoadBalancerResponse' :: Int
+</span><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#%24sel%3AhttpStatus%3AApplySecurityGroupsToLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679203927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.html#ApplySecurityGroupsToLoadBalancerResponse"><span class="hs-identifier hs-type">ApplySecurityGroupsToLoadBalancerResponse</span></a></span></span><span>
+</span><span id="line-202"></span></pre></body></html>

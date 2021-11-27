@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.ListAssessmentReports</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of assessment reports created in Audit Manager.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.ListAssessmentReports</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier">ListAssessmentReports</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#newListAssessmentReports"><span class="hs-identifier">newListAssessmentReports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReports_nextToken"><span class="hs-identifier">listAssessmentReports_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReports_maxResults"><span class="hs-identifier">listAssessmentReports_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier">ListAssessmentReportsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#newListAssessmentReportsResponse"><span class="hs-identifier">newListAssessmentReportsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_assessmentReports"><span class="hs-identifier">listAssessmentReportsResponse_assessmentReports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_nextToken"><span class="hs-identifier">listAssessmentReportsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_httpStatus"><span class="hs-identifier">listAssessmentReportsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.html"><span class="hs-identifier">Amazonka.AuditManager.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newListAssessmentReports' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679300335"><span id="local-6989586621679300336"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessmentReports"><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-var">ListAssessmentReports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessmentReports%27"><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports%27"><span class="hs-identifier hs-var">ListAssessmentReports'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssessmentReports%27"><span class="annot"><span class="annottext">ListAssessmentReports -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AnextToken%3AListAssessmentReports%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Represents the maximum number of results per page, or per API request</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAssessmentReports%27"><span class="annot"><span class="annottext">ListAssessmentReports -&gt; Maybe Natural
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AmaxResults%3AListAssessmentReports%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300328"><span id="local-6989586621679300330"><span class="annot"><span class="annottext">ListAssessmentReports -&gt; ListAssessmentReports -&gt; Bool
+(ListAssessmentReports -&gt; ListAssessmentReports -&gt; Bool)
+-&gt; (ListAssessmentReports -&gt; ListAssessmentReports -&gt; Bool)
+-&gt; Eq ListAssessmentReports
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssessmentReports -&gt; ListAssessmentReports -&gt; Bool
+$c/= :: ListAssessmentReports -&gt; ListAssessmentReports -&gt; Bool
+== :: ListAssessmentReports -&gt; ListAssessmentReports -&gt; Bool
+$c== :: ListAssessmentReports -&gt; ListAssessmentReports -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300319"><span id="local-6989586621679300321"><span id="local-6989586621679300323"><span id="local-6989586621679300325"><span class="annot"><span class="annottext">ReadPrec [ListAssessmentReports]
+ReadPrec ListAssessmentReports
+Int -&gt; ReadS ListAssessmentReports
+ReadS [ListAssessmentReports]
+(Int -&gt; ReadS ListAssessmentReports)
+-&gt; ReadS [ListAssessmentReports]
+-&gt; ReadPrec ListAssessmentReports
+-&gt; ReadPrec [ListAssessmentReports]
+-&gt; Read ListAssessmentReports
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssessmentReports]
+$creadListPrec :: ReadPrec [ListAssessmentReports]
+readPrec :: ReadPrec ListAssessmentReports
+$creadPrec :: ReadPrec ListAssessmentReports
+readList :: ReadS [ListAssessmentReports]
+$creadList :: ReadS [ListAssessmentReports]
+readsPrec :: Int -&gt; ReadS ListAssessmentReports
+$creadsPrec :: Int -&gt; ReadS ListAssessmentReports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300312"><span id="local-6989586621679300314"><span id="local-6989586621679300316"><span class="annot"><span class="annottext">Int -&gt; ListAssessmentReports -&gt; ShowS
+[ListAssessmentReports] -&gt; ShowS
+ListAssessmentReports -&gt; String
+(Int -&gt; ListAssessmentReports -&gt; ShowS)
+-&gt; (ListAssessmentReports -&gt; String)
+-&gt; ([ListAssessmentReports] -&gt; ShowS)
+-&gt; Show ListAssessmentReports
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssessmentReports] -&gt; ShowS
+$cshowList :: [ListAssessmentReports] -&gt; ShowS
+show :: ListAssessmentReports -&gt; String
+$cshow :: ListAssessmentReports -&gt; String
+showsPrec :: Int -&gt; ListAssessmentReports -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssessmentReports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAssessmentReports -&gt; Rep ListAssessmentReports x)
+-&gt; (forall x. Rep ListAssessmentReports x -&gt; ListAssessmentReports)
+-&gt; Generic ListAssessmentReports
+forall x. Rep ListAssessmentReports x -&gt; ListAssessmentReports
+forall x. ListAssessmentReports -&gt; Rep ListAssessmentReports x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAssessmentReports x -&gt; ListAssessmentReports
+$cfrom :: forall x. ListAssessmentReports -&gt; Rep ListAssessmentReports x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ListAssessmentReports' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'nextToken', 'listAssessmentReports_nextToken' - The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'maxResults', 'listAssessmentReports_maxResults' - Represents the maximum number of results per page, or per API request</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#newListAssessmentReports"><span class="hs-identifier hs-type">newListAssessmentReports</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span>
+</span><span id="line-75"></span><span id="newListAssessmentReports"><span class="annot"><span class="annottext">newListAssessmentReports :: ListAssessmentReports
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#newListAssessmentReports"><span class="hs-identifier hs-var hs-var">newListAssessmentReports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ListAssessmentReports' :: Maybe Text -&gt; Maybe Natural -&gt; ListAssessmentReports
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports%27"><span class="hs-identifier hs-type">ListAssessmentReports'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentReports' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AnextToken%3AListAssessmentReports%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessmentReports' :: Maybe Natural
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AmaxResults%3AListAssessmentReports%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReports_nextToken"><span class="hs-identifier hs-type">listAssessmentReports_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="listAssessmentReports_nextToken"><span class="annot"><span class="annottext">listAssessmentReports_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssessmentReports -&gt; f ListAssessmentReports
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReports_nextToken"><span class="hs-identifier hs-var hs-var">listAssessmentReports_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentReports -&gt; Maybe Text)
+-&gt; (ListAssessmentReports -&gt; Maybe Text -&gt; ListAssessmentReports)
+-&gt; Lens
+     ListAssessmentReports
+     ListAssessmentReports
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports%27"><span class="hs-identifier hs-type">ListAssessmentReports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300305"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssessmentReports' :: ListAssessmentReports -&gt; Maybe Text
+</span><a href="#local-6989586621679300305"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300305"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300304"><span class="annot"><span class="annottext">s :: ListAssessmentReports
+</span><a href="#local-6989586621679300304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports%27"><span class="hs-identifier hs-type">ListAssessmentReports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentReports
+</span><a href="#local-6989586621679300304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentReports' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AnextToken%3AListAssessmentReports%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Represents the maximum number of results per page, or per API request</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReports_maxResults"><span class="hs-identifier hs-type">listAssessmentReports_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listAssessmentReports_maxResults"><span class="annot"><span class="annottext">listAssessmentReports_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAssessmentReports -&gt; f ListAssessmentReports
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReports_maxResults"><span class="hs-identifier hs-var hs-var">listAssessmentReports_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentReports -&gt; Maybe Natural)
+-&gt; (ListAssessmentReports
+    -&gt; Maybe Natural -&gt; ListAssessmentReports)
+-&gt; Lens
+     ListAssessmentReports
+     ListAssessmentReports
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports%27"><span class="hs-identifier hs-type">ListAssessmentReports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300302"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAssessmentReports' :: ListAssessmentReports -&gt; Maybe Natural
+</span><a href="#local-6989586621679300302"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300302"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300301"><span class="annot"><span class="annottext">s :: ListAssessmentReports
+</span><a href="#local-6989586621679300301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports%27"><span class="hs-identifier hs-type">ListAssessmentReports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300300"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentReports
+</span><a href="#local-6989586621679300301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessmentReports' :: Maybe Natural
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AmaxResults%3AListAssessmentReports%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679300296"><span class="annot"><span class="annottext">request :: ListAssessmentReports -&gt; Request ListAssessmentReports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAssessmentReports -&gt; Request ListAssessmentReports
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679300292"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAssessmentReports
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAssessmentReports)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAssessmentReports))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAssessmentReports
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAssessmentReports)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300289"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300289"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300288"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679300288"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300287"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AssessmentReportMetadata]
+-&gt; Maybe Text -&gt; Int -&gt; ListAssessmentReportsResponse
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">ListAssessmentReportsResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AssessmentReportMetadata]
+ -&gt; Maybe Text -&gt; Int -&gt; ListAssessmentReportsResponse)
+-&gt; Either String (Maybe [AssessmentReportMetadata])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListAssessmentReportsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [AssessmentReportMetadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentReports&quot;</span></span><span>
+</span><span id="line-100"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AssessmentReportMetadata]))
+-&gt; Maybe [AssessmentReportMetadata]
+-&gt; Either String (Maybe [AssessmentReportMetadata])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentReportMetadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-101"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListAssessmentReportsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListAssessmentReportsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAssessmentReportsResponse)
+-&gt; Either String Int -&gt; Either String ListAssessmentReportsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300289"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300278"><span id="local-6989586621679300280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679300271"><span class="annot"><span class="annottext">toHeaders :: ListAssessmentReports -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssessmentReports -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679300265"><span class="annot"><span class="annottext">toPath :: ListAssessmentReports -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAssessmentReports -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assessmentReports&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports"><span class="hs-identifier hs-type">ListAssessmentReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679300261"><span class="annot"><span class="annottext">toQuery :: ListAssessmentReports -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReports%27"><span class="hs-identifier hs-type">ListAssessmentReports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300258"><span id="local-6989586621679300259"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListAssessmentReports' :: ListAssessmentReports -&gt; Maybe Natural
+$sel:nextToken:ListAssessmentReports' :: ListAssessmentReports -&gt; Maybe Text
+</span><a href="#local-6989586621679300258"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300259"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300258"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newListAssessmentReportsResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679300255"><span id="local-6989586621679300256"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessmentReportsResponse"><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-var">ListAssessmentReportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessmentReportsResponse%27"><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">ListAssessmentReportsResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of assessment reports returned by the @ListAssessmentReports@</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AassessmentReports%3AListAssessmentReportsResponse%27"><span class="annot"><span class="annottext">ListAssessmentReportsResponse -&gt; Maybe [AssessmentReportMetadata]
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AassessmentReports%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var hs-var">assessmentReports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#AssessmentReportMetadata"><span class="hs-identifier hs-type">AssessmentReportMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssessmentReportsResponse%27"><span class="annot"><span class="annottext">ListAssessmentReportsResponse -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AnextToken%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAssessmentReportsResponse%27"><span class="annot"><span class="annottext">ListAssessmentReportsResponse -&gt; Int
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AhttpStatus%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300248"><span id="local-6989586621679300250"><span class="annot"><span class="annottext">ListAssessmentReportsResponse
+-&gt; ListAssessmentReportsResponse -&gt; Bool
+(ListAssessmentReportsResponse
+ -&gt; ListAssessmentReportsResponse -&gt; Bool)
+-&gt; (ListAssessmentReportsResponse
+    -&gt; ListAssessmentReportsResponse -&gt; Bool)
+-&gt; Eq ListAssessmentReportsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssessmentReportsResponse
+-&gt; ListAssessmentReportsResponse -&gt; Bool
+$c/= :: ListAssessmentReportsResponse
+-&gt; ListAssessmentReportsResponse -&gt; Bool
+== :: ListAssessmentReportsResponse
+-&gt; ListAssessmentReportsResponse -&gt; Bool
+$c== :: ListAssessmentReportsResponse
+-&gt; ListAssessmentReportsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300240"><span id="local-6989586621679300242"><span id="local-6989586621679300244"><span id="local-6989586621679300246"><span class="annot"><span class="annottext">ReadPrec [ListAssessmentReportsResponse]
+ReadPrec ListAssessmentReportsResponse
+Int -&gt; ReadS ListAssessmentReportsResponse
+ReadS [ListAssessmentReportsResponse]
+(Int -&gt; ReadS ListAssessmentReportsResponse)
+-&gt; ReadS [ListAssessmentReportsResponse]
+-&gt; ReadPrec ListAssessmentReportsResponse
+-&gt; ReadPrec [ListAssessmentReportsResponse]
+-&gt; Read ListAssessmentReportsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssessmentReportsResponse]
+$creadListPrec :: ReadPrec [ListAssessmentReportsResponse]
+readPrec :: ReadPrec ListAssessmentReportsResponse
+$creadPrec :: ReadPrec ListAssessmentReportsResponse
+readList :: ReadS [ListAssessmentReportsResponse]
+$creadList :: ReadS [ListAssessmentReportsResponse]
+readsPrec :: Int -&gt; ReadS ListAssessmentReportsResponse
+$creadsPrec :: Int -&gt; ReadS ListAssessmentReportsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300234"><span id="local-6989586621679300236"><span id="local-6989586621679300238"><span class="annot"><span class="annottext">Int -&gt; ListAssessmentReportsResponse -&gt; ShowS
+[ListAssessmentReportsResponse] -&gt; ShowS
+ListAssessmentReportsResponse -&gt; String
+(Int -&gt; ListAssessmentReportsResponse -&gt; ShowS)
+-&gt; (ListAssessmentReportsResponse -&gt; String)
+-&gt; ([ListAssessmentReportsResponse] -&gt; ShowS)
+-&gt; Show ListAssessmentReportsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssessmentReportsResponse] -&gt; ShowS
+$cshowList :: [ListAssessmentReportsResponse] -&gt; ShowS
+show :: ListAssessmentReportsResponse -&gt; String
+$cshow :: ListAssessmentReportsResponse -&gt; String
+showsPrec :: Int -&gt; ListAssessmentReportsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssessmentReportsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAssessmentReportsResponse
+ -&gt; Rep ListAssessmentReportsResponse x)
+-&gt; (forall x.
+    Rep ListAssessmentReportsResponse x
+    -&gt; ListAssessmentReportsResponse)
+-&gt; Generic ListAssessmentReportsResponse
+forall x.
+Rep ListAssessmentReportsResponse x
+-&gt; ListAssessmentReportsResponse
+forall x.
+ListAssessmentReportsResponse
+-&gt; Rep ListAssessmentReportsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAssessmentReportsResponse x
+-&gt; ListAssessmentReportsResponse
+$cfrom :: forall x.
+ListAssessmentReportsResponse
+-&gt; Rep ListAssessmentReportsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'ListAssessmentReportsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'assessmentReports', 'listAssessmentReportsResponse_assessmentReports' - The list of assessment reports returned by the @ListAssessmentReports@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'nextToken', 'listAssessmentReportsResponse_nextToken' - The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'listAssessmentReportsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#newListAssessmentReportsResponse"><span class="hs-identifier hs-type">newListAssessmentReportsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newListAssessmentReportsResponse"><span class="annot"><span class="annottext">newListAssessmentReportsResponse :: Int -&gt; ListAssessmentReportsResponse
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#newListAssessmentReportsResponse"><span class="hs-identifier hs-var hs-var">newListAssessmentReportsResponse</span></a></span></span><span> </span><span id="local-6989586621679300231"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">ListAssessmentReportsResponse' :: Maybe [AssessmentReportMetadata]
+-&gt; Maybe Text -&gt; Int -&gt; ListAssessmentReportsResponse
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-type">ListAssessmentReportsResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assessmentReports:ListAssessmentReportsResponse' :: Maybe [AssessmentReportMetadata]
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AassessmentReports%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">assessmentReports</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AssessmentReportMetadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentReportsResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AnextToken%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssessmentReportsResponse' :: Int
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AhttpStatus%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The list of assessment reports returned by the @ListAssessmentReports@</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_assessmentReports"><span class="hs-identifier hs-type">listAssessmentReportsResponse_assessmentReports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#AssessmentReportMetadata"><span class="hs-identifier hs-type">AssessmentReportMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="listAssessmentReportsResponse_assessmentReports"><span class="annot"><span class="annottext">listAssessmentReportsResponse_assessmentReports :: (Maybe [AssessmentReportMetadata]
+ -&gt; f (Maybe [AssessmentReportMetadata]))
+-&gt; ListAssessmentReportsResponse -&gt; f ListAssessmentReportsResponse
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_assessmentReports"><span class="hs-identifier hs-var hs-var">listAssessmentReportsResponse_assessmentReports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentReportsResponse -&gt; Maybe [AssessmentReportMetadata])
+-&gt; (ListAssessmentReportsResponse
+    -&gt; Maybe [AssessmentReportMetadata]
+    -&gt; ListAssessmentReportsResponse)
+-&gt; Lens
+     ListAssessmentReportsResponse
+     ListAssessmentReportsResponse
+     (Maybe [AssessmentReportMetadata])
+     (Maybe [AssessmentReportMetadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-type">ListAssessmentReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300230"><span class="annot"><span class="annottext">Maybe [AssessmentReportMetadata]
+assessmentReports :: Maybe [AssessmentReportMetadata]
+$sel:assessmentReports:ListAssessmentReportsResponse' :: ListAssessmentReportsResponse -&gt; Maybe [AssessmentReportMetadata]
+</span><a href="#local-6989586621679300230"><span class="hs-identifier hs-var hs-var">assessmentReports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentReportMetadata]
+</span><a href="#local-6989586621679300230"><span class="hs-identifier hs-var">assessmentReports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300229"><span class="annot"><span class="annottext">s :: ListAssessmentReportsResponse
+</span><a href="#local-6989586621679300229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-type">ListAssessmentReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300228"><span class="annot"><span class="annottext">Maybe [AssessmentReportMetadata]
+</span><a href="#local-6989586621679300228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentReportsResponse
+</span><a href="#local-6989586621679300229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentReports:ListAssessmentReportsResponse' :: Maybe [AssessmentReportMetadata]
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AassessmentReports%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">assessmentReports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentReportMetadata]
+</span><a href="#local-6989586621679300228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssessmentReportMetadata]
+  -&gt; f (Maybe [AssessmentReportMetadata]))
+ -&gt; ListAssessmentReportsResponse
+ -&gt; f ListAssessmentReportsResponse)
+-&gt; ((Maybe [AssessmentReportMetadata]
+     -&gt; f (Maybe [AssessmentReportMetadata]))
+    -&gt; Maybe [AssessmentReportMetadata]
+    -&gt; f (Maybe [AssessmentReportMetadata]))
+-&gt; (Maybe [AssessmentReportMetadata]
+    -&gt; f (Maybe [AssessmentReportMetadata]))
+-&gt; ListAssessmentReportsResponse
+-&gt; f ListAssessmentReportsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AssessmentReportMetadata]
+  [AssessmentReportMetadata]
+  [AssessmentReportMetadata]
+  [AssessmentReportMetadata]
+-&gt; Iso
+     (Maybe [AssessmentReportMetadata])
+     (Maybe [AssessmentReportMetadata])
+     (Maybe [AssessmentReportMetadata])
+     (Maybe [AssessmentReportMetadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AssessmentReportMetadata]
+  [AssessmentReportMetadata]
+  [AssessmentReportMetadata]
+  [AssessmentReportMetadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_nextToken"><span class="hs-identifier hs-type">listAssessmentReportsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="listAssessmentReportsResponse_nextToken"><span class="annot"><span class="annottext">listAssessmentReportsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssessmentReportsResponse -&gt; f ListAssessmentReportsResponse
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssessmentReportsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentReportsResponse -&gt; Maybe Text)
+-&gt; (ListAssessmentReportsResponse
+    -&gt; Maybe Text -&gt; ListAssessmentReportsResponse)
+-&gt; Lens
+     ListAssessmentReportsResponse
+     ListAssessmentReportsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-type">ListAssessmentReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300224"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssessmentReportsResponse' :: ListAssessmentReportsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679300224"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300224"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300223"><span class="annot"><span class="annottext">s :: ListAssessmentReportsResponse
+</span><a href="#local-6989586621679300223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-type">ListAssessmentReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentReportsResponse
+</span><a href="#local-6989586621679300223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentReportsResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AnextToken%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_httpStatus"><span class="hs-identifier hs-type">listAssessmentReportsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="listAssessmentReportsResponse_httpStatus"><span class="annot"><span class="annottext">listAssessmentReportsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAssessmentReportsResponse -&gt; f ListAssessmentReportsResponse
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#listAssessmentReportsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAssessmentReportsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentReportsResponse -&gt; Int)
+-&gt; (ListAssessmentReportsResponse
+    -&gt; Int -&gt; ListAssessmentReportsResponse)
+-&gt; Lens
+     ListAssessmentReportsResponse ListAssessmentReportsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-type">ListAssessmentReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300221"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAssessmentReportsResponse' :: ListAssessmentReportsResponse -&gt; Int
+</span><a href="#local-6989586621679300221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300220"><span class="annot"><span class="annottext">s :: ListAssessmentReportsResponse
+</span><a href="#local-6989586621679300220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse%27"><span class="hs-identifier hs-type">ListAssessmentReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentReportsResponse
+</span><a href="#local-6989586621679300220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssessmentReportsResponse' :: Int
+</span><a href="Amazonka.AuditManager.ListAssessmentReports.html#%24sel%3AhttpStatus%3AListAssessmentReportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ListAssessmentReports.html#ListAssessmentReportsResponse"><span class="hs-identifier hs-type">ListAssessmentReportsResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

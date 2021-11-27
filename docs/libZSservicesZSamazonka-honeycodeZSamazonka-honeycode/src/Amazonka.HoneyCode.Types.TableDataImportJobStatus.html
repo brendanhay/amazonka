@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.HoneyCode.Types.TableDataImportJobStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HoneyCode.Types.TableDataImportJobStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier">TableDataImportJobStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_COMPLETED"><span class="hs-identifier">TableDataImportJobStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_FAILED"><span class="hs-identifier">TableDataImportJobStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_IN_PROGRESS"><span class="hs-identifier">TableDataImportJobStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_SUBMITTED"><span class="hs-identifier">TableDataImportJobStatus_SUBMITTED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679180421"><span id="local-6989586621679180422"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TableDataImportJobStatus"><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-var">TableDataImportJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableDataImportJobStatus%27"><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus%27"><span class="hs-identifier hs-var">TableDataImportJobStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTableDataImportJobStatus"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; Text
+</span><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#fromTableDataImportJobStatus"><span class="hs-identifier hs-var hs-var">fromTableDataImportJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180413"><span id="local-6989586621679180415"><span id="local-6989586621679180417"><span class="annot"><span class="annottext">Int -&gt; TableDataImportJobStatus -&gt; ShowS
+[TableDataImportJobStatus] -&gt; ShowS
+TableDataImportJobStatus -&gt; String
+(Int -&gt; TableDataImportJobStatus -&gt; ShowS)
+-&gt; (TableDataImportJobStatus -&gt; String)
+-&gt; ([TableDataImportJobStatus] -&gt; ShowS)
+-&gt; Show TableDataImportJobStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TableDataImportJobStatus] -&gt; ShowS
+$cshowList :: [TableDataImportJobStatus] -&gt; ShowS
+show :: TableDataImportJobStatus -&gt; String
+$cshow :: TableDataImportJobStatus -&gt; String
+showsPrec :: Int -&gt; TableDataImportJobStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; TableDataImportJobStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679180404"><span id="local-6989586621679180406"><span id="local-6989586621679180408"><span id="local-6989586621679180410"><span class="annot"><span class="annottext">ReadPrec [TableDataImportJobStatus]
+ReadPrec TableDataImportJobStatus
+Int -&gt; ReadS TableDataImportJobStatus
+ReadS [TableDataImportJobStatus]
+(Int -&gt; ReadS TableDataImportJobStatus)
+-&gt; ReadS [TableDataImportJobStatus]
+-&gt; ReadPrec TableDataImportJobStatus
+-&gt; ReadPrec [TableDataImportJobStatus]
+-&gt; Read TableDataImportJobStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TableDataImportJobStatus]
+$creadListPrec :: ReadPrec [TableDataImportJobStatus]
+readPrec :: ReadPrec TableDataImportJobStatus
+$creadPrec :: ReadPrec TableDataImportJobStatus
+readList :: ReadS [TableDataImportJobStatus]
+$creadList :: ReadS [TableDataImportJobStatus]
+readsPrec :: Int -&gt; ReadS TableDataImportJobStatus
+$creadsPrec :: Int -&gt; ReadS TableDataImportJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679180399"><span id="local-6989586621679180401"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+(TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool)
+-&gt; (TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool)
+-&gt; Eq TableDataImportJobStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+$c/= :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+== :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+$c== :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679180383"><span id="local-6989586621679180385"><span id="local-6989586621679180387"><span id="local-6989586621679180389"><span id="local-6989586621679180391"><span id="local-6989586621679180393"><span id="local-6989586621679180395"><span class="annot"><span class="annottext">Eq TableDataImportJobStatus
+Eq TableDataImportJobStatus
+-&gt; (TableDataImportJobStatus
+    -&gt; TableDataImportJobStatus -&gt; Ordering)
+-&gt; (TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool)
+-&gt; (TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool)
+-&gt; (TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool)
+-&gt; (TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool)
+-&gt; (TableDataImportJobStatus
+    -&gt; TableDataImportJobStatus -&gt; TableDataImportJobStatus)
+-&gt; (TableDataImportJobStatus
+    -&gt; TableDataImportJobStatus -&gt; TableDataImportJobStatus)
+-&gt; Ord TableDataImportJobStatus
+TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Ordering
+TableDataImportJobStatus
+-&gt; TableDataImportJobStatus -&gt; TableDataImportJobStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TableDataImportJobStatus
+-&gt; TableDataImportJobStatus -&gt; TableDataImportJobStatus
+$cmin :: TableDataImportJobStatus
+-&gt; TableDataImportJobStatus -&gt; TableDataImportJobStatus
+max :: TableDataImportJobStatus
+-&gt; TableDataImportJobStatus -&gt; TableDataImportJobStatus
+$cmax :: TableDataImportJobStatus
+-&gt; TableDataImportJobStatus -&gt; TableDataImportJobStatus
+&gt;= :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+$c&gt;= :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+&gt; :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+$c&gt; :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+&lt;= :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+$c&lt;= :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+&lt; :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+$c&lt; :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Bool
+compare :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Ordering
+$ccompare :: TableDataImportJobStatus -&gt; TableDataImportJobStatus -&gt; Ordering
+$cp1Ord :: Eq TableDataImportJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TableDataImportJobStatus -&gt; Rep TableDataImportJobStatus x)
+-&gt; (forall x.
+    Rep TableDataImportJobStatus x -&gt; TableDataImportJobStatus)
+-&gt; Generic TableDataImportJobStatus
+forall x.
+Rep TableDataImportJobStatus x -&gt; TableDataImportJobStatus
+forall x.
+TableDataImportJobStatus -&gt; Rep TableDataImportJobStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TableDataImportJobStatus x -&gt; TableDataImportJobStatus
+$cfrom :: forall x.
+TableDataImportJobStatus -&gt; Rep TableDataImportJobStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180375"><span id="local-6989586621679180377"><span class="annot"><span class="annottext">Int -&gt; TableDataImportJobStatus -&gt; Int
+TableDataImportJobStatus -&gt; Int
+(Int -&gt; TableDataImportJobStatus -&gt; Int)
+-&gt; (TableDataImportJobStatus -&gt; Int)
+-&gt; Hashable TableDataImportJobStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TableDataImportJobStatus -&gt; Int
+$chash :: TableDataImportJobStatus -&gt; Int
+hashWithSalt :: Int -&gt; TableDataImportJobStatus -&gt; Int
+$chashWithSalt :: Int -&gt; TableDataImportJobStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679180372"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; ()
+(TableDataImportJobStatus -&gt; ()) -&gt; NFData TableDataImportJobStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TableDataImportJobStatus -&gt; ()
+$crnf :: TableDataImportJobStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679180369"><span class="annot"><span class="annottext">Text -&gt; Either String TableDataImportJobStatus
+(Text -&gt; Either String TableDataImportJobStatus)
+-&gt; FromText TableDataImportJobStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TableDataImportJobStatus
+$cfromText :: Text -&gt; Either String TableDataImportJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679180366"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; Text
+(TableDataImportJobStatus -&gt; Text)
+-&gt; ToText TableDataImportJobStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TableDataImportJobStatus -&gt; Text
+$ctoText :: TableDataImportJobStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679180363"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; ByteString
+(TableDataImportJobStatus -&gt; ByteString)
+-&gt; ToByteString TableDataImportJobStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TableDataImportJobStatus -&gt; ByteString
+$ctoBS :: TableDataImportJobStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679180360"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; ByteStringBuilder
+(TableDataImportJobStatus -&gt; ByteStringBuilder)
+-&gt; ToLog TableDataImportJobStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TableDataImportJobStatus -&gt; ByteStringBuilder
+$cbuild :: TableDataImportJobStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679180357"><span class="annot"><span class="annottext">HeaderName -&gt; TableDataImportJobStatus -&gt; [Header]
+(HeaderName -&gt; TableDataImportJobStatus -&gt; [Header])
+-&gt; ToHeader TableDataImportJobStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TableDataImportJobStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TableDataImportJobStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679180354"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; QueryString
+(TableDataImportJobStatus -&gt; QueryString)
+-&gt; ToQuery TableDataImportJobStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TableDataImportJobStatus -&gt; QueryString
+$ctoQuery :: TableDataImportJobStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679180349"><span id="local-6989586621679180351"><span class="annot"><span class="annottext">Value -&gt; Parser [TableDataImportJobStatus]
+Value -&gt; Parser TableDataImportJobStatus
+(Value -&gt; Parser TableDataImportJobStatus)
+-&gt; (Value -&gt; Parser [TableDataImportJobStatus])
+-&gt; FromJSON TableDataImportJobStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TableDataImportJobStatus]
+$cparseJSONList :: Value -&gt; Parser [TableDataImportJobStatus]
+parseJSON :: Value -&gt; Parser TableDataImportJobStatus
+$cparseJSON :: Value -&gt; Parser TableDataImportJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679180344"><span id="local-6989586621679180346"><span class="annot"><span class="annottext">FromJSONKeyFunction [TableDataImportJobStatus]
+FromJSONKeyFunction TableDataImportJobStatus
+FromJSONKeyFunction TableDataImportJobStatus
+-&gt; FromJSONKeyFunction [TableDataImportJobStatus]
+-&gt; FromJSONKey TableDataImportJobStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TableDataImportJobStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [TableDataImportJobStatus]
+fromJSONKey :: FromJSONKeyFunction TableDataImportJobStatus
+$cfromJSONKey :: FromJSONKeyFunction TableDataImportJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679180335"><span id="local-6989586621679180337"><span id="local-6989586621679180339"><span id="local-6989586621679180341"><span class="annot"><span class="annottext">[TableDataImportJobStatus] -&gt; Encoding
+[TableDataImportJobStatus] -&gt; Value
+TableDataImportJobStatus -&gt; Encoding
+TableDataImportJobStatus -&gt; Value
+(TableDataImportJobStatus -&gt; Value)
+-&gt; (TableDataImportJobStatus -&gt; Encoding)
+-&gt; ([TableDataImportJobStatus] -&gt; Value)
+-&gt; ([TableDataImportJobStatus] -&gt; Encoding)
+-&gt; ToJSON TableDataImportJobStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TableDataImportJobStatus] -&gt; Encoding
+$ctoEncodingList :: [TableDataImportJobStatus] -&gt; Encoding
+toJSONList :: [TableDataImportJobStatus] -&gt; Value
+$ctoJSONList :: [TableDataImportJobStatus] -&gt; Value
+toEncoding :: TableDataImportJobStatus -&gt; Encoding
+$ctoEncoding :: TableDataImportJobStatus -&gt; Encoding
+toJSON :: TableDataImportJobStatus -&gt; Value
+$ctoJSON :: TableDataImportJobStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679180330"><span id="local-6989586621679180332"><span class="annot"><span class="annottext">ToJSONKeyFunction [TableDataImportJobStatus]
+ToJSONKeyFunction TableDataImportJobStatus
+ToJSONKeyFunction TableDataImportJobStatus
+-&gt; ToJSONKeyFunction [TableDataImportJobStatus]
+-&gt; ToJSONKey TableDataImportJobStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TableDataImportJobStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [TableDataImportJobStatus]
+toJSONKey :: ToJSONKeyFunction TableDataImportJobStatus
+$ctoJSONKey :: ToJSONKeyFunction TableDataImportJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679180327"><span class="annot"><span class="annottext">[Node] -&gt; Either String TableDataImportJobStatus
+([Node] -&gt; Either String TableDataImportJobStatus)
+-&gt; FromXML TableDataImportJobStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TableDataImportJobStatus
+$cparseXML :: [Node] -&gt; Either String TableDataImportJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679180324"><span class="annot"><span class="annottext">TableDataImportJobStatus -&gt; XML
+(TableDataImportJobStatus -&gt; XML) -&gt; ToXML TableDataImportJobStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TableDataImportJobStatus -&gt; XML
+$ctoXML :: TableDataImportJobStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_COMPLETED"><span class="hs-identifier hs-type">TableDataImportJobStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-type">TableDataImportJobStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableDataImportJobStatus_COMPLETED"><span id="%24mTableDataImportJobStatus_COMPLETED"><span id="TableDataImportJobStatus_COMPLETED"><span class="annot"><span class="annottext">$bTableDataImportJobStatus_COMPLETED :: TableDataImportJobStatus
+$mTableDataImportJobStatus_COMPLETED :: forall r.
+TableDataImportJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#%24bTableDataImportJobStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">TableDataImportJobStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus%27"><span class="hs-identifier hs-type">TableDataImportJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_FAILED"><span class="hs-identifier hs-type">TableDataImportJobStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-type">TableDataImportJobStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableDataImportJobStatus_FAILED"><span id="%24mTableDataImportJobStatus_FAILED"><span id="TableDataImportJobStatus_FAILED"><span class="annot"><span class="annottext">$bTableDataImportJobStatus_FAILED :: TableDataImportJobStatus
+$mTableDataImportJobStatus_FAILED :: forall r.
+TableDataImportJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#%24bTableDataImportJobStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">TableDataImportJobStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus%27"><span class="hs-identifier hs-type">TableDataImportJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_IN_PROGRESS"><span class="hs-identifier hs-type">TableDataImportJobStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-type">TableDataImportJobStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableDataImportJobStatus_IN_PROGRESS"><span id="%24mTableDataImportJobStatus_IN_PROGRESS"><span id="TableDataImportJobStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bTableDataImportJobStatus_IN_PROGRESS :: TableDataImportJobStatus
+$mTableDataImportJobStatus_IN_PROGRESS :: forall r.
+TableDataImportJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#%24bTableDataImportJobStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">TableDataImportJobStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus%27"><span class="hs-identifier hs-type">TableDataImportJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_SUBMITTED"><span class="hs-identifier hs-type">TableDataImportJobStatus_SUBMITTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-type">TableDataImportJobStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableDataImportJobStatus_SUBMITTED"><span id="%24mTableDataImportJobStatus_SUBMITTED"><span id="TableDataImportJobStatus_SUBMITTED"><span class="annot"><span class="annottext">$bTableDataImportJobStatus_SUBMITTED :: TableDataImportJobStatus
+$mTableDataImportJobStatus_SUBMITTED :: forall r.
+TableDataImportJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#%24bTableDataImportJobStatus_SUBMITTED"><span class="hs-identifier hs-var hs-var hs-var">TableDataImportJobStatus_SUBMITTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus%27"><span class="hs-identifier hs-type">TableDataImportJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBMITTED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_COMPLETED"><span class="hs-pragma hs-type">TableDataImportJobStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_FAILED"><span class="hs-pragma hs-type">TableDataImportJobStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_IN_PROGRESS"><span class="hs-pragma hs-type">TableDataImportJobStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus_SUBMITTED"><span class="hs-pragma hs-type">TableDataImportJobStatus_SUBMITTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus%27"><span class="hs-pragma hs-type">TableDataImportJobStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

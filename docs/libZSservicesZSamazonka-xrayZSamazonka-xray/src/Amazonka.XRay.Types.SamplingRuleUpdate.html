@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.XRay.Types.SamplingRuleUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.XRay.Types.SamplingRuleUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A document specifying changes to a sampling rule\'s configuration.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSamplingRuleUpdate' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679254460"><span id="local-6989586621679254461"></span></span><span class="hs-keyword">data</span><span> </span><span id="SamplingRuleUpdate"><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-var">SamplingRuleUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SamplingRuleUpdate%27"><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-var">SamplingRuleUpdate'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Matches the HTTP method of a request.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AhTTPMethod%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AhTTPMethod%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">hTTPMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The priority of the sampling rule.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apriority%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Int
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Apriority%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the sampling rule. Specify a rule by either name or ARN, but</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- not both.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AruleName%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AruleName%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A fixed number of matching requests to instrument per second, prior to</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- applying the fixed rate. The reservoir is not used directly by services,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- but applies to all services using the rule collectively.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AreservoirSize%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Int
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AreservoirSize%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">reservoirSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The percentage of matching requests to instrument, after the reservoir</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- is exhausted.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfixedRate%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Double
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AfixedRate%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">fixedRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Matches the ARN of the Amazon Web Services resource on which the service</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- runs.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AresourceARN%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AresourceARN%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Matches attributes derived from the request.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aattributes%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Aattributes%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Matches the @name@ that the service uses to identify itself in segments.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AserviceName%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AserviceName%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Matches the @origin@ that the service uses to identify its type in</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AserviceType%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AserviceType%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Matches the hostname from a request URL.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Ahost%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Ahost%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ARN of the sampling rule. Specify a rule by either name or ARN, but</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- not both.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AruleARN%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AruleARN%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">ruleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Matches the path from a request URL.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AuRLPath%3ASamplingRuleUpdate%27"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AuRLPath%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var hs-var">uRLPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254443"><span id="local-6989586621679254445"><span class="annot"><span class="annottext">SamplingRuleUpdate -&gt; SamplingRuleUpdate -&gt; Bool
+(SamplingRuleUpdate -&gt; SamplingRuleUpdate -&gt; Bool)
+-&gt; (SamplingRuleUpdate -&gt; SamplingRuleUpdate -&gt; Bool)
+-&gt; Eq SamplingRuleUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SamplingRuleUpdate -&gt; SamplingRuleUpdate -&gt; Bool
+$c/= :: SamplingRuleUpdate -&gt; SamplingRuleUpdate -&gt; Bool
+== :: SamplingRuleUpdate -&gt; SamplingRuleUpdate -&gt; Bool
+$c== :: SamplingRuleUpdate -&gt; SamplingRuleUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254434"><span id="local-6989586621679254436"><span id="local-6989586621679254438"><span id="local-6989586621679254440"><span class="annot"><span class="annottext">ReadPrec [SamplingRuleUpdate]
+ReadPrec SamplingRuleUpdate
+Int -&gt; ReadS SamplingRuleUpdate
+ReadS [SamplingRuleUpdate]
+(Int -&gt; ReadS SamplingRuleUpdate)
+-&gt; ReadS [SamplingRuleUpdate]
+-&gt; ReadPrec SamplingRuleUpdate
+-&gt; ReadPrec [SamplingRuleUpdate]
+-&gt; Read SamplingRuleUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SamplingRuleUpdate]
+$creadListPrec :: ReadPrec [SamplingRuleUpdate]
+readPrec :: ReadPrec SamplingRuleUpdate
+$creadPrec :: ReadPrec SamplingRuleUpdate
+readList :: ReadS [SamplingRuleUpdate]
+$creadList :: ReadS [SamplingRuleUpdate]
+readsPrec :: Int -&gt; ReadS SamplingRuleUpdate
+$creadsPrec :: Int -&gt; ReadS SamplingRuleUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254427"><span id="local-6989586621679254429"><span id="local-6989586621679254431"><span class="annot"><span class="annottext">Int -&gt; SamplingRuleUpdate -&gt; ShowS
+[SamplingRuleUpdate] -&gt; ShowS
+SamplingRuleUpdate -&gt; String
+(Int -&gt; SamplingRuleUpdate -&gt; ShowS)
+-&gt; (SamplingRuleUpdate -&gt; String)
+-&gt; ([SamplingRuleUpdate] -&gt; ShowS)
+-&gt; Show SamplingRuleUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SamplingRuleUpdate] -&gt; ShowS
+$cshowList :: [SamplingRuleUpdate] -&gt; ShowS
+show :: SamplingRuleUpdate -&gt; String
+$cshow :: SamplingRuleUpdate -&gt; String
+showsPrec :: Int -&gt; SamplingRuleUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; SamplingRuleUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SamplingRuleUpdate -&gt; Rep SamplingRuleUpdate x)
+-&gt; (forall x. Rep SamplingRuleUpdate x -&gt; SamplingRuleUpdate)
+-&gt; Generic SamplingRuleUpdate
+forall x. Rep SamplingRuleUpdate x -&gt; SamplingRuleUpdate
+forall x. SamplingRuleUpdate -&gt; Rep SamplingRuleUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SamplingRuleUpdate x -&gt; SamplingRuleUpdate
+$cfrom :: forall x. SamplingRuleUpdate -&gt; Rep SamplingRuleUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'SamplingRuleUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'hTTPMethod', 'samplingRuleUpdate_hTTPMethod' - Matches the HTTP method of a request.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'priority', 'samplingRuleUpdate_priority' - The priority of the sampling rule.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'ruleName', 'samplingRuleUpdate_ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- not both.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'reservoirSize', 'samplingRuleUpdate_reservoirSize' - A fixed number of matching requests to instrument per second, prior to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- applying the fixed rate. The reservoir is not used directly by services,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- but applies to all services using the rule collectively.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'fixedRate', 'samplingRuleUpdate_fixedRate' - The percentage of matching requests to instrument, after the reservoir</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- is exhausted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'resourceARN', 'samplingRuleUpdate_resourceARN' - Matches the ARN of the Amazon Web Services resource on which the service</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- runs.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'attributes', 'samplingRuleUpdate_attributes' - Matches attributes derived from the request.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'serviceName', 'samplingRuleUpdate_serviceName' - Matches the @name@ that the service uses to identify itself in segments.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'serviceType', 'samplingRuleUpdate_serviceType' - Matches the @origin@ that the service uses to identify its type in</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'host', 'samplingRuleUpdate_host' - Matches the hostname from a request URL.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'ruleARN', 'samplingRuleUpdate_ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- not both.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'uRLPath', 'samplingRuleUpdate_uRLPath' - Matches the path from a request URL.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#newSamplingRuleUpdate"><span class="hs-identifier hs-type">newSamplingRuleUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span>
+</span><span id="line-104"></span><span id="newSamplingRuleUpdate"><span class="annot"><span class="annottext">newSamplingRuleUpdate :: SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#newSamplingRuleUpdate"><span class="hs-identifier hs-var hs-var">newSamplingRuleUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">SamplingRuleUpdate' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hTTPMethod:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AhTTPMethod%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">hTTPMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:SamplingRuleUpdate' :: Maybe Int
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Apriority%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleName:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AruleName%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservoirSize:SamplingRuleUpdate' :: Maybe Int
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AreservoirSize%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">reservoirSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedRate:SamplingRuleUpdate' :: Maybe Double
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AfixedRate%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">fixedRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceARN:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AresourceARN%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:SamplingRuleUpdate' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Aattributes%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AserviceName%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceType:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AserviceType%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:host:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Ahost%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">host</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleARN:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AruleARN%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">ruleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:uRLPath:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AuRLPath%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">uRLPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Matches the HTTP method of a request.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_hTTPMethod"><span class="hs-identifier hs-type">samplingRuleUpdate_hTTPMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="samplingRuleUpdate_hTTPMethod"><span class="annot"><span class="annottext">samplingRuleUpdate_hTTPMethod :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_hTTPMethod"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_hTTPMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254418"><span class="annot"><span class="annottext">Maybe Text
+hTTPMethod :: Maybe Text
+$sel:hTTPMethod:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254418"><span class="hs-identifier hs-var hs-var">hTTPMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254418"><span class="hs-identifier hs-var">hTTPMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254417"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254416"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPMethod:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AhTTPMethod%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">hTTPMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The priority of the sampling rule.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_priority"><span class="hs-identifier hs-type">samplingRuleUpdate_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="samplingRuleUpdate_priority"><span class="annot"><span class="annottext">samplingRuleUpdate_priority :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_priority"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Int)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Int -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254414"><span class="annot"><span class="annottext">Maybe Int
+priority :: Maybe Int
+$sel:priority:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Int
+</span><a href="#local-6989586621679254414"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254414"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254413"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254412"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:SamplingRuleUpdate' :: Maybe Int
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Apriority%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The name of the sampling rule. Specify a rule by either name or ARN, but</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- not both.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_ruleName"><span class="hs-identifier hs-type">samplingRuleUpdate_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="samplingRuleUpdate_ruleName"><span class="annot"><span class="annottext">samplingRuleUpdate_ruleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_ruleName"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_ruleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254410"><span class="annot"><span class="annottext">Maybe Text
+ruleName :: Maybe Text
+$sel:ruleName:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254410"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254410"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254409"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AruleName%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | A fixed number of matching requests to instrument per second, prior to</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- applying the fixed rate. The reservoir is not used directly by services,</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- but applies to all services using the rule collectively.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_reservoirSize"><span class="hs-identifier hs-type">samplingRuleUpdate_reservoirSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="samplingRuleUpdate_reservoirSize"><span class="annot"><span class="annottext">samplingRuleUpdate_reservoirSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_reservoirSize"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_reservoirSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Int)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Int -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254406"><span class="annot"><span class="annottext">Maybe Int
+reservoirSize :: Maybe Int
+$sel:reservoirSize:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Int
+</span><a href="#local-6989586621679254406"><span class="hs-identifier hs-var hs-var">reservoirSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254406"><span class="hs-identifier hs-var">reservoirSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254405"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254404"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservoirSize:SamplingRuleUpdate' :: Maybe Int
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AreservoirSize%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">reservoirSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The percentage of matching requests to instrument, after the reservoir</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- is exhausted.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_fixedRate"><span class="hs-identifier hs-type">samplingRuleUpdate_fixedRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="samplingRuleUpdate_fixedRate"><span class="annot"><span class="annottext">samplingRuleUpdate_fixedRate :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_fixedRate"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_fixedRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Double)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Double -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254402"><span class="annot"><span class="annottext">Maybe Double
+fixedRate :: Maybe Double
+$sel:fixedRate:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Double
+</span><a href="#local-6989586621679254402"><span class="hs-identifier hs-var hs-var">fixedRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679254402"><span class="hs-identifier hs-var">fixedRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254401"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254400"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679254400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedRate:SamplingRuleUpdate' :: Maybe Double
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AfixedRate%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">fixedRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679254400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Matches the ARN of the Amazon Web Services resource on which the service</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- runs.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_resourceARN"><span class="hs-identifier hs-type">samplingRuleUpdate_resourceARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="samplingRuleUpdate_resourceARN"><span class="annot"><span class="annottext">samplingRuleUpdate_resourceARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_resourceARN"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_resourceARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254398"><span class="annot"><span class="annottext">Maybe Text
+resourceARN :: Maybe Text
+$sel:resourceARN:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254397"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AresourceARN%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Matches attributes derived from the request.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_attributes"><span class="hs-identifier hs-type">samplingRuleUpdate_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="samplingRuleUpdate_attributes"><span class="annot"><span class="annottext">samplingRuleUpdate_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_attributes"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe (HashMap Text Text))
+-&gt; (SamplingRuleUpdate
+    -&gt; Maybe (HashMap Text Text) -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate
+     SamplingRuleUpdate
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254394"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679254394"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679254394"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254393"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254392"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SamplingRuleUpdate' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Aattributes%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SamplingRuleUpdate
+-&gt; f SamplingRuleUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Matches the @name@ that the service uses to identify itself in segments.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_serviceName"><span class="hs-identifier hs-type">samplingRuleUpdate_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="samplingRuleUpdate_serviceName"><span class="annot"><span class="annottext">samplingRuleUpdate_serviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_serviceName"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254387"><span class="annot"><span class="annottext">Maybe Text
+serviceName :: Maybe Text
+$sel:serviceName:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254387"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254387"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254386"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254385"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AserviceName%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Matches the @origin@ that the service uses to identify its type in</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_serviceType"><span class="hs-identifier hs-type">samplingRuleUpdate_serviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="samplingRuleUpdate_serviceType"><span class="annot"><span class="annottext">samplingRuleUpdate_serviceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_serviceType"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_serviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254383"><span class="annot"><span class="annottext">Maybe Text
+serviceType :: Maybe Text
+$sel:serviceType:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254383"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254383"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254382"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AserviceType%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Matches the hostname from a request URL.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_host"><span class="hs-identifier hs-type">samplingRuleUpdate_host</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="samplingRuleUpdate_host"><span class="annot"><span class="annottext">samplingRuleUpdate_host :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_host"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254379"><span class="annot"><span class="annottext">Maybe Text
+host :: Maybe Text
+$sel:host:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254379"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254379"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254378"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:host:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3Ahost%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">host</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The ARN of the sampling rule. Specify a rule by either name or ARN, but</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- not both.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_ruleARN"><span class="hs-identifier hs-type">samplingRuleUpdate_ruleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="samplingRuleUpdate_ruleARN"><span class="annot"><span class="annottext">samplingRuleUpdate_ruleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_ruleARN"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_ruleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254375"><span class="annot"><span class="annottext">Maybe Text
+ruleARN :: Maybe Text
+$sel:ruleARN:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254375"><span class="hs-identifier hs-var hs-var">ruleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254375"><span class="hs-identifier hs-var">ruleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254374"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleARN:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AruleARN%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">ruleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Matches the path from a request URL.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_uRLPath"><span class="hs-identifier hs-type">samplingRuleUpdate_uRLPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="samplingRuleUpdate_uRLPath"><span class="annot"><span class="annottext">samplingRuleUpdate_uRLPath :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingRuleUpdate -&gt; f SamplingRuleUpdate
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#samplingRuleUpdate_uRLPath"><span class="hs-identifier hs-var hs-var">samplingRuleUpdate_uRLPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingRuleUpdate -&gt; Maybe Text)
+-&gt; (SamplingRuleUpdate -&gt; Maybe Text -&gt; SamplingRuleUpdate)
+-&gt; Lens
+     SamplingRuleUpdate SamplingRuleUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254371"><span class="annot"><span class="annottext">Maybe Text
+uRLPath :: Maybe Text
+$sel:uRLPath:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254371"><span class="hs-identifier hs-var hs-var">uRLPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254371"><span class="hs-identifier hs-var">uRLPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254370"><span class="annot"><span class="annottext">s :: SamplingRuleUpdate
+</span><a href="#local-6989586621679254370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleUpdate
+</span><a href="#local-6989586621679254370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uRLPath:SamplingRuleUpdate' :: Maybe Text
+</span><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#%24sel%3AuRLPath%3ASamplingRuleUpdate%27"><span class="hs-identifier hs-var">uRLPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254365"><span id="local-6989586621679254367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span></span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254354"><span id="local-6989586621679254356"><span id="local-6989586621679254358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate"><span class="hs-identifier hs-type">SamplingRuleUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679254352"><span class="annot"><span class="annottext">toJSON :: SamplingRuleUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleUpdate.html#SamplingRuleUpdate%27"><span class="hs-identifier hs-type">SamplingRuleUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254339"><span id="local-6989586621679254340"><span id="local-6989586621679254341"><span id="local-6989586621679254342"><span id="local-6989586621679254343"><span id="local-6989586621679254344"><span id="local-6989586621679254345"><span id="local-6989586621679254346"><span id="local-6989586621679254347"><span id="local-6989586621679254348"><span id="local-6989586621679254349"><span id="local-6989586621679254350"><span class="annot"><span class="annottext">Maybe Double
+Maybe Int
+Maybe Text
+Maybe (HashMap Text Text)
+uRLPath :: Maybe Text
+ruleARN :: Maybe Text
+host :: Maybe Text
+serviceType :: Maybe Text
+serviceName :: Maybe Text
+attributes :: Maybe (HashMap Text Text)
+resourceARN :: Maybe Text
+fixedRate :: Maybe Double
+reservoirSize :: Maybe Int
+ruleName :: Maybe Text
+priority :: Maybe Int
+hTTPMethod :: Maybe Text
+$sel:uRLPath:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+$sel:ruleARN:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+$sel:host:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+$sel:serviceType:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+$sel:serviceName:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+$sel:attributes:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe (HashMap Text Text)
+$sel:resourceARN:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+$sel:fixedRate:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Double
+$sel:reservoirSize:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Int
+$sel:ruleName:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+$sel:priority:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Int
+$sel:hTTPMethod:SamplingRuleUpdate' :: SamplingRuleUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679254339"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HTTPMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254350"><span class="hs-identifier hs-var">hTTPMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254349"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254348"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReservoirSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254347"><span class="hs-identifier hs-var">reservoirSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FixedRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679254346"><span class="hs-identifier hs-var">fixedRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254345"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679254344"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254343"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254342"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Host&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254341"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254340"><span class="hs-identifier hs-var">ruleARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;URLPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254339"><span class="hs-identifier hs-var">uRLPath</span></a></span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span></pre></body></html>

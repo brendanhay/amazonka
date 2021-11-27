@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Synthetics.Types.BaseScreenshot
+module Amazonka.Synthetics.Types.BaseScreenshot
 
 -- | A structure representing a screenshot that is used as a baseline
 --   during visual monitoring comparisons made by the canary.
@@ -57,17 +57,17 @@ baseScreenshot_ignoreCoordinates :: Lens' BaseScreenshot (Maybe [Text])
 --   canary is run after the <tt>UpdateCanary</tt> operation that specified
 --   for this canary to perform visual monitoring.
 baseScreenshot_screenshotName :: Lens' BaseScreenshot Text
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
-instance GHC.Show.Show Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
-instance GHC.Read.Read Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance GHC.Show.Show Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance GHC.Read.Read Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.BaseScreenshot.BaseScreenshot
 
 
-module Network.AWS.Synthetics.Types.CanaryCodeInput
+module Amazonka.Synthetics.Types.CanaryCodeInput
 
 -- | Use this structure to input your script code for the canary. This
 --   structure contains the Lambda handler with the location where the
@@ -165,16 +165,16 @@ canaryCodeInput_s3Bucket :: Lens' CanaryCodeInput (Maybe Text)
 --   This value must end with the string <tt>.handler</tt>. The string is
 --   limited to 29 characters or fewer.
 canaryCodeInput_handler :: Lens' CanaryCodeInput Text
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.CanaryCodeInput.CanaryCodeInput
 
 
-module Network.AWS.Synthetics.Types.CanaryCodeOutput
+module Amazonka.Synthetics.Types.CanaryCodeOutput
 
 -- | This structure contains information about the canary's Lambda handler
 --   and where its code is stored by CloudWatch Synthetics.
@@ -213,16 +213,16 @@ canaryCodeOutput_sourceLocationArn :: Lens' CanaryCodeOutput (Maybe Text)
 
 -- | The entry point to use for the source code when running the canary.
 canaryCodeOutput_handler :: Lens' CanaryCodeOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryCodeOutput.CanaryCodeOutput
 
 
-module Network.AWS.Synthetics.Types.CanaryRunConfigInput
+module Amazonka.Synthetics.Types.CanaryRunConfigInput
 
 -- | A structure that contains input information for a canary run.
 --   
@@ -344,16 +344,16 @@ canaryRunConfigInput_activeTracing :: Lens' CanaryRunConfigInput (Maybe Bool)
 -- | The maximum amount of memory available to the canary while it is
 --   running, in MB. This value must be a multiple of 64.
 canaryRunConfigInput_memoryInMB :: Lens' CanaryRunConfigInput (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.CanaryRunConfigInput.CanaryRunConfigInput
 
 
-module Network.AWS.Synthetics.Types.CanaryRunConfigOutput
+module Amazonka.Synthetics.Types.CanaryRunConfigOutput
 
 -- | A structure that contains information about a canary run.
 --   
@@ -403,71 +403,71 @@ canaryRunConfigOutput_activeTracing :: Lens' CanaryRunConfigOutput (Maybe Bool)
 -- | The maximum amount of memory available to the canary while it is
 --   running, in MB. This value must be a multiple of 64.
 canaryRunConfigOutput_memoryInMB :: Lens' CanaryRunConfigOutput (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryRunConfigOutput.CanaryRunConfigOutput
 
 
-module Network.AWS.Synthetics.Types.CanaryRunState
+module Amazonka.Synthetics.Types.CanaryRunState
 newtype CanaryRunState
 CanaryRunState' :: Text -> CanaryRunState
 [fromCanaryRunState] :: CanaryRunState -> Text
 pattern CanaryRunState_FAILED :: CanaryRunState
 pattern CanaryRunState_PASSED :: CanaryRunState
 pattern CanaryRunState_RUNNING :: CanaryRunState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Network.AWS.Data.Text.ToText Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Network.AWS.Data.Text.FromText Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance GHC.Classes.Ord Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.XML.ToXML Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.XML.FromXML Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.Log.ToLog Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.Text.ToText Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Amazonka.Data.Text.FromText Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance GHC.Classes.Ord Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryRunState.CanaryRunState
 
 
-module Network.AWS.Synthetics.Types.CanaryRunStateReasonCode
+module Amazonka.Synthetics.Types.CanaryRunStateReasonCode
 newtype CanaryRunStateReasonCode
 CanaryRunStateReasonCode' :: Text -> CanaryRunStateReasonCode
 [fromCanaryRunStateReasonCode] :: CanaryRunStateReasonCode -> Text
 pattern CanaryRunStateReasonCode_CANARY_FAILURE :: CanaryRunStateReasonCode
 pattern CanaryRunStateReasonCode_EXECUTION_FAILURE :: CanaryRunStateReasonCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Network.AWS.Data.Text.ToText Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Network.AWS.Data.Text.FromText Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance GHC.Classes.Ord Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.XML.ToXML Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.XML.FromXML Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.Log.ToLog Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.Text.ToText Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Amazonka.Data.Text.FromText Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance GHC.Classes.Ord Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryRunStateReasonCode.CanaryRunStateReasonCode
 
 
-module Network.AWS.Synthetics.Types.CanaryRunStatus
+module Amazonka.Synthetics.Types.CanaryRunStatus
 
 -- | This structure contains the status information about a canary run.
 --   
@@ -521,16 +521,16 @@ canaryRunStatus_stateReason :: Lens' CanaryRunStatus (Maybe Text)
 --   canary code. If this value is <tt>EXECUTION_FAILURE</tt>, an exception
 --   occurred in CloudWatch Synthetics.
 canaryRunStatus_stateReasonCode :: Lens' CanaryRunStatus (Maybe CanaryRunStateReasonCode)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryRunStatus.CanaryRunStatus
 
 
-module Network.AWS.Synthetics.Types.CanaryRunTimeline
+module Amazonka.Synthetics.Types.CanaryRunTimeline
 
 -- | This structure contains the start and end times of a single canary
 --   run.
@@ -566,16 +566,16 @@ canaryRunTimeline_completed :: Lens' CanaryRunTimeline (Maybe UTCTime)
 
 -- | The start time of the run.
 canaryRunTimeline_started :: Lens' CanaryRunTimeline (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryRunTimeline.CanaryRunTimeline
 
 
-module Network.AWS.Synthetics.Types.CanaryRun
+module Amazonka.Synthetics.Types.CanaryRun
 
 -- | This structure contains the details about one run of one canary.
 --   
@@ -640,16 +640,16 @@ canaryRun_id :: Lens' CanaryRun (Maybe Text)
 
 -- | A structure that contains the start and end times of this run.
 canaryRun_timeline :: Lens' CanaryRun (Maybe CanaryRunTimeline)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryRun.CanaryRun
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryRun.CanaryRun
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryRun.CanaryRun
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryRun.CanaryRun
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryRun.CanaryRun
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryRun.CanaryRun
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryRun.CanaryRun
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryRun.CanaryRun
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryRun.CanaryRun
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryRun.CanaryRun
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryRun.CanaryRun
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryRun.CanaryRun
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryRun.CanaryRun
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryRun.CanaryRun
 
 
-module Network.AWS.Synthetics.Types.CanaryLastRun
+module Amazonka.Synthetics.Types.CanaryLastRun
 
 -- | This structure contains information about the most recent run of a
 --   single canary.
@@ -685,16 +685,16 @@ canaryLastRun_canaryName :: Lens' CanaryLastRun (Maybe Text)
 
 -- | The results from this canary's most recent run.
 canaryLastRun_lastRun :: Lens' CanaryLastRun (Maybe CanaryRun)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryLastRun.CanaryLastRun
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryLastRun.CanaryLastRun
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryLastRun.CanaryLastRun
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryLastRun.CanaryLastRun
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryLastRun.CanaryLastRun
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryLastRun.CanaryLastRun
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryLastRun.CanaryLastRun
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryLastRun.CanaryLastRun
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryLastRun.CanaryLastRun
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryLastRun.CanaryLastRun
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryLastRun.CanaryLastRun
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryLastRun.CanaryLastRun
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryLastRun.CanaryLastRun
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryLastRun.CanaryLastRun
 
 
-module Network.AWS.Synthetics.Types.CanaryScheduleInput
+module Amazonka.Synthetics.Types.CanaryScheduleInput
 
 -- | This structure specifies how often a canary is to make runs and the
 --   date and time when it should stop making runs.
@@ -798,16 +798,16 @@ canaryScheduleInput_durationInSeconds :: Lens' CanaryScheduleInput (Maybe Natura
 --   information about the syntax for cron expressions, see <a>Scheduling
 --   canary runs using cron</a>.
 canaryScheduleInput_expression :: Lens' CanaryScheduleInput Text
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.CanaryScheduleInput.CanaryScheduleInput
 
 
-module Network.AWS.Synthetics.Types.CanaryScheduleOutput
+module Amazonka.Synthetics.Types.CanaryScheduleOutput
 
 -- | How long, in seconds, for the canary to continue making regular runs
 --   according to the schedule in the <tt>Expression</tt> value.
@@ -905,16 +905,16 @@ canaryScheduleOutput_durationInSeconds :: Lens' CanaryScheduleOutput (Maybe Natu
 --   information about the syntax for cron expressions, see <a>Scheduling
 --   canary runs using cron</a>.
 canaryScheduleOutput_expression :: Lens' CanaryScheduleOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryScheduleOutput.CanaryScheduleOutput
 
 
-module Network.AWS.Synthetics.Types.CanaryState
+module Amazonka.Synthetics.Types.CanaryState
 newtype CanaryState
 CanaryState' :: Text -> CanaryState
 [fromCanaryState] :: CanaryState -> Text
@@ -927,54 +927,54 @@ pattern CanaryState_STARTING :: CanaryState
 pattern CanaryState_STOPPED :: CanaryState
 pattern CanaryState_STOPPING :: CanaryState
 pattern CanaryState_UPDATING :: CanaryState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Network.AWS.Data.Text.ToText Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Network.AWS.Data.Text.FromText Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance GHC.Classes.Ord Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryState.CanaryState
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.XML.ToXML Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.XML.FromXML Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.Log.ToLog Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.Text.ToText Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Amazonka.Data.Text.FromText Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance GHC.Classes.Ord Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryState.CanaryState
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryState.CanaryState
 
 
-module Network.AWS.Synthetics.Types.CanaryStateReasonCode
+module Amazonka.Synthetics.Types.CanaryStateReasonCode
 newtype CanaryStateReasonCode
 CanaryStateReasonCode' :: Text -> CanaryStateReasonCode
 [fromCanaryStateReasonCode] :: CanaryStateReasonCode -> Text
 pattern CanaryStateReasonCode_INVALID_PERMISSIONS :: CanaryStateReasonCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Network.AWS.Data.Text.ToText Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Network.AWS.Data.Text.FromText Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance GHC.Classes.Ord Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.XML.ToXML Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.XML.FromXML Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.Log.ToLog Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.Text.ToText Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Amazonka.Data.Text.FromText Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance GHC.Classes.Ord Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryStateReasonCode.CanaryStateReasonCode
 
 
-module Network.AWS.Synthetics.Types.CanaryStatus
+module Amazonka.Synthetics.Types.CanaryStatus
 
 -- | A structure that contains the current state of the canary.
 --   
@@ -1024,16 +1024,16 @@ canaryStatus_stateReason :: Lens' CanaryStatus (Maybe Text)
 -- | If the canary cannot run or has failed, this field displays the
 --   reason.
 canaryStatus_stateReasonCode :: Lens' CanaryStatus (Maybe CanaryStateReasonCode)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryStatus.CanaryStatus
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryStatus.CanaryStatus
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryStatus.CanaryStatus
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryStatus.CanaryStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryStatus.CanaryStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryStatus.CanaryStatus
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryStatus.CanaryStatus
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryStatus.CanaryStatus
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryStatus.CanaryStatus
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryStatus.CanaryStatus
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryStatus.CanaryStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryStatus.CanaryStatus
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryStatus.CanaryStatus
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryStatus.CanaryStatus
 
 
-module Network.AWS.Synthetics.Types.CanaryTimeline
+module Amazonka.Synthetics.Types.CanaryTimeline
 
 -- | This structure contains information about when the canary was created
 --   and modified.
@@ -1090,43 +1090,43 @@ canaryTimeline_lastStopped :: Lens' CanaryTimeline (Maybe UTCTime)
 
 -- | The date and time the canary was most recently modified.
 canaryTimeline_lastModified :: Lens' CanaryTimeline (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.CanaryTimeline.CanaryTimeline
-instance GHC.Show.Show Network.AWS.Synthetics.Types.CanaryTimeline.CanaryTimeline
-instance GHC.Read.Read Network.AWS.Synthetics.Types.CanaryTimeline.CanaryTimeline
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.CanaryTimeline.CanaryTimeline
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.CanaryTimeline.CanaryTimeline
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.CanaryTimeline.CanaryTimeline
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.CanaryTimeline.CanaryTimeline
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.CanaryTimeline.CanaryTimeline
+instance GHC.Show.Show Amazonka.Synthetics.Types.CanaryTimeline.CanaryTimeline
+instance GHC.Read.Read Amazonka.Synthetics.Types.CanaryTimeline.CanaryTimeline
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.CanaryTimeline.CanaryTimeline
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.CanaryTimeline.CanaryTimeline
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.CanaryTimeline.CanaryTimeline
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.CanaryTimeline.CanaryTimeline
 
 
-module Network.AWS.Synthetics.Types.EncryptionMode
+module Amazonka.Synthetics.Types.EncryptionMode
 newtype EncryptionMode
 EncryptionMode' :: Text -> EncryptionMode
 [fromEncryptionMode] :: EncryptionMode -> Text
 pattern EncryptionMode_SSE_KMS :: EncryptionMode
 pattern EncryptionMode_SSE_S3 :: EncryptionMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Network.AWS.Data.Text.ToText Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Network.AWS.Data.Text.FromText Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance GHC.Classes.Ord Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance GHC.Read.Read Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
-instance GHC.Show.Show Network.AWS.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.XML.ToXML Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.XML.FromXML Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.Log.ToLog Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.Text.ToText Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Amazonka.Data.Text.FromText Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance GHC.Classes.Ord Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance GHC.Read.Read Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
+instance GHC.Show.Show Amazonka.Synthetics.Types.EncryptionMode.EncryptionMode
 
 
-module Network.AWS.Synthetics.Types.RuntimeVersion
+module Amazonka.Synthetics.Types.RuntimeVersion
 
 -- | This structure contains information about one canary runtime version.
 --   For more information about runtime versions, see <a>Canary Runtime
@@ -1190,16 +1190,16 @@ runtimeVersion_releaseDate :: Lens' RuntimeVersion (Maybe UTCTime)
 
 -- | A description of the runtime version, created by Amazon.
 runtimeVersion_description :: Lens' RuntimeVersion (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.RuntimeVersion.RuntimeVersion
-instance GHC.Show.Show Network.AWS.Synthetics.Types.RuntimeVersion.RuntimeVersion
-instance GHC.Read.Read Network.AWS.Synthetics.Types.RuntimeVersion.RuntimeVersion
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.RuntimeVersion.RuntimeVersion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.RuntimeVersion.RuntimeVersion
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.RuntimeVersion.RuntimeVersion
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.RuntimeVersion.RuntimeVersion
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.RuntimeVersion.RuntimeVersion
+instance GHC.Show.Show Amazonka.Synthetics.Types.RuntimeVersion.RuntimeVersion
+instance GHC.Read.Read Amazonka.Synthetics.Types.RuntimeVersion.RuntimeVersion
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.RuntimeVersion.RuntimeVersion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.RuntimeVersion.RuntimeVersion
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.RuntimeVersion.RuntimeVersion
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.RuntimeVersion.RuntimeVersion
 
 
-module Network.AWS.Synthetics.Types.S3EncryptionConfig
+module Amazonka.Synthetics.Types.S3EncryptionConfig
 
 -- | A structure that contains the configuration of encryption-at-rest
 --   settings for canary artifacts that the canary uploads to Amazon S3.
@@ -1260,17 +1260,17 @@ s3EncryptionConfig_kmsKeyArn :: Lens' S3EncryptionConfig (Maybe Text)
 --   If you omit this parameter, an Amazon Web Services-managed KMS key is
 --   used.
 s3EncryptionConfig_encryptionMode :: Lens' S3EncryptionConfig (Maybe EncryptionMode)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
-instance GHC.Show.Show Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
-instance GHC.Read.Read Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance GHC.Show.Show Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance GHC.Read.Read Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.S3EncryptionConfig.S3EncryptionConfig
 
 
-module Network.AWS.Synthetics.Types.ArtifactConfigOutput
+module Amazonka.Synthetics.Types.ArtifactConfigOutput
 
 -- | A structure that contains the configuration for canary artifacts,
 --   including the encryption-at-rest settings for artifacts that the
@@ -1302,16 +1302,16 @@ newArtifactConfigOutput :: ArtifactConfigOutput
 -- | A structure that contains the configuration of encryption settings for
 --   canary artifacts that are stored in Amazon S3.
 artifactConfigOutput_s3Encryption :: Lens' ArtifactConfigOutput (Maybe S3EncryptionConfig)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
+instance GHC.Show.Show Amazonka.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
+instance GHC.Read.Read Amazonka.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.ArtifactConfigOutput.ArtifactConfigOutput
 
 
-module Network.AWS.Synthetics.Types.ArtifactConfigInput
+module Amazonka.Synthetics.Types.ArtifactConfigInput
 
 -- | A structure that contains the configuration for canary artifacts,
 --   including the encryption-at-rest settings for artifacts that the
@@ -1352,16 +1352,16 @@ newArtifactConfigInput :: ArtifactConfigInput
 --   Synthetics runtime version syn-nodejs-puppeteer-3.3 or later. For more
 --   information, see <a>Encrypting canary artifacts</a>
 artifactConfigInput_s3Encryption :: Lens' ArtifactConfigInput (Maybe S3EncryptionConfig)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
+instance GHC.Show.Show Amazonka.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
+instance GHC.Read.Read Amazonka.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.ArtifactConfigInput.ArtifactConfigInput
 
 
-module Network.AWS.Synthetics.Types.VisualReferenceInput
+module Amazonka.Synthetics.Types.VisualReferenceInput
 
 -- | An object that specifies what screenshots to use as a baseline for
 --   visual monitoring by this canary, and optionally the parts of the
@@ -1427,16 +1427,16 @@ visualReferenceInput_baseScreenshots :: Lens' VisualReferenceInput (Maybe [BaseS
 --   recent run before this update was made, or the value of <tt>Id</tt> in
 --   the <a>CanaryRun</a> from any past run of this canary.
 visualReferenceInput_baseCanaryRunId :: Lens' VisualReferenceInput Text
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
+instance GHC.Show.Show Amazonka.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
+instance GHC.Read.Read Amazonka.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.VisualReferenceInput.VisualReferenceInput
 
 
-module Network.AWS.Synthetics.Types.VisualReferenceOutput
+module Amazonka.Synthetics.Types.VisualReferenceOutput
 
 -- | If this canary performs visual monitoring by comparing screenshots,
 --   this structure contains the ID of the canary run that is used as the
@@ -1487,16 +1487,16 @@ visualReferenceOutput_baseScreenshots :: Lens' VisualReferenceOutput (Maybe [Bas
 --   as the baseline for visual monitoring comparisons during future runs
 --   of this canary.
 visualReferenceOutput_baseCanaryRunId :: Lens' VisualReferenceOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
+instance GHC.Show.Show Amazonka.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
+instance GHC.Read.Read Amazonka.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.VisualReferenceOutput.VisualReferenceOutput
 
 
-module Network.AWS.Synthetics.Types.VpcConfigInput
+module Amazonka.Synthetics.Types.VpcConfigInput
 
 -- | If this canary is to test an endpoint in a VPC, this structure
 --   contains information about the subnets and security groups of the VPC
@@ -1534,16 +1534,16 @@ vpcConfigInput_securityGroupIds :: Lens' VpcConfigInput (Maybe [Text])
 
 -- | The IDs of the subnets where this canary is to run.
 vpcConfigInput_subnetIds :: Lens' VpcConfigInput (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.VpcConfigInput.VpcConfigInput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.VpcConfigInput.VpcConfigInput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.VpcConfigInput.VpcConfigInput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.VpcConfigInput.VpcConfigInput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.VpcConfigInput.VpcConfigInput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.VpcConfigInput.VpcConfigInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.Types.VpcConfigInput.VpcConfigInput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.VpcConfigInput.VpcConfigInput
+instance GHC.Show.Show Amazonka.Synthetics.Types.VpcConfigInput.VpcConfigInput
+instance GHC.Read.Read Amazonka.Synthetics.Types.VpcConfigInput.VpcConfigInput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.VpcConfigInput.VpcConfigInput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.VpcConfigInput.VpcConfigInput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.VpcConfigInput.VpcConfigInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.Types.VpcConfigInput.VpcConfigInput
 
 
-module Network.AWS.Synthetics.Types.VpcConfigOutput
+module Amazonka.Synthetics.Types.VpcConfigOutput
 
 -- | If this canary is to test an endpoint in a VPC, this structure
 --   contains information about the subnets and security groups of the VPC
@@ -1591,16 +1591,16 @@ vpcConfigOutput_subnetIds :: Lens' VpcConfigOutput (Maybe [Text])
 
 -- | The IDs of the VPC where this canary is to run.
 vpcConfigOutput_vpcId :: Lens' VpcConfigOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
-instance GHC.Show.Show Network.AWS.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
-instance GHC.Read.Read Network.AWS.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
+instance GHC.Show.Show Amazonka.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
+instance GHC.Read.Read Amazonka.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.VpcConfigOutput.VpcConfigOutput
 
 
-module Network.AWS.Synthetics.Types.Canary
+module Amazonka.Synthetics.Types.Canary
 
 -- | This structure contains all information about one canary in your
 --   account.
@@ -1808,16 +1808,16 @@ canary_engineArn :: Lens' Canary (Maybe Text)
 
 -- | The list of key-value pairs that are associated with the canary.
 canary_tags :: Lens' Canary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.Synthetics.Types.Canary.Canary
-instance GHC.Show.Show Network.AWS.Synthetics.Types.Canary.Canary
-instance GHC.Read.Read Network.AWS.Synthetics.Types.Canary.Canary
-instance GHC.Classes.Eq Network.AWS.Synthetics.Types.Canary.Canary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Synthetics.Types.Canary.Canary
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.Types.Canary.Canary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.Types.Canary.Canary
+instance GHC.Generics.Generic Amazonka.Synthetics.Types.Canary.Canary
+instance GHC.Show.Show Amazonka.Synthetics.Types.Canary.Canary
+instance GHC.Read.Read Amazonka.Synthetics.Types.Canary.Canary
+instance GHC.Classes.Eq Amazonka.Synthetics.Types.Canary.Canary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Synthetics.Types.Canary.Canary
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.Types.Canary.Canary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.Types.Canary.Canary
 
 
-module Network.AWS.Synthetics.Types
+module Amazonka.Synthetics.Types
 
 -- | API version <tt>2017-10-11</tt> of the Amazon Synthetics SDK
 --   configuration.
@@ -3332,7 +3332,7 @@ vpcConfigOutput_vpcId :: Lens' VpcConfigOutput (Maybe Text)
 --   that you specify replaces the previous value for that tag.
 --   
 --   You can associate as many as 50 tags with a canary.
-module Network.AWS.Synthetics.TagResource
+module Amazonka.Synthetics.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -3397,22 +3397,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Synthetics.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Synthetics.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Synthetics.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Synthetics.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Synthetics.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Synthetics.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Synthetics.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Synthetics.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Synthetics.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Synthetics.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Synthetics.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Synthetics.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Synthetics.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Synthetics.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Synthetics.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.TagResource.TagResource
 
 
 -- | Stops the canary to prevent all future runs. If the canary is
@@ -3423,7 +3423,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.TagResource.TagRe
 --   
 --   You can use <tt>StartCanary</tt> to start it running again with the
 --   canary’s current schedule at any point in the future.
-module Network.AWS.Synthetics.StopCanary
+module Amazonka.Synthetics.StopCanary
 
 -- | <i>See:</i> <a>newStopCanary</a> smart constructor.
 data StopCanary
@@ -3473,29 +3473,29 @@ newStopCanaryResponse :: Int -> StopCanaryResponse
 
 -- | The response's http status code.
 stopCanaryResponse_httpStatus :: Lens' StopCanaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.StopCanary.StopCanary
-instance GHC.Show.Show Network.AWS.Synthetics.StopCanary.StopCanary
-instance GHC.Read.Read Network.AWS.Synthetics.StopCanary.StopCanary
-instance GHC.Classes.Eq Network.AWS.Synthetics.StopCanary.StopCanary
-instance GHC.Generics.Generic Network.AWS.Synthetics.StopCanary.StopCanaryResponse
-instance GHC.Show.Show Network.AWS.Synthetics.StopCanary.StopCanaryResponse
-instance GHC.Read.Read Network.AWS.Synthetics.StopCanary.StopCanaryResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.StopCanary.StopCanaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.StopCanary.StopCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.StopCanary.StopCanaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.StopCanary.StopCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.StopCanary.StopCanary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.StopCanary.StopCanary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.StopCanary.StopCanary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.StopCanary.StopCanary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.StopCanary.StopCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.StopCanary.StopCanary
+instance GHC.Show.Show Amazonka.Synthetics.StopCanary.StopCanary
+instance GHC.Read.Read Amazonka.Synthetics.StopCanary.StopCanary
+instance GHC.Classes.Eq Amazonka.Synthetics.StopCanary.StopCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.StopCanary.StopCanaryResponse
+instance GHC.Show.Show Amazonka.Synthetics.StopCanary.StopCanaryResponse
+instance GHC.Read.Read Amazonka.Synthetics.StopCanary.StopCanaryResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.StopCanary.StopCanaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.StopCanary.StopCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.StopCanary.StopCanaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.StopCanary.StopCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.StopCanary.StopCanary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.StopCanary.StopCanary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.StopCanary.StopCanary
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.StopCanary.StopCanary
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.StopCanary.StopCanary
 
 
 -- | Use this operation to run a canary that has already been created. The
 --   frequency of the canary runs is determined by the value of the
 --   canary's <tt>Schedule</tt>. To see a canary's schedule, use
 --   <a>GetCanary</a>.
-module Network.AWS.Synthetics.StartCanary
+module Amazonka.Synthetics.StartCanary
 
 -- | <i>See:</i> <a>newStartCanary</a> smart constructor.
 data StartCanary
@@ -3545,26 +3545,26 @@ newStartCanaryResponse :: Int -> StartCanaryResponse
 
 -- | The response's http status code.
 startCanaryResponse_httpStatus :: Lens' StartCanaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.StartCanary.StartCanary
-instance GHC.Show.Show Network.AWS.Synthetics.StartCanary.StartCanary
-instance GHC.Read.Read Network.AWS.Synthetics.StartCanary.StartCanary
-instance GHC.Classes.Eq Network.AWS.Synthetics.StartCanary.StartCanary
-instance GHC.Generics.Generic Network.AWS.Synthetics.StartCanary.StartCanaryResponse
-instance GHC.Show.Show Network.AWS.Synthetics.StartCanary.StartCanaryResponse
-instance GHC.Read.Read Network.AWS.Synthetics.StartCanary.StartCanaryResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.StartCanary.StartCanaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.StartCanary.StartCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.StartCanary.StartCanaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.StartCanary.StartCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.StartCanary.StartCanary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.StartCanary.StartCanary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.StartCanary.StartCanary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.StartCanary.StartCanary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.StartCanary.StartCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.StartCanary.StartCanary
+instance GHC.Show.Show Amazonka.Synthetics.StartCanary.StartCanary
+instance GHC.Read.Read Amazonka.Synthetics.StartCanary.StartCanary
+instance GHC.Classes.Eq Amazonka.Synthetics.StartCanary.StartCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.StartCanary.StartCanaryResponse
+instance GHC.Show.Show Amazonka.Synthetics.StartCanary.StartCanaryResponse
+instance GHC.Read.Read Amazonka.Synthetics.StartCanary.StartCanaryResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.StartCanary.StartCanaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.StartCanary.StartCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.StartCanary.StartCanaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.StartCanary.StartCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.StartCanary.StartCanary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.StartCanary.StartCanary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.StartCanary.StartCanary
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.StartCanary.StartCanary
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.StartCanary.StartCanary
 
 
 -- | Displays the tags associated with a canary.
-module Network.AWS.Synthetics.ListTagsForResource
+module Amazonka.Synthetics.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3634,25 +3634,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Synthetics.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Synthetics.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Synthetics.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Synthetics.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Synthetics.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Synthetics.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Synthetics.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.ListTagsForResource.ListTagsForResource
 
 
 -- | Retrieves a list of runs for a specified canary.
-module Network.AWS.Synthetics.GetCanaryRuns
+module Amazonka.Synthetics.GetCanaryRuns
 
 -- | <i>See:</i> <a>newGetCanaryRuns</a> smart constructor.
 data GetCanaryRuns
@@ -3757,28 +3757,28 @@ getCanaryRunsResponse_canaryRuns :: Lens' GetCanaryRunsResponse (Maybe [CanaryRu
 
 -- | The response's http status code.
 getCanaryRunsResponse_httpStatus :: Lens' GetCanaryRunsResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance GHC.Show.Show Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance GHC.Read.Read Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance GHC.Classes.Eq Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance GHC.Generics.Generic Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
-instance GHC.Show.Show Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
-instance GHC.Read.Read Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance GHC.Generics.Generic Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance GHC.Show.Show Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance GHC.Read.Read Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance GHC.Classes.Eq Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance GHC.Generics.Generic Amazonka.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
+instance GHC.Show.Show Amazonka.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
+instance GHC.Read.Read Amazonka.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance Control.DeepSeq.NFData Amazonka.Synthetics.GetCanaryRuns.GetCanaryRunsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance Control.DeepSeq.NFData Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.GetCanaryRuns.GetCanaryRuns
 
 
 -- | Retrieves complete information about one canary. You must specify the
 --   name of the canary that you want. To get a list of canaries and their
 --   names, use <a>DescribeCanaries</a>.
-module Network.AWS.Synthetics.GetCanary
+module Amazonka.Synthetics.GetCanary
 
 -- | <i>See:</i> <a>newGetCanary</a> smart constructor.
 data GetCanary
@@ -3833,26 +3833,26 @@ getCanaryResponse_canary :: Lens' GetCanaryResponse (Maybe Canary)
 
 -- | The response's http status code.
 getCanaryResponse_httpStatus :: Lens' GetCanaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.GetCanary.GetCanary
-instance GHC.Show.Show Network.AWS.Synthetics.GetCanary.GetCanary
-instance GHC.Read.Read Network.AWS.Synthetics.GetCanary.GetCanary
-instance GHC.Classes.Eq Network.AWS.Synthetics.GetCanary.GetCanary
-instance GHC.Generics.Generic Network.AWS.Synthetics.GetCanary.GetCanaryResponse
-instance GHC.Show.Show Network.AWS.Synthetics.GetCanary.GetCanaryResponse
-instance GHC.Read.Read Network.AWS.Synthetics.GetCanary.GetCanaryResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.GetCanary.GetCanaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.GetCanary.GetCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.GetCanary.GetCanaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.GetCanary.GetCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.GetCanary.GetCanary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.GetCanary.GetCanary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.GetCanary.GetCanary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.GetCanary.GetCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.GetCanary.GetCanary
+instance GHC.Show.Show Amazonka.Synthetics.GetCanary.GetCanary
+instance GHC.Read.Read Amazonka.Synthetics.GetCanary.GetCanary
+instance GHC.Classes.Eq Amazonka.Synthetics.GetCanary.GetCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.GetCanary.GetCanaryResponse
+instance GHC.Show.Show Amazonka.Synthetics.GetCanary.GetCanaryResponse
+instance GHC.Read.Read Amazonka.Synthetics.GetCanary.GetCanaryResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.GetCanary.GetCanaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.GetCanary.GetCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.GetCanary.GetCanaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.GetCanary.GetCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.GetCanary.GetCanary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.GetCanary.GetCanary
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.GetCanary.GetCanary
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.GetCanary.GetCanary
 
 
 -- | Returns a list of Synthetics canary runtime versions. For more
 --   information, see <a>Canary Runtime Versions</a>.
-module Network.AWS.Synthetics.DescribeRuntimeVersions
+module Amazonka.Synthetics.DescribeRuntimeVersions
 
 -- | <i>See:</i> <a>newDescribeRuntimeVersions</a> smart constructor.
 data DescribeRuntimeVersions
@@ -3953,27 +3953,27 @@ describeRuntimeVersionsResponse_nextToken :: Lens' DescribeRuntimeVersionsRespon
 
 -- | The response's http status code.
 describeRuntimeVersionsResponse_httpStatus :: Lens' DescribeRuntimeVersionsResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance GHC.Show.Show Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance GHC.Read.Read Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance GHC.Classes.Eq Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance GHC.Generics.Generic Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
-instance GHC.Show.Show Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
-instance GHC.Read.Read Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance GHC.Generics.Generic Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance GHC.Show.Show Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance GHC.Read.Read Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance GHC.Classes.Eq Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance GHC.Generics.Generic Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
+instance GHC.Show.Show Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
+instance GHC.Read.Read Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.DescribeRuntimeVersions.DescribeRuntimeVersions
 
 
 -- | Use this operation to see information from the most recent run of each
 --   canary that you have created.
-module Network.AWS.Synthetics.DescribeCanariesLastRun
+module Amazonka.Synthetics.DescribeCanariesLastRun
 
 -- | <i>See:</i> <a>newDescribeCanariesLastRun</a> smart constructor.
 data DescribeCanariesLastRun
@@ -4073,22 +4073,22 @@ describeCanariesLastRunResponse_canariesLastRun :: Lens' DescribeCanariesLastRun
 
 -- | The response's http status code.
 describeCanariesLastRunResponse_httpStatus :: Lens' DescribeCanariesLastRunResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance GHC.Show.Show Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance GHC.Read.Read Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance GHC.Classes.Eq Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance GHC.Generics.Generic Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
-instance GHC.Show.Show Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
-instance GHC.Read.Read Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance GHC.Generics.Generic Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance GHC.Show.Show Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance GHC.Read.Read Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance GHC.Classes.Eq Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance GHC.Generics.Generic Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
+instance GHC.Show.Show Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
+instance GHC.Read.Read Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRunResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.DescribeCanariesLastRun.DescribeCanariesLastRun
 
 
 -- | This operation returns a list of the canaries in your account, along
@@ -4099,7 +4099,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.DescribeCanariesL
 --   the canaries in the account. A deny policy can only be used to
 --   restrict access to all canaries. It cannot be used on specific
 --   resources.
-module Network.AWS.Synthetics.DescribeCanaries
+module Amazonka.Synthetics.DescribeCanaries
 
 -- | <i>See:</i> <a>newDescribeCanaries</a> smart constructor.
 data DescribeCanaries
@@ -4197,22 +4197,22 @@ describeCanariesResponse_nextToken :: Lens' DescribeCanariesResponse (Maybe Text
 
 -- | The response's http status code.
 describeCanariesResponse_httpStatus :: Lens' DescribeCanariesResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance GHC.Show.Show Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance GHC.Read.Read Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance GHC.Classes.Eq Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance GHC.Generics.Generic Network.AWS.Synthetics.DescribeCanaries.DescribeCanariesResponse
-instance GHC.Show.Show Network.AWS.Synthetics.DescribeCanaries.DescribeCanariesResponse
-instance GHC.Read.Read Network.AWS.Synthetics.DescribeCanaries.DescribeCanariesResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.DescribeCanaries.DescribeCanariesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DescribeCanaries.DescribeCanariesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.DescribeCanaries.DescribeCanaries
+instance GHC.Generics.Generic Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance GHC.Show.Show Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance GHC.Read.Read Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance GHC.Classes.Eq Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance GHC.Generics.Generic Amazonka.Synthetics.DescribeCanaries.DescribeCanariesResponse
+instance GHC.Show.Show Amazonka.Synthetics.DescribeCanaries.DescribeCanariesResponse
+instance GHC.Read.Read Amazonka.Synthetics.DescribeCanaries.DescribeCanariesResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.DescribeCanaries.DescribeCanariesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DescribeCanaries.DescribeCanariesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.DescribeCanaries.DescribeCanaries
 
 
 -- | Permanently deletes the specified canary.
@@ -4239,7 +4239,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.DescribeCanaries.
 --   to display the information about this canary. Make note of the
 --   information returned by this operation so that you can delete these
 --   resources after you delete the canary.
-module Network.AWS.Synthetics.DeleteCanary
+module Amazonka.Synthetics.DeleteCanary
 
 -- | <i>See:</i> <a>newDeleteCanary</a> smart constructor.
 data DeleteCanary
@@ -4290,21 +4290,21 @@ newDeleteCanaryResponse :: Int -> DeleteCanaryResponse
 
 -- | The response's http status code.
 deleteCanaryResponse_httpStatus :: Lens' DeleteCanaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance GHC.Show.Show Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance GHC.Read.Read Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance GHC.Classes.Eq Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance GHC.Generics.Generic Network.AWS.Synthetics.DeleteCanary.DeleteCanaryResponse
-instance GHC.Show.Show Network.AWS.Synthetics.DeleteCanary.DeleteCanaryResponse
-instance GHC.Read.Read Network.AWS.Synthetics.DeleteCanary.DeleteCanaryResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.DeleteCanary.DeleteCanaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DeleteCanary.DeleteCanaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.DeleteCanary.DeleteCanary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.DeleteCanary.DeleteCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance GHC.Show.Show Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance GHC.Read.Read Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance GHC.Classes.Eq Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.DeleteCanary.DeleteCanaryResponse
+instance GHC.Show.Show Amazonka.Synthetics.DeleteCanary.DeleteCanaryResponse
+instance GHC.Read.Read Amazonka.Synthetics.DeleteCanary.DeleteCanaryResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.DeleteCanary.DeleteCanaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DeleteCanary.DeleteCanaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.DeleteCanary.DeleteCanary
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.DeleteCanary.DeleteCanary
 
 
 -- | Creates a canary. Canaries are scripts that monitor your endpoints and
@@ -4328,7 +4328,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.DeleteCanary.Dele
 --   for the canary, and the ARN is included in outbound calls over the
 --   internet. For more information, see <a>Security Considerations for
 --   Synthetics Canaries</a>.
-module Network.AWS.Synthetics.CreateCanary
+module Amazonka.Synthetics.CreateCanary
 
 -- | <i>See:</i> <a>newCreateCanary</a> smart constructor.
 data CreateCanary
@@ -4609,26 +4609,26 @@ createCanaryResponse_canary :: Lens' CreateCanaryResponse (Maybe Canary)
 
 -- | The response's http status code.
 createCanaryResponse_httpStatus :: Lens' CreateCanaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance GHC.Show.Show Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance GHC.Read.Read Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance GHC.Classes.Eq Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance GHC.Generics.Generic Network.AWS.Synthetics.CreateCanary.CreateCanaryResponse
-instance GHC.Show.Show Network.AWS.Synthetics.CreateCanary.CreateCanaryResponse
-instance GHC.Read.Read Network.AWS.Synthetics.CreateCanary.CreateCanaryResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.CreateCanary.CreateCanaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.CreateCanary.CreateCanaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.CreateCanary.CreateCanary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.CreateCanary.CreateCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.CreateCanary.CreateCanary
+instance GHC.Show.Show Amazonka.Synthetics.CreateCanary.CreateCanary
+instance GHC.Read.Read Amazonka.Synthetics.CreateCanary.CreateCanary
+instance GHC.Classes.Eq Amazonka.Synthetics.CreateCanary.CreateCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.CreateCanary.CreateCanaryResponse
+instance GHC.Show.Show Amazonka.Synthetics.CreateCanary.CreateCanaryResponse
+instance GHC.Read.Read Amazonka.Synthetics.CreateCanary.CreateCanaryResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.CreateCanary.CreateCanaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.CreateCanary.CreateCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.CreateCanary.CreateCanaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.CreateCanary.CreateCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.CreateCanary.CreateCanary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.CreateCanary.CreateCanary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.CreateCanary.CreateCanary
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.CreateCanary.CreateCanary
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.CreateCanary.CreateCanary
 
 
 -- | Removes one or more tags from the specified canary.
-module Network.AWS.Synthetics.UntagResource
+module Amazonka.Synthetics.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4695,21 +4695,21 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Synthetics.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Synthetics.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Synthetics.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Synthetics.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Synthetics.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Synthetics.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Synthetics.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Synthetics.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Synthetics.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Synthetics.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Synthetics.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Synthetics.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Synthetics.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Synthetics.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Synthetics.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.UntagResource.UntagResource
 
 
 -- | Use this operation to change the settings of a canary that has already
@@ -4717,7 +4717,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.UntagResource.Unt
 --   
 --   You can't use this operation to update the tags of an existing canary.
 --   To change the tags of an existing canary, use <a>TagResource</a>.
-module Network.AWS.Synthetics.UpdateCanary
+module Amazonka.Synthetics.UpdateCanary
 
 -- | <i>See:</i> <a>newUpdateCanary</a> smart constructor.
 data UpdateCanary
@@ -4976,25 +4976,25 @@ newUpdateCanaryResponse :: Int -> UpdateCanaryResponse
 
 -- | The response's http status code.
 updateCanaryResponse_httpStatus :: Lens' UpdateCanaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance GHC.Show.Show Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance GHC.Read.Read Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance GHC.Classes.Eq Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance GHC.Generics.Generic Network.AWS.Synthetics.UpdateCanary.UpdateCanaryResponse
-instance GHC.Show.Show Network.AWS.Synthetics.UpdateCanary.UpdateCanaryResponse
-instance GHC.Read.Read Network.AWS.Synthetics.UpdateCanary.UpdateCanaryResponse
-instance GHC.Classes.Eq Network.AWS.Synthetics.UpdateCanary.UpdateCanaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.UpdateCanary.UpdateCanaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance Control.DeepSeq.NFData Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Synthetics.UpdateCanary.UpdateCanary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Synthetics.UpdateCanary.UpdateCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance GHC.Show.Show Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance GHC.Read.Read Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance GHC.Classes.Eq Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance GHC.Generics.Generic Amazonka.Synthetics.UpdateCanary.UpdateCanaryResponse
+instance GHC.Show.Show Amazonka.Synthetics.UpdateCanary.UpdateCanaryResponse
+instance GHC.Read.Read Amazonka.Synthetics.UpdateCanary.UpdateCanaryResponse
+instance GHC.Classes.Eq Amazonka.Synthetics.UpdateCanary.UpdateCanaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.UpdateCanary.UpdateCanaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance Control.DeepSeq.NFData Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance Amazonka.Data.Path.ToPath Amazonka.Synthetics.UpdateCanary.UpdateCanary
+instance Amazonka.Data.Query.ToQuery Amazonka.Synthetics.UpdateCanary.UpdateCanary
 
 
-module Network.AWS.Synthetics.Lens
+module Amazonka.Synthetics.Lens
 
 -- | The number of days to retain data about successful runs of this
 --   canary.
@@ -5660,7 +5660,7 @@ vpcConfigOutput_subnetIds :: Lens' VpcConfigOutput (Maybe [Text])
 vpcConfigOutput_vpcId :: Lens' VpcConfigOutput (Maybe Text)
 
 
-module Network.AWS.Synthetics.Waiters
+module Amazonka.Synthetics.Waiters
 
 
 -- | Derived from API version <tt>2017-10-11</tt> of the AWS service
@@ -5683,7 +5683,7 @@ module Network.AWS.Synthetics.Waiters
 --   Before you create and manage canaries, be aware of the security
 --   considerations. For more information, see <a>Security Considerations
 --   for Synthetics Canaries</a>.
-module Network.AWS.Synthetics
+module Amazonka.Synthetics
 
 -- | API version <tt>2017-10-11</tt> of the Amazon Synthetics SDK
 --   configuration.

@@ -1,0 +1,858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSOOIDC.StartDeviceAuthorization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates device authorization by requesting a pair of verification</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- codes from the authorization service.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSOOIDC.StartDeviceAuthorization</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier">StartDeviceAuthorization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorization"><span class="hs-identifier">newStartDeviceAuthorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_clientId"><span class="hs-identifier">startDeviceAuthorization_clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_clientSecret"><span class="hs-identifier">startDeviceAuthorization_clientSecret</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_startUrl"><span class="hs-identifier">startDeviceAuthorization_startUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorizationResponse"><span class="hs-identifier">newStartDeviceAuthorizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_userCode"><span class="hs-identifier">startDeviceAuthorizationResponse_userCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_interval"><span class="hs-identifier">startDeviceAuthorizationResponse_interval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_expiresIn"><span class="hs-identifier">startDeviceAuthorizationResponse_expiresIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_verificationUri"><span class="hs-identifier">startDeviceAuthorizationResponse_verificationUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_deviceCode"><span class="hs-identifier">startDeviceAuthorizationResponse_deviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_verificationUriComplete"><span class="hs-identifier">startDeviceAuthorizationResponse_verificationUriComplete</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_httpStatus"><span class="hs-identifier">startDeviceAuthorizationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.Types.html"><span class="hs-identifier">Amazonka.SSOOIDC.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newStartDeviceAuthorization' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679141799"><span id="local-6989586621679141800"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDeviceAuthorization"><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-var">StartDeviceAuthorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDeviceAuthorization%27"><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-var">StartDeviceAuthorization'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier string for the client that is registered with AWS</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- SSO. This value should come from the persisted result of the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- RegisterClient API operation.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclientId%3AStartDeviceAuthorization%27"><span class="annot"><span class="annottext">StartDeviceAuthorization -&gt; Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AclientId%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A secret string that is generated for the client. This value should come</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- from the persisted result of the RegisterClient API operation.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AclientSecret%3AStartDeviceAuthorization%27"><span class="annot"><span class="annottext">StartDeviceAuthorization -&gt; Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AclientSecret%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var hs-var">clientSecret</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The URL for the AWS SSO user portal. For more information, see</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html Using the User Portal&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- in the /AWS Single Sign-On User Guide/.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AstartUrl%3AStartDeviceAuthorization%27"><span class="annot"><span class="annottext">StartDeviceAuthorization -&gt; Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AstartUrl%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var hs-var">startUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141791"><span id="local-6989586621679141793"><span class="annot"><span class="annottext">StartDeviceAuthorization -&gt; StartDeviceAuthorization -&gt; Bool
+(StartDeviceAuthorization -&gt; StartDeviceAuthorization -&gt; Bool)
+-&gt; (StartDeviceAuthorization -&gt; StartDeviceAuthorization -&gt; Bool)
+-&gt; Eq StartDeviceAuthorization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDeviceAuthorization -&gt; StartDeviceAuthorization -&gt; Bool
+$c/= :: StartDeviceAuthorization -&gt; StartDeviceAuthorization -&gt; Bool
+== :: StartDeviceAuthorization -&gt; StartDeviceAuthorization -&gt; Bool
+$c== :: StartDeviceAuthorization -&gt; StartDeviceAuthorization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141782"><span id="local-6989586621679141784"><span id="local-6989586621679141786"><span id="local-6989586621679141788"><span class="annot"><span class="annottext">ReadPrec [StartDeviceAuthorization]
+ReadPrec StartDeviceAuthorization
+Int -&gt; ReadS StartDeviceAuthorization
+ReadS [StartDeviceAuthorization]
+(Int -&gt; ReadS StartDeviceAuthorization)
+-&gt; ReadS [StartDeviceAuthorization]
+-&gt; ReadPrec StartDeviceAuthorization
+-&gt; ReadPrec [StartDeviceAuthorization]
+-&gt; Read StartDeviceAuthorization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDeviceAuthorization]
+$creadListPrec :: ReadPrec [StartDeviceAuthorization]
+readPrec :: ReadPrec StartDeviceAuthorization
+$creadPrec :: ReadPrec StartDeviceAuthorization
+readList :: ReadS [StartDeviceAuthorization]
+$creadList :: ReadS [StartDeviceAuthorization]
+readsPrec :: Int -&gt; ReadS StartDeviceAuthorization
+$creadsPrec :: Int -&gt; ReadS StartDeviceAuthorization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141775"><span id="local-6989586621679141777"><span id="local-6989586621679141779"><span class="annot"><span class="annottext">Int -&gt; StartDeviceAuthorization -&gt; ShowS
+[StartDeviceAuthorization] -&gt; ShowS
+StartDeviceAuthorization -&gt; String
+(Int -&gt; StartDeviceAuthorization -&gt; ShowS)
+-&gt; (StartDeviceAuthorization -&gt; String)
+-&gt; ([StartDeviceAuthorization] -&gt; ShowS)
+-&gt; Show StartDeviceAuthorization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDeviceAuthorization] -&gt; ShowS
+$cshowList :: [StartDeviceAuthorization] -&gt; ShowS
+show :: StartDeviceAuthorization -&gt; String
+$cshow :: StartDeviceAuthorization -&gt; String
+showsPrec :: Int -&gt; StartDeviceAuthorization -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDeviceAuthorization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDeviceAuthorization -&gt; Rep StartDeviceAuthorization x)
+-&gt; (forall x.
+    Rep StartDeviceAuthorization x -&gt; StartDeviceAuthorization)
+-&gt; Generic StartDeviceAuthorization
+forall x.
+Rep StartDeviceAuthorization x -&gt; StartDeviceAuthorization
+forall x.
+StartDeviceAuthorization -&gt; Rep StartDeviceAuthorization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartDeviceAuthorization x -&gt; StartDeviceAuthorization
+$cfrom :: forall x.
+StartDeviceAuthorization -&gt; Rep StartDeviceAuthorization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'StartDeviceAuthorization' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'clientId', 'startDeviceAuthorization_clientId' - The unique identifier string for the client that is registered with AWS</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- SSO. This value should come from the persisted result of the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- RegisterClient API operation.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'clientSecret', 'startDeviceAuthorization_clientSecret' - A secret string that is generated for the client. This value should come</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- from the persisted result of the RegisterClient API operation.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'startUrl', 'startDeviceAuthorization_startUrl' - The URL for the AWS SSO user portal. For more information, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html Using the User Portal&gt;</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- in the /AWS Single Sign-On User Guide/.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorization"><span class="hs-identifier hs-type">newStartDeviceAuthorization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'clientId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'clientSecret'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'startUrl'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span>
+</span><span id="line-99"></span><span id="newStartDeviceAuthorization"><span class="annot"><span class="annottext">newStartDeviceAuthorization :: Text -&gt; Text -&gt; Text -&gt; StartDeviceAuthorization
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorization"><span class="hs-identifier hs-var hs-var">newStartDeviceAuthorization</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679141770"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141770"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679141769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141769"><span class="hs-identifier hs-var">pClientSecret_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679141768"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141768"><span class="hs-identifier hs-var">pStartUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">StartDeviceAuthorization' :: Text -&gt; Text -&gt; Text -&gt; StartDeviceAuthorization
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientId:StartDeviceAuthorization' :: Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AclientId%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141770"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientSecret:StartDeviceAuthorization' :: Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AclientSecret%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var">clientSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141769"><span class="hs-identifier hs-var">pClientSecret_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:startUrl:StartDeviceAuthorization' :: Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AstartUrl%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var">startUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141768"><span class="hs-identifier hs-var">pStartUrl_</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The unique identifier string for the client that is registered with AWS</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- SSO. This value should come from the persisted result of the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- RegisterClient API operation.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_clientId"><span class="hs-identifier hs-type">startDeviceAuthorization_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="startDeviceAuthorization_clientId"><span class="annot"><span class="annottext">startDeviceAuthorization_clientId :: (Text -&gt; f Text)
+-&gt; StartDeviceAuthorization -&gt; f StartDeviceAuthorization
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_clientId"><span class="hs-identifier hs-var hs-var">startDeviceAuthorization_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorization -&gt; Text)
+-&gt; (StartDeviceAuthorization -&gt; Text -&gt; StartDeviceAuthorization)
+-&gt; Lens StartDeviceAuthorization StartDeviceAuthorization Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141765"><span class="annot"><span class="annottext">Text
+clientId :: Text
+$sel:clientId:StartDeviceAuthorization' :: StartDeviceAuthorization -&gt; Text
+</span><a href="#local-6989586621679141765"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141765"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141764"><span class="annot"><span class="annottext">s :: StartDeviceAuthorization
+</span><a href="#local-6989586621679141764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorization
+</span><a href="#local-6989586621679141764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:StartDeviceAuthorization' :: Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AclientId%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A secret string that is generated for the client. This value should come</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- from the persisted result of the RegisterClient API operation.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_clientSecret"><span class="hs-identifier hs-type">startDeviceAuthorization_clientSecret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="startDeviceAuthorization_clientSecret"><span class="annot"><span class="annottext">startDeviceAuthorization_clientSecret :: (Text -&gt; f Text)
+-&gt; StartDeviceAuthorization -&gt; f StartDeviceAuthorization
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_clientSecret"><span class="hs-identifier hs-var hs-var">startDeviceAuthorization_clientSecret</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorization -&gt; Text)
+-&gt; (StartDeviceAuthorization -&gt; Text -&gt; StartDeviceAuthorization)
+-&gt; Lens StartDeviceAuthorization StartDeviceAuthorization Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141762"><span class="annot"><span class="annottext">Text
+clientSecret :: Text
+$sel:clientSecret:StartDeviceAuthorization' :: StartDeviceAuthorization -&gt; Text
+</span><a href="#local-6989586621679141762"><span class="hs-identifier hs-var hs-var">clientSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141762"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141761"><span class="annot"><span class="annottext">s :: StartDeviceAuthorization
+</span><a href="#local-6989586621679141761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorization
+</span><a href="#local-6989586621679141761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSecret:StartDeviceAuthorization' :: Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AclientSecret%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var">clientSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The URL for the AWS SSO user portal. For more information, see</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html Using the User Portal&gt;</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- in the /AWS Single Sign-On User Guide/.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_startUrl"><span class="hs-identifier hs-type">startDeviceAuthorization_startUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="startDeviceAuthorization_startUrl"><span class="annot"><span class="annottext">startDeviceAuthorization_startUrl :: (Text -&gt; f Text)
+-&gt; StartDeviceAuthorization -&gt; f StartDeviceAuthorization
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorization_startUrl"><span class="hs-identifier hs-var hs-var">startDeviceAuthorization_startUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorization -&gt; Text)
+-&gt; (StartDeviceAuthorization -&gt; Text -&gt; StartDeviceAuthorization)
+-&gt; Lens StartDeviceAuthorization StartDeviceAuthorization Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141759"><span class="annot"><span class="annottext">Text
+startUrl :: Text
+$sel:startUrl:StartDeviceAuthorization' :: StartDeviceAuthorization -&gt; Text
+</span><a href="#local-6989586621679141759"><span class="hs-identifier hs-var hs-var">startUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141759"><span class="hs-identifier hs-var">startUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141758"><span class="annot"><span class="annottext">s :: StartDeviceAuthorization
+</span><a href="#local-6989586621679141758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141757"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorization
+</span><a href="#local-6989586621679141758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startUrl:StartDeviceAuthorization' :: Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AstartUrl%3AStartDeviceAuthorization%27"><span class="hs-identifier hs-var">startUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679141753"><span class="annot"><span class="annottext">request :: StartDeviceAuthorization -&gt; Request StartDeviceAuthorization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartDeviceAuthorization -&gt; Request StartDeviceAuthorization
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSOOIDC.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679141749"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartDeviceAuthorization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDeviceAuthorization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartDeviceAuthorization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartDeviceAuthorization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDeviceAuthorization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679141746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141746"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679141745"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679141745"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679141744"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141744"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">StartDeviceAuthorizationResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; StartDeviceAuthorizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; StartDeviceAuthorizationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; StartDeviceAuthorizationResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; StartDeviceAuthorizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;interval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; StartDeviceAuthorizationResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; StartDeviceAuthorizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expiresIn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; StartDeviceAuthorizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; StartDeviceAuthorizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;verificationUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; StartDeviceAuthorizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; StartDeviceAuthorizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; StartDeviceAuthorizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartDeviceAuthorizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;verificationUriComplete&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartDeviceAuthorizationResponse)
+-&gt; Either String Int
+-&gt; Either String StartDeviceAuthorizationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141746"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141736"><span id="local-6989586621679141738"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679141729"><span class="annot"><span class="annottext">toHeaders :: StartDeviceAuthorization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartDeviceAuthorization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141719"><span id="local-6989586621679141721"><span id="local-6989586621679141723"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679141717"><span class="annot"><span class="annottext">toJSON :: StartDeviceAuthorization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier hs-type">StartDeviceAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141713"><span id="local-6989586621679141714"><span id="local-6989586621679141715"><span class="annot"><span class="annottext">Text
+startUrl :: Text
+clientSecret :: Text
+clientId :: Text
+$sel:startUrl:StartDeviceAuthorization' :: StartDeviceAuthorization -&gt; Text
+$sel:clientSecret:StartDeviceAuthorization' :: StartDeviceAuthorization -&gt; Text
+$sel:clientId:StartDeviceAuthorization' :: StartDeviceAuthorization -&gt; Text
+</span><a href="#local-6989586621679141713"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141715"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientSecret&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141714"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141713"><span class="hs-identifier hs-var">startUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679141707"><span class="annot"><span class="annottext">toPath :: StartDeviceAuthorization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartDeviceAuthorization -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/device_authorization&quot;</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier hs-type">StartDeviceAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679141703"><span class="annot"><span class="annottext">toQuery :: StartDeviceAuthorization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartDeviceAuthorization -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newStartDeviceAuthorizationResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679141700"><span id="local-6989586621679141701"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDeviceAuthorizationResponse"><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-var">StartDeviceAuthorizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDeviceAuthorizationResponse%27"><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">StartDeviceAuthorizationResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A one-time user verification code. This is needed to authorize an in-use</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AuserCode%3AStartDeviceAuthorizationResponse%27"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AuserCode%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">userCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | Indicates the number of seconds the client must wait between attempts</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- when polling for a session.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3Ainterval%3AStartDeviceAuthorizationResponse%27"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse -&gt; Maybe Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3Ainterval%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | Indicates the number of seconds in which the verification code will</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- become invalid.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AexpiresIn%3AStartDeviceAuthorizationResponse%27"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse -&gt; Maybe Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AexpiresIn%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">expiresIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The URI of the verification page that takes the @userCode@ to authorize</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- the device.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AverificationUri%3AStartDeviceAuthorizationResponse%27"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AverificationUri%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">verificationUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The short-lived code that is used by the device when polling for a</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- session token.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AdeviceCode%3AStartDeviceAuthorizationResponse%27"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AdeviceCode%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">deviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | An alternate URL that the client can use to automatically launch a</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- browser. This process skips the manual step in which the user visits the</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- verification page and enters their code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AverificationUriComplete%3AStartDeviceAuthorizationResponse%27"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AverificationUriComplete%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">verificationUriComplete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartDeviceAuthorizationResponse%27"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse -&gt; Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AhttpStatus%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141689"><span id="local-6989586621679141691"><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+-&gt; StartDeviceAuthorizationResponse -&gt; Bool
+(StartDeviceAuthorizationResponse
+ -&gt; StartDeviceAuthorizationResponse -&gt; Bool)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; StartDeviceAuthorizationResponse -&gt; Bool)
+-&gt; Eq StartDeviceAuthorizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDeviceAuthorizationResponse
+-&gt; StartDeviceAuthorizationResponse -&gt; Bool
+$c/= :: StartDeviceAuthorizationResponse
+-&gt; StartDeviceAuthorizationResponse -&gt; Bool
+== :: StartDeviceAuthorizationResponse
+-&gt; StartDeviceAuthorizationResponse -&gt; Bool
+$c== :: StartDeviceAuthorizationResponse
+-&gt; StartDeviceAuthorizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141681"><span id="local-6989586621679141683"><span id="local-6989586621679141685"><span id="local-6989586621679141687"><span class="annot"><span class="annottext">ReadPrec [StartDeviceAuthorizationResponse]
+ReadPrec StartDeviceAuthorizationResponse
+Int -&gt; ReadS StartDeviceAuthorizationResponse
+ReadS [StartDeviceAuthorizationResponse]
+(Int -&gt; ReadS StartDeviceAuthorizationResponse)
+-&gt; ReadS [StartDeviceAuthorizationResponse]
+-&gt; ReadPrec StartDeviceAuthorizationResponse
+-&gt; ReadPrec [StartDeviceAuthorizationResponse]
+-&gt; Read StartDeviceAuthorizationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDeviceAuthorizationResponse]
+$creadListPrec :: ReadPrec [StartDeviceAuthorizationResponse]
+readPrec :: ReadPrec StartDeviceAuthorizationResponse
+$creadPrec :: ReadPrec StartDeviceAuthorizationResponse
+readList :: ReadS [StartDeviceAuthorizationResponse]
+$creadList :: ReadS [StartDeviceAuthorizationResponse]
+readsPrec :: Int -&gt; ReadS StartDeviceAuthorizationResponse
+$creadsPrec :: Int -&gt; ReadS StartDeviceAuthorizationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141675"><span id="local-6989586621679141677"><span id="local-6989586621679141679"><span class="annot"><span class="annottext">Int -&gt; StartDeviceAuthorizationResponse -&gt; ShowS
+[StartDeviceAuthorizationResponse] -&gt; ShowS
+StartDeviceAuthorizationResponse -&gt; String
+(Int -&gt; StartDeviceAuthorizationResponse -&gt; ShowS)
+-&gt; (StartDeviceAuthorizationResponse -&gt; String)
+-&gt; ([StartDeviceAuthorizationResponse] -&gt; ShowS)
+-&gt; Show StartDeviceAuthorizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDeviceAuthorizationResponse] -&gt; ShowS
+$cshowList :: [StartDeviceAuthorizationResponse] -&gt; ShowS
+show :: StartDeviceAuthorizationResponse -&gt; String
+$cshow :: StartDeviceAuthorizationResponse -&gt; String
+showsPrec :: Int -&gt; StartDeviceAuthorizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDeviceAuthorizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDeviceAuthorizationResponse
+ -&gt; Rep StartDeviceAuthorizationResponse x)
+-&gt; (forall x.
+    Rep StartDeviceAuthorizationResponse x
+    -&gt; StartDeviceAuthorizationResponse)
+-&gt; Generic StartDeviceAuthorizationResponse
+forall x.
+Rep StartDeviceAuthorizationResponse x
+-&gt; StartDeviceAuthorizationResponse
+forall x.
+StartDeviceAuthorizationResponse
+-&gt; Rep StartDeviceAuthorizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartDeviceAuthorizationResponse x
+-&gt; StartDeviceAuthorizationResponse
+$cfrom :: forall x.
+StartDeviceAuthorizationResponse
+-&gt; Rep StartDeviceAuthorizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'StartDeviceAuthorizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'userCode', 'startDeviceAuthorizationResponse_userCode' - A one-time user verification code. This is needed to authorize an in-use</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'interval', 'startDeviceAuthorizationResponse_interval' - Indicates the number of seconds the client must wait between attempts</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- when polling for a session.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'expiresIn', 'startDeviceAuthorizationResponse_expiresIn' - Indicates the number of seconds in which the verification code will</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- become invalid.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'verificationUri', 'startDeviceAuthorizationResponse_verificationUri' - The URI of the verification page that takes the @userCode@ to authorize</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- the device.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'deviceCode', 'startDeviceAuthorizationResponse_deviceCode' - The short-lived code that is used by the device when polling for a</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- session token.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'verificationUriComplete', 'startDeviceAuthorizationResponse_verificationUriComplete' - An alternate URL that the client can use to automatically launch a</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- browser. This process skips the manual step in which the user visits the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- verification page and enters their code.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'startDeviceAuthorizationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">newStartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newStartDeviceAuthorizationResponse"><span class="annot"><span class="annottext">newStartDeviceAuthorizationResponse :: Int -&gt; StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorizationResponse"><span class="hs-identifier hs-var hs-var">newStartDeviceAuthorizationResponse</span></a></span></span><span> </span><span id="local-6989586621679141672"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userCode:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AuserCode%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">userCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:interval:StartDeviceAuthorizationResponse' :: Maybe Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3Ainterval%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:expiresIn:StartDeviceAuthorizationResponse' :: Maybe Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AexpiresIn%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">expiresIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:verificationUri:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AverificationUri%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">verificationUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceCode:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AdeviceCode%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">deviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:verificationUriComplete:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AverificationUriComplete%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">verificationUriComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartDeviceAuthorizationResponse' :: Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AhttpStatus%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | A one-time user verification code. This is needed to authorize an in-use</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_userCode"><span class="hs-identifier hs-type">startDeviceAuthorizationResponse_userCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="startDeviceAuthorizationResponse_userCode"><span class="annot"><span class="annottext">startDeviceAuthorizationResponse_userCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDeviceAuthorizationResponse
+-&gt; f StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_userCode"><span class="hs-identifier hs-var hs-var">startDeviceAuthorizationResponse_userCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorizationResponse -&gt; Maybe Text)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; Maybe Text -&gt; StartDeviceAuthorizationResponse)
+-&gt; Lens
+     StartDeviceAuthorizationResponse
+     StartDeviceAuthorizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141671"><span class="annot"><span class="annottext">Maybe Text
+userCode :: Maybe Text
+$sel:userCode:StartDeviceAuthorizationResponse' :: StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679141671"><span class="hs-identifier hs-var hs-var">userCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141671"><span class="hs-identifier hs-var">userCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141670"><span class="annot"><span class="annottext">s :: StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userCode:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AuserCode%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">userCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Indicates the number of seconds the client must wait between attempts</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- when polling for a session.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_interval"><span class="hs-identifier hs-type">startDeviceAuthorizationResponse_interval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="startDeviceAuthorizationResponse_interval"><span class="annot"><span class="annottext">startDeviceAuthorizationResponse_interval :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StartDeviceAuthorizationResponse
+-&gt; f StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_interval"><span class="hs-identifier hs-var hs-var">startDeviceAuthorizationResponse_interval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorizationResponse -&gt; Maybe Int)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; Maybe Int -&gt; StartDeviceAuthorizationResponse)
+-&gt; Lens
+     StartDeviceAuthorizationResponse
+     StartDeviceAuthorizationResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141668"><span class="annot"><span class="annottext">Maybe Int
+interval :: Maybe Int
+$sel:interval:StartDeviceAuthorizationResponse' :: StartDeviceAuthorizationResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679141668"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679141668"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141667"><span class="annot"><span class="annottext">s :: StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141666"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679141666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interval:StartDeviceAuthorizationResponse' :: Maybe Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3Ainterval%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679141666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | Indicates the number of seconds in which the verification code will</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- become invalid.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_expiresIn"><span class="hs-identifier hs-type">startDeviceAuthorizationResponse_expiresIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="startDeviceAuthorizationResponse_expiresIn"><span class="annot"><span class="annottext">startDeviceAuthorizationResponse_expiresIn :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StartDeviceAuthorizationResponse
+-&gt; f StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_expiresIn"><span class="hs-identifier hs-var hs-var">startDeviceAuthorizationResponse_expiresIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorizationResponse -&gt; Maybe Int)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; Maybe Int -&gt; StartDeviceAuthorizationResponse)
+-&gt; Lens
+     StartDeviceAuthorizationResponse
+     StartDeviceAuthorizationResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141665"><span class="annot"><span class="annottext">Maybe Int
+expiresIn :: Maybe Int
+$sel:expiresIn:StartDeviceAuthorizationResponse' :: StartDeviceAuthorizationResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679141665"><span class="hs-identifier hs-var hs-var">expiresIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679141665"><span class="hs-identifier hs-var">expiresIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141664"><span class="annot"><span class="annottext">s :: StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141663"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679141663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresIn:StartDeviceAuthorizationResponse' :: Maybe Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AexpiresIn%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">expiresIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679141663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The URI of the verification page that takes the @userCode@ to authorize</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- the device.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_verificationUri"><span class="hs-identifier hs-type">startDeviceAuthorizationResponse_verificationUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="startDeviceAuthorizationResponse_verificationUri"><span class="annot"><span class="annottext">startDeviceAuthorizationResponse_verificationUri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDeviceAuthorizationResponse
+-&gt; f StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_verificationUri"><span class="hs-identifier hs-var hs-var">startDeviceAuthorizationResponse_verificationUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorizationResponse -&gt; Maybe Text)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; Maybe Text -&gt; StartDeviceAuthorizationResponse)
+-&gt; Lens
+     StartDeviceAuthorizationResponse
+     StartDeviceAuthorizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141662"><span class="annot"><span class="annottext">Maybe Text
+verificationUri :: Maybe Text
+$sel:verificationUri:StartDeviceAuthorizationResponse' :: StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679141662"><span class="hs-identifier hs-var hs-var">verificationUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141662"><span class="hs-identifier hs-var">verificationUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141661"><span class="annot"><span class="annottext">s :: StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationUri:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AverificationUri%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">verificationUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The short-lived code that is used by the device when polling for a</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- session token.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_deviceCode"><span class="hs-identifier hs-type">startDeviceAuthorizationResponse_deviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="startDeviceAuthorizationResponse_deviceCode"><span class="annot"><span class="annottext">startDeviceAuthorizationResponse_deviceCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDeviceAuthorizationResponse
+-&gt; f StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_deviceCode"><span class="hs-identifier hs-var hs-var">startDeviceAuthorizationResponse_deviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorizationResponse -&gt; Maybe Text)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; Maybe Text -&gt; StartDeviceAuthorizationResponse)
+-&gt; Lens
+     StartDeviceAuthorizationResponse
+     StartDeviceAuthorizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141659"><span class="annot"><span class="annottext">Maybe Text
+deviceCode :: Maybe Text
+$sel:deviceCode:StartDeviceAuthorizationResponse' :: StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679141659"><span class="hs-identifier hs-var hs-var">deviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141659"><span class="hs-identifier hs-var">deviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141658"><span class="annot"><span class="annottext">s :: StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceCode:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AdeviceCode%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">deviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | An alternate URL that the client can use to automatically launch a</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- browser. This process skips the manual step in which the user visits the</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- verification page and enters their code.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_verificationUriComplete"><span class="hs-identifier hs-type">startDeviceAuthorizationResponse_verificationUriComplete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="startDeviceAuthorizationResponse_verificationUriComplete"><span class="annot"><span class="annottext">startDeviceAuthorizationResponse_verificationUriComplete :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDeviceAuthorizationResponse
+-&gt; f StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_verificationUriComplete"><span class="hs-identifier hs-var hs-var">startDeviceAuthorizationResponse_verificationUriComplete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorizationResponse -&gt; Maybe Text)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; Maybe Text -&gt; StartDeviceAuthorizationResponse)
+-&gt; Lens
+     StartDeviceAuthorizationResponse
+     StartDeviceAuthorizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141656"><span class="annot"><span class="annottext">Maybe Text
+verificationUriComplete :: Maybe Text
+$sel:verificationUriComplete:StartDeviceAuthorizationResponse' :: StartDeviceAuthorizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679141656"><span class="hs-identifier hs-var hs-var">verificationUriComplete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141656"><span class="hs-identifier hs-var">verificationUriComplete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141655"><span class="annot"><span class="annottext">s :: StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationUriComplete:StartDeviceAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AverificationUriComplete%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">verificationUriComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_httpStatus"><span class="hs-identifier hs-type">startDeviceAuthorizationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-278"></span><span id="startDeviceAuthorizationResponse_httpStatus"><span class="annot"><span class="annottext">startDeviceAuthorizationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartDeviceAuthorizationResponse
+-&gt; f StartDeviceAuthorizationResponse
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#startDeviceAuthorizationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startDeviceAuthorizationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeviceAuthorizationResponse -&gt; Int)
+-&gt; (StartDeviceAuthorizationResponse
+    -&gt; Int -&gt; StartDeviceAuthorizationResponse)
+-&gt; Lens
+     StartDeviceAuthorizationResponse
+     StartDeviceAuthorizationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141653"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartDeviceAuthorizationResponse' :: StartDeviceAuthorizationResponse -&gt; Int
+</span><a href="#local-6989586621679141653"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141653"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141652"><span class="annot"><span class="annottext">s :: StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141651"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeviceAuthorizationResponse
+</span><a href="#local-6989586621679141652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDeviceAuthorizationResponse' :: Int
+</span><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#%24sel%3AhttpStatus%3AStartDeviceAuthorizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679141649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Amazonka.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier hs-type">StartDeviceAuthorizationResponse</span></a></span></span><span>
+</span><span id="line-283"></span></pre></body></html>

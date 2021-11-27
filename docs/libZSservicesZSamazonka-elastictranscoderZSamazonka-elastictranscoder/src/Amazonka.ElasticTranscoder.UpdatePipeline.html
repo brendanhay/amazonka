@@ -1,0 +1,1299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElasticTranscoder.UpdatePipeline</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Use the @UpdatePipeline@ operation to update settings for a pipeline.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When you change pipeline settings, your changes take effect immediately.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Jobs that you have already submitted and that Elastic Transcoder has not</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- started to process are affected in addition to jobs that you submit</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- after you change settings.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticTranscoder.UpdatePipeline</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#newUpdatePipeline"><span class="hs-identifier">newUpdatePipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_inputBucket"><span class="hs-identifier">updatePipeline_inputBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_contentConfig"><span class="hs-identifier">updatePipeline_contentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_role"><span class="hs-identifier">updatePipeline_role</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_name"><span class="hs-identifier">updatePipeline_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_awsKmsKeyArn"><span class="hs-identifier">updatePipeline_awsKmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_notifications"><span class="hs-identifier">updatePipeline_notifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_thumbnailConfig"><span class="hs-identifier">updatePipeline_thumbnailConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_id"><span class="hs-identifier">updatePipeline_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier">UpdatePipelineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#newUpdatePipelineResponse"><span class="hs-identifier">newUpdatePipelineResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_warnings"><span class="hs-identifier">updatePipelineResponse_warnings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_pipeline"><span class="hs-identifier">updatePipelineResponse_pipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_httpStatus"><span class="hs-identifier">updatePipelineResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.html"><span class="hs-identifier">Amazonka.ElasticTranscoder.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The @UpdatePipelineRequest@ structure.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- /See:/ 'newUpdatePipeline' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679217710"><span id="local-6989586621679217711"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipeline"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-var">UpdatePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipeline%27"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-var">UpdatePipeline'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 bucket in which you saved the media files that you want to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- transcode and the graphics that you want to use as watermarks.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AinputBucket%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AinputBucket%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">inputBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The optional @ContentConfig@ object specifies information about the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- files and playlists: which bucket to use, which users you want to have</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- access to the files, the type of access you want users to have, and the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- storage class that you want to assign to the files.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- If you specify values for @ContentConfig@, you must also specify values</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- for @ThumbnailConfig@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the @OutputBucket@ object.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     Transcoder to save transcoded files and playlists.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   __Permissions__ (Optional): The Permissions object specifies which</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     users you want to have access to transcoded files and the type of</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     access you want them to have. You can grant permissions to a maximum</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     of 30 users and\/or predefined Amazon S3 groups.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   __Grantee Type__: Specify the type of value that appears in the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     @Grantee@ object:</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     -   __Canonical__: The value in the @Grantee@ object is either the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--         canonical user ID for an AWS account or an origin access</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--         identity for an Amazon CloudFront distribution. For more</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--         information about canonical user IDs, see Access Control List</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--         (ACL) Overview in the Amazon Simple Storage Service Developer</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--         Guide. For more information about using CloudFront origin access</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--         identities to require that users use CloudFront URLs instead of</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--         Amazon S3 URLs, see Using an Origin Access Identity to Restrict</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--         Access to Your Amazon S3 Content.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--         A canonical user ID is not the same as an AWS account number.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     -   __Email__: The value in the @Grantee@ object is the registered</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--         email address of an AWS account.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     -   __Group__: The value in the @Grantee@ object is one of the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--         following predefined Amazon S3 groups: @AllUsers@,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--         @AuthenticatedUsers@, or @LogDelivery@.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   __Grantee__: The AWS user or group that you want to have access to</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     transcoded files and playlists. To identify the user or group, you</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     can specify the canonical user ID for an AWS account, an origin</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     access identity for a CloudFront distribution, the registered email</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     address of an AWS account, or a predefined Amazon S3 group</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   __Access__: The permission that you want to give to the AWS user</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--     that you specified in @Grantee@. Permissions are granted on the</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     files that Elastic Transcoder adds to the bucket, including</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     playlists and video files. Valid values include:</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     -   @READ@: The grantee can read the objects and metadata for</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--         objects that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     -   @READ_ACP@: The grantee can read the object ACL for objects that</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--         Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--     -   @WRITE_ACP@: The grantee can write the ACL for the objects that</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--         Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--         @WRITE_ACP@ permissions for the objects that Elastic Transcoder</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--         adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     the video files and playlists that it stores in your Amazon S3</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--     bucket.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AcontentConfig%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Maybe PipelineOutputConfig
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AcontentConfig%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">contentConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- Transcoder to use to transcode jobs for this pipeline.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Arole%27%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Arole%27%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The name of the pipeline. We recommend that the name be unique within</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- the AWS account, but uniqueness is not enforced.</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- Constraints: Maximum 40 characters</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3Aname%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Aname%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The AWS Key Management Service (AWS KMS) key that you want to use with</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- this pipeline.</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- don\'t need to provide a key with your job because a default key, known</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- as an AWS-KMS key, is created for you automatically. You need to provide</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- @aes-gcm@.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AawsKmsKeyArn%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AawsKmsKeyArn%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">awsKmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- topic that you want to notify to report job status.</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- To receive notifications, you must also subscribe to the new topic in</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- the Amazon SNS console.</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- -   __Progressing__: The topic ARN for the Amazon Simple Notification</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--     Service (Amazon SNS) topic that you want to notify when Elastic</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">--     Transcoder has started to process jobs that are added to this</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     pipeline. This is the ARN that Amazon SNS returned when you created</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--     the topic.</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     to notify when Elastic Transcoder has finished processing a job.</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--     This is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     notify when Elastic Transcoder encounters a warning condition. This</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">--     notify when Elastic Transcoder encounters an error condition. This</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3Anotifications%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Maybe Notifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Anotifications%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">notifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Notifications.html#Notifications"><span class="hs-identifier hs-type">Notifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The @ThumbnailConfig@ object specifies several values, including the</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- files, which users you want to have access to the files, the type of</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- access you want users to have, and the storage class that you want to</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- assign to the files.</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- If you specify values for @ContentConfig@, you must also specify values</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- the @OutputBucket@ object.</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">--     Transcoder to save thumbnail files.</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- -   __Permissions__ (Optional): The @Permissions@ object specifies which</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">--     users and\/or predefined Amazon S3 groups you want to have access to</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">--     thumbnail files, and the type of access you want them to have. You</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">--     can grant permissions to a maximum of 30 users and\/or predefined</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">--     Amazon S3 groups.</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- -   __GranteeType__: Specify the type of value that appears in the</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">--     Grantee object:</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">--     -   __Canonical__: The value in the @Grantee@ object is either the</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">--         canonical user ID for an AWS account or an origin access</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">--         identity for an Amazon CloudFront distribution.</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">--         A canonical user ID is not the same as an AWS account number.</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">--     -   __Email__: The value in the @Grantee@ object is the registered</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">--         email address of an AWS account.</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">--     -   __Group__: The value in the @Grantee@ object is one of the</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">--         following predefined Amazon S3 groups: @AllUsers@,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">--         @AuthenticatedUsers@, or @LogDelivery@.</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- -   __Grantee__: The AWS user or group that you want to have access to</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">--     thumbnail files. To identify the user or group, you can specify the</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">--     canonical user ID for an AWS account, an origin access identity for</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">--     a CloudFront distribution, the registered email address of an AWS</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">--     account, or a predefined Amazon S3 group.</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- -   __Access__: The permission that you want to give to the AWS user</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">--     that you specified in @Grantee@. Permissions are granted on the</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">--     thumbnail files that Elastic Transcoder adds to the bucket. Valid</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">--     values include:</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">--     -   @READ@: The grantee can read the thumbnails and metadata for</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">--         objects that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">--     -   @READ_ACP@: The grantee can read the object ACL for thumbnails</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">--         that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">--     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">--         that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">--         @WRITE_ACP@ permissions for the thumbnails that Elastic</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">--         Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">--     the thumbnails that it stores in your Amazon S3 bucket.</span><span>
+</span><span id="line-246"></span><span>    </span><span id="%24sel%3AthumbnailConfig%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Maybe PipelineOutputConfig
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AthumbnailConfig%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">thumbnailConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- | The ID of the pipeline that you want to update.</span><span>
+</span><span id="line-248"></span><span>    </span><span id="%24sel%3Aid%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Aid%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217697"><span id="local-6989586621679217699"><span class="annot"><span class="annottext">UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
+(UpdatePipeline -&gt; UpdatePipeline -&gt; Bool)
+-&gt; (UpdatePipeline -&gt; UpdatePipeline -&gt; Bool) -&gt; Eq UpdatePipeline
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
+$c/= :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
+== :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
+$c== :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217688"><span id="local-6989586621679217690"><span id="local-6989586621679217692"><span id="local-6989586621679217694"><span class="annot"><span class="annottext">ReadPrec [UpdatePipeline]
+ReadPrec UpdatePipeline
+Int -&gt; ReadS UpdatePipeline
+ReadS [UpdatePipeline]
+(Int -&gt; ReadS UpdatePipeline)
+-&gt; ReadS [UpdatePipeline]
+-&gt; ReadPrec UpdatePipeline
+-&gt; ReadPrec [UpdatePipeline]
+-&gt; Read UpdatePipeline
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePipeline]
+$creadListPrec :: ReadPrec [UpdatePipeline]
+readPrec :: ReadPrec UpdatePipeline
+$creadPrec :: ReadPrec UpdatePipeline
+readList :: ReadS [UpdatePipeline]
+$creadList :: ReadS [UpdatePipeline]
+readsPrec :: Int -&gt; ReadS UpdatePipeline
+$creadsPrec :: Int -&gt; ReadS UpdatePipeline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217681"><span id="local-6989586621679217683"><span id="local-6989586621679217685"><span class="annot"><span class="annottext">Int -&gt; UpdatePipeline -&gt; ShowS
+[UpdatePipeline] -&gt; ShowS
+UpdatePipeline -&gt; String
+(Int -&gt; UpdatePipeline -&gt; ShowS)
+-&gt; (UpdatePipeline -&gt; String)
+-&gt; ([UpdatePipeline] -&gt; ShowS)
+-&gt; Show UpdatePipeline
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePipeline] -&gt; ShowS
+$cshowList :: [UpdatePipeline] -&gt; ShowS
+show :: UpdatePipeline -&gt; String
+$cshow :: UpdatePipeline -&gt; String
+showsPrec :: Int -&gt; UpdatePipeline -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdatePipeline -&gt; Rep UpdatePipeline x)
+-&gt; (forall x. Rep UpdatePipeline x -&gt; UpdatePipeline)
+-&gt; Generic UpdatePipeline
+forall x. Rep UpdatePipeline x -&gt; UpdatePipeline
+forall x. UpdatePipeline -&gt; Rep UpdatePipeline x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdatePipeline x -&gt; UpdatePipeline
+$cfrom :: forall x. UpdatePipeline -&gt; Rep UpdatePipeline x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Create a value of 'UpdatePipeline' with all optional fields omitted.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'inputBucket', 'updatePipeline_inputBucket' - The Amazon S3 bucket in which you saved the media files that you want to</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- transcode and the graphics that you want to use as watermarks.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'contentConfig', 'updatePipeline_contentConfig' - The optional @ContentConfig@ object specifies information about the</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- files and playlists: which bucket to use, which users you want to have</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- access to the files, the type of access you want users to have, and the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- storage class that you want to assign to the files.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- If you specify values for @ContentConfig@, you must also specify values</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- for @ThumbnailConfig@.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- the @OutputBucket@ object.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--     Transcoder to save transcoded files and playlists.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- -   __Permissions__ (Optional): The Permissions object specifies which</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     users you want to have access to transcoded files and the type of</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     access you want them to have. You can grant permissions to a maximum</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     of 30 users and\/or predefined Amazon S3 groups.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   __Grantee Type__: Specify the type of value that appears in the</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     @Grantee@ object:</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--     -   __Canonical__: The value in the @Grantee@ object is either the</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--         canonical user ID for an AWS account or an origin access</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--         identity for an Amazon CloudFront distribution. For more</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--         information about canonical user IDs, see Access Control List</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--         (ACL) Overview in the Amazon Simple Storage Service Developer</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--         Guide. For more information about using CloudFront origin access</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--         identities to require that users use CloudFront URLs instead of</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--         Amazon S3 URLs, see Using an Origin Access Identity to Restrict</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--         Access to Your Amazon S3 Content.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--         A canonical user ID is not the same as an AWS account number.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--     -   __Email__: The value in the @Grantee@ object is the registered</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--         email address of an AWS account.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     -   __Group__: The value in the @Grantee@ object is one of the</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--         following predefined Amazon S3 groups: @AllUsers@,</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--         @AuthenticatedUsers@, or @LogDelivery@.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   __Grantee__: The AWS user or group that you want to have access to</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     transcoded files and playlists. To identify the user or group, you</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     can specify the canonical user ID for an AWS account, an origin</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     access identity for a CloudFront distribution, the registered email</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     address of an AWS account, or a predefined Amazon S3 group</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- -   __Access__: The permission that you want to give to the AWS user</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     that you specified in @Grantee@. Permissions are granted on the</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     files that Elastic Transcoder adds to the bucket, including</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     playlists and video files. Valid values include:</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     -   @READ@: The grantee can read the objects and metadata for</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--         objects that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--     -   @READ_ACP@: The grantee can read the object ACL for objects that</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--         Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     -   @WRITE_ACP@: The grantee can write the ACL for the objects that</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--         Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--         @WRITE_ACP@ permissions for the objects that Elastic Transcoder</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--         adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--     the video files and playlists that it stores in your Amazon S3</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     bucket.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- 'role'', 'updatePipeline_role' - The IAM Amazon Resource Name (ARN) for the role that you want Elastic</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- Transcoder to use to transcode jobs for this pipeline.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- 'name', 'updatePipeline_name' - The name of the pipeline. We recommend that the name be unique within</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- the AWS account, but uniqueness is not enforced.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- Constraints: Maximum 40 characters</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- 'awsKmsKeyArn', 'updatePipeline_awsKmsKeyArn' - The AWS Key Management Service (AWS KMS) key that you want to use with</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- this pipeline.</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- don\'t need to provide a key with your job because a default key, known</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- as an AWS-KMS key, is created for you automatically. You need to provide</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- @aes-gcm@.</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- 'notifications', 'updatePipeline_notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS)</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- topic that you want to notify to report job status.</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- To receive notifications, you must also subscribe to the new topic in</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- the Amazon SNS console.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- -   __Progressing__: The topic ARN for the Amazon Simple Notification</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--     Service (Amazon SNS) topic that you want to notify when Elastic</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--     Transcoder has started to process jobs that are added to this</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--     pipeline. This is the ARN that Amazon SNS returned when you created</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--     the topic.</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--     to notify when Elastic Transcoder has finished processing a job.</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--     This is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters a warning condition. This</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters an error condition. This</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- 'thumbnailConfig', 'updatePipeline_thumbnailConfig' - The @ThumbnailConfig@ object specifies several values, including the</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- files, which users you want to have access to the files, the type of</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- access you want users to have, and the storage class that you want to</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- assign to the files.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- If you specify values for @ContentConfig@, you must also specify values</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- the @OutputBucket@ object.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--     Transcoder to save thumbnail files.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- -   __Permissions__ (Optional): The @Permissions@ object specifies which</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--     users and\/or predefined Amazon S3 groups you want to have access to</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--     thumbnail files, and the type of access you want them to have. You</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--     can grant permissions to a maximum of 30 users and\/or predefined</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--     Amazon S3 groups.</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- -   __GranteeType__: Specify the type of value that appears in the</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--     Grantee object:</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--     -   __Canonical__: The value in the @Grantee@ object is either the</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--         canonical user ID for an AWS account or an origin access</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--         identity for an Amazon CloudFront distribution.</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--         A canonical user ID is not the same as an AWS account number.</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--     -   __Email__: The value in the @Grantee@ object is the registered</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--         email address of an AWS account.</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--     -   __Group__: The value in the @Grantee@ object is one of the</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--         following predefined Amazon S3 groups: @AllUsers@,</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--         @AuthenticatedUsers@, or @LogDelivery@.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- -   __Grantee__: The AWS user or group that you want to have access to</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--     thumbnail files. To identify the user or group, you can specify the</span><span>
+</span><span id="line-415"></span><span class="hs-comment">--     canonical user ID for an AWS account, an origin access identity for</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--     a CloudFront distribution, the registered email address of an AWS</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--     account, or a predefined Amazon S3 group.</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- -   __Access__: The permission that you want to give to the AWS user</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--     that you specified in @Grantee@. Permissions are granted on the</span><span>
+</span><span id="line-421"></span><span class="hs-comment">--     thumbnail files that Elastic Transcoder adds to the bucket. Valid</span><span>
+</span><span id="line-422"></span><span class="hs-comment">--     values include:</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--     -   @READ@: The grantee can read the thumbnails and metadata for</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--         objects that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--     -   @READ_ACP@: The grantee can read the object ACL for thumbnails</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--         that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--         that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--         @WRITE_ACP@ permissions for the thumbnails that Elastic</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--         Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-436"></span><span class="hs-comment">--</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to</span><span>
+</span><span id="line-439"></span><span class="hs-comment">--     the thumbnails that it stores in your Amazon S3 bucket.</span><span>
+</span><span id="line-440"></span><span class="hs-comment">--</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- 'id', 'updatePipeline_id' - The ID of the pipeline that you want to update.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#newUpdatePipeline"><span class="hs-identifier hs-type">newUpdatePipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-443"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-444"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-445"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span>
+</span><span id="line-446"></span><span id="newUpdatePipeline"><span class="annot"><span class="annottext">newUpdatePipeline :: Text -&gt; UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#newUpdatePipeline"><span class="hs-identifier hs-var hs-var">newUpdatePipeline</span></a></span></span><span> </span><span id="local-6989586621679217676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217676"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-447"></span><span>  </span><span class="annot"><span class="annottext">UpdatePipeline' :: Maybe Text
+-&gt; Maybe PipelineOutputConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Notifications
+-&gt; Maybe PipelineOutputConfig
+-&gt; Text
+-&gt; UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span>
+</span><span id="line-448"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputBucket:UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AinputBucket%3AUpdatePipeline%27"><span class="hs-identifier hs-var">inputBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-449"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentConfig:UpdatePipeline' :: Maybe PipelineOutputConfig
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AcontentConfig%3AUpdatePipeline%27"><span class="hs-identifier hs-var">contentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-450"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Arole%27%3AUpdatePipeline%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-451"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Aname%3AUpdatePipeline%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-452"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsKmsKeyArn:UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AawsKmsKeyArn%3AUpdatePipeline%27"><span class="hs-identifier hs-var">awsKmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-453"></span><span>      </span><span class="annot"><span class="annottext">$sel:notifications:UpdatePipeline' :: Maybe Notifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Anotifications%3AUpdatePipeline%27"><span class="hs-identifier hs-var">notifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Notifications
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-454"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailConfig:UpdatePipeline' :: Maybe PipelineOutputConfig
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AthumbnailConfig%3AUpdatePipeline%27"><span class="hs-identifier hs-var">thumbnailConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-455"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UpdatePipeline' :: Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Aid%3AUpdatePipeline%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217676"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-456"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- | The Amazon S3 bucket in which you saved the media files that you want to</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- transcode and the graphics that you want to use as watermarks.</span><span>
+</span><span id="line-460"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_inputBucket"><span class="hs-identifier hs-type">updatePipeline_inputBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-461"></span><span id="updatePipeline_inputBucket"><span class="annot"><span class="annottext">updatePipeline_inputBucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_inputBucket"><span class="hs-identifier hs-var hs-var">updatePipeline_inputBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Maybe Text)
+-&gt; (UpdatePipeline -&gt; Maybe Text -&gt; UpdatePipeline)
+-&gt; Lens UpdatePipeline UpdatePipeline (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217673"><span class="annot"><span class="annottext">Maybe Text
+inputBucket :: Maybe Text
+$sel:inputBucket:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+</span><a href="#local-6989586621679217673"><span class="hs-identifier hs-var hs-var">inputBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217673"><span class="hs-identifier hs-var">inputBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217672"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217671"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputBucket:UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AinputBucket%3AUpdatePipeline%27"><span class="hs-identifier hs-var">inputBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-462"></span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- | The optional @ContentConfig@ object specifies information about the</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- files and playlists: which bucket to use, which users you want to have</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- access to the files, the type of access you want users to have, and the</span><span>
+</span><span id="line-467"></span><span class="hs-comment">-- storage class that you want to assign to the files.</span><span>
+</span><span id="line-468"></span><span class="hs-comment">--</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- If you specify values for @ContentConfig@, you must also specify values</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- for @ThumbnailConfig@.</span><span>
+</span><span id="line-471"></span><span class="hs-comment">--</span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- the @OutputBucket@ object.</span><span>
+</span><span id="line-474"></span><span class="hs-comment">--</span><span>
+</span><span id="line-475"></span><span class="hs-comment">-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic</span><span>
+</span><span id="line-476"></span><span class="hs-comment">--     Transcoder to save transcoded files and playlists.</span><span>
+</span><span id="line-477"></span><span class="hs-comment">--</span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- -   __Permissions__ (Optional): The Permissions object specifies which</span><span>
+</span><span id="line-479"></span><span class="hs-comment">--     users you want to have access to transcoded files and the type of</span><span>
+</span><span id="line-480"></span><span class="hs-comment">--     access you want them to have. You can grant permissions to a maximum</span><span>
+</span><span id="line-481"></span><span class="hs-comment">--     of 30 users and\/or predefined Amazon S3 groups.</span><span>
+</span><span id="line-482"></span><span class="hs-comment">--</span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- -   __Grantee Type__: Specify the type of value that appears in the</span><span>
+</span><span id="line-484"></span><span class="hs-comment">--     @Grantee@ object:</span><span>
+</span><span id="line-485"></span><span class="hs-comment">--</span><span>
+</span><span id="line-486"></span><span class="hs-comment">--     -   __Canonical__: The value in the @Grantee@ object is either the</span><span>
+</span><span id="line-487"></span><span class="hs-comment">--         canonical user ID for an AWS account or an origin access</span><span>
+</span><span id="line-488"></span><span class="hs-comment">--         identity for an Amazon CloudFront distribution. For more</span><span>
+</span><span id="line-489"></span><span class="hs-comment">--         information about canonical user IDs, see Access Control List</span><span>
+</span><span id="line-490"></span><span class="hs-comment">--         (ACL) Overview in the Amazon Simple Storage Service Developer</span><span>
+</span><span id="line-491"></span><span class="hs-comment">--         Guide. For more information about using CloudFront origin access</span><span>
+</span><span id="line-492"></span><span class="hs-comment">--         identities to require that users use CloudFront URLs instead of</span><span>
+</span><span id="line-493"></span><span class="hs-comment">--         Amazon S3 URLs, see Using an Origin Access Identity to Restrict</span><span>
+</span><span id="line-494"></span><span class="hs-comment">--         Access to Your Amazon S3 Content.</span><span>
+</span><span id="line-495"></span><span class="hs-comment">--</span><span>
+</span><span id="line-496"></span><span class="hs-comment">--         A canonical user ID is not the same as an AWS account number.</span><span>
+</span><span id="line-497"></span><span class="hs-comment">--</span><span>
+</span><span id="line-498"></span><span class="hs-comment">--     -   __Email__: The value in the @Grantee@ object is the registered</span><span>
+</span><span id="line-499"></span><span class="hs-comment">--         email address of an AWS account.</span><span>
+</span><span id="line-500"></span><span class="hs-comment">--</span><span>
+</span><span id="line-501"></span><span class="hs-comment">--     -   __Group__: The value in the @Grantee@ object is one of the</span><span>
+</span><span id="line-502"></span><span class="hs-comment">--         following predefined Amazon S3 groups: @AllUsers@,</span><span>
+</span><span id="line-503"></span><span class="hs-comment">--         @AuthenticatedUsers@, or @LogDelivery@.</span><span>
+</span><span id="line-504"></span><span class="hs-comment">--</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- -   __Grantee__: The AWS user or group that you want to have access to</span><span>
+</span><span id="line-506"></span><span class="hs-comment">--     transcoded files and playlists. To identify the user or group, you</span><span>
+</span><span id="line-507"></span><span class="hs-comment">--     can specify the canonical user ID for an AWS account, an origin</span><span>
+</span><span id="line-508"></span><span class="hs-comment">--     access identity for a CloudFront distribution, the registered email</span><span>
+</span><span id="line-509"></span><span class="hs-comment">--     address of an AWS account, or a predefined Amazon S3 group</span><span>
+</span><span id="line-510"></span><span class="hs-comment">--</span><span>
+</span><span id="line-511"></span><span class="hs-comment">-- -   __Access__: The permission that you want to give to the AWS user</span><span>
+</span><span id="line-512"></span><span class="hs-comment">--     that you specified in @Grantee@. Permissions are granted on the</span><span>
+</span><span id="line-513"></span><span class="hs-comment">--     files that Elastic Transcoder adds to the bucket, including</span><span>
+</span><span id="line-514"></span><span class="hs-comment">--     playlists and video files. Valid values include:</span><span>
+</span><span id="line-515"></span><span class="hs-comment">--</span><span>
+</span><span id="line-516"></span><span class="hs-comment">--     -   @READ@: The grantee can read the objects and metadata for</span><span>
+</span><span id="line-517"></span><span class="hs-comment">--         objects that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-518"></span><span class="hs-comment">--</span><span>
+</span><span id="line-519"></span><span class="hs-comment">--     -   @READ_ACP@: The grantee can read the object ACL for objects that</span><span>
+</span><span id="line-520"></span><span class="hs-comment">--         Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-521"></span><span class="hs-comment">--</span><span>
+</span><span id="line-522"></span><span class="hs-comment">--     -   @WRITE_ACP@: The grantee can write the ACL for the objects that</span><span>
+</span><span id="line-523"></span><span class="hs-comment">--         Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-524"></span><span class="hs-comment">--</span><span>
+</span><span id="line-525"></span><span class="hs-comment">--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and</span><span>
+</span><span id="line-526"></span><span class="hs-comment">--         @WRITE_ACP@ permissions for the objects that Elastic Transcoder</span><span>
+</span><span id="line-527"></span><span class="hs-comment">--         adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-528"></span><span class="hs-comment">--</span><span>
+</span><span id="line-529"></span><span class="hs-comment">-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or</span><span>
+</span><span id="line-530"></span><span class="hs-comment">--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to</span><span>
+</span><span id="line-531"></span><span class="hs-comment">--     the video files and playlists that it stores in your Amazon S3</span><span>
+</span><span id="line-532"></span><span class="hs-comment">--     bucket.</span><span>
+</span><span id="line-533"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_contentConfig"><span class="hs-identifier hs-type">updatePipeline_contentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-534"></span><span id="updatePipeline_contentConfig"><span class="annot"><span class="annottext">updatePipeline_contentConfig :: (Maybe PipelineOutputConfig -&gt; f (Maybe PipelineOutputConfig))
+-&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_contentConfig"><span class="hs-identifier hs-var hs-var">updatePipeline_contentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Maybe PipelineOutputConfig)
+-&gt; (UpdatePipeline -&gt; Maybe PipelineOutputConfig -&gt; UpdatePipeline)
+-&gt; Lens
+     UpdatePipeline
+     UpdatePipeline
+     (Maybe PipelineOutputConfig)
+     (Maybe PipelineOutputConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217670"><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+contentConfig :: Maybe PipelineOutputConfig
+$sel:contentConfig:UpdatePipeline' :: UpdatePipeline -&gt; Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217670"><span class="hs-identifier hs-var hs-var">contentConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217670"><span class="hs-identifier hs-var">contentConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217669"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217668"><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentConfig:UpdatePipeline' :: Maybe PipelineOutputConfig
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AcontentConfig%3AUpdatePipeline%27"><span class="hs-identifier hs-var">contentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-535"></span><span>
+</span><span id="line-536"></span><span class="hs-comment">-- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic</span><span>
+</span><span id="line-537"></span><span class="hs-comment">-- Transcoder to use to transcode jobs for this pipeline.</span><span>
+</span><span id="line-538"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_role"><span class="hs-identifier hs-type">updatePipeline_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-539"></span><span id="updatePipeline_role"><span class="annot"><span class="annottext">updatePipeline_role :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_role"><span class="hs-identifier hs-var hs-var">updatePipeline_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Maybe Text)
+-&gt; (UpdatePipeline -&gt; Maybe Text -&gt; UpdatePipeline)
+-&gt; Lens UpdatePipeline UpdatePipeline (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217667"><span class="annot"><span class="annottext">Maybe Text
+role' :: Maybe Text
+$sel:role':UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+</span><a href="#local-6989586621679217667"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217667"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217666"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217665"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Arole%27%3AUpdatePipeline%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-540"></span><span>
+</span><span id="line-541"></span><span class="hs-comment">-- | The name of the pipeline. We recommend that the name be unique within</span><span>
+</span><span id="line-542"></span><span class="hs-comment">-- the AWS account, but uniqueness is not enforced.</span><span>
+</span><span id="line-543"></span><span class="hs-comment">--</span><span>
+</span><span id="line-544"></span><span class="hs-comment">-- Constraints: Maximum 40 characters</span><span>
+</span><span id="line-545"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_name"><span class="hs-identifier hs-type">updatePipeline_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-546"></span><span id="updatePipeline_name"><span class="annot"><span class="annottext">updatePipeline_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_name"><span class="hs-identifier hs-var hs-var">updatePipeline_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Maybe Text)
+-&gt; (UpdatePipeline -&gt; Maybe Text -&gt; UpdatePipeline)
+-&gt; Lens UpdatePipeline UpdatePipeline (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217664"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+</span><a href="#local-6989586621679217664"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217664"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217663"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Aname%3AUpdatePipeline%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-547"></span><span>
+</span><span id="line-548"></span><span class="hs-comment">-- | The AWS Key Management Service (AWS KMS) key that you want to use with</span><span>
+</span><span id="line-549"></span><span class="hs-comment">-- this pipeline.</span><span>
+</span><span id="line-550"></span><span class="hs-comment">--</span><span>
+</span><span id="line-551"></span><span class="hs-comment">-- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you</span><span>
+</span><span id="line-552"></span><span class="hs-comment">-- don\'t need to provide a key with your job because a default key, known</span><span>
+</span><span id="line-553"></span><span class="hs-comment">-- as an AWS-KMS key, is created for you automatically. You need to provide</span><span>
+</span><span id="line-554"></span><span class="hs-comment">-- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if</span><span>
+</span><span id="line-555"></span><span class="hs-comment">-- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or</span><span>
+</span><span id="line-556"></span><span class="hs-comment">-- @aes-gcm@.</span><span>
+</span><span id="line-557"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_awsKmsKeyArn"><span class="hs-identifier hs-type">updatePipeline_awsKmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-558"></span><span id="updatePipeline_awsKmsKeyArn"><span class="annot"><span class="annottext">updatePipeline_awsKmsKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_awsKmsKeyArn"><span class="hs-identifier hs-var hs-var">updatePipeline_awsKmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Maybe Text)
+-&gt; (UpdatePipeline -&gt; Maybe Text -&gt; UpdatePipeline)
+-&gt; Lens UpdatePipeline UpdatePipeline (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217661"><span class="annot"><span class="annottext">Maybe Text
+awsKmsKeyArn :: Maybe Text
+$sel:awsKmsKeyArn:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+</span><a href="#local-6989586621679217661"><span class="hs-identifier hs-var hs-var">awsKmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217661"><span class="hs-identifier hs-var">awsKmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217660"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsKmsKeyArn:UpdatePipeline' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AawsKmsKeyArn%3AUpdatePipeline%27"><span class="hs-identifier hs-var">awsKmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-559"></span><span>
+</span><span id="line-560"></span><span class="hs-comment">-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)</span><span>
+</span><span id="line-561"></span><span class="hs-comment">-- topic that you want to notify to report job status.</span><span>
+</span><span id="line-562"></span><span class="hs-comment">--</span><span>
+</span><span id="line-563"></span><span class="hs-comment">-- To receive notifications, you must also subscribe to the new topic in</span><span>
+</span><span id="line-564"></span><span class="hs-comment">-- the Amazon SNS console.</span><span>
+</span><span id="line-565"></span><span class="hs-comment">--</span><span>
+</span><span id="line-566"></span><span class="hs-comment">-- -   __Progressing__: The topic ARN for the Amazon Simple Notification</span><span>
+</span><span id="line-567"></span><span class="hs-comment">--     Service (Amazon SNS) topic that you want to notify when Elastic</span><span>
+</span><span id="line-568"></span><span class="hs-comment">--     Transcoder has started to process jobs that are added to this</span><span>
+</span><span id="line-569"></span><span class="hs-comment">--     pipeline. This is the ARN that Amazon SNS returned when you created</span><span>
+</span><span id="line-570"></span><span class="hs-comment">--     the topic.</span><span>
+</span><span id="line-571"></span><span class="hs-comment">--</span><span>
+</span><span id="line-572"></span><span class="hs-comment">-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want</span><span>
+</span><span id="line-573"></span><span class="hs-comment">--     to notify when Elastic Transcoder has finished processing a job.</span><span>
+</span><span id="line-574"></span><span class="hs-comment">--     This is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-575"></span><span class="hs-comment">--</span><span>
+</span><span id="line-576"></span><span class="hs-comment">-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-577"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters a warning condition. This</span><span>
+</span><span id="line-578"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-579"></span><span class="hs-comment">--</span><span>
+</span><span id="line-580"></span><span class="hs-comment">-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-581"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters an error condition. This</span><span>
+</span><span id="line-582"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-583"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_notifications"><span class="hs-identifier hs-type">updatePipeline_notifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Notifications.html#Notifications"><span class="hs-identifier hs-type">Notifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-584"></span><span id="updatePipeline_notifications"><span class="annot"><span class="annottext">updatePipeline_notifications :: (Maybe Notifications -&gt; f (Maybe Notifications))
+-&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_notifications"><span class="hs-identifier hs-var hs-var">updatePipeline_notifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Maybe Notifications)
+-&gt; (UpdatePipeline -&gt; Maybe Notifications -&gt; UpdatePipeline)
+-&gt; Lens
+     UpdatePipeline
+     UpdatePipeline
+     (Maybe Notifications)
+     (Maybe Notifications)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217658"><span class="annot"><span class="annottext">Maybe Notifications
+notifications :: Maybe Notifications
+$sel:notifications:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Notifications
+</span><a href="#local-6989586621679217658"><span class="hs-identifier hs-var hs-var">notifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Notifications
+</span><a href="#local-6989586621679217658"><span class="hs-identifier hs-var">notifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217657"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217656"><span class="annot"><span class="annottext">Maybe Notifications
+</span><a href="#local-6989586621679217656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifications:UpdatePipeline' :: Maybe Notifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Anotifications%3AUpdatePipeline%27"><span class="hs-identifier hs-var">notifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Notifications
+</span><a href="#local-6989586621679217656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-585"></span><span>
+</span><span id="line-586"></span><span class="hs-comment">-- | The @ThumbnailConfig@ object specifies several values, including the</span><span>
+</span><span id="line-587"></span><span class="hs-comment">-- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail</span><span>
+</span><span id="line-588"></span><span class="hs-comment">-- files, which users you want to have access to the files, the type of</span><span>
+</span><span id="line-589"></span><span class="hs-comment">-- access you want users to have, and the storage class that you want to</span><span>
+</span><span id="line-590"></span><span class="hs-comment">-- assign to the files.</span><span>
+</span><span id="line-591"></span><span class="hs-comment">--</span><span>
+</span><span id="line-592"></span><span class="hs-comment">-- If you specify values for @ContentConfig@, you must also specify values</span><span>
+</span><span id="line-593"></span><span class="hs-comment">-- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.</span><span>
+</span><span id="line-594"></span><span class="hs-comment">--</span><span>
+</span><span id="line-595"></span><span class="hs-comment">-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit</span><span>
+</span><span id="line-596"></span><span class="hs-comment">-- the @OutputBucket@ object.</span><span>
+</span><span id="line-597"></span><span class="hs-comment">--</span><span>
+</span><span id="line-598"></span><span class="hs-comment">-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic</span><span>
+</span><span id="line-599"></span><span class="hs-comment">--     Transcoder to save thumbnail files.</span><span>
+</span><span id="line-600"></span><span class="hs-comment">--</span><span>
+</span><span id="line-601"></span><span class="hs-comment">-- -   __Permissions__ (Optional): The @Permissions@ object specifies which</span><span>
+</span><span id="line-602"></span><span class="hs-comment">--     users and\/or predefined Amazon S3 groups you want to have access to</span><span>
+</span><span id="line-603"></span><span class="hs-comment">--     thumbnail files, and the type of access you want them to have. You</span><span>
+</span><span id="line-604"></span><span class="hs-comment">--     can grant permissions to a maximum of 30 users and\/or predefined</span><span>
+</span><span id="line-605"></span><span class="hs-comment">--     Amazon S3 groups.</span><span>
+</span><span id="line-606"></span><span class="hs-comment">--</span><span>
+</span><span id="line-607"></span><span class="hs-comment">-- -   __GranteeType__: Specify the type of value that appears in the</span><span>
+</span><span id="line-608"></span><span class="hs-comment">--     Grantee object:</span><span>
+</span><span id="line-609"></span><span class="hs-comment">--</span><span>
+</span><span id="line-610"></span><span class="hs-comment">--     -   __Canonical__: The value in the @Grantee@ object is either the</span><span>
+</span><span id="line-611"></span><span class="hs-comment">--         canonical user ID for an AWS account or an origin access</span><span>
+</span><span id="line-612"></span><span class="hs-comment">--         identity for an Amazon CloudFront distribution.</span><span>
+</span><span id="line-613"></span><span class="hs-comment">--</span><span>
+</span><span id="line-614"></span><span class="hs-comment">--         A canonical user ID is not the same as an AWS account number.</span><span>
+</span><span id="line-615"></span><span class="hs-comment">--</span><span>
+</span><span id="line-616"></span><span class="hs-comment">--     -   __Email__: The value in the @Grantee@ object is the registered</span><span>
+</span><span id="line-617"></span><span class="hs-comment">--         email address of an AWS account.</span><span>
+</span><span id="line-618"></span><span class="hs-comment">--</span><span>
+</span><span id="line-619"></span><span class="hs-comment">--     -   __Group__: The value in the @Grantee@ object is one of the</span><span>
+</span><span id="line-620"></span><span class="hs-comment">--         following predefined Amazon S3 groups: @AllUsers@,</span><span>
+</span><span id="line-621"></span><span class="hs-comment">--         @AuthenticatedUsers@, or @LogDelivery@.</span><span>
+</span><span id="line-622"></span><span class="hs-comment">--</span><span>
+</span><span id="line-623"></span><span class="hs-comment">-- -   __Grantee__: The AWS user or group that you want to have access to</span><span>
+</span><span id="line-624"></span><span class="hs-comment">--     thumbnail files. To identify the user or group, you can specify the</span><span>
+</span><span id="line-625"></span><span class="hs-comment">--     canonical user ID for an AWS account, an origin access identity for</span><span>
+</span><span id="line-626"></span><span class="hs-comment">--     a CloudFront distribution, the registered email address of an AWS</span><span>
+</span><span id="line-627"></span><span class="hs-comment">--     account, or a predefined Amazon S3 group.</span><span>
+</span><span id="line-628"></span><span class="hs-comment">--</span><span>
+</span><span id="line-629"></span><span class="hs-comment">-- -   __Access__: The permission that you want to give to the AWS user</span><span>
+</span><span id="line-630"></span><span class="hs-comment">--     that you specified in @Grantee@. Permissions are granted on the</span><span>
+</span><span id="line-631"></span><span class="hs-comment">--     thumbnail files that Elastic Transcoder adds to the bucket. Valid</span><span>
+</span><span id="line-632"></span><span class="hs-comment">--     values include:</span><span>
+</span><span id="line-633"></span><span class="hs-comment">--</span><span>
+</span><span id="line-634"></span><span class="hs-comment">--     -   @READ@: The grantee can read the thumbnails and metadata for</span><span>
+</span><span id="line-635"></span><span class="hs-comment">--         objects that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-636"></span><span class="hs-comment">--</span><span>
+</span><span id="line-637"></span><span class="hs-comment">--     -   @READ_ACP@: The grantee can read the object ACL for thumbnails</span><span>
+</span><span id="line-638"></span><span class="hs-comment">--         that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-639"></span><span class="hs-comment">--</span><span>
+</span><span id="line-640"></span><span class="hs-comment">--     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails</span><span>
+</span><span id="line-641"></span><span class="hs-comment">--         that Elastic Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-642"></span><span class="hs-comment">--</span><span>
+</span><span id="line-643"></span><span class="hs-comment">--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and</span><span>
+</span><span id="line-644"></span><span class="hs-comment">--         @WRITE_ACP@ permissions for the thumbnails that Elastic</span><span>
+</span><span id="line-645"></span><span class="hs-comment">--         Transcoder adds to the Amazon S3 bucket.</span><span>
+</span><span id="line-646"></span><span class="hs-comment">--</span><span>
+</span><span id="line-647"></span><span class="hs-comment">-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or</span><span>
+</span><span id="line-648"></span><span class="hs-comment">--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to</span><span>
+</span><span id="line-649"></span><span class="hs-comment">--     the thumbnails that it stores in your Amazon S3 bucket.</span><span>
+</span><span id="line-650"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_thumbnailConfig"><span class="hs-identifier hs-type">updatePipeline_thumbnailConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-651"></span><span id="updatePipeline_thumbnailConfig"><span class="annot"><span class="annottext">updatePipeline_thumbnailConfig :: (Maybe PipelineOutputConfig -&gt; f (Maybe PipelineOutputConfig))
+-&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_thumbnailConfig"><span class="hs-identifier hs-var hs-var">updatePipeline_thumbnailConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Maybe PipelineOutputConfig)
+-&gt; (UpdatePipeline -&gt; Maybe PipelineOutputConfig -&gt; UpdatePipeline)
+-&gt; Lens
+     UpdatePipeline
+     UpdatePipeline
+     (Maybe PipelineOutputConfig)
+     (Maybe PipelineOutputConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217655"><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+thumbnailConfig :: Maybe PipelineOutputConfig
+$sel:thumbnailConfig:UpdatePipeline' :: UpdatePipeline -&gt; Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217655"><span class="hs-identifier hs-var hs-var">thumbnailConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217655"><span class="hs-identifier hs-var">thumbnailConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217654"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217653"><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailConfig:UpdatePipeline' :: Maybe PipelineOutputConfig
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AthumbnailConfig%3AUpdatePipeline%27"><span class="hs-identifier hs-var">thumbnailConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-652"></span><span>
+</span><span id="line-653"></span><span class="hs-comment">-- | The ID of the pipeline that you want to update.</span><span>
+</span><span id="line-654"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_id"><span class="hs-identifier hs-type">updatePipeline_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-655"></span><span id="updatePipeline_id"><span class="annot"><span class="annottext">updatePipeline_id :: (Text -&gt; f Text) -&gt; UpdatePipeline -&gt; f UpdatePipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipeline_id"><span class="hs-identifier hs-var hs-var">updatePipeline_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipeline -&gt; Text)
+-&gt; (UpdatePipeline -&gt; Text -&gt; UpdatePipeline)
+-&gt; Lens UpdatePipeline UpdatePipeline Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217652"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdatePipeline' :: UpdatePipeline -&gt; Text
+</span><a href="#local-6989586621679217652"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217652"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217651"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679217651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679217651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdatePipeline' :: Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Aid%3AUpdatePipeline%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-656"></span><span>
+</span><span id="line-657"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-658"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-659"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-660"></span><span>      </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span>
+</span><span id="line-661"></span><span>  </span><span id="local-6989586621679217646"><span class="annot"><span class="annottext">request :: UpdatePipeline -&gt; Request UpdatePipeline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdatePipeline -&gt; Request UpdatePipeline
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-662"></span><span>  </span><span id="local-6989586621679217642"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePipeline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdatePipeline)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-663"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdatePipeline))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePipeline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdatePipeline)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-664"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217639"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217638"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679217638"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217637"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-665"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Warning] -&gt; Maybe Pipeline -&gt; Int -&gt; UpdatePipelineResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span><span>
+</span><span id="line-666"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Warning]
+ -&gt; Maybe Pipeline -&gt; Int -&gt; UpdatePipelineResponse)
+-&gt; Either String (Maybe [Warning])
+-&gt; Either String (Maybe Pipeline -&gt; Int -&gt; UpdatePipelineResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Warning]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Warnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Warning]))
+-&gt; Maybe [Warning] -&gt; Either String (Maybe [Warning])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-667"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Pipeline -&gt; Int -&gt; UpdatePipelineResponse)
+-&gt; Either String (Maybe Pipeline)
+-&gt; Either String (Int -&gt; UpdatePipelineResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Pipeline)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pipeline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-668"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdatePipelineResponse)
+-&gt; Either String Int -&gt; Either String UpdatePipelineResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217639"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-669"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-670"></span><span>
+</span><span id="line-671"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217628"><span id="local-6989586621679217630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span><span>
+</span><span id="line-672"></span><span>
+</span><span id="line-673"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span><span>
+</span><span id="line-674"></span><span>
+</span><span id="line-675"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-676"></span><span>  </span><span id="local-6989586621679217621"><span class="annot"><span class="annottext">toHeaders :: UpdatePipeline -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePipeline -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-677"></span><span>
+</span><span id="line-678"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217612"><span id="local-6989586621679217614"><span id="local-6989586621679217616"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-679"></span><span>  </span><span id="local-6989586621679217610"><span class="annot"><span class="annottext">toJSON :: UpdatePipeline -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217601"><span id="local-6989586621679217602"><span id="local-6989586621679217603"><span id="local-6989586621679217604"><span id="local-6989586621679217605"><span id="local-6989586621679217606"><span id="local-6989586621679217607"><span id="local-6989586621679217608"><span class="annot"><span class="annottext">Maybe Text
+Maybe Notifications
+Maybe PipelineOutputConfig
+Text
+id :: Text
+thumbnailConfig :: Maybe PipelineOutputConfig
+notifications :: Maybe Notifications
+awsKmsKeyArn :: Maybe Text
+name :: Maybe Text
+role' :: Maybe Text
+contentConfig :: Maybe PipelineOutputConfig
+inputBucket :: Maybe Text
+$sel:id:UpdatePipeline' :: UpdatePipeline -&gt; Text
+$sel:thumbnailConfig:UpdatePipeline' :: UpdatePipeline -&gt; Maybe PipelineOutputConfig
+$sel:notifications:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Notifications
+$sel:awsKmsKeyArn:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+$sel:name:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+$sel:role':UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+$sel:contentConfig:UpdatePipeline' :: UpdatePipeline -&gt; Maybe PipelineOutputConfig
+$sel:inputBucket:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+</span><a href="#local-6989586621679217601"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-680"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-681"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-682"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputBucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217608"><span class="hs-identifier hs-var">inputBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-683"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PipelineOutputConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PipelineOutputConfig -&gt; Pair)
+-&gt; Maybe PipelineOutputConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217607"><span class="hs-identifier hs-var">contentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-684"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Role&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217606"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-685"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217605"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-686"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsKmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217604"><span class="hs-identifier hs-var">awsKmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-687"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Notifications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Notifications -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Notifications -&gt; Pair) -&gt; Maybe Notifications -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Notifications
+</span><a href="#local-6989586621679217603"><span class="hs-identifier hs-var">notifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-688"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThumbnailConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PipelineOutputConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-689"></span><span>              </span><span class="annot"><span class="annottext">(PipelineOutputConfig -&gt; Pair)
+-&gt; Maybe PipelineOutputConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PipelineOutputConfig
+</span><a href="#local-6989586621679217602"><span class="hs-identifier hs-var">thumbnailConfig</span></a></span><span>
+</span><span id="line-690"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-691"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-692"></span><span>
+</span><span id="line-693"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-694"></span><span>  </span><span id="local-6989586621679217595"><span class="annot"><span class="annottext">toPath :: UpdatePipeline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217586"><span id="local-6989586621679217587"><span id="local-6989586621679217588"><span id="local-6989586621679217589"><span id="local-6989586621679217590"><span id="local-6989586621679217591"><span id="local-6989586621679217592"><span id="local-6989586621679217593"><span class="annot"><span class="annottext">Maybe Text
+Maybe Notifications
+Maybe PipelineOutputConfig
+Text
+id :: Text
+thumbnailConfig :: Maybe PipelineOutputConfig
+notifications :: Maybe Notifications
+awsKmsKeyArn :: Maybe Text
+name :: Maybe Text
+role' :: Maybe Text
+contentConfig :: Maybe PipelineOutputConfig
+inputBucket :: Maybe Text
+$sel:id:UpdatePipeline' :: UpdatePipeline -&gt; Text
+$sel:thumbnailConfig:UpdatePipeline' :: UpdatePipeline -&gt; Maybe PipelineOutputConfig
+$sel:notifications:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Notifications
+$sel:awsKmsKeyArn:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+$sel:name:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+$sel:role':UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+$sel:contentConfig:UpdatePipeline' :: UpdatePipeline -&gt; Maybe PipelineOutputConfig
+$sel:inputBucket:UpdatePipeline' :: UpdatePipeline -&gt; Maybe Text
+</span><a href="#local-6989586621679217586"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-695"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-696"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2012-09-25/pipelines/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217586"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-697"></span><span>
+</span><span id="line-698"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-699"></span><span>  </span><span id="local-6989586621679217582"><span class="annot"><span class="annottext">toQuery :: UpdatePipeline -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePipeline -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-700"></span><span>
+</span><span id="line-701"></span><span class="hs-comment">-- | When you update a pipeline, Elastic Transcoder returns the values that</span><span>
+</span><span id="line-702"></span><span class="hs-comment">-- you specified in the request.</span><span>
+</span><span id="line-703"></span><span class="hs-comment">--</span><span>
+</span><span id="line-704"></span><span class="hs-comment">-- /See:/ 'newUpdatePipelineResponse' smart constructor.</span><span>
+</span><span id="line-705"></span><span id="local-6989586621679217579"><span id="local-6989586621679217580"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipelineResponse"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-var">UpdatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipelineResponse%27"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span></span><span>
+</span><span id="line-706"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Elastic Transcoder returns a warning if the resources used by your</span><span>
+</span><span id="line-707"></span><span>    </span><span class="hs-comment">-- pipeline are not in the same region as the pipeline.</span><span>
+</span><span id="line-708"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-709"></span><span>    </span><span class="hs-comment">-- Using resources in the same region, such as your Amazon S3 buckets,</span><span>
+</span><span id="line-710"></span><span>    </span><span class="hs-comment">-- Amazon SNS notification topics, and AWS KMS key, reduces processing time</span><span>
+</span><span id="line-711"></span><span>    </span><span class="hs-comment">-- and prevents cross-regional charges.</span><span>
+</span><span id="line-712"></span><span>    </span><span id="%24sel%3Awarnings%3AUpdatePipelineResponse%27"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; Maybe [Warning]
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Awarnings%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-713"></span><span>    </span><span class="hs-comment">-- | The pipeline updated by this @UpdatePipelineResponse@ call.</span><span>
+</span><span id="line-714"></span><span>    </span><span id="%24sel%3Apipeline%3AUpdatePipelineResponse%27"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; Maybe Pipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Pipeline.html#Pipeline"><span class="hs-identifier hs-type">Pipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-715"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-716"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; Int
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-717"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-718"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217572"><span id="local-6989586621679217574"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
+(UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool)
+-&gt; (UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool)
+-&gt; Eq UpdatePipelineResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
+$c/= :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
+== :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
+$c== :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217564"><span id="local-6989586621679217566"><span id="local-6989586621679217568"><span id="local-6989586621679217570"><span class="annot"><span class="annottext">ReadPrec [UpdatePipelineResponse]
+ReadPrec UpdatePipelineResponse
+Int -&gt; ReadS UpdatePipelineResponse
+ReadS [UpdatePipelineResponse]
+(Int -&gt; ReadS UpdatePipelineResponse)
+-&gt; ReadS [UpdatePipelineResponse]
+-&gt; ReadPrec UpdatePipelineResponse
+-&gt; ReadPrec [UpdatePipelineResponse]
+-&gt; Read UpdatePipelineResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePipelineResponse]
+$creadListPrec :: ReadPrec [UpdatePipelineResponse]
+readPrec :: ReadPrec UpdatePipelineResponse
+$creadPrec :: ReadPrec UpdatePipelineResponse
+readList :: ReadS [UpdatePipelineResponse]
+$creadList :: ReadS [UpdatePipelineResponse]
+readsPrec :: Int -&gt; ReadS UpdatePipelineResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePipelineResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217558"><span id="local-6989586621679217560"><span id="local-6989586621679217562"><span class="annot"><span class="annottext">Int -&gt; UpdatePipelineResponse -&gt; ShowS
+[UpdatePipelineResponse] -&gt; ShowS
+UpdatePipelineResponse -&gt; String
+(Int -&gt; UpdatePipelineResponse -&gt; ShowS)
+-&gt; (UpdatePipelineResponse -&gt; String)
+-&gt; ([UpdatePipelineResponse] -&gt; ShowS)
+-&gt; Show UpdatePipelineResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePipelineResponse] -&gt; ShowS
+$cshowList :: [UpdatePipelineResponse] -&gt; ShowS
+show :: UpdatePipelineResponse -&gt; String
+$cshow :: UpdatePipelineResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePipelineResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdatePipelineResponse -&gt; Rep UpdatePipelineResponse x)
+-&gt; (forall x.
+    Rep UpdatePipelineResponse x -&gt; UpdatePipelineResponse)
+-&gt; Generic UpdatePipelineResponse
+forall x. Rep UpdatePipelineResponse x -&gt; UpdatePipelineResponse
+forall x. UpdatePipelineResponse -&gt; Rep UpdatePipelineResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdatePipelineResponse x -&gt; UpdatePipelineResponse
+$cfrom :: forall x. UpdatePipelineResponse -&gt; Rep UpdatePipelineResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-719"></span><span>
+</span><span id="line-720"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-721"></span><span class="hs-comment">-- Create a value of 'UpdatePipelineResponse' with all optional fields omitted.</span><span>
+</span><span id="line-722"></span><span class="hs-comment">--</span><span>
+</span><span id="line-723"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-724"></span><span class="hs-comment">--</span><span>
+</span><span id="line-725"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-726"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-727"></span><span class="hs-comment">--</span><span>
+</span><span id="line-728"></span><span class="hs-comment">-- 'warnings', 'updatePipelineResponse_warnings' - Elastic Transcoder returns a warning if the resources used by your</span><span>
+</span><span id="line-729"></span><span class="hs-comment">-- pipeline are not in the same region as the pipeline.</span><span>
+</span><span id="line-730"></span><span class="hs-comment">--</span><span>
+</span><span id="line-731"></span><span class="hs-comment">-- Using resources in the same region, such as your Amazon S3 buckets,</span><span>
+</span><span id="line-732"></span><span class="hs-comment">-- Amazon SNS notification topics, and AWS KMS key, reduces processing time</span><span>
+</span><span id="line-733"></span><span class="hs-comment">-- and prevents cross-regional charges.</span><span>
+</span><span id="line-734"></span><span class="hs-comment">--</span><span>
+</span><span id="line-735"></span><span class="hs-comment">-- 'pipeline', 'updatePipelineResponse_pipeline' - The pipeline updated by this @UpdatePipelineResponse@ call.</span><span>
+</span><span id="line-736"></span><span class="hs-comment">--</span><span>
+</span><span id="line-737"></span><span class="hs-comment">-- 'httpStatus', 'updatePipelineResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-738"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#newUpdatePipelineResponse"><span class="hs-identifier hs-type">newUpdatePipelineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-739"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-740"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-741"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span>
+</span><span id="line-742"></span><span id="newUpdatePipelineResponse"><span class="annot"><span class="annottext">newUpdatePipelineResponse :: Int -&gt; UpdatePipelineResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#newUpdatePipelineResponse"><span class="hs-identifier hs-var hs-var">newUpdatePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679217555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-743"></span><span>  </span><span class="annot"><span class="annottext">UpdatePipelineResponse' :: Maybe [Warning] -&gt; Maybe Pipeline -&gt; Int -&gt; UpdatePipelineResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span>
+</span><span id="line-744"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:warnings:UpdatePipelineResponse' :: Maybe [Warning]
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Awarnings%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-745"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipelineResponse' :: Maybe Pipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-746"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePipelineResponse' :: Int
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-747"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-748"></span><span>
+</span><span id="line-749"></span><span class="hs-comment">-- | Elastic Transcoder returns a warning if the resources used by your</span><span>
+</span><span id="line-750"></span><span class="hs-comment">-- pipeline are not in the same region as the pipeline.</span><span>
+</span><span id="line-751"></span><span class="hs-comment">--</span><span>
+</span><span id="line-752"></span><span class="hs-comment">-- Using resources in the same region, such as your Amazon S3 buckets,</span><span>
+</span><span id="line-753"></span><span class="hs-comment">-- Amazon SNS notification topics, and AWS KMS key, reduces processing time</span><span>
+</span><span id="line-754"></span><span class="hs-comment">-- and prevents cross-regional charges.</span><span>
+</span><span id="line-755"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_warnings"><span class="hs-identifier hs-type">updatePipelineResponse_warnings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-756"></span><span id="updatePipelineResponse_warnings"><span class="annot"><span class="annottext">updatePipelineResponse_warnings :: (Maybe [Warning] -&gt; f (Maybe [Warning]))
+-&gt; UpdatePipelineResponse -&gt; f UpdatePipelineResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_warnings"><span class="hs-identifier hs-var hs-var">updatePipelineResponse_warnings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipelineResponse -&gt; Maybe [Warning])
+-&gt; (UpdatePipelineResponse
+    -&gt; Maybe [Warning] -&gt; UpdatePipelineResponse)
+-&gt; Lens
+     UpdatePipelineResponse
+     UpdatePipelineResponse
+     (Maybe [Warning])
+     (Maybe [Warning])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217554"><span class="annot"><span class="annottext">Maybe [Warning]
+warnings :: Maybe [Warning]
+$sel:warnings:UpdatePipelineResponse' :: UpdatePipelineResponse -&gt; Maybe [Warning]
+</span><a href="#local-6989586621679217554"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679217554"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217553"><span class="annot"><span class="annottext">s :: UpdatePipelineResponse
+</span><a href="#local-6989586621679217553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217552"><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679217552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
+</span><a href="#local-6989586621679217553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:UpdatePipelineResponse' :: Maybe [Warning]
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Awarnings%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679217552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Warning] -&gt; f (Maybe [Warning]))
+ -&gt; UpdatePipelineResponse -&gt; f UpdatePipelineResponse)
+-&gt; ((Maybe [Warning] -&gt; f (Maybe [Warning]))
+    -&gt; Maybe [Warning] -&gt; f (Maybe [Warning]))
+-&gt; (Maybe [Warning] -&gt; f (Maybe [Warning]))
+-&gt; UpdatePipelineResponse
+-&gt; f UpdatePipelineResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Warning] [Warning] [Warning] [Warning]
+-&gt; Iso
+     (Maybe [Warning])
+     (Maybe [Warning])
+     (Maybe [Warning])
+     (Maybe [Warning])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Warning] [Warning] [Warning] [Warning]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-757"></span><span>
+</span><span id="line-758"></span><span class="hs-comment">-- | The pipeline updated by this @UpdatePipelineResponse@ call.</span><span>
+</span><span id="line-759"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_pipeline"><span class="hs-identifier hs-type">updatePipelineResponse_pipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Pipeline.html#Pipeline"><span class="hs-identifier hs-type">Pipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-760"></span><span id="updatePipelineResponse_pipeline"><span class="annot"><span class="annottext">updatePipelineResponse_pipeline :: (Maybe Pipeline -&gt; f (Maybe Pipeline))
+-&gt; UpdatePipelineResponse -&gt; f UpdatePipelineResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_pipeline"><span class="hs-identifier hs-var hs-var">updatePipelineResponse_pipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipelineResponse -&gt; Maybe Pipeline)
+-&gt; (UpdatePipelineResponse
+    -&gt; Maybe Pipeline -&gt; UpdatePipelineResponse)
+-&gt; Lens
+     UpdatePipelineResponse
+     UpdatePipelineResponse
+     (Maybe Pipeline)
+     (Maybe Pipeline)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217548"><span class="annot"><span class="annottext">Maybe Pipeline
+pipeline :: Maybe Pipeline
+$sel:pipeline:UpdatePipelineResponse' :: UpdatePipelineResponse -&gt; Maybe Pipeline
+</span><a href="#local-6989586621679217548"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679217548"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217547"><span class="annot"><span class="annottext">s :: UpdatePipelineResponse
+</span><a href="#local-6989586621679217547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217546"><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679217546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
+</span><a href="#local-6989586621679217547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipelineResponse' :: Maybe Pipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679217546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-761"></span><span>
+</span><span id="line-762"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-763"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_httpStatus"><span class="hs-identifier hs-type">updatePipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-764"></span><span id="updatePipelineResponse_httpStatus"><span class="annot"><span class="annottext">updatePipelineResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdatePipelineResponse -&gt; f UpdatePipelineResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#updatePipelineResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updatePipelineResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipelineResponse -&gt; Int)
+-&gt; (UpdatePipelineResponse -&gt; Int -&gt; UpdatePipelineResponse)
+-&gt; Lens UpdatePipelineResponse UpdatePipelineResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217545"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdatePipelineResponse' :: UpdatePipelineResponse -&gt; Int
+</span><a href="#local-6989586621679217545"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217545"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217544"><span class="annot"><span class="annottext">s :: UpdatePipelineResponse
+</span><a href="#local-6989586621679217544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217543"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
+</span><a href="#local-6989586621679217544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePipelineResponse' :: Int
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-765"></span><span>
+</span><span id="line-766"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span></span><span>
+</span><span id="line-767"></span></pre></body></html>

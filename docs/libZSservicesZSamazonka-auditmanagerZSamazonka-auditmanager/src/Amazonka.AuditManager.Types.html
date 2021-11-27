@@ -1,0 +1,961 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AccountStatus</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AccountStatus.html#AccountStatus"><span class="hs-identifier">AccountStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActionEnum</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ActionEnum.html#ActionEnum"><span class="hs-identifier">ActionEnum</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentReportDestinationType</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType"><span class="hs-identifier">AssessmentReportDestinationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentReportStatus</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus"><span class="hs-identifier">AssessmentReportStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentStatus</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentStatus.html#AssessmentStatus"><span class="hs-identifier">AssessmentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlResponse</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier">ControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlSetStatus</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSetStatus.html#ControlSetStatus"><span class="hs-identifier">ControlSetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlStatus</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlStatus.html#ControlStatus"><span class="hs-identifier">ControlStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlType</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlType.html#ControlType"><span class="hs-identifier">ControlType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DelegationStatus</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationStatus.html#DelegationStatus"><span class="hs-identifier">DelegationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FrameworkType</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkType.html#FrameworkType"><span class="hs-identifier">FrameworkType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KeywordInputType</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.KeywordInputType.html#KeywordInputType"><span class="hs-identifier">KeywordInputType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ObjectTypeEnum</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier">ObjectTypeEnum</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RoleType</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.RoleType.html#RoleType"><span class="hs-identifier">RoleType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SettingAttribute</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier">SettingAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceFrequency</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceFrequency.html#SourceFrequency"><span class="hs-identifier">SourceFrequency</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceSetUpOption</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption"><span class="hs-identifier">SourceSetUpOption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceType</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceType.html#SourceType"><span class="hs-identifier">SourceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AWSAccount</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSAccount.html#AWSAccount"><span class="hs-identifier">AWSAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSAccount.html#newAWSAccount"><span class="hs-identifier">newAWSAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSAccount.html#aWSAccount_name"><span class="hs-identifier">aWSAccount_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSAccount.html#aWSAccount_emailAddress"><span class="hs-identifier">aWSAccount_emailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSAccount.html#aWSAccount_id"><span class="hs-identifier">aWSAccount_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AWSService</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSService.html#AWSService"><span class="hs-identifier">AWSService</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSService.html#newAWSService"><span class="hs-identifier">newAWSService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSService.html#aWSService_serviceName"><span class="hs-identifier">aWSService_serviceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Assessment</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html#Assessment"><span class="hs-identifier">Assessment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html#newAssessment"><span class="hs-identifier">newAssessment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html#assessment_framework"><span class="hs-identifier">assessment_framework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html#assessment_arn"><span class="hs-identifier">assessment_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html#assessment_awsAccount"><span class="hs-identifier">assessment_awsAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html#assessment_metadata"><span class="hs-identifier">assessment_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html#assessment_tags"><span class="hs-identifier">assessment_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentControl</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#newAssessmentControl"><span class="hs-identifier">newAssessmentControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_status"><span class="hs-identifier">assessmentControl_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_evidenceCount"><span class="hs-identifier">assessmentControl_evidenceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_response"><span class="hs-identifier">assessmentControl_response</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_name"><span class="hs-identifier">assessmentControl_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_id"><span class="hs-identifier">assessmentControl_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_evidenceSources"><span class="hs-identifier">assessmentControl_evidenceSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_comments"><span class="hs-identifier">assessmentControl_comments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_assessmentReportEvidenceCount"><span class="hs-identifier">assessmentControl_assessmentReportEvidenceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_description"><span class="hs-identifier">assessmentControl_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentControlSet</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#AssessmentControlSet"><span class="hs-identifier">AssessmentControlSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#newAssessmentControlSet"><span class="hs-identifier">newAssessmentControlSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_status"><span class="hs-identifier">assessmentControlSet_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_controls"><span class="hs-identifier">assessmentControlSet_controls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_roles"><span class="hs-identifier">assessmentControlSet_roles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_manualEvidenceCount"><span class="hs-identifier">assessmentControlSet_manualEvidenceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_delegations"><span class="hs-identifier">assessmentControlSet_delegations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_systemEvidenceCount"><span class="hs-identifier">assessmentControlSet_systemEvidenceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_id"><span class="hs-identifier">assessmentControlSet_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html#assessmentControlSet_description"><span class="hs-identifier">assessmentControlSet_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentEvidenceFolder</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#newAssessmentEvidenceFolder"><span class="hs-identifier">newAssessmentEvidenceFolder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount"><span class="hs-identifier">assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlSetId"><span class="hs-identifier">assessmentEvidenceFolder_controlSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_assessmentReportSelectionCount"><span class="hs-identifier">assessmentEvidenceFolder_assessmentReportSelectionCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_totalEvidence"><span class="hs-identifier">assessmentEvidenceFolder_totalEvidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeManualCount"><span class="hs-identifier">assessmentEvidenceFolder_evidenceByTypeManualCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_date"><span class="hs-identifier">assessmentEvidenceFolder_date</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_name"><span class="hs-identifier">assessmentEvidenceFolder_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeUserActivityCount"><span class="hs-identifier">assessmentEvidenceFolder_evidenceByTypeUserActivityCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlId"><span class="hs-identifier">assessmentEvidenceFolder_controlId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceAwsServiceSourceCount"><span class="hs-identifier">assessmentEvidenceFolder_evidenceAwsServiceSourceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_author"><span class="hs-identifier">assessmentEvidenceFolder_author</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_id"><span class="hs-identifier">assessmentEvidenceFolder_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_dataSource"><span class="hs-identifier">assessmentEvidenceFolder_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlName"><span class="hs-identifier">assessmentEvidenceFolder_controlName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount"><span class="hs-identifier">assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_assessmentId"><span class="hs-identifier">assessmentEvidenceFolder_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount"><span class="hs-identifier">assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceResourcesIncludedCount"><span class="hs-identifier">assessmentEvidenceFolder_evidenceResourcesIncludedCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentFramework</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFramework.html#AssessmentFramework"><span class="hs-identifier">AssessmentFramework</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFramework.html#newAssessmentFramework"><span class="hs-identifier">newAssessmentFramework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFramework.html#assessmentFramework_arn"><span class="hs-identifier">assessmentFramework_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFramework.html#assessmentFramework_controlSets"><span class="hs-identifier">assessmentFramework_controlSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFramework.html#assessmentFramework_metadata"><span class="hs-identifier">assessmentFramework_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFramework.html#assessmentFramework_id"><span class="hs-identifier">assessmentFramework_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentFrameworkMetadata</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#newAssessmentFrameworkMetadata"><span class="hs-identifier">newAssessmentFrameworkMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_controlsCount"><span class="hs-identifier">assessmentFrameworkMetadata_controlsCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_lastUpdatedAt"><span class="hs-identifier">assessmentFrameworkMetadata_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_arn"><span class="hs-identifier">assessmentFrameworkMetadata_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_createdAt"><span class="hs-identifier">assessmentFrameworkMetadata_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_name"><span class="hs-identifier">assessmentFrameworkMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_complianceType"><span class="hs-identifier">assessmentFrameworkMetadata_complianceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_controlSetsCount"><span class="hs-identifier">assessmentFrameworkMetadata_controlSetsCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_id"><span class="hs-identifier">assessmentFrameworkMetadata_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_type"><span class="hs-identifier">assessmentFrameworkMetadata_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_logo"><span class="hs-identifier">assessmentFrameworkMetadata_logo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_description"><span class="hs-identifier">assessmentFrameworkMetadata_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentMetadata</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#newAssessmentMetadata"><span class="hs-identifier">newAssessmentMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_creationTime"><span class="hs-identifier">assessmentMetadata_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_status"><span class="hs-identifier">assessmentMetadata_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_lastUpdated"><span class="hs-identifier">assessmentMetadata_lastUpdated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_roles"><span class="hs-identifier">assessmentMetadata_roles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_delegations"><span class="hs-identifier">assessmentMetadata_delegations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_name"><span class="hs-identifier">assessmentMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_assessmentReportsDestination"><span class="hs-identifier">assessmentMetadata_assessmentReportsDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_scope"><span class="hs-identifier">assessmentMetadata_scope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_complianceType"><span class="hs-identifier">assessmentMetadata_complianceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_id"><span class="hs-identifier">assessmentMetadata_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_description"><span class="hs-identifier">assessmentMetadata_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentMetadataItem</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#AssessmentMetadataItem"><span class="hs-identifier">AssessmentMetadataItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#newAssessmentMetadataItem"><span class="hs-identifier">newAssessmentMetadataItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_creationTime"><span class="hs-identifier">assessmentMetadataItem_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_status"><span class="hs-identifier">assessmentMetadataItem_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_lastUpdated"><span class="hs-identifier">assessmentMetadataItem_lastUpdated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_roles"><span class="hs-identifier">assessmentMetadataItem_roles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_delegations"><span class="hs-identifier">assessmentMetadataItem_delegations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_name"><span class="hs-identifier">assessmentMetadataItem_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_complianceType"><span class="hs-identifier">assessmentMetadataItem_complianceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html#assessmentMetadataItem_id"><span class="hs-identifier">assessmentMetadataItem_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentReport</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#AssessmentReport"><span class="hs-identifier">AssessmentReport</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#newAssessmentReport"><span class="hs-identifier">newAssessmentReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_creationTime"><span class="hs-identifier">assessmentReport_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_status"><span class="hs-identifier">assessmentReport_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_awsAccountId"><span class="hs-identifier">assessmentReport_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_name"><span class="hs-identifier">assessmentReport_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_author"><span class="hs-identifier">assessmentReport_author</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_id"><span class="hs-identifier">assessmentReport_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_assessmentId"><span class="hs-identifier">assessmentReport_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_description"><span class="hs-identifier">assessmentReport_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html#assessmentReport_assessmentName"><span class="hs-identifier">assessmentReport_assessmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentReportEvidenceError</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportEvidenceError.html#AssessmentReportEvidenceError"><span class="hs-identifier">AssessmentReportEvidenceError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportEvidenceError.html#newAssessmentReportEvidenceError"><span class="hs-identifier">newAssessmentReportEvidenceError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportEvidenceError.html#assessmentReportEvidenceError_errorCode"><span class="hs-identifier">assessmentReportEvidenceError_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportEvidenceError.html#assessmentReportEvidenceError_errorMessage"><span class="hs-identifier">assessmentReportEvidenceError_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportEvidenceError.html#assessmentReportEvidenceError_evidenceId"><span class="hs-identifier">assessmentReportEvidenceError_evidenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentReportMetadata</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#AssessmentReportMetadata"><span class="hs-identifier">AssessmentReportMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#newAssessmentReportMetadata"><span class="hs-identifier">newAssessmentReportMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_creationTime"><span class="hs-identifier">assessmentReportMetadata_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_status"><span class="hs-identifier">assessmentReportMetadata_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_name"><span class="hs-identifier">assessmentReportMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_author"><span class="hs-identifier">assessmentReportMetadata_author</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_id"><span class="hs-identifier">assessmentReportMetadata_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_assessmentId"><span class="hs-identifier">assessmentReportMetadata_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_description"><span class="hs-identifier">assessmentReportMetadata_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html#assessmentReportMetadata_assessmentName"><span class="hs-identifier">assessmentReportMetadata_assessmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssessmentReportsDestination</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html#AssessmentReportsDestination"><span class="hs-identifier">AssessmentReportsDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html#newAssessmentReportsDestination"><span class="hs-identifier">newAssessmentReportsDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html#assessmentReportsDestination_destination"><span class="hs-identifier">assessmentReportsDestination_destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html#assessmentReportsDestination_destinationType"><span class="hs-identifier">assessmentReportsDestination_destinationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchCreateDelegationByAssessmentError</span></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError.html#BatchCreateDelegationByAssessmentError"><span class="hs-identifier">BatchCreateDelegationByAssessmentError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError.html#newBatchCreateDelegationByAssessmentError"><span class="hs-identifier">newBatchCreateDelegationByAssessmentError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError.html#batchCreateDelegationByAssessmentError_createDelegationRequest"><span class="hs-identifier">batchCreateDelegationByAssessmentError_createDelegationRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError.html#batchCreateDelegationByAssessmentError_errorCode"><span class="hs-identifier">batchCreateDelegationByAssessmentError_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError.html#batchCreateDelegationByAssessmentError_errorMessage"><span class="hs-identifier">batchCreateDelegationByAssessmentError_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchDeleteDelegationByAssessmentError</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError.html#BatchDeleteDelegationByAssessmentError"><span class="hs-identifier">BatchDeleteDelegationByAssessmentError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError.html#newBatchDeleteDelegationByAssessmentError"><span class="hs-identifier">newBatchDeleteDelegationByAssessmentError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError.html#batchDeleteDelegationByAssessmentError_delegationId"><span class="hs-identifier">batchDeleteDelegationByAssessmentError_delegationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError.html#batchDeleteDelegationByAssessmentError_errorCode"><span class="hs-identifier">batchDeleteDelegationByAssessmentError_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError.html#batchDeleteDelegationByAssessmentError_errorMessage"><span class="hs-identifier">batchDeleteDelegationByAssessmentError_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchImportEvidenceToAssessmentControlError</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier">BatchImportEvidenceToAssessmentControlError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#newBatchImportEvidenceToAssessmentControlError"><span class="hs-identifier">newBatchImportEvidenceToAssessmentControlError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_errorCode"><span class="hs-identifier">batchImportEvidenceToAssessmentControlError_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_errorMessage"><span class="hs-identifier">batchImportEvidenceToAssessmentControlError_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_manualEvidence"><span class="hs-identifier">batchImportEvidenceToAssessmentControlError_manualEvidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChangeLog</span></span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html#ChangeLog"><span class="hs-identifier">ChangeLog</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html#newChangeLog"><span class="hs-identifier">newChangeLog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html#changeLog_objectName"><span class="hs-identifier">changeLog_objectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html#changeLog_createdAt"><span class="hs-identifier">changeLog_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html#changeLog_objectType"><span class="hs-identifier">changeLog_objectType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html#changeLog_createdBy"><span class="hs-identifier">changeLog_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html#changeLog_action"><span class="hs-identifier">changeLog_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Control</span></span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#Control"><span class="hs-identifier">Control</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#newControl"><span class="hs-identifier">newControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_lastUpdatedBy"><span class="hs-identifier">control_lastUpdatedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_testingInformation"><span class="hs-identifier">control_testingInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_lastUpdatedAt"><span class="hs-identifier">control_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_arn"><span class="hs-identifier">control_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_createdAt"><span class="hs-identifier">control_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_controlMappingSources"><span class="hs-identifier">control_controlMappingSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_createdBy"><span class="hs-identifier">control_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_actionPlanInstructions"><span class="hs-identifier">control_actionPlanInstructions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_controlSources"><span class="hs-identifier">control_controlSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_name"><span class="hs-identifier">control_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_actionPlanTitle"><span class="hs-identifier">control_actionPlanTitle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_id"><span class="hs-identifier">control_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_type"><span class="hs-identifier">control_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_description"><span class="hs-identifier">control_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html#control_tags"><span class="hs-identifier">control_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlComment</span></span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html#ControlComment"><span class="hs-identifier">ControlComment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html#newControlComment"><span class="hs-identifier">newControlComment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html#controlComment_authorName"><span class="hs-identifier">controlComment_authorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html#controlComment_postedDate"><span class="hs-identifier">controlComment_postedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html#controlComment_commentBody"><span class="hs-identifier">controlComment_commentBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlMappingSource</span></span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#ControlMappingSource"><span class="hs-identifier">ControlMappingSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#newControlMappingSource"><span class="hs-identifier">newControlMappingSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_sourceName"><span class="hs-identifier">controlMappingSource_sourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_sourceType"><span class="hs-identifier">controlMappingSource_sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_troubleshootingText"><span class="hs-identifier">controlMappingSource_troubleshootingText</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_sourceId"><span class="hs-identifier">controlMappingSource_sourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_sourceDescription"><span class="hs-identifier">controlMappingSource_sourceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_sourceFrequency"><span class="hs-identifier">controlMappingSource_sourceFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_sourceKeyword"><span class="hs-identifier">controlMappingSource_sourceKeyword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html#controlMappingSource_sourceSetUpOption"><span class="hs-identifier">controlMappingSource_sourceSetUpOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlMetadata</span></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#ControlMetadata"><span class="hs-identifier">ControlMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#newControlMetadata"><span class="hs-identifier">newControlMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#controlMetadata_lastUpdatedAt"><span class="hs-identifier">controlMetadata_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#controlMetadata_arn"><span class="hs-identifier">controlMetadata_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#controlMetadata_createdAt"><span class="hs-identifier">controlMetadata_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#controlMetadata_controlSources"><span class="hs-identifier">controlMetadata_controlSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#controlMetadata_name"><span class="hs-identifier">controlMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html#controlMetadata_id"><span class="hs-identifier">controlMetadata_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlSet</span></span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSet.html#ControlSet"><span class="hs-identifier">ControlSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSet.html#newControlSet"><span class="hs-identifier">newControlSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSet.html#controlSet_controls"><span class="hs-identifier">controlSet_controls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSet.html#controlSet_name"><span class="hs-identifier">controlSet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSet.html#controlSet_id"><span class="hs-identifier">controlSet_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CreateAssessmentFrameworkControl</span></span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl.html#CreateAssessmentFrameworkControl"><span class="hs-identifier">CreateAssessmentFrameworkControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl.html#newCreateAssessmentFrameworkControl"><span class="hs-identifier">newCreateAssessmentFrameworkControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl.html#createAssessmentFrameworkControl_id"><span class="hs-identifier">createAssessmentFrameworkControl_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CreateAssessmentFrameworkControlSet</span></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet.html#CreateAssessmentFrameworkControlSet"><span class="hs-identifier">CreateAssessmentFrameworkControlSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet.html#newCreateAssessmentFrameworkControlSet"><span class="hs-identifier">newCreateAssessmentFrameworkControlSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet.html#createAssessmentFrameworkControlSet_controls"><span class="hs-identifier">createAssessmentFrameworkControlSet_controls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet.html#createAssessmentFrameworkControlSet_name"><span class="hs-identifier">createAssessmentFrameworkControlSet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CreateControlMappingSource</span></span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#CreateControlMappingSource"><span class="hs-identifier">CreateControlMappingSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#newCreateControlMappingSource"><span class="hs-identifier">newCreateControlMappingSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#createControlMappingSource_sourceName"><span class="hs-identifier">createControlMappingSource_sourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#createControlMappingSource_sourceType"><span class="hs-identifier">createControlMappingSource_sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#createControlMappingSource_troubleshootingText"><span class="hs-identifier">createControlMappingSource_troubleshootingText</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#createControlMappingSource_sourceDescription"><span class="hs-identifier">createControlMappingSource_sourceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#createControlMappingSource_sourceFrequency"><span class="hs-identifier">createControlMappingSource_sourceFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#createControlMappingSource_sourceKeyword"><span class="hs-identifier">createControlMappingSource_sourceKeyword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html#createControlMappingSource_sourceSetUpOption"><span class="hs-identifier">createControlMappingSource_sourceSetUpOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CreateDelegationRequest</span></span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateDelegationRequest.html#CreateDelegationRequest"><span class="hs-identifier">CreateDelegationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateDelegationRequest.html#newCreateDelegationRequest"><span class="hs-identifier">newCreateDelegationRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateDelegationRequest.html#createDelegationRequest_roleType"><span class="hs-identifier">createDelegationRequest_roleType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateDelegationRequest.html#createDelegationRequest_controlSetId"><span class="hs-identifier">createDelegationRequest_controlSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateDelegationRequest.html#createDelegationRequest_comment"><span class="hs-identifier">createDelegationRequest_comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateDelegationRequest.html#createDelegationRequest_roleArn"><span class="hs-identifier">createDelegationRequest_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Delegation</span></span><span>
+</span><span id="line-351"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#Delegation"><span class="hs-identifier">Delegation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#newDelegation"><span class="hs-identifier">newDelegation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_roleType"><span class="hs-identifier">delegation_roleType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_creationTime"><span class="hs-identifier">delegation_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_status"><span class="hs-identifier">delegation_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_lastUpdated"><span class="hs-identifier">delegation_lastUpdated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_controlSetId"><span class="hs-identifier">delegation_controlSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_createdBy"><span class="hs-identifier">delegation_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_id"><span class="hs-identifier">delegation_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_assessmentId"><span class="hs-identifier">delegation_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_comment"><span class="hs-identifier">delegation_comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_roleArn"><span class="hs-identifier">delegation_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#delegation_assessmentName"><span class="hs-identifier">delegation_assessmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>
+</span><span id="line-365"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DelegationMetadata</span></span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#newDelegationMetadata"><span class="hs-identifier">newDelegationMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_creationTime"><span class="hs-identifier">delegationMetadata_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_status"><span class="hs-identifier">delegationMetadata_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_controlSetName"><span class="hs-identifier">delegationMetadata_controlSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_id"><span class="hs-identifier">delegationMetadata_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_assessmentId"><span class="hs-identifier">delegationMetadata_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_roleArn"><span class="hs-identifier">delegationMetadata_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_assessmentName"><span class="hs-identifier">delegationMetadata_assessmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Evidence</span></span><span>
+</span><span id="line-377"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#newEvidence"><span class="hs-identifier">newEvidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_time"><span class="hs-identifier">evidence_time</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_assessmentReportSelection"><span class="hs-identifier">evidence_assessmentReportSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceByType"><span class="hs-identifier">evidence_evidenceByType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_complianceCheck"><span class="hs-identifier">evidence_complianceCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_awsOrganization"><span class="hs-identifier">evidence_awsOrganization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_awsAccountId"><span class="hs-identifier">evidence_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_attributes"><span class="hs-identifier">evidence_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceAwsAccountId"><span class="hs-identifier">evidence_evidenceAwsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_id"><span class="hs-identifier">evidence_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_dataSource"><span class="hs-identifier">evidence_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceFolderId"><span class="hs-identifier">evidence_evidenceFolderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_iamId"><span class="hs-identifier">evidence_iamId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_eventName"><span class="hs-identifier">evidence_eventName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_resourcesIncluded"><span class="hs-identifier">evidence_resourcesIncluded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_eventSource"><span class="hs-identifier">evidence_eventSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Framework</span></span><span>
+</span><span id="line-396"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#newFramework"><span class="hs-identifier">newFramework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_lastUpdatedBy"><span class="hs-identifier">framework_lastUpdatedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_lastUpdatedAt"><span class="hs-identifier">framework_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_arn"><span class="hs-identifier">framework_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_createdAt"><span class="hs-identifier">framework_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_createdBy"><span class="hs-identifier">framework_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_controlSets"><span class="hs-identifier">framework_controlSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_controlSources"><span class="hs-identifier">framework_controlSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_name"><span class="hs-identifier">framework_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_complianceType"><span class="hs-identifier">framework_complianceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_id"><span class="hs-identifier">framework_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_type"><span class="hs-identifier">framework_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_logo"><span class="hs-identifier">framework_logo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_description"><span class="hs-identifier">framework_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-411"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html#framework_tags"><span class="hs-identifier">framework_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-412"></span><span>
+</span><span id="line-413"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FrameworkMetadata</span></span><span>
+</span><span id="line-414"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkMetadata.html#FrameworkMetadata"><span class="hs-identifier">FrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkMetadata.html#newFrameworkMetadata"><span class="hs-identifier">newFrameworkMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkMetadata.html#frameworkMetadata_name"><span class="hs-identifier">frameworkMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkMetadata.html#frameworkMetadata_complianceType"><span class="hs-identifier">frameworkMetadata_complianceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkMetadata.html#frameworkMetadata_logo"><span class="hs-identifier">frameworkMetadata_logo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkMetadata.html#frameworkMetadata_description"><span class="hs-identifier">frameworkMetadata_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-420"></span><span>
+</span><span id="line-421"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ManualEvidence</span></span><span>
+</span><span id="line-422"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ManualEvidence.html#ManualEvidence"><span class="hs-identifier">ManualEvidence</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-423"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ManualEvidence.html#newManualEvidence"><span class="hs-identifier">newManualEvidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ManualEvidence.html#manualEvidence_s3ResourcePath"><span class="hs-identifier">manualEvidence_s3ResourcePath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Notification</span></span><span>
+</span><span id="line-427"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#Notification"><span class="hs-identifier">Notification</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#newNotification"><span class="hs-identifier">newNotification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_controlSetName"><span class="hs-identifier">notification_controlSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_controlSetId"><span class="hs-identifier">notification_controlSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_eventTime"><span class="hs-identifier">notification_eventTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_source"><span class="hs-identifier">notification_source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_id"><span class="hs-identifier">notification_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_assessmentId"><span class="hs-identifier">notification_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_description"><span class="hs-identifier">notification_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-436"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html#notification_assessmentName"><span class="hs-identifier">notification_assessmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>
+</span><span id="line-438"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Resource</span></span><span>
+</span><span id="line-439"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html#Resource"><span class="hs-identifier">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html#newResource"><span class="hs-identifier">newResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-441"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html#resource_arn"><span class="hs-identifier">resource_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-442"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html#resource_value"><span class="hs-identifier">resource_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-443"></span><span>
+</span><span id="line-444"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Role</span></span><span>
+</span><span id="line-445"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html#Role"><span class="hs-identifier">Role</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-446"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html#newRole"><span class="hs-identifier">newRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-447"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html#role_roleType"><span class="hs-identifier">role_roleType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html#role_roleArn"><span class="hs-identifier">role_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Scope</span></span><span>
+</span><span id="line-451"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html#Scope"><span class="hs-identifier">Scope</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-452"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html#newScope"><span class="hs-identifier">newScope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-453"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html#scope_awsAccounts"><span class="hs-identifier">scope_awsAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html#scope_awsServices"><span class="hs-identifier">scope_awsServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-455"></span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceMetadata</span></span><span>
+</span><span id="line-457"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ServiceMetadata.html#ServiceMetadata"><span class="hs-identifier">ServiceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-458"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ServiceMetadata.html#newServiceMetadata"><span class="hs-identifier">newServiceMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-459"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ServiceMetadata.html#serviceMetadata_category"><span class="hs-identifier">serviceMetadata_category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-460"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ServiceMetadata.html#serviceMetadata_name"><span class="hs-identifier">serviceMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ServiceMetadata.html#serviceMetadata_displayName"><span class="hs-identifier">serviceMetadata_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.ServiceMetadata.html#serviceMetadata_description"><span class="hs-identifier">serviceMetadata_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-463"></span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Settings</span></span><span>
+</span><span id="line-465"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html#Settings"><span class="hs-identifier">Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-466"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html#newSettings"><span class="hs-identifier">newSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-467"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html#settings_kmsKey"><span class="hs-identifier">settings_kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-468"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html#settings_defaultAssessmentReportsDestination"><span class="hs-identifier">settings_defaultAssessmentReportsDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-469"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html#settings_snsTopic"><span class="hs-identifier">settings_snsTopic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-470"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html#settings_defaultProcessOwners"><span class="hs-identifier">settings_defaultProcessOwners</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-471"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html#settings_isAwsOrgEnabled"><span class="hs-identifier">settings_isAwsOrgEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-472"></span><span>
+</span><span id="line-473"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceKeyword</span></span><span>
+</span><span id="line-474"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceKeyword.html#SourceKeyword"><span class="hs-identifier">SourceKeyword</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-475"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceKeyword.html#newSourceKeyword"><span class="hs-identifier">newSourceKeyword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-476"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceKeyword.html#sourceKeyword_keywordInputType"><span class="hs-identifier">sourceKeyword_keywordInputType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-477"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceKeyword.html#sourceKeyword_keywordValue"><span class="hs-identifier">sourceKeyword_keywordValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-478"></span><span>
+</span><span id="line-479"></span><span>    </span><span class="annot"><span class="hs-comment">-- * URL</span></span><span>
+</span><span id="line-480"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.URL.html#URL"><span class="hs-identifier">URL</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-481"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.URL.html#newURL"><span class="hs-identifier">newURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-482"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.URL.html#url_link"><span class="hs-identifier">url_link</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-483"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.URL.html#url_hyperlinkName"><span class="hs-identifier">url_hyperlinkName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-484"></span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UpdateAssessmentFrameworkControlSet</span></span><span>
+</span><span id="line-486"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet.html#UpdateAssessmentFrameworkControlSet"><span class="hs-identifier">UpdateAssessmentFrameworkControlSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-487"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet.html#newUpdateAssessmentFrameworkControlSet"><span class="hs-identifier">newUpdateAssessmentFrameworkControlSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-488"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet.html#updateAssessmentFrameworkControlSet_controls"><span class="hs-identifier">updateAssessmentFrameworkControlSet_controls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-489"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet.html#updateAssessmentFrameworkControlSet_id"><span class="hs-identifier">updateAssessmentFrameworkControlSet_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-490"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet.html#updateAssessmentFrameworkControlSet_name"><span class="hs-identifier">updateAssessmentFrameworkControlSet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-491"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-492"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-493"></span><span>
+</span><span id="line-494"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSAccount.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AWSAccount</span></a></span><span>
+</span><span id="line-495"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AWSService.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AWSService</span></a></span><span>
+</span><span id="line-496"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AccountStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AccountStatus</span></a></span><span>
+</span><span id="line-497"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ActionEnum.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ActionEnum</span></a></span><span>
+</span><span id="line-498"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Assessment.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Assessment</span></a></span><span>
+</span><span id="line-499"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentControl</span></a></span><span>
+</span><span id="line-500"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControlSet.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentControlSet</span></a></span><span>
+</span><span id="line-501"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentEvidenceFolder</span></a></span><span>
+</span><span id="line-502"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFramework.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentFramework</span></a></span><span>
+</span><span id="line-503"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentFrameworkMetadata</span></a></span><span>
+</span><span id="line-504"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentMetadata</span></a></span><span>
+</span><span id="line-505"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadataItem.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentMetadataItem</span></a></span><span>
+</span><span id="line-506"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReport.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentReport</span></a></span><span>
+</span><span id="line-507"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportDestinationType.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentReportDestinationType</span></a></span><span>
+</span><span id="line-508"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportEvidenceError.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentReportEvidenceError</span></a></span><span>
+</span><span id="line-509"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportMetadata.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentReportMetadata</span></a></span><span>
+</span><span id="line-510"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentReportStatus</span></a></span><span>
+</span><span id="line-511"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentReportsDestination</span></a></span><span>
+</span><span id="line-512"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentStatus</span></a></span><span>
+</span><span id="line-513"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError.html"><span class="hs-identifier">Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError</span></a></span><span>
+</span><span id="line-514"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError.html"><span class="hs-identifier">Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError</span></a></span><span>
+</span><span id="line-515"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html"><span class="hs-identifier">Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError</span></a></span><span>
+</span><span id="line-516"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ChangeLog.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ChangeLog</span></a></span><span>
+</span><span id="line-517"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Control.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Control</span></a></span><span>
+</span><span id="line-518"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlComment</span></a></span><span>
+</span><span id="line-519"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMappingSource.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlMappingSource</span></a></span><span>
+</span><span id="line-520"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlMetadata.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlMetadata</span></a></span><span>
+</span><span id="line-521"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlResponse.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlResponse</span></a></span><span>
+</span><span id="line-522"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSet.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlSet</span></a></span><span>
+</span><span id="line-523"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlSetStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlSetStatus</span></a></span><span>
+</span><span id="line-524"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlStatus</span></a></span><span>
+</span><span id="line-525"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlType.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlType</span></a></span><span>
+</span><span id="line-526"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl.html"><span class="hs-identifier">Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl</span></a></span><span>
+</span><span id="line-527"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet.html"><span class="hs-identifier">Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet</span></a></span><span>
+</span><span id="line-528"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateControlMappingSource.html"><span class="hs-identifier">Amazonka.AuditManager.Types.CreateControlMappingSource</span></a></span><span>
+</span><span id="line-529"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.CreateDelegationRequest.html"><span class="hs-identifier">Amazonka.AuditManager.Types.CreateDelegationRequest</span></a></span><span>
+</span><span id="line-530"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Delegation</span></a></span><span>
+</span><span id="line-531"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html"><span class="hs-identifier">Amazonka.AuditManager.Types.DelegationMetadata</span></a></span><span>
+</span><span id="line-532"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.DelegationStatus</span></a></span><span>
+</span><span id="line-533"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Evidence</span></a></span><span>
+</span><span id="line-534"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Framework.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Framework</span></a></span><span>
+</span><span id="line-535"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkMetadata.html"><span class="hs-identifier">Amazonka.AuditManager.Types.FrameworkMetadata</span></a></span><span>
+</span><span id="line-536"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkType.html"><span class="hs-identifier">Amazonka.AuditManager.Types.FrameworkType</span></a></span><span>
+</span><span id="line-537"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.KeywordInputType.html"><span class="hs-identifier">Amazonka.AuditManager.Types.KeywordInputType</span></a></span><span>
+</span><span id="line-538"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ManualEvidence.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ManualEvidence</span></a></span><span>
+</span><span id="line-539"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Notification.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Notification</span></a></span><span>
+</span><span id="line-540"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ObjectTypeEnum.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ObjectTypeEnum</span></a></span><span>
+</span><span id="line-541"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Resource</span></a></span><span>
+</span><span id="line-542"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Role</span></a></span><span>
+</span><span id="line-543"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.RoleType.html"><span class="hs-identifier">Amazonka.AuditManager.Types.RoleType</span></a></span><span>
+</span><span id="line-544"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Scope</span></a></span><span>
+</span><span id="line-545"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ServiceMetadata.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ServiceMetadata</span></a></span><span>
+</span><span id="line-546"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.SettingAttribute.html"><span class="hs-identifier">Amazonka.AuditManager.Types.SettingAttribute</span></a></span><span>
+</span><span id="line-547"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Settings.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Settings</span></a></span><span>
+</span><span id="line-548"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceFrequency.html"><span class="hs-identifier">Amazonka.AuditManager.Types.SourceFrequency</span></a></span><span>
+</span><span id="line-549"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceKeyword.html"><span class="hs-identifier">Amazonka.AuditManager.Types.SourceKeyword</span></a></span><span>
+</span><span id="line-550"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceSetUpOption.html"><span class="hs-identifier">Amazonka.AuditManager.Types.SourceSetUpOption</span></a></span><span>
+</span><span id="line-551"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.SourceType.html"><span class="hs-identifier">Amazonka.AuditManager.Types.SourceType</span></a></span><span>
+</span><span id="line-552"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.URL.html"><span class="hs-identifier">Amazonka.AuditManager.Types.URL</span></a></span><span>
+</span><span id="line-553"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet.html"><span class="hs-identifier">Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet</span></a></span><span>
+</span><span id="line-554"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-555"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-556"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-557"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-558"></span><span>
+</span><span id="line-559"></span><span class="hs-comment">-- | API version @2017-07-25@ of the Amazon Audit Manager SDK configuration.</span><span>
+</span><span id="line-560"></span><span class="annot"><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-561"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-562"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-563"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;AuditManager&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-564"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-565"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;auditmanager&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-566"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;auditmanager&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-567"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2017-07-25&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-568"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-569"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-570"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-571"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-572"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-573"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;AuditManager&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-574"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679298055"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-575"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-576"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-577"></span><span>    </span><span id="local-6989586621679298055"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679298055"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-578"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-579"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-580"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-581"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-582"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679298049"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-583"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-584"></span><span>    </span><span id="local-6989586621679298049"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679298049"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679298048"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-585"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-586"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-587"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-588"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-589"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-590"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-591"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-592"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-593"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-594"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-595"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-596"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-597"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-598"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-599"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-600"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-601"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-602"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-603"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-604"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-605"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-606"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-607"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-608"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-609"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-610"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-611"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-612"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-613"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-614"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-615"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-616"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-617"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-618"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-619"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-620"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-621"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-622"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-623"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-624"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-625"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-626"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-627"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-628"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-629"></span><span>
+</span><span id="line-630"></span><span class="hs-comment">-- | The request has invalid or missing parameters.</span><span>
+</span><span id="line-631"></span><span id="local-6989586621679298043"><span class="annot"><a href="Amazonka.AuditManager.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679298043"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679298043"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-632"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AuditManager.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-633"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-634"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-635"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-636"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-637"></span><span>
+</span><span id="line-638"></span><span class="hs-comment">-- | Your account is not registered with Audit Manager. Check the delegated</span><span>
+</span><span id="line-639"></span><span class="hs-comment">-- administrator setup on the Audit Manager settings page, and try again.</span><span>
+</span><span id="line-640"></span><span id="local-6989586621679298041"><span class="annot"><a href="Amazonka.AuditManager.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679298041"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679298041"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-641"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AuditManager.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-642"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-643"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-644"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-645"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-646"></span><span>
+</span><span id="line-647"></span><span class="hs-comment">-- | An internal service error occurred during the processing of your</span><span>
+</span><span id="line-648"></span><span class="hs-comment">-- request. Try again later.</span><span>
+</span><span id="line-649"></span><span id="local-6989586621679298040"><span class="annot"><a href="Amazonka.AuditManager.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679298040"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679298040"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-650"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AuditManager.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-651"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-652"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-653"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-654"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-655"></span><span>
+</span><span id="line-656"></span><span class="hs-comment">-- | The resource specified in the request cannot be found.</span><span>
+</span><span id="line-657"></span><span id="local-6989586621679298039"><span class="annot"><a href="Amazonka.AuditManager.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679298039"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679298039"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-658"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AuditManager.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-659"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-660"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-661"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-662"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-663"></span></pre></body></html>

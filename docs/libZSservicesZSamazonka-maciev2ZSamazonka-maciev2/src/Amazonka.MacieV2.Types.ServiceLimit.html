@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.ServiceLimit</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.ServiceLimit</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.Unit.html"><span class="hs-identifier">Amazonka.MacieV2.Types.Unit</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies a current quota for an Amazon Macie account.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newServiceLimit' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679400988"><span id="local-6989586621679400989"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceLimit"><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-var">ServiceLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceLimit%27"><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-var">ServiceLimit'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the account has met the quota that corresponds to the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- metric specified by the UsageByAccount.type field in the response.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AisServiceLimited%3AServiceLimit%27"><span class="annot"><span class="annottext">ServiceLimit -&gt; Maybe Bool
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3AisServiceLimited%3AServiceLimit%27"><span class="hs-identifier hs-var hs-var">isServiceLimited</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The value for the metric specified by the UsageByAccount.type field in</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the response.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalue%3AServiceLimit%27"><span class="annot"><span class="annottext">ServiceLimit -&gt; Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3Avalue%3AServiceLimit%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The unit of measurement for the value specified by the value field.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aunit%3AServiceLimit%27"><span class="annot"><span class="annottext">ServiceLimit -&gt; Maybe Unit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3Aunit%3AServiceLimit%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400980"><span id="local-6989586621679400982"><span class="annot"><span class="annottext">ServiceLimit -&gt; ServiceLimit -&gt; Bool
+(ServiceLimit -&gt; ServiceLimit -&gt; Bool)
+-&gt; (ServiceLimit -&gt; ServiceLimit -&gt; Bool) -&gt; Eq ServiceLimit
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceLimit -&gt; ServiceLimit -&gt; Bool
+$c/= :: ServiceLimit -&gt; ServiceLimit -&gt; Bool
+== :: ServiceLimit -&gt; ServiceLimit -&gt; Bool
+$c== :: ServiceLimit -&gt; ServiceLimit -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400971"><span id="local-6989586621679400973"><span id="local-6989586621679400975"><span id="local-6989586621679400977"><span class="annot"><span class="annottext">ReadPrec [ServiceLimit]
+ReadPrec ServiceLimit
+Int -&gt; ReadS ServiceLimit
+ReadS [ServiceLimit]
+(Int -&gt; ReadS ServiceLimit)
+-&gt; ReadS [ServiceLimit]
+-&gt; ReadPrec ServiceLimit
+-&gt; ReadPrec [ServiceLimit]
+-&gt; Read ServiceLimit
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceLimit]
+$creadListPrec :: ReadPrec [ServiceLimit]
+readPrec :: ReadPrec ServiceLimit
+$creadPrec :: ReadPrec ServiceLimit
+readList :: ReadS [ServiceLimit]
+$creadList :: ReadS [ServiceLimit]
+readsPrec :: Int -&gt; ReadS ServiceLimit
+$creadsPrec :: Int -&gt; ReadS ServiceLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400964"><span id="local-6989586621679400966"><span id="local-6989586621679400968"><span class="annot"><span class="annottext">Int -&gt; ServiceLimit -&gt; ShowS
+[ServiceLimit] -&gt; ShowS
+ServiceLimit -&gt; String
+(Int -&gt; ServiceLimit -&gt; ShowS)
+-&gt; (ServiceLimit -&gt; String)
+-&gt; ([ServiceLimit] -&gt; ShowS)
+-&gt; Show ServiceLimit
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceLimit] -&gt; ShowS
+$cshowList :: [ServiceLimit] -&gt; ShowS
+show :: ServiceLimit -&gt; String
+$cshow :: ServiceLimit -&gt; String
+showsPrec :: Int -&gt; ServiceLimit -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ServiceLimit -&gt; Rep ServiceLimit x)
+-&gt; (forall x. Rep ServiceLimit x -&gt; ServiceLimit)
+-&gt; Generic ServiceLimit
+forall x. Rep ServiceLimit x -&gt; ServiceLimit
+forall x. ServiceLimit -&gt; Rep ServiceLimit x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServiceLimit x -&gt; ServiceLimit
+$cfrom :: forall x. ServiceLimit -&gt; Rep ServiceLimit x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ServiceLimit' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'isServiceLimited', 'serviceLimit_isServiceLimited' - Specifies whether the account has met the quota that corresponds to the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- metric specified by the UsageByAccount.type field in the response.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'value', 'serviceLimit_value' - The value for the metric specified by the UsageByAccount.type field in</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- the response.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'unit', 'serviceLimit_unit' - The unit of measurement for the value specified by the value field.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#newServiceLimit"><span class="hs-identifier hs-type">newServiceLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span><span>
+</span><span id="line-59"></span><span id="newServiceLimit"><span class="annot"><span class="annottext">newServiceLimit :: ServiceLimit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#newServiceLimit"><span class="hs-identifier hs-var hs-var">newServiceLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ServiceLimit' :: Maybe Bool -&gt; Maybe Integer -&gt; Maybe Unit -&gt; ServiceLimit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-type">ServiceLimit'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isServiceLimited:ServiceLimit' :: Maybe Bool
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3AisServiceLimited%3AServiceLimit%27"><span class="hs-identifier hs-var">isServiceLimited</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ServiceLimit' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3Avalue%3AServiceLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:unit:ServiceLimit' :: Maybe Unit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3Aunit%3AServiceLimit%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Specifies whether the account has met the quota that corresponds to the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- metric specified by the UsageByAccount.type field in the response.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#serviceLimit_isServiceLimited"><span class="hs-identifier hs-type">serviceLimit_isServiceLimited</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="serviceLimit_isServiceLimited"><span class="annot"><span class="annottext">serviceLimit_isServiceLimited :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ServiceLimit -&gt; f ServiceLimit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#serviceLimit_isServiceLimited"><span class="hs-identifier hs-var hs-var">serviceLimit_isServiceLimited</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLimit -&gt; Maybe Bool)
+-&gt; (ServiceLimit -&gt; Maybe Bool -&gt; ServiceLimit)
+-&gt; Lens ServiceLimit ServiceLimit (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-type">ServiceLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400955"><span class="annot"><span class="annottext">Maybe Bool
+isServiceLimited :: Maybe Bool
+$sel:isServiceLimited:ServiceLimit' :: ServiceLimit -&gt; Maybe Bool
+</span><a href="#local-6989586621679400955"><span class="hs-identifier hs-var hs-var">isServiceLimited</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679400955"><span class="hs-identifier hs-var">isServiceLimited</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400954"><span class="annot"><span class="annottext">s :: ServiceLimit
+</span><a href="#local-6989586621679400954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-type">ServiceLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400953"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679400953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLimit
+</span><a href="#local-6989586621679400954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isServiceLimited:ServiceLimit' :: Maybe Bool
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3AisServiceLimited%3AServiceLimit%27"><span class="hs-identifier hs-var">isServiceLimited</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679400953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The value for the metric specified by the UsageByAccount.type field in</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the response.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#serviceLimit_value"><span class="hs-identifier hs-type">serviceLimit_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="serviceLimit_value"><span class="annot"><span class="annottext">serviceLimit_value :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ServiceLimit -&gt; f ServiceLimit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#serviceLimit_value"><span class="hs-identifier hs-var hs-var">serviceLimit_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLimit -&gt; Maybe Integer)
+-&gt; (ServiceLimit -&gt; Maybe Integer -&gt; ServiceLimit)
+-&gt; Lens ServiceLimit ServiceLimit (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-type">ServiceLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400951"><span class="annot"><span class="annottext">Maybe Integer
+value :: Maybe Integer
+$sel:value:ServiceLimit' :: ServiceLimit -&gt; Maybe Integer
+</span><a href="#local-6989586621679400951"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679400951"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400950"><span class="annot"><span class="annottext">s :: ServiceLimit
+</span><a href="#local-6989586621679400950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-type">ServiceLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400949"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679400949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLimit
+</span><a href="#local-6989586621679400950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ServiceLimit' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3Avalue%3AServiceLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679400949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The unit of measurement for the value specified by the value field.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#serviceLimit_unit"><span class="hs-identifier hs-type">serviceLimit_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="serviceLimit_unit"><span class="annot"><span class="annottext">serviceLimit_unit :: (Maybe Unit -&gt; f (Maybe Unit)) -&gt; ServiceLimit -&gt; f ServiceLimit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#serviceLimit_unit"><span class="hs-identifier hs-var hs-var">serviceLimit_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLimit -&gt; Maybe Unit)
+-&gt; (ServiceLimit -&gt; Maybe Unit -&gt; ServiceLimit)
+-&gt; Lens ServiceLimit ServiceLimit (Maybe Unit) (Maybe Unit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-type">ServiceLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400947"><span class="annot"><span class="annottext">Maybe Unit
+unit :: Maybe Unit
+$sel:unit:ServiceLimit' :: ServiceLimit -&gt; Maybe Unit
+</span><a href="#local-6989586621679400947"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679400947"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400946"><span class="annot"><span class="annottext">s :: ServiceLimit
+</span><a href="#local-6989586621679400946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-type">ServiceLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400945"><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679400945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLimit
+</span><a href="#local-6989586621679400946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:ServiceLimit' :: Maybe Unit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#%24sel%3Aunit%3AServiceLimit%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679400945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400942"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679400940"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ServiceLimit) -&gt; Value -&gt; Parser ServiceLimit
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ServiceLimit&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679400937"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Integer -&gt; Maybe Unit -&gt; ServiceLimit
+</span><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit%27"><span class="hs-identifier hs-var">ServiceLimit'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Integer -&gt; Maybe Unit -&gt; ServiceLimit)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Integer -&gt; Maybe Unit -&gt; ServiceLimit)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isServiceLimited&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Unit -&gt; ServiceLimit)
+-&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Unit -&gt; ServiceLimit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Unit -&gt; ServiceLimit)
+-&gt; Parser (Maybe Unit) -&gt; Parser ServiceLimit
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Unit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400931"><span id="local-6989586621679400933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ServiceLimit.html#ServiceLimit"><span class="hs-identifier hs-type">ServiceLimit</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kafka.UpdateClusterKafkaVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the Apache Kafka version for the cluster.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kafka.UpdateClusterKafkaVersion</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#newUpdateClusterKafkaVersion"><span class="hs-identifier">newUpdateClusterKafkaVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_configurationInfo"><span class="hs-identifier">updateClusterKafkaVersion_configurationInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_clusterArn"><span class="hs-identifier">updateClusterKafkaVersion_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_targetKafkaVersion"><span class="hs-identifier">updateClusterKafkaVersion_targetKafkaVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_currentVersion"><span class="hs-identifier">updateClusterKafkaVersion_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier">UpdateClusterKafkaVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#newUpdateClusterKafkaVersionResponse"><span class="hs-identifier">newUpdateClusterKafkaVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_clusterArn"><span class="hs-identifier">updateClusterKafkaVersionResponse_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_clusterOperationArn"><span class="hs-identifier">updateClusterKafkaVersionResponse_clusterOperationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_httpStatus"><span class="hs-identifier">updateClusterKafkaVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.html"><span class="hs-identifier">Amazonka.Kafka.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateClusterKafkaVersion' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679241247"><span id="local-6989586621679241248"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClusterKafkaVersion"><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-var">UpdateClusterKafkaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClusterKafkaVersion%27"><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">UpdateClusterKafkaVersion'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The custom configuration that should be applied on the new version of</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AconfigurationInfo%3AUpdateClusterKafkaVersion%27"><span class="annot"><span class="annottext">UpdateClusterKafkaVersion -&gt; Maybe ConfigurationInfo
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AconfigurationInfo%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var hs-var">configurationInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ConfigurationInfo.html#ConfigurationInfo"><span class="hs-identifier hs-type">ConfigurationInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster to be updated.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AclusterArn%3AUpdateClusterKafkaVersion%27"><span class="annot"><span class="annottext">UpdateClusterKafkaVersion -&gt; Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterArn%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Target Kafka version.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtargetKafkaVersion%3AUpdateClusterKafkaVersion%27"><span class="annot"><span class="annottext">UpdateClusterKafkaVersion -&gt; Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AtargetKafkaVersion%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var hs-var">targetKafkaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Current cluster version.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcurrentVersion%3AUpdateClusterKafkaVersion%27"><span class="annot"><span class="annottext">UpdateClusterKafkaVersion -&gt; Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AcurrentVersion%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241238"><span id="local-6989586621679241240"><span class="annot"><span class="annottext">UpdateClusterKafkaVersion -&gt; UpdateClusterKafkaVersion -&gt; Bool
+(UpdateClusterKafkaVersion -&gt; UpdateClusterKafkaVersion -&gt; Bool)
+-&gt; (UpdateClusterKafkaVersion -&gt; UpdateClusterKafkaVersion -&gt; Bool)
+-&gt; Eq UpdateClusterKafkaVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateClusterKafkaVersion -&gt; UpdateClusterKafkaVersion -&gt; Bool
+$c/= :: UpdateClusterKafkaVersion -&gt; UpdateClusterKafkaVersion -&gt; Bool
+== :: UpdateClusterKafkaVersion -&gt; UpdateClusterKafkaVersion -&gt; Bool
+$c== :: UpdateClusterKafkaVersion -&gt; UpdateClusterKafkaVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241229"><span id="local-6989586621679241231"><span id="local-6989586621679241233"><span id="local-6989586621679241235"><span class="annot"><span class="annottext">ReadPrec [UpdateClusterKafkaVersion]
+ReadPrec UpdateClusterKafkaVersion
+Int -&gt; ReadS UpdateClusterKafkaVersion
+ReadS [UpdateClusterKafkaVersion]
+(Int -&gt; ReadS UpdateClusterKafkaVersion)
+-&gt; ReadS [UpdateClusterKafkaVersion]
+-&gt; ReadPrec UpdateClusterKafkaVersion
+-&gt; ReadPrec [UpdateClusterKafkaVersion]
+-&gt; Read UpdateClusterKafkaVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateClusterKafkaVersion]
+$creadListPrec :: ReadPrec [UpdateClusterKafkaVersion]
+readPrec :: ReadPrec UpdateClusterKafkaVersion
+$creadPrec :: ReadPrec UpdateClusterKafkaVersion
+readList :: ReadS [UpdateClusterKafkaVersion]
+$creadList :: ReadS [UpdateClusterKafkaVersion]
+readsPrec :: Int -&gt; ReadS UpdateClusterKafkaVersion
+$creadsPrec :: Int -&gt; ReadS UpdateClusterKafkaVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241222"><span id="local-6989586621679241224"><span id="local-6989586621679241226"><span class="annot"><span class="annottext">Int -&gt; UpdateClusterKafkaVersion -&gt; ShowS
+[UpdateClusterKafkaVersion] -&gt; ShowS
+UpdateClusterKafkaVersion -&gt; String
+(Int -&gt; UpdateClusterKafkaVersion -&gt; ShowS)
+-&gt; (UpdateClusterKafkaVersion -&gt; String)
+-&gt; ([UpdateClusterKafkaVersion] -&gt; ShowS)
+-&gt; Show UpdateClusterKafkaVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateClusterKafkaVersion] -&gt; ShowS
+$cshowList :: [UpdateClusterKafkaVersion] -&gt; ShowS
+show :: UpdateClusterKafkaVersion -&gt; String
+$cshow :: UpdateClusterKafkaVersion -&gt; String
+showsPrec :: Int -&gt; UpdateClusterKafkaVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateClusterKafkaVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateClusterKafkaVersion -&gt; Rep UpdateClusterKafkaVersion x)
+-&gt; (forall x.
+    Rep UpdateClusterKafkaVersion x -&gt; UpdateClusterKafkaVersion)
+-&gt; Generic UpdateClusterKafkaVersion
+forall x.
+Rep UpdateClusterKafkaVersion x -&gt; UpdateClusterKafkaVersion
+forall x.
+UpdateClusterKafkaVersion -&gt; Rep UpdateClusterKafkaVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateClusterKafkaVersion x -&gt; UpdateClusterKafkaVersion
+$cfrom :: forall x.
+UpdateClusterKafkaVersion -&gt; Rep UpdateClusterKafkaVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateClusterKafkaVersion' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'configurationInfo', 'updateClusterKafkaVersion_configurationInfo' - The custom configuration that should be applied on the new version of</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'clusterArn', 'updateClusterKafkaVersion_clusterArn' - The Amazon Resource Name (ARN) of the cluster to be updated.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'targetKafkaVersion', 'updateClusterKafkaVersion_targetKafkaVersion' - Target Kafka version.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'currentVersion', 'updateClusterKafkaVersion_currentVersion' - Current cluster version.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#newUpdateClusterKafkaVersion"><span class="hs-identifier hs-type">newUpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'clusterArn'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'targetKafkaVersion'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'currentVersion'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span>
+</span><span id="line-91"></span><span id="newUpdateClusterKafkaVersion"><span class="annot"><span class="annottext">newUpdateClusterKafkaVersion :: Text -&gt; Text -&gt; Text -&gt; UpdateClusterKafkaVersion
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#newUpdateClusterKafkaVersion"><span class="hs-identifier hs-var hs-var">newUpdateClusterKafkaVersion</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679241217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241217"><span class="hs-identifier hs-var">pClusterArn_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679241216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241216"><span class="hs-identifier hs-var">pTargetKafkaVersion_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679241215"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241215"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersion' :: Maybe ConfigurationInfo
+-&gt; Text -&gt; Text -&gt; Text -&gt; UpdateClusterKafkaVersion
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationInfo:UpdateClusterKafkaVersion' :: Maybe ConfigurationInfo
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AconfigurationInfo%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">configurationInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateClusterKafkaVersion' :: Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterArn%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241217"><span class="hs-identifier hs-var">pClusterArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetKafkaVersion:UpdateClusterKafkaVersion' :: Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AtargetKafkaVersion%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">targetKafkaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241216"><span class="hs-identifier hs-var">pTargetKafkaVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateClusterKafkaVersion' :: Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AcurrentVersion%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241215"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The custom configuration that should be applied on the new version of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_configurationInfo"><span class="hs-identifier hs-type">updateClusterKafkaVersion_configurationInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ConfigurationInfo.html#ConfigurationInfo"><span class="hs-identifier hs-type">ConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="updateClusterKafkaVersion_configurationInfo"><span class="annot"><span class="annottext">updateClusterKafkaVersion_configurationInfo :: (Maybe ConfigurationInfo -&gt; f (Maybe ConfigurationInfo))
+-&gt; UpdateClusterKafkaVersion -&gt; f UpdateClusterKafkaVersion
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_configurationInfo"><span class="hs-identifier hs-var hs-var">updateClusterKafkaVersion_configurationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClusterKafkaVersion -&gt; Maybe ConfigurationInfo)
+-&gt; (UpdateClusterKafkaVersion
+    -&gt; Maybe ConfigurationInfo -&gt; UpdateClusterKafkaVersion)
+-&gt; Lens
+     UpdateClusterKafkaVersion
+     UpdateClusterKafkaVersion
+     (Maybe ConfigurationInfo)
+     (Maybe ConfigurationInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241212"><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+configurationInfo :: Maybe ConfigurationInfo
+$sel:configurationInfo:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Maybe ConfigurationInfo
+</span><a href="#local-6989586621679241212"><span class="hs-identifier hs-var hs-var">configurationInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+</span><a href="#local-6989586621679241212"><span class="hs-identifier hs-var">configurationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241211"><span class="annot"><span class="annottext">s :: UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241210"><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+</span><a href="#local-6989586621679241210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationInfo:UpdateClusterKafkaVersion' :: Maybe ConfigurationInfo
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AconfigurationInfo%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">configurationInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+</span><a href="#local-6989586621679241210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster to be updated.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_clusterArn"><span class="hs-identifier hs-type">updateClusterKafkaVersion_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="updateClusterKafkaVersion_clusterArn"><span class="annot"><span class="annottext">updateClusterKafkaVersion_clusterArn :: (Text -&gt; f Text)
+-&gt; UpdateClusterKafkaVersion -&gt; f UpdateClusterKafkaVersion
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_clusterArn"><span class="hs-identifier hs-var hs-var">updateClusterKafkaVersion_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClusterKafkaVersion -&gt; Text)
+-&gt; (UpdateClusterKafkaVersion -&gt; Text -&gt; UpdateClusterKafkaVersion)
+-&gt; Lens
+     UpdateClusterKafkaVersion UpdateClusterKafkaVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241209"><span class="annot"><span class="annottext">Text
+clusterArn :: Text
+$sel:clusterArn:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+</span><a href="#local-6989586621679241209"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241209"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241208"><span class="annot"><span class="annottext">s :: UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateClusterKafkaVersion' :: Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterArn%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Target Kafka version.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_targetKafkaVersion"><span class="hs-identifier hs-type">updateClusterKafkaVersion_targetKafkaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="updateClusterKafkaVersion_targetKafkaVersion"><span class="annot"><span class="annottext">updateClusterKafkaVersion_targetKafkaVersion :: (Text -&gt; f Text)
+-&gt; UpdateClusterKafkaVersion -&gt; f UpdateClusterKafkaVersion
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_targetKafkaVersion"><span class="hs-identifier hs-var hs-var">updateClusterKafkaVersion_targetKafkaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClusterKafkaVersion -&gt; Text)
+-&gt; (UpdateClusterKafkaVersion -&gt; Text -&gt; UpdateClusterKafkaVersion)
+-&gt; Lens
+     UpdateClusterKafkaVersion UpdateClusterKafkaVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241206"><span class="annot"><span class="annottext">Text
+targetKafkaVersion :: Text
+$sel:targetKafkaVersion:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+</span><a href="#local-6989586621679241206"><span class="hs-identifier hs-var hs-var">targetKafkaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241206"><span class="hs-identifier hs-var">targetKafkaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241205"><span class="annot"><span class="annottext">s :: UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241204"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetKafkaVersion:UpdateClusterKafkaVersion' :: Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AtargetKafkaVersion%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">targetKafkaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Current cluster version.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_currentVersion"><span class="hs-identifier hs-type">updateClusterKafkaVersion_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="updateClusterKafkaVersion_currentVersion"><span class="annot"><span class="annottext">updateClusterKafkaVersion_currentVersion :: (Text -&gt; f Text)
+-&gt; UpdateClusterKafkaVersion -&gt; f UpdateClusterKafkaVersion
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersion_currentVersion"><span class="hs-identifier hs-var hs-var">updateClusterKafkaVersion_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClusterKafkaVersion -&gt; Text)
+-&gt; (UpdateClusterKafkaVersion -&gt; Text -&gt; UpdateClusterKafkaVersion)
+-&gt; Lens
+     UpdateClusterKafkaVersion UpdateClusterKafkaVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241203"><span class="annot"><span class="annottext">Text
+currentVersion :: Text
+$sel:currentVersion:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+</span><a href="#local-6989586621679241203"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241203"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241202"><span class="annot"><span class="annottext">s :: UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241201"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersion
+</span><a href="#local-6989586621679241202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateClusterKafkaVersion' :: Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AcurrentVersion%3AUpdateClusterKafkaVersion%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679241197"><span class="annot"><span class="annottext">request :: UpdateClusterKafkaVersion -&gt; Request UpdateClusterKafkaVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateClusterKafkaVersion -&gt; Request UpdateClusterKafkaVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kafka.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679241193"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateClusterKafkaVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateClusterKafkaVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateClusterKafkaVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateClusterKafkaVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateClusterKafkaVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241190"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241190"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241189"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679241189"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241188"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241188"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; UpdateClusterKafkaVersionResponse
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">UpdateClusterKafkaVersionResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; UpdateClusterKafkaVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdateClusterKafkaVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; UpdateClusterKafkaVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateClusterKafkaVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterOperationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateClusterKafkaVersionResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateClusterKafkaVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241190"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241180"><span id="local-6989586621679241182"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679241173"><span class="annot"><span class="annottext">toHeaders :: UpdateClusterKafkaVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateClusterKafkaVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-145"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241163"><span id="local-6989586621679241165"><span id="local-6989586621679241167"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679241161"><span class="annot"><span class="annottext">toJSON :: UpdateClusterKafkaVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241156"><span id="local-6989586621679241157"><span id="local-6989586621679241158"><span id="local-6989586621679241159"><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+Text
+currentVersion :: Text
+targetKafkaVersion :: Text
+clusterArn :: Text
+configurationInfo :: Maybe ConfigurationInfo
+$sel:currentVersion:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+$sel:targetKafkaVersion:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+$sel:clusterArn:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+$sel:configurationInfo:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Maybe ConfigurationInfo
+</span><a href="#local-6989586621679241156"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configurationInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfigurationInfo -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(ConfigurationInfo -&gt; Pair)
+-&gt; Maybe ConfigurationInfo -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+</span><a href="#local-6989586621679241159"><span class="hs-identifier hs-var">configurationInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetKafkaVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241157"><span class="hs-identifier hs-var">targetKafkaVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241156"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679241150"><span class="annot"><span class="annottext">toPath :: UpdateClusterKafkaVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241145"><span id="local-6989586621679241146"><span id="local-6989586621679241147"><span id="local-6989586621679241148"><span class="annot"><span class="annottext">Maybe ConfigurationInfo
+Text
+currentVersion :: Text
+targetKafkaVersion :: Text
+clusterArn :: Text
+configurationInfo :: Maybe ConfigurationInfo
+$sel:currentVersion:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+$sel:targetKafkaVersion:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+$sel:clusterArn:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Text
+$sel:configurationInfo:UpdateClusterKafkaVersion' :: UpdateClusterKafkaVersion -&gt; Maybe ConfigurationInfo
+</span><a href="#local-6989586621679241145"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/clusters/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241147"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/version&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersion"><span class="hs-identifier hs-type">UpdateClusterKafkaVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679241141"><span class="annot"><span class="annottext">toQuery :: UpdateClusterKafkaVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateClusterKafkaVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newUpdateClusterKafkaVersionResponse' smart constructor.</span><span>
+</span><span id="line-171"></span><span id="local-6989586621679241138"><span id="local-6989586621679241139"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClusterKafkaVersionResponse"><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-var">UpdateClusterKafkaVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClusterKafkaVersionResponse%27"><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">UpdateClusterKafkaVersionResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AclusterArn%3AUpdateClusterKafkaVersionResponse%27"><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterArn%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster operation.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AclusterOperationArn%3AUpdateClusterKafkaVersionResponse%27"><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterOperationArn%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var hs-var">clusterOperationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateClusterKafkaVersionResponse%27"><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse -&gt; Int
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AhttpStatus%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241131"><span id="local-6989586621679241133"><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse
+-&gt; UpdateClusterKafkaVersionResponse -&gt; Bool
+(UpdateClusterKafkaVersionResponse
+ -&gt; UpdateClusterKafkaVersionResponse -&gt; Bool)
+-&gt; (UpdateClusterKafkaVersionResponse
+    -&gt; UpdateClusterKafkaVersionResponse -&gt; Bool)
+-&gt; Eq UpdateClusterKafkaVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateClusterKafkaVersionResponse
+-&gt; UpdateClusterKafkaVersionResponse -&gt; Bool
+$c/= :: UpdateClusterKafkaVersionResponse
+-&gt; UpdateClusterKafkaVersionResponse -&gt; Bool
+== :: UpdateClusterKafkaVersionResponse
+-&gt; UpdateClusterKafkaVersionResponse -&gt; Bool
+$c== :: UpdateClusterKafkaVersionResponse
+-&gt; UpdateClusterKafkaVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241123"><span id="local-6989586621679241125"><span id="local-6989586621679241127"><span id="local-6989586621679241129"><span class="annot"><span class="annottext">ReadPrec [UpdateClusterKafkaVersionResponse]
+ReadPrec UpdateClusterKafkaVersionResponse
+Int -&gt; ReadS UpdateClusterKafkaVersionResponse
+ReadS [UpdateClusterKafkaVersionResponse]
+(Int -&gt; ReadS UpdateClusterKafkaVersionResponse)
+-&gt; ReadS [UpdateClusterKafkaVersionResponse]
+-&gt; ReadPrec UpdateClusterKafkaVersionResponse
+-&gt; ReadPrec [UpdateClusterKafkaVersionResponse]
+-&gt; Read UpdateClusterKafkaVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateClusterKafkaVersionResponse]
+$creadListPrec :: ReadPrec [UpdateClusterKafkaVersionResponse]
+readPrec :: ReadPrec UpdateClusterKafkaVersionResponse
+$creadPrec :: ReadPrec UpdateClusterKafkaVersionResponse
+readList :: ReadS [UpdateClusterKafkaVersionResponse]
+$creadList :: ReadS [UpdateClusterKafkaVersionResponse]
+readsPrec :: Int -&gt; ReadS UpdateClusterKafkaVersionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateClusterKafkaVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241117"><span id="local-6989586621679241119"><span id="local-6989586621679241121"><span class="annot"><span class="annottext">Int -&gt; UpdateClusterKafkaVersionResponse -&gt; ShowS
+[UpdateClusterKafkaVersionResponse] -&gt; ShowS
+UpdateClusterKafkaVersionResponse -&gt; String
+(Int -&gt; UpdateClusterKafkaVersionResponse -&gt; ShowS)
+-&gt; (UpdateClusterKafkaVersionResponse -&gt; String)
+-&gt; ([UpdateClusterKafkaVersionResponse] -&gt; ShowS)
+-&gt; Show UpdateClusterKafkaVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateClusterKafkaVersionResponse] -&gt; ShowS
+$cshowList :: [UpdateClusterKafkaVersionResponse] -&gt; ShowS
+show :: UpdateClusterKafkaVersionResponse -&gt; String
+$cshow :: UpdateClusterKafkaVersionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateClusterKafkaVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateClusterKafkaVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateClusterKafkaVersionResponse
+ -&gt; Rep UpdateClusterKafkaVersionResponse x)
+-&gt; (forall x.
+    Rep UpdateClusterKafkaVersionResponse x
+    -&gt; UpdateClusterKafkaVersionResponse)
+-&gt; Generic UpdateClusterKafkaVersionResponse
+forall x.
+Rep UpdateClusterKafkaVersionResponse x
+-&gt; UpdateClusterKafkaVersionResponse
+forall x.
+UpdateClusterKafkaVersionResponse
+-&gt; Rep UpdateClusterKafkaVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateClusterKafkaVersionResponse x
+-&gt; UpdateClusterKafkaVersionResponse
+$cfrom :: forall x.
+UpdateClusterKafkaVersionResponse
+-&gt; Rep UpdateClusterKafkaVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'UpdateClusterKafkaVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'clusterArn', 'updateClusterKafkaVersionResponse_clusterArn' - The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'clusterOperationArn', 'updateClusterKafkaVersionResponse_clusterOperationArn' - The Amazon Resource Name (ARN) of the cluster operation.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'updateClusterKafkaVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#newUpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">newUpdateClusterKafkaVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newUpdateClusterKafkaVersionResponse"><span class="annot"><span class="annottext">newUpdateClusterKafkaVersionResponse :: Int -&gt; UpdateClusterKafkaVersionResponse
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#newUpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-var hs-var">newUpdateClusterKafkaVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679241114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; UpdateClusterKafkaVersionResponse
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateClusterKafkaVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterArn%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterOperationArn:UpdateClusterKafkaVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterOperationArn%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">clusterOperationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterKafkaVersionResponse' :: Int
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AhttpStatus%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_clusterArn"><span class="hs-identifier hs-type">updateClusterKafkaVersionResponse_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="updateClusterKafkaVersionResponse_clusterArn"><span class="annot"><span class="annottext">updateClusterKafkaVersionResponse_clusterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateClusterKafkaVersionResponse
+-&gt; f UpdateClusterKafkaVersionResponse
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_clusterArn"><span class="hs-identifier hs-var hs-var">updateClusterKafkaVersionResponse_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClusterKafkaVersionResponse -&gt; Maybe Text)
+-&gt; (UpdateClusterKafkaVersionResponse
+    -&gt; Maybe Text -&gt; UpdateClusterKafkaVersionResponse)
+-&gt; Lens
+     UpdateClusterKafkaVersionResponse
+     UpdateClusterKafkaVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241113"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:UpdateClusterKafkaVersionResponse' :: UpdateClusterKafkaVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679241113"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241113"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241112"><span class="annot"><span class="annottext">s :: UpdateClusterKafkaVersionResponse
+</span><a href="#local-6989586621679241112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse
+</span><a href="#local-6989586621679241112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateClusterKafkaVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterArn%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster operation.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_clusterOperationArn"><span class="hs-identifier hs-type">updateClusterKafkaVersionResponse_clusterOperationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="updateClusterKafkaVersionResponse_clusterOperationArn"><span class="annot"><span class="annottext">updateClusterKafkaVersionResponse_clusterOperationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateClusterKafkaVersionResponse
+-&gt; f UpdateClusterKafkaVersionResponse
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_clusterOperationArn"><span class="hs-identifier hs-var hs-var">updateClusterKafkaVersionResponse_clusterOperationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClusterKafkaVersionResponse -&gt; Maybe Text)
+-&gt; (UpdateClusterKafkaVersionResponse
+    -&gt; Maybe Text -&gt; UpdateClusterKafkaVersionResponse)
+-&gt; Lens
+     UpdateClusterKafkaVersionResponse
+     UpdateClusterKafkaVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241110"><span class="annot"><span class="annottext">Maybe Text
+clusterOperationArn :: Maybe Text
+$sel:clusterOperationArn:UpdateClusterKafkaVersionResponse' :: UpdateClusterKafkaVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679241110"><span class="hs-identifier hs-var hs-var">clusterOperationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241110"><span class="hs-identifier hs-var">clusterOperationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241109"><span class="annot"><span class="annottext">s :: UpdateClusterKafkaVersionResponse
+</span><a href="#local-6989586621679241109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse
+</span><a href="#local-6989586621679241109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterOperationArn:UpdateClusterKafkaVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AclusterOperationArn%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">clusterOperationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_httpStatus"><span class="hs-identifier hs-type">updateClusterKafkaVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="updateClusterKafkaVersionResponse_httpStatus"><span class="annot"><span class="annottext">updateClusterKafkaVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateClusterKafkaVersionResponse
+-&gt; f UpdateClusterKafkaVersionResponse
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#updateClusterKafkaVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateClusterKafkaVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClusterKafkaVersionResponse -&gt; Int)
+-&gt; (UpdateClusterKafkaVersionResponse
+    -&gt; Int -&gt; UpdateClusterKafkaVersionResponse)
+-&gt; Lens
+     UpdateClusterKafkaVersionResponse
+     UpdateClusterKafkaVersionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241107"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateClusterKafkaVersionResponse' :: UpdateClusterKafkaVersionResponse -&gt; Int
+</span><a href="#local-6989586621679241107"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241107"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241106"><span class="annot"><span class="annottext">s :: UpdateClusterKafkaVersionResponse
+</span><a href="#local-6989586621679241106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241105"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterKafkaVersionResponse
+</span><a href="#local-6989586621679241106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterKafkaVersionResponse' :: Int
+</span><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#%24sel%3AhttpStatus%3AUpdateClusterKafkaVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679241103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateClusterKafkaVersion.html#UpdateClusterKafkaVersionResponse"><span class="hs-identifier hs-type">UpdateClusterKafkaVersionResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkMailMessageFlow.PutRawMessageContent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the raw content of an in-transit email message, in MIME format.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This example describes how to update in-transit email message. For more</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- information and examples for using this API, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html Updating message content with AWS Lambda&gt;.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Updates to an in-transit message only appear when you call</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @PutRawMessageContent@ from an AWS Lambda function configured with a</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- synchronous</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workmail/latest/adminguide/lambda.html#synchronous-rules Run Lambda&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- rule. If you call @PutRawMessageContent@ on a delivered or sent message,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- the message remains unchanged, even though</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workmail/latest/APIReference/API_messageflow_GetRawMessageContent.html GetRawMessageContent&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- returns an updated message.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkMailMessageFlow.PutRawMessageContent</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier">PutRawMessageContent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#newPutRawMessageContent"><span class="hs-identifier">newPutRawMessageContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContent_messageId"><span class="hs-identifier">putRawMessageContent_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContent_content"><span class="hs-identifier">putRawMessageContent_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse"><span class="hs-identifier">PutRawMessageContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#newPutRawMessageContentResponse"><span class="hs-identifier">newPutRawMessageContentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContentResponse_httpStatus"><span class="hs-identifier">putRawMessageContentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.Types.html"><span class="hs-identifier">Amazonka.WorkMailMessageFlow.Types</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newPutRawMessageContent' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679136108"><span id="local-6989586621679136109"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRawMessageContent"><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-var">PutRawMessageContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRawMessageContent%27"><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-var">PutRawMessageContent'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the email message being updated.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmessageId%3APutRawMessageContent%27"><span class="annot"><span class="annottext">PutRawMessageContent -&gt; Text
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3AmessageId%3APutRawMessageContent%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Describes the raw message content of the updated email message.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Acontent%3APutRawMessageContent%27"><span class="annot"><span class="annottext">PutRawMessageContent -&gt; RawMessageContent
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3Acontent%3APutRawMessageContent%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.Types.RawMessageContent.html#RawMessageContent"><span class="hs-identifier hs-type">RawMessageContent</span></a></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136101"><span id="local-6989586621679136103"><span class="annot"><span class="annottext">PutRawMessageContent -&gt; PutRawMessageContent -&gt; Bool
+(PutRawMessageContent -&gt; PutRawMessageContent -&gt; Bool)
+-&gt; (PutRawMessageContent -&gt; PutRawMessageContent -&gt; Bool)
+-&gt; Eq PutRawMessageContent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRawMessageContent -&gt; PutRawMessageContent -&gt; Bool
+$c/= :: PutRawMessageContent -&gt; PutRawMessageContent -&gt; Bool
+== :: PutRawMessageContent -&gt; PutRawMessageContent -&gt; Bool
+$c== :: PutRawMessageContent -&gt; PutRawMessageContent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136092"><span id="local-6989586621679136094"><span id="local-6989586621679136096"><span id="local-6989586621679136098"><span class="annot"><span class="annottext">ReadPrec [PutRawMessageContent]
+ReadPrec PutRawMessageContent
+Int -&gt; ReadS PutRawMessageContent
+ReadS [PutRawMessageContent]
+(Int -&gt; ReadS PutRawMessageContent)
+-&gt; ReadS [PutRawMessageContent]
+-&gt; ReadPrec PutRawMessageContent
+-&gt; ReadPrec [PutRawMessageContent]
+-&gt; Read PutRawMessageContent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRawMessageContent]
+$creadListPrec :: ReadPrec [PutRawMessageContent]
+readPrec :: ReadPrec PutRawMessageContent
+$creadPrec :: ReadPrec PutRawMessageContent
+readList :: ReadS [PutRawMessageContent]
+$creadList :: ReadS [PutRawMessageContent]
+readsPrec :: Int -&gt; ReadS PutRawMessageContent
+$creadsPrec :: Int -&gt; ReadS PutRawMessageContent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136085"><span id="local-6989586621679136087"><span id="local-6989586621679136089"><span class="annot"><span class="annottext">Int -&gt; PutRawMessageContent -&gt; ShowS
+[PutRawMessageContent] -&gt; ShowS
+PutRawMessageContent -&gt; String
+(Int -&gt; PutRawMessageContent -&gt; ShowS)
+-&gt; (PutRawMessageContent -&gt; String)
+-&gt; ([PutRawMessageContent] -&gt; ShowS)
+-&gt; Show PutRawMessageContent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRawMessageContent] -&gt; ShowS
+$cshowList :: [PutRawMessageContent] -&gt; ShowS
+show :: PutRawMessageContent -&gt; String
+$cshow :: PutRawMessageContent -&gt; String
+showsPrec :: Int -&gt; PutRawMessageContent -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRawMessageContent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutRawMessageContent -&gt; Rep PutRawMessageContent x)
+-&gt; (forall x. Rep PutRawMessageContent x -&gt; PutRawMessageContent)
+-&gt; Generic PutRawMessageContent
+forall x. Rep PutRawMessageContent x -&gt; PutRawMessageContent
+forall x. PutRawMessageContent -&gt; Rep PutRawMessageContent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutRawMessageContent x -&gt; PutRawMessageContent
+$cfrom :: forall x. PutRawMessageContent -&gt; Rep PutRawMessageContent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'PutRawMessageContent' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'messageId', 'putRawMessageContent_messageId' - The identifier of the email message being updated.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'content', 'putRawMessageContent_content' - Describes the raw message content of the updated email message.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#newPutRawMessageContent"><span class="hs-identifier hs-type">newPutRawMessageContent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'messageId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'content'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.Types.RawMessageContent.html#RawMessageContent"><span class="hs-identifier hs-type">RawMessageContent</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span>
+</span><span id="line-88"></span><span id="newPutRawMessageContent"><span class="annot"><span class="annottext">newPutRawMessageContent :: Text -&gt; RawMessageContent -&gt; PutRawMessageContent
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#newPutRawMessageContent"><span class="hs-identifier hs-var hs-var">newPutRawMessageContent</span></a></span></span><span> </span><span id="local-6989586621679136080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136080"><span class="hs-identifier hs-var">pMessageId_</span></a></span></span><span> </span><span id="local-6989586621679136079"><span class="annot"><span class="annottext">RawMessageContent
+</span><a href="#local-6989586621679136079"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">PutRawMessageContent' :: Text -&gt; RawMessageContent -&gt; PutRawMessageContent
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-type">PutRawMessageContent'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messageId:PutRawMessageContent' :: Text
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3AmessageId%3APutRawMessageContent%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136080"><span class="hs-identifier hs-var">pMessageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:PutRawMessageContent' :: RawMessageContent
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3Acontent%3APutRawMessageContent%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RawMessageContent
+</span><a href="#local-6989586621679136079"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The identifier of the email message being updated.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContent_messageId"><span class="hs-identifier hs-type">putRawMessageContent_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="putRawMessageContent_messageId"><span class="annot"><span class="annottext">putRawMessageContent_messageId :: (Text -&gt; f Text) -&gt; PutRawMessageContent -&gt; f PutRawMessageContent
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContent_messageId"><span class="hs-identifier hs-var hs-var">putRawMessageContent_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRawMessageContent -&gt; Text)
+-&gt; (PutRawMessageContent -&gt; Text -&gt; PutRawMessageContent)
+-&gt; Lens PutRawMessageContent PutRawMessageContent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-type">PutRawMessageContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136076"><span class="annot"><span class="annottext">Text
+messageId :: Text
+$sel:messageId:PutRawMessageContent' :: PutRawMessageContent -&gt; Text
+</span><a href="#local-6989586621679136076"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136076"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136075"><span class="annot"><span class="annottext">s :: PutRawMessageContent
+</span><a href="#local-6989586621679136075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-type">PutRawMessageContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRawMessageContent
+</span><a href="#local-6989586621679136075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:PutRawMessageContent' :: Text
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3AmessageId%3APutRawMessageContent%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Describes the raw message content of the updated email message.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContent_content"><span class="hs-identifier hs-type">putRawMessageContent_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.Types.RawMessageContent.html#RawMessageContent"><span class="hs-identifier hs-type">RawMessageContent</span></a></span><span>
+</span><span id="line-100"></span><span id="putRawMessageContent_content"><span class="annot"><span class="annottext">putRawMessageContent_content :: (RawMessageContent -&gt; f RawMessageContent)
+-&gt; PutRawMessageContent -&gt; f PutRawMessageContent
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContent_content"><span class="hs-identifier hs-var hs-var">putRawMessageContent_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRawMessageContent -&gt; RawMessageContent)
+-&gt; (PutRawMessageContent
+    -&gt; RawMessageContent -&gt; PutRawMessageContent)
+-&gt; Lens
+     PutRawMessageContent
+     PutRawMessageContent
+     RawMessageContent
+     RawMessageContent
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-type">PutRawMessageContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136073"><span class="annot"><span class="annottext">RawMessageContent
+content :: RawMessageContent
+$sel:content:PutRawMessageContent' :: PutRawMessageContent -&gt; RawMessageContent
+</span><a href="#local-6989586621679136073"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawMessageContent
+</span><a href="#local-6989586621679136073"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136072"><span class="annot"><span class="annottext">s :: PutRawMessageContent
+</span><a href="#local-6989586621679136072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-type">PutRawMessageContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136071"><span class="annot"><span class="annottext">RawMessageContent
+</span><a href="#local-6989586621679136071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRawMessageContent
+</span><a href="#local-6989586621679136072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:PutRawMessageContent' :: RawMessageContent
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3Acontent%3APutRawMessageContent%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RawMessageContent
+</span><a href="#local-6989586621679136071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse"><span class="hs-identifier hs-type">PutRawMessageContentResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679136067"><span class="annot"><span class="annottext">request :: PutRawMessageContent -&gt; Request PutRawMessageContent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRawMessageContent -&gt; Request PutRawMessageContent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkMailMessageFlow.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679136063"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutRawMessageContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutRawMessageContent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutRawMessageContent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutRawMessageContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutRawMessageContent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679136060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679136060"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679136059"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679136059"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679136058"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679136058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutRawMessageContentResponse
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse%27"><span class="hs-identifier hs-var">PutRawMessageContentResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutRawMessageContentResponse)
+-&gt; Either String Int -&gt; Either String PutRawMessageContentResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679136060"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136051"><span id="local-6989586621679136053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679136044"><span class="annot"><span class="annottext">toHeaders :: PutRawMessageContent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRawMessageContent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136034"><span id="local-6989586621679136036"><span id="local-6989586621679136038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679136032"><span class="annot"><span class="annottext">toJSON :: PutRawMessageContent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-type">PutRawMessageContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136029"><span id="local-6989586621679136030"><span class="annot"><span class="annottext">Text
+RawMessageContent
+content :: RawMessageContent
+messageId :: Text
+$sel:content:PutRawMessageContent' :: PutRawMessageContent -&gt; RawMessageContent
+$sel:messageId:PutRawMessageContent' :: PutRawMessageContent -&gt; Text
+</span><a href="#local-6989586621679136029"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RawMessageContent -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RawMessageContent
+</span><a href="#local-6989586621679136029"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679136023"><span class="annot"><span class="annottext">toPath :: PutRawMessageContent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent%27"><span class="hs-identifier hs-type">PutRawMessageContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136020"><span id="local-6989586621679136021"><span class="annot"><span class="annottext">Text
+RawMessageContent
+content :: RawMessageContent
+messageId :: Text
+$sel:content:PutRawMessageContent' :: PutRawMessageContent -&gt; RawMessageContent
+$sel:messageId:PutRawMessageContent' :: PutRawMessageContent -&gt; Text
+</span><a href="#local-6989586621679136020"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/messages/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136021"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContent"><span class="hs-identifier hs-type">PutRawMessageContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679136016"><span class="annot"><span class="annottext">toQuery :: PutRawMessageContent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRawMessageContent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newPutRawMessageContentResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679136013"><span id="local-6989586621679136014"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRawMessageContentResponse"><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse"><span class="hs-identifier hs-var">PutRawMessageContentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRawMessageContentResponse%27"><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse%27"><span class="hs-identifier hs-var">PutRawMessageContentResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRawMessageContentResponse%27"><span class="annot"><span class="annottext">PutRawMessageContentResponse -&gt; Int
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3AhttpStatus%3APutRawMessageContentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136008"><span id="local-6989586621679136010"><span class="annot"><span class="annottext">PutRawMessageContentResponse
+-&gt; PutRawMessageContentResponse -&gt; Bool
+(PutRawMessageContentResponse
+ -&gt; PutRawMessageContentResponse -&gt; Bool)
+-&gt; (PutRawMessageContentResponse
+    -&gt; PutRawMessageContentResponse -&gt; Bool)
+-&gt; Eq PutRawMessageContentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRawMessageContentResponse
+-&gt; PutRawMessageContentResponse -&gt; Bool
+$c/= :: PutRawMessageContentResponse
+-&gt; PutRawMessageContentResponse -&gt; Bool
+== :: PutRawMessageContentResponse
+-&gt; PutRawMessageContentResponse -&gt; Bool
+$c== :: PutRawMessageContentResponse
+-&gt; PutRawMessageContentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136000"><span id="local-6989586621679136002"><span id="local-6989586621679136004"><span id="local-6989586621679136006"><span class="annot"><span class="annottext">ReadPrec [PutRawMessageContentResponse]
+ReadPrec PutRawMessageContentResponse
+Int -&gt; ReadS PutRawMessageContentResponse
+ReadS [PutRawMessageContentResponse]
+(Int -&gt; ReadS PutRawMessageContentResponse)
+-&gt; ReadS [PutRawMessageContentResponse]
+-&gt; ReadPrec PutRawMessageContentResponse
+-&gt; ReadPrec [PutRawMessageContentResponse]
+-&gt; Read PutRawMessageContentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRawMessageContentResponse]
+$creadListPrec :: ReadPrec [PutRawMessageContentResponse]
+readPrec :: ReadPrec PutRawMessageContentResponse
+$creadPrec :: ReadPrec PutRawMessageContentResponse
+readList :: ReadS [PutRawMessageContentResponse]
+$creadList :: ReadS [PutRawMessageContentResponse]
+readsPrec :: Int -&gt; ReadS PutRawMessageContentResponse
+$creadsPrec :: Int -&gt; ReadS PutRawMessageContentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679135994"><span id="local-6989586621679135996"><span id="local-6989586621679135998"><span class="annot"><span class="annottext">Int -&gt; PutRawMessageContentResponse -&gt; ShowS
+[PutRawMessageContentResponse] -&gt; ShowS
+PutRawMessageContentResponse -&gt; String
+(Int -&gt; PutRawMessageContentResponse -&gt; ShowS)
+-&gt; (PutRawMessageContentResponse -&gt; String)
+-&gt; ([PutRawMessageContentResponse] -&gt; ShowS)
+-&gt; Show PutRawMessageContentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRawMessageContentResponse] -&gt; ShowS
+$cshowList :: [PutRawMessageContentResponse] -&gt; ShowS
+show :: PutRawMessageContentResponse -&gt; String
+$cshow :: PutRawMessageContentResponse -&gt; String
+showsPrec :: Int -&gt; PutRawMessageContentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRawMessageContentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutRawMessageContentResponse -&gt; Rep PutRawMessageContentResponse x)
+-&gt; (forall x.
+    Rep PutRawMessageContentResponse x -&gt; PutRawMessageContentResponse)
+-&gt; Generic PutRawMessageContentResponse
+forall x.
+Rep PutRawMessageContentResponse x -&gt; PutRawMessageContentResponse
+forall x.
+PutRawMessageContentResponse -&gt; Rep PutRawMessageContentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutRawMessageContentResponse x -&gt; PutRawMessageContentResponse
+$cfrom :: forall x.
+PutRawMessageContentResponse -&gt; Rep PutRawMessageContentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Create a value of 'PutRawMessageContentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'putRawMessageContentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#newPutRawMessageContentResponse"><span class="hs-identifier hs-type">newPutRawMessageContentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse"><span class="hs-identifier hs-type">PutRawMessageContentResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newPutRawMessageContentResponse"><span class="annot"><span class="annottext">newPutRawMessageContentResponse :: Int -&gt; PutRawMessageContentResponse
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#newPutRawMessageContentResponse"><span class="hs-identifier hs-var hs-var">newPutRawMessageContentResponse</span></a></span></span><span> </span><span id="local-6989586621679135991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679135991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">PutRawMessageContentResponse' :: Int -&gt; PutRawMessageContentResponse
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse%27"><span class="hs-identifier hs-type">PutRawMessageContentResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRawMessageContentResponse' :: Int
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3AhttpStatus%3APutRawMessageContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679135991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContentResponse_httpStatus"><span class="hs-identifier hs-type">putRawMessageContentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse"><span class="hs-identifier hs-type">PutRawMessageContentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span id="putRawMessageContentResponse_httpStatus"><span class="annot"><span class="annottext">putRawMessageContentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutRawMessageContentResponse -&gt; f PutRawMessageContentResponse
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#putRawMessageContentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putRawMessageContentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRawMessageContentResponse -&gt; Int)
+-&gt; (PutRawMessageContentResponse
+    -&gt; Int -&gt; PutRawMessageContentResponse)
+-&gt; Lens
+     PutRawMessageContentResponse PutRawMessageContentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse%27"><span class="hs-identifier hs-type">PutRawMessageContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679135990"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutRawMessageContentResponse' :: PutRawMessageContentResponse -&gt; Int
+</span><a href="#local-6989586621679135990"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679135990"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679135989"><span class="annot"><span class="annottext">s :: PutRawMessageContentResponse
+</span><a href="#local-6989586621679135989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse%27"><span class="hs-identifier hs-type">PutRawMessageContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679135988"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679135988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRawMessageContentResponse
+</span><a href="#local-6989586621679135989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRawMessageContentResponse' :: Int
+</span><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#%24sel%3AhttpStatus%3APutRawMessageContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679135988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse"><span class="hs-identifier hs-type">PutRawMessageContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679135986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMailMessageFlow.PutRawMessageContent.html#PutRawMessageContentResponse"><span class="hs-identifier hs-type">PutRawMessageContentResponse</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53Domains.UpdateDomainNameservers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation replaces the current set of name servers for the domain</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with the specified set of name servers. If you use Amazon Route 53 as</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- your DNS service, specify the four name servers in the delegation set</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- for the hosted zone for the domain.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- If successful, this operation returns an operation ID that you can use</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- to track the progress and completion of the action. If the request is</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- not completed successfully, the domain registrant will be notified by</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- email.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Domains.UpdateDomainNameservers</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameservers"><span class="hs-identifier">newUpdateDomainNameservers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_fIAuthKey"><span class="hs-identifier">updateDomainNameservers_fIAuthKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_domainName"><span class="hs-identifier">updateDomainNameservers_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_nameservers"><span class="hs-identifier">updateDomainNameservers_nameservers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier">UpdateDomainNameserversResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameserversResponse"><span class="hs-identifier">newUpdateDomainNameserversResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameserversResponse_httpStatus"><span class="hs-identifier">updateDomainNameserversResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameserversResponse_operationId"><span class="hs-identifier">updateDomainNameserversResponse_operationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.html"><span class="hs-identifier">Amazonka.Route53Domains.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Replaces the current set of name servers for the domain with the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- specified set of name servers. If you use Amazon Route 53 as your DNS</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- service, specify the four name servers in the delegation set for the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- hosted zone for the domain.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- If successful, this operation returns an operation ID that you can use</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- to track the progress and completion of the action. If the request is</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- not completed successfully, the domain registrant will be notified by</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- email.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newUpdateDomainNameservers' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679217193"><span id="local-6989586621679217194"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainNameservers"><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-var">UpdateDomainNameservers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainNameservers%27"><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-var">UpdateDomainNameservers'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authorization key for .fi domains</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AfIAuthKey%3AUpdateDomainNameservers%27"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; Maybe Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AfIAuthKey%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var hs-var">fIAuthKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the domain that you want to change name servers for.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdomainName%3AUpdateDomainNameservers%27"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AdomainName%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A list of new name servers for the domain.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; [Nameserver]
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var hs-var">nameservers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217185"><span id="local-6989586621679217187"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
+(UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool)
+-&gt; (UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool)
+-&gt; Eq UpdateDomainNameservers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
+$c/= :: UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
+== :: UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
+$c== :: UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217176"><span id="local-6989586621679217178"><span id="local-6989586621679217180"><span id="local-6989586621679217182"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainNameservers]
+ReadPrec UpdateDomainNameservers
+Int -&gt; ReadS UpdateDomainNameservers
+ReadS [UpdateDomainNameservers]
+(Int -&gt; ReadS UpdateDomainNameservers)
+-&gt; ReadS [UpdateDomainNameservers]
+-&gt; ReadPrec UpdateDomainNameservers
+-&gt; ReadPrec [UpdateDomainNameservers]
+-&gt; Read UpdateDomainNameservers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDomainNameservers]
+$creadListPrec :: ReadPrec [UpdateDomainNameservers]
+readPrec :: ReadPrec UpdateDomainNameservers
+$creadPrec :: ReadPrec UpdateDomainNameservers
+readList :: ReadS [UpdateDomainNameservers]
+$creadList :: ReadS [UpdateDomainNameservers]
+readsPrec :: Int -&gt; ReadS UpdateDomainNameservers
+$creadsPrec :: Int -&gt; ReadS UpdateDomainNameservers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217169"><span id="local-6989586621679217171"><span id="local-6989586621679217173"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainNameservers -&gt; ShowS
+[UpdateDomainNameservers] -&gt; ShowS
+UpdateDomainNameservers -&gt; String
+(Int -&gt; UpdateDomainNameservers -&gt; ShowS)
+-&gt; (UpdateDomainNameservers -&gt; String)
+-&gt; ([UpdateDomainNameservers] -&gt; ShowS)
+-&gt; Show UpdateDomainNameservers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDomainNameservers] -&gt; ShowS
+$cshowList :: [UpdateDomainNameservers] -&gt; ShowS
+show :: UpdateDomainNameservers -&gt; String
+$cshow :: UpdateDomainNameservers -&gt; String
+showsPrec :: Int -&gt; UpdateDomainNameservers -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDomainNameservers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDomainNameservers -&gt; Rep UpdateDomainNameservers x)
+-&gt; (forall x.
+    Rep UpdateDomainNameservers x -&gt; UpdateDomainNameservers)
+-&gt; Generic UpdateDomainNameservers
+forall x. Rep UpdateDomainNameservers x -&gt; UpdateDomainNameservers
+forall x. UpdateDomainNameservers -&gt; Rep UpdateDomainNameservers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDomainNameservers x -&gt; UpdateDomainNameservers
+$cfrom :: forall x. UpdateDomainNameservers -&gt; Rep UpdateDomainNameservers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'UpdateDomainNameservers' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'fIAuthKey', 'updateDomainNameservers_fIAuthKey' - The authorization key for .fi domains</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'domainName', 'updateDomainNameservers_domainName' - The name of the domain that you want to change name servers for.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nameservers', 'updateDomainNameservers_nameservers' - A list of new name servers for the domain.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameservers"><span class="hs-identifier hs-type">newUpdateDomainNameservers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span>
+</span><span id="line-97"></span><span id="newUpdateDomainNameservers"><span class="annot"><span class="annottext">newUpdateDomainNameservers :: Text -&gt; UpdateDomainNameservers
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameservers"><span class="hs-identifier hs-var hs-var">newUpdateDomainNameservers</span></a></span></span><span> </span><span id="local-6989586621679217164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217164"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomainNameservers' :: Maybe Text -&gt; Text -&gt; [Nameserver] -&gt; UpdateDomainNameservers
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fIAuthKey:UpdateDomainNameservers' :: Maybe Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AfIAuthKey%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainNameservers' :: Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AdomainName%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217164"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameservers:UpdateDomainNameservers' :: [Nameserver]
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">nameservers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Nameserver]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The authorization key for .fi domains</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_fIAuthKey"><span class="hs-identifier hs-type">updateDomainNameservers_fIAuthKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="updateDomainNameservers_fIAuthKey"><span class="annot"><span class="annottext">updateDomainNameservers_fIAuthKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDomainNameservers -&gt; f UpdateDomainNameservers
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_fIAuthKey"><span class="hs-identifier hs-var hs-var">updateDomainNameservers_fIAuthKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainNameservers -&gt; Maybe Text)
+-&gt; (UpdateDomainNameservers
+    -&gt; Maybe Text -&gt; UpdateDomainNameservers)
+-&gt; Lens
+     UpdateDomainNameservers
+     UpdateDomainNameservers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217161"><span class="annot"><span class="annottext">Maybe Text
+fIAuthKey :: Maybe Text
+$sel:fIAuthKey:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Maybe Text
+</span><a href="#local-6989586621679217161"><span class="hs-identifier hs-var hs-var">fIAuthKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217161"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217160"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
+</span><a href="#local-6989586621679217160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
+</span><a href="#local-6989586621679217160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fIAuthKey:UpdateDomainNameservers' :: Maybe Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AfIAuthKey%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the domain that you want to change name servers for.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_domainName"><span class="hs-identifier hs-type">updateDomainNameservers_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="updateDomainNameservers_domainName"><span class="annot"><span class="annottext">updateDomainNameservers_domainName :: (Text -&gt; f Text)
+-&gt; UpdateDomainNameservers -&gt; f UpdateDomainNameservers
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_domainName"><span class="hs-identifier hs-var hs-var">updateDomainNameservers_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainNameservers -&gt; Text)
+-&gt; (UpdateDomainNameservers -&gt; Text -&gt; UpdateDomainNameservers)
+-&gt; Lens UpdateDomainNameservers UpdateDomainNameservers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217158"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Text
+</span><a href="#local-6989586621679217158"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217158"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217157"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
+</span><a href="#local-6989586621679217157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
+</span><a href="#local-6989586621679217157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainNameservers' :: Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AdomainName%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | A list of new name servers for the domain.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_nameservers"><span class="hs-identifier hs-type">updateDomainNameservers_nameservers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span id="updateDomainNameservers_nameservers"><span class="annot"><span class="annottext">updateDomainNameservers_nameservers :: ([Nameserver] -&gt; f [Nameserver])
+-&gt; UpdateDomainNameservers -&gt; f UpdateDomainNameservers
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_nameservers"><span class="hs-identifier hs-var hs-var">updateDomainNameservers_nameservers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainNameservers -&gt; [Nameserver])
+-&gt; (UpdateDomainNameservers
+    -&gt; [Nameserver] -&gt; UpdateDomainNameservers)
+-&gt; Lens
+     UpdateDomainNameservers
+     UpdateDomainNameservers
+     [Nameserver]
+     [Nameserver]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217155"><span class="annot"><span class="annottext">[Nameserver]
+nameservers :: [Nameserver]
+$sel:nameservers:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; [Nameserver]
+</span><a href="#local-6989586621679217155"><span class="hs-identifier hs-var hs-var">nameservers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Nameserver]
+</span><a href="#local-6989586621679217155"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217154"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
+</span><a href="#local-6989586621679217154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217153"><span class="annot"><span class="annottext">[Nameserver]
+</span><a href="#local-6989586621679217153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
+</span><a href="#local-6989586621679217154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameservers:UpdateDomainNameservers' :: [Nameserver]
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">nameservers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Nameserver]
+</span><a href="#local-6989586621679217153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Nameserver] -&gt; f [Nameserver])
+ -&gt; UpdateDomainNameservers -&gt; f UpdateDomainNameservers)
+-&gt; (([Nameserver] -&gt; f [Nameserver])
+    -&gt; [Nameserver] -&gt; f [Nameserver])
+-&gt; ([Nameserver] -&gt; f [Nameserver])
+-&gt; UpdateDomainNameservers
+-&gt; f UpdateDomainNameservers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Nameserver] -&gt; f [Nameserver]) -&gt; [Nameserver] -&gt; f [Nameserver]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679217147"><span class="annot"><span class="annottext">request :: UpdateDomainNameservers -&gt; Request UpdateDomainNameservers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateDomainNameservers -&gt; Request UpdateDomainNameservers
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679217143"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDomainNameservers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDomainNameservers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateDomainNameservers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDomainNameservers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDomainNameservers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217140"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217140"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217139"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679217139"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217138"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateDomainNameserversResponse
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateDomainNameserversResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; UpdateDomainNameserversResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217140"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateDomainNameserversResponse)
+-&gt; Either String Text
+-&gt; Either String UpdateDomainNameserversResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217130"><span id="local-6989586621679217132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679217123"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainNameservers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDomainNameservers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Domains_v20140515.UpdateDomainNameservers&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-141"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-145"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217113"><span id="local-6989586621679217115"><span id="local-6989586621679217117"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679217111"><span class="annot"><span class="annottext">toJSON :: UpdateDomainNameservers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217107"><span id="local-6989586621679217108"><span id="local-6989586621679217109"><span class="annot"><span class="annottext">[Nameserver]
+Maybe Text
+Text
+nameservers :: [Nameserver]
+domainName :: Text
+fIAuthKey :: Maybe Text
+$sel:nameservers:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; [Nameserver]
+$sel:domainName:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Text
+$sel:fIAuthKey:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Maybe Text
+</span><a href="#local-6989586621679217107"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FIAuthKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217109"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217108"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Nameservers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Nameserver] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Nameserver]
+</span><a href="#local-6989586621679217107"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679217101"><span class="annot"><span class="annottext">toPath :: UpdateDomainNameservers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDomainNameservers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679217097"><span class="annot"><span class="annottext">toQuery :: UpdateDomainNameservers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDomainNameservers -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The UpdateDomainNameservers response includes the following element.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newUpdateDomainNameserversResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679217094"><span id="local-6989586621679217095"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainNameserversResponse"><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainNameserversResponse%27"><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="annot"><span class="annottext">UpdateDomainNameserversResponse -&gt; Int
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | Identifier for tracking the progress of the request. To query the</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- operation status, use</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail&gt;.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="annot"><span class="annottext">UpdateDomainNameserversResponse -&gt; Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217088"><span id="local-6989586621679217090"><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
+-&gt; UpdateDomainNameserversResponse -&gt; Bool
+(UpdateDomainNameserversResponse
+ -&gt; UpdateDomainNameserversResponse -&gt; Bool)
+-&gt; (UpdateDomainNameserversResponse
+    -&gt; UpdateDomainNameserversResponse -&gt; Bool)
+-&gt; Eq UpdateDomainNameserversResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDomainNameserversResponse
+-&gt; UpdateDomainNameserversResponse -&gt; Bool
+$c/= :: UpdateDomainNameserversResponse
+-&gt; UpdateDomainNameserversResponse -&gt; Bool
+== :: UpdateDomainNameserversResponse
+-&gt; UpdateDomainNameserversResponse -&gt; Bool
+$c== :: UpdateDomainNameserversResponse
+-&gt; UpdateDomainNameserversResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217080"><span id="local-6989586621679217082"><span id="local-6989586621679217084"><span id="local-6989586621679217086"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainNameserversResponse]
+ReadPrec UpdateDomainNameserversResponse
+Int -&gt; ReadS UpdateDomainNameserversResponse
+ReadS [UpdateDomainNameserversResponse]
+(Int -&gt; ReadS UpdateDomainNameserversResponse)
+-&gt; ReadS [UpdateDomainNameserversResponse]
+-&gt; ReadPrec UpdateDomainNameserversResponse
+-&gt; ReadPrec [UpdateDomainNameserversResponse]
+-&gt; Read UpdateDomainNameserversResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDomainNameserversResponse]
+$creadListPrec :: ReadPrec [UpdateDomainNameserversResponse]
+readPrec :: ReadPrec UpdateDomainNameserversResponse
+$creadPrec :: ReadPrec UpdateDomainNameserversResponse
+readList :: ReadS [UpdateDomainNameserversResponse]
+$creadList :: ReadS [UpdateDomainNameserversResponse]
+readsPrec :: Int -&gt; ReadS UpdateDomainNameserversResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDomainNameserversResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217074"><span id="local-6989586621679217076"><span id="local-6989586621679217078"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainNameserversResponse -&gt; ShowS
+[UpdateDomainNameserversResponse] -&gt; ShowS
+UpdateDomainNameserversResponse -&gt; String
+(Int -&gt; UpdateDomainNameserversResponse -&gt; ShowS)
+-&gt; (UpdateDomainNameserversResponse -&gt; String)
+-&gt; ([UpdateDomainNameserversResponse] -&gt; ShowS)
+-&gt; Show UpdateDomainNameserversResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDomainNameserversResponse] -&gt; ShowS
+$cshowList :: [UpdateDomainNameserversResponse] -&gt; ShowS
+show :: UpdateDomainNameserversResponse -&gt; String
+$cshow :: UpdateDomainNameserversResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDomainNameserversResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDomainNameserversResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDomainNameserversResponse
+ -&gt; Rep UpdateDomainNameserversResponse x)
+-&gt; (forall x.
+    Rep UpdateDomainNameserversResponse x
+    -&gt; UpdateDomainNameserversResponse)
+-&gt; Generic UpdateDomainNameserversResponse
+forall x.
+Rep UpdateDomainNameserversResponse x
+-&gt; UpdateDomainNameserversResponse
+forall x.
+UpdateDomainNameserversResponse
+-&gt; Rep UpdateDomainNameserversResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDomainNameserversResponse x
+-&gt; UpdateDomainNameserversResponse
+$cfrom :: forall x.
+UpdateDomainNameserversResponse
+-&gt; Rep UpdateDomainNameserversResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'UpdateDomainNameserversResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'httpStatus', 'updateDomainNameserversResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'operationId', 'updateDomainNameserversResponse_operationId' - Identifier for tracking the progress of the request. To query the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- operation status, use</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail&gt;.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameserversResponse"><span class="hs-identifier hs-type">newUpdateDomainNameserversResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'operationId'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newUpdateDomainNameserversResponse"><span class="annot"><span class="annottext">newUpdateDomainNameserversResponse :: Int -&gt; Text -&gt; UpdateDomainNameserversResponse
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameserversResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainNameserversResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679217071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217071"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679217070"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217070"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse' :: Int -&gt; Text -&gt; UpdateDomainNameserversResponse
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainNameserversResponse' :: Int
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217071"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainNameserversResponse' :: Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217070"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameserversResponse_httpStatus"><span class="hs-identifier hs-type">updateDomainNameserversResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-208"></span><span id="updateDomainNameserversResponse_httpStatus"><span class="annot"><span class="annottext">updateDomainNameserversResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDomainNameserversResponse
+-&gt; f UpdateDomainNameserversResponse
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameserversResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDomainNameserversResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainNameserversResponse -&gt; Int)
+-&gt; (UpdateDomainNameserversResponse
+    -&gt; Int -&gt; UpdateDomainNameserversResponse)
+-&gt; Lens
+     UpdateDomainNameserversResponse
+     UpdateDomainNameserversResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217069"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDomainNameserversResponse' :: UpdateDomainNameserversResponse -&gt; Int
+</span><a href="#local-6989586621679217069"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217069"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217068"><span class="annot"><span class="annottext">s :: UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217067"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainNameserversResponse' :: Int
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Identifier for tracking the progress of the request. To query the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- operation status, use</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail&gt;.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameserversResponse_operationId"><span class="hs-identifier hs-type">updateDomainNameserversResponse_operationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-214"></span><span id="updateDomainNameserversResponse_operationId"><span class="annot"><span class="annottext">updateDomainNameserversResponse_operationId :: (Text -&gt; f Text)
+-&gt; UpdateDomainNameserversResponse
+-&gt; f UpdateDomainNameserversResponse
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#updateDomainNameserversResponse_operationId"><span class="hs-identifier hs-var hs-var">updateDomainNameserversResponse_operationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainNameserversResponse -&gt; Text)
+-&gt; (UpdateDomainNameserversResponse
+    -&gt; Text -&gt; UpdateDomainNameserversResponse)
+-&gt; Lens
+     UpdateDomainNameserversResponse
+     UpdateDomainNameserversResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217066"><span class="annot"><span class="annottext">Text
+operationId :: Text
+$sel:operationId:UpdateDomainNameserversResponse' :: UpdateDomainNameserversResponse -&gt; Text
+</span><a href="#local-6989586621679217066"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217066"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217065"><span class="annot"><span class="annottext">s :: UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainNameserversResponse' :: Text
+</span><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679217062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span></span><span>
+</span><span id="line-219"></span></pre></body></html>

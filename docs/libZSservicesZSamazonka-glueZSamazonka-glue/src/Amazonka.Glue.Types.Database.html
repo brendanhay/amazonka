@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.Database</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.Database</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DatabaseIdentifier.html"><span class="hs-identifier">Amazonka.Glue.Types.DatabaseIdentifier</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PrincipalPermissions.html"><span class="hs-identifier">Amazonka.Glue.Types.PrincipalPermissions</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The @Database@ object represents a logical grouping of tables that might</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- reside in a Hive metastore or an RDBMS.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDatabase' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679694065"><span id="local-6989586621679694066"></span></span><span class="hs-keyword">data</span><span> </span><span id="Database"><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-var">Database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Database%27"><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-var">Database'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of the database (for example, an HDFS path).</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlocationUri%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AlocationUri%3ADatabase%27"><span class="hs-identifier hs-var hs-var">locationUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the Data Catalog in which the database resides.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcatalogId%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcatalogId%3ADatabase%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A @DatabaseIdentifier@ structure that describes a target database for</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- resource linking.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtargetDatabase%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe DatabaseIdentifier
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AtargetDatabase%3ADatabase%27"><span class="hs-identifier hs-var hs-var">targetDatabase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DatabaseIdentifier.html#DatabaseIdentifier"><span class="hs-identifier hs-type">DatabaseIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | These key-value pairs define parameters and properties of the database.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aparameters%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Aparameters%3ADatabase%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A description of the database.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adescription%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Adescription%3ADatabase%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The time at which the metadata database was created in the catalog.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreateTime%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe POSIX
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcreateTime%3ADatabase%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Creates a set of default permissions on the table for principals.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcreateTableDefaultPermissions%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe [PrincipalPermissions]
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcreateTableDefaultPermissions%3ADatabase%27"><span class="hs-identifier hs-var hs-var">createTableDefaultPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the database. For Hive compatibility, this is folded to</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- lowercase when it is stored.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694052"><span id="local-6989586621679694054"><span class="annot"><span class="annottext">Database -&gt; Database -&gt; Bool
+(Database -&gt; Database -&gt; Bool)
+-&gt; (Database -&gt; Database -&gt; Bool) -&gt; Eq Database
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Database -&gt; Database -&gt; Bool
+$c/= :: Database -&gt; Database -&gt; Bool
+== :: Database -&gt; Database -&gt; Bool
+$c== :: Database -&gt; Database -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694043"><span id="local-6989586621679694045"><span id="local-6989586621679694047"><span id="local-6989586621679694049"><span class="annot"><span class="annottext">ReadPrec [Database]
+ReadPrec Database
+Int -&gt; ReadS Database
+ReadS [Database]
+(Int -&gt; ReadS Database)
+-&gt; ReadS [Database]
+-&gt; ReadPrec Database
+-&gt; ReadPrec [Database]
+-&gt; Read Database
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Database]
+$creadListPrec :: ReadPrec [Database]
+readPrec :: ReadPrec Database
+$creadPrec :: ReadPrec Database
+readList :: ReadS [Database]
+$creadList :: ReadS [Database]
+readsPrec :: Int -&gt; ReadS Database
+$creadsPrec :: Int -&gt; ReadS Database
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694036"><span id="local-6989586621679694038"><span id="local-6989586621679694040"><span class="annot"><span class="annottext">Int -&gt; Database -&gt; ShowS
+[Database] -&gt; ShowS
+Database -&gt; String
+(Int -&gt; Database -&gt; ShowS)
+-&gt; (Database -&gt; String) -&gt; ([Database] -&gt; ShowS) -&gt; Show Database
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Database] -&gt; ShowS
+$cshowList :: [Database] -&gt; ShowS
+show :: Database -&gt; String
+$cshow :: Database -&gt; String
+showsPrec :: Int -&gt; Database -&gt; ShowS
+$cshowsPrec :: Int -&gt; Database -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Database -&gt; Rep Database x)
+-&gt; (forall x. Rep Database x -&gt; Database) -&gt; Generic Database
+forall x. Rep Database x -&gt; Database
+forall x. Database -&gt; Rep Database x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Database x -&gt; Database
+$cfrom :: forall x. Database -&gt; Rep Database x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'Database' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'locationUri', 'database_locationUri' - The location of the database (for example, an HDFS path).</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'catalogId', 'database_catalogId' - The ID of the Data Catalog in which the database resides.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'targetDatabase', 'database_targetDatabase' - A @DatabaseIdentifier@ structure that describes a target database for</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- resource linking.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'parameters', 'database_parameters' - These key-value pairs define parameters and properties of the database.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'description', 'database_description' - A description of the database.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'createTime', 'database_createTime' - The time at which the metadata database was created in the catalog.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'createTableDefaultPermissions', 'database_createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'database_name' - The name of the database. For Hive compatibility, this is folded to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- lowercase when it is stored.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#newDatabase"><span class="hs-identifier hs-type">newDatabase</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span>
+</span><span id="line-83"></span><span id="newDatabase"><span class="annot"><span class="annottext">newDatabase :: Text -&gt; Database
+</span><a href="Amazonka.Glue.Types.Database.html#newDatabase"><span class="hs-identifier hs-var hs-var">newDatabase</span></a></span></span><span> </span><span id="local-6989586621679694030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679694030"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">Database' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DatabaseIdentifier
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe [PrincipalPermissions]
+-&gt; Text
+-&gt; Database
+</span><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:locationUri:Database' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AlocationUri%3ADatabase%27"><span class="hs-identifier hs-var">locationUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogId:Database' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcatalogId%3ADatabase%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetDatabase:Database' :: Maybe DatabaseIdentifier
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AtargetDatabase%3ADatabase%27"><span class="hs-identifier hs-var">targetDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:Database' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Aparameters%3ADatabase%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Database' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Adescription%3ADatabase%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:Database' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcreateTime%3ADatabase%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTableDefaultPermissions:Database' :: Maybe [PrincipalPermissions]
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcreateTableDefaultPermissions%3ADatabase%27"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679694030"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The location of the database (for example, an HDFS path).</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_locationUri"><span class="hs-identifier hs-type">database_locationUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="database_locationUri"><span class="annot"><span class="annottext">database_locationUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_locationUri"><span class="hs-identifier hs-var hs-var">database_locationUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Maybe Text)
+-&gt; (Database -&gt; Maybe Text -&gt; Database)
+-&gt; Lens Database Database (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694026"><span class="annot"><span class="annottext">Maybe Text
+locationUri :: Maybe Text
+$sel:locationUri:Database' :: Database -&gt; Maybe Text
+</span><a href="#local-6989586621679694026"><span class="hs-identifier hs-var hs-var">locationUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694026"><span class="hs-identifier hs-var">locationUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694025"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694024"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationUri:Database' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AlocationUri%3ADatabase%27"><span class="hs-identifier hs-var">locationUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The ID of the Data Catalog in which the database resides.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_catalogId"><span class="hs-identifier hs-type">database_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="database_catalogId"><span class="annot"><span class="annottext">database_catalogId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_catalogId"><span class="hs-identifier hs-var hs-var">database_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Maybe Text)
+-&gt; (Database -&gt; Maybe Text -&gt; Database)
+-&gt; Lens Database Database (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694022"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:Database' :: Database -&gt; Maybe Text
+</span><a href="#local-6989586621679694022"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694022"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694021"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:Database' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcatalogId%3ADatabase%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A @DatabaseIdentifier@ structure that describes a target database for</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- resource linking.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_targetDatabase"><span class="hs-identifier hs-type">database_targetDatabase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DatabaseIdentifier.html#DatabaseIdentifier"><span class="hs-identifier hs-type">DatabaseIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="database_targetDatabase"><span class="annot"><span class="annottext">database_targetDatabase :: (Maybe DatabaseIdentifier -&gt; f (Maybe DatabaseIdentifier))
+-&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_targetDatabase"><span class="hs-identifier hs-var hs-var">database_targetDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Maybe DatabaseIdentifier)
+-&gt; (Database -&gt; Maybe DatabaseIdentifier -&gt; Database)
+-&gt; Lens
+     Database
+     Database
+     (Maybe DatabaseIdentifier)
+     (Maybe DatabaseIdentifier)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694018"><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+targetDatabase :: Maybe DatabaseIdentifier
+$sel:targetDatabase:Database' :: Database -&gt; Maybe DatabaseIdentifier
+</span><a href="#local-6989586621679694018"><span class="hs-identifier hs-var hs-var">targetDatabase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+</span><a href="#local-6989586621679694018"><span class="hs-identifier hs-var">targetDatabase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694017"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694016"><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+</span><a href="#local-6989586621679694016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDatabase:Database' :: Maybe DatabaseIdentifier
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AtargetDatabase%3ADatabase%27"><span class="hs-identifier hs-var">targetDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+</span><a href="#local-6989586621679694016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | These key-value pairs define parameters and properties of the database.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_parameters"><span class="hs-identifier hs-type">database_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="database_parameters"><span class="annot"><span class="annottext">database_parameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_parameters"><span class="hs-identifier hs-var hs-var">database_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Maybe (HashMap Text Text))
+-&gt; (Database -&gt; Maybe (HashMap Text Text) -&gt; Database)
+-&gt; Lens
+     Database
+     Database
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694014"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+parameters :: Maybe (HashMap Text Text)
+$sel:parameters:Database' :: Database -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679694014"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679694014"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694013"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694012"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679694012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Database' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Aparameters%3ADatabase%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679694012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Database -&gt; f Database)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Database
+-&gt; f Database
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A description of the database.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_description"><span class="hs-identifier hs-type">database_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="database_description"><span class="annot"><span class="annottext">database_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_description"><span class="hs-identifier hs-var hs-var">database_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Maybe Text)
+-&gt; (Database -&gt; Maybe Text -&gt; Database)
+-&gt; Lens Database Database (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694007"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Database' :: Database -&gt; Maybe Text
+</span><a href="#local-6989586621679694007"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694007"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694006"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694005"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Database' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Adescription%3ADatabase%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The time at which the metadata database was created in the catalog.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_createTime"><span class="hs-identifier hs-type">database_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="database_createTime"><span class="annot"><span class="annottext">database_createTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_createTime"><span class="hs-identifier hs-var hs-var">database_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Maybe POSIX)
+-&gt; (Database -&gt; Maybe POSIX -&gt; Database)
+-&gt; Lens Database Database (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694003"><span class="annot"><span class="annottext">Maybe POSIX
+createTime :: Maybe POSIX
+$sel:createTime:Database' :: Database -&gt; Maybe POSIX
+</span><a href="#local-6989586621679694003"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679694003"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694002"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694001"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679694001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:Database' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcreateTime%3ADatabase%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679694001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Database -&gt; f Database)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Database
+-&gt; f Database
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Creates a set of default permissions on the table for principals.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_createTableDefaultPermissions"><span class="hs-identifier hs-type">database_createTableDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="database_createTableDefaultPermissions"><span class="annot"><span class="annottext">database_createTableDefaultPermissions :: (Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_createTableDefaultPermissions"><span class="hs-identifier hs-var hs-var">database_createTableDefaultPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Maybe [PrincipalPermissions])
+-&gt; (Database -&gt; Maybe [PrincipalPermissions] -&gt; Database)
+-&gt; Lens
+     Database
+     Database
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693998"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+createTableDefaultPermissions :: Maybe [PrincipalPermissions]
+$sel:createTableDefaultPermissions:Database' :: Database -&gt; Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679693998"><span class="hs-identifier hs-var hs-var">createTableDefaultPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679693998"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693997"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679693997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693996"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679693996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679693997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTableDefaultPermissions:Database' :: Maybe [PrincipalPermissions]
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3AcreateTableDefaultPermissions%3ADatabase%27"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679693996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
+ -&gt; Database -&gt; f Database)
+-&gt; ((Maybe [PrincipalPermissions]
+     -&gt; f (Maybe [PrincipalPermissions]))
+    -&gt; Maybe [PrincipalPermissions]
+    -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; (Maybe [PrincipalPermissions]
+    -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; Database
+-&gt; f Database
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+-&gt; Iso
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The name of the database. For Hive compatibility, this is folded to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- lowercase when it is stored.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#database_name"><span class="hs-identifier hs-type">database_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="database_name"><span class="annot"><span class="annottext">database_name :: (Text -&gt; f Text) -&gt; Database -&gt; f Database
+</span><a href="Amazonka.Glue.Types.Database.html#database_name"><span class="hs-identifier hs-var hs-var">database_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Database -&gt; Text)
+-&gt; (Database -&gt; Text -&gt; Database)
+-&gt; Lens Database Database Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693994"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:Database' :: Database -&gt; Text
+</span><a href="#local-6989586621679693994"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679693994"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693993"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679693993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693992"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679693992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679693993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
+</span><a href="Amazonka.Glue.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679693992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693989"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679693987"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Database
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Database) -&gt; Value -&gt; Parser Database
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Database&quot;</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679693984"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DatabaseIdentifier
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe [PrincipalPermissions]
+-&gt; Text
+-&gt; Database
+</span><a href="Amazonka.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-var">Database'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe DatabaseIdentifier
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe [PrincipalPermissions]
+ -&gt; Text
+ -&gt; Database)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DatabaseIdentifier
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [PrincipalPermissions]
+      -&gt; Text
+      -&gt; Database)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocationUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DatabaseIdentifier
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [PrincipalPermissions]
+   -&gt; Text
+   -&gt; Database)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DatabaseIdentifier
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [PrincipalPermissions]
+      -&gt; Text
+      -&gt; Database)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatabaseIdentifier
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [PrincipalPermissions]
+   -&gt; Text
+   -&gt; Database)
+-&gt; Parser (Maybe DatabaseIdentifier)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [PrincipalPermissions]
+      -&gt; Text
+      -&gt; Database)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatabaseIdentifier)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetDatabase&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [PrincipalPermissions]
+   -&gt; Text
+   -&gt; Database)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
+-&gt; Parser (Maybe [PrincipalPermissions])
+-&gt; Parser (Text -&gt; Database)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PrincipalPermissions]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTableDefaultPermissions&quot;</span></span><span>
+</span><span id="line-142"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PrincipalPermissions]))
+-&gt; Maybe [PrincipalPermissions]
+-&gt; Parser (Maybe [PrincipalPermissions])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Database) -&gt; Parser Text -&gt; Parser Database
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693976"><span id="local-6989586621679693978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

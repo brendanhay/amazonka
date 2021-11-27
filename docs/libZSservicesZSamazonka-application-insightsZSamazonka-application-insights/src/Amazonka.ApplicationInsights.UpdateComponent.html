@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationInsights.UpdateComponent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the custom component name and\/or the list of resources that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- make up the component.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationInsights.UpdateComponent</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier">UpdateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#newUpdateComponent"><span class="hs-identifier">newUpdateComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_newComponentName"><span class="hs-identifier">updateComponent_newComponentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_resourceList"><span class="hs-identifier">updateComponent_resourceList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_resourceGroupName"><span class="hs-identifier">updateComponent_resourceGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_componentName"><span class="hs-identifier">updateComponent_componentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse"><span class="hs-identifier">UpdateComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#newUpdateComponentResponse"><span class="hs-identifier">newUpdateComponentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponentResponse_httpStatus"><span class="hs-identifier">updateComponentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.Types.html"><span class="hs-identifier">Amazonka.ApplicationInsights.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateComponent' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679223504"><span id="local-6989586621679223505"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateComponent"><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-var">UpdateComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateComponent%27"><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-var">UpdateComponent'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new name of the component.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AnewComponentName%27%3AUpdateComponent%27"><span class="annot"><span class="annottext">UpdateComponent -&gt; Maybe Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AnewComponentName%27%3AUpdateComponent%27"><span class="hs-identifier hs-var hs-var">newComponentName'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The list of resource ARNs that belong to the component.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AresourceList%3AUpdateComponent%27"><span class="annot"><span class="annottext">UpdateComponent -&gt; Maybe [Text]
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AresourceList%3AUpdateComponent%27"><span class="hs-identifier hs-var hs-var">resourceList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the resource group.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AresourceGroupName%3AUpdateComponent%27"><span class="annot"><span class="annottext">UpdateComponent -&gt; Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AresourceGroupName%3AUpdateComponent%27"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcomponentName%3AUpdateComponent%27"><span class="annot"><span class="annottext">UpdateComponent -&gt; Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AcomponentName%3AUpdateComponent%27"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223495"><span id="local-6989586621679223497"><span class="annot"><span class="annottext">UpdateComponent -&gt; UpdateComponent -&gt; Bool
+(UpdateComponent -&gt; UpdateComponent -&gt; Bool)
+-&gt; (UpdateComponent -&gt; UpdateComponent -&gt; Bool)
+-&gt; Eq UpdateComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateComponent -&gt; UpdateComponent -&gt; Bool
+$c/= :: UpdateComponent -&gt; UpdateComponent -&gt; Bool
+== :: UpdateComponent -&gt; UpdateComponent -&gt; Bool
+$c== :: UpdateComponent -&gt; UpdateComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223486"><span id="local-6989586621679223488"><span id="local-6989586621679223490"><span id="local-6989586621679223492"><span class="annot"><span class="annottext">ReadPrec [UpdateComponent]
+ReadPrec UpdateComponent
+Int -&gt; ReadS UpdateComponent
+ReadS [UpdateComponent]
+(Int -&gt; ReadS UpdateComponent)
+-&gt; ReadS [UpdateComponent]
+-&gt; ReadPrec UpdateComponent
+-&gt; ReadPrec [UpdateComponent]
+-&gt; Read UpdateComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateComponent]
+$creadListPrec :: ReadPrec [UpdateComponent]
+readPrec :: ReadPrec UpdateComponent
+$creadPrec :: ReadPrec UpdateComponent
+readList :: ReadS [UpdateComponent]
+$creadList :: ReadS [UpdateComponent]
+readsPrec :: Int -&gt; ReadS UpdateComponent
+$creadsPrec :: Int -&gt; ReadS UpdateComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223479"><span id="local-6989586621679223481"><span id="local-6989586621679223483"><span class="annot"><span class="annottext">Int -&gt; UpdateComponent -&gt; ShowS
+[UpdateComponent] -&gt; ShowS
+UpdateComponent -&gt; String
+(Int -&gt; UpdateComponent -&gt; ShowS)
+-&gt; (UpdateComponent -&gt; String)
+-&gt; ([UpdateComponent] -&gt; ShowS)
+-&gt; Show UpdateComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateComponent] -&gt; ShowS
+$cshowList :: [UpdateComponent] -&gt; ShowS
+show :: UpdateComponent -&gt; String
+$cshow :: UpdateComponent -&gt; String
+showsPrec :: Int -&gt; UpdateComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateComponent -&gt; Rep UpdateComponent x)
+-&gt; (forall x. Rep UpdateComponent x -&gt; UpdateComponent)
+-&gt; Generic UpdateComponent
+forall x. Rep UpdateComponent x -&gt; UpdateComponent
+forall x. UpdateComponent -&gt; Rep UpdateComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateComponent x -&gt; UpdateComponent
+$cfrom :: forall x. UpdateComponent -&gt; Rep UpdateComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdateComponent' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'newComponentName'', 'updateComponent_newComponentName' - The new name of the component.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'resourceList', 'updateComponent_resourceList' - The list of resource ARNs that belong to the component.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'resourceGroupName', 'updateComponent_resourceGroupName' - The name of the resource group.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'componentName', 'updateComponent_componentName' - The name of the component.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#newUpdateComponent"><span class="hs-identifier hs-type">newUpdateComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'resourceGroupName'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'componentName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateComponent"><span class="annot"><span class="annottext">newUpdateComponent :: Text -&gt; Text -&gt; UpdateComponent
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#newUpdateComponent"><span class="hs-identifier hs-var hs-var">newUpdateComponent</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679223474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223474"><span class="hs-identifier hs-var">pResourceGroupName_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679223473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223473"><span class="hs-identifier hs-var">pComponentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">UpdateComponent' :: Maybe Text -&gt; Maybe [Text] -&gt; Text -&gt; Text -&gt; UpdateComponent
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:newComponentName':UpdateComponent' :: Maybe Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AnewComponentName%27%3AUpdateComponent%27"><span class="hs-identifier hs-var">newComponentName'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceList:UpdateComponent' :: Maybe [Text]
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AresourceList%3AUpdateComponent%27"><span class="hs-identifier hs-var">resourceList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceGroupName:UpdateComponent' :: Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AresourceGroupName%3AUpdateComponent%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223474"><span class="hs-identifier hs-var">pResourceGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:componentName:UpdateComponent' :: Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AcomponentName%3AUpdateComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223473"><span class="hs-identifier hs-var">pComponentName_</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The new name of the component.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_newComponentName"><span class="hs-identifier hs-type">updateComponent_newComponentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="updateComponent_newComponentName"><span class="annot"><span class="annottext">updateComponent_newComponentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateComponent -&gt; f UpdateComponent
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_newComponentName"><span class="hs-identifier hs-var hs-var">updateComponent_newComponentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateComponent -&gt; Maybe Text)
+-&gt; (UpdateComponent -&gt; Maybe Text -&gt; UpdateComponent)
+-&gt; Lens UpdateComponent UpdateComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223470"><span class="annot"><span class="annottext">Maybe Text
+newComponentName' :: Maybe Text
+$sel:newComponentName':UpdateComponent' :: UpdateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679223470"><span class="hs-identifier hs-var hs-var">newComponentName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223470"><span class="hs-identifier hs-var">newComponentName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223469"><span class="annot"><span class="annottext">s :: UpdateComponent
+</span><a href="#local-6989586621679223469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComponent
+</span><a href="#local-6989586621679223469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newComponentName':UpdateComponent' :: Maybe Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AnewComponentName%27%3AUpdateComponent%27"><span class="hs-identifier hs-var">newComponentName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The list of resource ARNs that belong to the component.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_resourceList"><span class="hs-identifier hs-type">updateComponent_resourceList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="updateComponent_resourceList"><span class="annot"><span class="annottext">updateComponent_resourceList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateComponent -&gt; f UpdateComponent
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_resourceList"><span class="hs-identifier hs-var hs-var">updateComponent_resourceList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateComponent -&gt; Maybe [Text])
+-&gt; (UpdateComponent -&gt; Maybe [Text] -&gt; UpdateComponent)
+-&gt; Lens
+     UpdateComponent UpdateComponent (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223467"><span class="annot"><span class="annottext">Maybe [Text]
+resourceList :: Maybe [Text]
+$sel:resourceList:UpdateComponent' :: UpdateComponent -&gt; Maybe [Text]
+</span><a href="#local-6989586621679223467"><span class="hs-identifier hs-var hs-var">resourceList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679223467"><span class="hs-identifier hs-var">resourceList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223466"><span class="annot"><span class="annottext">s :: UpdateComponent
+</span><a href="#local-6989586621679223466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223465"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679223465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComponent
+</span><a href="#local-6989586621679223466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceList:UpdateComponent' :: Maybe [Text]
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AresourceList%3AUpdateComponent%27"><span class="hs-identifier hs-var">resourceList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679223465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateComponent -&gt; f UpdateComponent)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateComponent
+-&gt; f UpdateComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the resource group.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_resourceGroupName"><span class="hs-identifier hs-type">updateComponent_resourceGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="updateComponent_resourceGroupName"><span class="annot"><span class="annottext">updateComponent_resourceGroupName :: (Text -&gt; f Text) -&gt; UpdateComponent -&gt; f UpdateComponent
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_resourceGroupName"><span class="hs-identifier hs-var hs-var">updateComponent_resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateComponent -&gt; Text)
+-&gt; (UpdateComponent -&gt; Text -&gt; UpdateComponent)
+-&gt; Lens UpdateComponent UpdateComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223461"><span class="annot"><span class="annottext">Text
+resourceGroupName :: Text
+$sel:resourceGroupName:UpdateComponent' :: UpdateComponent -&gt; Text
+</span><a href="#local-6989586621679223461"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223461"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223460"><span class="annot"><span class="annottext">s :: UpdateComponent
+</span><a href="#local-6989586621679223460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComponent
+</span><a href="#local-6989586621679223460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroupName:UpdateComponent' :: Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AresourceGroupName%3AUpdateComponent%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_componentName"><span class="hs-identifier hs-type">updateComponent_componentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="updateComponent_componentName"><span class="annot"><span class="annottext">updateComponent_componentName :: (Text -&gt; f Text) -&gt; UpdateComponent -&gt; f UpdateComponent
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponent_componentName"><span class="hs-identifier hs-var hs-var">updateComponent_componentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateComponent -&gt; Text)
+-&gt; (UpdateComponent -&gt; Text -&gt; UpdateComponent)
+-&gt; Lens UpdateComponent UpdateComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223458"><span class="annot"><span class="annottext">Text
+componentName :: Text
+$sel:componentName:UpdateComponent' :: UpdateComponent -&gt; Text
+</span><a href="#local-6989586621679223458"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223458"><span class="hs-identifier hs-var">componentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223457"><span class="annot"><span class="annottext">s :: UpdateComponent
+</span><a href="#local-6989586621679223457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComponent
+</span><a href="#local-6989586621679223457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentName:UpdateComponent' :: Text
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AcomponentName%3AUpdateComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse"><span class="hs-identifier hs-type">UpdateComponentResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679223452"><span class="annot"><span class="annottext">request :: UpdateComponent -&gt; Request UpdateComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateComponent -&gt; Request UpdateComponent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ApplicationInsights.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679223448"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateComponent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateComponent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateComponent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223445"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223444"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679223444"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223443"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679223443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateComponentResponse
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse%27"><span class="hs-identifier hs-var">UpdateComponentResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateComponentResponse)
+-&gt; Either String Int -&gt; Either String UpdateComponentResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223445"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223436"><span id="local-6989586621679223438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679223429"><span class="annot"><span class="annottext">toHeaders :: UpdateComponent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateComponent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EC2WindowsBarleyService.UpdateComponent&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223419"><span id="local-6989586621679223421"><span id="local-6989586621679223423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679223417"><span class="annot"><span class="annottext">toJSON :: UpdateComponent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent%27"><span class="hs-identifier hs-type">UpdateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223412"><span id="local-6989586621679223413"><span id="local-6989586621679223414"><span id="local-6989586621679223415"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Text
+componentName :: Text
+resourceGroupName :: Text
+resourceList :: Maybe [Text]
+newComponentName' :: Maybe Text
+$sel:componentName:UpdateComponent' :: UpdateComponent -&gt; Text
+$sel:resourceGroupName:UpdateComponent' :: UpdateComponent -&gt; Text
+$sel:resourceList:UpdateComponent' :: UpdateComponent -&gt; Maybe [Text]
+$sel:newComponentName':UpdateComponent' :: UpdateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679223412"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NewComponentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223415"><span class="hs-identifier hs-var">newComponentName'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679223414"><span class="hs-identifier hs-var">resourceList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComponentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223412"><span class="hs-identifier hs-var">componentName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679223406"><span class="annot"><span class="annottext">toPath :: UpdateComponent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateComponent -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponent"><span class="hs-identifier hs-type">UpdateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679223402"><span class="annot"><span class="annottext">toQuery :: UpdateComponent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateComponent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newUpdateComponentResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679223399"><span id="local-6989586621679223400"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateComponentResponse"><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse"><span class="hs-identifier hs-var">UpdateComponentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateComponentResponse%27"><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse%27"><span class="hs-identifier hs-var">UpdateComponentResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateComponentResponse%27"><span class="annot"><span class="annottext">UpdateComponentResponse -&gt; Int
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AhttpStatus%3AUpdateComponentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223394"><span id="local-6989586621679223396"><span class="annot"><span class="annottext">UpdateComponentResponse -&gt; UpdateComponentResponse -&gt; Bool
+(UpdateComponentResponse -&gt; UpdateComponentResponse -&gt; Bool)
+-&gt; (UpdateComponentResponse -&gt; UpdateComponentResponse -&gt; Bool)
+-&gt; Eq UpdateComponentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateComponentResponse -&gt; UpdateComponentResponse -&gt; Bool
+$c/= :: UpdateComponentResponse -&gt; UpdateComponentResponse -&gt; Bool
+== :: UpdateComponentResponse -&gt; UpdateComponentResponse -&gt; Bool
+$c== :: UpdateComponentResponse -&gt; UpdateComponentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223386"><span id="local-6989586621679223388"><span id="local-6989586621679223390"><span id="local-6989586621679223392"><span class="annot"><span class="annottext">ReadPrec [UpdateComponentResponse]
+ReadPrec UpdateComponentResponse
+Int -&gt; ReadS UpdateComponentResponse
+ReadS [UpdateComponentResponse]
+(Int -&gt; ReadS UpdateComponentResponse)
+-&gt; ReadS [UpdateComponentResponse]
+-&gt; ReadPrec UpdateComponentResponse
+-&gt; ReadPrec [UpdateComponentResponse]
+-&gt; Read UpdateComponentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateComponentResponse]
+$creadListPrec :: ReadPrec [UpdateComponentResponse]
+readPrec :: ReadPrec UpdateComponentResponse
+$creadPrec :: ReadPrec UpdateComponentResponse
+readList :: ReadS [UpdateComponentResponse]
+$creadList :: ReadS [UpdateComponentResponse]
+readsPrec :: Int -&gt; ReadS UpdateComponentResponse
+$creadsPrec :: Int -&gt; ReadS UpdateComponentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223380"><span id="local-6989586621679223382"><span id="local-6989586621679223384"><span class="annot"><span class="annottext">Int -&gt; UpdateComponentResponse -&gt; ShowS
+[UpdateComponentResponse] -&gt; ShowS
+UpdateComponentResponse -&gt; String
+(Int -&gt; UpdateComponentResponse -&gt; ShowS)
+-&gt; (UpdateComponentResponse -&gt; String)
+-&gt; ([UpdateComponentResponse] -&gt; ShowS)
+-&gt; Show UpdateComponentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateComponentResponse] -&gt; ShowS
+$cshowList :: [UpdateComponentResponse] -&gt; ShowS
+show :: UpdateComponentResponse -&gt; String
+$cshow :: UpdateComponentResponse -&gt; String
+showsPrec :: Int -&gt; UpdateComponentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateComponentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateComponentResponse -&gt; Rep UpdateComponentResponse x)
+-&gt; (forall x.
+    Rep UpdateComponentResponse x -&gt; UpdateComponentResponse)
+-&gt; Generic UpdateComponentResponse
+forall x. Rep UpdateComponentResponse x -&gt; UpdateComponentResponse
+forall x. UpdateComponentResponse -&gt; Rep UpdateComponentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateComponentResponse x -&gt; UpdateComponentResponse
+$cfrom :: forall x. UpdateComponentResponse -&gt; Rep UpdateComponentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'UpdateComponentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'httpStatus', 'updateComponentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#newUpdateComponentResponse"><span class="hs-identifier hs-type">newUpdateComponentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse"><span class="hs-identifier hs-type">UpdateComponentResponse</span></a></span><span>
+</span><span id="line-184"></span><span id="newUpdateComponentResponse"><span class="annot"><span class="annottext">newUpdateComponentResponse :: Int -&gt; UpdateComponentResponse
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#newUpdateComponentResponse"><span class="hs-identifier hs-var hs-var">newUpdateComponentResponse</span></a></span></span><span> </span><span id="local-6989586621679223377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223377"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">UpdateComponentResponse' :: Int -&gt; UpdateComponentResponse
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse%27"><span class="hs-identifier hs-type">UpdateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateComponentResponse' :: Int
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AhttpStatus%3AUpdateComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223377"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponentResponse_httpStatus"><span class="hs-identifier hs-type">updateComponentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse"><span class="hs-identifier hs-type">UpdateComponentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span id="updateComponentResponse_httpStatus"><span class="annot"><span class="annottext">updateComponentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateComponentResponse -&gt; f UpdateComponentResponse
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#updateComponentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateComponentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateComponentResponse -&gt; Int)
+-&gt; (UpdateComponentResponse -&gt; Int -&gt; UpdateComponentResponse)
+-&gt; Lens UpdateComponentResponse UpdateComponentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse%27"><span class="hs-identifier hs-type">UpdateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223376"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateComponentResponse' :: UpdateComponentResponse -&gt; Int
+</span><a href="#local-6989586621679223376"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223376"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223375"><span class="annot"><span class="annottext">s :: UpdateComponentResponse
+</span><a href="#local-6989586621679223375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse%27"><span class="hs-identifier hs-type">UpdateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComponentResponse
+</span><a href="#local-6989586621679223375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateComponentResponse' :: Int
+</span><a href="Amazonka.ApplicationInsights.UpdateComponent.html#%24sel%3AhttpStatus%3AUpdateComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse"><span class="hs-identifier hs-type">UpdateComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UpdateComponent.html#UpdateComponentResponse"><span class="hs-identifier hs-type">UpdateComponentResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DescribeAvailabilityZones</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the Availability Zones, Local Zones, and Wavelength Zones that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- are available to you. If there is an event impacting a zone, you can use</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- this request to view the state and any provided messages for that zone.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For more information about Availability Zones, Local Zones, and</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Wavelength Zones, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions and zones&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DescribeAvailabilityZones</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#newDescribeAvailabilityZones"><span class="hs-identifier">newDescribeAvailabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_zoneNames"><span class="hs-identifier">describeAvailabilityZones_zoneNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_allAvailabilityZones"><span class="hs-identifier">describeAvailabilityZones_allAvailabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_zoneIds"><span class="hs-identifier">describeAvailabilityZones_zoneIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_filters"><span class="hs-identifier">describeAvailabilityZones_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_dryRun"><span class="hs-identifier">describeAvailabilityZones_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier">DescribeAvailabilityZonesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#newDescribeAvailabilityZonesResponse"><span class="hs-identifier">newDescribeAvailabilityZonesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZonesResponse_availabilityZones"><span class="hs-identifier">describeAvailabilityZonesResponse_availabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZonesResponse_httpStatus"><span class="hs-identifier">describeAvailabilityZonesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeAvailabilityZones' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621681271734"><span id="local-6989586621681271735"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAvailabilityZones"><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-var">DescribeAvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAvailabilityZones%27"><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-var">DescribeAvailabilityZones'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the Availability Zones, Local Zones, and Wavelength Zones.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AzoneNames%3ADescribeAvailabilityZones%27"><span class="annot"><span class="annottext">DescribeAvailabilityZones -&gt; Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AzoneNames%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var hs-var">zoneNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Include all Availability Zones, Local Zones, and Wavelength Zones</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- regardless of your opt-in status.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- If you do not use this parameter, the results include only the zones for</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the Regions where you have chosen the option to opt in.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AallAvailabilityZones%3ADescribeAvailabilityZones%27"><span class="annot"><span class="annottext">DescribeAvailabilityZones -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AallAvailabilityZones%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var hs-var">allAvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AzoneIds%3ADescribeAvailabilityZones%27"><span class="annot"><span class="annottext">DescribeAvailabilityZones -&gt; Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AzoneIds%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var hs-var">zoneIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @group-name@ - For Availability Zones, use the Region name. For</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     Local Zones, use the name of the group associated with the Local</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     Zone (for example, @us-west-2-lax-1@) For Wavelength Zones, use the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     name of the group associated with the Wavelength Zone (for example,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @message@ - The Zone message.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     | @opt-in-not-required@).</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @parent-zoneID@ - The ID of the zone that handles some of the Local</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     Zone and Wavelength Zone control plane operations, such as API</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     calls.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @parent-zoneName@ - The ID of the zone that handles some of the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     Local Zone and Wavelength Zone control plane operations, such as API</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     calls.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @region-name@ - The name of the Region for the Zone (for example,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     @us-east-1@).</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @state@ - The state of the Availability Zone, the Local Zone, or the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     Wavelength Zone (@available@ | @information@ | @impaired@ |</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     @unavailable@).</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   @zone-id@ - The ID of the Availability Zone (for example,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   @zone-type@ - The type of zone, for example, @local-zone@.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   @zone-name@ - The name of the Availability Zone (for example,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   @zone-type@ - The type of zone, for example, @local-zone@.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeAvailabilityZones%27"><span class="annot"><span class="annottext">DescribeAvailabilityZones -&gt; Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3Afilters%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeAvailabilityZones%27"><span class="annot"><span class="annottext">DescribeAvailabilityZones -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AdryRun%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681271724"><span id="local-6989586621681271726"><span class="annot"><span class="annottext">DescribeAvailabilityZones -&gt; DescribeAvailabilityZones -&gt; Bool
+(DescribeAvailabilityZones -&gt; DescribeAvailabilityZones -&gt; Bool)
+-&gt; (DescribeAvailabilityZones -&gt; DescribeAvailabilityZones -&gt; Bool)
+-&gt; Eq DescribeAvailabilityZones
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAvailabilityZones -&gt; DescribeAvailabilityZones -&gt; Bool
+$c/= :: DescribeAvailabilityZones -&gt; DescribeAvailabilityZones -&gt; Bool
+== :: DescribeAvailabilityZones -&gt; DescribeAvailabilityZones -&gt; Bool
+$c== :: DescribeAvailabilityZones -&gt; DescribeAvailabilityZones -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271715"><span id="local-6989586621681271717"><span id="local-6989586621681271719"><span id="local-6989586621681271721"><span class="annot"><span class="annottext">ReadPrec [DescribeAvailabilityZones]
+ReadPrec DescribeAvailabilityZones
+Int -&gt; ReadS DescribeAvailabilityZones
+ReadS [DescribeAvailabilityZones]
+(Int -&gt; ReadS DescribeAvailabilityZones)
+-&gt; ReadS [DescribeAvailabilityZones]
+-&gt; ReadPrec DescribeAvailabilityZones
+-&gt; ReadPrec [DescribeAvailabilityZones]
+-&gt; Read DescribeAvailabilityZones
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAvailabilityZones]
+$creadListPrec :: ReadPrec [DescribeAvailabilityZones]
+readPrec :: ReadPrec DescribeAvailabilityZones
+$creadPrec :: ReadPrec DescribeAvailabilityZones
+readList :: ReadS [DescribeAvailabilityZones]
+$creadList :: ReadS [DescribeAvailabilityZones]
+readsPrec :: Int -&gt; ReadS DescribeAvailabilityZones
+$creadsPrec :: Int -&gt; ReadS DescribeAvailabilityZones
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271708"><span id="local-6989586621681271710"><span id="local-6989586621681271712"><span class="annot"><span class="annottext">Int -&gt; DescribeAvailabilityZones -&gt; ShowS
+[DescribeAvailabilityZones] -&gt; ShowS
+DescribeAvailabilityZones -&gt; String
+(Int -&gt; DescribeAvailabilityZones -&gt; ShowS)
+-&gt; (DescribeAvailabilityZones -&gt; String)
+-&gt; ([DescribeAvailabilityZones] -&gt; ShowS)
+-&gt; Show DescribeAvailabilityZones
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAvailabilityZones] -&gt; ShowS
+$cshowList :: [DescribeAvailabilityZones] -&gt; ShowS
+show :: DescribeAvailabilityZones -&gt; String
+$cshow :: DescribeAvailabilityZones -&gt; String
+showsPrec :: Int -&gt; DescribeAvailabilityZones -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAvailabilityZones -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAvailabilityZones -&gt; Rep DescribeAvailabilityZones x)
+-&gt; (forall x.
+    Rep DescribeAvailabilityZones x -&gt; DescribeAvailabilityZones)
+-&gt; Generic DescribeAvailabilityZones
+forall x.
+Rep DescribeAvailabilityZones x -&gt; DescribeAvailabilityZones
+forall x.
+DescribeAvailabilityZones -&gt; Rep DescribeAvailabilityZones x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAvailabilityZones x -&gt; DescribeAvailabilityZones
+$cfrom :: forall x.
+DescribeAvailabilityZones -&gt; Rep DescribeAvailabilityZones x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'DescribeAvailabilityZones' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'zoneNames', 'describeAvailabilityZones_zoneNames' - The names of the Availability Zones, Local Zones, and Wavelength Zones.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'allAvailabilityZones', 'describeAvailabilityZones_allAvailabilityZones' - Include all Availability Zones, Local Zones, and Wavelength Zones</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- regardless of your opt-in status.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- If you do not use this parameter, the results include only the zones for</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the Regions where you have chosen the option to opt in.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'zoneIds', 'describeAvailabilityZones_zoneIds' - The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'filters', 'describeAvailabilityZones_filters' - The filters.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @group-name@ - For Availability Zones, use the Region name. For</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     Local Zones, use the name of the group associated with the Local</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     Zone (for example, @us-west-2-lax-1@) For Wavelength Zones, use the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     name of the group associated with the Wavelength Zone (for example,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @message@ - The Zone message.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     | @opt-in-not-required@).</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @parent-zoneID@ - The ID of the zone that handles some of the Local</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     Zone and Wavelength Zone control plane operations, such as API</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     calls.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   @parent-zoneName@ - The ID of the zone that handles some of the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     Local Zone and Wavelength Zone control plane operations, such as API</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     calls.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   @region-name@ - The name of the Region for the Zone (for example,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     @us-east-1@).</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @state@ - The state of the Availability Zone, the Local Zone, or the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     Wavelength Zone (@available@ | @information@ | @impaired@ |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     @unavailable@).</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   @zone-id@ - The ID of the Availability Zone (for example,</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- -   @zone-type@ - The type of zone, for example, @local-zone@.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   @zone-name@ - The name of the Availability Zone (for example,</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   @zone-type@ - The type of zone, for example, @local-zone@.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'dryRun', 'describeAvailabilityZones_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#newDescribeAvailabilityZones"><span class="hs-identifier hs-type">newDescribeAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span>
+</span><span id="line-184"></span><span id="newDescribeAvailabilityZones"><span class="annot"><span class="annottext">newDescribeAvailabilityZones :: DescribeAvailabilityZones
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#newDescribeAvailabilityZones"><span class="hs-identifier hs-var hs-var">newDescribeAvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">DescribeAvailabilityZones' :: Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe [Filter]
+-&gt; Maybe Bool
+-&gt; DescribeAvailabilityZones
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:zoneNames:DescribeAvailabilityZones' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AzoneNames%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">zoneNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:allAvailabilityZones:DescribeAvailabilityZones' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AallAvailabilityZones%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">allAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:zoneIds:DescribeAvailabilityZones' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AzoneIds%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">zoneIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeAvailabilityZones' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3Afilters%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeAvailabilityZones' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AdryRun%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The names of the Availability Zones, Local Zones, and Wavelength Zones.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_zoneNames"><span class="hs-identifier hs-type">describeAvailabilityZones_zoneNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="describeAvailabilityZones_zoneNames"><span class="annot"><span class="annottext">describeAvailabilityZones_zoneNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_zoneNames"><span class="hs-identifier hs-var hs-var">describeAvailabilityZones_zoneNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAvailabilityZones -&gt; Maybe [Text])
+-&gt; (DescribeAvailabilityZones
+    -&gt; Maybe [Text] -&gt; DescribeAvailabilityZones)
+-&gt; Lens
+     DescribeAvailabilityZones
+     DescribeAvailabilityZones
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271701"><span class="annot"><span class="annottext">Maybe [Text]
+zoneNames :: Maybe [Text]
+$sel:zoneNames:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe [Text]
+</span><a href="#local-6989586621681271701"><span class="hs-identifier hs-var hs-var">zoneNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271701"><span class="hs-identifier hs-var">zoneNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271700"><span class="annot"><span class="annottext">s :: DescribeAvailabilityZones
+</span><a href="#local-6989586621681271700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271699"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAvailabilityZones
+</span><a href="#local-6989586621681271700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zoneNames:DescribeAvailabilityZones' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AzoneNames%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">zoneNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeAvailabilityZones
+-&gt; f DescribeAvailabilityZones
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | Include all Availability Zones, Local Zones, and Wavelength Zones</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- regardless of your opt-in status.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- If you do not use this parameter, the results include only the zones for</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- the Regions where you have chosen the option to opt in.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_allAvailabilityZones"><span class="hs-identifier hs-type">describeAvailabilityZones_allAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="describeAvailabilityZones_allAvailabilityZones"><span class="annot"><span class="annottext">describeAvailabilityZones_allAvailabilityZones :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_allAvailabilityZones"><span class="hs-identifier hs-var hs-var">describeAvailabilityZones_allAvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAvailabilityZones -&gt; Maybe Bool)
+-&gt; (DescribeAvailabilityZones
+    -&gt; Maybe Bool -&gt; DescribeAvailabilityZones)
+-&gt; Lens
+     DescribeAvailabilityZones
+     DescribeAvailabilityZones
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271695"><span class="annot"><span class="annottext">Maybe Bool
+allAvailabilityZones :: Maybe Bool
+$sel:allAvailabilityZones:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe Bool
+</span><a href="#local-6989586621681271695"><span class="hs-identifier hs-var hs-var">allAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271695"><span class="hs-identifier hs-var">allAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271694"><span class="annot"><span class="annottext">s :: DescribeAvailabilityZones
+</span><a href="#local-6989586621681271694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271693"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAvailabilityZones
+</span><a href="#local-6989586621681271694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allAvailabilityZones:DescribeAvailabilityZones' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AallAvailabilityZones%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">allAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_zoneIds"><span class="hs-identifier hs-type">describeAvailabilityZones_zoneIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="describeAvailabilityZones_zoneIds"><span class="annot"><span class="annottext">describeAvailabilityZones_zoneIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_zoneIds"><span class="hs-identifier hs-var hs-var">describeAvailabilityZones_zoneIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAvailabilityZones -&gt; Maybe [Text])
+-&gt; (DescribeAvailabilityZones
+    -&gt; Maybe [Text] -&gt; DescribeAvailabilityZones)
+-&gt; Lens
+     DescribeAvailabilityZones
+     DescribeAvailabilityZones
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271692"><span class="annot"><span class="annottext">Maybe [Text]
+zoneIds :: Maybe [Text]
+$sel:zoneIds:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe [Text]
+</span><a href="#local-6989586621681271692"><span class="hs-identifier hs-var hs-var">zoneIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271692"><span class="hs-identifier hs-var">zoneIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271691"><span class="annot"><span class="annottext">s :: DescribeAvailabilityZones
+</span><a href="#local-6989586621681271691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271690"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAvailabilityZones
+</span><a href="#local-6989586621681271691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zoneIds:DescribeAvailabilityZones' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AzoneIds%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">zoneIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeAvailabilityZones
+-&gt; f DescribeAvailabilityZones
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   @group-name@ - For Availability Zones, use the Region name. For</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     Local Zones, use the name of the group associated with the Local</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     Zone (for example, @us-west-2-lax-1@) For Wavelength Zones, use the</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     name of the group associated with the Wavelength Zone (for example,</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   @message@ - The Zone message.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     | @opt-in-not-required@).</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- -   @parent-zoneID@ - The ID of the zone that handles some of the Local</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--     Zone and Wavelength Zone control plane operations, such as API</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     calls.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   @parent-zoneName@ - The ID of the zone that handles some of the</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     Local Zone and Wavelength Zone control plane operations, such as API</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     calls.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   @region-name@ - The name of the Region for the Zone (for example,</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     @us-east-1@).</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- -   @state@ - The state of the Availability Zone, the Local Zone, or the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     Wavelength Zone (@available@ | @information@ | @impaired@ |</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     @unavailable@).</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   @zone-id@ - The ID of the Availability Zone (for example,</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   @zone-type@ - The type of zone, for example, @local-zone@.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   @zone-name@ - The name of the Availability Zone (for example,</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @zone-type@ - The type of zone, for example, @local-zone@.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_filters"><span class="hs-identifier hs-type">describeAvailabilityZones_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="describeAvailabilityZones_filters"><span class="annot"><span class="annottext">describeAvailabilityZones_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_filters"><span class="hs-identifier hs-var hs-var">describeAvailabilityZones_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAvailabilityZones -&gt; Maybe [Filter])
+-&gt; (DescribeAvailabilityZones
+    -&gt; Maybe [Filter] -&gt; DescribeAvailabilityZones)
+-&gt; Lens
+     DescribeAvailabilityZones
+     DescribeAvailabilityZones
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271689"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681271689"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271689"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271688"><span class="annot"><span class="annottext">s :: DescribeAvailabilityZones
+</span><a href="#local-6989586621681271688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271687"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAvailabilityZones
+</span><a href="#local-6989586621681271688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeAvailabilityZones' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3Afilters%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeAvailabilityZones
+-&gt; f DescribeAvailabilityZones
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_dryRun"><span class="hs-identifier hs-type">describeAvailabilityZones_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="describeAvailabilityZones_dryRun"><span class="annot"><span class="annottext">describeAvailabilityZones_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeAvailabilityZones -&gt; f DescribeAvailabilityZones
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZones_dryRun"><span class="hs-identifier hs-var hs-var">describeAvailabilityZones_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAvailabilityZones -&gt; Maybe Bool)
+-&gt; (DescribeAvailabilityZones
+    -&gt; Maybe Bool -&gt; DescribeAvailabilityZones)
+-&gt; Lens
+     DescribeAvailabilityZones
+     DescribeAvailabilityZones
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271686"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe Bool
+</span><a href="#local-6989586621681271686"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271686"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271685"><span class="annot"><span class="annottext">s :: DescribeAvailabilityZones
+</span><a href="#local-6989586621681271685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271684"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAvailabilityZones
+</span><a href="#local-6989586621681271685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeAvailabilityZones' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AdryRun%3ADescribeAvailabilityZones%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-261"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse</span></a></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621681271680"><span class="annot"><span class="annottext">request :: DescribeAvailabilityZones -&gt; Request DescribeAvailabilityZones
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAvailabilityZones -&gt; Request DescribeAvailabilityZones
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621681271676"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAvailabilityZones
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAvailabilityZones)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DescribeAvailabilityZones))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAvailabilityZones
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAvailabilityZones)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681271673"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271673"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681271672"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681271672"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681271671"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681271671"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-267"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+-&gt; Int -&gt; DescribeAvailabilityZonesResponse
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var">DescribeAvailabilityZonesResponse'</span></a></span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AvailabilityZone]
+ -&gt; Int -&gt; DescribeAvailabilityZonesResponse)
+-&gt; Either String (Maybe [AvailabilityZone])
+-&gt; Either String (Int -&gt; DescribeAvailabilityZonesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681271671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZoneInfo&quot;</span></span><span>
+</span><span id="line-269"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-270"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [AvailabilityZone]))
+-&gt; Either String (Maybe [AvailabilityZone])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [AvailabilityZone])
+-&gt; [Node] -&gt; Either String (Maybe [AvailabilityZone])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AvailabilityZone]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAvailabilityZonesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeAvailabilityZonesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271673"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681271660"><span id="local-6989586621681271662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span></span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681271657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621681271653"><span class="annot"><span class="annottext">toHeaders :: DescribeAvailabilityZones -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAvailabilityZones -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621681271648"><span class="annot"><span class="annottext">toPath :: DescribeAvailabilityZones -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAvailabilityZones -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones"><span class="hs-identifier hs-type">DescribeAvailabilityZones</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621681271644"><span class="annot"><span class="annottext">toQuery :: DescribeAvailabilityZones -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZones%27"><span class="hs-identifier hs-type">DescribeAvailabilityZones'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271638"><span id="local-6989586621681271639"><span id="local-6989586621681271640"><span id="local-6989586621681271641"><span id="local-6989586621681271642"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe [Filter]
+dryRun :: Maybe Bool
+filters :: Maybe [Filter]
+zoneIds :: Maybe [Text]
+allAvailabilityZones :: Maybe Bool
+zoneNames :: Maybe [Text]
+$sel:dryRun:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe Bool
+$sel:filters:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe [Filter]
+$sel:zoneIds:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe [Text]
+$sel:allAvailabilityZones:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe Bool
+$sel:zoneNames:DescribeAvailabilityZones' :: DescribeAvailabilityZones -&gt; Maybe [Text]
+</span><a href="#local-6989586621681271638"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-288"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-289"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeAvailabilityZones&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-291"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-293"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ZoneName&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271642"><span class="hs-identifier hs-var">zoneNames</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AllAvailabilityZones&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271641"><span class="hs-identifier hs-var">allAvailabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-296"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ZoneId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271640"><span class="hs-identifier hs-var">zoneIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-298"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271639"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271638"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><span id="line-300"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | /See:/ 'newDescribeAvailabilityZonesResponse' smart constructor.</span><span>
+</span><span id="line-303"></span><span id="local-6989586621681271634"><span id="local-6989586621681271635"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAvailabilityZonesResponse"><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-var">DescribeAvailabilityZonesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAvailabilityZonesResponse%27"><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var">DescribeAvailabilityZonesResponse'</span></a></span></span><span>
+</span><span id="line-304"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the Availability Zones, Local Zones, and Wavelength</span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-comment">-- Zones.</span><span>
+</span><span id="line-306"></span><span>    </span><span id="%24sel%3AavailabilityZones%3ADescribeAvailabilityZonesResponse%27"><span class="annot"><span class="annottext">DescribeAvailabilityZonesResponse -&gt; Maybe [AvailabilityZone]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AavailabilityZones%3ADescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-308"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAvailabilityZonesResponse%27"><span class="annot"><span class="annottext">DescribeAvailabilityZonesResponse -&gt; Int
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AhttpStatus%3ADescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-309"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-310"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681271628"><span id="local-6989586621681271630"><span class="annot"><span class="annottext">DescribeAvailabilityZonesResponse
+-&gt; DescribeAvailabilityZonesResponse -&gt; Bool
+(DescribeAvailabilityZonesResponse
+ -&gt; DescribeAvailabilityZonesResponse -&gt; Bool)
+-&gt; (DescribeAvailabilityZonesResponse
+    -&gt; DescribeAvailabilityZonesResponse -&gt; Bool)
+-&gt; Eq DescribeAvailabilityZonesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAvailabilityZonesResponse
+-&gt; DescribeAvailabilityZonesResponse -&gt; Bool
+$c/= :: DescribeAvailabilityZonesResponse
+-&gt; DescribeAvailabilityZonesResponse -&gt; Bool
+== :: DescribeAvailabilityZonesResponse
+-&gt; DescribeAvailabilityZonesResponse -&gt; Bool
+$c== :: DescribeAvailabilityZonesResponse
+-&gt; DescribeAvailabilityZonesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271620"><span id="local-6989586621681271622"><span id="local-6989586621681271624"><span id="local-6989586621681271626"><span class="annot"><span class="annottext">ReadPrec [DescribeAvailabilityZonesResponse]
+ReadPrec DescribeAvailabilityZonesResponse
+Int -&gt; ReadS DescribeAvailabilityZonesResponse
+ReadS [DescribeAvailabilityZonesResponse]
+(Int -&gt; ReadS DescribeAvailabilityZonesResponse)
+-&gt; ReadS [DescribeAvailabilityZonesResponse]
+-&gt; ReadPrec DescribeAvailabilityZonesResponse
+-&gt; ReadPrec [DescribeAvailabilityZonesResponse]
+-&gt; Read DescribeAvailabilityZonesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAvailabilityZonesResponse]
+$creadListPrec :: ReadPrec [DescribeAvailabilityZonesResponse]
+readPrec :: ReadPrec DescribeAvailabilityZonesResponse
+$creadPrec :: ReadPrec DescribeAvailabilityZonesResponse
+readList :: ReadS [DescribeAvailabilityZonesResponse]
+$creadList :: ReadS [DescribeAvailabilityZonesResponse]
+readsPrec :: Int -&gt; ReadS DescribeAvailabilityZonesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAvailabilityZonesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271614"><span id="local-6989586621681271616"><span id="local-6989586621681271618"><span class="annot"><span class="annottext">Int -&gt; DescribeAvailabilityZonesResponse -&gt; ShowS
+[DescribeAvailabilityZonesResponse] -&gt; ShowS
+DescribeAvailabilityZonesResponse -&gt; String
+(Int -&gt; DescribeAvailabilityZonesResponse -&gt; ShowS)
+-&gt; (DescribeAvailabilityZonesResponse -&gt; String)
+-&gt; ([DescribeAvailabilityZonesResponse] -&gt; ShowS)
+-&gt; Show DescribeAvailabilityZonesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAvailabilityZonesResponse] -&gt; ShowS
+$cshowList :: [DescribeAvailabilityZonesResponse] -&gt; ShowS
+show :: DescribeAvailabilityZonesResponse -&gt; String
+$cshow :: DescribeAvailabilityZonesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAvailabilityZonesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAvailabilityZonesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAvailabilityZonesResponse
+ -&gt; Rep DescribeAvailabilityZonesResponse x)
+-&gt; (forall x.
+    Rep DescribeAvailabilityZonesResponse x
+    -&gt; DescribeAvailabilityZonesResponse)
+-&gt; Generic DescribeAvailabilityZonesResponse
+forall x.
+Rep DescribeAvailabilityZonesResponse x
+-&gt; DescribeAvailabilityZonesResponse
+forall x.
+DescribeAvailabilityZonesResponse
+-&gt; Rep DescribeAvailabilityZonesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAvailabilityZonesResponse x
+-&gt; DescribeAvailabilityZonesResponse
+$cfrom :: forall x.
+DescribeAvailabilityZonesResponse
+-&gt; Rep DescribeAvailabilityZonesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- Create a value of 'DescribeAvailabilityZonesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- 'availabilityZones', 'describeAvailabilityZonesResponse_availabilityZones' - Information about the Availability Zones, Local Zones, and Wavelength</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- Zones.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- 'httpStatus', 'describeAvailabilityZonesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-324"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#newDescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">newDescribeAvailabilityZonesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-325"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-326"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse</span></a></span><span>
+</span><span id="line-328"></span><span id="newDescribeAvailabilityZonesResponse"><span class="annot"><span class="annottext">newDescribeAvailabilityZonesResponse :: Int -&gt; DescribeAvailabilityZonesResponse
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#newDescribeAvailabilityZonesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAvailabilityZonesResponse</span></a></span></span><span> </span><span id="local-6989586621681271611"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271611"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>  </span><span class="annot"><span class="annottext">DescribeAvailabilityZonesResponse' :: Maybe [AvailabilityZone]
+-&gt; Int -&gt; DescribeAvailabilityZonesResponse
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse'</span></a></span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:availabilityZones:DescribeAvailabilityZonesResponse' :: Maybe [AvailabilityZone]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AavailabilityZones%3ADescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAvailabilityZonesResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AhttpStatus%3ADescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271611"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | Information about the Availability Zones, Local Zones, and Wavelength</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- Zones.</span><span>
+</span><span id="line-337"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZonesResponse_availabilityZones"><span class="hs-identifier hs-type">describeAvailabilityZonesResponse_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span id="describeAvailabilityZonesResponse_availabilityZones"><span class="annot"><span class="annottext">describeAvailabilityZonesResponse_availabilityZones :: (Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
+-&gt; DescribeAvailabilityZonesResponse
+-&gt; f DescribeAvailabilityZonesResponse
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZonesResponse_availabilityZones"><span class="hs-identifier hs-var hs-var">describeAvailabilityZonesResponse_availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAvailabilityZonesResponse -&gt; Maybe [AvailabilityZone])
+-&gt; (DescribeAvailabilityZonesResponse
+    -&gt; Maybe [AvailabilityZone] -&gt; DescribeAvailabilityZonesResponse)
+-&gt; Lens
+     DescribeAvailabilityZonesResponse
+     DescribeAvailabilityZonesResponse
+     (Maybe [AvailabilityZone])
+     (Maybe [AvailabilityZone])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271610"><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+availabilityZones :: Maybe [AvailabilityZone]
+$sel:availabilityZones:DescribeAvailabilityZonesResponse' :: DescribeAvailabilityZonesResponse -&gt; Maybe [AvailabilityZone]
+</span><a href="#local-6989586621681271610"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+</span><a href="#local-6989586621681271610"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271609"><span class="annot"><span class="annottext">s :: DescribeAvailabilityZonesResponse
+</span><a href="#local-6989586621681271609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271608"><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+</span><a href="#local-6989586621681271608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAvailabilityZonesResponse
+</span><a href="#local-6989586621681271609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:DescribeAvailabilityZonesResponse' :: Maybe [AvailabilityZone]
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AavailabilityZones%3ADescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+</span><a href="#local-6989586621681271608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
+ -&gt; DescribeAvailabilityZonesResponse
+ -&gt; f DescribeAvailabilityZonesResponse)
+-&gt; ((Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
+    -&gt; Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
+-&gt; (Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
+-&gt; DescribeAvailabilityZonesResponse
+-&gt; f DescribeAvailabilityZonesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AvailabilityZone]
+  [AvailabilityZone]
+  [AvailabilityZone]
+  [AvailabilityZone]
+-&gt; Iso
+     (Maybe [AvailabilityZone])
+     (Maybe [AvailabilityZone])
+     (Maybe [AvailabilityZone])
+     (Maybe [AvailabilityZone])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AvailabilityZone]
+  [AvailabilityZone]
+  [AvailabilityZone]
+  [AvailabilityZone]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZonesResponse_httpStatus"><span class="hs-identifier hs-type">describeAvailabilityZonesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-342"></span><span id="describeAvailabilityZonesResponse_httpStatus"><span class="annot"><span class="annottext">describeAvailabilityZonesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAvailabilityZonesResponse
+-&gt; f DescribeAvailabilityZonesResponse
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#describeAvailabilityZonesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAvailabilityZonesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAvailabilityZonesResponse -&gt; Int)
+-&gt; (DescribeAvailabilityZonesResponse
+    -&gt; Int -&gt; DescribeAvailabilityZonesResponse)
+-&gt; Lens
+     DescribeAvailabilityZonesResponse
+     DescribeAvailabilityZonesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271607"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAvailabilityZonesResponse' :: DescribeAvailabilityZonesResponse -&gt; Int
+</span><a href="#local-6989586621681271607"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271607"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271606"><span class="annot"><span class="annottext">s :: DescribeAvailabilityZonesResponse
+</span><a href="#local-6989586621681271606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271605"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAvailabilityZonesResponse
+</span><a href="#local-6989586621681271606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAvailabilityZonesResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeAvailabilityZones.html#%24sel%3AhttpStatus%3ADescribeAvailabilityZonesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-345"></span><span>  </span><span id="local-6989586621681271603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeAvailabilityZones.html#DescribeAvailabilityZonesResponse"><span class="hs-identifier hs-type">DescribeAvailabilityZonesResponse</span></a></span></span><span>
+</span><span id="line-347"></span></pre></body></html>

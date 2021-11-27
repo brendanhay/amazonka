@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.DescribeEventConfigurations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes event configurations.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeEventConfigurations&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.DescribeEventConfigurations</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurations"><span class="hs-identifier">newDescribeEventConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier">DescribeEventConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurationsResponse"><span class="hs-identifier">newDescribeEventConfigurationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_lastModifiedDate"><span class="hs-identifier">describeEventConfigurationsResponse_lastModifiedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_eventConfigurations"><span class="hs-identifier">describeEventConfigurationsResponse_eventConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_creationDate"><span class="hs-identifier">describeEventConfigurationsResponse_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_httpStatus"><span class="hs-identifier">describeEventConfigurationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventConfigurations' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679837888"><span id="local-6989586621679837889"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventConfigurations"><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-var">DescribeEventConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventConfigurations%27"><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations%27"><span class="hs-identifier hs-var">DescribeEventConfigurations'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837883"><span id="local-6989586621679837885"><span class="annot"><span class="annottext">DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
+(DescribeEventConfigurations
+ -&gt; DescribeEventConfigurations -&gt; Bool)
+-&gt; (DescribeEventConfigurations
+    -&gt; DescribeEventConfigurations -&gt; Bool)
+-&gt; Eq DescribeEventConfigurations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
+$c/= :: DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
+== :: DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
+$c== :: DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837874"><span id="local-6989586621679837876"><span id="local-6989586621679837878"><span id="local-6989586621679837880"><span class="annot"><span class="annottext">ReadPrec [DescribeEventConfigurations]
+ReadPrec DescribeEventConfigurations
+Int -&gt; ReadS DescribeEventConfigurations
+ReadS [DescribeEventConfigurations]
+(Int -&gt; ReadS DescribeEventConfigurations)
+-&gt; ReadS [DescribeEventConfigurations]
+-&gt; ReadPrec DescribeEventConfigurations
+-&gt; ReadPrec [DescribeEventConfigurations]
+-&gt; Read DescribeEventConfigurations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventConfigurations]
+$creadListPrec :: ReadPrec [DescribeEventConfigurations]
+readPrec :: ReadPrec DescribeEventConfigurations
+$creadPrec :: ReadPrec DescribeEventConfigurations
+readList :: ReadS [DescribeEventConfigurations]
+$creadList :: ReadS [DescribeEventConfigurations]
+readsPrec :: Int -&gt; ReadS DescribeEventConfigurations
+$creadsPrec :: Int -&gt; ReadS DescribeEventConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837867"><span id="local-6989586621679837869"><span id="local-6989586621679837871"><span class="annot"><span class="annottext">Int -&gt; DescribeEventConfigurations -&gt; ShowS
+[DescribeEventConfigurations] -&gt; ShowS
+DescribeEventConfigurations -&gt; String
+(Int -&gt; DescribeEventConfigurations -&gt; ShowS)
+-&gt; (DescribeEventConfigurations -&gt; String)
+-&gt; ([DescribeEventConfigurations] -&gt; ShowS)
+-&gt; Show DescribeEventConfigurations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventConfigurations] -&gt; ShowS
+$cshowList :: [DescribeEventConfigurations] -&gt; ShowS
+show :: DescribeEventConfigurations -&gt; String
+$cshow :: DescribeEventConfigurations -&gt; String
+showsPrec :: Int -&gt; DescribeEventConfigurations -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventConfigurations -&gt; Rep DescribeEventConfigurations x)
+-&gt; (forall x.
+    Rep DescribeEventConfigurations x -&gt; DescribeEventConfigurations)
+-&gt; Generic DescribeEventConfigurations
+forall x.
+Rep DescribeEventConfigurations x -&gt; DescribeEventConfigurations
+forall x.
+DescribeEventConfigurations -&gt; Rep DescribeEventConfigurations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEventConfigurations x -&gt; DescribeEventConfigurations
+$cfrom :: forall x.
+DescribeEventConfigurations -&gt; Rep DescribeEventConfigurations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DescribeEventConfigurations' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurations"><span class="hs-identifier hs-type">newDescribeEventConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span>
+</span><span id="line-64"></span><span id="newDescribeEventConfigurations"><span class="annot"><span class="annottext">newDescribeEventConfigurations :: DescribeEventConfigurations
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurations"><span class="hs-identifier hs-var hs-var">newDescribeEventConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventConfigurations
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations%27"><span class="hs-identifier hs-var">DescribeEventConfigurations'</span></a></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-69"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679837859"><span class="annot"><span class="annottext">request :: DescribeEventConfigurations -&gt; Request DescribeEventConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeEventConfigurations
+-&gt; Request DescribeEventConfigurations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679837855"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEventConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEventConfigurations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeEventConfigurations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEventConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEventConfigurations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679837852"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837852"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679837851"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679837851"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679837850"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837850"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe (HashMap EventType Configuration)
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeEventConfigurationsResponse
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeEventConfigurationsResponse'</span></a></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe (HashMap EventType Configuration)
+ -&gt; Maybe POSIX
+ -&gt; Int
+ -&gt; DescribeEventConfigurationsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe (HashMap EventType Configuration)
+      -&gt; Maybe POSIX -&gt; Int -&gt; DescribeEventConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap EventType Configuration)
+   -&gt; Maybe POSIX -&gt; Int -&gt; DescribeEventConfigurationsResponse)
+-&gt; Either String (Maybe (HashMap EventType Configuration))
+-&gt; Either
+     String (Maybe POSIX -&gt; Int -&gt; DescribeEventConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key
+-&gt; Either String (Maybe (Maybe (HashMap EventType Configuration)))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;eventConfigurations&quot;</span></span><span>
+</span><span id="line-78"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap EventType Configuration)))
+-&gt; Maybe (HashMap EventType Configuration)
+-&gt; Either String (Maybe (HashMap EventType Configuration))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-79"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe POSIX -&gt; Int -&gt; DescribeEventConfigurationsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; DescribeEventConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeEventConfigurationsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeEventConfigurationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837852"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837841"><span id="local-6989586621679837843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679837834"><span class="annot"><span class="annottext">toHeaders :: DescribeEventConfigurations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEventConfigurations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679837829"><span class="annot"><span class="annottext">toPath :: DescribeEventConfigurations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventConfigurations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/event-configurations&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679837825"><span class="annot"><span class="annottext">toQuery :: DescribeEventConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEventConfigurations -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventConfigurationsResponse' smart constructor.</span><span>
+</span><span id="line-98"></span><span id="local-6989586621679837822"><span id="local-6989586621679837823"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventConfigurationsResponse"><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-var">DescribeEventConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventConfigurationsResponse%27"><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeEventConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the event configurations were last modified.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ADescribeEventConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AlastModifiedDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The event configurations.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AeventConfigurations%3ADescribeEventConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+-&gt; Maybe (HashMap EventType Configuration)
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AeventConfigurations%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">eventConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The creation date of the event configuration.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AcreationDate%3ADescribeEventConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AcreationDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse -&gt; Int
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837814"><span id="local-6989586621679837816"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+-&gt; DescribeEventConfigurationsResponse -&gt; Bool
+(DescribeEventConfigurationsResponse
+ -&gt; DescribeEventConfigurationsResponse -&gt; Bool)
+-&gt; (DescribeEventConfigurationsResponse
+    -&gt; DescribeEventConfigurationsResponse -&gt; Bool)
+-&gt; Eq DescribeEventConfigurationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventConfigurationsResponse
+-&gt; DescribeEventConfigurationsResponse -&gt; Bool
+$c/= :: DescribeEventConfigurationsResponse
+-&gt; DescribeEventConfigurationsResponse -&gt; Bool
+== :: DescribeEventConfigurationsResponse
+-&gt; DescribeEventConfigurationsResponse -&gt; Bool
+$c== :: DescribeEventConfigurationsResponse
+-&gt; DescribeEventConfigurationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837806"><span id="local-6989586621679837808"><span id="local-6989586621679837810"><span id="local-6989586621679837812"><span class="annot"><span class="annottext">ReadPrec [DescribeEventConfigurationsResponse]
+ReadPrec DescribeEventConfigurationsResponse
+Int -&gt; ReadS DescribeEventConfigurationsResponse
+ReadS [DescribeEventConfigurationsResponse]
+(Int -&gt; ReadS DescribeEventConfigurationsResponse)
+-&gt; ReadS [DescribeEventConfigurationsResponse]
+-&gt; ReadPrec DescribeEventConfigurationsResponse
+-&gt; ReadPrec [DescribeEventConfigurationsResponse]
+-&gt; Read DescribeEventConfigurationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventConfigurationsResponse]
+$creadListPrec :: ReadPrec [DescribeEventConfigurationsResponse]
+readPrec :: ReadPrec DescribeEventConfigurationsResponse
+$creadPrec :: ReadPrec DescribeEventConfigurationsResponse
+readList :: ReadS [DescribeEventConfigurationsResponse]
+$creadList :: ReadS [DescribeEventConfigurationsResponse]
+readsPrec :: Int -&gt; ReadS DescribeEventConfigurationsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEventConfigurationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837800"><span id="local-6989586621679837802"><span id="local-6989586621679837804"><span class="annot"><span class="annottext">Int -&gt; DescribeEventConfigurationsResponse -&gt; ShowS
+[DescribeEventConfigurationsResponse] -&gt; ShowS
+DescribeEventConfigurationsResponse -&gt; String
+(Int -&gt; DescribeEventConfigurationsResponse -&gt; ShowS)
+-&gt; (DescribeEventConfigurationsResponse -&gt; String)
+-&gt; ([DescribeEventConfigurationsResponse] -&gt; ShowS)
+-&gt; Show DescribeEventConfigurationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventConfigurationsResponse] -&gt; ShowS
+$cshowList :: [DescribeEventConfigurationsResponse] -&gt; ShowS
+show :: DescribeEventConfigurationsResponse -&gt; String
+$cshow :: DescribeEventConfigurationsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEventConfigurationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventConfigurationsResponse
+ -&gt; Rep DescribeEventConfigurationsResponse x)
+-&gt; (forall x.
+    Rep DescribeEventConfigurationsResponse x
+    -&gt; DescribeEventConfigurationsResponse)
+-&gt; Generic DescribeEventConfigurationsResponse
+forall x.
+Rep DescribeEventConfigurationsResponse x
+-&gt; DescribeEventConfigurationsResponse
+forall x.
+DescribeEventConfigurationsResponse
+-&gt; Rep DescribeEventConfigurationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEventConfigurationsResponse x
+-&gt; DescribeEventConfigurationsResponse
+$cfrom :: forall x.
+DescribeEventConfigurationsResponse
+-&gt; Rep DescribeEventConfigurationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'DescribeEventConfigurationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'lastModifiedDate', 'describeEventConfigurationsResponse_lastModifiedDate' - The date the event configurations were last modified.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'eventConfigurations', 'describeEventConfigurationsResponse_eventConfigurations' - The event configurations.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'creationDate', 'describeEventConfigurationsResponse_creationDate' - The creation date of the event configuration.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'httpStatus', 'describeEventConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">newDescribeEventConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span>
+</span><span id="line-129"></span><span id="newDescribeEventConfigurationsResponse"><span class="annot"><span class="annottext">newDescribeEventConfigurationsResponse :: Int -&gt; DescribeEventConfigurationsResponse
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679837797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse' :: Maybe POSIX
+-&gt; Maybe (HashMap EventType Configuration)
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeEventConfigurationsResponse
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AlastModifiedDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventConfigurations:DescribeEventConfigurationsResponse' :: Maybe (HashMap EventType Configuration)
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AeventConfigurations%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">eventConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AcreationDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventConfigurationsResponse' :: Int
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The date the event configurations were last modified.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_lastModifiedDate"><span class="hs-identifier hs-type">describeEventConfigurationsResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="describeEventConfigurationsResponse_lastModifiedDate"><span class="annot"><span class="annottext">describeEventConfigurationsResponse_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEventConfigurationsResponse
+-&gt; f DescribeEventConfigurationsResponse
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">describeEventConfigurationsResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventConfigurationsResponse -&gt; Maybe POSIX)
+-&gt; (DescribeEventConfigurationsResponse
+    -&gt; Maybe POSIX -&gt; DescribeEventConfigurationsResponse)
+-&gt; Lens
+     DescribeEventConfigurationsResponse
+     DescribeEventConfigurationsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837794"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679837794"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679837794"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837793"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837792"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679837792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AlastModifiedDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679837792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeEventConfigurationsResponse
+ -&gt; f DescribeEventConfigurationsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEventConfigurationsResponse
+-&gt; f DescribeEventConfigurationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The event configurations.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_eventConfigurations"><span class="hs-identifier hs-type">describeEventConfigurationsResponse_eventConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="describeEventConfigurationsResponse_eventConfigurations"><span class="annot"><span class="annottext">describeEventConfigurationsResponse_eventConfigurations :: (Maybe (HashMap EventType Configuration)
+ -&gt; f (Maybe (HashMap EventType Configuration)))
+-&gt; DescribeEventConfigurationsResponse
+-&gt; f DescribeEventConfigurationsResponse
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_eventConfigurations"><span class="hs-identifier hs-var hs-var">describeEventConfigurationsResponse_eventConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventConfigurationsResponse
+ -&gt; Maybe (HashMap EventType Configuration))
+-&gt; (DescribeEventConfigurationsResponse
+    -&gt; Maybe (HashMap EventType Configuration)
+    -&gt; DescribeEventConfigurationsResponse)
+-&gt; Lens
+     DescribeEventConfigurationsResponse
+     DescribeEventConfigurationsResponse
+     (Maybe (HashMap EventType Configuration))
+     (Maybe (HashMap EventType Configuration))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837788"><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+eventConfigurations :: Maybe (HashMap EventType Configuration)
+$sel:eventConfigurations:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse
+-&gt; Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679837788"><span class="hs-identifier hs-var hs-var">eventConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679837788"><span class="hs-identifier hs-var">eventConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837787"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837786"><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679837786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventConfigurations:DescribeEventConfigurationsResponse' :: Maybe (HashMap EventType Configuration)
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AeventConfigurations%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">eventConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679837786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap EventType Configuration)
+  -&gt; f (Maybe (HashMap EventType Configuration)))
+ -&gt; DescribeEventConfigurationsResponse
+ -&gt; f DescribeEventConfigurationsResponse)
+-&gt; ((Maybe (HashMap EventType Configuration)
+     -&gt; f (Maybe (HashMap EventType Configuration)))
+    -&gt; Maybe (HashMap EventType Configuration)
+    -&gt; f (Maybe (HashMap EventType Configuration)))
+-&gt; (Maybe (HashMap EventType Configuration)
+    -&gt; f (Maybe (HashMap EventType Configuration)))
+-&gt; DescribeEventConfigurationsResponse
+-&gt; f DescribeEventConfigurationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap EventType Configuration)
+  (HashMap EventType Configuration)
+  (HashMap EventType Configuration)
+  (HashMap EventType Configuration)
+-&gt; Iso
+     (Maybe (HashMap EventType Configuration))
+     (Maybe (HashMap EventType Configuration))
+     (Maybe (HashMap EventType Configuration))
+     (Maybe (HashMap EventType Configuration))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap EventType Configuration)
+  (HashMap EventType Configuration)
+  (HashMap EventType Configuration)
+  (HashMap EventType Configuration)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The creation date of the event configuration.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_creationDate"><span class="hs-identifier hs-type">describeEventConfigurationsResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="describeEventConfigurationsResponse_creationDate"><span class="annot"><span class="annottext">describeEventConfigurationsResponse_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEventConfigurationsResponse
+-&gt; f DescribeEventConfigurationsResponse
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_creationDate"><span class="hs-identifier hs-var hs-var">describeEventConfigurationsResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventConfigurationsResponse -&gt; Maybe POSIX)
+-&gt; (DescribeEventConfigurationsResponse
+    -&gt; Maybe POSIX -&gt; DescribeEventConfigurationsResponse)
+-&gt; Lens
+     DescribeEventConfigurationsResponse
+     DescribeEventConfigurationsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837784"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679837784"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679837784"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837783"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837782"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679837782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AcreationDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679837782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeEventConfigurationsResponse
+ -&gt; f DescribeEventConfigurationsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEventConfigurationsResponse
+-&gt; f DescribeEventConfigurationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">describeEventConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span id="describeEventConfigurationsResponse_httpStatus"><span class="annot"><span class="annottext">describeEventConfigurationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEventConfigurationsResponse
+-&gt; f DescribeEventConfigurationsResponse
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#describeEventConfigurationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEventConfigurationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventConfigurationsResponse -&gt; Int)
+-&gt; (DescribeEventConfigurationsResponse
+    -&gt; Int -&gt; DescribeEventConfigurationsResponse)
+-&gt; Lens
+     DescribeEventConfigurationsResponse
+     DescribeEventConfigurationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837781"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse -&gt; Int
+</span><a href="#local-6989586621679837781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837780"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679837780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventConfigurationsResponse' :: Int
+</span><a href="Amazonka.IoT.DescribeEventConfigurations.html#%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679837777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-157"></span></pre></body></html>

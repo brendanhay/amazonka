@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.NielsenWatermarksSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.NielsenWatermarksSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenCBET.html"><span class="hs-identifier">Amazonka.MediaLive.Types.NielsenCBET</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenNaesIiNw.html"><span class="hs-identifier">Amazonka.MediaLive.Types.NielsenNaesIiNw</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksDistributionTypes.html"><span class="hs-identifier">Amazonka.MediaLive.Types.NielsenWatermarksDistributionTypes</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Nielsen Watermarks Settings</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNielsenWatermarksSettings' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679909132"><span id="local-6989586621679909133"></span></span><span class="hs-keyword">data</span><span> </span><span id="NielsenWatermarksSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-var">NielsenWatermarksSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NielsenWatermarksSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-var">NielsenWatermarksSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Complete these fields only if you want to insert watermarks of type</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Nielsen CBET</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnielsenCbetSettings%3ANielsenWatermarksSettings%27"><span class="annot"><span class="annottext">NielsenWatermarksSettings -&gt; Maybe NielsenCBET
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenCbetSettings%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var hs-var">nielsenCbetSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenCBET.html#NielsenCBET"><span class="hs-identifier hs-type">NielsenCBET</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Complete these fields only if you want to insert watermarks of type</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Nielsen NAES II (N2) and Nielsen NAES VI (NW).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnielsenNaesIiNwSettings%3ANielsenWatermarksSettings%27"><span class="annot"><span class="annottext">NielsenWatermarksSettings -&gt; Maybe NielsenNaesIiNw
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenNaesIiNwSettings%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var hs-var">nielsenNaesIiNwSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenNaesIiNw.html#NielsenNaesIiNw"><span class="hs-identifier hs-type">NielsenNaesIiNw</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Choose the distribution types that you want to assign to the watermarks:</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- - PROGRAM_CONTENT - FINAL_DISTRIBUTOR</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AnielsenDistributionType%3ANielsenWatermarksSettings%27"><span class="annot"><span class="annottext">NielsenWatermarksSettings
+-&gt; Maybe NielsenWatermarksDistributionTypes
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenDistributionType%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var hs-var">nielsenDistributionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksDistributionTypes.html#NielsenWatermarksDistributionTypes"><span class="hs-identifier hs-type">NielsenWatermarksDistributionTypes</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679909124"><span id="local-6989586621679909126"><span class="annot"><span class="annottext">NielsenWatermarksSettings -&gt; NielsenWatermarksSettings -&gt; Bool
+(NielsenWatermarksSettings -&gt; NielsenWatermarksSettings -&gt; Bool)
+-&gt; (NielsenWatermarksSettings -&gt; NielsenWatermarksSettings -&gt; Bool)
+-&gt; Eq NielsenWatermarksSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NielsenWatermarksSettings -&gt; NielsenWatermarksSettings -&gt; Bool
+$c/= :: NielsenWatermarksSettings -&gt; NielsenWatermarksSettings -&gt; Bool
+== :: NielsenWatermarksSettings -&gt; NielsenWatermarksSettings -&gt; Bool
+$c== :: NielsenWatermarksSettings -&gt; NielsenWatermarksSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679909115"><span id="local-6989586621679909117"><span id="local-6989586621679909119"><span id="local-6989586621679909121"><span class="annot"><span class="annottext">ReadPrec [NielsenWatermarksSettings]
+ReadPrec NielsenWatermarksSettings
+Int -&gt; ReadS NielsenWatermarksSettings
+ReadS [NielsenWatermarksSettings]
+(Int -&gt; ReadS NielsenWatermarksSettings)
+-&gt; ReadS [NielsenWatermarksSettings]
+-&gt; ReadPrec NielsenWatermarksSettings
+-&gt; ReadPrec [NielsenWatermarksSettings]
+-&gt; Read NielsenWatermarksSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NielsenWatermarksSettings]
+$creadListPrec :: ReadPrec [NielsenWatermarksSettings]
+readPrec :: ReadPrec NielsenWatermarksSettings
+$creadPrec :: ReadPrec NielsenWatermarksSettings
+readList :: ReadS [NielsenWatermarksSettings]
+$creadList :: ReadS [NielsenWatermarksSettings]
+readsPrec :: Int -&gt; ReadS NielsenWatermarksSettings
+$creadsPrec :: Int -&gt; ReadS NielsenWatermarksSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679909108"><span id="local-6989586621679909110"><span id="local-6989586621679909112"><span class="annot"><span class="annottext">Int -&gt; NielsenWatermarksSettings -&gt; ShowS
+[NielsenWatermarksSettings] -&gt; ShowS
+NielsenWatermarksSettings -&gt; String
+(Int -&gt; NielsenWatermarksSettings -&gt; ShowS)
+-&gt; (NielsenWatermarksSettings -&gt; String)
+-&gt; ([NielsenWatermarksSettings] -&gt; ShowS)
+-&gt; Show NielsenWatermarksSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NielsenWatermarksSettings] -&gt; ShowS
+$cshowList :: [NielsenWatermarksSettings] -&gt; ShowS
+show :: NielsenWatermarksSettings -&gt; String
+$cshow :: NielsenWatermarksSettings -&gt; String
+showsPrec :: Int -&gt; NielsenWatermarksSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; NielsenWatermarksSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NielsenWatermarksSettings -&gt; Rep NielsenWatermarksSettings x)
+-&gt; (forall x.
+    Rep NielsenWatermarksSettings x -&gt; NielsenWatermarksSettings)
+-&gt; Generic NielsenWatermarksSettings
+forall x.
+Rep NielsenWatermarksSettings x -&gt; NielsenWatermarksSettings
+forall x.
+NielsenWatermarksSettings -&gt; Rep NielsenWatermarksSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NielsenWatermarksSettings x -&gt; NielsenWatermarksSettings
+$cfrom :: forall x.
+NielsenWatermarksSettings -&gt; Rep NielsenWatermarksSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'NielsenWatermarksSettings' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'nielsenCbetSettings', 'nielsenWatermarksSettings_nielsenCbetSettings' - Complete these fields only if you want to insert watermarks of type</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Nielsen CBET</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'nielsenNaesIiNwSettings', 'nielsenWatermarksSettings_nielsenNaesIiNwSettings' - Complete these fields only if you want to insert watermarks of type</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Nielsen NAES II (N2) and Nielsen NAES VI (NW).</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'nielsenDistributionType', 'nielsenWatermarksSettings_nielsenDistributionType' - Choose the distribution types that you want to assign to the watermarks:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- - PROGRAM_CONTENT - FINAL_DISTRIBUTOR</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#newNielsenWatermarksSettings"><span class="hs-identifier hs-type">newNielsenWatermarksSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span><span>
+</span><span id="line-63"></span><span id="newNielsenWatermarksSettings"><span class="annot"><span class="annottext">newNielsenWatermarksSettings :: NielsenWatermarksSettings
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#newNielsenWatermarksSettings"><span class="hs-identifier hs-var hs-var">newNielsenWatermarksSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">NielsenWatermarksSettings' :: Maybe NielsenCBET
+-&gt; Maybe NielsenNaesIiNw
+-&gt; Maybe NielsenWatermarksDistributionTypes
+-&gt; NielsenWatermarksSettings
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nielsenCbetSettings:NielsenWatermarksSettings' :: Maybe NielsenCBET
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenCbetSettings%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var">nielsenCbetSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe NielsenCBET
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:nielsenNaesIiNwSettings:NielsenWatermarksSettings' :: Maybe NielsenNaesIiNw
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenNaesIiNwSettings%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var">nielsenNaesIiNwSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNaesIiNw
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:nielsenDistributionType:NielsenWatermarksSettings' :: Maybe NielsenWatermarksDistributionTypes
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenDistributionType%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var">nielsenDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenWatermarksDistributionTypes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Complete these fields only if you want to insert watermarks of type</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Nielsen CBET</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#nielsenWatermarksSettings_nielsenCbetSettings"><span class="hs-identifier hs-type">nielsenWatermarksSettings_nielsenCbetSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenCBET.html#NielsenCBET"><span class="hs-identifier hs-type">NielsenCBET</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="nielsenWatermarksSettings_nielsenCbetSettings"><span class="annot"><span class="annottext">nielsenWatermarksSettings_nielsenCbetSettings :: (Maybe NielsenCBET -&gt; f (Maybe NielsenCBET))
+-&gt; NielsenWatermarksSettings -&gt; f NielsenWatermarksSettings
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#nielsenWatermarksSettings_nielsenCbetSettings"><span class="hs-identifier hs-var hs-var">nielsenWatermarksSettings_nielsenCbetSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenWatermarksSettings -&gt; Maybe NielsenCBET)
+-&gt; (NielsenWatermarksSettings
+    -&gt; Maybe NielsenCBET -&gt; NielsenWatermarksSettings)
+-&gt; Lens
+     NielsenWatermarksSettings
+     NielsenWatermarksSettings
+     (Maybe NielsenCBET)
+     (Maybe NielsenCBET)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909099"><span class="annot"><span class="annottext">Maybe NielsenCBET
+nielsenCbetSettings :: Maybe NielsenCBET
+$sel:nielsenCbetSettings:NielsenWatermarksSettings' :: NielsenWatermarksSettings -&gt; Maybe NielsenCBET
+</span><a href="#local-6989586621679909099"><span class="hs-identifier hs-var hs-var">nielsenCbetSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenCBET
+</span><a href="#local-6989586621679909099"><span class="hs-identifier hs-var">nielsenCbetSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679909098"><span class="annot"><span class="annottext">s :: NielsenWatermarksSettings
+</span><a href="#local-6989586621679909098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679909097"><span class="annot"><span class="annottext">Maybe NielsenCBET
+</span><a href="#local-6989586621679909097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenWatermarksSettings
+</span><a href="#local-6989586621679909098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenCbetSettings:NielsenWatermarksSettings' :: Maybe NielsenCBET
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenCbetSettings%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var">nielsenCbetSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenCBET
+</span><a href="#local-6989586621679909097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Complete these fields only if you want to insert watermarks of type</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Nielsen NAES II (N2) and Nielsen NAES VI (NW).</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#nielsenWatermarksSettings_nielsenNaesIiNwSettings"><span class="hs-identifier hs-type">nielsenWatermarksSettings_nielsenNaesIiNwSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenNaesIiNw.html#NielsenNaesIiNw"><span class="hs-identifier hs-type">NielsenNaesIiNw</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="nielsenWatermarksSettings_nielsenNaesIiNwSettings"><span class="annot"><span class="annottext">nielsenWatermarksSettings_nielsenNaesIiNwSettings :: (Maybe NielsenNaesIiNw -&gt; f (Maybe NielsenNaesIiNw))
+-&gt; NielsenWatermarksSettings -&gt; f NielsenWatermarksSettings
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#nielsenWatermarksSettings_nielsenNaesIiNwSettings"><span class="hs-identifier hs-var hs-var">nielsenWatermarksSettings_nielsenNaesIiNwSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenWatermarksSettings -&gt; Maybe NielsenNaesIiNw)
+-&gt; (NielsenWatermarksSettings
+    -&gt; Maybe NielsenNaesIiNw -&gt; NielsenWatermarksSettings)
+-&gt; Lens
+     NielsenWatermarksSettings
+     NielsenWatermarksSettings
+     (Maybe NielsenNaesIiNw)
+     (Maybe NielsenNaesIiNw)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909095"><span class="annot"><span class="annottext">Maybe NielsenNaesIiNw
+nielsenNaesIiNwSettings :: Maybe NielsenNaesIiNw
+$sel:nielsenNaesIiNwSettings:NielsenWatermarksSettings' :: NielsenWatermarksSettings -&gt; Maybe NielsenNaesIiNw
+</span><a href="#local-6989586621679909095"><span class="hs-identifier hs-var hs-var">nielsenNaesIiNwSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNaesIiNw
+</span><a href="#local-6989586621679909095"><span class="hs-identifier hs-var">nielsenNaesIiNwSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679909094"><span class="annot"><span class="annottext">s :: NielsenWatermarksSettings
+</span><a href="#local-6989586621679909094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679909093"><span class="annot"><span class="annottext">Maybe NielsenNaesIiNw
+</span><a href="#local-6989586621679909093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenWatermarksSettings
+</span><a href="#local-6989586621679909094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenNaesIiNwSettings:NielsenWatermarksSettings' :: Maybe NielsenNaesIiNw
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenNaesIiNwSettings%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var">nielsenNaesIiNwSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNaesIiNw
+</span><a href="#local-6989586621679909093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Choose the distribution types that you want to assign to the watermarks:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- - PROGRAM_CONTENT - FINAL_DISTRIBUTOR</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#nielsenWatermarksSettings_nielsenDistributionType"><span class="hs-identifier hs-type">nielsenWatermarksSettings_nielsenDistributionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksDistributionTypes.html#NielsenWatermarksDistributionTypes"><span class="hs-identifier hs-type">NielsenWatermarksDistributionTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="nielsenWatermarksSettings_nielsenDistributionType"><span class="annot"><span class="annottext">nielsenWatermarksSettings_nielsenDistributionType :: (Maybe NielsenWatermarksDistributionTypes
+ -&gt; f (Maybe NielsenWatermarksDistributionTypes))
+-&gt; NielsenWatermarksSettings -&gt; f NielsenWatermarksSettings
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#nielsenWatermarksSettings_nielsenDistributionType"><span class="hs-identifier hs-var hs-var">nielsenWatermarksSettings_nielsenDistributionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenWatermarksSettings
+ -&gt; Maybe NielsenWatermarksDistributionTypes)
+-&gt; (NielsenWatermarksSettings
+    -&gt; Maybe NielsenWatermarksDistributionTypes
+    -&gt; NielsenWatermarksSettings)
+-&gt; Lens
+     NielsenWatermarksSettings
+     NielsenWatermarksSettings
+     (Maybe NielsenWatermarksDistributionTypes)
+     (Maybe NielsenWatermarksDistributionTypes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909091"><span class="annot"><span class="annottext">Maybe NielsenWatermarksDistributionTypes
+nielsenDistributionType :: Maybe NielsenWatermarksDistributionTypes
+$sel:nielsenDistributionType:NielsenWatermarksSettings' :: NielsenWatermarksSettings
+-&gt; Maybe NielsenWatermarksDistributionTypes
+</span><a href="#local-6989586621679909091"><span class="hs-identifier hs-var hs-var">nielsenDistributionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenWatermarksDistributionTypes
+</span><a href="#local-6989586621679909091"><span class="hs-identifier hs-var">nielsenDistributionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679909090"><span class="annot"><span class="annottext">s :: NielsenWatermarksSettings
+</span><a href="#local-6989586621679909090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679909089"><span class="annot"><span class="annottext">Maybe NielsenWatermarksDistributionTypes
+</span><a href="#local-6989586621679909089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenWatermarksSettings
+</span><a href="#local-6989586621679909090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenDistributionType:NielsenWatermarksSettings' :: Maybe NielsenWatermarksDistributionTypes
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#%24sel%3AnielsenDistributionType%3ANielsenWatermarksSettings%27"><span class="hs-identifier hs-var">nielsenDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenWatermarksDistributionTypes
+</span><a href="#local-6989586621679909089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909086"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679909084"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NielsenWatermarksSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NielsenWatermarksSettings)
+-&gt; Value
+-&gt; Parser NielsenWatermarksSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NielsenWatermarksSettings&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679909081"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679909081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe NielsenCBET
+-&gt; Maybe NielsenNaesIiNw
+-&gt; Maybe NielsenWatermarksDistributionTypes
+-&gt; NielsenWatermarksSettings
+</span><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-var">NielsenWatermarksSettings'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NielsenCBET
+ -&gt; Maybe NielsenNaesIiNw
+ -&gt; Maybe NielsenWatermarksDistributionTypes
+ -&gt; NielsenWatermarksSettings)
+-&gt; Parser (Maybe NielsenCBET)
+-&gt; Parser
+     (Maybe NielsenNaesIiNw
+      -&gt; Maybe NielsenWatermarksDistributionTypes
+      -&gt; NielsenWatermarksSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679909081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenCBET)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenCbetSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenNaesIiNw
+   -&gt; Maybe NielsenWatermarksDistributionTypes
+   -&gt; NielsenWatermarksSettings)
+-&gt; Parser (Maybe NielsenNaesIiNw)
+-&gt; Parser
+     (Maybe NielsenWatermarksDistributionTypes
+      -&gt; NielsenWatermarksSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679909081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenNaesIiNw)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenNaesIiNwSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenWatermarksDistributionTypes
+   -&gt; NielsenWatermarksSettings)
+-&gt; Parser (Maybe NielsenWatermarksDistributionTypes)
+-&gt; Parser NielsenWatermarksSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679909081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenWatermarksDistributionTypes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenDistributionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909075"><span id="local-6989586621679909077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909064"><span id="local-6989586621679909066"><span id="local-6989586621679909068"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings"><span class="hs-identifier hs-type">NielsenWatermarksSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679909062"><span class="annot"><span class="annottext">toJSON :: NielsenWatermarksSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenWatermarksSettings.html#NielsenWatermarksSettings%27"><span class="hs-identifier hs-type">NielsenWatermarksSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909058"><span id="local-6989586621679909059"><span id="local-6989586621679909060"><span class="annot"><span class="annottext">Maybe NielsenNaesIiNw
+Maybe NielsenCBET
+Maybe NielsenWatermarksDistributionTypes
+nielsenDistributionType :: Maybe NielsenWatermarksDistributionTypes
+nielsenNaesIiNwSettings :: Maybe NielsenNaesIiNw
+nielsenCbetSettings :: Maybe NielsenCBET
+$sel:nielsenDistributionType:NielsenWatermarksSettings' :: NielsenWatermarksSettings
+-&gt; Maybe NielsenWatermarksDistributionTypes
+$sel:nielsenNaesIiNwSettings:NielsenWatermarksSettings' :: NielsenWatermarksSettings -&gt; Maybe NielsenNaesIiNw
+$sel:nielsenCbetSettings:NielsenWatermarksSettings' :: NielsenWatermarksSettings -&gt; Maybe NielsenCBET
+</span><a href="#local-6989586621679909058"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenCbetSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenCBET -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(NielsenCBET -&gt; Pair) -&gt; Maybe NielsenCBET -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenCBET
+</span><a href="#local-6989586621679909060"><span class="hs-identifier hs-var">nielsenCbetSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenNaesIiNwSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenNaesIiNw -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(NielsenNaesIiNw -&gt; Pair) -&gt; Maybe NielsenNaesIiNw -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNaesIiNw
+</span><a href="#local-6989586621679909059"><span class="hs-identifier hs-var">nielsenNaesIiNwSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenDistributionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenWatermarksDistributionTypes -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(NielsenWatermarksDistributionTypes -&gt; Pair)
+-&gt; Maybe NielsenWatermarksDistributionTypes -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenWatermarksDistributionTypes
+</span><a href="#local-6989586621679909058"><span class="hs-identifier hs-var">nielsenDistributionType</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span></pre></body></html>

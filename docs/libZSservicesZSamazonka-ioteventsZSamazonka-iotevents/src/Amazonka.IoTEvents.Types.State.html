@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEvents.Types.State</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEvents.Types.State</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnEnterLifecycle.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.OnEnterLifecycle</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnExitLifecycle.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.OnExitLifecycle</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnInputLifecycle.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.OnInputLifecycle</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Information that defines a state of a detector.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newState' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679246690"><span id="local-6989586621679246691"></span></span><span class="hs-keyword">data</span><span> </span><span id="State"><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-var">State</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="State%27"><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-var">State'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When entering this state, perform these @actions@ if the @condition@ is</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- TRUE.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AonEnter%3AState%27"><span class="annot"><span class="annottext">State -&gt; Maybe OnEnterLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonEnter%3AState%27"><span class="hs-identifier hs-var hs-var">onEnter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnEnterLifecycle.html#OnEnterLifecycle"><span class="hs-identifier hs-type">OnEnterLifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | When an input is received and the @condition@ is TRUE, perform the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specified @actions@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AonInput%3AState%27"><span class="annot"><span class="annottext">State -&gt; Maybe OnInputLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonInput%3AState%27"><span class="hs-identifier hs-var hs-var">onInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnInputLifecycle.html#OnInputLifecycle"><span class="hs-identifier hs-type">OnInputLifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | When exiting this state, perform these @actions@ if the specified</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @condition@ is @TRUE@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AonExit%3AState%27"><span class="annot"><span class="annottext">State -&gt; Maybe OnExitLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonExit%3AState%27"><span class="hs-identifier hs-var hs-var">onExit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnExitLifecycle.html#OnExitLifecycle"><span class="hs-identifier hs-type">OnExitLifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the state.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstateName%3AState%27"><span class="annot"><span class="annottext">State -&gt; Text
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AstateName%3AState%27"><span class="hs-identifier hs-var hs-var">stateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246681"><span id="local-6989586621679246683"><span class="annot"><span class="annottext">State -&gt; State -&gt; Bool
+(State -&gt; State -&gt; Bool) -&gt; (State -&gt; State -&gt; Bool) -&gt; Eq State
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: State -&gt; State -&gt; Bool
+$c/= :: State -&gt; State -&gt; Bool
+== :: State -&gt; State -&gt; Bool
+$c== :: State -&gt; State -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246672"><span id="local-6989586621679246674"><span id="local-6989586621679246676"><span id="local-6989586621679246678"><span class="annot"><span class="annottext">ReadPrec [State]
+ReadPrec State
+Int -&gt; ReadS State
+ReadS [State]
+(Int -&gt; ReadS State)
+-&gt; ReadS [State]
+-&gt; ReadPrec State
+-&gt; ReadPrec [State]
+-&gt; Read State
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [State]
+$creadListPrec :: ReadPrec [State]
+readPrec :: ReadPrec State
+$creadPrec :: ReadPrec State
+readList :: ReadS [State]
+$creadList :: ReadS [State]
+readsPrec :: Int -&gt; ReadS State
+$creadsPrec :: Int -&gt; ReadS State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246665"><span id="local-6989586621679246667"><span id="local-6989586621679246669"><span class="annot"><span class="annottext">Int -&gt; State -&gt; ShowS
+[State] -&gt; ShowS
+State -&gt; String
+(Int -&gt; State -&gt; ShowS)
+-&gt; (State -&gt; String) -&gt; ([State] -&gt; ShowS) -&gt; Show State
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [State] -&gt; ShowS
+$cshowList :: [State] -&gt; ShowS
+show :: State -&gt; String
+$cshow :: State -&gt; String
+showsPrec :: Int -&gt; State -&gt; ShowS
+$cshowsPrec :: Int -&gt; State -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. State -&gt; Rep State x)
+-&gt; (forall x. Rep State x -&gt; State) -&gt; Generic State
+forall x. Rep State x -&gt; State
+forall x. State -&gt; Rep State x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep State x -&gt; State
+$cfrom :: forall x. State -&gt; Rep State x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'State' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'onEnter', 'state_onEnter' - When entering this state, perform these @actions@ if the @condition@ is</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- TRUE.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'onInput', 'state_onInput' - When an input is received and the @condition@ is TRUE, perform the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- specified @actions@.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'onExit', 'state_onExit' - When exiting this state, perform these @actions@ if the specified</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- @condition@ is @TRUE@.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'stateName', 'state_stateName' - The name of the state.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#newState"><span class="hs-identifier hs-type">newState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'stateName'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-69"></span><span id="newState"><span class="annot"><span class="annottext">newState :: Text -&gt; State
+</span><a href="Amazonka.IoTEvents.Types.State.html#newState"><span class="hs-identifier hs-var hs-var">newState</span></a></span></span><span> </span><span id="local-6989586621679246659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246659"><span class="hs-identifier hs-var">pStateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">State' :: Maybe OnEnterLifecycle
+-&gt; Maybe OnInputLifecycle -&gt; Maybe OnExitLifecycle -&gt; Text -&gt; State
+</span><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:onEnter:State' :: Maybe OnEnterLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonEnter%3AState%27"><span class="hs-identifier hs-var">onEnter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnEnterLifecycle
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:onInput:State' :: Maybe OnInputLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonInput%3AState%27"><span class="hs-identifier hs-var">onInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnInputLifecycle
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:onExit:State' :: Maybe OnExitLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonExit%3AState%27"><span class="hs-identifier hs-var">onExit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnExitLifecycle
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateName:State' :: Text
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AstateName%3AState%27"><span class="hs-identifier hs-var">stateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246659"><span class="hs-identifier hs-var">pStateName_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | When entering this state, perform these @actions@ if the @condition@ is</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- TRUE.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#state_onEnter"><span class="hs-identifier hs-type">state_onEnter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnEnterLifecycle.html#OnEnterLifecycle"><span class="hs-identifier hs-type">OnEnterLifecycle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="state_onEnter"><span class="annot"><span class="annottext">state_onEnter :: (Maybe OnEnterLifecycle -&gt; f (Maybe OnEnterLifecycle))
+-&gt; State -&gt; f State
+</span><a href="Amazonka.IoTEvents.Types.State.html#state_onEnter"><span class="hs-identifier hs-var hs-var">state_onEnter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(State -&gt; Maybe OnEnterLifecycle)
+-&gt; (State -&gt; Maybe OnEnterLifecycle -&gt; State)
+-&gt; Lens
+     State State (Maybe OnEnterLifecycle) (Maybe OnEnterLifecycle)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246655"><span class="annot"><span class="annottext">Maybe OnEnterLifecycle
+onEnter :: Maybe OnEnterLifecycle
+$sel:onEnter:State' :: State -&gt; Maybe OnEnterLifecycle
+</span><a href="#local-6989586621679246655"><span class="hs-identifier hs-var hs-var">onEnter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnEnterLifecycle
+</span><a href="#local-6989586621679246655"><span class="hs-identifier hs-var">onEnter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246654"><span class="annot"><span class="annottext">s :: State
+</span><a href="#local-6989586621679246654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246653"><span class="annot"><span class="annottext">Maybe OnEnterLifecycle
+</span><a href="#local-6989586621679246653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679246654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onEnter:State' :: Maybe OnEnterLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonEnter%3AState%27"><span class="hs-identifier hs-var">onEnter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnEnterLifecycle
+</span><a href="#local-6989586621679246653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | When an input is received and the @condition@ is TRUE, perform the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- specified @actions@.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#state_onInput"><span class="hs-identifier hs-type">state_onInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnInputLifecycle.html#OnInputLifecycle"><span class="hs-identifier hs-type">OnInputLifecycle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="state_onInput"><span class="annot"><span class="annottext">state_onInput :: (Maybe OnInputLifecycle -&gt; f (Maybe OnInputLifecycle))
+-&gt; State -&gt; f State
+</span><a href="Amazonka.IoTEvents.Types.State.html#state_onInput"><span class="hs-identifier hs-var hs-var">state_onInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(State -&gt; Maybe OnInputLifecycle)
+-&gt; (State -&gt; Maybe OnInputLifecycle -&gt; State)
+-&gt; Lens
+     State State (Maybe OnInputLifecycle) (Maybe OnInputLifecycle)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246651"><span class="annot"><span class="annottext">Maybe OnInputLifecycle
+onInput :: Maybe OnInputLifecycle
+$sel:onInput:State' :: State -&gt; Maybe OnInputLifecycle
+</span><a href="#local-6989586621679246651"><span class="hs-identifier hs-var hs-var">onInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnInputLifecycle
+</span><a href="#local-6989586621679246651"><span class="hs-identifier hs-var">onInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246650"><span class="annot"><span class="annottext">s :: State
+</span><a href="#local-6989586621679246650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246649"><span class="annot"><span class="annottext">Maybe OnInputLifecycle
+</span><a href="#local-6989586621679246649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679246650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onInput:State' :: Maybe OnInputLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonInput%3AState%27"><span class="hs-identifier hs-var">onInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnInputLifecycle
+</span><a href="#local-6989586621679246649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | When exiting this state, perform these @actions@ if the specified</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @condition@ is @TRUE@.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#state_onExit"><span class="hs-identifier hs-type">state_onExit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.OnExitLifecycle.html#OnExitLifecycle"><span class="hs-identifier hs-type">OnExitLifecycle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="state_onExit"><span class="annot"><span class="annottext">state_onExit :: (Maybe OnExitLifecycle -&gt; f (Maybe OnExitLifecycle))
+-&gt; State -&gt; f State
+</span><a href="Amazonka.IoTEvents.Types.State.html#state_onExit"><span class="hs-identifier hs-var hs-var">state_onExit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(State -&gt; Maybe OnExitLifecycle)
+-&gt; (State -&gt; Maybe OnExitLifecycle -&gt; State)
+-&gt; Lens State State (Maybe OnExitLifecycle) (Maybe OnExitLifecycle)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246647"><span class="annot"><span class="annottext">Maybe OnExitLifecycle
+onExit :: Maybe OnExitLifecycle
+$sel:onExit:State' :: State -&gt; Maybe OnExitLifecycle
+</span><a href="#local-6989586621679246647"><span class="hs-identifier hs-var hs-var">onExit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnExitLifecycle
+</span><a href="#local-6989586621679246647"><span class="hs-identifier hs-var">onExit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246646"><span class="annot"><span class="annottext">s :: State
+</span><a href="#local-6989586621679246646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246645"><span class="annot"><span class="annottext">Maybe OnExitLifecycle
+</span><a href="#local-6989586621679246645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679246646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onExit:State' :: Maybe OnExitLifecycle
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AonExit%3AState%27"><span class="hs-identifier hs-var">onExit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnExitLifecycle
+</span><a href="#local-6989586621679246645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the state.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#state_stateName"><span class="hs-identifier hs-type">state_stateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="state_stateName"><span class="annot"><span class="annottext">state_stateName :: (Text -&gt; f Text) -&gt; State -&gt; f State
+</span><a href="Amazonka.IoTEvents.Types.State.html#state_stateName"><span class="hs-identifier hs-var hs-var">state_stateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(State -&gt; Text)
+-&gt; (State -&gt; Text -&gt; State) -&gt; Lens State State Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246643"><span class="annot"><span class="annottext">Text
+stateName :: Text
+$sel:stateName:State' :: State -&gt; Text
+</span><a href="#local-6989586621679246643"><span class="hs-identifier hs-var hs-var">stateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246643"><span class="hs-identifier hs-var">stateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246642"><span class="annot"><span class="annottext">s :: State
+</span><a href="#local-6989586621679246642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679246642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateName:State' :: Text
+</span><a href="Amazonka.IoTEvents.Types.State.html#%24sel%3AstateName%3AState%27"><span class="hs-identifier hs-var">stateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246638"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679246636"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser State) -&gt; Value -&gt; Parser State
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;State&quot;</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246633"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe OnEnterLifecycle
+-&gt; Maybe OnInputLifecycle -&gt; Maybe OnExitLifecycle -&gt; Text -&gt; State
+</span><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-var">State'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OnEnterLifecycle
+ -&gt; Maybe OnInputLifecycle
+ -&gt; Maybe OnExitLifecycle
+ -&gt; Text
+ -&gt; State)
+-&gt; Parser (Maybe OnEnterLifecycle)
+-&gt; Parser
+     (Maybe OnInputLifecycle -&gt; Maybe OnExitLifecycle -&gt; Text -&gt; State)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnEnterLifecycle)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;onEnter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OnInputLifecycle -&gt; Maybe OnExitLifecycle -&gt; Text -&gt; State)
+-&gt; Parser (Maybe OnInputLifecycle)
+-&gt; Parser (Maybe OnExitLifecycle -&gt; Text -&gt; State)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnInputLifecycle)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;onInput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe OnExitLifecycle -&gt; Text -&gt; State)
+-&gt; Parser (Maybe OnExitLifecycle) -&gt; Parser (Text -&gt; State)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnExitLifecycle)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;onExit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; State) -&gt; Parser Text -&gt; Parser State
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246626"><span id="local-6989586621679246628"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246615"><span id="local-6989586621679246617"><span id="local-6989586621679246619"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679246613"><span class="annot"><span class="annottext">toJSON :: State -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246608"><span id="local-6989586621679246609"><span id="local-6989586621679246610"><span id="local-6989586621679246611"><span class="annot"><span class="annottext">Maybe OnExitLifecycle
+Maybe OnEnterLifecycle
+Maybe OnInputLifecycle
+Text
+stateName :: Text
+onExit :: Maybe OnExitLifecycle
+onInput :: Maybe OnInputLifecycle
+onEnter :: Maybe OnEnterLifecycle
+$sel:stateName:State' :: State -&gt; Text
+$sel:onExit:State' :: State -&gt; Maybe OnExitLifecycle
+$sel:onInput:State' :: State -&gt; Maybe OnInputLifecycle
+$sel:onEnter:State' :: State -&gt; Maybe OnEnterLifecycle
+</span><a href="#local-6989586621679246608"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;onEnter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OnEnterLifecycle -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OnEnterLifecycle -&gt; Pair) -&gt; Maybe OnEnterLifecycle -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnEnterLifecycle
+</span><a href="#local-6989586621679246611"><span class="hs-identifier hs-var">onEnter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;onInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OnInputLifecycle -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OnInputLifecycle -&gt; Pair) -&gt; Maybe OnInputLifecycle -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnInputLifecycle
+</span><a href="#local-6989586621679246610"><span class="hs-identifier hs-var">onInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;onExit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OnExitLifecycle -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OnExitLifecycle -&gt; Pair) -&gt; Maybe OnExitLifecycle -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnExitLifecycle
+</span><a href="#local-6989586621679246609"><span class="hs-identifier hs-var">onExit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246608"><span class="hs-identifier hs-var">stateName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span></pre></body></html>

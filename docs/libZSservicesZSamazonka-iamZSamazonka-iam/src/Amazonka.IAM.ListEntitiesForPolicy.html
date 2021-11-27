@@ -1,0 +1,1240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.ListEntitiesForPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all IAM users, groups, and roles that the specified managed policy</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- is attached to.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You can use the optional @EntityFilter@ parameter to limit the results</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to a particular type of entity (users, groups, or roles). For example,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to list only the roles that are attached to the specified policy, set</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @EntityFilter@ to @Role@.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- You can paginate the results using the @MaxItems@ and @Marker@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- parameters.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.ListEntitiesForPolicy</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#newListEntitiesForPolicy"><span class="hs-identifier">newListEntitiesForPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_pathPrefix"><span class="hs-identifier">listEntitiesForPolicy_pathPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_entityFilter"><span class="hs-identifier">listEntitiesForPolicy_entityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_marker"><span class="hs-identifier">listEntitiesForPolicy_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_maxItems"><span class="hs-identifier">listEntitiesForPolicy_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_policyUsageFilter"><span class="hs-identifier">listEntitiesForPolicy_policyUsageFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_policyArn"><span class="hs-identifier">listEntitiesForPolicy_policyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier">ListEntitiesForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#newListEntitiesForPolicyResponse"><span class="hs-identifier">newListEntitiesForPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyGroups"><span class="hs-identifier">listEntitiesForPolicyResponse_policyGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyRoles"><span class="hs-identifier">listEntitiesForPolicyResponse_policyRoles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_marker"><span class="hs-identifier">listEntitiesForPolicyResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyUsers"><span class="hs-identifier">listEntitiesForPolicyResponse_policyUsers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_isTruncated"><span class="hs-identifier">listEntitiesForPolicyResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_httpStatus"><span class="hs-identifier">listEntitiesForPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newListEntitiesForPolicy' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679445618"><span id="local-6989586621679445619"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntitiesForPolicy"><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-var">ListEntitiesForPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntitiesForPolicy%27"><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-var">ListEntitiesForPolicy'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path prefix for filtering the results. This parameter is optional.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- If it is not included, it defaults to a slash (\/), listing all</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- entities.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3ApathPrefix%3AListEntitiesForPolicy%27"><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApathPrefix%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The entity type to use for filtering the results.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- For example, when @EntityFilter@ is @Role@, only the roles that are</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- attached to the specified policy are returned. This parameter is</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- optional. If it is not included, all attached entities (users, groups,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- and roles) are returned. The argument for this parameter must be one of</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the valid values listed below.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AentityFilter%3AListEntitiesForPolicy%27"><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; Maybe EntityType
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AentityFilter%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var hs-var">entityFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Amarker%3AListEntitiesForPolicy%27"><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3Amarker%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AmaxItems%3AListEntitiesForPolicy%27"><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; Maybe Natural
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AmaxItems%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The policy usage method to use for filtering the results.</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- To list only permissions policies,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- set&#160;@PolicyUsageFilter@&#160;to&#160;@PermissionsPolicy@. To list only the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- policies used to set permissions boundaries, set&#160;the value</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- to&#160;@PermissionsBoundary@.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- This parameter is optional. If it is not included, all policies are</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3ApolicyUsageFilter%3AListEntitiesForPolicy%27"><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; Maybe PolicyUsageType
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyUsageFilter%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var hs-var">policyUsageFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.PolicyUsageType.html#PolicyUsageType"><span class="hs-identifier hs-type">PolicyUsageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM policy for which you want the</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- versions.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3ApolicyArn%3AListEntitiesForPolicy%27"><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyArn%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445607"><span id="local-6989586621679445609"><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; ListEntitiesForPolicy -&gt; Bool
+(ListEntitiesForPolicy -&gt; ListEntitiesForPolicy -&gt; Bool)
+-&gt; (ListEntitiesForPolicy -&gt; ListEntitiesForPolicy -&gt; Bool)
+-&gt; Eq ListEntitiesForPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEntitiesForPolicy -&gt; ListEntitiesForPolicy -&gt; Bool
+$c/= :: ListEntitiesForPolicy -&gt; ListEntitiesForPolicy -&gt; Bool
+== :: ListEntitiesForPolicy -&gt; ListEntitiesForPolicy -&gt; Bool
+$c== :: ListEntitiesForPolicy -&gt; ListEntitiesForPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445598"><span id="local-6989586621679445600"><span id="local-6989586621679445602"><span id="local-6989586621679445604"><span class="annot"><span class="annottext">ReadPrec [ListEntitiesForPolicy]
+ReadPrec ListEntitiesForPolicy
+Int -&gt; ReadS ListEntitiesForPolicy
+ReadS [ListEntitiesForPolicy]
+(Int -&gt; ReadS ListEntitiesForPolicy)
+-&gt; ReadS [ListEntitiesForPolicy]
+-&gt; ReadPrec ListEntitiesForPolicy
+-&gt; ReadPrec [ListEntitiesForPolicy]
+-&gt; Read ListEntitiesForPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEntitiesForPolicy]
+$creadListPrec :: ReadPrec [ListEntitiesForPolicy]
+readPrec :: ReadPrec ListEntitiesForPolicy
+$creadPrec :: ReadPrec ListEntitiesForPolicy
+readList :: ReadS [ListEntitiesForPolicy]
+$creadList :: ReadS [ListEntitiesForPolicy]
+readsPrec :: Int -&gt; ReadS ListEntitiesForPolicy
+$creadsPrec :: Int -&gt; ReadS ListEntitiesForPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445591"><span id="local-6989586621679445593"><span id="local-6989586621679445595"><span class="annot"><span class="annottext">Int -&gt; ListEntitiesForPolicy -&gt; ShowS
+[ListEntitiesForPolicy] -&gt; ShowS
+ListEntitiesForPolicy -&gt; String
+(Int -&gt; ListEntitiesForPolicy -&gt; ShowS)
+-&gt; (ListEntitiesForPolicy -&gt; String)
+-&gt; ([ListEntitiesForPolicy] -&gt; ShowS)
+-&gt; Show ListEntitiesForPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEntitiesForPolicy] -&gt; ShowS
+$cshowList :: [ListEntitiesForPolicy] -&gt; ShowS
+show :: ListEntitiesForPolicy -&gt; String
+$cshow :: ListEntitiesForPolicy -&gt; String
+showsPrec :: Int -&gt; ListEntitiesForPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEntitiesForPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListEntitiesForPolicy -&gt; Rep ListEntitiesForPolicy x)
+-&gt; (forall x. Rep ListEntitiesForPolicy x -&gt; ListEntitiesForPolicy)
+-&gt; Generic ListEntitiesForPolicy
+forall x. Rep ListEntitiesForPolicy x -&gt; ListEntitiesForPolicy
+forall x. ListEntitiesForPolicy -&gt; Rep ListEntitiesForPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListEntitiesForPolicy x -&gt; ListEntitiesForPolicy
+$cfrom :: forall x. ListEntitiesForPolicy -&gt; Rep ListEntitiesForPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'ListEntitiesForPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'pathPrefix', 'listEntitiesForPolicy_pathPrefix' - The path prefix for filtering the results. This parameter is optional.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- If it is not included, it defaults to a slash (\/), listing all</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- entities.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'entityFilter', 'listEntitiesForPolicy_entityFilter' - The entity type to use for filtering the results.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- For example, when @EntityFilter@ is @Role@, only the roles that are</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- attached to the specified policy are returned. This parameter is</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- optional. If it is not included, all attached entities (users, groups,</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- and roles) are returned. The argument for this parameter must be one of</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the valid values listed below.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'marker', 'listEntitiesForPolicy_marker' - Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'maxItems', 'listEntitiesForPolicy_maxItems' - Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'policyUsageFilter', 'listEntitiesForPolicy_policyUsageFilter' - The policy usage method to use for filtering the results.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- To list only permissions policies,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- set&#160;@PolicyUsageFilter@&#160;to&#160;@PermissionsPolicy@. To list only the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- policies used to set permissions boundaries, set&#160;the value</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- to&#160;@PermissionsBoundary@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- This parameter is optional. If it is not included, all policies are</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'policyArn', 'listEntitiesForPolicy_policyArn' - The Amazon Resource Name (ARN) of the IAM policy for which you want the</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- versions.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#newListEntitiesForPolicy"><span class="hs-identifier hs-type">newListEntitiesForPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'policyArn'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span>
+</span><span id="line-189"></span><span id="newListEntitiesForPolicy"><span class="annot"><span class="annottext">newListEntitiesForPolicy :: Text -&gt; ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#newListEntitiesForPolicy"><span class="hs-identifier hs-var hs-var">newListEntitiesForPolicy</span></a></span></span><span> </span><span id="local-6989586621679445586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445586"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">ListEntitiesForPolicy' :: Maybe Text
+-&gt; Maybe EntityType
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe PolicyUsageType
+-&gt; Text
+-&gt; ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pathPrefix:ListEntitiesForPolicy' :: Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApathPrefix%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityFilter:ListEntitiesForPolicy' :: Maybe EntityType
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AentityFilter%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">entityFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListEntitiesForPolicy' :: Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3Amarker%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListEntitiesForPolicy' :: Maybe Natural
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AmaxItems%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyUsageFilter:ListEntitiesForPolicy' :: Maybe PolicyUsageType
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyUsageFilter%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">policyUsageFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyUsageType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:ListEntitiesForPolicy' :: Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyArn%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445586"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The path prefix for filtering the results. This parameter is optional.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- If it is not included, it defaults to a slash (\/), listing all</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- entities.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_pathPrefix"><span class="hs-identifier hs-type">listEntitiesForPolicy_pathPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="listEntitiesForPolicy_pathPrefix"><span class="annot"><span class="annottext">listEntitiesForPolicy_pathPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEntitiesForPolicy -&gt; f ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_pathPrefix"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicy_pathPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicy -&gt; Maybe Text)
+-&gt; (ListEntitiesForPolicy -&gt; Maybe Text -&gt; ListEntitiesForPolicy)
+-&gt; Lens
+     ListEntitiesForPolicy
+     ListEntitiesForPolicy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445584"><span class="annot"><span class="annottext">Maybe Text
+pathPrefix :: Maybe Text
+$sel:pathPrefix:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679445584"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445584"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445583"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicy
+</span><a href="#local-6989586621679445583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445582"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPrefix:ListEntitiesForPolicy' :: Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApathPrefix%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The entity type to use for filtering the results.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- For example, when @EntityFilter@ is @Role@, only the roles that are</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- attached to the specified policy are returned. This parameter is</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- optional. If it is not included, all attached entities (users, groups,</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- and roles) are returned. The argument for this parameter must be one of</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- the valid values listed below.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_entityFilter"><span class="hs-identifier hs-type">listEntitiesForPolicy_entityFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listEntitiesForPolicy_entityFilter"><span class="annot"><span class="annottext">listEntitiesForPolicy_entityFilter :: (Maybe EntityType -&gt; f (Maybe EntityType))
+-&gt; ListEntitiesForPolicy -&gt; f ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_entityFilter"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicy_entityFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicy -&gt; Maybe EntityType)
+-&gt; (ListEntitiesForPolicy
+    -&gt; Maybe EntityType -&gt; ListEntitiesForPolicy)
+-&gt; Lens
+     ListEntitiesForPolicy
+     ListEntitiesForPolicy
+     (Maybe EntityType)
+     (Maybe EntityType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445581"><span class="annot"><span class="annottext">Maybe EntityType
+entityFilter :: Maybe EntityType
+$sel:entityFilter:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe EntityType
+</span><a href="#local-6989586621679445581"><span class="hs-identifier hs-var hs-var">entityFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679445581"><span class="hs-identifier hs-var">entityFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445580"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicy
+</span><a href="#local-6989586621679445580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445579"><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679445579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityFilter:ListEntitiesForPolicy' :: Maybe EntityType
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AentityFilter%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">entityFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679445579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_marker"><span class="hs-identifier hs-type">listEntitiesForPolicy_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="listEntitiesForPolicy_marker"><span class="annot"><span class="annottext">listEntitiesForPolicy_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEntitiesForPolicy -&gt; f ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_marker"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicy_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicy -&gt; Maybe Text)
+-&gt; (ListEntitiesForPolicy -&gt; Maybe Text -&gt; ListEntitiesForPolicy)
+-&gt; Lens
+     ListEntitiesForPolicy
+     ListEntitiesForPolicy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445578"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679445578"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445578"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445577"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicy
+</span><a href="#local-6989586621679445577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListEntitiesForPolicy' :: Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3Amarker%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_maxItems"><span class="hs-identifier hs-type">listEntitiesForPolicy_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="listEntitiesForPolicy_maxItems"><span class="annot"><span class="annottext">listEntitiesForPolicy_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListEntitiesForPolicy -&gt; f ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_maxItems"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicy_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicy -&gt; Maybe Natural)
+-&gt; (ListEntitiesForPolicy
+    -&gt; Maybe Natural -&gt; ListEntitiesForPolicy)
+-&gt; Lens
+     ListEntitiesForPolicy
+     ListEntitiesForPolicy
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445575"><span class="annot"><span class="annottext">Maybe Natural
+maxItems :: Maybe Natural
+$sel:maxItems:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe Natural
+</span><a href="#local-6989586621679445575"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679445575"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445574"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicy
+</span><a href="#local-6989586621679445574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445573"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679445573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListEntitiesForPolicy' :: Maybe Natural
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AmaxItems%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679445573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The policy usage method to use for filtering the results.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- To list only permissions policies,</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- set&#160;@PolicyUsageFilter@&#160;to&#160;@PermissionsPolicy@. To list only the</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- policies used to set permissions boundaries, set&#160;the value</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- to&#160;@PermissionsBoundary@.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- This parameter is optional. If it is not included, all policies are</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_policyUsageFilter"><span class="hs-identifier hs-type">listEntitiesForPolicy_policyUsageFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.PolicyUsageType.html#PolicyUsageType"><span class="hs-identifier hs-type">PolicyUsageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="listEntitiesForPolicy_policyUsageFilter"><span class="annot"><span class="annottext">listEntitiesForPolicy_policyUsageFilter :: (Maybe PolicyUsageType -&gt; f (Maybe PolicyUsageType))
+-&gt; ListEntitiesForPolicy -&gt; f ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_policyUsageFilter"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicy_policyUsageFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicy -&gt; Maybe PolicyUsageType)
+-&gt; (ListEntitiesForPolicy
+    -&gt; Maybe PolicyUsageType -&gt; ListEntitiesForPolicy)
+-&gt; Lens
+     ListEntitiesForPolicy
+     ListEntitiesForPolicy
+     (Maybe PolicyUsageType)
+     (Maybe PolicyUsageType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445572"><span class="annot"><span class="annottext">Maybe PolicyUsageType
+policyUsageFilter :: Maybe PolicyUsageType
+$sel:policyUsageFilter:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe PolicyUsageType
+</span><a href="#local-6989586621679445572"><span class="hs-identifier hs-var hs-var">policyUsageFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyUsageType
+</span><a href="#local-6989586621679445572"><span class="hs-identifier hs-var">policyUsageFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445571"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicy
+</span><a href="#local-6989586621679445571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445570"><span class="annot"><span class="annottext">Maybe PolicyUsageType
+</span><a href="#local-6989586621679445570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyUsageFilter:ListEntitiesForPolicy' :: Maybe PolicyUsageType
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyUsageFilter%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">policyUsageFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyUsageType
+</span><a href="#local-6989586621679445570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM policy for which you want the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- versions.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_policyArn"><span class="hs-identifier hs-type">listEntitiesForPolicy_policyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-262"></span><span id="listEntitiesForPolicy_policyArn"><span class="annot"><span class="annottext">listEntitiesForPolicy_policyArn :: (Text -&gt; f Text)
+-&gt; ListEntitiesForPolicy -&gt; f ListEntitiesForPolicy
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_policyArn"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicy_policyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicy -&gt; Text)
+-&gt; (ListEntitiesForPolicy -&gt; Text -&gt; ListEntitiesForPolicy)
+-&gt; Lens ListEntitiesForPolicy ListEntitiesForPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445569"><span class="annot"><span class="annottext">Text
+policyArn :: Text
+$sel:policyArn:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Text
+</span><a href="#local-6989586621679445569"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445569"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445568"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicy
+</span><a href="#local-6989586621679445568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445567"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:ListEntitiesForPolicy' :: Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyArn%3AListEntitiesForPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679445563"><span class="annot"><span class="annottext">page :: ListEntitiesForPolicy
+-&gt; AWSResponse ListEntitiesForPolicy -&gt; Maybe ListEntitiesForPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679445561"><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445561"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679445560"><span class="annot"><span class="annottext">AWSResponse ListEntitiesForPolicy
+</span><a href="#local-6989586621679445560"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-267"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEntitiesForPolicy
+ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445560"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+-&gt; Getting (First Bool) ListEntitiesForPolicyResponse Bool
+-&gt; Maybe Bool
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Const (First Bool) (Maybe Bool))
+-&gt; ListEntitiesForPolicyResponse
+-&gt; Const (First Bool) ListEntitiesForPolicyResponse
+Lens' ListEntitiesForPolicyResponse (Maybe Bool)
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_isTruncated"><span class="hs-identifier hs-var">listEntitiesForPolicyResponse_isTruncated</span></a></span><span>
+</span><span id="line-269"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Bool -&gt; Const (First Bool) (Maybe Bool))
+ -&gt; ListEntitiesForPolicyResponse
+ -&gt; Const (First Bool) ListEntitiesForPolicyResponse)
+-&gt; ((Bool -&gt; Const (First Bool) Bool)
+    -&gt; Maybe Bool -&gt; Const (First Bool) (Maybe Bool))
+-&gt; Getting (First Bool) ListEntitiesForPolicyResponse Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Const (First Bool) Bool)
+-&gt; Maybe Bool -&gt; Const (First Bool) (Maybe Bool)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-270"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEntitiesForPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. Maybe a -&gt; Bool
+</span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
+</span><span id="line-273"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEntitiesForPolicy
+ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445560"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+-&gt; Getting (First Text) ListEntitiesForPolicyResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEntitiesForPolicyResponse
+-&gt; Const (First Text) ListEntitiesForPolicyResponse
+Lens' ListEntitiesForPolicyResponse (Maybe Text)
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_marker"><span class="hs-identifier hs-var">listEntitiesForPolicyResponse_marker</span></a></span><span>
+</span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEntitiesForPolicyResponse
+ -&gt; Const (First Text) ListEntitiesForPolicyResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEntitiesForPolicyResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-276"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEntitiesForPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">ListEntitiesForPolicy -&gt; Maybe ListEntitiesForPolicy
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicy -&gt; Maybe ListEntitiesForPolicy)
+-&gt; ListEntitiesForPolicy -&gt; Maybe ListEntitiesForPolicy
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+</span><a href="#local-6989586621679445561"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-281"></span><span>          </span><span class="annot"><span class="annottext">ListEntitiesForPolicy
+-&gt; (ListEntitiesForPolicy -&gt; ListEntitiesForPolicy)
+-&gt; ListEntitiesForPolicy
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListEntitiesForPolicy -&gt; Identity ListEntitiesForPolicy
+Lens
+  ListEntitiesForPolicy
+  ListEntitiesForPolicy
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicy_marker"><span class="hs-identifier hs-var">listEntitiesForPolicy_marker</span></a></span><span>
+</span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListEntitiesForPolicy -&gt; Identity ListEntitiesForPolicy)
+-&gt; Maybe Text -&gt; ListEntitiesForPolicy -&gt; ListEntitiesForPolicy
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEntitiesForPolicy
+ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445560"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-283"></span><span>          </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+-&gt; Getting (First Text) ListEntitiesForPolicyResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEntitiesForPolicyResponse
+-&gt; Const (First Text) ListEntitiesForPolicyResponse
+Lens' ListEntitiesForPolicyResponse (Maybe Text)
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_marker"><span class="hs-identifier hs-var">listEntitiesForPolicyResponse_marker</span></a></span><span>
+</span><span id="line-284"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEntitiesForPolicyResponse
+ -&gt; Const (First Text) ListEntitiesForPolicyResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEntitiesForPolicyResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-288"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679445549"><span class="annot"><span class="annottext">request :: ListEntitiesForPolicy -&gt; Request ListEntitiesForPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListEntitiesForPolicy -&gt; Request ListEntitiesForPolicy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679445545"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListEntitiesForPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEntitiesForPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ListEntitiesForPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListEntitiesForPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEntitiesForPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListEntitiesForPolicyResult&quot;</span></span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679445542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445542"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679445541"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679445541"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679445540"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445540"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-295"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PolicyGroup]
+-&gt; Maybe [PolicyRole]
+-&gt; Maybe Text
+-&gt; Maybe [PolicyUser]
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">ListEntitiesForPolicyResponse'</span></a></span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PolicyGroup]
+ -&gt; Maybe [PolicyRole]
+ -&gt; Maybe Text
+ -&gt; Maybe [PolicyUser]
+ -&gt; Maybe Bool
+ -&gt; Int
+ -&gt; ListEntitiesForPolicyResponse)
+-&gt; Either String (Maybe [PolicyGroup])
+-&gt; Either
+     String
+     (Maybe [PolicyRole]
+      -&gt; Maybe Text
+      -&gt; Maybe [PolicyUser]
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; ListEntitiesForPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-297"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [PolicyGroup]))
+-&gt; Either String (Maybe [PolicyGroup])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PolicyGroup])
+-&gt; [Node] -&gt; Either String (Maybe [PolicyGroup])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PolicyGroup]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PolicyRole]
+   -&gt; Maybe Text
+   -&gt; Maybe [PolicyUser]
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; ListEntitiesForPolicyResponse)
+-&gt; Either String (Maybe [PolicyRole])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [PolicyUser]
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; ListEntitiesForPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyRoles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-300"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [PolicyRole]))
+-&gt; Either String (Maybe [PolicyRole])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PolicyRole])
+-&gt; [Node] -&gt; Either String (Maybe [PolicyRole])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PolicyRole]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [PolicyUser]
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; ListEntitiesForPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PolicyUser]
+      -&gt; Maybe Bool -&gt; Int -&gt; ListEntitiesForPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PolicyUser]
+   -&gt; Maybe Bool -&gt; Int -&gt; ListEntitiesForPolicyResponse)
+-&gt; Either String (Maybe [PolicyUser])
+-&gt; Either
+     String (Maybe Bool -&gt; Int -&gt; ListEntitiesForPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyUsers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-304"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [PolicyUser]))
+-&gt; Either String (Maybe [PolicyUser])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PolicyUser])
+-&gt; [Node] -&gt; Either String (Maybe [PolicyUser])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PolicyUser]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; ListEntitiesForPolicyResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; ListEntitiesForPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListEntitiesForPolicyResponse)
+-&gt; Either String Int -&gt; Either String ListEntitiesForPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445542"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445529"><span id="local-6989586621679445531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span></span></span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679445522"><span class="annot"><span class="annottext">toHeaders :: ListEntitiesForPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListEntitiesForPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679445517"><span class="annot"><span class="annottext">toPath :: ListEntitiesForPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListEntitiesForPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy"><span class="hs-identifier hs-type">ListEntitiesForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-321"></span><span>  </span><span id="local-6989586621679445513"><span class="annot"><span class="annottext">toQuery :: ListEntitiesForPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicy%27"><span class="hs-identifier hs-type">ListEntitiesForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445506"><span id="local-6989586621679445507"><span id="local-6989586621679445508"><span id="local-6989586621679445509"><span id="local-6989586621679445510"><span id="local-6989586621679445511"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe EntityType
+Maybe PolicyUsageType
+Text
+policyArn :: Text
+policyUsageFilter :: Maybe PolicyUsageType
+maxItems :: Maybe Natural
+marker :: Maybe Text
+entityFilter :: Maybe EntityType
+pathPrefix :: Maybe Text
+$sel:policyArn:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Text
+$sel:policyUsageFilter:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe PolicyUsageType
+$sel:maxItems:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe Natural
+$sel:marker:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe Text
+$sel:entityFilter:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe EntityType
+$sel:pathPrefix:ListEntitiesForPolicy' :: ListEntitiesForPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679445506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-323"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-324"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListEntitiesForPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-326"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PathPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445511"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EntityFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe EntityType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679445510"><span class="hs-identifier hs-var">entityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445509"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679445508"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyUsageFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PolicyUsageType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PolicyUsageType
+</span><a href="#local-6989586621679445507"><span class="hs-identifier hs-var">policyUsageFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445506"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | Contains the response to a successful ListEntitiesForPolicy request.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- /See:/ 'newListEntitiesForPolicyResponse' smart constructor.</span><span>
+</span><span id="line-338"></span><span id="local-6989586621679445503"><span id="local-6989586621679445504"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntitiesForPolicyResponse"><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-var">ListEntitiesForPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntitiesForPolicyResponse%27"><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">ListEntitiesForPolicyResponse'</span></a></span></span><span>
+</span><span id="line-339"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of IAM groups that the policy is attached to.</span><span>
+</span><span id="line-340"></span><span>    </span><span id="%24sel%3ApolicyGroups%3AListEntitiesForPolicyResponse%27"><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse -&gt; Maybe [PolicyGroup]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyGroups%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policyGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyGroup.html#PolicyGroup"><span class="hs-identifier hs-type">PolicyGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-comment">-- | A list of IAM roles that the policy is attached to.</span><span>
+</span><span id="line-342"></span><span>    </span><span id="%24sel%3ApolicyRoles%3AListEntitiesForPolicyResponse%27"><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse -&gt; Maybe [PolicyRole]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyRoles%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policyRoles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyRole.html#PolicyRole"><span class="hs-identifier hs-type">PolicyRole</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-344"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-345"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-346"></span><span>    </span><span id="%24sel%3Amarker%3AListEntitiesForPolicyResponse%27"><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse -&gt; Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3Amarker%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="hs-comment">-- | A list of IAM users that the policy is attached to.</span><span>
+</span><span id="line-348"></span><span>    </span><span id="%24sel%3ApolicyUsers%3AListEntitiesForPolicyResponse%27"><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse -&gt; Maybe [PolicyUser]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyUsers%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policyUsers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyUser.html#PolicyUser"><span class="hs-identifier hs-type">PolicyUser</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-350"></span><span>    </span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-351"></span><span>    </span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-352"></span><span>    </span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-353"></span><span>    </span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-354"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-355"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-356"></span><span>    </span><span id="%24sel%3AisTruncated%3AListEntitiesForPolicyResponse%27"><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse -&gt; Maybe Bool
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AisTruncated%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-358"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListEntitiesForPolicyResponse%27"><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse -&gt; Int
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AhttpStatus%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-359"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-360"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445493"><span id="local-6989586621679445495"><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+-&gt; ListEntitiesForPolicyResponse -&gt; Bool
+(ListEntitiesForPolicyResponse
+ -&gt; ListEntitiesForPolicyResponse -&gt; Bool)
+-&gt; (ListEntitiesForPolicyResponse
+    -&gt; ListEntitiesForPolicyResponse -&gt; Bool)
+-&gt; Eq ListEntitiesForPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEntitiesForPolicyResponse
+-&gt; ListEntitiesForPolicyResponse -&gt; Bool
+$c/= :: ListEntitiesForPolicyResponse
+-&gt; ListEntitiesForPolicyResponse -&gt; Bool
+== :: ListEntitiesForPolicyResponse
+-&gt; ListEntitiesForPolicyResponse -&gt; Bool
+$c== :: ListEntitiesForPolicyResponse
+-&gt; ListEntitiesForPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445485"><span id="local-6989586621679445487"><span id="local-6989586621679445489"><span id="local-6989586621679445491"><span class="annot"><span class="annottext">ReadPrec [ListEntitiesForPolicyResponse]
+ReadPrec ListEntitiesForPolicyResponse
+Int -&gt; ReadS ListEntitiesForPolicyResponse
+ReadS [ListEntitiesForPolicyResponse]
+(Int -&gt; ReadS ListEntitiesForPolicyResponse)
+-&gt; ReadS [ListEntitiesForPolicyResponse]
+-&gt; ReadPrec ListEntitiesForPolicyResponse
+-&gt; ReadPrec [ListEntitiesForPolicyResponse]
+-&gt; Read ListEntitiesForPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEntitiesForPolicyResponse]
+$creadListPrec :: ReadPrec [ListEntitiesForPolicyResponse]
+readPrec :: ReadPrec ListEntitiesForPolicyResponse
+$creadPrec :: ReadPrec ListEntitiesForPolicyResponse
+readList :: ReadS [ListEntitiesForPolicyResponse]
+$creadList :: ReadS [ListEntitiesForPolicyResponse]
+readsPrec :: Int -&gt; ReadS ListEntitiesForPolicyResponse
+$creadsPrec :: Int -&gt; ReadS ListEntitiesForPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445479"><span id="local-6989586621679445481"><span id="local-6989586621679445483"><span class="annot"><span class="annottext">Int -&gt; ListEntitiesForPolicyResponse -&gt; ShowS
+[ListEntitiesForPolicyResponse] -&gt; ShowS
+ListEntitiesForPolicyResponse -&gt; String
+(Int -&gt; ListEntitiesForPolicyResponse -&gt; ShowS)
+-&gt; (ListEntitiesForPolicyResponse -&gt; String)
+-&gt; ([ListEntitiesForPolicyResponse] -&gt; ShowS)
+-&gt; Show ListEntitiesForPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEntitiesForPolicyResponse] -&gt; ShowS
+$cshowList :: [ListEntitiesForPolicyResponse] -&gt; ShowS
+show :: ListEntitiesForPolicyResponse -&gt; String
+$cshow :: ListEntitiesForPolicyResponse -&gt; String
+showsPrec :: Int -&gt; ListEntitiesForPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEntitiesForPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListEntitiesForPolicyResponse
+ -&gt; Rep ListEntitiesForPolicyResponse x)
+-&gt; (forall x.
+    Rep ListEntitiesForPolicyResponse x
+    -&gt; ListEntitiesForPolicyResponse)
+-&gt; Generic ListEntitiesForPolicyResponse
+forall x.
+Rep ListEntitiesForPolicyResponse x
+-&gt; ListEntitiesForPolicyResponse
+forall x.
+ListEntitiesForPolicyResponse
+-&gt; Rep ListEntitiesForPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEntitiesForPolicyResponse x
+-&gt; ListEntitiesForPolicyResponse
+$cfrom :: forall x.
+ListEntitiesForPolicyResponse
+-&gt; Rep ListEntitiesForPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- Create a value of 'ListEntitiesForPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- 'policyGroups', 'listEntitiesForPolicyResponse_policyGroups' - A list of IAM groups that the policy is attached to.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- 'policyRoles', 'listEntitiesForPolicyResponse_policyRoles' - A list of IAM roles that the policy is attached to.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- 'marker', 'listEntitiesForPolicyResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- 'policyUsers', 'listEntitiesForPolicyResponse_policyUsers' - A list of IAM users that the policy is attached to.</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- 'isTruncated', 'listEntitiesForPolicyResponse_isTruncated' - A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- 'httpStatus', 'listEntitiesForPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-389"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#newListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">newListEntitiesForPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-390"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-391"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-392"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span>
+</span><span id="line-393"></span><span id="newListEntitiesForPolicyResponse"><span class="annot"><span class="annottext">newListEntitiesForPolicyResponse :: Int -&gt; ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#newListEntitiesForPolicyResponse"><span class="hs-identifier hs-var hs-var">newListEntitiesForPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679445476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-394"></span><span>  </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse' :: Maybe [PolicyGroup]
+-&gt; Maybe [PolicyRole]
+-&gt; Maybe Text
+-&gt; Maybe [PolicyUser]
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span>
+</span><span id="line-395"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyGroups:ListEntitiesForPolicyResponse' :: Maybe [PolicyGroup]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyGroups%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">policyGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-396"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PolicyGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyRoles:ListEntitiesForPolicyResponse' :: Maybe [PolicyRole]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyRoles%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">policyRoles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyRole]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListEntitiesForPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3Amarker%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyUsers:ListEntitiesForPolicyResponse' :: Maybe [PolicyUser]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyUsers%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">policyUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyUser]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>      </span><span class="annot"><span class="annottext">$sel:isTruncated:ListEntitiesForPolicyResponse' :: Maybe Bool
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AisTruncated%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEntitiesForPolicyResponse' :: Int
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AhttpStatus%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-402"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-403"></span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- | A list of IAM groups that the policy is attached to.</span><span>
+</span><span id="line-405"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyGroups"><span class="hs-identifier hs-type">listEntitiesForPolicyResponse_policyGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyGroup.html#PolicyGroup"><span class="hs-identifier hs-type">PolicyGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span id="listEntitiesForPolicyResponse_policyGroups"><span class="annot"><span class="annottext">listEntitiesForPolicyResponse_policyGroups :: (Maybe [PolicyGroup] -&gt; f (Maybe [PolicyGroup]))
+-&gt; ListEntitiesForPolicyResponse -&gt; f ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyGroups"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicyResponse_policyGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicyResponse -&gt; Maybe [PolicyGroup])
+-&gt; (ListEntitiesForPolicyResponse
+    -&gt; Maybe [PolicyGroup] -&gt; ListEntitiesForPolicyResponse)
+-&gt; Lens
+     ListEntitiesForPolicyResponse
+     ListEntitiesForPolicyResponse
+     (Maybe [PolicyGroup])
+     (Maybe [PolicyGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445475"><span class="annot"><span class="annottext">Maybe [PolicyGroup]
+policyGroups :: Maybe [PolicyGroup]
+$sel:policyGroups:ListEntitiesForPolicyResponse' :: ListEntitiesForPolicyResponse -&gt; Maybe [PolicyGroup]
+</span><a href="#local-6989586621679445475"><span class="hs-identifier hs-var hs-var">policyGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyGroup]
+</span><a href="#local-6989586621679445475"><span class="hs-identifier hs-var">policyGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445474"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445473"><span class="annot"><span class="annottext">Maybe [PolicyGroup]
+</span><a href="#local-6989586621679445473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyGroups:ListEntitiesForPolicyResponse' :: Maybe [PolicyGroup]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyGroups%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">policyGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyGroup]
+</span><a href="#local-6989586621679445473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyGroup] -&gt; f (Maybe [PolicyGroup]))
+ -&gt; ListEntitiesForPolicyResponse
+ -&gt; f ListEntitiesForPolicyResponse)
+-&gt; ((Maybe [PolicyGroup] -&gt; f (Maybe [PolicyGroup]))
+    -&gt; Maybe [PolicyGroup] -&gt; f (Maybe [PolicyGroup]))
+-&gt; (Maybe [PolicyGroup] -&gt; f (Maybe [PolicyGroup]))
+-&gt; ListEntitiesForPolicyResponse
+-&gt; f ListEntitiesForPolicyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyGroup] [PolicyGroup] [PolicyGroup] [PolicyGroup]
+-&gt; Iso
+     (Maybe [PolicyGroup])
+     (Maybe [PolicyGroup])
+     (Maybe [PolicyGroup])
+     (Maybe [PolicyGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyGroup] [PolicyGroup] [PolicyGroup] [PolicyGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- | A list of IAM roles that the policy is attached to.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyRoles"><span class="hs-identifier hs-type">listEntitiesForPolicyResponse_policyRoles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyRole.html#PolicyRole"><span class="hs-identifier hs-type">PolicyRole</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span id="listEntitiesForPolicyResponse_policyRoles"><span class="annot"><span class="annottext">listEntitiesForPolicyResponse_policyRoles :: (Maybe [PolicyRole] -&gt; f (Maybe [PolicyRole]))
+-&gt; ListEntitiesForPolicyResponse -&gt; f ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyRoles"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicyResponse_policyRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicyResponse -&gt; Maybe [PolicyRole])
+-&gt; (ListEntitiesForPolicyResponse
+    -&gt; Maybe [PolicyRole] -&gt; ListEntitiesForPolicyResponse)
+-&gt; Lens
+     ListEntitiesForPolicyResponse
+     ListEntitiesForPolicyResponse
+     (Maybe [PolicyRole])
+     (Maybe [PolicyRole])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445470"><span class="annot"><span class="annottext">Maybe [PolicyRole]
+policyRoles :: Maybe [PolicyRole]
+$sel:policyRoles:ListEntitiesForPolicyResponse' :: ListEntitiesForPolicyResponse -&gt; Maybe [PolicyRole]
+</span><a href="#local-6989586621679445470"><span class="hs-identifier hs-var hs-var">policyRoles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyRole]
+</span><a href="#local-6989586621679445470"><span class="hs-identifier hs-var">policyRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445469"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445468"><span class="annot"><span class="annottext">Maybe [PolicyRole]
+</span><a href="#local-6989586621679445468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyRoles:ListEntitiesForPolicyResponse' :: Maybe [PolicyRole]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyRoles%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">policyRoles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyRole]
+</span><a href="#local-6989586621679445468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyRole] -&gt; f (Maybe [PolicyRole]))
+ -&gt; ListEntitiesForPolicyResponse
+ -&gt; f ListEntitiesForPolicyResponse)
+-&gt; ((Maybe [PolicyRole] -&gt; f (Maybe [PolicyRole]))
+    -&gt; Maybe [PolicyRole] -&gt; f (Maybe [PolicyRole]))
+-&gt; (Maybe [PolicyRole] -&gt; f (Maybe [PolicyRole]))
+-&gt; ListEntitiesForPolicyResponse
+-&gt; f ListEntitiesForPolicyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyRole] [PolicyRole] [PolicyRole] [PolicyRole]
+-&gt; Iso
+     (Maybe [PolicyRole])
+     (Maybe [PolicyRole])
+     (Maybe [PolicyRole])
+     (Maybe [PolicyRole])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyRole] [PolicyRole] [PolicyRole] [PolicyRole]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_marker"><span class="hs-identifier hs-type">listEntitiesForPolicyResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span id="listEntitiesForPolicyResponse_marker"><span class="annot"><span class="annottext">listEntitiesForPolicyResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEntitiesForPolicyResponse -&gt; f ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_marker"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicyResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicyResponse -&gt; Maybe Text)
+-&gt; (ListEntitiesForPolicyResponse
+    -&gt; Maybe Text -&gt; ListEntitiesForPolicyResponse)
+-&gt; Lens' ListEntitiesForPolicyResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445467"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListEntitiesForPolicyResponse' :: ListEntitiesForPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679445467"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445467"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445466"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListEntitiesForPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3Amarker%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | A list of IAM users that the policy is attached to.</span><span>
+</span><span id="line-419"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyUsers"><span class="hs-identifier hs-type">listEntitiesForPolicyResponse_policyUsers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyUser.html#PolicyUser"><span class="hs-identifier hs-type">PolicyUser</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span id="listEntitiesForPolicyResponse_policyUsers"><span class="annot"><span class="annottext">listEntitiesForPolicyResponse_policyUsers :: (Maybe [PolicyUser] -&gt; f (Maybe [PolicyUser]))
+-&gt; ListEntitiesForPolicyResponse -&gt; f ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_policyUsers"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicyResponse_policyUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicyResponse -&gt; Maybe [PolicyUser])
+-&gt; (ListEntitiesForPolicyResponse
+    -&gt; Maybe [PolicyUser] -&gt; ListEntitiesForPolicyResponse)
+-&gt; Lens
+     ListEntitiesForPolicyResponse
+     ListEntitiesForPolicyResponse
+     (Maybe [PolicyUser])
+     (Maybe [PolicyUser])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445464"><span class="annot"><span class="annottext">Maybe [PolicyUser]
+policyUsers :: Maybe [PolicyUser]
+$sel:policyUsers:ListEntitiesForPolicyResponse' :: ListEntitiesForPolicyResponse -&gt; Maybe [PolicyUser]
+</span><a href="#local-6989586621679445464"><span class="hs-identifier hs-var hs-var">policyUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyUser]
+</span><a href="#local-6989586621679445464"><span class="hs-identifier hs-var">policyUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445463"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445462"><span class="annot"><span class="annottext">Maybe [PolicyUser]
+</span><a href="#local-6989586621679445462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyUsers:ListEntitiesForPolicyResponse' :: Maybe [PolicyUser]
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3ApolicyUsers%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">policyUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyUser]
+</span><a href="#local-6989586621679445462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyUser] -&gt; f (Maybe [PolicyUser]))
+ -&gt; ListEntitiesForPolicyResponse
+ -&gt; f ListEntitiesForPolicyResponse)
+-&gt; ((Maybe [PolicyUser] -&gt; f (Maybe [PolicyUser]))
+    -&gt; Maybe [PolicyUser] -&gt; f (Maybe [PolicyUser]))
+-&gt; (Maybe [PolicyUser] -&gt; f (Maybe [PolicyUser]))
+-&gt; ListEntitiesForPolicyResponse
+-&gt; f ListEntitiesForPolicyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyUser] [PolicyUser] [PolicyUser] [PolicyUser]
+-&gt; Iso
+     (Maybe [PolicyUser])
+     (Maybe [PolicyUser])
+     (Maybe [PolicyUser])
+     (Maybe [PolicyUser])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyUser] [PolicyUser] [PolicyUser] [PolicyUser]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-429"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_isTruncated"><span class="hs-identifier hs-type">listEntitiesForPolicyResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span id="listEntitiesForPolicyResponse_isTruncated"><span class="annot"><span class="annottext">listEntitiesForPolicyResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListEntitiesForPolicyResponse -&gt; f ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicyResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicyResponse -&gt; Maybe Bool)
+-&gt; (ListEntitiesForPolicyResponse
+    -&gt; Maybe Bool -&gt; ListEntitiesForPolicyResponse)
+-&gt; Lens' ListEntitiesForPolicyResponse (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445461"><span class="annot"><span class="annottext">Maybe Bool
+isTruncated :: Maybe Bool
+$sel:isTruncated:ListEntitiesForPolicyResponse' :: ListEntitiesForPolicyResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679445461"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679445461"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445460"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445459"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679445459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListEntitiesForPolicyResponse' :: Maybe Bool
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AisTruncated%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679445459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-433"></span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_httpStatus"><span class="hs-identifier hs-type">listEntitiesForPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-434"></span><span id="listEntitiesForPolicyResponse_httpStatus"><span class="annot"><span class="annottext">listEntitiesForPolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListEntitiesForPolicyResponse -&gt; f ListEntitiesForPolicyResponse
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#listEntitiesForPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listEntitiesForPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntitiesForPolicyResponse -&gt; Int)
+-&gt; (ListEntitiesForPolicyResponse
+    -&gt; Int -&gt; ListEntitiesForPolicyResponse)
+-&gt; Lens
+     ListEntitiesForPolicyResponse ListEntitiesForPolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445458"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListEntitiesForPolicyResponse' :: ListEntitiesForPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679445458"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445458"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445457"><span class="annot"><span class="annottext">s :: ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntitiesForPolicyResponse
+</span><a href="#local-6989586621679445457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEntitiesForPolicyResponse' :: Int
+</span><a href="Amazonka.IAM.ListEntitiesForPolicy.html#%24sel%3AhttpStatus%3AListEntitiesForPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-435"></span><span>
+</span><span id="line-436"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListEntitiesForPolicy.html#ListEntitiesForPolicyResponse"><span class="hs-identifier hs-type">ListEntitiesForPolicyResponse</span></a></span></span><span>
+</span><span id="line-437"></span></pre></body></html>

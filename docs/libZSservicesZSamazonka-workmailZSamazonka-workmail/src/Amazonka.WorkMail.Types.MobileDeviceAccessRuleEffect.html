@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier">MobileDeviceAccessRuleEffect</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect_ALLOW"><span class="hs-identifier">MobileDeviceAccessRuleEffect_ALLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect_DENY"><span class="hs-identifier">MobileDeviceAccessRuleEffect_DENY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679280350"><span id="local-6989586621679280351"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MobileDeviceAccessRuleEffect"><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-var">MobileDeviceAccessRuleEffect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MobileDeviceAccessRuleEffect%27"><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect%27"><span class="hs-identifier hs-var">MobileDeviceAccessRuleEffect'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMobileDeviceAccessRuleEffect"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect -&gt; Text
+</span><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#fromMobileDeviceAccessRuleEffect"><span class="hs-identifier hs-var hs-var">fromMobileDeviceAccessRuleEffect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280342"><span id="local-6989586621679280344"><span id="local-6989586621679280346"><span class="annot"><span class="annottext">Int -&gt; MobileDeviceAccessRuleEffect -&gt; ShowS
+[MobileDeviceAccessRuleEffect] -&gt; ShowS
+MobileDeviceAccessRuleEffect -&gt; String
+(Int -&gt; MobileDeviceAccessRuleEffect -&gt; ShowS)
+-&gt; (MobileDeviceAccessRuleEffect -&gt; String)
+-&gt; ([MobileDeviceAccessRuleEffect] -&gt; ShowS)
+-&gt; Show MobileDeviceAccessRuleEffect
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MobileDeviceAccessRuleEffect] -&gt; ShowS
+$cshowList :: [MobileDeviceAccessRuleEffect] -&gt; ShowS
+show :: MobileDeviceAccessRuleEffect -&gt; String
+$cshow :: MobileDeviceAccessRuleEffect -&gt; String
+showsPrec :: Int -&gt; MobileDeviceAccessRuleEffect -&gt; ShowS
+$cshowsPrec :: Int -&gt; MobileDeviceAccessRuleEffect -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679280333"><span id="local-6989586621679280335"><span id="local-6989586621679280337"><span id="local-6989586621679280339"><span class="annot"><span class="annottext">ReadPrec [MobileDeviceAccessRuleEffect]
+ReadPrec MobileDeviceAccessRuleEffect
+Int -&gt; ReadS MobileDeviceAccessRuleEffect
+ReadS [MobileDeviceAccessRuleEffect]
+(Int -&gt; ReadS MobileDeviceAccessRuleEffect)
+-&gt; ReadS [MobileDeviceAccessRuleEffect]
+-&gt; ReadPrec MobileDeviceAccessRuleEffect
+-&gt; ReadPrec [MobileDeviceAccessRuleEffect]
+-&gt; Read MobileDeviceAccessRuleEffect
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MobileDeviceAccessRuleEffect]
+$creadListPrec :: ReadPrec [MobileDeviceAccessRuleEffect]
+readPrec :: ReadPrec MobileDeviceAccessRuleEffect
+$creadPrec :: ReadPrec MobileDeviceAccessRuleEffect
+readList :: ReadS [MobileDeviceAccessRuleEffect]
+$creadList :: ReadS [MobileDeviceAccessRuleEffect]
+readsPrec :: Int -&gt; ReadS MobileDeviceAccessRuleEffect
+$creadsPrec :: Int -&gt; ReadS MobileDeviceAccessRuleEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679280328"><span id="local-6989586621679280330"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+(MobileDeviceAccessRuleEffect
+ -&gt; MobileDeviceAccessRuleEffect -&gt; Bool)
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; Bool)
+-&gt; Eq MobileDeviceAccessRuleEffect
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+$c/= :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+== :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+$c== :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679280312"><span id="local-6989586621679280314"><span id="local-6989586621679280316"><span id="local-6989586621679280318"><span id="local-6989586621679280320"><span id="local-6989586621679280322"><span id="local-6989586621679280324"><span class="annot"><span class="annottext">Eq MobileDeviceAccessRuleEffect
+Eq MobileDeviceAccessRuleEffect
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; Ordering)
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; Bool)
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; Bool)
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; Bool)
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; Bool)
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; MobileDeviceAccessRuleEffect)
+-&gt; (MobileDeviceAccessRuleEffect
+    -&gt; MobileDeviceAccessRuleEffect -&gt; MobileDeviceAccessRuleEffect)
+-&gt; Ord MobileDeviceAccessRuleEffect
+MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Ordering
+MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; MobileDeviceAccessRuleEffect
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; MobileDeviceAccessRuleEffect
+$cmin :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; MobileDeviceAccessRuleEffect
+max :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; MobileDeviceAccessRuleEffect
+$cmax :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; MobileDeviceAccessRuleEffect
+&gt;= :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+$c&gt;= :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+&gt; :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+$c&gt; :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+&lt;= :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+$c&lt;= :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+&lt; :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+$c&lt; :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Bool
+compare :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Ordering
+$ccompare :: MobileDeviceAccessRuleEffect
+-&gt; MobileDeviceAccessRuleEffect -&gt; Ordering
+$cp1Ord :: Eq MobileDeviceAccessRuleEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MobileDeviceAccessRuleEffect -&gt; Rep MobileDeviceAccessRuleEffect x)
+-&gt; (forall x.
+    Rep MobileDeviceAccessRuleEffect x -&gt; MobileDeviceAccessRuleEffect)
+-&gt; Generic MobileDeviceAccessRuleEffect
+forall x.
+Rep MobileDeviceAccessRuleEffect x -&gt; MobileDeviceAccessRuleEffect
+forall x.
+MobileDeviceAccessRuleEffect -&gt; Rep MobileDeviceAccessRuleEffect x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MobileDeviceAccessRuleEffect x -&gt; MobileDeviceAccessRuleEffect
+$cfrom :: forall x.
+MobileDeviceAccessRuleEffect -&gt; Rep MobileDeviceAccessRuleEffect x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280304"><span id="local-6989586621679280306"><span class="annot"><span class="annottext">Int -&gt; MobileDeviceAccessRuleEffect -&gt; Int
+MobileDeviceAccessRuleEffect -&gt; Int
+(Int -&gt; MobileDeviceAccessRuleEffect -&gt; Int)
+-&gt; (MobileDeviceAccessRuleEffect -&gt; Int)
+-&gt; Hashable MobileDeviceAccessRuleEffect
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MobileDeviceAccessRuleEffect -&gt; Int
+$chash :: MobileDeviceAccessRuleEffect -&gt; Int
+hashWithSalt :: Int -&gt; MobileDeviceAccessRuleEffect -&gt; Int
+$chashWithSalt :: Int -&gt; MobileDeviceAccessRuleEffect -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679280301"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect -&gt; ()
+(MobileDeviceAccessRuleEffect -&gt; ())
+-&gt; NFData MobileDeviceAccessRuleEffect
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MobileDeviceAccessRuleEffect -&gt; ()
+$crnf :: MobileDeviceAccessRuleEffect -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679280298"><span class="annot"><span class="annottext">Text -&gt; Either String MobileDeviceAccessRuleEffect
+(Text -&gt; Either String MobileDeviceAccessRuleEffect)
+-&gt; FromText MobileDeviceAccessRuleEffect
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MobileDeviceAccessRuleEffect
+$cfromText :: Text -&gt; Either String MobileDeviceAccessRuleEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679280295"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect -&gt; Text
+(MobileDeviceAccessRuleEffect -&gt; Text)
+-&gt; ToText MobileDeviceAccessRuleEffect
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MobileDeviceAccessRuleEffect -&gt; Text
+$ctoText :: MobileDeviceAccessRuleEffect -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679280292"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect -&gt; ByteString
+(MobileDeviceAccessRuleEffect -&gt; ByteString)
+-&gt; ToByteString MobileDeviceAccessRuleEffect
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MobileDeviceAccessRuleEffect -&gt; ByteString
+$ctoBS :: MobileDeviceAccessRuleEffect -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679280289"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect -&gt; ByteStringBuilder
+(MobileDeviceAccessRuleEffect -&gt; ByteStringBuilder)
+-&gt; ToLog MobileDeviceAccessRuleEffect
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MobileDeviceAccessRuleEffect -&gt; ByteStringBuilder
+$cbuild :: MobileDeviceAccessRuleEffect -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679280286"><span class="annot"><span class="annottext">HeaderName -&gt; MobileDeviceAccessRuleEffect -&gt; [Header]
+(HeaderName -&gt; MobileDeviceAccessRuleEffect -&gt; [Header])
+-&gt; ToHeader MobileDeviceAccessRuleEffect
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MobileDeviceAccessRuleEffect -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MobileDeviceAccessRuleEffect -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679280283"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect -&gt; QueryString
+(MobileDeviceAccessRuleEffect -&gt; QueryString)
+-&gt; ToQuery MobileDeviceAccessRuleEffect
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MobileDeviceAccessRuleEffect -&gt; QueryString
+$ctoQuery :: MobileDeviceAccessRuleEffect -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679280278"><span id="local-6989586621679280280"><span class="annot"><span class="annottext">Value -&gt; Parser [MobileDeviceAccessRuleEffect]
+Value -&gt; Parser MobileDeviceAccessRuleEffect
+(Value -&gt; Parser MobileDeviceAccessRuleEffect)
+-&gt; (Value -&gt; Parser [MobileDeviceAccessRuleEffect])
+-&gt; FromJSON MobileDeviceAccessRuleEffect
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MobileDeviceAccessRuleEffect]
+$cparseJSONList :: Value -&gt; Parser [MobileDeviceAccessRuleEffect]
+parseJSON :: Value -&gt; Parser MobileDeviceAccessRuleEffect
+$cparseJSON :: Value -&gt; Parser MobileDeviceAccessRuleEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679280273"><span id="local-6989586621679280275"><span class="annot"><span class="annottext">FromJSONKeyFunction [MobileDeviceAccessRuleEffect]
+FromJSONKeyFunction MobileDeviceAccessRuleEffect
+FromJSONKeyFunction MobileDeviceAccessRuleEffect
+-&gt; FromJSONKeyFunction [MobileDeviceAccessRuleEffect]
+-&gt; FromJSONKey MobileDeviceAccessRuleEffect
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MobileDeviceAccessRuleEffect]
+$cfromJSONKeyList :: FromJSONKeyFunction [MobileDeviceAccessRuleEffect]
+fromJSONKey :: FromJSONKeyFunction MobileDeviceAccessRuleEffect
+$cfromJSONKey :: FromJSONKeyFunction MobileDeviceAccessRuleEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679280264"><span id="local-6989586621679280266"><span id="local-6989586621679280268"><span id="local-6989586621679280270"><span class="annot"><span class="annottext">[MobileDeviceAccessRuleEffect] -&gt; Encoding
+[MobileDeviceAccessRuleEffect] -&gt; Value
+MobileDeviceAccessRuleEffect -&gt; Encoding
+MobileDeviceAccessRuleEffect -&gt; Value
+(MobileDeviceAccessRuleEffect -&gt; Value)
+-&gt; (MobileDeviceAccessRuleEffect -&gt; Encoding)
+-&gt; ([MobileDeviceAccessRuleEffect] -&gt; Value)
+-&gt; ([MobileDeviceAccessRuleEffect] -&gt; Encoding)
+-&gt; ToJSON MobileDeviceAccessRuleEffect
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MobileDeviceAccessRuleEffect] -&gt; Encoding
+$ctoEncodingList :: [MobileDeviceAccessRuleEffect] -&gt; Encoding
+toJSONList :: [MobileDeviceAccessRuleEffect] -&gt; Value
+$ctoJSONList :: [MobileDeviceAccessRuleEffect] -&gt; Value
+toEncoding :: MobileDeviceAccessRuleEffect -&gt; Encoding
+$ctoEncoding :: MobileDeviceAccessRuleEffect -&gt; Encoding
+toJSON :: MobileDeviceAccessRuleEffect -&gt; Value
+$ctoJSON :: MobileDeviceAccessRuleEffect -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679280259"><span id="local-6989586621679280261"><span class="annot"><span class="annottext">ToJSONKeyFunction [MobileDeviceAccessRuleEffect]
+ToJSONKeyFunction MobileDeviceAccessRuleEffect
+ToJSONKeyFunction MobileDeviceAccessRuleEffect
+-&gt; ToJSONKeyFunction [MobileDeviceAccessRuleEffect]
+-&gt; ToJSONKey MobileDeviceAccessRuleEffect
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MobileDeviceAccessRuleEffect]
+$ctoJSONKeyList :: ToJSONKeyFunction [MobileDeviceAccessRuleEffect]
+toJSONKey :: ToJSONKeyFunction MobileDeviceAccessRuleEffect
+$ctoJSONKey :: ToJSONKeyFunction MobileDeviceAccessRuleEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679280256"><span class="annot"><span class="annottext">[Node] -&gt; Either String MobileDeviceAccessRuleEffect
+([Node] -&gt; Either String MobileDeviceAccessRuleEffect)
+-&gt; FromXML MobileDeviceAccessRuleEffect
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MobileDeviceAccessRuleEffect
+$cparseXML :: [Node] -&gt; Either String MobileDeviceAccessRuleEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679280253"><span class="annot"><span class="annottext">MobileDeviceAccessRuleEffect -&gt; XML
+(MobileDeviceAccessRuleEffect -&gt; XML)
+-&gt; ToXML MobileDeviceAccessRuleEffect
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MobileDeviceAccessRuleEffect -&gt; XML
+$ctoXML :: MobileDeviceAccessRuleEffect -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect_ALLOW"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect_ALLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMobileDeviceAccessRuleEffect_ALLOW"><span id="%24mMobileDeviceAccessRuleEffect_ALLOW"><span id="MobileDeviceAccessRuleEffect_ALLOW"><span class="annot"><span class="annottext">$bMobileDeviceAccessRuleEffect_ALLOW :: MobileDeviceAccessRuleEffect
+$mMobileDeviceAccessRuleEffect_ALLOW :: forall r.
+MobileDeviceAccessRuleEffect -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#%24bMobileDeviceAccessRuleEffect_ALLOW"><span class="hs-identifier hs-var hs-var hs-var">MobileDeviceAccessRuleEffect_ALLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect%27"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALLOW&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect_DENY"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect_DENY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMobileDeviceAccessRuleEffect_DENY"><span id="%24mMobileDeviceAccessRuleEffect_DENY"><span id="MobileDeviceAccessRuleEffect_DENY"><span class="annot"><span class="annottext">$bMobileDeviceAccessRuleEffect_DENY :: MobileDeviceAccessRuleEffect
+$mMobileDeviceAccessRuleEffect_DENY :: forall r.
+MobileDeviceAccessRuleEffect -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#%24bMobileDeviceAccessRuleEffect_DENY"><span class="hs-identifier hs-var hs-var hs-var">MobileDeviceAccessRuleEffect_DENY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect%27"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DENY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect_ALLOW"><span class="hs-pragma hs-type">MobileDeviceAccessRuleEffect_ALLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect_DENY"><span class="hs-pragma hs-type">MobileDeviceAccessRuleEffect_DENY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect%27"><span class="hs-pragma hs-type">MobileDeviceAccessRuleEffect'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

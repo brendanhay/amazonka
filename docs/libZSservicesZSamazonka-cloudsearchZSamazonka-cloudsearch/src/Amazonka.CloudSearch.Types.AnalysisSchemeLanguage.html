@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudSearch.Types.AnalysisSchemeLanguage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudSearch.Types.AnalysisSchemeLanguage</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ar"><span class="hs-identifier">AnalysisSchemeLanguage_Ar</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Bg"><span class="hs-identifier">AnalysisSchemeLanguage_Bg</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ca"><span class="hs-identifier">AnalysisSchemeLanguage_Ca</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Cs"><span class="hs-identifier">AnalysisSchemeLanguage_Cs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Da"><span class="hs-identifier">AnalysisSchemeLanguage_Da</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_De"><span class="hs-identifier">AnalysisSchemeLanguage_De</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_El"><span class="hs-identifier">AnalysisSchemeLanguage_El</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_En"><span class="hs-identifier">AnalysisSchemeLanguage_En</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Es"><span class="hs-identifier">AnalysisSchemeLanguage_Es</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Eu"><span class="hs-identifier">AnalysisSchemeLanguage_Eu</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fa"><span class="hs-identifier">AnalysisSchemeLanguage_Fa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fi"><span class="hs-identifier">AnalysisSchemeLanguage_Fi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fr"><span class="hs-identifier">AnalysisSchemeLanguage_Fr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ga"><span class="hs-identifier">AnalysisSchemeLanguage_Ga</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Gl"><span class="hs-identifier">AnalysisSchemeLanguage_Gl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_He"><span class="hs-identifier">AnalysisSchemeLanguage_He</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hi"><span class="hs-identifier">AnalysisSchemeLanguage_Hi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hu"><span class="hs-identifier">AnalysisSchemeLanguage_Hu</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hy"><span class="hs-identifier">AnalysisSchemeLanguage_Hy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Id"><span class="hs-identifier">AnalysisSchemeLanguage_Id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_It"><span class="hs-identifier">AnalysisSchemeLanguage_It</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ja"><span class="hs-identifier">AnalysisSchemeLanguage_Ja</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ko"><span class="hs-identifier">AnalysisSchemeLanguage_Ko</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Lv"><span class="hs-identifier">AnalysisSchemeLanguage_Lv</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Mul"><span class="hs-identifier">AnalysisSchemeLanguage_Mul</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Nl"><span class="hs-identifier">AnalysisSchemeLanguage_Nl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_No"><span class="hs-identifier">AnalysisSchemeLanguage_No</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Pt"><span class="hs-identifier">AnalysisSchemeLanguage_Pt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ro"><span class="hs-identifier">AnalysisSchemeLanguage_Ro</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ru"><span class="hs-identifier">AnalysisSchemeLanguage_Ru</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Sv"><span class="hs-identifier">AnalysisSchemeLanguage_Sv</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Th"><span class="hs-identifier">AnalysisSchemeLanguage_Th</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Tr"><span class="hs-identifier">AnalysisSchemeLanguage_Tr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Zh_Hans"><span class="hs-identifier">AnalysisSchemeLanguage_Zh_Hans</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Zh_Hant"><span class="hs-identifier">AnalysisSchemeLanguage_Zh_Hant</span></a></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | An &lt;http://tools.ietf.org/html/rfc4646 IETF RFC 4646&gt; language code or</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @mul@ for multiple languages.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679206353"><span id="local-6989586621679206354"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalysisSchemeLanguage"><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-var">AnalysisSchemeLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisSchemeLanguage%27"><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-var">AnalysisSchemeLanguage'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnalysisSchemeLanguage"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; Text
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#fromAnalysisSchemeLanguage"><span class="hs-identifier hs-var hs-var">fromAnalysisSchemeLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206345"><span id="local-6989586621679206347"><span id="local-6989586621679206349"><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeLanguage -&gt; ShowS
+[AnalysisSchemeLanguage] -&gt; ShowS
+AnalysisSchemeLanguage -&gt; String
+(Int -&gt; AnalysisSchemeLanguage -&gt; ShowS)
+-&gt; (AnalysisSchemeLanguage -&gt; String)
+-&gt; ([AnalysisSchemeLanguage] -&gt; ShowS)
+-&gt; Show AnalysisSchemeLanguage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalysisSchemeLanguage] -&gt; ShowS
+$cshowList :: [AnalysisSchemeLanguage] -&gt; ShowS
+show :: AnalysisSchemeLanguage -&gt; String
+$cshow :: AnalysisSchemeLanguage -&gt; String
+showsPrec :: Int -&gt; AnalysisSchemeLanguage -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalysisSchemeLanguage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679206336"><span id="local-6989586621679206338"><span id="local-6989586621679206340"><span id="local-6989586621679206342"><span class="annot"><span class="annottext">ReadPrec [AnalysisSchemeLanguage]
+ReadPrec AnalysisSchemeLanguage
+Int -&gt; ReadS AnalysisSchemeLanguage
+ReadS [AnalysisSchemeLanguage]
+(Int -&gt; ReadS AnalysisSchemeLanguage)
+-&gt; ReadS [AnalysisSchemeLanguage]
+-&gt; ReadPrec AnalysisSchemeLanguage
+-&gt; ReadPrec [AnalysisSchemeLanguage]
+-&gt; Read AnalysisSchemeLanguage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalysisSchemeLanguage]
+$creadListPrec :: ReadPrec [AnalysisSchemeLanguage]
+readPrec :: ReadPrec AnalysisSchemeLanguage
+$creadPrec :: ReadPrec AnalysisSchemeLanguage
+readList :: ReadS [AnalysisSchemeLanguage]
+$creadList :: ReadS [AnalysisSchemeLanguage]
+readsPrec :: Int -&gt; ReadS AnalysisSchemeLanguage
+$creadsPrec :: Int -&gt; ReadS AnalysisSchemeLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679206331"><span id="local-6989586621679206333"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+(AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
+-&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
+-&gt; Eq AnalysisSchemeLanguage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+$c/= :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+== :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+$c== :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679206315"><span id="local-6989586621679206317"><span id="local-6989586621679206319"><span id="local-6989586621679206321"><span id="local-6989586621679206323"><span id="local-6989586621679206325"><span id="local-6989586621679206327"><span class="annot"><span class="annottext">Eq AnalysisSchemeLanguage
+Eq AnalysisSchemeLanguage
+-&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Ordering)
+-&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
+-&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
+-&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
+-&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
+-&gt; (AnalysisSchemeLanguage
+    -&gt; AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage)
+-&gt; (AnalysisSchemeLanguage
+    -&gt; AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage)
+-&gt; Ord AnalysisSchemeLanguage
+AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Ordering
+AnalysisSchemeLanguage
+-&gt; AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AnalysisSchemeLanguage
+-&gt; AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage
+$cmin :: AnalysisSchemeLanguage
+-&gt; AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage
+max :: AnalysisSchemeLanguage
+-&gt; AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage
+$cmax :: AnalysisSchemeLanguage
+-&gt; AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage
+&gt;= :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+$c&gt;= :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+&gt; :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+$c&gt; :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+&lt;= :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+$c&lt;= :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+&lt; :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+$c&lt; :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+compare :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Ordering
+$ccompare :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Ordering
+$cp1Ord :: Eq AnalysisSchemeLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AnalysisSchemeLanguage -&gt; Rep AnalysisSchemeLanguage x)
+-&gt; (forall x.
+    Rep AnalysisSchemeLanguage x -&gt; AnalysisSchemeLanguage)
+-&gt; Generic AnalysisSchemeLanguage
+forall x. Rep AnalysisSchemeLanguage x -&gt; AnalysisSchemeLanguage
+forall x. AnalysisSchemeLanguage -&gt; Rep AnalysisSchemeLanguage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalysisSchemeLanguage x -&gt; AnalysisSchemeLanguage
+$cfrom :: forall x. AnalysisSchemeLanguage -&gt; Rep AnalysisSchemeLanguage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206307"><span id="local-6989586621679206309"><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeLanguage -&gt; Int
+AnalysisSchemeLanguage -&gt; Int
+(Int -&gt; AnalysisSchemeLanguage -&gt; Int)
+-&gt; (AnalysisSchemeLanguage -&gt; Int)
+-&gt; Hashable AnalysisSchemeLanguage
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AnalysisSchemeLanguage -&gt; Int
+$chash :: AnalysisSchemeLanguage -&gt; Int
+hashWithSalt :: Int -&gt; AnalysisSchemeLanguage -&gt; Int
+$chashWithSalt :: Int -&gt; AnalysisSchemeLanguage -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679206304"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ()
+(AnalysisSchemeLanguage -&gt; ()) -&gt; NFData AnalysisSchemeLanguage
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AnalysisSchemeLanguage -&gt; ()
+$crnf :: AnalysisSchemeLanguage -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679206301"><span class="annot"><span class="annottext">Text -&gt; Either String AnalysisSchemeLanguage
+(Text -&gt; Either String AnalysisSchemeLanguage)
+-&gt; FromText AnalysisSchemeLanguage
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AnalysisSchemeLanguage
+$cfromText :: Text -&gt; Either String AnalysisSchemeLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679206298"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; Text
+(AnalysisSchemeLanguage -&gt; Text) -&gt; ToText AnalysisSchemeLanguage
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AnalysisSchemeLanguage -&gt; Text
+$ctoText :: AnalysisSchemeLanguage -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679206295"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ByteString
+(AnalysisSchemeLanguage -&gt; ByteString)
+-&gt; ToByteString AnalysisSchemeLanguage
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AnalysisSchemeLanguage -&gt; ByteString
+$ctoBS :: AnalysisSchemeLanguage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679206292"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ByteStringBuilder
+(AnalysisSchemeLanguage -&gt; ByteStringBuilder)
+-&gt; ToLog AnalysisSchemeLanguage
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AnalysisSchemeLanguage -&gt; ByteStringBuilder
+$cbuild :: AnalysisSchemeLanguage -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679206289"><span class="annot"><span class="annottext">HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header]
+(HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header])
+-&gt; ToHeader AnalysisSchemeLanguage
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679206286"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; QueryString
+(AnalysisSchemeLanguage -&gt; QueryString)
+-&gt; ToQuery AnalysisSchemeLanguage
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AnalysisSchemeLanguage -&gt; QueryString
+$ctoQuery :: AnalysisSchemeLanguage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621679206281"><span id="local-6989586621679206283"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalysisSchemeLanguage]
+Value -&gt; Parser AnalysisSchemeLanguage
+(Value -&gt; Parser AnalysisSchemeLanguage)
+-&gt; (Value -&gt; Parser [AnalysisSchemeLanguage])
+-&gt; FromJSON AnalysisSchemeLanguage
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AnalysisSchemeLanguage]
+$cparseJSONList :: Value -&gt; Parser [AnalysisSchemeLanguage]
+parseJSON :: Value -&gt; Parser AnalysisSchemeLanguage
+$cparseJSON :: Value -&gt; Parser AnalysisSchemeLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span id="local-6989586621679206276"><span id="local-6989586621679206278"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalysisSchemeLanguage]
+FromJSONKeyFunction AnalysisSchemeLanguage
+FromJSONKeyFunction AnalysisSchemeLanguage
+-&gt; FromJSONKeyFunction [AnalysisSchemeLanguage]
+-&gt; FromJSONKey AnalysisSchemeLanguage
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AnalysisSchemeLanguage]
+$cfromJSONKeyList :: FromJSONKeyFunction [AnalysisSchemeLanguage]
+fromJSONKey :: FromJSONKeyFunction AnalysisSchemeLanguage
+$cfromJSONKey :: FromJSONKeyFunction AnalysisSchemeLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span id="local-6989586621679206267"><span id="local-6989586621679206269"><span id="local-6989586621679206271"><span id="local-6989586621679206273"><span class="annot"><span class="annottext">[AnalysisSchemeLanguage] -&gt; Encoding
+[AnalysisSchemeLanguage] -&gt; Value
+AnalysisSchemeLanguage -&gt; Encoding
+AnalysisSchemeLanguage -&gt; Value
+(AnalysisSchemeLanguage -&gt; Value)
+-&gt; (AnalysisSchemeLanguage -&gt; Encoding)
+-&gt; ([AnalysisSchemeLanguage] -&gt; Value)
+-&gt; ([AnalysisSchemeLanguage] -&gt; Encoding)
+-&gt; ToJSON AnalysisSchemeLanguage
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AnalysisSchemeLanguage] -&gt; Encoding
+$ctoEncodingList :: [AnalysisSchemeLanguage] -&gt; Encoding
+toJSONList :: [AnalysisSchemeLanguage] -&gt; Value
+$ctoJSONList :: [AnalysisSchemeLanguage] -&gt; Value
+toEncoding :: AnalysisSchemeLanguage -&gt; Encoding
+$ctoEncoding :: AnalysisSchemeLanguage -&gt; Encoding
+toJSON :: AnalysisSchemeLanguage -&gt; Value
+$ctoJSON :: AnalysisSchemeLanguage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span id="local-6989586621679206262"><span id="local-6989586621679206264"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalysisSchemeLanguage]
+ToJSONKeyFunction AnalysisSchemeLanguage
+ToJSONKeyFunction AnalysisSchemeLanguage
+-&gt; ToJSONKeyFunction [AnalysisSchemeLanguage]
+-&gt; ToJSONKey AnalysisSchemeLanguage
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AnalysisSchemeLanguage]
+$ctoJSONKeyList :: ToJSONKeyFunction [AnalysisSchemeLanguage]
+toJSONKey :: ToJSONKeyFunction AnalysisSchemeLanguage
+$ctoJSONKey :: ToJSONKeyFunction AnalysisSchemeLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span id="local-6989586621679206259"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalysisSchemeLanguage
+([Node] -&gt; Either String AnalysisSchemeLanguage)
+-&gt; FromXML AnalysisSchemeLanguage
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AnalysisSchemeLanguage
+$cparseXML :: [Node] -&gt; Either String AnalysisSchemeLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span id="local-6989586621679206256"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; XML
+(AnalysisSchemeLanguage -&gt; XML) -&gt; ToXML AnalysisSchemeLanguage
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AnalysisSchemeLanguage -&gt; XML
+$ctoXML :: AnalysisSchemeLanguage -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ar"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Ar</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Ar"><span id="%24mAnalysisSchemeLanguage_Ar"><span id="AnalysisSchemeLanguage_Ar"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Ar :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Ar :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Ar"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Ar</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ar&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Bg"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Bg</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Bg"><span id="%24mAnalysisSchemeLanguage_Bg"><span id="AnalysisSchemeLanguage_Bg"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Bg :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Bg :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Bg"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Bg</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;bg&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ca"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Ca</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Ca"><span id="%24mAnalysisSchemeLanguage_Ca"><span id="AnalysisSchemeLanguage_Ca"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Ca :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Ca :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Ca"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Ca</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ca&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Cs"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Cs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Cs"><span id="%24mAnalysisSchemeLanguage_Cs"><span id="AnalysisSchemeLanguage_Cs"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Cs :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Cs :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Cs"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Cs</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cs&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Da"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Da</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Da"><span id="%24mAnalysisSchemeLanguage_Da"><span id="AnalysisSchemeLanguage_Da"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Da :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Da :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Da"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Da</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;da&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_De"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_De</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_De"><span id="%24mAnalysisSchemeLanguage_De"><span id="AnalysisSchemeLanguage_De"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_De :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_De :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_De"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_De</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;de&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_El"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_El</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_El"><span id="%24mAnalysisSchemeLanguage_El"><span id="AnalysisSchemeLanguage_El"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_El :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_El :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_El"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_El</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;el&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_En"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_En</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_En"><span id="%24mAnalysisSchemeLanguage_En"><span id="AnalysisSchemeLanguage_En"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_En :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_En :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_En"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_En</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;en&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Es"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Es</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Es"><span id="%24mAnalysisSchemeLanguage_Es"><span id="AnalysisSchemeLanguage_Es"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Es :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Es :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Es"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Es</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;es&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Eu"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Eu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Eu"><span id="%24mAnalysisSchemeLanguage_Eu"><span id="AnalysisSchemeLanguage_Eu"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Eu :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Eu :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Eu"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Eu</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fa"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Fa</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Fa"><span id="%24mAnalysisSchemeLanguage_Fa"><span id="AnalysisSchemeLanguage_Fa"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Fa :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Fa :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Fa"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Fa</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;fa&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fi"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Fi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Fi"><span id="%24mAnalysisSchemeLanguage_Fi"><span id="AnalysisSchemeLanguage_Fi"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Fi :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Fi :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Fi"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Fi</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;fi&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fr"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Fr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Fr"><span id="%24mAnalysisSchemeLanguage_Fr"><span id="AnalysisSchemeLanguage_Fr"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Fr :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Fr :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Fr"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Fr</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;fr&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ga"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Ga</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Ga"><span id="%24mAnalysisSchemeLanguage_Ga"><span id="AnalysisSchemeLanguage_Ga"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Ga :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Ga :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Ga"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Ga</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ga&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Gl"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Gl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Gl"><span id="%24mAnalysisSchemeLanguage_Gl"><span id="AnalysisSchemeLanguage_Gl"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Gl :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Gl :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Gl"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Gl</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;gl&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_He"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_He</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_He"><span id="%24mAnalysisSchemeLanguage_He"><span id="AnalysisSchemeLanguage_He"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_He :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_He :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_He"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_He</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;he&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hi"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Hi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Hi"><span id="%24mAnalysisSchemeLanguage_Hi"><span id="AnalysisSchemeLanguage_Hi"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Hi :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Hi :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Hi"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Hi</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;hi&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hu"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Hu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Hu"><span id="%24mAnalysisSchemeLanguage_Hu"><span id="AnalysisSchemeLanguage_Hu"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Hu :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Hu :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Hu"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Hu</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;hu&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hy"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Hy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Hy"><span id="%24mAnalysisSchemeLanguage_Hy"><span id="AnalysisSchemeLanguage_Hy"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Hy :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Hy :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Hy"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Hy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;hy&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Id"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Id"><span id="%24mAnalysisSchemeLanguage_Id"><span id="AnalysisSchemeLanguage_Id"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Id :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Id :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Id"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Id</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;id&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_It"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_It</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_It"><span id="%24mAnalysisSchemeLanguage_It"><span id="AnalysisSchemeLanguage_It"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_It :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_It :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_It"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_It</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;it&quot;</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ja"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Ja</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Ja"><span id="%24mAnalysisSchemeLanguage_Ja"><span id="AnalysisSchemeLanguage_Ja"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Ja :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Ja :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Ja"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Ja</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ja&quot;</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ko"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Ko</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Ko"><span id="%24mAnalysisSchemeLanguage_Ko"><span id="AnalysisSchemeLanguage_Ko"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Ko :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Ko :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Ko"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Ko</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ko&quot;</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Lv"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Lv</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Lv"><span id="%24mAnalysisSchemeLanguage_Lv"><span id="AnalysisSchemeLanguage_Lv"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Lv :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Lv :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Lv"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Lv</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;lv&quot;</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Mul"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Mul</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Mul"><span id="%24mAnalysisSchemeLanguage_Mul"><span id="AnalysisSchemeLanguage_Mul"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Mul :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Mul :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Mul"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Mul</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;mul&quot;</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Nl"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Nl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Nl"><span id="%24mAnalysisSchemeLanguage_Nl"><span id="AnalysisSchemeLanguage_Nl"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Nl :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Nl :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Nl"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Nl</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;nl&quot;</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_No"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_No</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_No"><span id="%24mAnalysisSchemeLanguage_No"><span id="AnalysisSchemeLanguage_No"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_No :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_No :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_No"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_No</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;no&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Pt"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Pt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Pt"><span id="%24mAnalysisSchemeLanguage_Pt"><span id="AnalysisSchemeLanguage_Pt"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Pt :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Pt :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Pt"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Pt</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pt&quot;</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ro"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Ro</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Ro"><span id="%24mAnalysisSchemeLanguage_Ro"><span id="AnalysisSchemeLanguage_Ro"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Ro :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Ro :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Ro"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Ro</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ro&quot;</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ru"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Ru</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Ru"><span id="%24mAnalysisSchemeLanguage_Ru"><span id="AnalysisSchemeLanguage_Ru"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Ru :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Ru :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Ru"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Ru</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ru&quot;</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Sv"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Sv</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Sv"><span id="%24mAnalysisSchemeLanguage_Sv"><span id="AnalysisSchemeLanguage_Sv"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Sv :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Sv :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Sv"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Sv</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;sv&quot;</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Th"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Th</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Th"><span id="%24mAnalysisSchemeLanguage_Th"><span id="AnalysisSchemeLanguage_Th"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Th :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Th :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Th"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Th</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;th&quot;</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Tr"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Tr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Tr"><span id="%24mAnalysisSchemeLanguage_Tr"><span id="AnalysisSchemeLanguage_Tr"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Tr :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Tr :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Tr"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Tr</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;tr&quot;</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Zh_Hans"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Zh_Hans</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Zh_Hans"><span id="%24mAnalysisSchemeLanguage_Zh_Hans"><span id="AnalysisSchemeLanguage_Zh_Hans"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Zh_Hans :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Zh_Hans :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Zh_Hans"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Zh_Hans</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;zh-Hans&quot;</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Zh_Hant"><span class="hs-identifier hs-type">AnalysisSchemeLanguage_Zh_Hant</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-type">AnalysisSchemeLanguage</span></a></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisSchemeLanguage_Zh_Hant"><span id="%24mAnalysisSchemeLanguage_Zh_Hant"><span id="AnalysisSchemeLanguage_Zh_Hant"><span class="annot"><span class="annottext">$bAnalysisSchemeLanguage_Zh_Hant :: AnalysisSchemeLanguage
+$mAnalysisSchemeLanguage_Zh_Hant :: forall r.
+AnalysisSchemeLanguage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#%24bAnalysisSchemeLanguage_Zh_Hant"><span class="hs-identifier hs-var hs-var hs-var">AnalysisSchemeLanguage_Zh_Hant</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-type">AnalysisSchemeLanguage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;zh-Hant&quot;</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ar"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Ar</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Bg"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Bg</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ca"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Ca</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Cs"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Cs</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Da"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Da</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_De"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_De</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_El"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_El</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_En"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_En</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Es"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Es</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Eu"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Eu</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fa"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Fa</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fi"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Fi</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Fr"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Fr</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ga"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Ga</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Gl"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Gl</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_He"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_He</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hi"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Hi</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hu"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Hu</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Hy"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Hy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Id"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Id</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_It"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_It</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ja"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Ja</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ko"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Ko</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Lv"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Lv</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Mul"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Mul</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Nl"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Nl</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_No"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_No</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Pt"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Pt</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ro"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Ro</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Ru"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Ru</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Sv"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Sv</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Th"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Th</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Tr"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Tr</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Zh_Hans"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Zh_Hans</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage_Zh_Hant"><span class="hs-pragma hs-type">AnalysisSchemeLanguage_Zh_Hant</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-pragma hs-type">AnalysisSchemeLanguage'</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-238"></span></pre></body></html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.HealthLake.Types.CmkType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HealthLake.Types.CmkType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType"><span class="hs-identifier">CmkType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType_AWS_OWNED_KMS_KEY"><span class="hs-identifier">CmkType_AWS_OWNED_KMS_KEY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType_CUSTOMER_MANAGED_KMS_KEY"><span class="hs-identifier">CmkType_CUSTOMER_MANAGED_KMS_KEY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679172667"><span id="local-6989586621679172668"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmkType"><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType"><span class="hs-identifier hs-var">CmkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmkType%27"><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType%27"><span class="hs-identifier hs-var">CmkType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromCmkType"><span class="annot"><span class="annottext">CmkType -&gt; Text
+</span><a href="Amazonka.HealthLake.Types.CmkType.html#fromCmkType"><span class="hs-identifier hs-var hs-var">fromCmkType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679172659"><span id="local-6989586621679172661"><span id="local-6989586621679172663"><span class="annot"><span class="annottext">Int -&gt; CmkType -&gt; ShowS
+[CmkType] -&gt; ShowS
+CmkType -&gt; String
+(Int -&gt; CmkType -&gt; ShowS)
+-&gt; (CmkType -&gt; String) -&gt; ([CmkType] -&gt; ShowS) -&gt; Show CmkType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmkType] -&gt; ShowS
+$cshowList :: [CmkType] -&gt; ShowS
+show :: CmkType -&gt; String
+$cshow :: CmkType -&gt; String
+showsPrec :: Int -&gt; CmkType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmkType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679172650"><span id="local-6989586621679172652"><span id="local-6989586621679172654"><span id="local-6989586621679172656"><span class="annot"><span class="annottext">ReadPrec [CmkType]
+ReadPrec CmkType
+Int -&gt; ReadS CmkType
+ReadS [CmkType]
+(Int -&gt; ReadS CmkType)
+-&gt; ReadS [CmkType]
+-&gt; ReadPrec CmkType
+-&gt; ReadPrec [CmkType]
+-&gt; Read CmkType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmkType]
+$creadListPrec :: ReadPrec [CmkType]
+readPrec :: ReadPrec CmkType
+$creadPrec :: ReadPrec CmkType
+readList :: ReadS [CmkType]
+$creadList :: ReadS [CmkType]
+readsPrec :: Int -&gt; ReadS CmkType
+$creadsPrec :: Int -&gt; ReadS CmkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679172645"><span id="local-6989586621679172647"><span class="annot"><span class="annottext">CmkType -&gt; CmkType -&gt; Bool
+(CmkType -&gt; CmkType -&gt; Bool)
+-&gt; (CmkType -&gt; CmkType -&gt; Bool) -&gt; Eq CmkType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmkType -&gt; CmkType -&gt; Bool
+$c/= :: CmkType -&gt; CmkType -&gt; Bool
+== :: CmkType -&gt; CmkType -&gt; Bool
+$c== :: CmkType -&gt; CmkType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679172629"><span id="local-6989586621679172631"><span id="local-6989586621679172633"><span id="local-6989586621679172635"><span id="local-6989586621679172637"><span id="local-6989586621679172639"><span id="local-6989586621679172641"><span class="annot"><span class="annottext">Eq CmkType
+Eq CmkType
+-&gt; (CmkType -&gt; CmkType -&gt; Ordering)
+-&gt; (CmkType -&gt; CmkType -&gt; Bool)
+-&gt; (CmkType -&gt; CmkType -&gt; Bool)
+-&gt; (CmkType -&gt; CmkType -&gt; Bool)
+-&gt; (CmkType -&gt; CmkType -&gt; Bool)
+-&gt; (CmkType -&gt; CmkType -&gt; CmkType)
+-&gt; (CmkType -&gt; CmkType -&gt; CmkType)
+-&gt; Ord CmkType
+CmkType -&gt; CmkType -&gt; Bool
+CmkType -&gt; CmkType -&gt; Ordering
+CmkType -&gt; CmkType -&gt; CmkType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CmkType -&gt; CmkType -&gt; CmkType
+$cmin :: CmkType -&gt; CmkType -&gt; CmkType
+max :: CmkType -&gt; CmkType -&gt; CmkType
+$cmax :: CmkType -&gt; CmkType -&gt; CmkType
+&gt;= :: CmkType -&gt; CmkType -&gt; Bool
+$c&gt;= :: CmkType -&gt; CmkType -&gt; Bool
+&gt; :: CmkType -&gt; CmkType -&gt; Bool
+$c&gt; :: CmkType -&gt; CmkType -&gt; Bool
+&lt;= :: CmkType -&gt; CmkType -&gt; Bool
+$c&lt;= :: CmkType -&gt; CmkType -&gt; Bool
+&lt; :: CmkType -&gt; CmkType -&gt; Bool
+$c&lt; :: CmkType -&gt; CmkType -&gt; Bool
+compare :: CmkType -&gt; CmkType -&gt; Ordering
+$ccompare :: CmkType -&gt; CmkType -&gt; Ordering
+$cp1Ord :: Eq CmkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CmkType -&gt; Rep CmkType x)
+-&gt; (forall x. Rep CmkType x -&gt; CmkType) -&gt; Generic CmkType
+forall x. Rep CmkType x -&gt; CmkType
+forall x. CmkType -&gt; Rep CmkType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CmkType x -&gt; CmkType
+$cfrom :: forall x. CmkType -&gt; Rep CmkType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679172621"><span id="local-6989586621679172623"><span class="annot"><span class="annottext">Int -&gt; CmkType -&gt; Int
+CmkType -&gt; Int
+(Int -&gt; CmkType -&gt; Int) -&gt; (CmkType -&gt; Int) -&gt; Hashable CmkType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CmkType -&gt; Int
+$chash :: CmkType -&gt; Int
+hashWithSalt :: Int -&gt; CmkType -&gt; Int
+$chashWithSalt :: Int -&gt; CmkType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679172618"><span class="annot"><span class="annottext">CmkType -&gt; ()
+(CmkType -&gt; ()) -&gt; NFData CmkType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CmkType -&gt; ()
+$crnf :: CmkType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679172615"><span class="annot"><span class="annottext">Text -&gt; Either String CmkType
+(Text -&gt; Either String CmkType) -&gt; FromText CmkType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CmkType
+$cfromText :: Text -&gt; Either String CmkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679172612"><span class="annot"><span class="annottext">CmkType -&gt; Text
+(CmkType -&gt; Text) -&gt; ToText CmkType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CmkType -&gt; Text
+$ctoText :: CmkType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679172609"><span class="annot"><span class="annottext">CmkType -&gt; ByteString
+(CmkType -&gt; ByteString) -&gt; ToByteString CmkType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CmkType -&gt; ByteString
+$ctoBS :: CmkType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679172606"><span class="annot"><span class="annottext">CmkType -&gt; ByteStringBuilder
+(CmkType -&gt; ByteStringBuilder) -&gt; ToLog CmkType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CmkType -&gt; ByteStringBuilder
+$cbuild :: CmkType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679172603"><span class="annot"><span class="annottext">HeaderName -&gt; CmkType -&gt; [Header]
+(HeaderName -&gt; CmkType -&gt; [Header]) -&gt; ToHeader CmkType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CmkType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CmkType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679172600"><span class="annot"><span class="annottext">CmkType -&gt; QueryString
+(CmkType -&gt; QueryString) -&gt; ToQuery CmkType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CmkType -&gt; QueryString
+$ctoQuery :: CmkType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679172595"><span id="local-6989586621679172597"><span class="annot"><span class="annottext">Value -&gt; Parser [CmkType]
+Value -&gt; Parser CmkType
+(Value -&gt; Parser CmkType)
+-&gt; (Value -&gt; Parser [CmkType]) -&gt; FromJSON CmkType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CmkType]
+$cparseJSONList :: Value -&gt; Parser [CmkType]
+parseJSON :: Value -&gt; Parser CmkType
+$cparseJSON :: Value -&gt; Parser CmkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679172590"><span id="local-6989586621679172592"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmkType]
+FromJSONKeyFunction CmkType
+FromJSONKeyFunction CmkType
+-&gt; FromJSONKeyFunction [CmkType] -&gt; FromJSONKey CmkType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CmkType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CmkType]
+fromJSONKey :: FromJSONKeyFunction CmkType
+$cfromJSONKey :: FromJSONKeyFunction CmkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679172581"><span id="local-6989586621679172583"><span id="local-6989586621679172585"><span id="local-6989586621679172587"><span class="annot"><span class="annottext">[CmkType] -&gt; Encoding
+[CmkType] -&gt; Value
+CmkType -&gt; Encoding
+CmkType -&gt; Value
+(CmkType -&gt; Value)
+-&gt; (CmkType -&gt; Encoding)
+-&gt; ([CmkType] -&gt; Value)
+-&gt; ([CmkType] -&gt; Encoding)
+-&gt; ToJSON CmkType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CmkType] -&gt; Encoding
+$ctoEncodingList :: [CmkType] -&gt; Encoding
+toJSONList :: [CmkType] -&gt; Value
+$ctoJSONList :: [CmkType] -&gt; Value
+toEncoding :: CmkType -&gt; Encoding
+$ctoEncoding :: CmkType -&gt; Encoding
+toJSON :: CmkType -&gt; Value
+$ctoJSON :: CmkType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679172576"><span id="local-6989586621679172578"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmkType]
+ToJSONKeyFunction CmkType
+ToJSONKeyFunction CmkType
+-&gt; ToJSONKeyFunction [CmkType] -&gt; ToJSONKey CmkType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CmkType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CmkType]
+toJSONKey :: ToJSONKeyFunction CmkType
+$ctoJSONKey :: ToJSONKeyFunction CmkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679172573"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmkType
+([Node] -&gt; Either String CmkType) -&gt; FromXML CmkType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CmkType
+$cparseXML :: [Node] -&gt; Either String CmkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679172570"><span class="annot"><span class="annottext">CmkType -&gt; XML
+(CmkType -&gt; XML) -&gt; ToXML CmkType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CmkType -&gt; XML
+$ctoXML :: CmkType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType_AWS_OWNED_KMS_KEY"><span class="hs-identifier hs-type">CmkType_AWS_OWNED_KMS_KEY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType"><span class="hs-identifier hs-type">CmkType</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmkType_AWS_OWNED_KMS_KEY"><span id="%24mCmkType_AWS_OWNED_KMS_KEY"><span id="CmkType_AWS_OWNED_KMS_KEY"><span class="annot"><span class="annottext">$bCmkType_AWS_OWNED_KMS_KEY :: CmkType
+$mCmkType_AWS_OWNED_KMS_KEY :: forall r. CmkType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.HealthLake.Types.CmkType.html#%24bCmkType_AWS_OWNED_KMS_KEY"><span class="hs-identifier hs-var hs-var hs-var">CmkType_AWS_OWNED_KMS_KEY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType%27"><span class="hs-identifier hs-type">CmkType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_OWNED_KMS_KEY&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType_CUSTOMER_MANAGED_KMS_KEY"><span class="hs-identifier hs-type">CmkType_CUSTOMER_MANAGED_KMS_KEY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType"><span class="hs-identifier hs-type">CmkType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmkType_CUSTOMER_MANAGED_KMS_KEY"><span id="%24mCmkType_CUSTOMER_MANAGED_KMS_KEY"><span id="CmkType_CUSTOMER_MANAGED_KMS_KEY"><span class="annot"><span class="annottext">$bCmkType_CUSTOMER_MANAGED_KMS_KEY :: CmkType
+$mCmkType_CUSTOMER_MANAGED_KMS_KEY :: forall r. CmkType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.HealthLake.Types.CmkType.html#%24bCmkType_CUSTOMER_MANAGED_KMS_KEY"><span class="hs-identifier hs-var hs-var hs-var">CmkType_CUSTOMER_MANAGED_KMS_KEY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType%27"><span class="hs-identifier hs-type">CmkType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOMER_MANAGED_KMS_KEY&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType_AWS_OWNED_KMS_KEY"><span class="hs-pragma hs-type">CmkType_AWS_OWNED_KMS_KEY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType_CUSTOMER_MANAGED_KMS_KEY"><span class="hs-pragma hs-type">CmkType_CUSTOMER_MANAGED_KMS_KEY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.CmkType.html#CmkType%27"><span class="hs-pragma hs-type">CmkType'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Textract.Types.DocumentMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Textract.Types.DocumentMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about the input document.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDocumentMetadata' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679174720"><span id="local-6989586621679174721"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentMetadata"><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-var">DocumentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentMetadata%27"><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-var">DocumentMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of pages that are detected in the document.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Apages%3ADocumentMetadata%27"><span class="annot"><span class="annottext">DocumentMetadata -&gt; Maybe Natural
+</span><a href="Amazonka.Textract.Types.DocumentMetadata.html#%24sel%3Apages%3ADocumentMetadata%27"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174714"><span id="local-6989586621679174716"><span class="annot"><span class="annottext">DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
+(DocumentMetadata -&gt; DocumentMetadata -&gt; Bool)
+-&gt; (DocumentMetadata -&gt; DocumentMetadata -&gt; Bool)
+-&gt; Eq DocumentMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
+$c/= :: DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
+== :: DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
+$c== :: DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174705"><span id="local-6989586621679174707"><span id="local-6989586621679174709"><span id="local-6989586621679174711"><span class="annot"><span class="annottext">ReadPrec [DocumentMetadata]
+ReadPrec DocumentMetadata
+Int -&gt; ReadS DocumentMetadata
+ReadS [DocumentMetadata]
+(Int -&gt; ReadS DocumentMetadata)
+-&gt; ReadS [DocumentMetadata]
+-&gt; ReadPrec DocumentMetadata
+-&gt; ReadPrec [DocumentMetadata]
+-&gt; Read DocumentMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DocumentMetadata]
+$creadListPrec :: ReadPrec [DocumentMetadata]
+readPrec :: ReadPrec DocumentMetadata
+$creadPrec :: ReadPrec DocumentMetadata
+readList :: ReadS [DocumentMetadata]
+$creadList :: ReadS [DocumentMetadata]
+readsPrec :: Int -&gt; ReadS DocumentMetadata
+$creadsPrec :: Int -&gt; ReadS DocumentMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174698"><span id="local-6989586621679174700"><span id="local-6989586621679174702"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadata -&gt; ShowS
+[DocumentMetadata] -&gt; ShowS
+DocumentMetadata -&gt; String
+(Int -&gt; DocumentMetadata -&gt; ShowS)
+-&gt; (DocumentMetadata -&gt; String)
+-&gt; ([DocumentMetadata] -&gt; ShowS)
+-&gt; Show DocumentMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentMetadata] -&gt; ShowS
+$cshowList :: [DocumentMetadata] -&gt; ShowS
+show :: DocumentMetadata -&gt; String
+$cshow :: DocumentMetadata -&gt; String
+showsPrec :: Int -&gt; DocumentMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DocumentMetadata -&gt; Rep DocumentMetadata x)
+-&gt; (forall x. Rep DocumentMetadata x -&gt; DocumentMetadata)
+-&gt; Generic DocumentMetadata
+forall x. Rep DocumentMetadata x -&gt; DocumentMetadata
+forall x. DocumentMetadata -&gt; Rep DocumentMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DocumentMetadata x -&gt; DocumentMetadata
+$cfrom :: forall x. DocumentMetadata -&gt; Rep DocumentMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Create a value of 'DocumentMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 'pages', 'documentMetadata_pages' - The number of pages that are detected in the document.</span><span>
+</span><span id="line-44"></span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#newDocumentMetadata"><span class="hs-identifier hs-type">newDocumentMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>  </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span><span>
+</span><span id="line-46"></span><span id="newDocumentMetadata"><span class="annot"><span class="annottext">newDocumentMetadata :: DocumentMetadata
+</span><a href="Amazonka.Textract.Types.DocumentMetadata.html#newDocumentMetadata"><span class="hs-identifier hs-var hs-var">newDocumentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><span class="annottext">DocumentMetadata' :: Maybe Natural -&gt; DocumentMetadata
+</span><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-type">DocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pages:DocumentMetadata' :: Maybe Natural
+</span><a href="Amazonka.Textract.Types.DocumentMetadata.html#%24sel%3Apages%3ADocumentMetadata%27"><span class="hs-identifier hs-var">pages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | The number of pages that are detected in the document.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#documentMetadata_pages"><span class="hs-identifier hs-type">documentMetadata_pages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span id="documentMetadata_pages"><span class="annot"><span class="annottext">documentMetadata_pages :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DocumentMetadata -&gt; f DocumentMetadata
+</span><a href="Amazonka.Textract.Types.DocumentMetadata.html#documentMetadata_pages"><span class="hs-identifier hs-var hs-var">documentMetadata_pages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentMetadata -&gt; Maybe Natural)
+-&gt; (DocumentMetadata -&gt; Maybe Natural -&gt; DocumentMetadata)
+-&gt; Lens
+     DocumentMetadata DocumentMetadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-type">DocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174689"><span class="annot"><span class="annottext">Maybe Natural
+pages :: Maybe Natural
+$sel:pages:DocumentMetadata' :: DocumentMetadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679174689"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174689"><span class="hs-identifier hs-var">pages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174688"><span class="annot"><span class="annottext">s :: DocumentMetadata
+</span><a href="#local-6989586621679174688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-type">DocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174687"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentMetadata
+</span><a href="#local-6989586621679174688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pages:DocumentMetadata' :: Maybe Natural
+</span><a href="Amazonka.Textract.Types.DocumentMetadata.html#%24sel%3Apages%3ADocumentMetadata%27"><span class="hs-identifier hs-var">pages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174684"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679174682"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DocumentMetadata)
+-&gt; Value
+-&gt; Parser DocumentMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DocumentMetadata&quot;</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174679"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; DocumentMetadata
+</span><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-var">DocumentMetadata'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; DocumentMetadata)
+-&gt; Parser (Maybe Natural) -&gt; Parser DocumentMetadata
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pages&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174673"><span id="local-6989586621679174675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span><span>
+</span><span id="line-64"></span></pre></body></html>

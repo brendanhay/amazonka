@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LexRuntime.Types.IntentConfidence</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LexRuntime.Types.IntentConfidence</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides a score that indicates the confidence that Amazon Lex has that</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- an intent is the one that satisfies the user\'s intent.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIntentConfidence' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679173285"><span id="local-6989586621679173286"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntentConfidence"><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-var">IntentConfidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntentConfidence%27"><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence%27"><span class="hs-identifier hs-var">IntentConfidence'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A score that indicates how confident Amazon Lex is that an intent</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- satisfies the user\'s intent. Ranges between 0.00 and 1.00. Higher</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- scores indicate higher confidence.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ascore%3AIntentConfidence%27"><span class="annot"><span class="annottext">IntentConfidence -&gt; Maybe Double
+</span><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#%24sel%3Ascore%3AIntentConfidence%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173279"><span id="local-6989586621679173281"><span class="annot"><span class="annottext">IntentConfidence -&gt; IntentConfidence -&gt; Bool
+(IntentConfidence -&gt; IntentConfidence -&gt; Bool)
+-&gt; (IntentConfidence -&gt; IntentConfidence -&gt; Bool)
+-&gt; Eq IntentConfidence
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IntentConfidence -&gt; IntentConfidence -&gt; Bool
+$c/= :: IntentConfidence -&gt; IntentConfidence -&gt; Bool
+== :: IntentConfidence -&gt; IntentConfidence -&gt; Bool
+$c== :: IntentConfidence -&gt; IntentConfidence -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173270"><span id="local-6989586621679173272"><span id="local-6989586621679173274"><span id="local-6989586621679173276"><span class="annot"><span class="annottext">ReadPrec [IntentConfidence]
+ReadPrec IntentConfidence
+Int -&gt; ReadS IntentConfidence
+ReadS [IntentConfidence]
+(Int -&gt; ReadS IntentConfidence)
+-&gt; ReadS [IntentConfidence]
+-&gt; ReadPrec IntentConfidence
+-&gt; ReadPrec [IntentConfidence]
+-&gt; Read IntentConfidence
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IntentConfidence]
+$creadListPrec :: ReadPrec [IntentConfidence]
+readPrec :: ReadPrec IntentConfidence
+$creadPrec :: ReadPrec IntentConfidence
+readList :: ReadS [IntentConfidence]
+$creadList :: ReadS [IntentConfidence]
+readsPrec :: Int -&gt; ReadS IntentConfidence
+$creadsPrec :: Int -&gt; ReadS IntentConfidence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173263"><span id="local-6989586621679173265"><span id="local-6989586621679173267"><span class="annot"><span class="annottext">Int -&gt; IntentConfidence -&gt; ShowS
+[IntentConfidence] -&gt; ShowS
+IntentConfidence -&gt; String
+(Int -&gt; IntentConfidence -&gt; ShowS)
+-&gt; (IntentConfidence -&gt; String)
+-&gt; ([IntentConfidence] -&gt; ShowS)
+-&gt; Show IntentConfidence
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IntentConfidence] -&gt; ShowS
+$cshowList :: [IntentConfidence] -&gt; ShowS
+show :: IntentConfidence -&gt; String
+$cshow :: IntentConfidence -&gt; String
+showsPrec :: Int -&gt; IntentConfidence -&gt; ShowS
+$cshowsPrec :: Int -&gt; IntentConfidence -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. IntentConfidence -&gt; Rep IntentConfidence x)
+-&gt; (forall x. Rep IntentConfidence x -&gt; IntentConfidence)
+-&gt; Generic IntentConfidence
+forall x. Rep IntentConfidence x -&gt; IntentConfidence
+forall x. IntentConfidence -&gt; Rep IntentConfidence x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IntentConfidence x -&gt; IntentConfidence
+$cfrom :: forall x. IntentConfidence -&gt; Rep IntentConfidence x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'IntentConfidence' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'score', 'intentConfidence_score' - A score that indicates how confident Amazon Lex is that an intent</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- satisfies the user\'s intent. Ranges between 0.00 and 1.00. Higher</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- scores indicate higher confidence.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#newIntentConfidence"><span class="hs-identifier hs-type">newIntentConfidence</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span><span>
+</span><span id="line-51"></span><span id="newIntentConfidence"><span class="annot"><span class="annottext">newIntentConfidence :: IntentConfidence
+</span><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#newIntentConfidence"><span class="hs-identifier hs-var hs-var">newIntentConfidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">IntentConfidence' :: Maybe Double -&gt; IntentConfidence
+</span><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence%27"><span class="hs-identifier hs-type">IntentConfidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:IntentConfidence' :: Maybe Double
+</span><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#%24sel%3Ascore%3AIntentConfidence%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | A score that indicates how confident Amazon Lex is that an intent</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- satisfies the user\'s intent. Ranges between 0.00 and 1.00. Higher</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- scores indicate higher confidence.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#intentConfidence_score"><span class="hs-identifier hs-type">intentConfidence_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="intentConfidence_score"><span class="annot"><span class="annottext">intentConfidence_score :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; IntentConfidence -&gt; f IntentConfidence
+</span><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#intentConfidence_score"><span class="hs-identifier hs-var hs-var">intentConfidence_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentConfidence -&gt; Maybe Double)
+-&gt; (IntentConfidence -&gt; Maybe Double -&gt; IntentConfidence)
+-&gt; Lens
+     IntentConfidence IntentConfidence (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence%27"><span class="hs-identifier hs-type">IntentConfidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173254"><span class="annot"><span class="annottext">Maybe Double
+score :: Maybe Double
+$sel:score:IntentConfidence' :: IntentConfidence -&gt; Maybe Double
+</span><a href="#local-6989586621679173254"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679173254"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173253"><span class="annot"><span class="annottext">s :: IntentConfidence
+</span><a href="#local-6989586621679173253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence%27"><span class="hs-identifier hs-type">IntentConfidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173252"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679173252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentConfidence
+</span><a href="#local-6989586621679173253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:IntentConfidence' :: Maybe Double
+</span><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#%24sel%3Ascore%3AIntentConfidence%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679173252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173249"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679173247"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IntentConfidence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser IntentConfidence)
+-&gt; Value
+-&gt; Parser IntentConfidence
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;IntentConfidence&quot;</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173244"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173244"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; IntentConfidence
+</span><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence%27"><span class="hs-identifier hs-var">IntentConfidence'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Double -&gt; IntentConfidence)
+-&gt; Parser (Maybe Double) -&gt; Parser IntentConfidence
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;score&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173238"><span id="local-6989586621679173240"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173235"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span></span><span>
+</span><span id="line-71"></span></pre></body></html>

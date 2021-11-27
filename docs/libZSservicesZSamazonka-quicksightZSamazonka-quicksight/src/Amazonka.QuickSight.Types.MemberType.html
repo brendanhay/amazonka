@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.MemberType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.MemberType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier">MemberType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_ANALYSIS"><span class="hs-identifier">MemberType_ANALYSIS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_DASHBOARD"><span class="hs-identifier">MemberType_DASHBOARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_DATASET"><span class="hs-identifier">MemberType_DATASET</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679560422"><span id="local-6989586621679560423"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MemberType"><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier hs-var">MemberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemberType%27"><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType%27"><span class="hs-identifier hs-var">MemberType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMemberType"><span class="annot"><span class="annottext">MemberType -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.MemberType.html#fromMemberType"><span class="hs-identifier hs-var hs-var">fromMemberType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679560414"><span id="local-6989586621679560416"><span id="local-6989586621679560418"><span class="annot"><span class="annottext">Int -&gt; MemberType -&gt; ShowS
+[MemberType] -&gt; ShowS
+MemberType -&gt; String
+(Int -&gt; MemberType -&gt; ShowS)
+-&gt; (MemberType -&gt; String)
+-&gt; ([MemberType] -&gt; ShowS)
+-&gt; Show MemberType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MemberType] -&gt; ShowS
+$cshowList :: [MemberType] -&gt; ShowS
+show :: MemberType -&gt; String
+$cshow :: MemberType -&gt; String
+showsPrec :: Int -&gt; MemberType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MemberType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679560405"><span id="local-6989586621679560407"><span id="local-6989586621679560409"><span id="local-6989586621679560411"><span class="annot"><span class="annottext">ReadPrec [MemberType]
+ReadPrec MemberType
+Int -&gt; ReadS MemberType
+ReadS [MemberType]
+(Int -&gt; ReadS MemberType)
+-&gt; ReadS [MemberType]
+-&gt; ReadPrec MemberType
+-&gt; ReadPrec [MemberType]
+-&gt; Read MemberType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MemberType]
+$creadListPrec :: ReadPrec [MemberType]
+readPrec :: ReadPrec MemberType
+$creadPrec :: ReadPrec MemberType
+readList :: ReadS [MemberType]
+$creadList :: ReadS [MemberType]
+readsPrec :: Int -&gt; ReadS MemberType
+$creadsPrec :: Int -&gt; ReadS MemberType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679560400"><span id="local-6989586621679560402"><span class="annot"><span class="annottext">MemberType -&gt; MemberType -&gt; Bool
+(MemberType -&gt; MemberType -&gt; Bool)
+-&gt; (MemberType -&gt; MemberType -&gt; Bool) -&gt; Eq MemberType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MemberType -&gt; MemberType -&gt; Bool
+$c/= :: MemberType -&gt; MemberType -&gt; Bool
+== :: MemberType -&gt; MemberType -&gt; Bool
+$c== :: MemberType -&gt; MemberType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679560384"><span id="local-6989586621679560386"><span id="local-6989586621679560388"><span id="local-6989586621679560390"><span id="local-6989586621679560392"><span id="local-6989586621679560394"><span id="local-6989586621679560396"><span class="annot"><span class="annottext">Eq MemberType
+Eq MemberType
+-&gt; (MemberType -&gt; MemberType -&gt; Ordering)
+-&gt; (MemberType -&gt; MemberType -&gt; Bool)
+-&gt; (MemberType -&gt; MemberType -&gt; Bool)
+-&gt; (MemberType -&gt; MemberType -&gt; Bool)
+-&gt; (MemberType -&gt; MemberType -&gt; Bool)
+-&gt; (MemberType -&gt; MemberType -&gt; MemberType)
+-&gt; (MemberType -&gt; MemberType -&gt; MemberType)
+-&gt; Ord MemberType
+MemberType -&gt; MemberType -&gt; Bool
+MemberType -&gt; MemberType -&gt; Ordering
+MemberType -&gt; MemberType -&gt; MemberType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MemberType -&gt; MemberType -&gt; MemberType
+$cmin :: MemberType -&gt; MemberType -&gt; MemberType
+max :: MemberType -&gt; MemberType -&gt; MemberType
+$cmax :: MemberType -&gt; MemberType -&gt; MemberType
+&gt;= :: MemberType -&gt; MemberType -&gt; Bool
+$c&gt;= :: MemberType -&gt; MemberType -&gt; Bool
+&gt; :: MemberType -&gt; MemberType -&gt; Bool
+$c&gt; :: MemberType -&gt; MemberType -&gt; Bool
+&lt;= :: MemberType -&gt; MemberType -&gt; Bool
+$c&lt;= :: MemberType -&gt; MemberType -&gt; Bool
+&lt; :: MemberType -&gt; MemberType -&gt; Bool
+$c&lt; :: MemberType -&gt; MemberType -&gt; Bool
+compare :: MemberType -&gt; MemberType -&gt; Ordering
+$ccompare :: MemberType -&gt; MemberType -&gt; Ordering
+$cp1Ord :: Eq MemberType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MemberType -&gt; Rep MemberType x)
+-&gt; (forall x. Rep MemberType x -&gt; MemberType) -&gt; Generic MemberType
+forall x. Rep MemberType x -&gt; MemberType
+forall x. MemberType -&gt; Rep MemberType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MemberType x -&gt; MemberType
+$cfrom :: forall x. MemberType -&gt; Rep MemberType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679560376"><span id="local-6989586621679560378"><span class="annot"><span class="annottext">Int -&gt; MemberType -&gt; Int
+MemberType -&gt; Int
+(Int -&gt; MemberType -&gt; Int)
+-&gt; (MemberType -&gt; Int) -&gt; Hashable MemberType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MemberType -&gt; Int
+$chash :: MemberType -&gt; Int
+hashWithSalt :: Int -&gt; MemberType -&gt; Int
+$chashWithSalt :: Int -&gt; MemberType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679560373"><span class="annot"><span class="annottext">MemberType -&gt; ()
+(MemberType -&gt; ()) -&gt; NFData MemberType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MemberType -&gt; ()
+$crnf :: MemberType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679560370"><span class="annot"><span class="annottext">Text -&gt; Either String MemberType
+(Text -&gt; Either String MemberType) -&gt; FromText MemberType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MemberType
+$cfromText :: Text -&gt; Either String MemberType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679560367"><span class="annot"><span class="annottext">MemberType -&gt; Text
+(MemberType -&gt; Text) -&gt; ToText MemberType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MemberType -&gt; Text
+$ctoText :: MemberType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679560364"><span class="annot"><span class="annottext">MemberType -&gt; ByteString
+(MemberType -&gt; ByteString) -&gt; ToByteString MemberType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MemberType -&gt; ByteString
+$ctoBS :: MemberType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679560361"><span class="annot"><span class="annottext">MemberType -&gt; ByteStringBuilder
+(MemberType -&gt; ByteStringBuilder) -&gt; ToLog MemberType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MemberType -&gt; ByteStringBuilder
+$cbuild :: MemberType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679560358"><span class="annot"><span class="annottext">HeaderName -&gt; MemberType -&gt; [Header]
+(HeaderName -&gt; MemberType -&gt; [Header]) -&gt; ToHeader MemberType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MemberType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MemberType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679560355"><span class="annot"><span class="annottext">MemberType -&gt; QueryString
+(MemberType -&gt; QueryString) -&gt; ToQuery MemberType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MemberType -&gt; QueryString
+$ctoQuery :: MemberType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679560350"><span id="local-6989586621679560352"><span class="annot"><span class="annottext">Value -&gt; Parser [MemberType]
+Value -&gt; Parser MemberType
+(Value -&gt; Parser MemberType)
+-&gt; (Value -&gt; Parser [MemberType]) -&gt; FromJSON MemberType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MemberType]
+$cparseJSONList :: Value -&gt; Parser [MemberType]
+parseJSON :: Value -&gt; Parser MemberType
+$cparseJSON :: Value -&gt; Parser MemberType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679560345"><span id="local-6989586621679560347"><span class="annot"><span class="annottext">FromJSONKeyFunction [MemberType]
+FromJSONKeyFunction MemberType
+FromJSONKeyFunction MemberType
+-&gt; FromJSONKeyFunction [MemberType] -&gt; FromJSONKey MemberType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MemberType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MemberType]
+fromJSONKey :: FromJSONKeyFunction MemberType
+$cfromJSONKey :: FromJSONKeyFunction MemberType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679560336"><span id="local-6989586621679560338"><span id="local-6989586621679560340"><span id="local-6989586621679560342"><span class="annot"><span class="annottext">[MemberType] -&gt; Encoding
+[MemberType] -&gt; Value
+MemberType -&gt; Encoding
+MemberType -&gt; Value
+(MemberType -&gt; Value)
+-&gt; (MemberType -&gt; Encoding)
+-&gt; ([MemberType] -&gt; Value)
+-&gt; ([MemberType] -&gt; Encoding)
+-&gt; ToJSON MemberType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MemberType] -&gt; Encoding
+$ctoEncodingList :: [MemberType] -&gt; Encoding
+toJSONList :: [MemberType] -&gt; Value
+$ctoJSONList :: [MemberType] -&gt; Value
+toEncoding :: MemberType -&gt; Encoding
+$ctoEncoding :: MemberType -&gt; Encoding
+toJSON :: MemberType -&gt; Value
+$ctoJSON :: MemberType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679560331"><span id="local-6989586621679560333"><span class="annot"><span class="annottext">ToJSONKeyFunction [MemberType]
+ToJSONKeyFunction MemberType
+ToJSONKeyFunction MemberType
+-&gt; ToJSONKeyFunction [MemberType] -&gt; ToJSONKey MemberType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MemberType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MemberType]
+toJSONKey :: ToJSONKeyFunction MemberType
+$ctoJSONKey :: ToJSONKeyFunction MemberType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679560328"><span class="annot"><span class="annottext">[Node] -&gt; Either String MemberType
+([Node] -&gt; Either String MemberType) -&gt; FromXML MemberType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MemberType
+$cparseXML :: [Node] -&gt; Either String MemberType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679560325"><span class="annot"><span class="annottext">MemberType -&gt; XML
+(MemberType -&gt; XML) -&gt; ToXML MemberType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MemberType -&gt; XML
+$ctoXML :: MemberType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_ANALYSIS"><span class="hs-identifier hs-type">MemberType_ANALYSIS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMemberType_ANALYSIS"><span id="%24mMemberType_ANALYSIS"><span id="MemberType_ANALYSIS"><span class="annot"><span class="annottext">$bMemberType_ANALYSIS :: MemberType
+$mMemberType_ANALYSIS :: forall r. MemberType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.MemberType.html#%24bMemberType_ANALYSIS"><span class="hs-identifier hs-var hs-var hs-var">MemberType_ANALYSIS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType%27"><span class="hs-identifier hs-type">MemberType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ANALYSIS&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_DASHBOARD"><span class="hs-identifier hs-type">MemberType_DASHBOARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMemberType_DASHBOARD"><span id="%24mMemberType_DASHBOARD"><span id="MemberType_DASHBOARD"><span class="annot"><span class="annottext">$bMemberType_DASHBOARD :: MemberType
+$mMemberType_DASHBOARD :: forall r. MemberType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.MemberType.html#%24bMemberType_DASHBOARD"><span class="hs-identifier hs-var hs-var hs-var">MemberType_DASHBOARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType%27"><span class="hs-identifier hs-type">MemberType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DASHBOARD&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_DATASET"><span class="hs-identifier hs-type">MemberType_DATASET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMemberType_DATASET"><span id="%24mMemberType_DATASET"><span id="MemberType_DATASET"><span class="annot"><span class="annottext">$bMemberType_DATASET :: MemberType
+$mMemberType_DATASET :: forall r. MemberType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.MemberType.html#%24bMemberType_DATASET"><span class="hs-identifier hs-var hs-var hs-var">MemberType_DATASET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType%27"><span class="hs-identifier hs-type">MemberType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATASET&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_ANALYSIS"><span class="hs-pragma hs-type">MemberType_ANALYSIS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_DASHBOARD"><span class="hs-pragma hs-type">MemberType_DASHBOARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType_DATASET"><span class="hs-pragma hs-type">MemberType_DATASET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.MemberType.html#MemberType%27"><span class="hs-pragma hs-type">MemberType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

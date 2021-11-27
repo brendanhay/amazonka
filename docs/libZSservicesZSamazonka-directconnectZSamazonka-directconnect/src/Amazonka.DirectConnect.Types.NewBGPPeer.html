@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DirectConnect.Types.NewBGPPeer</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectConnect.Types.NewBGPPeer</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AddressFamily.html"><span class="hs-identifier">Amazonka.DirectConnect.Types.AddressFamily</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a new BGP peer.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNewBGPPeer' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679288774"><span id="local-6989586621679288775"></span></span><span class="hs-keyword">data</span><span> </span><span id="NewBGPPeer"><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-var">NewBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NewBGPPeer%27"><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-var">NewBGPPeer'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ANewBGPPeer%27"><span class="annot"><span class="annottext">NewBGPPeer -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AcustomerAddress%3ANewBGPPeer%27"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AamazonAddress%3ANewBGPPeer%27"><span class="annot"><span class="annottext">NewBGPPeer -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AamazonAddress%3ANewBGPPeer%27"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AaddressFamily%3ANewBGPPeer%27"><span class="annot"><span class="annottext">NewBGPPeer -&gt; Maybe AddressFamily
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AaddressFamily%3ANewBGPPeer%27"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aasn%3ANewBGPPeer%27"><span class="annot"><span class="annottext">NewBGPPeer -&gt; Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3Aasn%3ANewBGPPeer%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AauthKey%3ANewBGPPeer%27"><span class="annot"><span class="annottext">NewBGPPeer -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AauthKey%3ANewBGPPeer%27"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288764"><span id="local-6989586621679288766"><span class="annot"><span class="annottext">NewBGPPeer -&gt; NewBGPPeer -&gt; Bool
+(NewBGPPeer -&gt; NewBGPPeer -&gt; Bool)
+-&gt; (NewBGPPeer -&gt; NewBGPPeer -&gt; Bool) -&gt; Eq NewBGPPeer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NewBGPPeer -&gt; NewBGPPeer -&gt; Bool
+$c/= :: NewBGPPeer -&gt; NewBGPPeer -&gt; Bool
+== :: NewBGPPeer -&gt; NewBGPPeer -&gt; Bool
+$c== :: NewBGPPeer -&gt; NewBGPPeer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288755"><span id="local-6989586621679288757"><span id="local-6989586621679288759"><span id="local-6989586621679288761"><span class="annot"><span class="annottext">ReadPrec [NewBGPPeer]
+ReadPrec NewBGPPeer
+Int -&gt; ReadS NewBGPPeer
+ReadS [NewBGPPeer]
+(Int -&gt; ReadS NewBGPPeer)
+-&gt; ReadS [NewBGPPeer]
+-&gt; ReadPrec NewBGPPeer
+-&gt; ReadPrec [NewBGPPeer]
+-&gt; Read NewBGPPeer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NewBGPPeer]
+$creadListPrec :: ReadPrec [NewBGPPeer]
+readPrec :: ReadPrec NewBGPPeer
+$creadPrec :: ReadPrec NewBGPPeer
+readList :: ReadS [NewBGPPeer]
+$creadList :: ReadS [NewBGPPeer]
+readsPrec :: Int -&gt; ReadS NewBGPPeer
+$creadsPrec :: Int -&gt; ReadS NewBGPPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288748"><span id="local-6989586621679288750"><span id="local-6989586621679288752"><span class="annot"><span class="annottext">Int -&gt; NewBGPPeer -&gt; ShowS
+[NewBGPPeer] -&gt; ShowS
+NewBGPPeer -&gt; String
+(Int -&gt; NewBGPPeer -&gt; ShowS)
+-&gt; (NewBGPPeer -&gt; String)
+-&gt; ([NewBGPPeer] -&gt; ShowS)
+-&gt; Show NewBGPPeer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NewBGPPeer] -&gt; ShowS
+$cshowList :: [NewBGPPeer] -&gt; ShowS
+show :: NewBGPPeer -&gt; String
+$cshow :: NewBGPPeer -&gt; String
+showsPrec :: Int -&gt; NewBGPPeer -&gt; ShowS
+$cshowsPrec :: Int -&gt; NewBGPPeer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NewBGPPeer -&gt; Rep NewBGPPeer x)
+-&gt; (forall x. Rep NewBGPPeer x -&gt; NewBGPPeer) -&gt; Generic NewBGPPeer
+forall x. Rep NewBGPPeer x -&gt; NewBGPPeer
+forall x. NewBGPPeer -&gt; Rep NewBGPPeer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NewBGPPeer x -&gt; NewBGPPeer
+$cfrom :: forall x. NewBGPPeer -&gt; Rep NewBGPPeer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'NewBGPPeer' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'customerAddress', 'newBGPPeer_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'amazonAddress', 'newBGPPeer_amazonAddress' - The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'addressFamily', 'newBGPPeer_addressFamily' - The address family for the BGP peer.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'asn', 'newBGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'authKey', 'newBGPPeer_authKey' - The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newNewBGPPeer"><span class="hs-identifier hs-type">newNewBGPPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span>
+</span><span id="line-67"></span><span id="newNewBGPPeer"><span class="annot"><span class="annottext">newNewBGPPeer :: NewBGPPeer
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newNewBGPPeer"><span class="hs-identifier hs-var hs-var">newNewBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">NewBGPPeer' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AddressFamily
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; NewBGPPeer
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customerAddress:NewBGPPeer' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AcustomerAddress%3ANewBGPPeer%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:amazonAddress:NewBGPPeer' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AamazonAddress%3ANewBGPPeer%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:addressFamily:NewBGPPeer' :: Maybe AddressFamily
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AaddressFamily%3ANewBGPPeer%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:asn:NewBGPPeer' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3Aasn%3ANewBGPPeer%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:authKey:NewBGPPeer' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AauthKey%3ANewBGPPeer%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_customerAddress"><span class="hs-identifier hs-type">newBGPPeer_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="newBGPPeer_customerAddress"><span class="annot"><span class="annottext">newBGPPeer_customerAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NewBGPPeer -&gt; f NewBGPPeer
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_customerAddress"><span class="hs-identifier hs-var hs-var">newBGPPeer_customerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewBGPPeer -&gt; Maybe Text)
+-&gt; (NewBGPPeer -&gt; Maybe Text -&gt; NewBGPPeer)
+-&gt; Lens NewBGPPeer NewBGPPeer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288739"><span class="annot"><span class="annottext">Maybe Text
+customerAddress :: Maybe Text
+$sel:customerAddress:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679288739"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288739"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288738"><span class="annot"><span class="annottext">s :: NewBGPPeer
+</span><a href="#local-6989586621679288738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288737"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewBGPPeer
+</span><a href="#local-6989586621679288738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:NewBGPPeer' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AcustomerAddress%3ANewBGPPeer%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_amazonAddress"><span class="hs-identifier hs-type">newBGPPeer_amazonAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="newBGPPeer_amazonAddress"><span class="annot"><span class="annottext">newBGPPeer_amazonAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NewBGPPeer -&gt; f NewBGPPeer
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_amazonAddress"><span class="hs-identifier hs-var hs-var">newBGPPeer_amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewBGPPeer -&gt; Maybe Text)
+-&gt; (NewBGPPeer -&gt; Maybe Text -&gt; NewBGPPeer)
+-&gt; Lens NewBGPPeer NewBGPPeer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288735"><span class="annot"><span class="annottext">Maybe Text
+amazonAddress :: Maybe Text
+$sel:amazonAddress:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679288735"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288735"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288734"><span class="annot"><span class="annottext">s :: NewBGPPeer
+</span><a href="#local-6989586621679288734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewBGPPeer
+</span><a href="#local-6989586621679288734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonAddress:NewBGPPeer' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AamazonAddress%3ANewBGPPeer%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_addressFamily"><span class="hs-identifier hs-type">newBGPPeer_addressFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="newBGPPeer_addressFamily"><span class="annot"><span class="annottext">newBGPPeer_addressFamily :: (Maybe AddressFamily -&gt; f (Maybe AddressFamily))
+-&gt; NewBGPPeer -&gt; f NewBGPPeer
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_addressFamily"><span class="hs-identifier hs-var hs-var">newBGPPeer_addressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewBGPPeer -&gt; Maybe AddressFamily)
+-&gt; (NewBGPPeer -&gt; Maybe AddressFamily -&gt; NewBGPPeer)
+-&gt; Lens
+     NewBGPPeer NewBGPPeer (Maybe AddressFamily) (Maybe AddressFamily)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288731"><span class="annot"><span class="annottext">Maybe AddressFamily
+addressFamily :: Maybe AddressFamily
+$sel:addressFamily:NewBGPPeer' :: NewBGPPeer -&gt; Maybe AddressFamily
+</span><a href="#local-6989586621679288731"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679288731"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288730"><span class="annot"><span class="annottext">s :: NewBGPPeer
+</span><a href="#local-6989586621679288730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288729"><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679288729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewBGPPeer
+</span><a href="#local-6989586621679288730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressFamily:NewBGPPeer' :: Maybe AddressFamily
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AaddressFamily%3ANewBGPPeer%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679288729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_asn"><span class="hs-identifier hs-type">newBGPPeer_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="newBGPPeer_asn"><span class="annot"><span class="annottext">newBGPPeer_asn :: (Maybe Int -&gt; f (Maybe Int)) -&gt; NewBGPPeer -&gt; f NewBGPPeer
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_asn"><span class="hs-identifier hs-var hs-var">newBGPPeer_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewBGPPeer -&gt; Maybe Int)
+-&gt; (NewBGPPeer -&gt; Maybe Int -&gt; NewBGPPeer)
+-&gt; Lens NewBGPPeer NewBGPPeer (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288727"><span class="annot"><span class="annottext">Maybe Int
+asn :: Maybe Int
+$sel:asn:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Int
+</span><a href="#local-6989586621679288727"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679288727"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288726"><span class="annot"><span class="annottext">s :: NewBGPPeer
+</span><a href="#local-6989586621679288726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288725"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679288725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewBGPPeer
+</span><a href="#local-6989586621679288726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:NewBGPPeer' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3Aasn%3ANewBGPPeer%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679288725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_authKey"><span class="hs-identifier hs-type">newBGPPeer_authKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="newBGPPeer_authKey"><span class="annot"><span class="annottext">newBGPPeer_authKey :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NewBGPPeer -&gt; f NewBGPPeer
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#newBGPPeer_authKey"><span class="hs-identifier hs-var hs-var">newBGPPeer_authKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewBGPPeer -&gt; Maybe Text)
+-&gt; (NewBGPPeer -&gt; Maybe Text -&gt; NewBGPPeer)
+-&gt; Lens NewBGPPeer NewBGPPeer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288723"><span class="annot"><span class="annottext">Maybe Text
+authKey :: Maybe Text
+$sel:authKey:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679288723"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288723"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288722"><span class="annot"><span class="annottext">s :: NewBGPPeer
+</span><a href="#local-6989586621679288722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewBGPPeer
+</span><a href="#local-6989586621679288722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authKey:NewBGPPeer' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#%24sel%3AauthKey%3ANewBGPPeer%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288717"><span id="local-6989586621679288719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288706"><span id="local-6989586621679288708"><span id="local-6989586621679288710"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679288704"><span class="annot"><span class="annottext">toJSON :: NewBGPPeer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer%27"><span class="hs-identifier hs-type">NewBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288698"><span id="local-6989586621679288699"><span id="local-6989586621679288700"><span id="local-6989586621679288701"><span id="local-6989586621679288702"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe AddressFamily
+authKey :: Maybe Text
+asn :: Maybe Int
+addressFamily :: Maybe AddressFamily
+amazonAddress :: Maybe Text
+customerAddress :: Maybe Text
+$sel:authKey:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Text
+$sel:asn:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Int
+$sel:addressFamily:NewBGPPeer' :: NewBGPPeer -&gt; Maybe AddressFamily
+$sel:amazonAddress:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Text
+$sel:customerAddress:NewBGPPeer' :: NewBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679288698"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288702"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;amazonAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288701"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addressFamily&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AddressFamily -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AddressFamily -&gt; Pair) -&gt; Maybe AddressFamily -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679288700"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;asn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679288699"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288698"><span class="hs-identifier hs-var">authKey</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span></pre></body></html>

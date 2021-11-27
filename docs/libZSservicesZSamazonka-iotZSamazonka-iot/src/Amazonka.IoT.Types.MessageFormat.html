@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.MessageFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.MessageFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat"><span class="hs-identifier">MessageFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat_JSON"><span class="hs-identifier">MessageFormat_JSON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat_RAW"><span class="hs-identifier">MessageFormat_RAW</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679789776"><span id="local-6989586621679789777"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MessageFormat"><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat"><span class="hs-identifier hs-var">MessageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageFormat%27"><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat%27"><span class="hs-identifier hs-var">MessageFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMessageFormat"><span class="annot"><span class="annottext">MessageFormat -&gt; Text
+</span><a href="Amazonka.IoT.Types.MessageFormat.html#fromMessageFormat"><span class="hs-identifier hs-var hs-var">fromMessageFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789768"><span id="local-6989586621679789770"><span id="local-6989586621679789772"><span class="annot"><span class="annottext">Int -&gt; MessageFormat -&gt; ShowS
+[MessageFormat] -&gt; ShowS
+MessageFormat -&gt; String
+(Int -&gt; MessageFormat -&gt; ShowS)
+-&gt; (MessageFormat -&gt; String)
+-&gt; ([MessageFormat] -&gt; ShowS)
+-&gt; Show MessageFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MessageFormat] -&gt; ShowS
+$cshowList :: [MessageFormat] -&gt; ShowS
+show :: MessageFormat -&gt; String
+$cshow :: MessageFormat -&gt; String
+showsPrec :: Int -&gt; MessageFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; MessageFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679789759"><span id="local-6989586621679789761"><span id="local-6989586621679789763"><span id="local-6989586621679789765"><span class="annot"><span class="annottext">ReadPrec [MessageFormat]
+ReadPrec MessageFormat
+Int -&gt; ReadS MessageFormat
+ReadS [MessageFormat]
+(Int -&gt; ReadS MessageFormat)
+-&gt; ReadS [MessageFormat]
+-&gt; ReadPrec MessageFormat
+-&gt; ReadPrec [MessageFormat]
+-&gt; Read MessageFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MessageFormat]
+$creadListPrec :: ReadPrec [MessageFormat]
+readPrec :: ReadPrec MessageFormat
+$creadPrec :: ReadPrec MessageFormat
+readList :: ReadS [MessageFormat]
+$creadList :: ReadS [MessageFormat]
+readsPrec :: Int -&gt; ReadS MessageFormat
+$creadsPrec :: Int -&gt; ReadS MessageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679789754"><span id="local-6989586621679789756"><span class="annot"><span class="annottext">MessageFormat -&gt; MessageFormat -&gt; Bool
+(MessageFormat -&gt; MessageFormat -&gt; Bool)
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; Bool) -&gt; Eq MessageFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MessageFormat -&gt; MessageFormat -&gt; Bool
+$c/= :: MessageFormat -&gt; MessageFormat -&gt; Bool
+== :: MessageFormat -&gt; MessageFormat -&gt; Bool
+$c== :: MessageFormat -&gt; MessageFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679789738"><span id="local-6989586621679789740"><span id="local-6989586621679789742"><span id="local-6989586621679789744"><span id="local-6989586621679789746"><span id="local-6989586621679789748"><span id="local-6989586621679789750"><span class="annot"><span class="annottext">Eq MessageFormat
+Eq MessageFormat
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; Ordering)
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; Bool)
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; Bool)
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; Bool)
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; Bool)
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; MessageFormat)
+-&gt; (MessageFormat -&gt; MessageFormat -&gt; MessageFormat)
+-&gt; Ord MessageFormat
+MessageFormat -&gt; MessageFormat -&gt; Bool
+MessageFormat -&gt; MessageFormat -&gt; Ordering
+MessageFormat -&gt; MessageFormat -&gt; MessageFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MessageFormat -&gt; MessageFormat -&gt; MessageFormat
+$cmin :: MessageFormat -&gt; MessageFormat -&gt; MessageFormat
+max :: MessageFormat -&gt; MessageFormat -&gt; MessageFormat
+$cmax :: MessageFormat -&gt; MessageFormat -&gt; MessageFormat
+&gt;= :: MessageFormat -&gt; MessageFormat -&gt; Bool
+$c&gt;= :: MessageFormat -&gt; MessageFormat -&gt; Bool
+&gt; :: MessageFormat -&gt; MessageFormat -&gt; Bool
+$c&gt; :: MessageFormat -&gt; MessageFormat -&gt; Bool
+&lt;= :: MessageFormat -&gt; MessageFormat -&gt; Bool
+$c&lt;= :: MessageFormat -&gt; MessageFormat -&gt; Bool
+&lt; :: MessageFormat -&gt; MessageFormat -&gt; Bool
+$c&lt; :: MessageFormat -&gt; MessageFormat -&gt; Bool
+compare :: MessageFormat -&gt; MessageFormat -&gt; Ordering
+$ccompare :: MessageFormat -&gt; MessageFormat -&gt; Ordering
+$cp1Ord :: Eq MessageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MessageFormat -&gt; Rep MessageFormat x)
+-&gt; (forall x. Rep MessageFormat x -&gt; MessageFormat)
+-&gt; Generic MessageFormat
+forall x. Rep MessageFormat x -&gt; MessageFormat
+forall x. MessageFormat -&gt; Rep MessageFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MessageFormat x -&gt; MessageFormat
+$cfrom :: forall x. MessageFormat -&gt; Rep MessageFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789730"><span id="local-6989586621679789732"><span class="annot"><span class="annottext">Int -&gt; MessageFormat -&gt; Int
+MessageFormat -&gt; Int
+(Int -&gt; MessageFormat -&gt; Int)
+-&gt; (MessageFormat -&gt; Int) -&gt; Hashable MessageFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MessageFormat -&gt; Int
+$chash :: MessageFormat -&gt; Int
+hashWithSalt :: Int -&gt; MessageFormat -&gt; Int
+$chashWithSalt :: Int -&gt; MessageFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679789727"><span class="annot"><span class="annottext">MessageFormat -&gt; ()
+(MessageFormat -&gt; ()) -&gt; NFData MessageFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MessageFormat -&gt; ()
+$crnf :: MessageFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679789724"><span class="annot"><span class="annottext">Text -&gt; Either String MessageFormat
+(Text -&gt; Either String MessageFormat) -&gt; FromText MessageFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MessageFormat
+$cfromText :: Text -&gt; Either String MessageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679789721"><span class="annot"><span class="annottext">MessageFormat -&gt; Text
+(MessageFormat -&gt; Text) -&gt; ToText MessageFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MessageFormat -&gt; Text
+$ctoText :: MessageFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679789718"><span class="annot"><span class="annottext">MessageFormat -&gt; ByteString
+(MessageFormat -&gt; ByteString) -&gt; ToByteString MessageFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MessageFormat -&gt; ByteString
+$ctoBS :: MessageFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679789715"><span class="annot"><span class="annottext">MessageFormat -&gt; ByteStringBuilder
+(MessageFormat -&gt; ByteStringBuilder) -&gt; ToLog MessageFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MessageFormat -&gt; ByteStringBuilder
+$cbuild :: MessageFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679789712"><span class="annot"><span class="annottext">HeaderName -&gt; MessageFormat -&gt; [Header]
+(HeaderName -&gt; MessageFormat -&gt; [Header]) -&gt; ToHeader MessageFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MessageFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MessageFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679789709"><span class="annot"><span class="annottext">MessageFormat -&gt; QueryString
+(MessageFormat -&gt; QueryString) -&gt; ToQuery MessageFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MessageFormat -&gt; QueryString
+$ctoQuery :: MessageFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679789704"><span id="local-6989586621679789706"><span class="annot"><span class="annottext">Value -&gt; Parser [MessageFormat]
+Value -&gt; Parser MessageFormat
+(Value -&gt; Parser MessageFormat)
+-&gt; (Value -&gt; Parser [MessageFormat]) -&gt; FromJSON MessageFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MessageFormat]
+$cparseJSONList :: Value -&gt; Parser [MessageFormat]
+parseJSON :: Value -&gt; Parser MessageFormat
+$cparseJSON :: Value -&gt; Parser MessageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789699"><span id="local-6989586621679789701"><span class="annot"><span class="annottext">FromJSONKeyFunction [MessageFormat]
+FromJSONKeyFunction MessageFormat
+FromJSONKeyFunction MessageFormat
+-&gt; FromJSONKeyFunction [MessageFormat] -&gt; FromJSONKey MessageFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MessageFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [MessageFormat]
+fromJSONKey :: FromJSONKeyFunction MessageFormat
+$cfromJSONKey :: FromJSONKeyFunction MessageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789690"><span id="local-6989586621679789692"><span id="local-6989586621679789694"><span id="local-6989586621679789696"><span class="annot"><span class="annottext">[MessageFormat] -&gt; Encoding
+[MessageFormat] -&gt; Value
+MessageFormat -&gt; Encoding
+MessageFormat -&gt; Value
+(MessageFormat -&gt; Value)
+-&gt; (MessageFormat -&gt; Encoding)
+-&gt; ([MessageFormat] -&gt; Value)
+-&gt; ([MessageFormat] -&gt; Encoding)
+-&gt; ToJSON MessageFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MessageFormat] -&gt; Encoding
+$ctoEncodingList :: [MessageFormat] -&gt; Encoding
+toJSONList :: [MessageFormat] -&gt; Value
+$ctoJSONList :: [MessageFormat] -&gt; Value
+toEncoding :: MessageFormat -&gt; Encoding
+$ctoEncoding :: MessageFormat -&gt; Encoding
+toJSON :: MessageFormat -&gt; Value
+$ctoJSON :: MessageFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789685"><span id="local-6989586621679789687"><span class="annot"><span class="annottext">ToJSONKeyFunction [MessageFormat]
+ToJSONKeyFunction MessageFormat
+ToJSONKeyFunction MessageFormat
+-&gt; ToJSONKeyFunction [MessageFormat] -&gt; ToJSONKey MessageFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MessageFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [MessageFormat]
+toJSONKey :: ToJSONKeyFunction MessageFormat
+$ctoJSONKey :: ToJSONKeyFunction MessageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789682"><span class="annot"><span class="annottext">[Node] -&gt; Either String MessageFormat
+([Node] -&gt; Either String MessageFormat) -&gt; FromXML MessageFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MessageFormat
+$cparseXML :: [Node] -&gt; Either String MessageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789679"><span class="annot"><span class="annottext">MessageFormat -&gt; XML
+(MessageFormat -&gt; XML) -&gt; ToXML MessageFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MessageFormat -&gt; XML
+$ctoXML :: MessageFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat_JSON"><span class="hs-identifier hs-type">MessageFormat_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat"><span class="hs-identifier hs-type">MessageFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMessageFormat_JSON"><span id="%24mMessageFormat_JSON"><span id="MessageFormat_JSON"><span class="annot"><span class="annottext">$bMessageFormat_JSON :: MessageFormat
+$mMessageFormat_JSON :: forall r. MessageFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoT.Types.MessageFormat.html#%24bMessageFormat_JSON"><span class="hs-identifier hs-var hs-var hs-var">MessageFormat_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat%27"><span class="hs-identifier hs-type">MessageFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat_RAW"><span class="hs-identifier hs-type">MessageFormat_RAW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat"><span class="hs-identifier hs-type">MessageFormat</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMessageFormat_RAW"><span id="%24mMessageFormat_RAW"><span id="MessageFormat_RAW"><span class="annot"><span class="annottext">$bMessageFormat_RAW :: MessageFormat
+$mMessageFormat_RAW :: forall r. MessageFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoT.Types.MessageFormat.html#%24bMessageFormat_RAW"><span class="hs-identifier hs-var hs-var hs-var">MessageFormat_RAW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat%27"><span class="hs-identifier hs-type">MessageFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RAW&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat_JSON"><span class="hs-pragma hs-type">MessageFormat_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat_RAW"><span class="hs-pragma hs-type">MessageFormat_RAW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.MessageFormat.html#MessageFormat%27"><span class="hs-pragma hs-type">MessageFormat'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

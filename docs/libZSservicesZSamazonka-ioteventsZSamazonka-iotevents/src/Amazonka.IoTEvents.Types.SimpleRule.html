@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEvents.Types.SimpleRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEvents.Types.SimpleRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.ComparisonOperator.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.ComparisonOperator</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A rule that compares an input property value to a threshold value with a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- comparison operator.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSimpleRule' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679244950"><span id="local-6989586621679244951"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimpleRule"><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-var">SimpleRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimpleRule%27"><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-var">SimpleRule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value on the left side of the comparison operator. You can specify</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- an AWS IoT Events input attribute as an input property.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AinputProperty%3ASimpleRule%27"><span class="annot"><span class="annottext">SimpleRule -&gt; Text
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3AinputProperty%3ASimpleRule%27"><span class="hs-identifier hs-var hs-var">inputProperty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The comparison operator.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcomparisonOperator%3ASimpleRule%27"><span class="annot"><span class="annottext">SimpleRule -&gt; ComparisonOperator
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3AcomparisonOperator%3ASimpleRule%27"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The value on the right side of the comparison operator. You can enter a</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- number or specify an AWS IoT Events input attribute.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Athreshold%3ASimpleRule%27"><span class="annot"><span class="annottext">SimpleRule -&gt; Text
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3Athreshold%3ASimpleRule%27"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244942"><span id="local-6989586621679244944"><span class="annot"><span class="annottext">SimpleRule -&gt; SimpleRule -&gt; Bool
+(SimpleRule -&gt; SimpleRule -&gt; Bool)
+-&gt; (SimpleRule -&gt; SimpleRule -&gt; Bool) -&gt; Eq SimpleRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SimpleRule -&gt; SimpleRule -&gt; Bool
+$c/= :: SimpleRule -&gt; SimpleRule -&gt; Bool
+== :: SimpleRule -&gt; SimpleRule -&gt; Bool
+$c== :: SimpleRule -&gt; SimpleRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244933"><span id="local-6989586621679244935"><span id="local-6989586621679244937"><span id="local-6989586621679244939"><span class="annot"><span class="annottext">ReadPrec [SimpleRule]
+ReadPrec SimpleRule
+Int -&gt; ReadS SimpleRule
+ReadS [SimpleRule]
+(Int -&gt; ReadS SimpleRule)
+-&gt; ReadS [SimpleRule]
+-&gt; ReadPrec SimpleRule
+-&gt; ReadPrec [SimpleRule]
+-&gt; Read SimpleRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SimpleRule]
+$creadListPrec :: ReadPrec [SimpleRule]
+readPrec :: ReadPrec SimpleRule
+$creadPrec :: ReadPrec SimpleRule
+readList :: ReadS [SimpleRule]
+$creadList :: ReadS [SimpleRule]
+readsPrec :: Int -&gt; ReadS SimpleRule
+$creadsPrec :: Int -&gt; ReadS SimpleRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244926"><span id="local-6989586621679244928"><span id="local-6989586621679244930"><span class="annot"><span class="annottext">Int -&gt; SimpleRule -&gt; ShowS
+[SimpleRule] -&gt; ShowS
+SimpleRule -&gt; String
+(Int -&gt; SimpleRule -&gt; ShowS)
+-&gt; (SimpleRule -&gt; String)
+-&gt; ([SimpleRule] -&gt; ShowS)
+-&gt; Show SimpleRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SimpleRule] -&gt; ShowS
+$cshowList :: [SimpleRule] -&gt; ShowS
+show :: SimpleRule -&gt; String
+$cshow :: SimpleRule -&gt; String
+showsPrec :: Int -&gt; SimpleRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; SimpleRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SimpleRule -&gt; Rep SimpleRule x)
+-&gt; (forall x. Rep SimpleRule x -&gt; SimpleRule) -&gt; Generic SimpleRule
+forall x. Rep SimpleRule x -&gt; SimpleRule
+forall x. SimpleRule -&gt; Rep SimpleRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SimpleRule x -&gt; SimpleRule
+$cfrom :: forall x. SimpleRule -&gt; Rep SimpleRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'SimpleRule' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'inputProperty', 'simpleRule_inputProperty' - The value on the left side of the comparison operator. You can specify</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- an AWS IoT Events input attribute as an input property.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'comparisonOperator', 'simpleRule_comparisonOperator' - The comparison operator.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'threshold', 'simpleRule_threshold' - The value on the right side of the comparison operator. You can enter a</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- number or specify an AWS IoT Events input attribute.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#newSimpleRule"><span class="hs-identifier hs-type">newSimpleRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'inputProperty'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'comparisonOperator'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'threshold'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span><span>
+</span><span id="line-66"></span><span id="newSimpleRule"><span class="annot"><span class="annottext">newSimpleRule :: Text -&gt; ComparisonOperator -&gt; Text -&gt; SimpleRule
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#newSimpleRule"><span class="hs-identifier hs-var hs-var">newSimpleRule</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679244920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244920"><span class="hs-identifier hs-var">pInputProperty_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679244919"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679244919"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679244918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244918"><span class="hs-identifier hs-var">pThreshold_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">SimpleRule' :: Text -&gt; ComparisonOperator -&gt; Text -&gt; SimpleRule
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputProperty:SimpleRule' :: Text
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3AinputProperty%3ASimpleRule%27"><span class="hs-identifier hs-var">inputProperty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244920"><span class="hs-identifier hs-var">pInputProperty_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:comparisonOperator:SimpleRule' :: ComparisonOperator
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3AcomparisonOperator%3ASimpleRule%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679244919"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:threshold:SimpleRule' :: Text
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3Athreshold%3ASimpleRule%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244918"><span class="hs-identifier hs-var">pThreshold_</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The value on the left side of the comparison operator. You can specify</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- an AWS IoT Events input attribute as an input property.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#simpleRule_inputProperty"><span class="hs-identifier hs-type">simpleRule_inputProperty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="simpleRule_inputProperty"><span class="annot"><span class="annottext">simpleRule_inputProperty :: (Text -&gt; f Text) -&gt; SimpleRule -&gt; f SimpleRule
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#simpleRule_inputProperty"><span class="hs-identifier hs-var hs-var">simpleRule_inputProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleRule -&gt; Text)
+-&gt; (SimpleRule -&gt; Text -&gt; SimpleRule)
+-&gt; Lens SimpleRule SimpleRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244914"><span class="annot"><span class="annottext">Text
+inputProperty :: Text
+$sel:inputProperty:SimpleRule' :: SimpleRule -&gt; Text
+</span><a href="#local-6989586621679244914"><span class="hs-identifier hs-var hs-var">inputProperty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244914"><span class="hs-identifier hs-var">inputProperty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244913"><span class="annot"><span class="annottext">s :: SimpleRule
+</span><a href="#local-6989586621679244913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244912"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleRule
+</span><a href="#local-6989586621679244913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputProperty:SimpleRule' :: Text
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3AinputProperty%3ASimpleRule%27"><span class="hs-identifier hs-var">inputProperty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The comparison operator.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#simpleRule_comparisonOperator"><span class="hs-identifier hs-type">simpleRule_comparisonOperator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span>
+</span><span id="line-83"></span><span id="simpleRule_comparisonOperator"><span class="annot"><span class="annottext">simpleRule_comparisonOperator :: (ComparisonOperator -&gt; f ComparisonOperator)
+-&gt; SimpleRule -&gt; f SimpleRule
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#simpleRule_comparisonOperator"><span class="hs-identifier hs-var hs-var">simpleRule_comparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleRule -&gt; ComparisonOperator)
+-&gt; (SimpleRule -&gt; ComparisonOperator -&gt; SimpleRule)
+-&gt; Lens SimpleRule SimpleRule ComparisonOperator ComparisonOperator
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244910"><span class="annot"><span class="annottext">ComparisonOperator
+comparisonOperator :: ComparisonOperator
+$sel:comparisonOperator:SimpleRule' :: SimpleRule -&gt; ComparisonOperator
+</span><a href="#local-6989586621679244910"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679244910"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244909"><span class="annot"><span class="annottext">s :: SimpleRule
+</span><a href="#local-6989586621679244909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244908"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679244908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleRule
+</span><a href="#local-6989586621679244909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:SimpleRule' :: ComparisonOperator
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3AcomparisonOperator%3ASimpleRule%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679244908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The value on the right side of the comparison operator. You can enter a</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- number or specify an AWS IoT Events input attribute.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#simpleRule_threshold"><span class="hs-identifier hs-type">simpleRule_threshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="simpleRule_threshold"><span class="annot"><span class="annottext">simpleRule_threshold :: (Text -&gt; f Text) -&gt; SimpleRule -&gt; f SimpleRule
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#simpleRule_threshold"><span class="hs-identifier hs-var hs-var">simpleRule_threshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleRule -&gt; Text)
+-&gt; (SimpleRule -&gt; Text -&gt; SimpleRule)
+-&gt; Lens SimpleRule SimpleRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244906"><span class="annot"><span class="annottext">Text
+threshold :: Text
+$sel:threshold:SimpleRule' :: SimpleRule -&gt; Text
+</span><a href="#local-6989586621679244906"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244906"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244905"><span class="annot"><span class="annottext">s :: SimpleRule
+</span><a href="#local-6989586621679244905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleRule
+</span><a href="#local-6989586621679244905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:SimpleRule' :: Text
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#%24sel%3Athreshold%3ASimpleRule%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244901"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679244899"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SimpleRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SimpleRule) -&gt; Value -&gt; Parser SimpleRule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SimpleRule&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244896"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ComparisonOperator -&gt; Text -&gt; SimpleRule
+</span><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-var">SimpleRule'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; ComparisonOperator -&gt; Text -&gt; SimpleRule)
+-&gt; Parser Text -&gt; Parser (ComparisonOperator -&gt; Text -&gt; SimpleRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputProperty&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (ComparisonOperator -&gt; Text -&gt; SimpleRule)
+-&gt; Parser ComparisonOperator -&gt; Parser (Text -&gt; SimpleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComparisonOperator
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comparisonOperator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; SimpleRule) -&gt; Parser Text -&gt; Parser SimpleRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;threshold&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244890"><span id="local-6989586621679244892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244879"><span id="local-6989586621679244881"><span id="local-6989586621679244883"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule"><span class="hs-identifier hs-type">SimpleRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679244877"><span class="annot"><span class="annottext">toJSON :: SimpleRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SimpleRule.html#SimpleRule%27"><span class="hs-identifier hs-type">SimpleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244873"><span id="local-6989586621679244874"><span id="local-6989586621679244875"><span class="annot"><span class="annottext">Text
+ComparisonOperator
+threshold :: Text
+comparisonOperator :: ComparisonOperator
+inputProperty :: Text
+$sel:threshold:SimpleRule' :: SimpleRule -&gt; Text
+$sel:comparisonOperator:SimpleRule' :: SimpleRule -&gt; ComparisonOperator
+$sel:inputProperty:SimpleRule' :: SimpleRule -&gt; Text
+</span><a href="#local-6989586621679244873"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputProperty&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244875"><span class="hs-identifier hs-var">inputProperty</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comparisonOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComparisonOperator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679244874"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244873"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span></pre></body></html>

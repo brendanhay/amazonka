@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.Types.BatchAttachObject</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.Types.BatchAttachObject</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types.ObjectReference</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents the output of an AttachObject operation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchAttachObject' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679326321"><span id="local-6989586621679326322"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAttachObject"><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-var">BatchAttachObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAttachObject%27"><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-var">BatchAttachObject'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parent object reference.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AparentReference%3ABatchAttachObject%27"><span class="annot"><span class="annottext">BatchAttachObject -&gt; ObjectReference
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AparentReference%3ABatchAttachObject%27"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The child object reference that is to be attached to the object.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AchildReference%3ABatchAttachObject%27"><span class="annot"><span class="annottext">BatchAttachObject -&gt; ObjectReference
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AchildReference%3ABatchAttachObject%27"><span class="hs-identifier hs-var hs-var">childReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the link.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlinkName%3ABatchAttachObject%27"><span class="annot"><span class="annottext">BatchAttachObject -&gt; Text
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AlinkName%3ABatchAttachObject%27"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326313"><span id="local-6989586621679326315"><span class="annot"><span class="annottext">BatchAttachObject -&gt; BatchAttachObject -&gt; Bool
+(BatchAttachObject -&gt; BatchAttachObject -&gt; Bool)
+-&gt; (BatchAttachObject -&gt; BatchAttachObject -&gt; Bool)
+-&gt; Eq BatchAttachObject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchAttachObject -&gt; BatchAttachObject -&gt; Bool
+$c/= :: BatchAttachObject -&gt; BatchAttachObject -&gt; Bool
+== :: BatchAttachObject -&gt; BatchAttachObject -&gt; Bool
+$c== :: BatchAttachObject -&gt; BatchAttachObject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326304"><span id="local-6989586621679326306"><span id="local-6989586621679326308"><span id="local-6989586621679326310"><span class="annot"><span class="annottext">ReadPrec [BatchAttachObject]
+ReadPrec BatchAttachObject
+Int -&gt; ReadS BatchAttachObject
+ReadS [BatchAttachObject]
+(Int -&gt; ReadS BatchAttachObject)
+-&gt; ReadS [BatchAttachObject]
+-&gt; ReadPrec BatchAttachObject
+-&gt; ReadPrec [BatchAttachObject]
+-&gt; Read BatchAttachObject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchAttachObject]
+$creadListPrec :: ReadPrec [BatchAttachObject]
+readPrec :: ReadPrec BatchAttachObject
+$creadPrec :: ReadPrec BatchAttachObject
+readList :: ReadS [BatchAttachObject]
+$creadList :: ReadS [BatchAttachObject]
+readsPrec :: Int -&gt; ReadS BatchAttachObject
+$creadsPrec :: Int -&gt; ReadS BatchAttachObject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326297"><span id="local-6989586621679326299"><span id="local-6989586621679326301"><span class="annot"><span class="annottext">Int -&gt; BatchAttachObject -&gt; ShowS
+[BatchAttachObject] -&gt; ShowS
+BatchAttachObject -&gt; String
+(Int -&gt; BatchAttachObject -&gt; ShowS)
+-&gt; (BatchAttachObject -&gt; String)
+-&gt; ([BatchAttachObject] -&gt; ShowS)
+-&gt; Show BatchAttachObject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchAttachObject] -&gt; ShowS
+$cshowList :: [BatchAttachObject] -&gt; ShowS
+show :: BatchAttachObject -&gt; String
+$cshow :: BatchAttachObject -&gt; String
+showsPrec :: Int -&gt; BatchAttachObject -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchAttachObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchAttachObject -&gt; Rep BatchAttachObject x)
+-&gt; (forall x. Rep BatchAttachObject x -&gt; BatchAttachObject)
+-&gt; Generic BatchAttachObject
+forall x. Rep BatchAttachObject x -&gt; BatchAttachObject
+forall x. BatchAttachObject -&gt; Rep BatchAttachObject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchAttachObject x -&gt; BatchAttachObject
+$cfrom :: forall x. BatchAttachObject -&gt; Rep BatchAttachObject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'BatchAttachObject' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'parentReference', 'batchAttachObject_parentReference' - The parent object reference.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'childReference', 'batchAttachObject_childReference' - The child object reference that is to be attached to the object.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'linkName', 'batchAttachObject_linkName' - The name of the link.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#newBatchAttachObject"><span class="hs-identifier hs-type">newBatchAttachObject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'parentReference'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'childReference'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'linkName'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span><span>
+</span><span id="line-61"></span><span id="newBatchAttachObject"><span class="annot"><span class="annottext">newBatchAttachObject :: ObjectReference -&gt; ObjectReference -&gt; Text -&gt; BatchAttachObject
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#newBatchAttachObject"><span class="hs-identifier hs-var hs-var">newBatchAttachObject</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679326291"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326291"><span class="hs-identifier hs-var">pParentReference_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679326290"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326290"><span class="hs-identifier hs-var">pChildReference_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679326289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326289"><span class="hs-identifier hs-var">pLinkName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">BatchAttachObject' :: ObjectReference -&gt; ObjectReference -&gt; Text -&gt; BatchAttachObject
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parentReference:BatchAttachObject' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AparentReference%3ABatchAttachObject%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326291"><span class="hs-identifier hs-var">pParentReference_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:childReference:BatchAttachObject' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AchildReference%3ABatchAttachObject%27"><span class="hs-identifier hs-var">childReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326290"><span class="hs-identifier hs-var">pChildReference_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:linkName:BatchAttachObject' :: Text
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AlinkName%3ABatchAttachObject%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326289"><span class="hs-identifier hs-var">pLinkName_</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The parent object reference.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#batchAttachObject_parentReference"><span class="hs-identifier hs-type">batchAttachObject_parentReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
+</span><span id="line-74"></span><span id="batchAttachObject_parentReference"><span class="annot"><span class="annottext">batchAttachObject_parentReference :: (ObjectReference -&gt; f ObjectReference)
+-&gt; BatchAttachObject -&gt; f BatchAttachObject
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#batchAttachObject_parentReference"><span class="hs-identifier hs-var hs-var">batchAttachObject_parentReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAttachObject -&gt; ObjectReference)
+-&gt; (BatchAttachObject -&gt; ObjectReference -&gt; BatchAttachObject)
+-&gt; Lens
+     BatchAttachObject BatchAttachObject ObjectReference ObjectReference
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326285"><span class="annot"><span class="annottext">ObjectReference
+parentReference :: ObjectReference
+$sel:parentReference:BatchAttachObject' :: BatchAttachObject -&gt; ObjectReference
+</span><a href="#local-6989586621679326285"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326285"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326284"><span class="annot"><span class="annottext">s :: BatchAttachObject
+</span><a href="#local-6989586621679326284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326283"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAttachObject
+</span><a href="#local-6989586621679326284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentReference:BatchAttachObject' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AparentReference%3ABatchAttachObject%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The child object reference that is to be attached to the object.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#batchAttachObject_childReference"><span class="hs-identifier hs-type">batchAttachObject_childReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
+</span><span id="line-78"></span><span id="batchAttachObject_childReference"><span class="annot"><span class="annottext">batchAttachObject_childReference :: (ObjectReference -&gt; f ObjectReference)
+-&gt; BatchAttachObject -&gt; f BatchAttachObject
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#batchAttachObject_childReference"><span class="hs-identifier hs-var hs-var">batchAttachObject_childReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAttachObject -&gt; ObjectReference)
+-&gt; (BatchAttachObject -&gt; ObjectReference -&gt; BatchAttachObject)
+-&gt; Lens
+     BatchAttachObject BatchAttachObject ObjectReference ObjectReference
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326281"><span class="annot"><span class="annottext">ObjectReference
+childReference :: ObjectReference
+$sel:childReference:BatchAttachObject' :: BatchAttachObject -&gt; ObjectReference
+</span><a href="#local-6989586621679326281"><span class="hs-identifier hs-var hs-var">childReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326281"><span class="hs-identifier hs-var">childReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326280"><span class="annot"><span class="annottext">s :: BatchAttachObject
+</span><a href="#local-6989586621679326280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326279"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAttachObject
+</span><a href="#local-6989586621679326280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childReference:BatchAttachObject' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AchildReference%3ABatchAttachObject%27"><span class="hs-identifier hs-var">childReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the link.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#batchAttachObject_linkName"><span class="hs-identifier hs-type">batchAttachObject_linkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="batchAttachObject_linkName"><span class="annot"><span class="annottext">batchAttachObject_linkName :: (Text -&gt; f Text) -&gt; BatchAttachObject -&gt; f BatchAttachObject
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#batchAttachObject_linkName"><span class="hs-identifier hs-var hs-var">batchAttachObject_linkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAttachObject -&gt; Text)
+-&gt; (BatchAttachObject -&gt; Text -&gt; BatchAttachObject)
+-&gt; Lens BatchAttachObject BatchAttachObject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326277"><span class="annot"><span class="annottext">Text
+linkName :: Text
+$sel:linkName:BatchAttachObject' :: BatchAttachObject -&gt; Text
+</span><a href="#local-6989586621679326277"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326277"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326276"><span class="annot"><span class="annottext">s :: BatchAttachObject
+</span><a href="#local-6989586621679326276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326275"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAttachObject
+</span><a href="#local-6989586621679326276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkName:BatchAttachObject' :: Text
+</span><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#%24sel%3AlinkName%3ABatchAttachObject%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326271"><span id="local-6989586621679326273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326260"><span id="local-6989586621679326262"><span id="local-6989586621679326264"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject"><span class="hs-identifier hs-type">BatchAttachObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679326258"><span class="annot"><span class="annottext">toJSON :: BatchAttachObject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchAttachObject.html#BatchAttachObject%27"><span class="hs-identifier hs-type">BatchAttachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326254"><span id="local-6989586621679326255"><span id="local-6989586621679326256"><span class="annot"><span class="annottext">Text
+ObjectReference
+linkName :: Text
+childReference :: ObjectReference
+parentReference :: ObjectReference
+$sel:linkName:BatchAttachObject' :: BatchAttachObject -&gt; Text
+$sel:childReference:BatchAttachObject' :: BatchAttachObject -&gt; ObjectReference
+$sel:parentReference:BatchAttachObject' :: BatchAttachObject -&gt; ObjectReference
+</span><a href="#local-6989586621679326254"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-93"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParentReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326256"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChildReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679326255"><span class="hs-identifier hs-var">childReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326254"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span></pre></body></html>

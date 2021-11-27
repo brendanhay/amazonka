@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53Domains.Types.OperationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Domains.Types.OperationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier">OperationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_ADD_DNSSEC"><span class="hs-identifier">OperationType_ADD_DNSSEC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_CHANGE_DOMAIN_OWNER"><span class="hs-identifier">OperationType_CHANGE_DOMAIN_OWNER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_CHANGE_PRIVACY_PROTECTION"><span class="hs-identifier">OperationType_CHANGE_PRIVACY_PROTECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DELETE_DOMAIN"><span class="hs-identifier">OperationType_DELETE_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DISABLE_AUTORENEW"><span class="hs-identifier">OperationType_DISABLE_AUTORENEW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DOMAIN_LOCK"><span class="hs-identifier">OperationType_DOMAIN_LOCK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_ENABLE_AUTORENEW"><span class="hs-identifier">OperationType_ENABLE_AUTORENEW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_EXPIRE_DOMAIN"><span class="hs-identifier">OperationType_EXPIRE_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_INTERNAL_TRANSFER_IN_DOMAIN"><span class="hs-identifier">OperationType_INTERNAL_TRANSFER_IN_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_INTERNAL_TRANSFER_OUT_DOMAIN"><span class="hs-identifier">OperationType_INTERNAL_TRANSFER_OUT_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_PUSH_DOMAIN"><span class="hs-identifier">OperationType_PUSH_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_REGISTER_DOMAIN"><span class="hs-identifier">OperationType_REGISTER_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_REMOVE_DNSSEC"><span class="hs-identifier">OperationType_REMOVE_DNSSEC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_RENEW_DOMAIN"><span class="hs-identifier">OperationType_RENEW_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_TRANSFER_IN_DOMAIN"><span class="hs-identifier">OperationType_TRANSFER_IN_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_TRANSFER_OUT_DOMAIN"><span class="hs-identifier">OperationType_TRANSFER_OUT_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_UPDATE_DOMAIN_CONTACT"><span class="hs-identifier">OperationType_UPDATE_DOMAIN_CONTACT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_UPDATE_NAMESERVER"><span class="hs-identifier">OperationType_UPDATE_NAMESERVER</span></a></span><span>
+</span><span id="line-41"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679209783"><span id="local-6989586621679209784"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OperationType"><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-var">OperationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperationType%27"><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-var">OperationType'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOperationType"><span class="annot"><span class="annottext">OperationType -&gt; Text
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#fromOperationType"><span class="hs-identifier hs-var hs-var">fromOperationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209775"><span id="local-6989586621679209777"><span id="local-6989586621679209779"><span class="annot"><span class="annottext">Int -&gt; OperationType -&gt; ShowS
+[OperationType] -&gt; ShowS
+OperationType -&gt; String
+(Int -&gt; OperationType -&gt; ShowS)
+-&gt; (OperationType -&gt; String)
+-&gt; ([OperationType] -&gt; ShowS)
+-&gt; Show OperationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OperationType] -&gt; ShowS
+$cshowList :: [OperationType] -&gt; ShowS
+show :: OperationType -&gt; String
+$cshow :: OperationType -&gt; String
+showsPrec :: Int -&gt; OperationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; OperationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209766"><span id="local-6989586621679209768"><span id="local-6989586621679209770"><span id="local-6989586621679209772"><span class="annot"><span class="annottext">ReadPrec [OperationType]
+ReadPrec OperationType
+Int -&gt; ReadS OperationType
+ReadS [OperationType]
+(Int -&gt; ReadS OperationType)
+-&gt; ReadS [OperationType]
+-&gt; ReadPrec OperationType
+-&gt; ReadPrec [OperationType]
+-&gt; Read OperationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OperationType]
+$creadListPrec :: ReadPrec [OperationType]
+readPrec :: ReadPrec OperationType
+$creadPrec :: ReadPrec OperationType
+readList :: ReadS [OperationType]
+$creadList :: ReadS [OperationType]
+readsPrec :: Int -&gt; ReadS OperationType
+$creadsPrec :: Int -&gt; ReadS OperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209761"><span id="local-6989586621679209763"><span class="annot"><span class="annottext">OperationType -&gt; OperationType -&gt; Bool
+(OperationType -&gt; OperationType -&gt; Bool)
+-&gt; (OperationType -&gt; OperationType -&gt; Bool) -&gt; Eq OperationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OperationType -&gt; OperationType -&gt; Bool
+$c/= :: OperationType -&gt; OperationType -&gt; Bool
+== :: OperationType -&gt; OperationType -&gt; Bool
+$c== :: OperationType -&gt; OperationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209745"><span id="local-6989586621679209747"><span id="local-6989586621679209749"><span id="local-6989586621679209751"><span id="local-6989586621679209753"><span id="local-6989586621679209755"><span id="local-6989586621679209757"><span class="annot"><span class="annottext">Eq OperationType
+Eq OperationType
+-&gt; (OperationType -&gt; OperationType -&gt; Ordering)
+-&gt; (OperationType -&gt; OperationType -&gt; Bool)
+-&gt; (OperationType -&gt; OperationType -&gt; Bool)
+-&gt; (OperationType -&gt; OperationType -&gt; Bool)
+-&gt; (OperationType -&gt; OperationType -&gt; Bool)
+-&gt; (OperationType -&gt; OperationType -&gt; OperationType)
+-&gt; (OperationType -&gt; OperationType -&gt; OperationType)
+-&gt; Ord OperationType
+OperationType -&gt; OperationType -&gt; Bool
+OperationType -&gt; OperationType -&gt; Ordering
+OperationType -&gt; OperationType -&gt; OperationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OperationType -&gt; OperationType -&gt; OperationType
+$cmin :: OperationType -&gt; OperationType -&gt; OperationType
+max :: OperationType -&gt; OperationType -&gt; OperationType
+$cmax :: OperationType -&gt; OperationType -&gt; OperationType
+&gt;= :: OperationType -&gt; OperationType -&gt; Bool
+$c&gt;= :: OperationType -&gt; OperationType -&gt; Bool
+&gt; :: OperationType -&gt; OperationType -&gt; Bool
+$c&gt; :: OperationType -&gt; OperationType -&gt; Bool
+&lt;= :: OperationType -&gt; OperationType -&gt; Bool
+$c&lt;= :: OperationType -&gt; OperationType -&gt; Bool
+&lt; :: OperationType -&gt; OperationType -&gt; Bool
+$c&lt; :: OperationType -&gt; OperationType -&gt; Bool
+compare :: OperationType -&gt; OperationType -&gt; Ordering
+$ccompare :: OperationType -&gt; OperationType -&gt; Ordering
+$cp1Ord :: Eq OperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OperationType -&gt; Rep OperationType x)
+-&gt; (forall x. Rep OperationType x -&gt; OperationType)
+-&gt; Generic OperationType
+forall x. Rep OperationType x -&gt; OperationType
+forall x. OperationType -&gt; Rep OperationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OperationType x -&gt; OperationType
+$cfrom :: forall x. OperationType -&gt; Rep OperationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209737"><span id="local-6989586621679209739"><span class="annot"><span class="annottext">Int -&gt; OperationType -&gt; Int
+OperationType -&gt; Int
+(Int -&gt; OperationType -&gt; Int)
+-&gt; (OperationType -&gt; Int) -&gt; Hashable OperationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OperationType -&gt; Int
+$chash :: OperationType -&gt; Int
+hashWithSalt :: Int -&gt; OperationType -&gt; Int
+$chashWithSalt :: Int -&gt; OperationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679209734"><span class="annot"><span class="annottext">OperationType -&gt; ()
+(OperationType -&gt; ()) -&gt; NFData OperationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OperationType -&gt; ()
+$crnf :: OperationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679209731"><span class="annot"><span class="annottext">Text -&gt; Either String OperationType
+(Text -&gt; Either String OperationType) -&gt; FromText OperationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OperationType
+$cfromText :: Text -&gt; Either String OperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679209728"><span class="annot"><span class="annottext">OperationType -&gt; Text
+(OperationType -&gt; Text) -&gt; ToText OperationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OperationType -&gt; Text
+$ctoText :: OperationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679209725"><span class="annot"><span class="annottext">OperationType -&gt; ByteString
+(OperationType -&gt; ByteString) -&gt; ToByteString OperationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OperationType -&gt; ByteString
+$ctoBS :: OperationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679209722"><span class="annot"><span class="annottext">OperationType -&gt; ByteStringBuilder
+(OperationType -&gt; ByteStringBuilder) -&gt; ToLog OperationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OperationType -&gt; ByteStringBuilder
+$cbuild :: OperationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679209719"><span class="annot"><span class="annottext">HeaderName -&gt; OperationType -&gt; [Header]
+(HeaderName -&gt; OperationType -&gt; [Header]) -&gt; ToHeader OperationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OperationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OperationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679209716"><span class="annot"><span class="annottext">OperationType -&gt; QueryString
+(OperationType -&gt; QueryString) -&gt; ToQuery OperationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OperationType -&gt; QueryString
+$ctoQuery :: OperationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679209711"><span id="local-6989586621679209713"><span class="annot"><span class="annottext">Value -&gt; Parser [OperationType]
+Value -&gt; Parser OperationType
+(Value -&gt; Parser OperationType)
+-&gt; (Value -&gt; Parser [OperationType]) -&gt; FromJSON OperationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OperationType]
+$cparseJSONList :: Value -&gt; Parser [OperationType]
+parseJSON :: Value -&gt; Parser OperationType
+$cparseJSON :: Value -&gt; Parser OperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679209706"><span id="local-6989586621679209708"><span class="annot"><span class="annottext">FromJSONKeyFunction [OperationType]
+FromJSONKeyFunction OperationType
+FromJSONKeyFunction OperationType
+-&gt; FromJSONKeyFunction [OperationType] -&gt; FromJSONKey OperationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OperationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [OperationType]
+fromJSONKey :: FromJSONKeyFunction OperationType
+$cfromJSONKey :: FromJSONKeyFunction OperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679209697"><span id="local-6989586621679209699"><span id="local-6989586621679209701"><span id="local-6989586621679209703"><span class="annot"><span class="annottext">[OperationType] -&gt; Encoding
+[OperationType] -&gt; Value
+OperationType -&gt; Encoding
+OperationType -&gt; Value
+(OperationType -&gt; Value)
+-&gt; (OperationType -&gt; Encoding)
+-&gt; ([OperationType] -&gt; Value)
+-&gt; ([OperationType] -&gt; Encoding)
+-&gt; ToJSON OperationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OperationType] -&gt; Encoding
+$ctoEncodingList :: [OperationType] -&gt; Encoding
+toJSONList :: [OperationType] -&gt; Value
+$ctoJSONList :: [OperationType] -&gt; Value
+toEncoding :: OperationType -&gt; Encoding
+$ctoEncoding :: OperationType -&gt; Encoding
+toJSON :: OperationType -&gt; Value
+$ctoJSON :: OperationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679209692"><span id="local-6989586621679209694"><span class="annot"><span class="annottext">ToJSONKeyFunction [OperationType]
+ToJSONKeyFunction OperationType
+ToJSONKeyFunction OperationType
+-&gt; ToJSONKeyFunction [OperationType] -&gt; ToJSONKey OperationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OperationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [OperationType]
+toJSONKey :: ToJSONKeyFunction OperationType
+$ctoJSONKey :: ToJSONKeyFunction OperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679209689"><span class="annot"><span class="annottext">[Node] -&gt; Either String OperationType
+([Node] -&gt; Either String OperationType) -&gt; FromXML OperationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OperationType
+$cparseXML :: [Node] -&gt; Either String OperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679209686"><span class="annot"><span class="annottext">OperationType -&gt; XML
+(OperationType -&gt; XML) -&gt; ToXML OperationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OperationType -&gt; XML
+$ctoXML :: OperationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_ADD_DNSSEC"><span class="hs-identifier hs-type">OperationType_ADD_DNSSEC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_ADD_DNSSEC"><span id="%24mOperationType_ADD_DNSSEC"><span id="OperationType_ADD_DNSSEC"><span class="annot"><span class="annottext">$bOperationType_ADD_DNSSEC :: OperationType
+$mOperationType_ADD_DNSSEC :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_ADD_DNSSEC"><span class="hs-identifier hs-var hs-var hs-var">OperationType_ADD_DNSSEC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADD_DNSSEC&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_CHANGE_DOMAIN_OWNER"><span class="hs-identifier hs-type">OperationType_CHANGE_DOMAIN_OWNER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_CHANGE_DOMAIN_OWNER"><span id="%24mOperationType_CHANGE_DOMAIN_OWNER"><span id="OperationType_CHANGE_DOMAIN_OWNER"><span class="annot"><span class="annottext">$bOperationType_CHANGE_DOMAIN_OWNER :: OperationType
+$mOperationType_CHANGE_DOMAIN_OWNER :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_CHANGE_DOMAIN_OWNER"><span class="hs-identifier hs-var hs-var hs-var">OperationType_CHANGE_DOMAIN_OWNER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CHANGE_DOMAIN_OWNER&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_CHANGE_PRIVACY_PROTECTION"><span class="hs-identifier hs-type">OperationType_CHANGE_PRIVACY_PROTECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_CHANGE_PRIVACY_PROTECTION"><span id="%24mOperationType_CHANGE_PRIVACY_PROTECTION"><span id="OperationType_CHANGE_PRIVACY_PROTECTION"><span class="annot"><span class="annottext">$bOperationType_CHANGE_PRIVACY_PROTECTION :: OperationType
+$mOperationType_CHANGE_PRIVACY_PROTECTION :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_CHANGE_PRIVACY_PROTECTION"><span class="hs-identifier hs-var hs-var hs-var">OperationType_CHANGE_PRIVACY_PROTECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CHANGE_PRIVACY_PROTECTION&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DELETE_DOMAIN"><span class="hs-identifier hs-type">OperationType_DELETE_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_DELETE_DOMAIN"><span id="%24mOperationType_DELETE_DOMAIN"><span id="OperationType_DELETE_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_DELETE_DOMAIN :: OperationType
+$mOperationType_DELETE_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_DELETE_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_DELETE_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_DOMAIN&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DISABLE_AUTORENEW"><span class="hs-identifier hs-type">OperationType_DISABLE_AUTORENEW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_DISABLE_AUTORENEW"><span id="%24mOperationType_DISABLE_AUTORENEW"><span id="OperationType_DISABLE_AUTORENEW"><span class="annot"><span class="annottext">$bOperationType_DISABLE_AUTORENEW :: OperationType
+$mOperationType_DISABLE_AUTORENEW :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_DISABLE_AUTORENEW"><span class="hs-identifier hs-var hs-var hs-var">OperationType_DISABLE_AUTORENEW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLE_AUTORENEW&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DOMAIN_LOCK"><span class="hs-identifier hs-type">OperationType_DOMAIN_LOCK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_DOMAIN_LOCK"><span id="%24mOperationType_DOMAIN_LOCK"><span id="OperationType_DOMAIN_LOCK"><span class="annot"><span class="annottext">$bOperationType_DOMAIN_LOCK :: OperationType
+$mOperationType_DOMAIN_LOCK :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_DOMAIN_LOCK"><span class="hs-identifier hs-var hs-var hs-var">OperationType_DOMAIN_LOCK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOMAIN_LOCK&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_ENABLE_AUTORENEW"><span class="hs-identifier hs-type">OperationType_ENABLE_AUTORENEW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_ENABLE_AUTORENEW"><span id="%24mOperationType_ENABLE_AUTORENEW"><span id="OperationType_ENABLE_AUTORENEW"><span class="annot"><span class="annottext">$bOperationType_ENABLE_AUTORENEW :: OperationType
+$mOperationType_ENABLE_AUTORENEW :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_ENABLE_AUTORENEW"><span class="hs-identifier hs-var hs-var hs-var">OperationType_ENABLE_AUTORENEW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLE_AUTORENEW&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_EXPIRE_DOMAIN"><span class="hs-identifier hs-type">OperationType_EXPIRE_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_EXPIRE_DOMAIN"><span id="%24mOperationType_EXPIRE_DOMAIN"><span id="OperationType_EXPIRE_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_EXPIRE_DOMAIN :: OperationType
+$mOperationType_EXPIRE_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_EXPIRE_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_EXPIRE_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPIRE_DOMAIN&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_INTERNAL_TRANSFER_IN_DOMAIN"><span class="hs-identifier hs-type">OperationType_INTERNAL_TRANSFER_IN_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_INTERNAL_TRANSFER_IN_DOMAIN"><span id="%24mOperationType_INTERNAL_TRANSFER_IN_DOMAIN"><span id="OperationType_INTERNAL_TRANSFER_IN_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_INTERNAL_TRANSFER_IN_DOMAIN :: OperationType
+$mOperationType_INTERNAL_TRANSFER_IN_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_INTERNAL_TRANSFER_IN_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_INTERNAL_TRANSFER_IN_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_TRANSFER_IN_DOMAIN&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_INTERNAL_TRANSFER_OUT_DOMAIN"><span class="hs-identifier hs-type">OperationType_INTERNAL_TRANSFER_OUT_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_INTERNAL_TRANSFER_OUT_DOMAIN"><span id="%24mOperationType_INTERNAL_TRANSFER_OUT_DOMAIN"><span id="OperationType_INTERNAL_TRANSFER_OUT_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_INTERNAL_TRANSFER_OUT_DOMAIN :: OperationType
+$mOperationType_INTERNAL_TRANSFER_OUT_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_INTERNAL_TRANSFER_OUT_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_INTERNAL_TRANSFER_OUT_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_TRANSFER_OUT_DOMAIN&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_PUSH_DOMAIN"><span class="hs-identifier hs-type">OperationType_PUSH_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_PUSH_DOMAIN"><span id="%24mOperationType_PUSH_DOMAIN"><span id="OperationType_PUSH_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_PUSH_DOMAIN :: OperationType
+$mOperationType_PUSH_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_PUSH_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_PUSH_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PUSH_DOMAIN&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_REGISTER_DOMAIN"><span class="hs-identifier hs-type">OperationType_REGISTER_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_REGISTER_DOMAIN"><span id="%24mOperationType_REGISTER_DOMAIN"><span id="OperationType_REGISTER_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_REGISTER_DOMAIN :: OperationType
+$mOperationType_REGISTER_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_REGISTER_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_REGISTER_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REGISTER_DOMAIN&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_REMOVE_DNSSEC"><span class="hs-identifier hs-type">OperationType_REMOVE_DNSSEC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_REMOVE_DNSSEC"><span id="%24mOperationType_REMOVE_DNSSEC"><span id="OperationType_REMOVE_DNSSEC"><span class="annot"><span class="annottext">$bOperationType_REMOVE_DNSSEC :: OperationType
+$mOperationType_REMOVE_DNSSEC :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_REMOVE_DNSSEC"><span class="hs-identifier hs-var hs-var hs-var">OperationType_REMOVE_DNSSEC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REMOVE_DNSSEC&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_RENEW_DOMAIN"><span class="hs-identifier hs-type">OperationType_RENEW_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_RENEW_DOMAIN"><span id="%24mOperationType_RENEW_DOMAIN"><span id="OperationType_RENEW_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_RENEW_DOMAIN :: OperationType
+$mOperationType_RENEW_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_RENEW_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_RENEW_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RENEW_DOMAIN&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_TRANSFER_IN_DOMAIN"><span class="hs-identifier hs-type">OperationType_TRANSFER_IN_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_TRANSFER_IN_DOMAIN"><span id="%24mOperationType_TRANSFER_IN_DOMAIN"><span id="OperationType_TRANSFER_IN_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_TRANSFER_IN_DOMAIN :: OperationType
+$mOperationType_TRANSFER_IN_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_TRANSFER_IN_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_TRANSFER_IN_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRANSFER_IN_DOMAIN&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_TRANSFER_OUT_DOMAIN"><span class="hs-identifier hs-type">OperationType_TRANSFER_OUT_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_TRANSFER_OUT_DOMAIN"><span id="%24mOperationType_TRANSFER_OUT_DOMAIN"><span id="OperationType_TRANSFER_OUT_DOMAIN"><span class="annot"><span class="annottext">$bOperationType_TRANSFER_OUT_DOMAIN :: OperationType
+$mOperationType_TRANSFER_OUT_DOMAIN :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_TRANSFER_OUT_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">OperationType_TRANSFER_OUT_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRANSFER_OUT_DOMAIN&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_UPDATE_DOMAIN_CONTACT"><span class="hs-identifier hs-type">OperationType_UPDATE_DOMAIN_CONTACT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_UPDATE_DOMAIN_CONTACT"><span id="%24mOperationType_UPDATE_DOMAIN_CONTACT"><span id="OperationType_UPDATE_DOMAIN_CONTACT"><span class="annot"><span class="annottext">$bOperationType_UPDATE_DOMAIN_CONTACT :: OperationType
+$mOperationType_UPDATE_DOMAIN_CONTACT :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_UPDATE_DOMAIN_CONTACT"><span class="hs-identifier hs-var hs-var hs-var">OperationType_UPDATE_DOMAIN_CONTACT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_DOMAIN_CONTACT&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_UPDATE_NAMESERVER"><span class="hs-identifier hs-type">OperationType_UPDATE_NAMESERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperationType_UPDATE_NAMESERVER"><span id="%24mOperationType_UPDATE_NAMESERVER"><span id="OperationType_UPDATE_NAMESERVER"><span class="annot"><span class="annottext">$bOperationType_UPDATE_NAMESERVER :: OperationType
+$mOperationType_UPDATE_NAMESERVER :: forall r. OperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Domains.Types.OperationType.html#%24bOperationType_UPDATE_NAMESERVER"><span class="hs-identifier hs-var hs-var hs-var">OperationType_UPDATE_NAMESERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-type">OperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_NAMESERVER&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_ADD_DNSSEC"><span class="hs-pragma hs-type">OperationType_ADD_DNSSEC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_CHANGE_DOMAIN_OWNER"><span class="hs-pragma hs-type">OperationType_CHANGE_DOMAIN_OWNER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_CHANGE_PRIVACY_PROTECTION"><span class="hs-pragma hs-type">OperationType_CHANGE_PRIVACY_PROTECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DELETE_DOMAIN"><span class="hs-pragma hs-type">OperationType_DELETE_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DISABLE_AUTORENEW"><span class="hs-pragma hs-type">OperationType_DISABLE_AUTORENEW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_DOMAIN_LOCK"><span class="hs-pragma hs-type">OperationType_DOMAIN_LOCK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_ENABLE_AUTORENEW"><span class="hs-pragma hs-type">OperationType_ENABLE_AUTORENEW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_EXPIRE_DOMAIN"><span class="hs-pragma hs-type">OperationType_EXPIRE_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_INTERNAL_TRANSFER_IN_DOMAIN"><span class="hs-pragma hs-type">OperationType_INTERNAL_TRANSFER_IN_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_INTERNAL_TRANSFER_OUT_DOMAIN"><span class="hs-pragma hs-type">OperationType_INTERNAL_TRANSFER_OUT_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_PUSH_DOMAIN"><span class="hs-pragma hs-type">OperationType_PUSH_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_REGISTER_DOMAIN"><span class="hs-pragma hs-type">OperationType_REGISTER_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_REMOVE_DNSSEC"><span class="hs-pragma hs-type">OperationType_REMOVE_DNSSEC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_RENEW_DOMAIN"><span class="hs-pragma hs-type">OperationType_RENEW_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_TRANSFER_IN_DOMAIN"><span class="hs-pragma hs-type">OperationType_TRANSFER_IN_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_TRANSFER_OUT_DOMAIN"><span class="hs-pragma hs-type">OperationType_TRANSFER_OUT_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_UPDATE_DOMAIN_CONTACT"><span class="hs-pragma hs-type">OperationType_UPDATE_DOMAIN_CONTACT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType_UPDATE_NAMESERVER"><span class="hs-pragma hs-type">OperationType_UPDATE_NAMESERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Domains.Types.OperationType.html#OperationType%27"><span class="hs-pragma hs-type">OperationType'</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-151"></span></pre></body></html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.CreateTestGridUrl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a signed, short-term URL that can be passed to a Selenium</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @RemoteWebDriver@ constructor.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.CreateTestGridUrl</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier">CreateTestGridUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrl"><span class="hs-identifier">newCreateTestGridUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrl_projectArn"><span class="hs-identifier">createTestGridUrl_projectArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrl_expiresInSeconds"><span class="hs-identifier">createTestGridUrl_expiresInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier">CreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrlResponse"><span class="hs-identifier">newCreateTestGridUrlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier">createTestGridUrlResponse_expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier">createTestGridUrlResponse_url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_httpStatus"><span class="hs-identifier">createTestGridUrlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateTestGridUrl' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679387376"><span id="local-6989586621679387377"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTestGridUrl"><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-var">CreateTestGridUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTestGridUrl%27"><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-var">CreateTestGridUrl'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN (from CreateTestGridProject or ListTestGridProjects) to associate</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- with the short-term URL.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AprojectArn%3ACreateTestGridUrl%27"><span class="annot"><span class="annottext">CreateTestGridUrl -&gt; Text
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AprojectArn%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Lifetime, in seconds, of the URL.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="annot"><span class="annottext">CreateTestGridUrl -&gt; Natural
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var hs-var">expiresInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387369"><span id="local-6989586621679387371"><span class="annot"><span class="annottext">CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
+(CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool)
+-&gt; (CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool)
+-&gt; Eq CreateTestGridUrl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
+$c/= :: CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
+== :: CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
+$c== :: CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387360"><span id="local-6989586621679387362"><span id="local-6989586621679387364"><span id="local-6989586621679387366"><span class="annot"><span class="annottext">ReadPrec [CreateTestGridUrl]
+ReadPrec CreateTestGridUrl
+Int -&gt; ReadS CreateTestGridUrl
+ReadS [CreateTestGridUrl]
+(Int -&gt; ReadS CreateTestGridUrl)
+-&gt; ReadS [CreateTestGridUrl]
+-&gt; ReadPrec CreateTestGridUrl
+-&gt; ReadPrec [CreateTestGridUrl]
+-&gt; Read CreateTestGridUrl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTestGridUrl]
+$creadListPrec :: ReadPrec [CreateTestGridUrl]
+readPrec :: ReadPrec CreateTestGridUrl
+$creadPrec :: ReadPrec CreateTestGridUrl
+readList :: ReadS [CreateTestGridUrl]
+$creadList :: ReadS [CreateTestGridUrl]
+readsPrec :: Int -&gt; ReadS CreateTestGridUrl
+$creadsPrec :: Int -&gt; ReadS CreateTestGridUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387353"><span id="local-6989586621679387355"><span id="local-6989586621679387357"><span class="annot"><span class="annottext">Int -&gt; CreateTestGridUrl -&gt; ShowS
+[CreateTestGridUrl] -&gt; ShowS
+CreateTestGridUrl -&gt; String
+(Int -&gt; CreateTestGridUrl -&gt; ShowS)
+-&gt; (CreateTestGridUrl -&gt; String)
+-&gt; ([CreateTestGridUrl] -&gt; ShowS)
+-&gt; Show CreateTestGridUrl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTestGridUrl] -&gt; ShowS
+$cshowList :: [CreateTestGridUrl] -&gt; ShowS
+show :: CreateTestGridUrl -&gt; String
+$cshow :: CreateTestGridUrl -&gt; String
+showsPrec :: Int -&gt; CreateTestGridUrl -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTestGridUrl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateTestGridUrl -&gt; Rep CreateTestGridUrl x)
+-&gt; (forall x. Rep CreateTestGridUrl x -&gt; CreateTestGridUrl)
+-&gt; Generic CreateTestGridUrl
+forall x. Rep CreateTestGridUrl x -&gt; CreateTestGridUrl
+forall x. CreateTestGridUrl -&gt; Rep CreateTestGridUrl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateTestGridUrl x -&gt; CreateTestGridUrl
+$cfrom :: forall x. CreateTestGridUrl -&gt; Rep CreateTestGridUrl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'CreateTestGridUrl' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'projectArn', 'createTestGridUrl_projectArn' - ARN (from CreateTestGridProject or ListTestGridProjects) to associate</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- with the short-term URL.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'expiresInSeconds', 'createTestGridUrl_expiresInSeconds' - Lifetime, in seconds, of the URL.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrl"><span class="hs-identifier hs-type">newCreateTestGridUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'projectArn'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'expiresInSeconds'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span>
+</span><span id="line-80"></span><span id="newCreateTestGridUrl"><span class="annot"><span class="annottext">newCreateTestGridUrl :: Text -&gt; Natural -&gt; CreateTestGridUrl
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrl"><span class="hs-identifier hs-var hs-var">newCreateTestGridUrl</span></a></span></span><span> </span><span id="local-6989586621679387348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387348"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679387347"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387347"><span class="hs-identifier hs-var">pExpiresInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">CreateTestGridUrl' :: Text -&gt; Natural -&gt; CreateTestGridUrl
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectArn:CreateTestGridUrl' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AprojectArn%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387348"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:expiresInSeconds:CreateTestGridUrl' :: Natural
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387347"><span class="hs-identifier hs-var">pExpiresInSeconds_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | ARN (from CreateTestGridProject or ListTestGridProjects) to associate</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- with the short-term URL.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrl_projectArn"><span class="hs-identifier hs-type">createTestGridUrl_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="createTestGridUrl_projectArn"><span class="annot"><span class="annottext">createTestGridUrl_projectArn :: (Text -&gt; f Text) -&gt; CreateTestGridUrl -&gt; f CreateTestGridUrl
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrl_projectArn"><span class="hs-identifier hs-var hs-var">createTestGridUrl_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrl -&gt; Text)
+-&gt; (CreateTestGridUrl -&gt; Text -&gt; CreateTestGridUrl)
+-&gt; Lens CreateTestGridUrl CreateTestGridUrl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387344"><span class="annot"><span class="annottext">Text
+projectArn :: Text
+$sel:projectArn:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Text
+</span><a href="#local-6989586621679387344"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387344"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387343"><span class="annot"><span class="annottext">s :: CreateTestGridUrl
+</span><a href="#local-6989586621679387343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387342"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrl
+</span><a href="#local-6989586621679387343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateTestGridUrl' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AprojectArn%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Lifetime, in seconds, of the URL.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrl_expiresInSeconds"><span class="hs-identifier hs-type">createTestGridUrl_expiresInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-93"></span><span id="createTestGridUrl_expiresInSeconds"><span class="annot"><span class="annottext">createTestGridUrl_expiresInSeconds :: (Natural -&gt; f Natural) -&gt; CreateTestGridUrl -&gt; f CreateTestGridUrl
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrl_expiresInSeconds"><span class="hs-identifier hs-var hs-var">createTestGridUrl_expiresInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrl -&gt; Natural)
+-&gt; (CreateTestGridUrl -&gt; Natural -&gt; CreateTestGridUrl)
+-&gt; Lens CreateTestGridUrl CreateTestGridUrl Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387341"><span class="annot"><span class="annottext">Natural
+expiresInSeconds :: Natural
+$sel:expiresInSeconds:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Natural
+</span><a href="#local-6989586621679387341"><span class="hs-identifier hs-var hs-var">expiresInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387341"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387340"><span class="annot"><span class="annottext">s :: CreateTestGridUrl
+</span><a href="#local-6989586621679387340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387339"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrl
+</span><a href="#local-6989586621679387340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresInSeconds:CreateTestGridUrl' :: Natural
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679387335"><span class="annot"><span class="annottext">request :: CreateTestGridUrl -&gt; Request CreateTestGridUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTestGridUrl -&gt; Request CreateTestGridUrl
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679387331"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateTestGridUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTestGridUrl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateTestGridUrl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateTestGridUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTestGridUrl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387328"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387328"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387327"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387327"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387326"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387326"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">CreateTestGridUrlResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String (Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expires&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either String (Int -&gt; CreateTestGridUrlResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateTestGridUrlResponse)
+-&gt; Either String Int -&gt; Either String CreateTestGridUrlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387328"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387318"><span id="local-6989586621679387320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679387311"><span class="annot"><span class="annottext">toHeaders :: CreateTestGridUrl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTestGridUrl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.CreateTestGridUrl&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387301"><span id="local-6989586621679387303"><span id="local-6989586621679387305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679387299"><span class="annot"><span class="annottext">toJSON :: CreateTestGridUrl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387296"><span id="local-6989586621679387297"><span class="annot"><span class="annottext">Natural
+Text
+expiresInSeconds :: Natural
+projectArn :: Text
+$sel:expiresInSeconds:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Natural
+$sel:projectArn:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Text
+</span><a href="#local-6989586621679387296"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387297"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expiresInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387296"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679387290"><span class="annot"><span class="annottext">toPath :: CreateTestGridUrl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTestGridUrl -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679387286"><span class="annot"><span class="annottext">toQuery :: CreateTestGridUrl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTestGridUrl -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newCreateTestGridUrlResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679387283"><span id="local-6989586621679387284"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTestGridUrlResponse"><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-var">CreateTestGridUrlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTestGridUrlResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">CreateTestGridUrlResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- active.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387276"><span id="local-6989586621679387278"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
+(CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool)
+-&gt; (CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool)
+-&gt; Eq CreateTestGridUrlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
+$c/= :: CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
+== :: CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
+$c== :: CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387270"><span id="local-6989586621679387272"><span id="local-6989586621679387274"><span class="annot"><span class="annottext">Int -&gt; CreateTestGridUrlResponse -&gt; ShowS
+[CreateTestGridUrlResponse] -&gt; ShowS
+CreateTestGridUrlResponse -&gt; String
+(Int -&gt; CreateTestGridUrlResponse -&gt; ShowS)
+-&gt; (CreateTestGridUrlResponse -&gt; String)
+-&gt; ([CreateTestGridUrlResponse] -&gt; ShowS)
+-&gt; Show CreateTestGridUrlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTestGridUrlResponse] -&gt; ShowS
+$cshowList :: [CreateTestGridUrlResponse] -&gt; ShowS
+show :: CreateTestGridUrlResponse -&gt; String
+$cshow :: CreateTestGridUrlResponse -&gt; String
+showsPrec :: Int -&gt; CreateTestGridUrlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTestGridUrlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTestGridUrlResponse -&gt; Rep CreateTestGridUrlResponse x)
+-&gt; (forall x.
+    Rep CreateTestGridUrlResponse x -&gt; CreateTestGridUrlResponse)
+-&gt; Generic CreateTestGridUrlResponse
+forall x.
+Rep CreateTestGridUrlResponse x -&gt; CreateTestGridUrlResponse
+forall x.
+CreateTestGridUrlResponse -&gt; Rep CreateTestGridUrlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTestGridUrlResponse x -&gt; CreateTestGridUrlResponse
+$cfrom :: forall x.
+CreateTestGridUrlResponse -&gt; Rep CreateTestGridUrlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'CreateTestGridUrlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'expires', 'createTestGridUrlResponse_expires' - The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- active.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'url', 'createTestGridUrlResponse_url' - A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'createTestGridUrlResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrlResponse"><span class="hs-identifier hs-type">newCreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newCreateTestGridUrlResponse"><span class="annot"><span class="annottext">newCreateTestGridUrlResponse :: Int -&gt; CreateTestGridUrlResponse
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrlResponse"><span class="hs-identifier hs-var hs-var">newCreateTestGridUrlResponse</span></a></span></span><span> </span><span id="local-6989586621679387267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse' :: Maybe POSIX
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expires:CreateTestGridUrlResponse' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:CreateTestGridUrlResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTestGridUrlResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- active.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier hs-type">createTestGridUrlResponse_expires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="createTestGridUrlResponse_expires"><span class="annot"><span class="annottext">createTestGridUrlResponse_expires :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier hs-var hs-var">createTestGridUrlResponse_expires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrlResponse -&gt; Maybe POSIX)
+-&gt; (CreateTestGridUrlResponse
+    -&gt; Maybe POSIX -&gt; CreateTestGridUrlResponse)
+-&gt; Lens
+     CreateTestGridUrlResponse
+     CreateTestGridUrlResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387266"><span class="annot"><span class="annottext">Maybe POSIX
+expires :: Maybe POSIX
+$sel:expires:CreateTestGridUrlResponse' :: CreateTestGridUrlResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679387266"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679387266"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387265"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387264"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679387264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:CreateTestGridUrlResponse' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679387264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateTestGridUrlResponse
+-&gt; f CreateTestGridUrlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier hs-type">createTestGridUrlResponse_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="createTestGridUrlResponse_url"><span class="annot"><span class="annottext">createTestGridUrlResponse_url :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier hs-var hs-var">createTestGridUrlResponse_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrlResponse -&gt; Maybe (Sensitive Text))
+-&gt; (CreateTestGridUrlResponse
+    -&gt; Maybe (Sensitive Text) -&gt; CreateTestGridUrlResponse)
+-&gt; Lens
+     CreateTestGridUrlResponse
+     CreateTestGridUrlResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387260"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+url :: Maybe (Sensitive Text)
+$sel:url:CreateTestGridUrlResponse' :: CreateTestGridUrlResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679387260"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679387260"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387259"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387258"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679387258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:CreateTestGridUrlResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679387258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateTestGridUrlResponse
+-&gt; f CreateTestGridUrlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_httpStatus"><span class="hs-identifier hs-type">createTestGridUrlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span id="createTestGridUrlResponse_httpStatus"><span class="annot"><span class="annottext">createTestGridUrlResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createTestGridUrlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrlResponse -&gt; Int)
+-&gt; (CreateTestGridUrlResponse -&gt; Int -&gt; CreateTestGridUrlResponse)
+-&gt; Lens CreateTestGridUrlResponse CreateTestGridUrlResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387256"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateTestGridUrlResponse' :: CreateTestGridUrlResponse -&gt; Int
+</span><a href="#local-6989586621679387256"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387256"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387255"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTestGridUrlResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

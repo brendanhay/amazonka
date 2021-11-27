@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Synthetics.GetCanary</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves complete information about one canary. You must specify the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- name of the canary that you want. To get a list of canaries and their</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- names, use</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html DescribeCanaries&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Synthetics.GetCanary</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier">GetCanary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#newGetCanary"><span class="hs-identifier">newGetCanary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#getCanary_name"><span class="hs-identifier">getCanary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier">GetCanaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#newGetCanaryResponse"><span class="hs-identifier">newGetCanaryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#getCanaryResponse_canary"><span class="hs-identifier">getCanaryResponse_canary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#getCanaryResponse_httpStatus"><span class="hs-identifier">getCanaryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.html"><span class="hs-identifier">Amazonka.Synthetics.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetCanary' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679184267"><span id="local-6989586621679184268"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCanary"><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-var">GetCanary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCanary%27"><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary%27"><span class="hs-identifier hs-var">GetCanary'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the canary that you want details for.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aname%3AGetCanary%27"><span class="annot"><span class="annottext">GetCanary -&gt; Text
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3Aname%3AGetCanary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184261"><span id="local-6989586621679184263"><span class="annot"><span class="annottext">GetCanary -&gt; GetCanary -&gt; Bool
+(GetCanary -&gt; GetCanary -&gt; Bool)
+-&gt; (GetCanary -&gt; GetCanary -&gt; Bool) -&gt; Eq GetCanary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCanary -&gt; GetCanary -&gt; Bool
+$c/= :: GetCanary -&gt; GetCanary -&gt; Bool
+== :: GetCanary -&gt; GetCanary -&gt; Bool
+$c== :: GetCanary -&gt; GetCanary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184252"><span id="local-6989586621679184254"><span id="local-6989586621679184256"><span id="local-6989586621679184258"><span class="annot"><span class="annottext">ReadPrec [GetCanary]
+ReadPrec GetCanary
+Int -&gt; ReadS GetCanary
+ReadS [GetCanary]
+(Int -&gt; ReadS GetCanary)
+-&gt; ReadS [GetCanary]
+-&gt; ReadPrec GetCanary
+-&gt; ReadPrec [GetCanary]
+-&gt; Read GetCanary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCanary]
+$creadListPrec :: ReadPrec [GetCanary]
+readPrec :: ReadPrec GetCanary
+$creadPrec :: ReadPrec GetCanary
+readList :: ReadS [GetCanary]
+$creadList :: ReadS [GetCanary]
+readsPrec :: Int -&gt; ReadS GetCanary
+$creadsPrec :: Int -&gt; ReadS GetCanary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184245"><span id="local-6989586621679184247"><span id="local-6989586621679184249"><span class="annot"><span class="annottext">Int -&gt; GetCanary -&gt; ShowS
+[GetCanary] -&gt; ShowS
+GetCanary -&gt; String
+(Int -&gt; GetCanary -&gt; ShowS)
+-&gt; (GetCanary -&gt; String)
+-&gt; ([GetCanary] -&gt; ShowS)
+-&gt; Show GetCanary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCanary] -&gt; ShowS
+$cshowList :: [GetCanary] -&gt; ShowS
+show :: GetCanary -&gt; String
+$cshow :: GetCanary -&gt; String
+showsPrec :: Int -&gt; GetCanary -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCanary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetCanary -&gt; Rep GetCanary x)
+-&gt; (forall x. Rep GetCanary x -&gt; GetCanary) -&gt; Generic GetCanary
+forall x. Rep GetCanary x -&gt; GetCanary
+forall x. GetCanary -&gt; Rep GetCanary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCanary x -&gt; GetCanary
+$cfrom :: forall x. GetCanary -&gt; Rep GetCanary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetCanary' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'name', 'getCanary_name' - The name of the canary that you want details for.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#newGetCanary"><span class="hs-identifier hs-type">newGetCanary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetCanary"><span class="annot"><span class="annottext">newGetCanary :: Text -&gt; GetCanary
+</span><a href="Amazonka.Synthetics.GetCanary.html#newGetCanary"><span class="hs-identifier hs-var hs-var">newGetCanary</span></a></span></span><span> </span><span id="local-6989586621679184240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184240"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetCanary' :: Text -&gt; GetCanary
+</span><a href="Amazonka.Synthetics.GetCanary.html#GetCanary%27"><span class="hs-identifier hs-type">GetCanary'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetCanary' :: Text
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3Aname%3AGetCanary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184240"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the canary that you want details for.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#getCanary_name"><span class="hs-identifier hs-type">getCanary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="getCanary_name"><span class="annot"><span class="annottext">getCanary_name :: (Text -&gt; f Text) -&gt; GetCanary -&gt; f GetCanary
+</span><a href="Amazonka.Synthetics.GetCanary.html#getCanary_name"><span class="hs-identifier hs-var hs-var">getCanary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCanary -&gt; Text)
+-&gt; (GetCanary -&gt; Text -&gt; GetCanary)
+-&gt; Lens GetCanary GetCanary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary%27"><span class="hs-identifier hs-type">GetCanary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184237"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetCanary' :: GetCanary -&gt; Text
+</span><a href="#local-6989586621679184237"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184237"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184236"><span class="annot"><span class="annottext">s :: GetCanary
+</span><a href="#local-6989586621679184236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary%27"><span class="hs-identifier hs-type">GetCanary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCanary
+</span><a href="#local-6989586621679184236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetCanary' :: Text
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3Aname%3AGetCanary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-type">GetCanaryResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679184231"><span class="annot"><span class="annottext">request :: GetCanary -&gt; Request GetCanary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCanary -&gt; Request GetCanary
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Synthetics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679184227"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCanary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetCanary)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetCanary))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCanary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetCanary)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184224"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184223"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679184223"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184222"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Canary -&gt; Int -&gt; GetCanaryResponse
+</span><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse%27"><span class="hs-identifier hs-var">GetCanaryResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Canary -&gt; Int -&gt; GetCanaryResponse)
+-&gt; Either String (Maybe Canary)
+-&gt; Either String (Int -&gt; GetCanaryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Canary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Canary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCanaryResponse)
+-&gt; Either String Int -&gt; Either String GetCanaryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184224"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184214"><span id="local-6989586621679184216"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679184207"><span class="annot"><span class="annottext">toHeaders :: GetCanary -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCanary -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679184201"><span class="annot"><span class="annottext">toPath :: GetCanary -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary%27"><span class="hs-identifier hs-type">GetCanary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184199"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetCanary' :: GetCanary -&gt; Text
+</span><a href="#local-6989586621679184199"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/canary/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184199"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanary"><span class="hs-identifier hs-type">GetCanary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679184195"><span class="annot"><span class="annottext">toQuery :: GetCanary -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCanary -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newGetCanaryResponse' smart constructor.</span><span>
+</span><span id="line-112"></span><span id="local-6989586621679184192"><span id="local-6989586621679184193"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCanaryResponse"><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-var">GetCanaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCanaryResponse%27"><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse%27"><span class="hs-identifier hs-var">GetCanaryResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A strucure that contains the full information about the canary.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3Acanary%3AGetCanaryResponse%27"><span class="annot"><span class="annottext">GetCanaryResponse -&gt; Maybe Canary
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3Acanary%3AGetCanaryResponse%27"><span class="hs-identifier hs-var hs-var">canary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCanaryResponse%27"><span class="annot"><span class="annottext">GetCanaryResponse -&gt; Int
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3AhttpStatus%3AGetCanaryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184186"><span id="local-6989586621679184188"><span class="annot"><span class="annottext">GetCanaryResponse -&gt; GetCanaryResponse -&gt; Bool
+(GetCanaryResponse -&gt; GetCanaryResponse -&gt; Bool)
+-&gt; (GetCanaryResponse -&gt; GetCanaryResponse -&gt; Bool)
+-&gt; Eq GetCanaryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCanaryResponse -&gt; GetCanaryResponse -&gt; Bool
+$c/= :: GetCanaryResponse -&gt; GetCanaryResponse -&gt; Bool
+== :: GetCanaryResponse -&gt; GetCanaryResponse -&gt; Bool
+$c== :: GetCanaryResponse -&gt; GetCanaryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184178"><span id="local-6989586621679184180"><span id="local-6989586621679184182"><span id="local-6989586621679184184"><span class="annot"><span class="annottext">ReadPrec [GetCanaryResponse]
+ReadPrec GetCanaryResponse
+Int -&gt; ReadS GetCanaryResponse
+ReadS [GetCanaryResponse]
+(Int -&gt; ReadS GetCanaryResponse)
+-&gt; ReadS [GetCanaryResponse]
+-&gt; ReadPrec GetCanaryResponse
+-&gt; ReadPrec [GetCanaryResponse]
+-&gt; Read GetCanaryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCanaryResponse]
+$creadListPrec :: ReadPrec [GetCanaryResponse]
+readPrec :: ReadPrec GetCanaryResponse
+$creadPrec :: ReadPrec GetCanaryResponse
+readList :: ReadS [GetCanaryResponse]
+$creadList :: ReadS [GetCanaryResponse]
+readsPrec :: Int -&gt; ReadS GetCanaryResponse
+$creadsPrec :: Int -&gt; ReadS GetCanaryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184172"><span id="local-6989586621679184174"><span id="local-6989586621679184176"><span class="annot"><span class="annottext">Int -&gt; GetCanaryResponse -&gt; ShowS
+[GetCanaryResponse] -&gt; ShowS
+GetCanaryResponse -&gt; String
+(Int -&gt; GetCanaryResponse -&gt; ShowS)
+-&gt; (GetCanaryResponse -&gt; String)
+-&gt; ([GetCanaryResponse] -&gt; ShowS)
+-&gt; Show GetCanaryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCanaryResponse] -&gt; ShowS
+$cshowList :: [GetCanaryResponse] -&gt; ShowS
+show :: GetCanaryResponse -&gt; String
+$cshow :: GetCanaryResponse -&gt; String
+showsPrec :: Int -&gt; GetCanaryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCanaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetCanaryResponse -&gt; Rep GetCanaryResponse x)
+-&gt; (forall x. Rep GetCanaryResponse x -&gt; GetCanaryResponse)
+-&gt; Generic GetCanaryResponse
+forall x. Rep GetCanaryResponse x -&gt; GetCanaryResponse
+forall x. GetCanaryResponse -&gt; Rep GetCanaryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCanaryResponse x -&gt; GetCanaryResponse
+$cfrom :: forall x. GetCanaryResponse -&gt; Rep GetCanaryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'GetCanaryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'canary', 'getCanaryResponse_canary' - A strucure that contains the full information about the canary.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'httpStatus', 'getCanaryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#newGetCanaryResponse"><span class="hs-identifier hs-type">newGetCanaryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-type">GetCanaryResponse</span></a></span><span>
+</span><span id="line-135"></span><span id="newGetCanaryResponse"><span class="annot"><span class="annottext">newGetCanaryResponse :: Int -&gt; GetCanaryResponse
+</span><a href="Amazonka.Synthetics.GetCanary.html#newGetCanaryResponse"><span class="hs-identifier hs-var hs-var">newGetCanaryResponse</span></a></span></span><span> </span><span id="local-6989586621679184169"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184169"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">GetCanaryResponse' :: Maybe Canary -&gt; Int -&gt; GetCanaryResponse
+</span><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse%27"><span class="hs-identifier hs-type">GetCanaryResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:canary:GetCanaryResponse' :: Maybe Canary
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3Acanary%3AGetCanaryResponse%27"><span class="hs-identifier hs-var">canary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Canary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCanaryResponse' :: Int
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3AhttpStatus%3AGetCanaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184169"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A strucure that contains the full information about the canary.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#getCanaryResponse_canary"><span class="hs-identifier hs-type">getCanaryResponse_canary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-type">GetCanaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="getCanaryResponse_canary"><span class="annot"><span class="annottext">getCanaryResponse_canary :: (Maybe Canary -&gt; f (Maybe Canary))
+-&gt; GetCanaryResponse -&gt; f GetCanaryResponse
+</span><a href="Amazonka.Synthetics.GetCanary.html#getCanaryResponse_canary"><span class="hs-identifier hs-var hs-var">getCanaryResponse_canary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCanaryResponse -&gt; Maybe Canary)
+-&gt; (GetCanaryResponse -&gt; Maybe Canary -&gt; GetCanaryResponse)
+-&gt; Lens
+     GetCanaryResponse GetCanaryResponse (Maybe Canary) (Maybe Canary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse%27"><span class="hs-identifier hs-type">GetCanaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184168"><span class="annot"><span class="annottext">Maybe Canary
+canary :: Maybe Canary
+$sel:canary:GetCanaryResponse' :: GetCanaryResponse -&gt; Maybe Canary
+</span><a href="#local-6989586621679184168"><span class="hs-identifier hs-var hs-var">canary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Canary
+</span><a href="#local-6989586621679184168"><span class="hs-identifier hs-var">canary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184167"><span class="annot"><span class="annottext">s :: GetCanaryResponse
+</span><a href="#local-6989586621679184167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse%27"><span class="hs-identifier hs-type">GetCanaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184166"><span class="annot"><span class="annottext">Maybe Canary
+</span><a href="#local-6989586621679184166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCanaryResponse
+</span><a href="#local-6989586621679184167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:canary:GetCanaryResponse' :: Maybe Canary
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3Acanary%3AGetCanaryResponse%27"><span class="hs-identifier hs-var">canary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Canary
+</span><a href="#local-6989586621679184166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-type">GetCanaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#getCanaryResponse_httpStatus"><span class="hs-identifier hs-type">getCanaryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-type">GetCanaryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="getCanaryResponse_httpStatus"><span class="annot"><span class="annottext">getCanaryResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetCanaryResponse -&gt; f GetCanaryResponse
+</span><a href="Amazonka.Synthetics.GetCanary.html#getCanaryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCanaryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCanaryResponse -&gt; Int)
+-&gt; (GetCanaryResponse -&gt; Int -&gt; GetCanaryResponse)
+-&gt; Lens GetCanaryResponse GetCanaryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse%27"><span class="hs-identifier hs-type">GetCanaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184165"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCanaryResponse' :: GetCanaryResponse -&gt; Int
+</span><a href="#local-6989586621679184165"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184165"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184164"><span class="annot"><span class="annottext">s :: GetCanaryResponse
+</span><a href="#local-6989586621679184164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse%27"><span class="hs-identifier hs-type">GetCanaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184163"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCanaryResponse
+</span><a href="#local-6989586621679184164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCanaryResponse' :: Int
+</span><a href="Amazonka.Synthetics.GetCanary.html#%24sel%3AhttpStatus%3AGetCanaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-type">GetCanaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.GetCanary.html#GetCanaryResponse"><span class="hs-identifier hs-type">GetCanaryResponse</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

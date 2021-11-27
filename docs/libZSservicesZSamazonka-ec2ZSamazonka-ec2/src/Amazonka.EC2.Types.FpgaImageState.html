@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.FpgaImageState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.FpgaImageState</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageStateCode.html"><span class="hs-identifier">Amazonka.EC2.Types.FpgaImageStateCode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of the bitstream generation process for an Amazon</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- FPGA image (AFI).</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFpgaImageState' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681109994"><span id="local-6989586621681109995"></span></span><span class="hs-keyword">data</span><span> </span><span id="FpgaImageState"><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-var">FpgaImageState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FpgaImageState%27"><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState%27"><span class="hs-identifier hs-var">FpgaImageState'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state. The following are the possible values:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @pending@ - AFI bitstream generation is in progress.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @available@ - The AFI is available for use.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @failed@ - AFI bitstream generation failed.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @unavailable@ - The AFI is no longer available for use.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Acode%3AFpgaImageState%27"><span class="annot"><span class="annottext">FpgaImageState -&gt; Maybe FpgaImageStateCode
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#%24sel%3Acode%3AFpgaImageState%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageStateCode.html#FpgaImageStateCode"><span class="hs-identifier hs-type">FpgaImageStateCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | If the state is @failed@, this is the error message.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Amessage%3AFpgaImageState%27"><span class="annot"><span class="annottext">FpgaImageState -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#%24sel%3Amessage%3AFpgaImageState%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681109987"><span id="local-6989586621681109989"><span class="annot"><span class="annottext">FpgaImageState -&gt; FpgaImageState -&gt; Bool
+(FpgaImageState -&gt; FpgaImageState -&gt; Bool)
+-&gt; (FpgaImageState -&gt; FpgaImageState -&gt; Bool) -&gt; Eq FpgaImageState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FpgaImageState -&gt; FpgaImageState -&gt; Bool
+$c/= :: FpgaImageState -&gt; FpgaImageState -&gt; Bool
+== :: FpgaImageState -&gt; FpgaImageState -&gt; Bool
+$c== :: FpgaImageState -&gt; FpgaImageState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681109978"><span id="local-6989586621681109980"><span id="local-6989586621681109982"><span id="local-6989586621681109984"><span class="annot"><span class="annottext">ReadPrec [FpgaImageState]
+ReadPrec FpgaImageState
+Int -&gt; ReadS FpgaImageState
+ReadS [FpgaImageState]
+(Int -&gt; ReadS FpgaImageState)
+-&gt; ReadS [FpgaImageState]
+-&gt; ReadPrec FpgaImageState
+-&gt; ReadPrec [FpgaImageState]
+-&gt; Read FpgaImageState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FpgaImageState]
+$creadListPrec :: ReadPrec [FpgaImageState]
+readPrec :: ReadPrec FpgaImageState
+$creadPrec :: ReadPrec FpgaImageState
+readList :: ReadS [FpgaImageState]
+$creadList :: ReadS [FpgaImageState]
+readsPrec :: Int -&gt; ReadS FpgaImageState
+$creadsPrec :: Int -&gt; ReadS FpgaImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681109971"><span id="local-6989586621681109973"><span id="local-6989586621681109975"><span class="annot"><span class="annottext">Int -&gt; FpgaImageState -&gt; ShowS
+[FpgaImageState] -&gt; ShowS
+FpgaImageState -&gt; String
+(Int -&gt; FpgaImageState -&gt; ShowS)
+-&gt; (FpgaImageState -&gt; String)
+-&gt; ([FpgaImageState] -&gt; ShowS)
+-&gt; Show FpgaImageState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FpgaImageState] -&gt; ShowS
+$cshowList :: [FpgaImageState] -&gt; ShowS
+show :: FpgaImageState -&gt; String
+$cshow :: FpgaImageState -&gt; String
+showsPrec :: Int -&gt; FpgaImageState -&gt; ShowS
+$cshowsPrec :: Int -&gt; FpgaImageState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FpgaImageState -&gt; Rep FpgaImageState x)
+-&gt; (forall x. Rep FpgaImageState x -&gt; FpgaImageState)
+-&gt; Generic FpgaImageState
+forall x. Rep FpgaImageState x -&gt; FpgaImageState
+forall x. FpgaImageState -&gt; Rep FpgaImageState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FpgaImageState x -&gt; FpgaImageState
+$cfrom :: forall x. FpgaImageState -&gt; Rep FpgaImageState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'FpgaImageState' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'code', 'fpgaImageState_code' - The state. The following are the possible values:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- -   @pending@ - AFI bitstream generation is in progress.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- -   @available@ - The AFI is available for use.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- -   @failed@ - AFI bitstream generation failed.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- -   @unavailable@ - The AFI is no longer available for use.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'message', 'fpgaImageState_message' - If the state is @failed@, this is the error message.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#newFpgaImageState"><span class="hs-identifier hs-type">newFpgaImageState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span><span>
+</span><span id="line-69"></span><span id="newFpgaImageState"><span class="annot"><span class="annottext">newFpgaImageState :: FpgaImageState
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#newFpgaImageState"><span class="hs-identifier hs-var hs-var">newFpgaImageState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">FpgaImageState' :: Maybe FpgaImageStateCode -&gt; Maybe Text -&gt; FpgaImageState
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState%27"><span class="hs-identifier hs-type">FpgaImageState'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:FpgaImageState' :: Maybe FpgaImageStateCode
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#%24sel%3Acode%3AFpgaImageState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaImageStateCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:FpgaImageState' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#%24sel%3Amessage%3AFpgaImageState%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The state. The following are the possible values:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- -   @pending@ - AFI bitstream generation is in progress.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -   @available@ - The AFI is available for use.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   @failed@ - AFI bitstream generation failed.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @unavailable@ - The AFI is no longer available for use.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#fpgaImageState_code"><span class="hs-identifier hs-type">fpgaImageState_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageStateCode.html#FpgaImageStateCode"><span class="hs-identifier hs-type">FpgaImageStateCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="fpgaImageState_code"><span class="annot"><span class="annottext">fpgaImageState_code :: (Maybe FpgaImageStateCode -&gt; f (Maybe FpgaImageStateCode))
+-&gt; FpgaImageState -&gt; f FpgaImageState
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#fpgaImageState_code"><span class="hs-identifier hs-var hs-var">fpgaImageState_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FpgaImageState -&gt; Maybe FpgaImageStateCode)
+-&gt; (FpgaImageState -&gt; Maybe FpgaImageStateCode -&gt; FpgaImageState)
+-&gt; Lens
+     FpgaImageState
+     FpgaImageState
+     (Maybe FpgaImageStateCode)
+     (Maybe FpgaImageStateCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState%27"><span class="hs-identifier hs-type">FpgaImageState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681109962"><span class="annot"><span class="annottext">Maybe FpgaImageStateCode
+code :: Maybe FpgaImageStateCode
+$sel:code:FpgaImageState' :: FpgaImageState -&gt; Maybe FpgaImageStateCode
+</span><a href="#local-6989586621681109962"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaImageStateCode
+</span><a href="#local-6989586621681109962"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681109961"><span class="annot"><span class="annottext">s :: FpgaImageState
+</span><a href="#local-6989586621681109961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState%27"><span class="hs-identifier hs-type">FpgaImageState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681109960"><span class="annot"><span class="annottext">Maybe FpgaImageStateCode
+</span><a href="#local-6989586621681109960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaImageState
+</span><a href="#local-6989586621681109961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:FpgaImageState' :: Maybe FpgaImageStateCode
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#%24sel%3Acode%3AFpgaImageState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaImageStateCode
+</span><a href="#local-6989586621681109960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | If the state is @failed@, this is the error message.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#fpgaImageState_message"><span class="hs-identifier hs-type">fpgaImageState_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="fpgaImageState_message"><span class="annot"><span class="annottext">fpgaImageState_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FpgaImageState -&gt; f FpgaImageState
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#fpgaImageState_message"><span class="hs-identifier hs-var hs-var">fpgaImageState_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FpgaImageState -&gt; Maybe Text)
+-&gt; (FpgaImageState -&gt; Maybe Text -&gt; FpgaImageState)
+-&gt; Lens FpgaImageState FpgaImageState (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState%27"><span class="hs-identifier hs-type">FpgaImageState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681109958"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:FpgaImageState' :: FpgaImageState -&gt; Maybe Text
+</span><a href="#local-6989586621681109958"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681109958"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681109957"><span class="annot"><span class="annottext">s :: FpgaImageState
+</span><a href="#local-6989586621681109957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState%27"><span class="hs-identifier hs-type">FpgaImageState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681109956"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681109956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaImageState
+</span><a href="#local-6989586621681109957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:FpgaImageState' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#%24sel%3Amessage%3AFpgaImageState%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681109956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621681109953"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FpgaImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681109951"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681109951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">Maybe FpgaImageStateCode -&gt; Maybe Text -&gt; FpgaImageState
+</span><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState%27"><span class="hs-identifier hs-var">FpgaImageState'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">(Maybe FpgaImageStateCode -&gt; Maybe Text -&gt; FpgaImageState)
+-&gt; Either String (Maybe FpgaImageStateCode)
+-&gt; Either String (Maybe Text -&gt; FpgaImageState)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681109951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FpgaImageStateCode)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; FpgaImageState)
+-&gt; Either String (Maybe Text) -&gt; Either String FpgaImageState
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681109951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681109945"><span id="local-6989586621681109947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681109942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageState.html#FpgaImageState"><span class="hs-identifier hs-type">FpgaImageState</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

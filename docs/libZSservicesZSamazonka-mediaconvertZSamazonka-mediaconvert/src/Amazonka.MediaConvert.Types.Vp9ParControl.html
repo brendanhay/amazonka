@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Vp9ParControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Vp9ParControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier">Vp9ParControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier">Vp9ParControl_INITIALIZE_FROM_SOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl_SPECIFIED"><span class="hs-identifier">Vp9ParControl_SPECIFIED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Optional. Specify how the service determines the pixel aspect ratio</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- (PAR) for this output. The default behavior, Follow source</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- output. To specify a different PAR in the console, choose any value</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- other than Follow source. To specify a different PAR by editing the JSON</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- job specification, choose SPECIFIED. When you choose SPECIFIED for this</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- setting, you must also specify values for the parNumerator and</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- parDenominator settings.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621680015163"><span id="local-6989586621680015164"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9ParControl"><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier hs-var">Vp9ParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9ParControl%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl%27"><span class="hs-identifier hs-var">Vp9ParControl'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp9ParControl"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#fromVp9ParControl"><span class="hs-identifier hs-var hs-var">fromVp9ParControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015155"><span id="local-6989586621680015157"><span id="local-6989586621680015159"><span class="annot"><span class="annottext">Int -&gt; Vp9ParControl -&gt; ShowS
+[Vp9ParControl] -&gt; ShowS
+Vp9ParControl -&gt; String
+(Int -&gt; Vp9ParControl -&gt; ShowS)
+-&gt; (Vp9ParControl -&gt; String)
+-&gt; ([Vp9ParControl] -&gt; ShowS)
+-&gt; Show Vp9ParControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Vp9ParControl] -&gt; ShowS
+$cshowList :: [Vp9ParControl] -&gt; ShowS
+show :: Vp9ParControl -&gt; String
+$cshow :: Vp9ParControl -&gt; String
+showsPrec :: Int -&gt; Vp9ParControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; Vp9ParControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680015146"><span id="local-6989586621680015148"><span id="local-6989586621680015150"><span id="local-6989586621680015152"><span class="annot"><span class="annottext">ReadPrec [Vp9ParControl]
+ReadPrec Vp9ParControl
+Int -&gt; ReadS Vp9ParControl
+ReadS [Vp9ParControl]
+(Int -&gt; ReadS Vp9ParControl)
+-&gt; ReadS [Vp9ParControl]
+-&gt; ReadPrec Vp9ParControl
+-&gt; ReadPrec [Vp9ParControl]
+-&gt; Read Vp9ParControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Vp9ParControl]
+$creadListPrec :: ReadPrec [Vp9ParControl]
+readPrec :: ReadPrec Vp9ParControl
+$creadPrec :: ReadPrec Vp9ParControl
+readList :: ReadS [Vp9ParControl]
+$creadList :: ReadS [Vp9ParControl]
+readsPrec :: Int -&gt; ReadS Vp9ParControl
+$creadsPrec :: Int -&gt; ReadS Vp9ParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680015141"><span id="local-6989586621680015143"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+(Vp9ParControl -&gt; Vp9ParControl -&gt; Bool)
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool) -&gt; Eq Vp9ParControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+$c/= :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+== :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+$c== :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680015125"><span id="local-6989586621680015127"><span id="local-6989586621680015129"><span id="local-6989586621680015131"><span id="local-6989586621680015133"><span id="local-6989586621680015135"><span id="local-6989586621680015137"><span class="annot"><span class="annottext">Eq Vp9ParControl
+Eq Vp9ParControl
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Ordering)
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool)
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool)
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool)
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool)
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Vp9ParControl)
+-&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Vp9ParControl)
+-&gt; Ord Vp9ParControl
+Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+Vp9ParControl -&gt; Vp9ParControl -&gt; Ordering
+Vp9ParControl -&gt; Vp9ParControl -&gt; Vp9ParControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Vp9ParControl -&gt; Vp9ParControl -&gt; Vp9ParControl
+$cmin :: Vp9ParControl -&gt; Vp9ParControl -&gt; Vp9ParControl
+max :: Vp9ParControl -&gt; Vp9ParControl -&gt; Vp9ParControl
+$cmax :: Vp9ParControl -&gt; Vp9ParControl -&gt; Vp9ParControl
+&gt;= :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+$c&gt;= :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+&gt; :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+$c&gt; :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+&lt;= :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+$c&lt;= :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+&lt; :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+$c&lt; :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+compare :: Vp9ParControl -&gt; Vp9ParControl -&gt; Ordering
+$ccompare :: Vp9ParControl -&gt; Vp9ParControl -&gt; Ordering
+$cp1Ord :: Eq Vp9ParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Vp9ParControl -&gt; Rep Vp9ParControl x)
+-&gt; (forall x. Rep Vp9ParControl x -&gt; Vp9ParControl)
+-&gt; Generic Vp9ParControl
+forall x. Rep Vp9ParControl x -&gt; Vp9ParControl
+forall x. Vp9ParControl -&gt; Rep Vp9ParControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Vp9ParControl x -&gt; Vp9ParControl
+$cfrom :: forall x. Vp9ParControl -&gt; Rep Vp9ParControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015117"><span id="local-6989586621680015119"><span class="annot"><span class="annottext">Int -&gt; Vp9ParControl -&gt; Int
+Vp9ParControl -&gt; Int
+(Int -&gt; Vp9ParControl -&gt; Int)
+-&gt; (Vp9ParControl -&gt; Int) -&gt; Hashable Vp9ParControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Vp9ParControl -&gt; Int
+$chash :: Vp9ParControl -&gt; Int
+hashWithSalt :: Int -&gt; Vp9ParControl -&gt; Int
+$chashWithSalt :: Int -&gt; Vp9ParControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680015114"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ()
+(Vp9ParControl -&gt; ()) -&gt; NFData Vp9ParControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Vp9ParControl -&gt; ()
+$crnf :: Vp9ParControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680015111"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9ParControl
+(Text -&gt; Either String Vp9ParControl) -&gt; FromText Vp9ParControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Vp9ParControl
+$cfromText :: Text -&gt; Either String Vp9ParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680015108"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Text
+(Vp9ParControl -&gt; Text) -&gt; ToText Vp9ParControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Vp9ParControl -&gt; Text
+$ctoText :: Vp9ParControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680015105"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ByteString
+(Vp9ParControl -&gt; ByteString) -&gt; ToByteString Vp9ParControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Vp9ParControl -&gt; ByteString
+$ctoBS :: Vp9ParControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680015102"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ByteStringBuilder
+(Vp9ParControl -&gt; ByteStringBuilder) -&gt; ToLog Vp9ParControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Vp9ParControl -&gt; ByteStringBuilder
+$cbuild :: Vp9ParControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015099"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9ParControl -&gt; [Header]
+(HeaderName -&gt; Vp9ParControl -&gt; [Header]) -&gt; ToHeader Vp9ParControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Vp9ParControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Vp9ParControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015096"><span class="annot"><span class="annottext">Vp9ParControl -&gt; QueryString
+(Vp9ParControl -&gt; QueryString) -&gt; ToQuery Vp9ParControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Vp9ParControl -&gt; QueryString
+$ctoQuery :: Vp9ParControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015091"><span id="local-6989586621680015093"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9ParControl]
+Value -&gt; Parser Vp9ParControl
+(Value -&gt; Parser Vp9ParControl)
+-&gt; (Value -&gt; Parser [Vp9ParControl]) -&gt; FromJSON Vp9ParControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Vp9ParControl]
+$cparseJSONList :: Value -&gt; Parser [Vp9ParControl]
+parseJSON :: Value -&gt; Parser Vp9ParControl
+$cparseJSON :: Value -&gt; Parser Vp9ParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015086"><span id="local-6989586621680015088"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9ParControl]
+FromJSONKeyFunction Vp9ParControl
+FromJSONKeyFunction Vp9ParControl
+-&gt; FromJSONKeyFunction [Vp9ParControl] -&gt; FromJSONKey Vp9ParControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Vp9ParControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [Vp9ParControl]
+fromJSONKey :: FromJSONKeyFunction Vp9ParControl
+$cfromJSONKey :: FromJSONKeyFunction Vp9ParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680015077"><span id="local-6989586621680015079"><span id="local-6989586621680015081"><span id="local-6989586621680015083"><span class="annot"><span class="annottext">[Vp9ParControl] -&gt; Encoding
+[Vp9ParControl] -&gt; Value
+Vp9ParControl -&gt; Encoding
+Vp9ParControl -&gt; Value
+(Vp9ParControl -&gt; Value)
+-&gt; (Vp9ParControl -&gt; Encoding)
+-&gt; ([Vp9ParControl] -&gt; Value)
+-&gt; ([Vp9ParControl] -&gt; Encoding)
+-&gt; ToJSON Vp9ParControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Vp9ParControl] -&gt; Encoding
+$ctoEncodingList :: [Vp9ParControl] -&gt; Encoding
+toJSONList :: [Vp9ParControl] -&gt; Value
+$ctoJSONList :: [Vp9ParControl] -&gt; Value
+toEncoding :: Vp9ParControl -&gt; Encoding
+$ctoEncoding :: Vp9ParControl -&gt; Encoding
+toJSON :: Vp9ParControl -&gt; Value
+$ctoJSON :: Vp9ParControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680015072"><span id="local-6989586621680015074"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9ParControl]
+ToJSONKeyFunction Vp9ParControl
+ToJSONKeyFunction Vp9ParControl
+-&gt; ToJSONKeyFunction [Vp9ParControl] -&gt; ToJSONKey Vp9ParControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Vp9ParControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [Vp9ParControl]
+toJSONKey :: ToJSONKeyFunction Vp9ParControl
+$ctoJSONKey :: ToJSONKeyFunction Vp9ParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680015069"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9ParControl
+([Node] -&gt; Either String Vp9ParControl) -&gt; FromXML Vp9ParControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Vp9ParControl
+$cparseXML :: [Node] -&gt; Either String Vp9ParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680015066"><span class="annot"><span class="annottext">Vp9ParControl -&gt; XML
+(Vp9ParControl -&gt; XML) -&gt; ToXML Vp9ParControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Vp9ParControl -&gt; XML
+$ctoXML :: Vp9ParControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier hs-type">Vp9ParControl_INITIALIZE_FROM_SOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier hs-type">Vp9ParControl</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVp9ParControl_INITIALIZE_FROM_SOURCE"><span id="%24mVp9ParControl_INITIALIZE_FROM_SOURCE"><span id="Vp9ParControl_INITIALIZE_FROM_SOURCE"><span class="annot"><span class="annottext">$bVp9ParControl_INITIALIZE_FROM_SOURCE :: Vp9ParControl
+$mVp9ParControl_INITIALIZE_FROM_SOURCE :: forall r. Vp9ParControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#%24bVp9ParControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier hs-var hs-var hs-var">Vp9ParControl_INITIALIZE_FROM_SOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl%27"><span class="hs-identifier hs-type">Vp9ParControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INITIALIZE_FROM_SOURCE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl_SPECIFIED"><span class="hs-identifier hs-type">Vp9ParControl_SPECIFIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier hs-type">Vp9ParControl</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVp9ParControl_SPECIFIED"><span id="%24mVp9ParControl_SPECIFIED"><span id="Vp9ParControl_SPECIFIED"><span class="annot"><span class="annottext">$bVp9ParControl_SPECIFIED :: Vp9ParControl
+$mVp9ParControl_SPECIFIED :: forall r. Vp9ParControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#%24bVp9ParControl_SPECIFIED"><span class="hs-identifier hs-var hs-var hs-var">Vp9ParControl_SPECIFIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl%27"><span class="hs-identifier hs-type">Vp9ParControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPECIFIED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl_INITIALIZE_FROM_SOURCE"><span class="hs-pragma hs-type">Vp9ParControl_INITIALIZE_FROM_SOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl_SPECIFIED"><span class="hs-pragma hs-type">Vp9ParControl_SPECIFIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl%27"><span class="hs-pragma hs-type">Vp9ParControl'</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-79"></span></pre></body></html>

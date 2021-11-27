@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEvents.Types.IotEventsAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEvents.Types.IotEventsAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.Payload.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.Payload</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Sends an AWS IoT Events input, passing in information about the detector</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- model instance and the event that triggered the action.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newIotEventsAction' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679242871"><span id="local-6989586621679242872"></span></span><span class="hs-keyword">data</span><span> </span><span id="IotEventsAction"><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-var">IotEventsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IotEventsAction%27"><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-var">IotEventsAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can configure the action payload when you send a message to an AWS</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- IoT Events input.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Apayload%3AIotEventsAction%27"><span class="annot"><span class="annottext">IotEventsAction -&gt; Maybe Payload
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#%24sel%3Apayload%3AIotEventsAction%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.Payload.html#Payload"><span class="hs-identifier hs-type">Payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the AWS IoT Events input where the data is sent.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AinputName%3AIotEventsAction%27"><span class="annot"><span class="annottext">IotEventsAction -&gt; Text
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#%24sel%3AinputName%3AIotEventsAction%27"><span class="hs-identifier hs-var hs-var">inputName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242864"><span id="local-6989586621679242866"><span class="annot"><span class="annottext">IotEventsAction -&gt; IotEventsAction -&gt; Bool
+(IotEventsAction -&gt; IotEventsAction -&gt; Bool)
+-&gt; (IotEventsAction -&gt; IotEventsAction -&gt; Bool)
+-&gt; Eq IotEventsAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IotEventsAction -&gt; IotEventsAction -&gt; Bool
+$c/= :: IotEventsAction -&gt; IotEventsAction -&gt; Bool
+== :: IotEventsAction -&gt; IotEventsAction -&gt; Bool
+$c== :: IotEventsAction -&gt; IotEventsAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242855"><span id="local-6989586621679242857"><span id="local-6989586621679242859"><span id="local-6989586621679242861"><span class="annot"><span class="annottext">ReadPrec [IotEventsAction]
+ReadPrec IotEventsAction
+Int -&gt; ReadS IotEventsAction
+ReadS [IotEventsAction]
+(Int -&gt; ReadS IotEventsAction)
+-&gt; ReadS [IotEventsAction]
+-&gt; ReadPrec IotEventsAction
+-&gt; ReadPrec [IotEventsAction]
+-&gt; Read IotEventsAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IotEventsAction]
+$creadListPrec :: ReadPrec [IotEventsAction]
+readPrec :: ReadPrec IotEventsAction
+$creadPrec :: ReadPrec IotEventsAction
+readList :: ReadS [IotEventsAction]
+$creadList :: ReadS [IotEventsAction]
+readsPrec :: Int -&gt; ReadS IotEventsAction
+$creadsPrec :: Int -&gt; ReadS IotEventsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242848"><span id="local-6989586621679242850"><span id="local-6989586621679242852"><span class="annot"><span class="annottext">Int -&gt; IotEventsAction -&gt; ShowS
+[IotEventsAction] -&gt; ShowS
+IotEventsAction -&gt; String
+(Int -&gt; IotEventsAction -&gt; ShowS)
+-&gt; (IotEventsAction -&gt; String)
+-&gt; ([IotEventsAction] -&gt; ShowS)
+-&gt; Show IotEventsAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IotEventsAction] -&gt; ShowS
+$cshowList :: [IotEventsAction] -&gt; ShowS
+show :: IotEventsAction -&gt; String
+$cshow :: IotEventsAction -&gt; String
+showsPrec :: Int -&gt; IotEventsAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; IotEventsAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. IotEventsAction -&gt; Rep IotEventsAction x)
+-&gt; (forall x. Rep IotEventsAction x -&gt; IotEventsAction)
+-&gt; Generic IotEventsAction
+forall x. Rep IotEventsAction x -&gt; IotEventsAction
+forall x. IotEventsAction -&gt; Rep IotEventsAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IotEventsAction x -&gt; IotEventsAction
+$cfrom :: forall x. IotEventsAction -&gt; Rep IotEventsAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'IotEventsAction' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'payload', 'iotEventsAction_payload' - You can configure the action payload when you send a message to an AWS</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- IoT Events input.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'inputName', 'iotEventsAction_inputName' - The name of the AWS IoT Events input where the data is sent.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#newIotEventsAction"><span class="hs-identifier hs-type">newIotEventsAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'inputName'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span>
+</span><span id="line-56"></span><span id="newIotEventsAction"><span class="annot"><span class="annottext">newIotEventsAction :: Text -&gt; IotEventsAction
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#newIotEventsAction"><span class="hs-identifier hs-var hs-var">newIotEventsAction</span></a></span></span><span> </span><span id="local-6989586621679242842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242842"><span class="hs-identifier hs-var">pInputName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">IotEventsAction' :: Maybe Payload -&gt; Text -&gt; IotEventsAction
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-type">IotEventsAction'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:payload:IotEventsAction' :: Maybe Payload
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#%24sel%3Apayload%3AIotEventsAction%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Payload
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputName:IotEventsAction' :: Text
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#%24sel%3AinputName%3AIotEventsAction%27"><span class="hs-identifier hs-var">inputName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242842"><span class="hs-identifier hs-var">pInputName_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | You can configure the action payload when you send a message to an AWS</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- IoT Events input.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#iotEventsAction_payload"><span class="hs-identifier hs-type">iotEventsAction_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.Payload.html#Payload"><span class="hs-identifier hs-type">Payload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="iotEventsAction_payload"><span class="annot"><span class="annottext">iotEventsAction_payload :: (Maybe Payload -&gt; f (Maybe Payload))
+-&gt; IotEventsAction -&gt; f IotEventsAction
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#iotEventsAction_payload"><span class="hs-identifier hs-var hs-var">iotEventsAction_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IotEventsAction -&gt; Maybe Payload)
+-&gt; (IotEventsAction -&gt; Maybe Payload -&gt; IotEventsAction)
+-&gt; Lens
+     IotEventsAction IotEventsAction (Maybe Payload) (Maybe Payload)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-type">IotEventsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242838"><span class="annot"><span class="annottext">Maybe Payload
+payload :: Maybe Payload
+$sel:payload:IotEventsAction' :: IotEventsAction -&gt; Maybe Payload
+</span><a href="#local-6989586621679242838"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Payload
+</span><a href="#local-6989586621679242838"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242837"><span class="annot"><span class="annottext">s :: IotEventsAction
+</span><a href="#local-6989586621679242837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-type">IotEventsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242836"><span class="annot"><span class="annottext">Maybe Payload
+</span><a href="#local-6989586621679242836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IotEventsAction
+</span><a href="#local-6989586621679242837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:IotEventsAction' :: Maybe Payload
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#%24sel%3Apayload%3AIotEventsAction%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Payload
+</span><a href="#local-6989586621679242836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The name of the AWS IoT Events input where the data is sent.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#iotEventsAction_inputName"><span class="hs-identifier hs-type">iotEventsAction_inputName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span id="iotEventsAction_inputName"><span class="annot"><span class="annottext">iotEventsAction_inputName :: (Text -&gt; f Text) -&gt; IotEventsAction -&gt; f IotEventsAction
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#iotEventsAction_inputName"><span class="hs-identifier hs-var hs-var">iotEventsAction_inputName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IotEventsAction -&gt; Text)
+-&gt; (IotEventsAction -&gt; Text -&gt; IotEventsAction)
+-&gt; Lens IotEventsAction IotEventsAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-type">IotEventsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242834"><span class="annot"><span class="annottext">Text
+inputName :: Text
+$sel:inputName:IotEventsAction' :: IotEventsAction -&gt; Text
+</span><a href="#local-6989586621679242834"><span class="hs-identifier hs-var hs-var">inputName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242834"><span class="hs-identifier hs-var">inputName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242833"><span class="annot"><span class="annottext">s :: IotEventsAction
+</span><a href="#local-6989586621679242833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-type">IotEventsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IotEventsAction
+</span><a href="#local-6989586621679242833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputName:IotEventsAction' :: Text
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#%24sel%3AinputName%3AIotEventsAction%27"><span class="hs-identifier hs-var">inputName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242829"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679242827"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IotEventsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser IotEventsAction)
+-&gt; Value
+-&gt; Parser IotEventsAction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;IotEventsAction&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242824"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe Payload -&gt; Text -&gt; IotEventsAction
+</span><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-var">IotEventsAction'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Payload -&gt; Text -&gt; IotEventsAction)
+-&gt; Parser (Maybe Payload) -&gt; Parser (Text -&gt; IotEventsAction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Payload)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;payload&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; IotEventsAction)
+-&gt; Parser Text -&gt; Parser IotEventsAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242817"><span id="local-6989586621679242819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242806"><span id="local-6989586621679242808"><span id="local-6989586621679242810"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679242804"><span class="annot"><span class="annottext">toJSON :: IotEventsAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.IotEventsAction.html#IotEventsAction%27"><span class="hs-identifier hs-type">IotEventsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242801"><span id="local-6989586621679242802"><span class="annot"><span class="annottext">Maybe Payload
+Text
+inputName :: Text
+payload :: Maybe Payload
+$sel:inputName:IotEventsAction' :: IotEventsAction -&gt; Text
+$sel:payload:IotEventsAction' :: IotEventsAction -&gt; Maybe Payload
+</span><a href="#local-6989586621679242801"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;payload&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Payload -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Payload -&gt; Pair) -&gt; Maybe Payload -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Payload
+</span><a href="#local-6989586621679242802"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242801"><span class="hs-identifier hs-var">inputName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.Types.PackageDependency</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.Types.PackageDependency</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Details about a package dependency.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPackageDependency' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679230231"><span id="local-6989586621679230232"></span></span><span class="hs-keyword">data</span><span> </span><span id="PackageDependency"><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-var">PackageDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageDependency%27"><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-var">PackageDependency'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of a package dependency. The possible values depend on the</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- package type. Example types are @compile@, @runtime@, and @test@ for</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdependencyType%3APackageDependency%27"><span class="annot"><span class="annottext">PackageDependency -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3AdependencyType%3APackageDependency%27"><span class="hs-identifier hs-var hs-var">dependencyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Anamespace%3APackageDependency%27"><span class="annot"><span class="annottext">PackageDependency -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3Anamespace%3APackageDependency%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the package that this package depends on.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Apackage%3APackageDependency%27"><span class="annot"><span class="annottext">PackageDependency -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3Apackage%3APackageDependency%27"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The required version, or version range, of the package that this package</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- depends on. The version format is specific to the package type. For</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- example, the following are possible valid required versions: @1.2.3@,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @^2.3.4@, or @4.x@.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AversionRequirement%3APackageDependency%27"><span class="annot"><span class="annottext">PackageDependency -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3AversionRequirement%3APackageDependency%27"><span class="hs-identifier hs-var hs-var">versionRequirement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230222"><span id="local-6989586621679230224"><span class="annot"><span class="annottext">PackageDependency -&gt; PackageDependency -&gt; Bool
+(PackageDependency -&gt; PackageDependency -&gt; Bool)
+-&gt; (PackageDependency -&gt; PackageDependency -&gt; Bool)
+-&gt; Eq PackageDependency
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PackageDependency -&gt; PackageDependency -&gt; Bool
+$c/= :: PackageDependency -&gt; PackageDependency -&gt; Bool
+== :: PackageDependency -&gt; PackageDependency -&gt; Bool
+$c== :: PackageDependency -&gt; PackageDependency -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230213"><span id="local-6989586621679230215"><span id="local-6989586621679230217"><span id="local-6989586621679230219"><span class="annot"><span class="annottext">ReadPrec [PackageDependency]
+ReadPrec PackageDependency
+Int -&gt; ReadS PackageDependency
+ReadS [PackageDependency]
+(Int -&gt; ReadS PackageDependency)
+-&gt; ReadS [PackageDependency]
+-&gt; ReadPrec PackageDependency
+-&gt; ReadPrec [PackageDependency]
+-&gt; Read PackageDependency
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PackageDependency]
+$creadListPrec :: ReadPrec [PackageDependency]
+readPrec :: ReadPrec PackageDependency
+$creadPrec :: ReadPrec PackageDependency
+readList :: ReadS [PackageDependency]
+$creadList :: ReadS [PackageDependency]
+readsPrec :: Int -&gt; ReadS PackageDependency
+$creadsPrec :: Int -&gt; ReadS PackageDependency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230206"><span id="local-6989586621679230208"><span id="local-6989586621679230210"><span class="annot"><span class="annottext">Int -&gt; PackageDependency -&gt; ShowS
+[PackageDependency] -&gt; ShowS
+PackageDependency -&gt; String
+(Int -&gt; PackageDependency -&gt; ShowS)
+-&gt; (PackageDependency -&gt; String)
+-&gt; ([PackageDependency] -&gt; ShowS)
+-&gt; Show PackageDependency
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PackageDependency] -&gt; ShowS
+$cshowList :: [PackageDependency] -&gt; ShowS
+show :: PackageDependency -&gt; String
+$cshow :: PackageDependency -&gt; String
+showsPrec :: Int -&gt; PackageDependency -&gt; ShowS
+$cshowsPrec :: Int -&gt; PackageDependency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PackageDependency -&gt; Rep PackageDependency x)
+-&gt; (forall x. Rep PackageDependency x -&gt; PackageDependency)
+-&gt; Generic PackageDependency
+forall x. Rep PackageDependency x -&gt; PackageDependency
+forall x. PackageDependency -&gt; Rep PackageDependency x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PackageDependency x -&gt; PackageDependency
+$cfrom :: forall x. PackageDependency -&gt; Rep PackageDependency x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'PackageDependency' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'dependencyType', 'packageDependency_dependencyType' - The type of a package dependency. The possible values depend on the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- package type. Example types are @compile@, @runtime@, and @test@ for</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'namespace', 'packageDependency_namespace' - The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'package', 'packageDependency_package' - The name of the package that this package depends on.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'versionRequirement', 'packageDependency_versionRequirement' - The required version, or version range, of the package that this package</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- depends on. The version format is specific to the package type. For</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- example, the following are possible valid required versions: @1.2.3@,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @^2.3.4@, or @4.x@.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#newPackageDependency"><span class="hs-identifier hs-type">newPackageDependency</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span>
+</span><span id="line-84"></span><span id="newPackageDependency"><span class="annot"><span class="annottext">newPackageDependency :: PackageDependency
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#newPackageDependency"><span class="hs-identifier hs-var hs-var">newPackageDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">PackageDependency' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PackageDependency
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dependencyType:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3AdependencyType%3APackageDependency%27"><span class="hs-identifier hs-var">dependencyType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3Anamespace%3APackageDependency%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:package:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3Apackage%3APackageDependency%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionRequirement:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3AversionRequirement%3APackageDependency%27"><span class="hs-identifier hs-var">versionRequirement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The type of a package dependency. The possible values depend on the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- package type. Example types are @compile@, @runtime@, and @test@ for</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_dependencyType"><span class="hs-identifier hs-type">packageDependency_dependencyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="packageDependency_dependencyType"><span class="annot"><span class="annottext">packageDependency_dependencyType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageDependency -&gt; f PackageDependency
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_dependencyType"><span class="hs-identifier hs-var hs-var">packageDependency_dependencyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageDependency -&gt; Maybe Text)
+-&gt; (PackageDependency -&gt; Maybe Text -&gt; PackageDependency)
+-&gt; Lens
+     PackageDependency PackageDependency (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230197"><span class="annot"><span class="annottext">Maybe Text
+dependencyType :: Maybe Text
+$sel:dependencyType:PackageDependency' :: PackageDependency -&gt; Maybe Text
+</span><a href="#local-6989586621679230197"><span class="hs-identifier hs-var hs-var">dependencyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230197"><span class="hs-identifier hs-var">dependencyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230196"><span class="annot"><span class="annottext">s :: PackageDependency
+</span><a href="#local-6989586621679230196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageDependency
+</span><a href="#local-6989586621679230196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dependencyType:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3AdependencyType%3APackageDependency%27"><span class="hs-identifier hs-var">dependencyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_namespace"><span class="hs-identifier hs-type">packageDependency_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="packageDependency_namespace"><span class="annot"><span class="annottext">packageDependency_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageDependency -&gt; f PackageDependency
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_namespace"><span class="hs-identifier hs-var hs-var">packageDependency_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageDependency -&gt; Maybe Text)
+-&gt; (PackageDependency -&gt; Maybe Text -&gt; PackageDependency)
+-&gt; Lens
+     PackageDependency PackageDependency (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230193"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:PackageDependency' :: PackageDependency -&gt; Maybe Text
+</span><a href="#local-6989586621679230193"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230193"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230192"><span class="annot"><span class="annottext">s :: PackageDependency
+</span><a href="#local-6989586621679230192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageDependency
+</span><a href="#local-6989586621679230192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3Anamespace%3APackageDependency%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the package that this package depends on.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_package"><span class="hs-identifier hs-type">packageDependency_package</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="packageDependency_package"><span class="annot"><span class="annottext">packageDependency_package :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageDependency -&gt; f PackageDependency
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_package"><span class="hs-identifier hs-var hs-var">packageDependency_package</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageDependency -&gt; Maybe Text)
+-&gt; (PackageDependency -&gt; Maybe Text -&gt; PackageDependency)
+-&gt; Lens
+     PackageDependency PackageDependency (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230189"><span class="annot"><span class="annottext">Maybe Text
+package :: Maybe Text
+$sel:package:PackageDependency' :: PackageDependency -&gt; Maybe Text
+</span><a href="#local-6989586621679230189"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230189"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230188"><span class="annot"><span class="annottext">s :: PackageDependency
+</span><a href="#local-6989586621679230188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageDependency
+</span><a href="#local-6989586621679230188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:package:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3Apackage%3APackageDependency%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The required version, or version range, of the package that this package</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- depends on. The version format is specific to the package type. For</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- example, the following are possible valid required versions: @1.2.3@,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @^2.3.4@, or @4.x@.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_versionRequirement"><span class="hs-identifier hs-type">packageDependency_versionRequirement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="packageDependency_versionRequirement"><span class="annot"><span class="annottext">packageDependency_versionRequirement :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageDependency -&gt; f PackageDependency
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#packageDependency_versionRequirement"><span class="hs-identifier hs-var hs-var">packageDependency_versionRequirement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageDependency -&gt; Maybe Text)
+-&gt; (PackageDependency -&gt; Maybe Text -&gt; PackageDependency)
+-&gt; Lens
+     PackageDependency PackageDependency (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230185"><span class="annot"><span class="annottext">Maybe Text
+versionRequirement :: Maybe Text
+$sel:versionRequirement:PackageDependency' :: PackageDependency -&gt; Maybe Text
+</span><a href="#local-6989586621679230185"><span class="hs-identifier hs-var hs-var">versionRequirement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230185"><span class="hs-identifier hs-var">versionRequirement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230184"><span class="annot"><span class="annottext">s :: PackageDependency
+</span><a href="#local-6989586621679230184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-type">PackageDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230183"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageDependency
+</span><a href="#local-6989586621679230184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionRequirement:PackageDependency' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#%24sel%3AversionRequirement%3APackageDependency%27"><span class="hs-identifier hs-var">versionRequirement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230180"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679230178"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PackageDependency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PackageDependency)
+-&gt; Value
+-&gt; Parser PackageDependency
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PackageDependency&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230175"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PackageDependency
+</span><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency%27"><span class="hs-identifier hs-var">PackageDependency'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PackageDependency)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PackageDependency)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dependencyType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PackageDependency)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PackageDependency)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; PackageDependency)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PackageDependency)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;package&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PackageDependency)
+-&gt; Parser (Maybe Text) -&gt; Parser PackageDependency
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versionRequirement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230169"><span id="local-6989586621679230171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageDependency.html#PackageDependency"><span class="hs-identifier hs-type">PackageDependency</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

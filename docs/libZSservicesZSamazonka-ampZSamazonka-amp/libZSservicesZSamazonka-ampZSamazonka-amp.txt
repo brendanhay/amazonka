@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode
+module Amazonka.AMP.Types.AlertManagerDefinitionStatusCode
 
 -- | State of an alert manager definition.
 newtype AlertManagerDefinitionStatusCode
@@ -17,28 +17,28 @@ pattern AlertManagerDefinitionStatusCode_CREATION_FAILED :: AlertManagerDefiniti
 pattern AlertManagerDefinitionStatusCode_DELETING :: AlertManagerDefinitionStatusCode
 pattern AlertManagerDefinitionStatusCode_UPDATE_FAILED :: AlertManagerDefinitionStatusCode
 pattern AlertManagerDefinitionStatusCode_UPDATING :: AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.Text.ToText Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Network.AWS.Data.Text.FromText Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance GHC.Generics.Generic Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance GHC.Classes.Ord Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance GHC.Classes.Eq Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance GHC.Read.Read Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
-instance GHC.Show.Show Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.XML.ToXML Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.XML.FromXML Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.Log.ToLog Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.Text.ToText Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Amazonka.Data.Text.FromText Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance GHC.Generics.Generic Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance GHC.Classes.Ord Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance GHC.Classes.Eq Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance GHC.Read.Read Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
+instance GHC.Show.Show Amazonka.AMP.Types.AlertManagerDefinitionStatusCode.AlertManagerDefinitionStatusCode
 
 
-module Network.AWS.AMP.Types.AlertManagerDefinitionStatus
+module Amazonka.AMP.Types.AlertManagerDefinitionStatus
 
 -- | Represents the status of a definition.
 --   
@@ -75,16 +75,16 @@ alertManagerDefinitionStatus_statusReason :: Lens' AlertManagerDefinitionStatus 
 
 -- | Status code of this definition.
 alertManagerDefinitionStatus_statusCode :: Lens' AlertManagerDefinitionStatus AlertManagerDefinitionStatusCode
-instance GHC.Generics.Generic Network.AWS.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
-instance GHC.Show.Show Network.AWS.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
-instance GHC.Read.Read Network.AWS.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
-instance GHC.Classes.Eq Network.AWS.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
+instance GHC.Generics.Generic Amazonka.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
+instance GHC.Show.Show Amazonka.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
+instance GHC.Read.Read Amazonka.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
+instance GHC.Classes.Eq Amazonka.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.AlertManagerDefinitionStatus.AlertManagerDefinitionStatus
 
 
-module Network.AWS.AMP.Types.AlertManagerDefinitionDescription
+module Amazonka.AMP.Types.AlertManagerDefinitionDescription
 
 -- | Represents the properties of an alert manager definition.
 --   
@@ -151,16 +151,16 @@ alertManagerDefinitionDescription_modifiedAt :: Lens' AlertManagerDefinitionDesc
 
 -- | The status of alert manager definition.
 alertManagerDefinitionDescription_status :: Lens' AlertManagerDefinitionDescription AlertManagerDefinitionStatus
-instance GHC.Generics.Generic Network.AWS.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
-instance GHC.Show.Show Network.AWS.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
-instance GHC.Read.Read Network.AWS.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
-instance GHC.Classes.Eq Network.AWS.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
+instance GHC.Generics.Generic Amazonka.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
+instance GHC.Show.Show Amazonka.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
+instance GHC.Read.Read Amazonka.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
+instance GHC.Classes.Eq Amazonka.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.AlertManagerDefinitionDescription.AlertManagerDefinitionDescription
 
 
-module Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode
+module Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode
 
 -- | State of a namespace.
 newtype RuleGroupsNamespaceStatusCode
@@ -172,28 +172,28 @@ pattern RuleGroupsNamespaceStatusCode_CREATION_FAILED :: RuleGroupsNamespaceStat
 pattern RuleGroupsNamespaceStatusCode_DELETING :: RuleGroupsNamespaceStatusCode
 pattern RuleGroupsNamespaceStatusCode_UPDATE_FAILED :: RuleGroupsNamespaceStatusCode
 pattern RuleGroupsNamespaceStatusCode_UPDATING :: RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.Text.ToText Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Network.AWS.Data.Text.FromText Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance GHC.Generics.Generic Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance GHC.Classes.Ord Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance GHC.Classes.Eq Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance GHC.Read.Read Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
-instance GHC.Show.Show Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.XML.ToXML Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.XML.FromXML Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.Log.ToLog Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.Text.ToText Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Amazonka.Data.Text.FromText Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance GHC.Generics.Generic Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance GHC.Classes.Ord Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance GHC.Classes.Eq Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance GHC.Read.Read Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
+instance GHC.Show.Show Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode.RuleGroupsNamespaceStatusCode
 
 
-module Network.AWS.AMP.Types.RuleGroupsNamespaceStatus
+module Amazonka.AMP.Types.RuleGroupsNamespaceStatus
 
 -- | Represents the status of a namespace.
 --   
@@ -230,16 +230,16 @@ ruleGroupsNamespaceStatus_statusReason :: Lens' RuleGroupsNamespaceStatus (Maybe
 
 -- | Status code of this namespace.
 ruleGroupsNamespaceStatus_statusCode :: Lens' RuleGroupsNamespaceStatus RuleGroupsNamespaceStatusCode
-instance GHC.Generics.Generic Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
-instance GHC.Show.Show Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
-instance GHC.Read.Read Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
-instance GHC.Classes.Eq Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
+instance GHC.Generics.Generic Amazonka.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
+instance GHC.Show.Show Amazonka.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
+instance GHC.Read.Read Amazonka.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
+instance GHC.Classes.Eq Amazonka.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.RuleGroupsNamespaceStatus.RuleGroupsNamespaceStatus
 
 
-module Network.AWS.AMP.Types.RuleGroupsNamespaceDescription
+module Amazonka.AMP.Types.RuleGroupsNamespaceDescription
 
 -- | Represents a description of the rule groups namespace.
 --   
@@ -336,16 +336,16 @@ ruleGroupsNamespaceDescription_name :: Lens' RuleGroupsNamespaceDescription Text
 
 -- | The status of rule groups namespace.
 ruleGroupsNamespaceDescription_status :: Lens' RuleGroupsNamespaceDescription RuleGroupsNamespaceStatus
-instance GHC.Generics.Generic Network.AWS.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
-instance GHC.Show.Show Network.AWS.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
-instance GHC.Read.Read Network.AWS.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
-instance GHC.Classes.Eq Network.AWS.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
+instance GHC.Generics.Generic Amazonka.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
+instance GHC.Show.Show Amazonka.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
+instance GHC.Read.Read Amazonka.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
+instance GHC.Classes.Eq Amazonka.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.RuleGroupsNamespaceDescription.RuleGroupsNamespaceDescription
 
 
-module Network.AWS.AMP.Types.RuleGroupsNamespaceSummary
+module Amazonka.AMP.Types.RuleGroupsNamespaceSummary
 
 -- | Represents a summary of the rule groups namespace.
 --   
@@ -422,16 +422,16 @@ ruleGroupsNamespaceSummary_name :: Lens' RuleGroupsNamespaceSummary Text
 
 -- | The status of rule groups namespace.
 ruleGroupsNamespaceSummary_status :: Lens' RuleGroupsNamespaceSummary RuleGroupsNamespaceStatus
-instance GHC.Generics.Generic Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
-instance GHC.Show.Show Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
-instance GHC.Read.Read Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
-instance GHC.Classes.Eq Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
+instance GHC.Generics.Generic Amazonka.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
+instance GHC.Show.Show Amazonka.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
+instance GHC.Read.Read Amazonka.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
+instance GHC.Classes.Eq Amazonka.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.RuleGroupsNamespaceSummary.RuleGroupsNamespaceSummary
 
 
-module Network.AWS.AMP.Types.WorkspaceStatusCode
+module Amazonka.AMP.Types.WorkspaceStatusCode
 
 -- | State of a workspace.
 newtype WorkspaceStatusCode
@@ -442,28 +442,28 @@ pattern WorkspaceStatusCode_CREATING :: WorkspaceStatusCode
 pattern WorkspaceStatusCode_CREATION_FAILED :: WorkspaceStatusCode
 pattern WorkspaceStatusCode_DELETING :: WorkspaceStatusCode
 pattern WorkspaceStatusCode_UPDATING :: WorkspaceStatusCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Network.AWS.Data.Text.ToText Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Network.AWS.Data.Text.FromText Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance GHC.Generics.Generic Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance GHC.Classes.Ord Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance GHC.Classes.Eq Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance GHC.Read.Read Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
-instance GHC.Show.Show Network.AWS.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.XML.ToXML Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.XML.FromXML Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.Log.ToLog Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.Text.ToText Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Amazonka.Data.Text.FromText Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance GHC.Generics.Generic Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance GHC.Classes.Ord Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance GHC.Classes.Eq Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance GHC.Read.Read Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
+instance GHC.Show.Show Amazonka.AMP.Types.WorkspaceStatusCode.WorkspaceStatusCode
 
 
-module Network.AWS.AMP.Types.WorkspaceStatus
+module Amazonka.AMP.Types.WorkspaceStatus
 
 -- | Represents the status of a workspace.
 --   
@@ -489,16 +489,16 @@ newWorkspaceStatus :: WorkspaceStatusCode -> WorkspaceStatus
 
 -- | Status code of this workspace.
 workspaceStatus_statusCode :: Lens' WorkspaceStatus WorkspaceStatusCode
-instance GHC.Generics.Generic Network.AWS.AMP.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Show.Show Network.AWS.AMP.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Read.Read Network.AWS.AMP.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Classes.Eq Network.AWS.AMP.Types.WorkspaceStatus.WorkspaceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.WorkspaceStatus.WorkspaceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.WorkspaceStatus.WorkspaceStatus
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Generics.Generic Amazonka.AMP.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Show.Show Amazonka.AMP.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Read.Read Amazonka.AMP.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Classes.Eq Amazonka.AMP.Types.WorkspaceStatus.WorkspaceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.WorkspaceStatus.WorkspaceStatus
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.WorkspaceStatus.WorkspaceStatus
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.WorkspaceStatus.WorkspaceStatus
 
 
-module Network.AWS.AMP.Types.WorkspaceDescription
+module Amazonka.AMP.Types.WorkspaceDescription
 
 -- | Represents the properties of a workspace.
 --   
@@ -581,16 +581,16 @@ workspaceDescription_status :: Lens' WorkspaceDescription WorkspaceStatus
 
 -- | Unique string identifying this workspace.
 workspaceDescription_workspaceId :: Lens' WorkspaceDescription Text
-instance GHC.Generics.Generic Network.AWS.AMP.Types.WorkspaceDescription.WorkspaceDescription
-instance GHC.Show.Show Network.AWS.AMP.Types.WorkspaceDescription.WorkspaceDescription
-instance GHC.Read.Read Network.AWS.AMP.Types.WorkspaceDescription.WorkspaceDescription
-instance GHC.Classes.Eq Network.AWS.AMP.Types.WorkspaceDescription.WorkspaceDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.WorkspaceDescription.WorkspaceDescription
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.WorkspaceDescription.WorkspaceDescription
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.WorkspaceDescription.WorkspaceDescription
+instance GHC.Generics.Generic Amazonka.AMP.Types.WorkspaceDescription.WorkspaceDescription
+instance GHC.Show.Show Amazonka.AMP.Types.WorkspaceDescription.WorkspaceDescription
+instance GHC.Read.Read Amazonka.AMP.Types.WorkspaceDescription.WorkspaceDescription
+instance GHC.Classes.Eq Amazonka.AMP.Types.WorkspaceDescription.WorkspaceDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.WorkspaceDescription.WorkspaceDescription
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.WorkspaceDescription.WorkspaceDescription
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.WorkspaceDescription.WorkspaceDescription
 
 
-module Network.AWS.AMP.Types.WorkspaceSummary
+module Amazonka.AMP.Types.WorkspaceSummary
 
 -- | Represents a summary of the properties of a workspace.
 --   
@@ -663,16 +663,16 @@ workspaceSummary_status :: Lens' WorkspaceSummary WorkspaceStatus
 
 -- | Unique string identifying this workspace.
 workspaceSummary_workspaceId :: Lens' WorkspaceSummary Text
-instance GHC.Generics.Generic Network.AWS.AMP.Types.WorkspaceSummary.WorkspaceSummary
-instance GHC.Show.Show Network.AWS.AMP.Types.WorkspaceSummary.WorkspaceSummary
-instance GHC.Read.Read Network.AWS.AMP.Types.WorkspaceSummary.WorkspaceSummary
-instance GHC.Classes.Eq Network.AWS.AMP.Types.WorkspaceSummary.WorkspaceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AMP.Types.WorkspaceSummary.WorkspaceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.Types.WorkspaceSummary.WorkspaceSummary
-instance Control.DeepSeq.NFData Network.AWS.AMP.Types.WorkspaceSummary.WorkspaceSummary
+instance GHC.Generics.Generic Amazonka.AMP.Types.WorkspaceSummary.WorkspaceSummary
+instance GHC.Show.Show Amazonka.AMP.Types.WorkspaceSummary.WorkspaceSummary
+instance GHC.Read.Read Amazonka.AMP.Types.WorkspaceSummary.WorkspaceSummary
+instance GHC.Classes.Eq Amazonka.AMP.Types.WorkspaceSummary.WorkspaceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AMP.Types.WorkspaceSummary.WorkspaceSummary
+instance Data.Hashable.Class.Hashable Amazonka.AMP.Types.WorkspaceSummary.WorkspaceSummary
+instance Control.DeepSeq.NFData Amazonka.AMP.Types.WorkspaceSummary.WorkspaceSummary
 
 
-module Network.AWS.AMP.Types
+module Amazonka.AMP.Types
 
 -- | API version <tt>2020-08-01</tt> of the Amazon Prometheus Service SDK
 --   configuration.
@@ -1223,7 +1223,7 @@ workspaceSummary_workspaceId :: Lens' WorkspaceSummary Text
 
 
 -- | Creates tags for the specified resource.
-module Network.AWS.AMP.TagResource
+module Amazonka.AMP.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1277,26 +1277,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AMP.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.AMP.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.AMP.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.AMP.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.AMP.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.AMP.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.AMP.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AMP.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AMP.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AMP.TagResource.TagResource
+instance GHC.Show.Show Amazonka.AMP.TagResource.TagResource
+instance GHC.Read.Read Amazonka.AMP.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.AMP.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AMP.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.AMP.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.AMP.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.AMP.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AMP.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AMP.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.TagResource.TagResource
 
 
 -- | Update a rule groups namespace.
-module Network.AWS.AMP.PutRuleGroupsNamespace
+module Amazonka.AMP.PutRuleGroupsNamespace
 
 -- | Represents the input of a PutRuleGroupsNamespace operation.
 --   
@@ -1431,26 +1431,26 @@ putRuleGroupsNamespaceResponse_name :: Lens' PutRuleGroupsNamespaceResponse Text
 
 -- | The status of rule groups namespace.
 putRuleGroupsNamespaceResponse_status :: Lens' PutRuleGroupsNamespaceResponse RuleGroupsNamespaceStatus
-instance GHC.Generics.Generic Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance GHC.Show.Show Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance GHC.Read.Read Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance GHC.Classes.Eq Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance GHC.Generics.Generic Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
-instance GHC.Show.Show Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
-instance GHC.Read.Read Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance GHC.Show.Show Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance GHC.Read.Read Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance GHC.Classes.Eq Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
+instance GHC.Show.Show Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
+instance GHC.Read.Read Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
+instance GHC.Classes.Eq Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.PutRuleGroupsNamespace.PutRuleGroupsNamespace
 
 
 -- | Update an alert manager definition.
-module Network.AWS.AMP.PutAlertManagerDefinition
+module Amazonka.AMP.PutAlertManagerDefinition
 
 -- | Represents the input of a PutAlertManagerDefinition operation.
 --   
@@ -1548,29 +1548,29 @@ putAlertManagerDefinitionResponse_httpStatus :: Lens' PutAlertManagerDefinitionR
 
 -- | The status of alert manager definition.
 putAlertManagerDefinitionResponse_status :: Lens' PutAlertManagerDefinitionResponse AlertManagerDefinitionStatus
-instance GHC.Generics.Generic Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance GHC.Show.Show Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance GHC.Read.Read Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance GHC.Classes.Eq Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance GHC.Generics.Generic Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
-instance GHC.Show.Show Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
-instance GHC.Read.Read Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance GHC.Show.Show Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance GHC.Read.Read Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance GHC.Classes.Eq Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
+instance GHC.Show.Show Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
+instance GHC.Read.Read Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
+instance GHC.Classes.Eq Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.PutAlertManagerDefinition.PutAlertManagerDefinition
 
 
 -- | Lists all AMP workspaces, including workspaces being created or
 --   deleted.
 --   
 --   This operation returns paginated results.
-module Network.AWS.AMP.ListWorkspaces
+module Amazonka.AMP.ListWorkspaces
 
 -- | Represents the input of a ListWorkspaces operation.
 --   
@@ -1672,26 +1672,26 @@ listWorkspacesResponse_httpStatus :: Lens' ListWorkspacesResponse Int
 -- | The list of existing workspaces, including those undergoing creation
 --   or deletion.
 listWorkspacesResponse_workspaces :: Lens' ListWorkspacesResponse [WorkspaceSummary]
-instance GHC.Generics.Generic Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance GHC.Show.Show Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance GHC.Read.Read Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance GHC.Classes.Eq Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance GHC.Generics.Generic Network.AWS.AMP.ListWorkspaces.ListWorkspacesResponse
-instance GHC.Show.Show Network.AWS.AMP.ListWorkspaces.ListWorkspacesResponse
-instance GHC.Read.Read Network.AWS.AMP.ListWorkspaces.ListWorkspacesResponse
-instance GHC.Classes.Eq Network.AWS.AMP.ListWorkspaces.ListWorkspacesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance Control.DeepSeq.NFData Network.AWS.AMP.ListWorkspaces.ListWorkspacesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance Control.DeepSeq.NFData Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.ListWorkspaces.ListWorkspaces
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.ListWorkspaces.ListWorkspaces
+instance GHC.Generics.Generic Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance GHC.Show.Show Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance GHC.Read.Read Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance GHC.Classes.Eq Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance GHC.Generics.Generic Amazonka.AMP.ListWorkspaces.ListWorkspacesResponse
+instance GHC.Show.Show Amazonka.AMP.ListWorkspaces.ListWorkspacesResponse
+instance GHC.Read.Read Amazonka.AMP.ListWorkspaces.ListWorkspacesResponse
+instance GHC.Classes.Eq Amazonka.AMP.ListWorkspaces.ListWorkspacesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance Control.DeepSeq.NFData Amazonka.AMP.ListWorkspaces.ListWorkspacesResponse
+instance Amazonka.Pager.AWSPager Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance Data.Hashable.Class.Hashable Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance Control.DeepSeq.NFData Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.ListWorkspaces.ListWorkspaces
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.ListWorkspaces.ListWorkspaces
 
 
 -- | Lists the tags you have assigned to the resource.
-module Network.AWS.AMP.ListTagsForResource
+module Amazonka.AMP.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1746,27 +1746,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.AMP.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.AMP.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.AMP.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AMP.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AMP.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.AMP.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.AMP.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.AMP.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AMP.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists rule groups namespaces.
 --   
 --   This operation returns paginated results.
-module Network.AWS.AMP.ListRuleGroupsNamespaces
+module Amazonka.AMP.ListRuleGroupsNamespaces
 
 -- | Represents the input of a ListRuleGroupsNamespaces operation.
 --   
@@ -1877,26 +1877,26 @@ listRuleGroupsNamespacesResponse_httpStatus :: Lens' ListRuleGroupsNamespacesRes
 
 -- | The list of the selected rule groups namespaces.
 listRuleGroupsNamespacesResponse_ruleGroupsNamespaces :: Lens' ListRuleGroupsNamespacesResponse [RuleGroupsNamespaceSummary]
-instance GHC.Generics.Generic Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance GHC.Show.Show Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance GHC.Read.Read Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance GHC.Classes.Eq Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance GHC.Generics.Generic Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
-instance GHC.Show.Show Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
-instance GHC.Read.Read Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
-instance GHC.Classes.Eq Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance Control.DeepSeq.NFData Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance Control.DeepSeq.NFData Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance GHC.Generics.Generic Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance GHC.Show.Show Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance GHC.Read.Read Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance GHC.Classes.Eq Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance GHC.Generics.Generic Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
+instance GHC.Show.Show Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
+instance GHC.Read.Read Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
+instance GHC.Classes.Eq Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance Control.DeepSeq.NFData Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespacesResponse
+instance Amazonka.Pager.AWSPager Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance Data.Hashable.Class.Hashable Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance Control.DeepSeq.NFData Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.ListRuleGroupsNamespaces.ListRuleGroupsNamespaces
 
 
 -- | Describes an existing AMP workspace.
-module Network.AWS.AMP.DescribeWorkspace
+module Amazonka.AMP.DescribeWorkspace
 
 -- | Represents the input of a DescribeWorkspace operation.
 --   
@@ -1959,25 +1959,25 @@ describeWorkspaceResponse_httpStatus :: Lens' DescribeWorkspaceResponse Int
 
 -- | The properties of the selected workspace.
 describeWorkspaceResponse_workspace :: Lens' DescribeWorkspaceResponse WorkspaceDescription
-instance GHC.Generics.Generic Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance GHC.Show.Show Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance GHC.Read.Read Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance GHC.Classes.Eq Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance GHC.Generics.Generic Network.AWS.AMP.DescribeWorkspace.DescribeWorkspaceResponse
-instance GHC.Show.Show Network.AWS.AMP.DescribeWorkspace.DescribeWorkspaceResponse
-instance GHC.Read.Read Network.AWS.AMP.DescribeWorkspace.DescribeWorkspaceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.DescribeWorkspace.DescribeWorkspaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DescribeWorkspace.DescribeWorkspaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.DescribeWorkspace.DescribeWorkspace
+instance GHC.Generics.Generic Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance GHC.Show.Show Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance GHC.Read.Read Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance GHC.Classes.Eq Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance GHC.Generics.Generic Amazonka.AMP.DescribeWorkspace.DescribeWorkspaceResponse
+instance GHC.Show.Show Amazonka.AMP.DescribeWorkspace.DescribeWorkspaceResponse
+instance GHC.Read.Read Amazonka.AMP.DescribeWorkspace.DescribeWorkspaceResponse
+instance GHC.Classes.Eq Amazonka.AMP.DescribeWorkspace.DescribeWorkspaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance Control.DeepSeq.NFData Amazonka.AMP.DescribeWorkspace.DescribeWorkspaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance Control.DeepSeq.NFData Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.DescribeWorkspace.DescribeWorkspace
 
 
 -- | Describe a rule groups namespace.
-module Network.AWS.AMP.DescribeRuleGroupsNamespace
+module Amazonka.AMP.DescribeRuleGroupsNamespace
 
 -- | Represents the input of a DescribeRuleGroupsNamespace operation.
 --   
@@ -2050,25 +2050,25 @@ describeRuleGroupsNamespaceResponse_httpStatus :: Lens' DescribeRuleGroupsNamesp
 
 -- | The selected rule groups namespace.
 describeRuleGroupsNamespaceResponse_ruleGroupsNamespace :: Lens' DescribeRuleGroupsNamespaceResponse RuleGroupsNamespaceDescription
-instance GHC.Generics.Generic Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance GHC.Show.Show Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance GHC.Read.Read Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance GHC.Classes.Eq Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance GHC.Generics.Generic Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
-instance GHC.Show.Show Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
-instance GHC.Read.Read Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance GHC.Show.Show Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance GHC.Read.Read Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance GHC.Classes.Eq Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
+instance GHC.Show.Show Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
+instance GHC.Read.Read Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
+instance GHC.Classes.Eq Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.DescribeRuleGroupsNamespace.DescribeRuleGroupsNamespace
 
 
 -- | Describes an alert manager definition.
-module Network.AWS.AMP.DescribeAlertManagerDefinition
+module Amazonka.AMP.DescribeAlertManagerDefinition
 
 -- | Represents the input of a DescribeAlertManagerDefinition operation.
 --   
@@ -2134,25 +2134,25 @@ describeAlertManagerDefinitionResponse_httpStatus :: Lens' DescribeAlertManagerD
 
 -- | The properties of the selected workspace's alert manager definition.
 describeAlertManagerDefinitionResponse_alertManagerDefinition :: Lens' DescribeAlertManagerDefinitionResponse AlertManagerDefinitionDescription
-instance GHC.Generics.Generic Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance GHC.Show.Show Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance GHC.Read.Read Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance GHC.Classes.Eq Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance GHC.Generics.Generic Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
-instance GHC.Show.Show Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
-instance GHC.Read.Read Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance GHC.Show.Show Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance GHC.Read.Read Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance GHC.Classes.Eq Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
+instance GHC.Show.Show Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
+instance GHC.Read.Read Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
+instance GHC.Classes.Eq Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.DescribeAlertManagerDefinition.DescribeAlertManagerDefinition
 
 
 -- | Deletes an AMP workspace.
-module Network.AWS.AMP.DeleteWorkspace
+module Amazonka.AMP.DeleteWorkspace
 
 -- | Represents the input of a DeleteWorkspace operation.
 --   
@@ -2202,25 +2202,25 @@ DeleteWorkspaceResponse' :: DeleteWorkspaceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteWorkspaceResponse :: DeleteWorkspaceResponse
-instance GHC.Generics.Generic Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance GHC.Show.Show Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance GHC.Read.Read Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance GHC.Classes.Eq Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance GHC.Generics.Generic Network.AWS.AMP.DeleteWorkspace.DeleteWorkspaceResponse
-instance GHC.Show.Show Network.AWS.AMP.DeleteWorkspace.DeleteWorkspaceResponse
-instance GHC.Read.Read Network.AWS.AMP.DeleteWorkspace.DeleteWorkspaceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.DeleteWorkspace.DeleteWorkspaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DeleteWorkspace.DeleteWorkspaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.DeleteWorkspace.DeleteWorkspace
+instance GHC.Generics.Generic Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance GHC.Show.Show Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance GHC.Read.Read Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance GHC.Classes.Eq Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance GHC.Generics.Generic Amazonka.AMP.DeleteWorkspace.DeleteWorkspaceResponse
+instance GHC.Show.Show Amazonka.AMP.DeleteWorkspace.DeleteWorkspaceResponse
+instance GHC.Read.Read Amazonka.AMP.DeleteWorkspace.DeleteWorkspaceResponse
+instance GHC.Classes.Eq Amazonka.AMP.DeleteWorkspace.DeleteWorkspaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance Control.DeepSeq.NFData Amazonka.AMP.DeleteWorkspace.DeleteWorkspaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance Control.DeepSeq.NFData Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.DeleteWorkspace.DeleteWorkspace
 
 
 -- | Delete a rule groups namespace.
-module Network.AWS.AMP.DeleteRuleGroupsNamespace
+module Amazonka.AMP.DeleteRuleGroupsNamespace
 
 -- | Represents the input of a DeleteRuleGroupsNamespace operation.
 --   
@@ -2282,25 +2282,25 @@ DeleteRuleGroupsNamespaceResponse' :: DeleteRuleGroupsNamespaceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteRuleGroupsNamespaceResponse :: DeleteRuleGroupsNamespaceResponse
-instance GHC.Generics.Generic Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance GHC.Show.Show Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance GHC.Read.Read Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance GHC.Classes.Eq Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance GHC.Generics.Generic Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
-instance GHC.Show.Show Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
-instance GHC.Read.Read Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance GHC.Show.Show Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance GHC.Read.Read Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance GHC.Classes.Eq Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
+instance GHC.Show.Show Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
+instance GHC.Read.Read Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
+instance GHC.Classes.Eq Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.DeleteRuleGroupsNamespace.DeleteRuleGroupsNamespace
 
 
 -- | Deletes an alert manager definition.
-module Network.AWS.AMP.DeleteAlertManagerDefinition
+module Amazonka.AMP.DeleteAlertManagerDefinition
 
 -- | Represents the input of a DeleteAlertManagerDefinition operation.
 --   
@@ -2354,25 +2354,25 @@ DeleteAlertManagerDefinitionResponse' :: DeleteAlertManagerDefinitionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAlertManagerDefinitionResponse :: DeleteAlertManagerDefinitionResponse
-instance GHC.Generics.Generic Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance GHC.Show.Show Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance GHC.Read.Read Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance GHC.Classes.Eq Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance GHC.Generics.Generic Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
-instance GHC.Show.Show Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
-instance GHC.Read.Read Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance GHC.Show.Show Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance GHC.Read.Read Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance GHC.Classes.Eq Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
+instance GHC.Show.Show Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
+instance GHC.Read.Read Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
+instance GHC.Classes.Eq Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.DeleteAlertManagerDefinition.DeleteAlertManagerDefinition
 
 
 -- | Creates a new AMP workspace.
-module Network.AWS.AMP.CreateWorkspace
+module Amazonka.AMP.CreateWorkspace
 
 -- | Represents the input of a CreateWorkspace operation.
 --   
@@ -2487,26 +2487,26 @@ createWorkspaceResponse_status :: Lens' CreateWorkspaceResponse WorkspaceStatus
 
 -- | The generated ID of the workspace that was just created.
 createWorkspaceResponse_workspaceId :: Lens' CreateWorkspaceResponse Text
-instance GHC.Generics.Generic Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance GHC.Show.Show Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance GHC.Read.Read Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance GHC.Classes.Eq Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance GHC.Generics.Generic Network.AWS.AMP.CreateWorkspace.CreateWorkspaceResponse
-instance GHC.Show.Show Network.AWS.AMP.CreateWorkspace.CreateWorkspaceResponse
-instance GHC.Read.Read Network.AWS.AMP.CreateWorkspace.CreateWorkspaceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.CreateWorkspace.CreateWorkspaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance Control.DeepSeq.NFData Network.AWS.AMP.CreateWorkspace.CreateWorkspaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance Control.DeepSeq.NFData Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.CreateWorkspace.CreateWorkspace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.CreateWorkspace.CreateWorkspace
+instance GHC.Generics.Generic Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance GHC.Show.Show Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance GHC.Read.Read Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance GHC.Classes.Eq Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance GHC.Generics.Generic Amazonka.AMP.CreateWorkspace.CreateWorkspaceResponse
+instance GHC.Show.Show Amazonka.AMP.CreateWorkspace.CreateWorkspaceResponse
+instance GHC.Read.Read Amazonka.AMP.CreateWorkspace.CreateWorkspaceResponse
+instance GHC.Classes.Eq Amazonka.AMP.CreateWorkspace.CreateWorkspaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance Control.DeepSeq.NFData Amazonka.AMP.CreateWorkspace.CreateWorkspaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance Control.DeepSeq.NFData Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.CreateWorkspace.CreateWorkspace
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.CreateWorkspace.CreateWorkspace
 
 
 -- | Create a rule group namespace.
-module Network.AWS.AMP.CreateRuleGroupsNamespace
+module Amazonka.AMP.CreateRuleGroupsNamespace
 
 -- | Represents the input of a CreateRuleGroupsNamespace operation.
 --   
@@ -2652,26 +2652,26 @@ createRuleGroupsNamespaceResponse_name :: Lens' CreateRuleGroupsNamespaceRespons
 
 -- | The status of rule groups namespace.
 createRuleGroupsNamespaceResponse_status :: Lens' CreateRuleGroupsNamespaceResponse RuleGroupsNamespaceStatus
-instance GHC.Generics.Generic Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance GHC.Show.Show Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance GHC.Read.Read Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance GHC.Classes.Eq Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance GHC.Generics.Generic Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
-instance GHC.Show.Show Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
-instance GHC.Read.Read Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance Control.DeepSeq.NFData Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance GHC.Show.Show Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance GHC.Read.Read Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance GHC.Classes.Eq Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance GHC.Generics.Generic Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
+instance GHC.Show.Show Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
+instance GHC.Read.Read Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
+instance GHC.Classes.Eq Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance Control.DeepSeq.NFData Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.CreateRuleGroupsNamespace.CreateRuleGroupsNamespace
 
 
 -- | Create an alert manager definition.
-module Network.AWS.AMP.CreateAlertManagerDefinition
+module Amazonka.AMP.CreateAlertManagerDefinition
 
 -- | Represents the input of a CreateAlertManagerDefinition operation.
 --   
@@ -2769,26 +2769,26 @@ createAlertManagerDefinitionResponse_httpStatus :: Lens' CreateAlertManagerDefin
 
 -- | The status of alert manager definition.
 createAlertManagerDefinitionResponse_status :: Lens' CreateAlertManagerDefinitionResponse AlertManagerDefinitionStatus
-instance GHC.Generics.Generic Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance GHC.Show.Show Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance GHC.Read.Read Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance GHC.Classes.Eq Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance GHC.Generics.Generic Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
-instance GHC.Show.Show Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
-instance GHC.Read.Read Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance Control.DeepSeq.NFData Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance GHC.Show.Show Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance GHC.Read.Read Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance GHC.Classes.Eq Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance GHC.Generics.Generic Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
+instance GHC.Show.Show Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
+instance GHC.Read.Read Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
+instance GHC.Classes.Eq Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance Control.DeepSeq.NFData Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.CreateAlertManagerDefinition.CreateAlertManagerDefinition
 
 
 -- | Deletes tags from the specified resource.
-module Network.AWS.AMP.UntagResource
+module Amazonka.AMP.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2845,25 +2845,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AMP.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.AMP.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.AMP.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.AMP.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.AMP.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.AMP.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.AMP.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AMP.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AMP.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AMP.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AMP.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.AMP.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.AMP.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.AMP.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AMP.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.AMP.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.AMP.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.AMP.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AMP.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AMP.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.UntagResource.UntagResource
 
 
 -- | Updates an AMP workspace alias.
-module Network.AWS.AMP.UpdateWorkspaceAlias
+module Amazonka.AMP.UpdateWorkspaceAlias
 
 -- | Represents the input of an UpdateWorkspaceAlias operation.
 --   
@@ -2923,25 +2923,25 @@ UpdateWorkspaceAliasResponse' :: UpdateWorkspaceAliasResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUpdateWorkspaceAliasResponse :: UpdateWorkspaceAliasResponse
-instance GHC.Generics.Generic Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance GHC.Show.Show Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance GHC.Read.Read Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance GHC.Classes.Eq Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance GHC.Generics.Generic Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
-instance GHC.Show.Show Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
-instance GHC.Read.Read Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
-instance GHC.Classes.Eq Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance Control.DeepSeq.NFData Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance Control.DeepSeq.NFData Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance Network.AWS.Data.Path.ToPath Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance GHC.Generics.Generic Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance GHC.Show.Show Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance GHC.Read.Read Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance GHC.Classes.Eq Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance GHC.Generics.Generic Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
+instance GHC.Show.Show Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
+instance GHC.Read.Read Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
+instance GHC.Classes.Eq Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
+instance Amazonka.Types.AWSRequest Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance Control.DeepSeq.NFData Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAliasResponse
+instance Data.Hashable.Class.Hashable Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance Control.DeepSeq.NFData Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance Amazonka.Data.Path.ToPath Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
+instance Amazonka.Data.Query.ToQuery Amazonka.AMP.UpdateWorkspaceAlias.UpdateWorkspaceAlias
 
 
-module Network.AWS.AMP.Lens
+module Amazonka.AMP.Lens
 
 -- | Optional filter for workspace alias. Only the workspaces with aliases
 --   that begin with this value will be returned.
@@ -3336,7 +3336,7 @@ workspaceSummary_status :: Lens' WorkspaceSummary WorkspaceStatus
 workspaceSummary_workspaceId :: Lens' WorkspaceSummary Text
 
 
-module Network.AWS.AMP.Waiters
+module Amazonka.AMP.Waiters
 
 -- | Polls <a>DescribeWorkspace</a> every 2 seconds until a successful
 --   state is reached. An error is returned after 60 failed checks.
@@ -3351,7 +3351,7 @@ newWorkspaceActive :: Wait DescribeWorkspace
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Amazon Managed Service for Prometheus
-module Network.AWS.AMP
+module Amazonka.AMP
 
 -- | API version <tt>2020-08-01</tt> of the Amazon Prometheus Service SDK
 --   configuration.

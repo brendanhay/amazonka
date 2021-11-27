@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.APIGateway.Types.DocumentationPart</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.APIGateway.Types.DocumentationPart</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DocumentationPartLocation</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A documentation part for a targeted API entity.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- A documentation part consists of a content map (@properties@) and a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- target (@location@). The target specifies an API entity to which the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- documentation content applies. The supported API entity types are @API@,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @AUTHORIZER@, @MODEL@, @RESOURCE@, @METHOD@, @PATH_PARAMETER@,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @RESPONSE_HEADER@, and @RESPONSE_BODY@. Valid @location@ fields depend</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- on the API entity type. All valid fields are not required.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- The content map is a JSON string of API-specific key-value pairs.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Although an API can use any shape for the content map, only the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- OpenAPI-compliant documentation fields will be injected into the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- associated API entity definition in the exported OpenAPI definition</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API&gt;,</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- DocumentationParts</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- /See:/ 'newDocumentationPart' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679365931"><span id="local-6989586621679365932"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentationPart"><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-var">DocumentationPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentationPart%27"><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-var">DocumentationPart'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of the API entity to which the documentation applies. Valid</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- fields depend on the targeted API entity type. All the valid location</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- fields are not required. If not explicitly specified, a valid location</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- field is treated as a wildcard and associated documentation content may</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- be inherited by matching entities, unless overridden.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Alocation%3ADocumentationPart%27"><span class="annot"><span class="annottext">DocumentationPart -&gt; Maybe DocumentationPartLocation
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Alocation%3ADocumentationPart%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#DocumentationPartLocation"><span class="hs-identifier hs-type">DocumentationPartLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The DocumentationPart identifier, generated by API Gateway when the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @DocumentationPart@ is created.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aid%3ADocumentationPart%27"><span class="annot"><span class="annottext">DocumentationPart -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Aid%3ADocumentationPart%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A content map of API-specific key-value pairs describing the targeted</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- API entity. The map must be encoded as a JSON string, e.g.,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @\&quot;{ \\\&quot;description\\\&quot;: \\\&quot;The API does ...\\\&quot; }\&quot;@. Only</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- OpenAPI-compliant documentation-related fields from the properties map</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- are exported and, hence, published as part of the API entity</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- definitions, while the original documentation parts are exported in a</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- OpenAPI extension of @x-amazon-apigateway-documentation@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aproperties%3ADocumentationPart%27"><span class="annot"><span class="annottext">DocumentationPart -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Aproperties%3ADocumentationPart%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365923"><span id="local-6989586621679365925"><span class="annot"><span class="annottext">DocumentationPart -&gt; DocumentationPart -&gt; Bool
+(DocumentationPart -&gt; DocumentationPart -&gt; Bool)
+-&gt; (DocumentationPart -&gt; DocumentationPart -&gt; Bool)
+-&gt; Eq DocumentationPart
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentationPart -&gt; DocumentationPart -&gt; Bool
+$c/= :: DocumentationPart -&gt; DocumentationPart -&gt; Bool
+== :: DocumentationPart -&gt; DocumentationPart -&gt; Bool
+$c== :: DocumentationPart -&gt; DocumentationPart -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365914"><span id="local-6989586621679365916"><span id="local-6989586621679365918"><span id="local-6989586621679365920"><span class="annot"><span class="annottext">ReadPrec [DocumentationPart]
+ReadPrec DocumentationPart
+Int -&gt; ReadS DocumentationPart
+ReadS [DocumentationPart]
+(Int -&gt; ReadS DocumentationPart)
+-&gt; ReadS [DocumentationPart]
+-&gt; ReadPrec DocumentationPart
+-&gt; ReadPrec [DocumentationPart]
+-&gt; Read DocumentationPart
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DocumentationPart]
+$creadListPrec :: ReadPrec [DocumentationPart]
+readPrec :: ReadPrec DocumentationPart
+$creadPrec :: ReadPrec DocumentationPart
+readList :: ReadS [DocumentationPart]
+$creadList :: ReadS [DocumentationPart]
+readsPrec :: Int -&gt; ReadS DocumentationPart
+$creadsPrec :: Int -&gt; ReadS DocumentationPart
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365907"><span id="local-6989586621679365909"><span id="local-6989586621679365911"><span class="annot"><span class="annottext">Int -&gt; DocumentationPart -&gt; ShowS
+[DocumentationPart] -&gt; ShowS
+DocumentationPart -&gt; String
+(Int -&gt; DocumentationPart -&gt; ShowS)
+-&gt; (DocumentationPart -&gt; String)
+-&gt; ([DocumentationPart] -&gt; ShowS)
+-&gt; Show DocumentationPart
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentationPart] -&gt; ShowS
+$cshowList :: [DocumentationPart] -&gt; ShowS
+show :: DocumentationPart -&gt; String
+$cshow :: DocumentationPart -&gt; String
+showsPrec :: Int -&gt; DocumentationPart -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentationPart -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DocumentationPart -&gt; Rep DocumentationPart x)
+-&gt; (forall x. Rep DocumentationPart x -&gt; DocumentationPart)
+-&gt; Generic DocumentationPart
+forall x. Rep DocumentationPart x -&gt; DocumentationPart
+forall x. DocumentationPart -&gt; Rep DocumentationPart x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DocumentationPart x -&gt; DocumentationPart
+$cfrom :: forall x. DocumentationPart -&gt; Rep DocumentationPart x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DocumentationPart' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'location', 'documentationPart_location' - The location of the API entity to which the documentation applies. Valid</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- fields depend on the targeted API entity type. All the valid location</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- fields are not required. If not explicitly specified, a valid location</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- field is treated as a wildcard and associated documentation content may</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- be inherited by matching entities, unless overridden.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'id', 'documentationPart_id' - The DocumentationPart identifier, generated by API Gateway when the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- @DocumentationPart@ is created.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'properties', 'documentationPart_properties' - A content map of API-specific key-value pairs describing the targeted</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- API entity. The map must be encoded as a JSON string, e.g.,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @\&quot;{ \\\&quot;description\\\&quot;: \\\&quot;The API does ...\\\&quot; }\&quot;@. Only</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- OpenAPI-compliant documentation-related fields from the properties map</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- are exported and, hence, published as part of the API entity</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- definitions, while the original documentation parts are exported in a</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- OpenAPI extension of @x-amazon-apigateway-documentation@.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#newDocumentationPart"><span class="hs-identifier hs-type">newDocumentationPart</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span>
+</span><span id="line-94"></span><span id="newDocumentationPart"><span class="annot"><span class="annottext">newDocumentationPart :: DocumentationPart
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#newDocumentationPart"><span class="hs-identifier hs-var hs-var">newDocumentationPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">DocumentationPart' :: Maybe DocumentationPartLocation
+-&gt; Maybe Text -&gt; Maybe Text -&gt; DocumentationPart
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-type">DocumentationPart'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:DocumentationPart' :: Maybe DocumentationPartLocation
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Alocation%3ADocumentationPart%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentationPartLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DocumentationPart' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Aid%3ADocumentationPart%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:properties:DocumentationPart' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Aproperties%3ADocumentationPart%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The location of the API entity to which the documentation applies. Valid</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- fields depend on the targeted API entity type. All the valid location</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- fields are not required. If not explicitly specified, a valid location</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- field is treated as a wildcard and associated documentation content may</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- be inherited by matching entities, unless overridden.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_location"><span class="hs-identifier hs-type">documentationPart_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#DocumentationPartLocation"><span class="hs-identifier hs-type">DocumentationPartLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="documentationPart_location"><span class="annot"><span class="annottext">documentationPart_location :: (Maybe DocumentationPartLocation
+ -&gt; f (Maybe DocumentationPartLocation))
+-&gt; DocumentationPart -&gt; f DocumentationPart
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_location"><span class="hs-identifier hs-var hs-var">documentationPart_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentationPart -&gt; Maybe DocumentationPartLocation)
+-&gt; (DocumentationPart
+    -&gt; Maybe DocumentationPartLocation -&gt; DocumentationPart)
+-&gt; Lens
+     DocumentationPart
+     DocumentationPart
+     (Maybe DocumentationPartLocation)
+     (Maybe DocumentationPartLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-type">DocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365898"><span class="annot"><span class="annottext">Maybe DocumentationPartLocation
+location :: Maybe DocumentationPartLocation
+$sel:location:DocumentationPart' :: DocumentationPart -&gt; Maybe DocumentationPartLocation
+</span><a href="#local-6989586621679365898"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentationPartLocation
+</span><a href="#local-6989586621679365898"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365897"><span class="annot"><span class="annottext">s :: DocumentationPart
+</span><a href="#local-6989586621679365897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-type">DocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365896"><span class="annot"><span class="annottext">Maybe DocumentationPartLocation
+</span><a href="#local-6989586621679365896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentationPart
+</span><a href="#local-6989586621679365897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:DocumentationPart' :: Maybe DocumentationPartLocation
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Alocation%3ADocumentationPart%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentationPartLocation
+</span><a href="#local-6989586621679365896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The DocumentationPart identifier, generated by API Gateway when the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @DocumentationPart@ is created.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_id"><span class="hs-identifier hs-type">documentationPart_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="documentationPart_id"><span class="annot"><span class="annottext">documentationPart_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentationPart -&gt; f DocumentationPart
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_id"><span class="hs-identifier hs-var hs-var">documentationPart_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentationPart -&gt; Maybe Text)
+-&gt; (DocumentationPart -&gt; Maybe Text -&gt; DocumentationPart)
+-&gt; Lens
+     DocumentationPart DocumentationPart (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-type">DocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365894"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:DocumentationPart' :: DocumentationPart -&gt; Maybe Text
+</span><a href="#local-6989586621679365894"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365894"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365893"><span class="annot"><span class="annottext">s :: DocumentationPart
+</span><a href="#local-6989586621679365893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-type">DocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentationPart
+</span><a href="#local-6989586621679365893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DocumentationPart' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Aid%3ADocumentationPart%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A content map of API-specific key-value pairs describing the targeted</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- API entity. The map must be encoded as a JSON string, e.g.,</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @\&quot;{ \\\&quot;description\\\&quot;: \\\&quot;The API does ...\\\&quot; }\&quot;@. Only</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- OpenAPI-compliant documentation-related fields from the properties map</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- are exported and, hence, published as part of the API entity</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- definitions, while the original documentation parts are exported in a</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- OpenAPI extension of @x-amazon-apigateway-documentation@.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_properties"><span class="hs-identifier hs-type">documentationPart_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="documentationPart_properties"><span class="annot"><span class="annottext">documentationPart_properties :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentationPart -&gt; f DocumentationPart
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_properties"><span class="hs-identifier hs-var hs-var">documentationPart_properties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentationPart -&gt; Maybe Text)
+-&gt; (DocumentationPart -&gt; Maybe Text -&gt; DocumentationPart)
+-&gt; Lens
+     DocumentationPart DocumentationPart (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-type">DocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365890"><span class="annot"><span class="annottext">Maybe Text
+properties :: Maybe Text
+$sel:properties:DocumentationPart' :: DocumentationPart -&gt; Maybe Text
+</span><a href="#local-6989586621679365890"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365890"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365889"><span class="annot"><span class="annottext">s :: DocumentationPart
+</span><a href="#local-6989586621679365889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-type">DocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365888"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentationPart
+</span><a href="#local-6989586621679365889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:DocumentationPart' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#%24sel%3Aproperties%3ADocumentationPart%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365885"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679365883"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentationPart
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DocumentationPart)
+-&gt; Value
+-&gt; Parser DocumentationPart
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DocumentationPart&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365880"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe DocumentationPartLocation
+-&gt; Maybe Text -&gt; Maybe Text -&gt; DocumentationPart
+</span><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart%27"><span class="hs-identifier hs-var">DocumentationPart'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DocumentationPartLocation
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; DocumentationPart)
+-&gt; Parser (Maybe DocumentationPartLocation)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DocumentationPart)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentationPartLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DocumentationPart)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; DocumentationPart)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DocumentationPart)
+-&gt; Parser (Maybe Text) -&gt; Parser DocumentationPart
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;properties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365874"><span id="local-6989586621679365876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

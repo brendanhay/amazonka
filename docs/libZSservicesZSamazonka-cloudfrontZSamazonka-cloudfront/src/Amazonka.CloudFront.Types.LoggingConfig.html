@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.LoggingConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.LoggingConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A complex type that controls whether access logs are written for the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLoggingConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679394612"><span id="local-6989586621679394613"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingConfig"><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-var">LoggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingConfig%27"><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-var">LoggingConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether you want CloudFront to save access logs to an Amazon</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- S3 bucket. If you don\'t want to enable logging when you create a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- distribution or if you want to disable logging for an existing</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- distribution, specify @false@ for @Enabled@, and specify empty @Bucket@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- and @Prefix@ elements. If you specify @false@ for @Enabled@ but you</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- specify values for @Bucket@, @prefix@, and @IncludeCookies@, the values</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- are automatically deleted.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aenabled%3ALoggingConfig%27"><span class="annot"><span class="annottext">LoggingConfig -&gt; Bool
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Aenabled%3ALoggingConfig%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies whether you want CloudFront to include cookies in access logs,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- specify @true@ for @IncludeCookies@. If you choose to include cookies in</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- logs, CloudFront logs all cookies regardless of how you configure the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- cache behaviors for this distribution. If you don\'t want to include</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- cookies when you create a distribution or if you want to disable include</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- cookies for an existing distribution, specify @false@ for</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @IncludeCookies@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AincludeCookies%3ALoggingConfig%27"><span class="annot"><span class="annottext">LoggingConfig -&gt; Bool
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3AincludeCookies%3ALoggingConfig%27"><span class="hs-identifier hs-var hs-var">includeCookies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket to store the access logs in, for example,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @myawslogbucket.s3.amazonaws.com@.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Abucket%3ALoggingConfig%27"><span class="annot"><span class="annottext">LoggingConfig -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Abucket%3ALoggingConfig%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | An optional string that you want CloudFront to prefix to the access log</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @filenames@ for this distribution, for example, @myprefix\/@. If you</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- want to enable logging, but you don\'t want to specify a prefix, you</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- still must include an empty @Prefix@ element in the @Logging@ element.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aprefix%3ALoggingConfig%27"><span class="annot"><span class="annottext">LoggingConfig -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Aprefix%3ALoggingConfig%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394603"><span id="local-6989586621679394605"><span class="annot"><span class="annottext">LoggingConfig -&gt; LoggingConfig -&gt; Bool
+(LoggingConfig -&gt; LoggingConfig -&gt; Bool)
+-&gt; (LoggingConfig -&gt; LoggingConfig -&gt; Bool) -&gt; Eq LoggingConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LoggingConfig -&gt; LoggingConfig -&gt; Bool
+$c/= :: LoggingConfig -&gt; LoggingConfig -&gt; Bool
+== :: LoggingConfig -&gt; LoggingConfig -&gt; Bool
+$c== :: LoggingConfig -&gt; LoggingConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394594"><span id="local-6989586621679394596"><span id="local-6989586621679394598"><span id="local-6989586621679394600"><span class="annot"><span class="annottext">ReadPrec [LoggingConfig]
+ReadPrec LoggingConfig
+Int -&gt; ReadS LoggingConfig
+ReadS [LoggingConfig]
+(Int -&gt; ReadS LoggingConfig)
+-&gt; ReadS [LoggingConfig]
+-&gt; ReadPrec LoggingConfig
+-&gt; ReadPrec [LoggingConfig]
+-&gt; Read LoggingConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LoggingConfig]
+$creadListPrec :: ReadPrec [LoggingConfig]
+readPrec :: ReadPrec LoggingConfig
+$creadPrec :: ReadPrec LoggingConfig
+readList :: ReadS [LoggingConfig]
+$creadList :: ReadS [LoggingConfig]
+readsPrec :: Int -&gt; ReadS LoggingConfig
+$creadsPrec :: Int -&gt; ReadS LoggingConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394587"><span id="local-6989586621679394589"><span id="local-6989586621679394591"><span class="annot"><span class="annottext">Int -&gt; LoggingConfig -&gt; ShowS
+[LoggingConfig] -&gt; ShowS
+LoggingConfig -&gt; String
+(Int -&gt; LoggingConfig -&gt; ShowS)
+-&gt; (LoggingConfig -&gt; String)
+-&gt; ([LoggingConfig] -&gt; ShowS)
+-&gt; Show LoggingConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LoggingConfig] -&gt; ShowS
+$cshowList :: [LoggingConfig] -&gt; ShowS
+show :: LoggingConfig -&gt; String
+$cshow :: LoggingConfig -&gt; String
+showsPrec :: Int -&gt; LoggingConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; LoggingConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LoggingConfig -&gt; Rep LoggingConfig x)
+-&gt; (forall x. Rep LoggingConfig x -&gt; LoggingConfig)
+-&gt; Generic LoggingConfig
+forall x. Rep LoggingConfig x -&gt; LoggingConfig
+forall x. LoggingConfig -&gt; Rep LoggingConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LoggingConfig x -&gt; LoggingConfig
+$cfrom :: forall x. LoggingConfig -&gt; Rep LoggingConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'LoggingConfig' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'enabled', 'loggingConfig_enabled' - Specifies whether you want CloudFront to save access logs to an Amazon</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- S3 bucket. If you don\'t want to enable logging when you create a</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- distribution or if you want to disable logging for an existing</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- distribution, specify @false@ for @Enabled@, and specify empty @Bucket@</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- and @Prefix@ elements. If you specify @false@ for @Enabled@ but you</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- specify values for @Bucket@, @prefix@, and @IncludeCookies@, the values</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- are automatically deleted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'includeCookies', 'loggingConfig_includeCookies' - Specifies whether you want CloudFront to include cookies in access logs,</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- specify @true@ for @IncludeCookies@. If you choose to include cookies in</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- logs, CloudFront logs all cookies regardless of how you configure the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- cache behaviors for this distribution. If you don\'t want to include</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- cookies when you create a distribution or if you want to disable include</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- cookies for an existing distribution, specify @false@ for</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @IncludeCookies@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'bucket', 'loggingConfig_bucket' - The Amazon S3 bucket to store the access logs in, for example,</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- @myawslogbucket.s3.amazonaws.com@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'prefix', 'loggingConfig_prefix' - An optional string that you want CloudFront to prefix to the access log</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @filenames@ for this distribution, for example, @myprefix\/@. If you</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- want to enable logging, but you don\'t want to specify a prefix, you</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- still must include an empty @Prefix@ element in the @Logging@ element.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#newLoggingConfig"><span class="hs-identifier hs-type">newLoggingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'enabled'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'includeCookies'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'prefix'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span>
+</span><span id="line-99"></span><span id="newLoggingConfig"><span class="annot"><span class="annottext">newLoggingConfig :: Bool -&gt; Bool -&gt; Text -&gt; Text -&gt; LoggingConfig
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#newLoggingConfig"><span class="hs-identifier hs-var hs-var">newLoggingConfig</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679394581"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394581"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679394580"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394580"><span class="hs-identifier hs-var">pIncludeCookies_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679394579"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394579"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679394578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394578"><span class="hs-identifier hs-var">pPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">LoggingConfig' :: Bool -&gt; Bool -&gt; Text -&gt; Text -&gt; LoggingConfig
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:LoggingConfig' :: Bool
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Aenabled%3ALoggingConfig%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394581"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:includeCookies:LoggingConfig' :: Bool
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3AincludeCookies%3ALoggingConfig%27"><span class="hs-identifier hs-var">includeCookies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394580"><span class="hs-identifier hs-var">pIncludeCookies_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:LoggingConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Abucket%3ALoggingConfig%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394579"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:prefix:LoggingConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Aprefix%3ALoggingConfig%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394578"><span class="hs-identifier hs-var">pPrefix_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Specifies whether you want CloudFront to save access logs to an Amazon</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- S3 bucket. If you don\'t want to enable logging when you create a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- distribution or if you want to disable logging for an existing</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- distribution, specify @false@ for @Enabled@, and specify empty @Bucket@</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- and @Prefix@ elements. If you specify @false@ for @Enabled@ but you</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- specify values for @Bucket@, @prefix@, and @IncludeCookies@, the values</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- are automatically deleted.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_enabled"><span class="hs-identifier hs-type">loggingConfig_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-119"></span><span id="loggingConfig_enabled"><span class="annot"><span class="annottext">loggingConfig_enabled :: (Bool -&gt; f Bool) -&gt; LoggingConfig -&gt; f LoggingConfig
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_enabled"><span class="hs-identifier hs-var hs-var">loggingConfig_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfig -&gt; Bool)
+-&gt; (LoggingConfig -&gt; Bool -&gt; LoggingConfig)
+-&gt; Lens LoggingConfig LoggingConfig Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394574"><span class="annot"><span class="annottext">Bool
+enabled :: Bool
+$sel:enabled:LoggingConfig' :: LoggingConfig -&gt; Bool
+</span><a href="#local-6989586621679394574"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394574"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394573"><span class="annot"><span class="annottext">s :: LoggingConfig
+</span><a href="#local-6989586621679394573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394572"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
+</span><a href="#local-6989586621679394573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:LoggingConfig' :: Bool
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Aenabled%3ALoggingConfig%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Specifies whether you want CloudFront to include cookies in access logs,</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- specify @true@ for @IncludeCookies@. If you choose to include cookies in</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- logs, CloudFront logs all cookies regardless of how you configure the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- cache behaviors for this distribution. If you don\'t want to include</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- cookies when you create a distribution or if you want to disable include</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- cookies for an existing distribution, specify @false@ for</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @IncludeCookies@.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_includeCookies"><span class="hs-identifier hs-type">loggingConfig_includeCookies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-129"></span><span id="loggingConfig_includeCookies"><span class="annot"><span class="annottext">loggingConfig_includeCookies :: (Bool -&gt; f Bool) -&gt; LoggingConfig -&gt; f LoggingConfig
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_includeCookies"><span class="hs-identifier hs-var hs-var">loggingConfig_includeCookies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfig -&gt; Bool)
+-&gt; (LoggingConfig -&gt; Bool -&gt; LoggingConfig)
+-&gt; Lens LoggingConfig LoggingConfig Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394570"><span class="annot"><span class="annottext">Bool
+includeCookies :: Bool
+$sel:includeCookies:LoggingConfig' :: LoggingConfig -&gt; Bool
+</span><a href="#local-6989586621679394570"><span class="hs-identifier hs-var hs-var">includeCookies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394570"><span class="hs-identifier hs-var">includeCookies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394569"><span class="annot"><span class="annottext">s :: LoggingConfig
+</span><a href="#local-6989586621679394569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394568"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
+</span><a href="#local-6989586621679394569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeCookies:LoggingConfig' :: Bool
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3AincludeCookies%3ALoggingConfig%27"><span class="hs-identifier hs-var">includeCookies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The Amazon S3 bucket to store the access logs in, for example,</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @myawslogbucket.s3.amazonaws.com@.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_bucket"><span class="hs-identifier hs-type">loggingConfig_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="loggingConfig_bucket"><span class="annot"><span class="annottext">loggingConfig_bucket :: (Text -&gt; f Text) -&gt; LoggingConfig -&gt; f LoggingConfig
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_bucket"><span class="hs-identifier hs-var hs-var">loggingConfig_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfig -&gt; Text)
+-&gt; (LoggingConfig -&gt; Text -&gt; LoggingConfig)
+-&gt; Lens LoggingConfig LoggingConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394566"><span class="annot"><span class="annottext">Text
+bucket :: Text
+$sel:bucket:LoggingConfig' :: LoggingConfig -&gt; Text
+</span><a href="#local-6989586621679394566"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394566"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394565"><span class="annot"><span class="annottext">s :: LoggingConfig
+</span><a href="#local-6989586621679394565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394564"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
+</span><a href="#local-6989586621679394565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:LoggingConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Abucket%3ALoggingConfig%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | An optional string that you want CloudFront to prefix to the access log</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @filenames@ for this distribution, for example, @myprefix\/@. If you</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- want to enable logging, but you don\'t want to specify a prefix, you</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- still must include an empty @Prefix@ element in the @Logging@ element.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_prefix"><span class="hs-identifier hs-type">loggingConfig_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="loggingConfig_prefix"><span class="annot"><span class="annottext">loggingConfig_prefix :: (Text -&gt; f Text) -&gt; LoggingConfig -&gt; f LoggingConfig
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#loggingConfig_prefix"><span class="hs-identifier hs-var hs-var">loggingConfig_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfig -&gt; Text)
+-&gt; (LoggingConfig -&gt; Text -&gt; LoggingConfig)
+-&gt; Lens LoggingConfig LoggingConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394562"><span class="annot"><span class="annottext">Text
+prefix :: Text
+$sel:prefix:LoggingConfig' :: LoggingConfig -&gt; Text
+</span><a href="#local-6989586621679394562"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394562"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394561"><span class="annot"><span class="annottext">s :: LoggingConfig
+</span><a href="#local-6989586621679394561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
+</span><a href="#local-6989586621679394561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:LoggingConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#%24sel%3Aprefix%3ALoggingConfig%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679394557"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoggingConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679394555"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394555"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">Bool -&gt; Bool -&gt; Text -&gt; Text -&gt; LoggingConfig
+</span><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-var">LoggingConfig'</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">(Bool -&gt; Bool -&gt; Text -&gt; Text -&gt; LoggingConfig)
+-&gt; Either String Bool
+-&gt; Either String (Bool -&gt; Text -&gt; Text -&gt; LoggingConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either String (Bool -&gt; Text -&gt; Text -&gt; LoggingConfig)
+-&gt; Either String Bool
+-&gt; Either String (Text -&gt; Text -&gt; LoggingConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IncludeCookies&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; LoggingConfig)
+-&gt; Either String Text -&gt; Either String (Text -&gt; LoggingConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; LoggingConfig)
+-&gt; Either String Text -&gt; Either String LoggingConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394549"><span id="local-6989586621679394551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679394542"><span class="annot"><span class="annottext">toXML :: LoggingConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394537"><span id="local-6989586621679394538"><span id="local-6989586621679394539"><span id="local-6989586621679394540"><span class="annot"><span class="annottext">Bool
+Text
+prefix :: Text
+bucket :: Text
+includeCookies :: Bool
+enabled :: Bool
+$sel:prefix:LoggingConfig' :: LoggingConfig -&gt; Text
+$sel:bucket:LoggingConfig' :: LoggingConfig -&gt; Text
+$sel:includeCookies:LoggingConfig' :: LoggingConfig -&gt; Bool
+$sel:enabled:LoggingConfig' :: LoggingConfig -&gt; Bool
+</span><a href="#local-6989586621679394537"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Bool -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394540"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;IncludeCookies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Bool -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679394539"><span class="hs-identifier hs-var">includeCookies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394538"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394537"><span class="hs-identifier hs-var">prefix</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span></pre></body></html>

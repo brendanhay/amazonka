@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DisableSerialConsoleAccess</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disables access to the EC2 serial console of all instances for your</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account. By default, access to the EC2 serial console is disabled for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- your account. For more information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access Manage account access to the EC2 serial console&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DisableSerialConsoleAccess</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier">DisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#newDisableSerialConsoleAccess"><span class="hs-identifier">newDisableSerialConsoleAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccess_dryRun"><span class="hs-identifier">disableSerialConsoleAccess_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier">DisableSerialConsoleAccessResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#newDisableSerialConsoleAccessResponse"><span class="hs-identifier">newDisableSerialConsoleAccessResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccessResponse_serialConsoleAccessEnabled"><span class="hs-identifier">disableSerialConsoleAccessResponse_serialConsoleAccessEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccessResponse_httpStatus"><span class="hs-identifier">disableSerialConsoleAccessResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDisableSerialConsoleAccess' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621681236672"><span id="local-6989586621681236673"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableSerialConsoleAccess"><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-var">DisableSerialConsoleAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableSerialConsoleAccess%27"><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess%27"><span class="hs-identifier hs-var">DisableSerialConsoleAccess'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdryRun%3ADisableSerialConsoleAccess%27"><span class="annot"><span class="annottext">DisableSerialConsoleAccess -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AdryRun%3ADisableSerialConsoleAccess%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681236666"><span id="local-6989586621681236668"><span class="annot"><span class="annottext">DisableSerialConsoleAccess -&gt; DisableSerialConsoleAccess -&gt; Bool
+(DisableSerialConsoleAccess -&gt; DisableSerialConsoleAccess -&gt; Bool)
+-&gt; (DisableSerialConsoleAccess
+    -&gt; DisableSerialConsoleAccess -&gt; Bool)
+-&gt; Eq DisableSerialConsoleAccess
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableSerialConsoleAccess -&gt; DisableSerialConsoleAccess -&gt; Bool
+$c/= :: DisableSerialConsoleAccess -&gt; DisableSerialConsoleAccess -&gt; Bool
+== :: DisableSerialConsoleAccess -&gt; DisableSerialConsoleAccess -&gt; Bool
+$c== :: DisableSerialConsoleAccess -&gt; DisableSerialConsoleAccess -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236657"><span id="local-6989586621681236659"><span id="local-6989586621681236661"><span id="local-6989586621681236663"><span class="annot"><span class="annottext">ReadPrec [DisableSerialConsoleAccess]
+ReadPrec DisableSerialConsoleAccess
+Int -&gt; ReadS DisableSerialConsoleAccess
+ReadS [DisableSerialConsoleAccess]
+(Int -&gt; ReadS DisableSerialConsoleAccess)
+-&gt; ReadS [DisableSerialConsoleAccess]
+-&gt; ReadPrec DisableSerialConsoleAccess
+-&gt; ReadPrec [DisableSerialConsoleAccess]
+-&gt; Read DisableSerialConsoleAccess
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableSerialConsoleAccess]
+$creadListPrec :: ReadPrec [DisableSerialConsoleAccess]
+readPrec :: ReadPrec DisableSerialConsoleAccess
+$creadPrec :: ReadPrec DisableSerialConsoleAccess
+readList :: ReadS [DisableSerialConsoleAccess]
+$creadList :: ReadS [DisableSerialConsoleAccess]
+readsPrec :: Int -&gt; ReadS DisableSerialConsoleAccess
+$creadsPrec :: Int -&gt; ReadS DisableSerialConsoleAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236650"><span id="local-6989586621681236652"><span id="local-6989586621681236654"><span class="annot"><span class="annottext">Int -&gt; DisableSerialConsoleAccess -&gt; ShowS
+[DisableSerialConsoleAccess] -&gt; ShowS
+DisableSerialConsoleAccess -&gt; String
+(Int -&gt; DisableSerialConsoleAccess -&gt; ShowS)
+-&gt; (DisableSerialConsoleAccess -&gt; String)
+-&gt; ([DisableSerialConsoleAccess] -&gt; ShowS)
+-&gt; Show DisableSerialConsoleAccess
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableSerialConsoleAccess] -&gt; ShowS
+$cshowList :: [DisableSerialConsoleAccess] -&gt; ShowS
+show :: DisableSerialConsoleAccess -&gt; String
+$cshow :: DisableSerialConsoleAccess -&gt; String
+showsPrec :: Int -&gt; DisableSerialConsoleAccess -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableSerialConsoleAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableSerialConsoleAccess -&gt; Rep DisableSerialConsoleAccess x)
+-&gt; (forall x.
+    Rep DisableSerialConsoleAccess x -&gt; DisableSerialConsoleAccess)
+-&gt; Generic DisableSerialConsoleAccess
+forall x.
+Rep DisableSerialConsoleAccess x -&gt; DisableSerialConsoleAccess
+forall x.
+DisableSerialConsoleAccess -&gt; Rep DisableSerialConsoleAccess x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableSerialConsoleAccess x -&gt; DisableSerialConsoleAccess
+$cfrom :: forall x.
+DisableSerialConsoleAccess -&gt; Rep DisableSerialConsoleAccess x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DisableSerialConsoleAccess' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'dryRun', 'disableSerialConsoleAccess_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#newDisableSerialConsoleAccess"><span class="hs-identifier hs-type">newDisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span>
+</span><span id="line-77"></span><span id="newDisableSerialConsoleAccess"><span class="annot"><span class="annottext">newDisableSerialConsoleAccess :: DisableSerialConsoleAccess
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#newDisableSerialConsoleAccess"><span class="hs-identifier hs-var hs-var">newDisableSerialConsoleAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DisableSerialConsoleAccess' :: Maybe Bool -&gt; DisableSerialConsoleAccess
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccess'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DisableSerialConsoleAccess' :: Maybe Bool
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AdryRun%3ADisableSerialConsoleAccess%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccess_dryRun"><span class="hs-identifier hs-type">disableSerialConsoleAccess_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="disableSerialConsoleAccess_dryRun"><span class="annot"><span class="annottext">disableSerialConsoleAccess_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DisableSerialConsoleAccess -&gt; f DisableSerialConsoleAccess
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccess_dryRun"><span class="hs-identifier hs-var hs-var">disableSerialConsoleAccess_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableSerialConsoleAccess -&gt; Maybe Bool)
+-&gt; (DisableSerialConsoleAccess
+    -&gt; Maybe Bool -&gt; DisableSerialConsoleAccess)
+-&gt; Lens
+     DisableSerialConsoleAccess
+     DisableSerialConsoleAccess
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236643"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DisableSerialConsoleAccess' :: DisableSerialConsoleAccess -&gt; Maybe Bool
+</span><a href="#local-6989586621681236643"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236643"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236642"><span class="annot"><span class="annottext">s :: DisableSerialConsoleAccess
+</span><a href="#local-6989586621681236642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236641"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableSerialConsoleAccess
+</span><a href="#local-6989586621681236642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DisableSerialConsoleAccess' :: Maybe Bool
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AdryRun%3ADisableSerialConsoleAccess%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681236637"><span class="annot"><span class="annottext">request :: DisableSerialConsoleAccess -&gt; Request DisableSerialConsoleAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisableSerialConsoleAccess -&gt; Request DisableSerialConsoleAccess
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681236633"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisableSerialConsoleAccess
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableSerialConsoleAccess)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DisableSerialConsoleAccess))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisableSerialConsoleAccess
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableSerialConsoleAccess)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681236630"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236630"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681236629"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681236629"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681236628"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681236628"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; DisableSerialConsoleAccessResponse
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var">DisableSerialConsoleAccessResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; DisableSerialConsoleAccessResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; DisableSerialConsoleAccessResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681236628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serialConsoleAccessEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DisableSerialConsoleAccessResponse)
+-&gt; Either String Int
+-&gt; Either String DisableSerialConsoleAccessResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236630"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681236620"><span id="local-6989586621681236622"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681236617"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621681236613"><span class="annot"><span class="annottext">toHeaders :: DisableSerialConsoleAccess -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisableSerialConsoleAccess -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621681236608"><span class="annot"><span class="annottext">toPath :: DisableSerialConsoleAccess -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisableSerialConsoleAccess -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess"><span class="hs-identifier hs-type">DisableSerialConsoleAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621681236604"><span class="annot"><span class="annottext">toQuery :: DisableSerialConsoleAccess -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccess%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236602"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DisableSerialConsoleAccess' :: DisableSerialConsoleAccess -&gt; Maybe Bool
+</span><a href="#local-6989586621681236602"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DisableSerialConsoleAccess&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236602"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newDisableSerialConsoleAccessResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621681236599"><span id="local-6989586621681236600"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableSerialConsoleAccessResponse"><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-var">DisableSerialConsoleAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableSerialConsoleAccessResponse%27"><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var">DisableSerialConsoleAccessResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @true@, access to the EC2 serial console of all instances is enabled</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- for your account. If @false@, access to the EC2 serial console of all</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- instances is disabled for your account.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AserialConsoleAccessEnabled%3ADisableSerialConsoleAccessResponse%27"><span class="annot"><span class="annottext">DisableSerialConsoleAccessResponse -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AserialConsoleAccessEnabled%3ADisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var hs-var">serialConsoleAccessEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisableSerialConsoleAccessResponse%27"><span class="annot"><span class="annottext">DisableSerialConsoleAccessResponse -&gt; Int
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AhttpStatus%3ADisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681236593"><span id="local-6989586621681236595"><span class="annot"><span class="annottext">DisableSerialConsoleAccessResponse
+-&gt; DisableSerialConsoleAccessResponse -&gt; Bool
+(DisableSerialConsoleAccessResponse
+ -&gt; DisableSerialConsoleAccessResponse -&gt; Bool)
+-&gt; (DisableSerialConsoleAccessResponse
+    -&gt; DisableSerialConsoleAccessResponse -&gt; Bool)
+-&gt; Eq DisableSerialConsoleAccessResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableSerialConsoleAccessResponse
+-&gt; DisableSerialConsoleAccessResponse -&gt; Bool
+$c/= :: DisableSerialConsoleAccessResponse
+-&gt; DisableSerialConsoleAccessResponse -&gt; Bool
+== :: DisableSerialConsoleAccessResponse
+-&gt; DisableSerialConsoleAccessResponse -&gt; Bool
+$c== :: DisableSerialConsoleAccessResponse
+-&gt; DisableSerialConsoleAccessResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236585"><span id="local-6989586621681236587"><span id="local-6989586621681236589"><span id="local-6989586621681236591"><span class="annot"><span class="annottext">ReadPrec [DisableSerialConsoleAccessResponse]
+ReadPrec DisableSerialConsoleAccessResponse
+Int -&gt; ReadS DisableSerialConsoleAccessResponse
+ReadS [DisableSerialConsoleAccessResponse]
+(Int -&gt; ReadS DisableSerialConsoleAccessResponse)
+-&gt; ReadS [DisableSerialConsoleAccessResponse]
+-&gt; ReadPrec DisableSerialConsoleAccessResponse
+-&gt; ReadPrec [DisableSerialConsoleAccessResponse]
+-&gt; Read DisableSerialConsoleAccessResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableSerialConsoleAccessResponse]
+$creadListPrec :: ReadPrec [DisableSerialConsoleAccessResponse]
+readPrec :: ReadPrec DisableSerialConsoleAccessResponse
+$creadPrec :: ReadPrec DisableSerialConsoleAccessResponse
+readList :: ReadS [DisableSerialConsoleAccessResponse]
+$creadList :: ReadS [DisableSerialConsoleAccessResponse]
+readsPrec :: Int -&gt; ReadS DisableSerialConsoleAccessResponse
+$creadsPrec :: Int -&gt; ReadS DisableSerialConsoleAccessResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236579"><span id="local-6989586621681236581"><span id="local-6989586621681236583"><span class="annot"><span class="annottext">Int -&gt; DisableSerialConsoleAccessResponse -&gt; ShowS
+[DisableSerialConsoleAccessResponse] -&gt; ShowS
+DisableSerialConsoleAccessResponse -&gt; String
+(Int -&gt; DisableSerialConsoleAccessResponse -&gt; ShowS)
+-&gt; (DisableSerialConsoleAccessResponse -&gt; String)
+-&gt; ([DisableSerialConsoleAccessResponse] -&gt; ShowS)
+-&gt; Show DisableSerialConsoleAccessResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableSerialConsoleAccessResponse] -&gt; ShowS
+$cshowList :: [DisableSerialConsoleAccessResponse] -&gt; ShowS
+show :: DisableSerialConsoleAccessResponse -&gt; String
+$cshow :: DisableSerialConsoleAccessResponse -&gt; String
+showsPrec :: Int -&gt; DisableSerialConsoleAccessResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableSerialConsoleAccessResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableSerialConsoleAccessResponse
+ -&gt; Rep DisableSerialConsoleAccessResponse x)
+-&gt; (forall x.
+    Rep DisableSerialConsoleAccessResponse x
+    -&gt; DisableSerialConsoleAccessResponse)
+-&gt; Generic DisableSerialConsoleAccessResponse
+forall x.
+Rep DisableSerialConsoleAccessResponse x
+-&gt; DisableSerialConsoleAccessResponse
+forall x.
+DisableSerialConsoleAccessResponse
+-&gt; Rep DisableSerialConsoleAccessResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableSerialConsoleAccessResponse x
+-&gt; DisableSerialConsoleAccessResponse
+$cfrom :: forall x.
+DisableSerialConsoleAccessResponse
+-&gt; Rep DisableSerialConsoleAccessResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'DisableSerialConsoleAccessResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'serialConsoleAccessEnabled', 'disableSerialConsoleAccessResponse_serialConsoleAccessEnabled' - If @true@, access to the EC2 serial console of all instances is enabled</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for your account. If @false@, access to the EC2 serial console of all</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- instances is disabled for your account.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'httpStatus', 'disableSerialConsoleAccessResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#newDisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">newDisableSerialConsoleAccessResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse</span></a></span><span>
+</span><span id="line-151"></span><span id="newDisableSerialConsoleAccessResponse"><span class="annot"><span class="annottext">newDisableSerialConsoleAccessResponse :: Int -&gt; DisableSerialConsoleAccessResponse
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#newDisableSerialConsoleAccessResponse"><span class="hs-identifier hs-var hs-var">newDisableSerialConsoleAccessResponse</span></a></span></span><span> </span><span id="local-6989586621681236576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">DisableSerialConsoleAccessResponse' :: Maybe Bool -&gt; Int -&gt; DisableSerialConsoleAccessResponse
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serialConsoleAccessEnabled:DisableSerialConsoleAccessResponse' :: Maybe Bool
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AserialConsoleAccessEnabled%3ADisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var">serialConsoleAccessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DisableSerialConsoleAccessResponse' :: Int
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AhttpStatus%3ADisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | If @true@, access to the EC2 serial console of all instances is enabled</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for your account. If @false@, access to the EC2 serial console of all</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- instances is disabled for your account.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccessResponse_serialConsoleAccessEnabled"><span class="hs-identifier hs-type">disableSerialConsoleAccessResponse_serialConsoleAccessEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="disableSerialConsoleAccessResponse_serialConsoleAccessEnabled"><span class="annot"><span class="annottext">disableSerialConsoleAccessResponse_serialConsoleAccessEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DisableSerialConsoleAccessResponse
+-&gt; f DisableSerialConsoleAccessResponse
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccessResponse_serialConsoleAccessEnabled"><span class="hs-identifier hs-var hs-var">disableSerialConsoleAccessResponse_serialConsoleAccessEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableSerialConsoleAccessResponse -&gt; Maybe Bool)
+-&gt; (DisableSerialConsoleAccessResponse
+    -&gt; Maybe Bool -&gt; DisableSerialConsoleAccessResponse)
+-&gt; Lens
+     DisableSerialConsoleAccessResponse
+     DisableSerialConsoleAccessResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236575"><span class="annot"><span class="annottext">Maybe Bool
+serialConsoleAccessEnabled :: Maybe Bool
+$sel:serialConsoleAccessEnabled:DisableSerialConsoleAccessResponse' :: DisableSerialConsoleAccessResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621681236575"><span class="hs-identifier hs-var hs-var">serialConsoleAccessEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236575"><span class="hs-identifier hs-var">serialConsoleAccessEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236574"><span class="annot"><span class="annottext">s :: DisableSerialConsoleAccessResponse
+</span><a href="#local-6989586621681236574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236573"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableSerialConsoleAccessResponse
+</span><a href="#local-6989586621681236574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialConsoleAccessEnabled:DisableSerialConsoleAccessResponse' :: Maybe Bool
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AserialConsoleAccessEnabled%3ADisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var">serialConsoleAccessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccessResponse_httpStatus"><span class="hs-identifier hs-type">disableSerialConsoleAccessResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span id="disableSerialConsoleAccessResponse_httpStatus"><span class="annot"><span class="annottext">disableSerialConsoleAccessResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisableSerialConsoleAccessResponse
+-&gt; f DisableSerialConsoleAccessResponse
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#disableSerialConsoleAccessResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disableSerialConsoleAccessResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableSerialConsoleAccessResponse -&gt; Int)
+-&gt; (DisableSerialConsoleAccessResponse
+    -&gt; Int -&gt; DisableSerialConsoleAccessResponse)
+-&gt; Lens
+     DisableSerialConsoleAccessResponse
+     DisableSerialConsoleAccessResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236572"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisableSerialConsoleAccessResponse' :: DisableSerialConsoleAccessResponse -&gt; Int
+</span><a href="#local-6989586621681236572"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236572"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236571"><span class="annot"><span class="annottext">s :: DisableSerialConsoleAccessResponse
+</span><a href="#local-6989586621681236571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableSerialConsoleAccessResponse
+</span><a href="#local-6989586621681236571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableSerialConsoleAccessResponse' :: Int
+</span><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#%24sel%3AhttpStatus%3ADisableSerialConsoleAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621681236568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableSerialConsoleAccess.html#DisableSerialConsoleAccessResponse"><span class="hs-identifier hs-type">DisableSerialConsoleAccessResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

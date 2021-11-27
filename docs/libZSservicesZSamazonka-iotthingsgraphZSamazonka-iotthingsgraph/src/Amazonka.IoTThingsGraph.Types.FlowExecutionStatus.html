@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTThingsGraph.Types.FlowExecutionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTThingsGraph.Types.FlowExecutionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus"><span class="hs-identifier">FlowExecutionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_ABORTED"><span class="hs-identifier">FlowExecutionStatus_ABORTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_FAILED"><span class="hs-identifier">FlowExecutionStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_RUNNING"><span class="hs-identifier">FlowExecutionStatus_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_SUCCEEDED"><span class="hs-identifier">FlowExecutionStatus_SUCCEEDED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679217112"><span id="local-6989586621679217113"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FlowExecutionStatus"><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus"><span class="hs-identifier hs-var">FlowExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlowExecutionStatus%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus%27"><span class="hs-identifier hs-var">FlowExecutionStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFlowExecutionStatus"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; Text
+</span><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#fromFlowExecutionStatus"><span class="hs-identifier hs-var hs-var">fromFlowExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679217104"><span id="local-6989586621679217106"><span id="local-6989586621679217108"><span class="annot"><span class="annottext">Int -&gt; FlowExecutionStatus -&gt; ShowS
+[FlowExecutionStatus] -&gt; ShowS
+FlowExecutionStatus -&gt; String
+(Int -&gt; FlowExecutionStatus -&gt; ShowS)
+-&gt; (FlowExecutionStatus -&gt; String)
+-&gt; ([FlowExecutionStatus] -&gt; ShowS)
+-&gt; Show FlowExecutionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FlowExecutionStatus] -&gt; ShowS
+$cshowList :: [FlowExecutionStatus] -&gt; ShowS
+show :: FlowExecutionStatus -&gt; String
+$cshow :: FlowExecutionStatus -&gt; String
+showsPrec :: Int -&gt; FlowExecutionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; FlowExecutionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679217095"><span id="local-6989586621679217097"><span id="local-6989586621679217099"><span id="local-6989586621679217101"><span class="annot"><span class="annottext">ReadPrec [FlowExecutionStatus]
+ReadPrec FlowExecutionStatus
+Int -&gt; ReadS FlowExecutionStatus
+ReadS [FlowExecutionStatus]
+(Int -&gt; ReadS FlowExecutionStatus)
+-&gt; ReadS [FlowExecutionStatus]
+-&gt; ReadPrec FlowExecutionStatus
+-&gt; ReadPrec [FlowExecutionStatus]
+-&gt; Read FlowExecutionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FlowExecutionStatus]
+$creadListPrec :: ReadPrec [FlowExecutionStatus]
+readPrec :: ReadPrec FlowExecutionStatus
+$creadPrec :: ReadPrec FlowExecutionStatus
+readList :: ReadS [FlowExecutionStatus]
+$creadList :: ReadS [FlowExecutionStatus]
+readsPrec :: Int -&gt; ReadS FlowExecutionStatus
+$creadsPrec :: Int -&gt; ReadS FlowExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679217090"><span id="local-6989586621679217092"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+(FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool)
+-&gt; (FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool)
+-&gt; Eq FlowExecutionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+$c/= :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+== :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+$c== :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679217074"><span id="local-6989586621679217076"><span id="local-6989586621679217078"><span id="local-6989586621679217080"><span id="local-6989586621679217082"><span id="local-6989586621679217084"><span id="local-6989586621679217086"><span class="annot"><span class="annottext">Eq FlowExecutionStatus
+Eq FlowExecutionStatus
+-&gt; (FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Ordering)
+-&gt; (FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool)
+-&gt; (FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool)
+-&gt; (FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool)
+-&gt; (FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool)
+-&gt; (FlowExecutionStatus
+    -&gt; FlowExecutionStatus -&gt; FlowExecutionStatus)
+-&gt; (FlowExecutionStatus
+    -&gt; FlowExecutionStatus -&gt; FlowExecutionStatus)
+-&gt; Ord FlowExecutionStatus
+FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Ordering
+FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; FlowExecutionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; FlowExecutionStatus
+$cmin :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; FlowExecutionStatus
+max :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; FlowExecutionStatus
+$cmax :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; FlowExecutionStatus
+&gt;= :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+$c&gt;= :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+&gt; :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+$c&gt; :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+&lt;= :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+$c&lt;= :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+&lt; :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+$c&lt; :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Bool
+compare :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Ordering
+$ccompare :: FlowExecutionStatus -&gt; FlowExecutionStatus -&gt; Ordering
+$cp1Ord :: Eq FlowExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FlowExecutionStatus -&gt; Rep FlowExecutionStatus x)
+-&gt; (forall x. Rep FlowExecutionStatus x -&gt; FlowExecutionStatus)
+-&gt; Generic FlowExecutionStatus
+forall x. Rep FlowExecutionStatus x -&gt; FlowExecutionStatus
+forall x. FlowExecutionStatus -&gt; Rep FlowExecutionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FlowExecutionStatus x -&gt; FlowExecutionStatus
+$cfrom :: forall x. FlowExecutionStatus -&gt; Rep FlowExecutionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679217066"><span id="local-6989586621679217068"><span class="annot"><span class="annottext">Int -&gt; FlowExecutionStatus -&gt; Int
+FlowExecutionStatus -&gt; Int
+(Int -&gt; FlowExecutionStatus -&gt; Int)
+-&gt; (FlowExecutionStatus -&gt; Int) -&gt; Hashable FlowExecutionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FlowExecutionStatus -&gt; Int
+$chash :: FlowExecutionStatus -&gt; Int
+hashWithSalt :: Int -&gt; FlowExecutionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; FlowExecutionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679217063"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; ()
+(FlowExecutionStatus -&gt; ()) -&gt; NFData FlowExecutionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FlowExecutionStatus -&gt; ()
+$crnf :: FlowExecutionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679217060"><span class="annot"><span class="annottext">Text -&gt; Either String FlowExecutionStatus
+(Text -&gt; Either String FlowExecutionStatus)
+-&gt; FromText FlowExecutionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FlowExecutionStatus
+$cfromText :: Text -&gt; Either String FlowExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679217057"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; Text
+(FlowExecutionStatus -&gt; Text) -&gt; ToText FlowExecutionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FlowExecutionStatus -&gt; Text
+$ctoText :: FlowExecutionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679217054"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; ByteString
+(FlowExecutionStatus -&gt; ByteString)
+-&gt; ToByteString FlowExecutionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FlowExecutionStatus -&gt; ByteString
+$ctoBS :: FlowExecutionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679217051"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; ByteStringBuilder
+(FlowExecutionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog FlowExecutionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FlowExecutionStatus -&gt; ByteStringBuilder
+$cbuild :: FlowExecutionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679217048"><span class="annot"><span class="annottext">HeaderName -&gt; FlowExecutionStatus -&gt; [Header]
+(HeaderName -&gt; FlowExecutionStatus -&gt; [Header])
+-&gt; ToHeader FlowExecutionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FlowExecutionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FlowExecutionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679217045"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; QueryString
+(FlowExecutionStatus -&gt; QueryString) -&gt; ToQuery FlowExecutionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FlowExecutionStatus -&gt; QueryString
+$ctoQuery :: FlowExecutionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679217040"><span id="local-6989586621679217042"><span class="annot"><span class="annottext">Value -&gt; Parser [FlowExecutionStatus]
+Value -&gt; Parser FlowExecutionStatus
+(Value -&gt; Parser FlowExecutionStatus)
+-&gt; (Value -&gt; Parser [FlowExecutionStatus])
+-&gt; FromJSON FlowExecutionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FlowExecutionStatus]
+$cparseJSONList :: Value -&gt; Parser [FlowExecutionStatus]
+parseJSON :: Value -&gt; Parser FlowExecutionStatus
+$cparseJSON :: Value -&gt; Parser FlowExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679217035"><span id="local-6989586621679217037"><span class="annot"><span class="annottext">FromJSONKeyFunction [FlowExecutionStatus]
+FromJSONKeyFunction FlowExecutionStatus
+FromJSONKeyFunction FlowExecutionStatus
+-&gt; FromJSONKeyFunction [FlowExecutionStatus]
+-&gt; FromJSONKey FlowExecutionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FlowExecutionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [FlowExecutionStatus]
+fromJSONKey :: FromJSONKeyFunction FlowExecutionStatus
+$cfromJSONKey :: FromJSONKeyFunction FlowExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679217026"><span id="local-6989586621679217028"><span id="local-6989586621679217030"><span id="local-6989586621679217032"><span class="annot"><span class="annottext">[FlowExecutionStatus] -&gt; Encoding
+[FlowExecutionStatus] -&gt; Value
+FlowExecutionStatus -&gt; Encoding
+FlowExecutionStatus -&gt; Value
+(FlowExecutionStatus -&gt; Value)
+-&gt; (FlowExecutionStatus -&gt; Encoding)
+-&gt; ([FlowExecutionStatus] -&gt; Value)
+-&gt; ([FlowExecutionStatus] -&gt; Encoding)
+-&gt; ToJSON FlowExecutionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FlowExecutionStatus] -&gt; Encoding
+$ctoEncodingList :: [FlowExecutionStatus] -&gt; Encoding
+toJSONList :: [FlowExecutionStatus] -&gt; Value
+$ctoJSONList :: [FlowExecutionStatus] -&gt; Value
+toEncoding :: FlowExecutionStatus -&gt; Encoding
+$ctoEncoding :: FlowExecutionStatus -&gt; Encoding
+toJSON :: FlowExecutionStatus -&gt; Value
+$ctoJSON :: FlowExecutionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679217021"><span id="local-6989586621679217023"><span class="annot"><span class="annottext">ToJSONKeyFunction [FlowExecutionStatus]
+ToJSONKeyFunction FlowExecutionStatus
+ToJSONKeyFunction FlowExecutionStatus
+-&gt; ToJSONKeyFunction [FlowExecutionStatus]
+-&gt; ToJSONKey FlowExecutionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FlowExecutionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [FlowExecutionStatus]
+toJSONKey :: ToJSONKeyFunction FlowExecutionStatus
+$ctoJSONKey :: ToJSONKeyFunction FlowExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679217018"><span class="annot"><span class="annottext">[Node] -&gt; Either String FlowExecutionStatus
+([Node] -&gt; Either String FlowExecutionStatus)
+-&gt; FromXML FlowExecutionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FlowExecutionStatus
+$cparseXML :: [Node] -&gt; Either String FlowExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679217015"><span class="annot"><span class="annottext">FlowExecutionStatus -&gt; XML
+(FlowExecutionStatus -&gt; XML) -&gt; ToXML FlowExecutionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FlowExecutionStatus -&gt; XML
+$ctoXML :: FlowExecutionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_ABORTED"><span class="hs-identifier hs-type">FlowExecutionStatus_ABORTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus"><span class="hs-identifier hs-type">FlowExecutionStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFlowExecutionStatus_ABORTED"><span id="%24mFlowExecutionStatus_ABORTED"><span id="FlowExecutionStatus_ABORTED"><span class="annot"><span class="annottext">$bFlowExecutionStatus_ABORTED :: FlowExecutionStatus
+$mFlowExecutionStatus_ABORTED :: forall r. FlowExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#%24bFlowExecutionStatus_ABORTED"><span class="hs-identifier hs-var hs-var hs-var">FlowExecutionStatus_ABORTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus%27"><span class="hs-identifier hs-type">FlowExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ABORTED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_FAILED"><span class="hs-identifier hs-type">FlowExecutionStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus"><span class="hs-identifier hs-type">FlowExecutionStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFlowExecutionStatus_FAILED"><span id="%24mFlowExecutionStatus_FAILED"><span id="FlowExecutionStatus_FAILED"><span class="annot"><span class="annottext">$bFlowExecutionStatus_FAILED :: FlowExecutionStatus
+$mFlowExecutionStatus_FAILED :: forall r. FlowExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#%24bFlowExecutionStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">FlowExecutionStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus%27"><span class="hs-identifier hs-type">FlowExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_RUNNING"><span class="hs-identifier hs-type">FlowExecutionStatus_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus"><span class="hs-identifier hs-type">FlowExecutionStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFlowExecutionStatus_RUNNING"><span id="%24mFlowExecutionStatus_RUNNING"><span id="FlowExecutionStatus_RUNNING"><span class="annot"><span class="annottext">$bFlowExecutionStatus_RUNNING :: FlowExecutionStatus
+$mFlowExecutionStatus_RUNNING :: forall r. FlowExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#%24bFlowExecutionStatus_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">FlowExecutionStatus_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus%27"><span class="hs-identifier hs-type">FlowExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_SUCCEEDED"><span class="hs-identifier hs-type">FlowExecutionStatus_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus"><span class="hs-identifier hs-type">FlowExecutionStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFlowExecutionStatus_SUCCEEDED"><span id="%24mFlowExecutionStatus_SUCCEEDED"><span id="FlowExecutionStatus_SUCCEEDED"><span class="annot"><span class="annottext">$bFlowExecutionStatus_SUCCEEDED :: FlowExecutionStatus
+$mFlowExecutionStatus_SUCCEEDED :: forall r. FlowExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#%24bFlowExecutionStatus_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">FlowExecutionStatus_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus%27"><span class="hs-identifier hs-type">FlowExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_ABORTED"><span class="hs-pragma hs-type">FlowExecutionStatus_ABORTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_FAILED"><span class="hs-pragma hs-type">FlowExecutionStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_RUNNING"><span class="hs-pragma hs-type">FlowExecutionStatus_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus_SUCCEEDED"><span class="hs-pragma hs-type">FlowExecutionStatus_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.FlowExecutionStatus.html#FlowExecutionStatus%27"><span class="hs-pragma hs-type">FlowExecutionStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

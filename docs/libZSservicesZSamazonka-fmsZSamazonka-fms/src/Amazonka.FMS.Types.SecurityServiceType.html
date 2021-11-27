@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.FMS.Types.SecurityServiceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FMS.Types.SecurityServiceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier">SecurityServiceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_DNS_FIREWALL"><span class="hs-identifier">SecurityServiceType_DNS_FIREWALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_NETWORK_FIREWALL"><span class="hs-identifier">SecurityServiceType_NETWORK_FIREWALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_COMMON"><span class="hs-identifier">SecurityServiceType_SECURITY_GROUPS_COMMON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT"><span class="hs-identifier">SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT"><span class="hs-identifier">SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SHIELD_ADVANCED"><span class="hs-identifier">SecurityServiceType_SHIELD_ADVANCED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_WAF"><span class="hs-identifier">SecurityServiceType_WAF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_WAFV2"><span class="hs-identifier">SecurityServiceType_WAFV2</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679248609"><span id="local-6989586621679248610"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SecurityServiceType"><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-var">SecurityServiceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityServiceType%27"><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-var">SecurityServiceType'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSecurityServiceType"><span class="annot"><span class="annottext">SecurityServiceType -&gt; Text
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#fromSecurityServiceType"><span class="hs-identifier hs-var hs-var">fromSecurityServiceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248601"><span id="local-6989586621679248603"><span id="local-6989586621679248605"><span class="annot"><span class="annottext">Int -&gt; SecurityServiceType -&gt; ShowS
+[SecurityServiceType] -&gt; ShowS
+SecurityServiceType -&gt; String
+(Int -&gt; SecurityServiceType -&gt; ShowS)
+-&gt; (SecurityServiceType -&gt; String)
+-&gt; ([SecurityServiceType] -&gt; ShowS)
+-&gt; Show SecurityServiceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SecurityServiceType] -&gt; ShowS
+$cshowList :: [SecurityServiceType] -&gt; ShowS
+show :: SecurityServiceType -&gt; String
+$cshow :: SecurityServiceType -&gt; String
+showsPrec :: Int -&gt; SecurityServiceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SecurityServiceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679248592"><span id="local-6989586621679248594"><span id="local-6989586621679248596"><span id="local-6989586621679248598"><span class="annot"><span class="annottext">ReadPrec [SecurityServiceType]
+ReadPrec SecurityServiceType
+Int -&gt; ReadS SecurityServiceType
+ReadS [SecurityServiceType]
+(Int -&gt; ReadS SecurityServiceType)
+-&gt; ReadS [SecurityServiceType]
+-&gt; ReadPrec SecurityServiceType
+-&gt; ReadPrec [SecurityServiceType]
+-&gt; Read SecurityServiceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SecurityServiceType]
+$creadListPrec :: ReadPrec [SecurityServiceType]
+readPrec :: ReadPrec SecurityServiceType
+$creadPrec :: ReadPrec SecurityServiceType
+readList :: ReadS [SecurityServiceType]
+$creadList :: ReadS [SecurityServiceType]
+readsPrec :: Int -&gt; ReadS SecurityServiceType
+$creadsPrec :: Int -&gt; ReadS SecurityServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248587"><span id="local-6989586621679248589"><span class="annot"><span class="annottext">SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+(SecurityServiceType -&gt; SecurityServiceType -&gt; Bool)
+-&gt; (SecurityServiceType -&gt; SecurityServiceType -&gt; Bool)
+-&gt; Eq SecurityServiceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+$c/= :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+== :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+$c== :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248571"><span id="local-6989586621679248573"><span id="local-6989586621679248575"><span id="local-6989586621679248577"><span id="local-6989586621679248579"><span id="local-6989586621679248581"><span id="local-6989586621679248583"><span class="annot"><span class="annottext">Eq SecurityServiceType
+Eq SecurityServiceType
+-&gt; (SecurityServiceType -&gt; SecurityServiceType -&gt; Ordering)
+-&gt; (SecurityServiceType -&gt; SecurityServiceType -&gt; Bool)
+-&gt; (SecurityServiceType -&gt; SecurityServiceType -&gt; Bool)
+-&gt; (SecurityServiceType -&gt; SecurityServiceType -&gt; Bool)
+-&gt; (SecurityServiceType -&gt; SecurityServiceType -&gt; Bool)
+-&gt; (SecurityServiceType
+    -&gt; SecurityServiceType -&gt; SecurityServiceType)
+-&gt; (SecurityServiceType
+    -&gt; SecurityServiceType -&gt; SecurityServiceType)
+-&gt; Ord SecurityServiceType
+SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+SecurityServiceType -&gt; SecurityServiceType -&gt; Ordering
+SecurityServiceType -&gt; SecurityServiceType -&gt; SecurityServiceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SecurityServiceType -&gt; SecurityServiceType -&gt; SecurityServiceType
+$cmin :: SecurityServiceType -&gt; SecurityServiceType -&gt; SecurityServiceType
+max :: SecurityServiceType -&gt; SecurityServiceType -&gt; SecurityServiceType
+$cmax :: SecurityServiceType -&gt; SecurityServiceType -&gt; SecurityServiceType
+&gt;= :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+$c&gt;= :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+&gt; :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+$c&gt; :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+&lt;= :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+$c&lt;= :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+&lt; :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+$c&lt; :: SecurityServiceType -&gt; SecurityServiceType -&gt; Bool
+compare :: SecurityServiceType -&gt; SecurityServiceType -&gt; Ordering
+$ccompare :: SecurityServiceType -&gt; SecurityServiceType -&gt; Ordering
+$cp1Ord :: Eq SecurityServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SecurityServiceType -&gt; Rep SecurityServiceType x)
+-&gt; (forall x. Rep SecurityServiceType x -&gt; SecurityServiceType)
+-&gt; Generic SecurityServiceType
+forall x. Rep SecurityServiceType x -&gt; SecurityServiceType
+forall x. SecurityServiceType -&gt; Rep SecurityServiceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SecurityServiceType x -&gt; SecurityServiceType
+$cfrom :: forall x. SecurityServiceType -&gt; Rep SecurityServiceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248563"><span id="local-6989586621679248565"><span class="annot"><span class="annottext">Int -&gt; SecurityServiceType -&gt; Int
+SecurityServiceType -&gt; Int
+(Int -&gt; SecurityServiceType -&gt; Int)
+-&gt; (SecurityServiceType -&gt; Int) -&gt; Hashable SecurityServiceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SecurityServiceType -&gt; Int
+$chash :: SecurityServiceType -&gt; Int
+hashWithSalt :: Int -&gt; SecurityServiceType -&gt; Int
+$chashWithSalt :: Int -&gt; SecurityServiceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248560"><span class="annot"><span class="annottext">SecurityServiceType -&gt; ()
+(SecurityServiceType -&gt; ()) -&gt; NFData SecurityServiceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SecurityServiceType -&gt; ()
+$crnf :: SecurityServiceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248557"><span class="annot"><span class="annottext">Text -&gt; Either String SecurityServiceType
+(Text -&gt; Either String SecurityServiceType)
+-&gt; FromText SecurityServiceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SecurityServiceType
+$cfromText :: Text -&gt; Either String SecurityServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248554"><span class="annot"><span class="annottext">SecurityServiceType -&gt; Text
+(SecurityServiceType -&gt; Text) -&gt; ToText SecurityServiceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SecurityServiceType -&gt; Text
+$ctoText :: SecurityServiceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248551"><span class="annot"><span class="annottext">SecurityServiceType -&gt; ByteString
+(SecurityServiceType -&gt; ByteString)
+-&gt; ToByteString SecurityServiceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SecurityServiceType -&gt; ByteString
+$ctoBS :: SecurityServiceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248548"><span class="annot"><span class="annottext">SecurityServiceType -&gt; ByteStringBuilder
+(SecurityServiceType -&gt; ByteStringBuilder)
+-&gt; ToLog SecurityServiceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SecurityServiceType -&gt; ByteStringBuilder
+$cbuild :: SecurityServiceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248545"><span class="annot"><span class="annottext">HeaderName -&gt; SecurityServiceType -&gt; [Header]
+(HeaderName -&gt; SecurityServiceType -&gt; [Header])
+-&gt; ToHeader SecurityServiceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SecurityServiceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SecurityServiceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248542"><span class="annot"><span class="annottext">SecurityServiceType -&gt; QueryString
+(SecurityServiceType -&gt; QueryString) -&gt; ToQuery SecurityServiceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SecurityServiceType -&gt; QueryString
+$ctoQuery :: SecurityServiceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248537"><span id="local-6989586621679248539"><span class="annot"><span class="annottext">Value -&gt; Parser [SecurityServiceType]
+Value -&gt; Parser SecurityServiceType
+(Value -&gt; Parser SecurityServiceType)
+-&gt; (Value -&gt; Parser [SecurityServiceType])
+-&gt; FromJSON SecurityServiceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SecurityServiceType]
+$cparseJSONList :: Value -&gt; Parser [SecurityServiceType]
+parseJSON :: Value -&gt; Parser SecurityServiceType
+$cparseJSON :: Value -&gt; Parser SecurityServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248532"><span id="local-6989586621679248534"><span class="annot"><span class="annottext">FromJSONKeyFunction [SecurityServiceType]
+FromJSONKeyFunction SecurityServiceType
+FromJSONKeyFunction SecurityServiceType
+-&gt; FromJSONKeyFunction [SecurityServiceType]
+-&gt; FromJSONKey SecurityServiceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SecurityServiceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SecurityServiceType]
+fromJSONKey :: FromJSONKeyFunction SecurityServiceType
+$cfromJSONKey :: FromJSONKeyFunction SecurityServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248523"><span id="local-6989586621679248525"><span id="local-6989586621679248527"><span id="local-6989586621679248529"><span class="annot"><span class="annottext">[SecurityServiceType] -&gt; Encoding
+[SecurityServiceType] -&gt; Value
+SecurityServiceType -&gt; Encoding
+SecurityServiceType -&gt; Value
+(SecurityServiceType -&gt; Value)
+-&gt; (SecurityServiceType -&gt; Encoding)
+-&gt; ([SecurityServiceType] -&gt; Value)
+-&gt; ([SecurityServiceType] -&gt; Encoding)
+-&gt; ToJSON SecurityServiceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SecurityServiceType] -&gt; Encoding
+$ctoEncodingList :: [SecurityServiceType] -&gt; Encoding
+toJSONList :: [SecurityServiceType] -&gt; Value
+$ctoJSONList :: [SecurityServiceType] -&gt; Value
+toEncoding :: SecurityServiceType -&gt; Encoding
+$ctoEncoding :: SecurityServiceType -&gt; Encoding
+toJSON :: SecurityServiceType -&gt; Value
+$ctoJSON :: SecurityServiceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679248518"><span id="local-6989586621679248520"><span class="annot"><span class="annottext">ToJSONKeyFunction [SecurityServiceType]
+ToJSONKeyFunction SecurityServiceType
+ToJSONKeyFunction SecurityServiceType
+-&gt; ToJSONKeyFunction [SecurityServiceType]
+-&gt; ToJSONKey SecurityServiceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SecurityServiceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SecurityServiceType]
+toJSONKey :: ToJSONKeyFunction SecurityServiceType
+$ctoJSONKey :: ToJSONKeyFunction SecurityServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679248515"><span class="annot"><span class="annottext">[Node] -&gt; Either String SecurityServiceType
+([Node] -&gt; Either String SecurityServiceType)
+-&gt; FromXML SecurityServiceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SecurityServiceType
+$cparseXML :: [Node] -&gt; Either String SecurityServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679248512"><span class="annot"><span class="annottext">SecurityServiceType -&gt; XML
+(SecurityServiceType -&gt; XML) -&gt; ToXML SecurityServiceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SecurityServiceType -&gt; XML
+$ctoXML :: SecurityServiceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_DNS_FIREWALL"><span class="hs-identifier hs-type">SecurityServiceType_DNS_FIREWALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_DNS_FIREWALL"><span id="%24mSecurityServiceType_DNS_FIREWALL"><span id="SecurityServiceType_DNS_FIREWALL"><span class="annot"><span class="annottext">$bSecurityServiceType_DNS_FIREWALL :: SecurityServiceType
+$mSecurityServiceType_DNS_FIREWALL :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_DNS_FIREWALL"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_DNS_FIREWALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DNS_FIREWALL&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_NETWORK_FIREWALL"><span class="hs-identifier hs-type">SecurityServiceType_NETWORK_FIREWALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_NETWORK_FIREWALL"><span id="%24mSecurityServiceType_NETWORK_FIREWALL"><span id="SecurityServiceType_NETWORK_FIREWALL"><span class="annot"><span class="annottext">$bSecurityServiceType_NETWORK_FIREWALL :: SecurityServiceType
+$mSecurityServiceType_NETWORK_FIREWALL :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_NETWORK_FIREWALL"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_NETWORK_FIREWALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NETWORK_FIREWALL&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_COMMON"><span class="hs-identifier hs-type">SecurityServiceType_SECURITY_GROUPS_COMMON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_SECURITY_GROUPS_COMMON"><span id="%24mSecurityServiceType_SECURITY_GROUPS_COMMON"><span id="SecurityServiceType_SECURITY_GROUPS_COMMON"><span class="annot"><span class="annottext">$bSecurityServiceType_SECURITY_GROUPS_COMMON :: SecurityServiceType
+$mSecurityServiceType_SECURITY_GROUPS_COMMON :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_SECURITY_GROUPS_COMMON"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_SECURITY_GROUPS_COMMON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECURITY_GROUPS_COMMON&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT"><span class="hs-identifier hs-type">SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT"><span id="%24mSecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT"><span id="SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT"><span class="annot"><span class="annottext">$bSecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT :: SecurityServiceType
+$mSecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECURITY_GROUPS_CONTENT_AUDIT&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT"><span class="hs-identifier hs-type">SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT"><span id="%24mSecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT"><span id="SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT"><span class="annot"><span class="annottext">$bSecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT :: SecurityServiceType
+$mSecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECURITY_GROUPS_USAGE_AUDIT&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SHIELD_ADVANCED"><span class="hs-identifier hs-type">SecurityServiceType_SHIELD_ADVANCED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_SHIELD_ADVANCED"><span id="%24mSecurityServiceType_SHIELD_ADVANCED"><span id="SecurityServiceType_SHIELD_ADVANCED"><span class="annot"><span class="annottext">$bSecurityServiceType_SHIELD_ADVANCED :: SecurityServiceType
+$mSecurityServiceType_SHIELD_ADVANCED :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_SHIELD_ADVANCED"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_SHIELD_ADVANCED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SHIELD_ADVANCED&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_WAF"><span class="hs-identifier hs-type">SecurityServiceType_WAF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_WAF"><span id="%24mSecurityServiceType_WAF"><span id="SecurityServiceType_WAF"><span class="annot"><span class="annottext">$bSecurityServiceType_WAF :: SecurityServiceType
+$mSecurityServiceType_WAF :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_WAF"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_WAF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WAF&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_WAFV2"><span class="hs-identifier hs-type">SecurityServiceType_WAFV2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityServiceType_WAFV2"><span id="%24mSecurityServiceType_WAFV2"><span id="SecurityServiceType_WAFV2"><span class="annot"><span class="annottext">$bSecurityServiceType_WAFV2 :: SecurityServiceType
+$mSecurityServiceType_WAFV2 :: forall r. SecurityServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.SecurityServiceType.html#%24bSecurityServiceType_WAFV2"><span class="hs-identifier hs-var hs-var hs-var">SecurityServiceType_WAFV2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-identifier hs-type">SecurityServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WAFV2&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_DNS_FIREWALL"><span class="hs-pragma hs-type">SecurityServiceType_DNS_FIREWALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_NETWORK_FIREWALL"><span class="hs-pragma hs-type">SecurityServiceType_NETWORK_FIREWALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_COMMON"><span class="hs-pragma hs-type">SecurityServiceType_SECURITY_GROUPS_COMMON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT"><span class="hs-pragma hs-type">SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT"><span class="hs-pragma hs-type">SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_SHIELD_ADVANCED"><span class="hs-pragma hs-type">SecurityServiceType_SHIELD_ADVANCED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_WAF"><span class="hs-pragma hs-type">SecurityServiceType_WAF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType_WAFV2"><span class="hs-pragma hs-type">SecurityServiceType_WAFV2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.SecurityServiceType.html#SecurityServiceType%27"><span class="hs-pragma hs-type">SecurityServiceType'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IoT1ClickDevices.Types.Attributes
+module Amazonka.IoT1ClickDevices.Types.Attributes
 
 -- | <i>See:</i> <a>newAttributes</a> smart constructor.
 data Attributes
@@ -16,16 +16,16 @@ Attributes' :: Attributes
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAttributes :: Attributes
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.Types.Attributes.Attributes
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.Types.Attributes.Attributes
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.Types.Attributes.Attributes
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.Types.Attributes.Attributes
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickDevices.Types.Attributes.Attributes
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.Types.Attributes.Attributes
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.Types.Attributes.Attributes
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.Types.Attributes.Attributes
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.Types.Attributes.Attributes
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.Types.Attributes.Attributes
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.Types.Attributes.Attributes
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickDevices.Types.Attributes.Attributes
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.Types.Attributes.Attributes
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.Types.Attributes.Attributes
 
 
-module Network.AWS.IoT1ClickDevices.Types.Device
+module Amazonka.IoT1ClickDevices.Types.Device
 
 -- | <i>See:</i> <a>newDevice</a> smart constructor.
 data Device
@@ -66,16 +66,16 @@ device_deviceId :: Lens' Device (Maybe Text)
 
 -- | The device type, such as "button".
 device_type :: Lens' Device (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.Types.Device.Device
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.Types.Device.Device
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.Types.Device.Device
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.Types.Device.Device
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickDevices.Types.Device.Device
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.Types.Device.Device
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.Types.Device.Device
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.Types.Device.Device
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.Types.Device.Device
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.Types.Device.Device
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.Types.Device.Device
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickDevices.Types.Device.Device
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.Types.Device.Device
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.Types.Device.Device
 
 
-module Network.AWS.IoT1ClickDevices.Types.DeviceDescription
+module Amazonka.IoT1ClickDevices.Types.DeviceDescription
 
 -- | <i>See:</i> <a>newDeviceDescription</a> smart constructor.
 data DeviceDescription
@@ -162,16 +162,16 @@ deviceDescription_type :: Lens' DeviceDescription (Maybe Text)
 
 -- | The tags currently associated with the AWS IoT 1-Click device.
 deviceDescription_tags :: Lens' DeviceDescription (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.Types.DeviceDescription.DeviceDescription
 
 
-module Network.AWS.IoT1ClickDevices.Types.DeviceEvent
+module Amazonka.IoT1ClickDevices.Types.DeviceEvent
 
 -- | <i>See:</i> <a>newDeviceEvent</a> smart constructor.
 data DeviceEvent
@@ -203,16 +203,16 @@ deviceEvent_stdEvent :: Lens' DeviceEvent (Maybe Text)
 
 -- | An object representing the device associated with the event.
 deviceEvent_device :: Lens' DeviceEvent (Maybe Device)
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.Types.DeviceEvent.DeviceEvent
 
 
-module Network.AWS.IoT1ClickDevices.Types.DeviceMethod
+module Amazonka.IoT1ClickDevices.Types.DeviceMethod
 
 -- | <i>See:</i> <a>newDeviceMethod</a> smart constructor.
 data DeviceMethod
@@ -245,17 +245,17 @@ deviceMethod_methodName :: Lens' DeviceMethod (Maybe Text)
 
 -- | The type of the device, such as "button".
 deviceMethod_deviceType :: Lens' DeviceMethod (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.Types.DeviceMethod.DeviceMethod
 
 
-module Network.AWS.IoT1ClickDevices.Types
+module Amazonka.IoT1ClickDevices.Types
 
 -- | API version <tt>2018-05-14</tt> of the Amazon IoT 1-Click Devices
 --   Service SDK configuration.
@@ -485,7 +485,7 @@ deviceMethod_deviceType :: Lens' DeviceMethod (Maybe Text)
 -- | Adds or updates the tags associated with the resource ARN. See <a>AWS
 --   IoT 1-Click Service Limits</a> for the maximum number of tags allowed
 --   per resource.
-module Network.AWS.IoT1ClickDevices.TagResource
+module Amazonka.IoT1ClickDevices.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -534,26 +534,26 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.TagResource.TagResource
 
 
 -- | Lists the tags associated with the specified resource ARN.
-module Network.AWS.IoT1ClickDevices.ListTagsForResource
+module Amazonka.IoT1ClickDevices.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -617,27 +617,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the 1-Click compatible devices associated with your AWS account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IoT1ClickDevices.ListDevices
+module Amazonka.IoT1ClickDevices.ListDevices
 
 -- | <i>See:</i> <a>newListDevices</a> smart constructor.
 data ListDevices
@@ -724,29 +724,29 @@ listDevicesResponse_devices :: Lens' ListDevicesResponse (Maybe [DeviceDescripti
 
 -- | The response's http status code.
 listDevicesResponse_httpStatus :: Lens' ListDevicesResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ListDevices.ListDevicesResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ListDevices.ListDevicesResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ListDevices.ListDevicesResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ListDevices.ListDevicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ListDevices.ListDevicesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.ListDevices.ListDevices
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ListDevices.ListDevicesResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ListDevices.ListDevicesResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ListDevices.ListDevicesResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ListDevices.ListDevicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ListDevices.ListDevicesResponse
+instance Amazonka.Pager.AWSPager Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.ListDevices.ListDevices
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.ListDevices.ListDevices
 
 
 -- | Using a device ID, returns a DeviceEventsResponse object containing an
 --   array of events for the device.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IoT1ClickDevices.ListDeviceEvents
+module Amazonka.IoT1ClickDevices.ListDeviceEvents
 
 -- | <i>See:</i> <a>newListDeviceEvents</a> smart constructor.
 data ListDeviceEvents
@@ -863,27 +863,27 @@ listDeviceEventsResponse_events :: Lens' ListDeviceEventsResponse (Maybe [Device
 
 -- | The response's http status code.
 listDeviceEventsResponse_httpStatus :: Lens' ListDeviceEventsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEventsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.ListDeviceEvents.ListDeviceEvents
 
 
 -- | Given a device ID, issues a request to invoke a named device method
 --   (with possible parameters). See the "Example POST" code snippet below.
-module Network.AWS.IoT1ClickDevices.InvokeDeviceMethod
+module Amazonka.IoT1ClickDevices.InvokeDeviceMethod
 
 -- | <i>See:</i> <a>newInvokeDeviceMethod</a> smart constructor.
 data InvokeDeviceMethod
@@ -961,22 +961,22 @@ invokeDeviceMethodResponse_deviceMethodResponse :: Lens' InvokeDeviceMethodRespo
 
 -- | The response's http status code.
 invokeDeviceMethodResponse_httpStatus :: Lens' InvokeDeviceMethodResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethodResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.InvokeDeviceMethod.InvokeDeviceMethod
 
 
 -- | Given a device ID, initiates a claim request for the associated
@@ -985,7 +985,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.InvokeDevic
 --   Claiming a device consists of initiating a claim, then publishing a
 --   device event, and finalizing the claim. For a device of type button, a
 --   device event can be published by simply clicking the device.
-module Network.AWS.IoT1ClickDevices.InitiateDeviceClaim
+module Amazonka.IoT1ClickDevices.InitiateDeviceClaim
 
 -- | <i>See:</i> <a>newInitiateDeviceClaim</a> smart constructor.
 data InitiateDeviceClaim
@@ -1044,27 +1044,27 @@ initiateDeviceClaimResponse_state :: Lens' InitiateDeviceClaimResponse (Maybe Te
 
 -- | The response's http status code.
 initiateDeviceClaimResponse_httpStatus :: Lens' InitiateDeviceClaimResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaimResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.InitiateDeviceClaim.InitiateDeviceClaim
 
 
 -- | Given a device ID, returns the invokable methods associated with the
 --   device.
-module Network.AWS.IoT1ClickDevices.GetDeviceMethods
+module Amazonka.IoT1ClickDevices.GetDeviceMethods
 
 -- | <i>See:</i> <a>newGetDeviceMethods</a> smart constructor.
 data GetDeviceMethods
@@ -1123,21 +1123,21 @@ getDeviceMethodsResponse_deviceMethods :: Lens' GetDeviceMethodsResponse (Maybe 
 
 -- | The response's http status code.
 getDeviceMethodsResponse_httpStatus :: Lens' GetDeviceMethodsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethodsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.GetDeviceMethods.GetDeviceMethods
 
 
 -- | Given a device ID, finalizes the claim request for the associated
@@ -1146,7 +1146,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.GetDeviceMe
 --   Claiming a device consists of initiating a claim, then publishing a
 --   device event, and finalizing the claim. For a device of type button, a
 --   device event can be published by simply clicking the device.
-module Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim
+module Amazonka.IoT1ClickDevices.FinalizeDeviceClaim
 
 -- | <i>See:</i> <a>newFinalizeDeviceClaim</a> smart constructor.
 data FinalizeDeviceClaim
@@ -1220,27 +1220,27 @@ finalizeDeviceClaimResponse_state :: Lens' FinalizeDeviceClaimResponse (Maybe Te
 
 -- | The response's http status code.
 finalizeDeviceClaimResponse_httpStatus :: Lens' FinalizeDeviceClaimResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaimResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.FinalizeDeviceClaim.FinalizeDeviceClaim
 
 
 -- | Given a device ID, returns a DescribeDeviceResponse object describing
 --   the details of the device.
-module Network.AWS.IoT1ClickDevices.DescribeDevice
+module Amazonka.IoT1ClickDevices.DescribeDevice
 
 -- | <i>See:</i> <a>newDescribeDevice</a> smart constructor.
 data DescribeDevice
@@ -1297,26 +1297,26 @@ describeDeviceResponse_deviceDescription :: Lens' DescribeDeviceResponse (Maybe 
 
 -- | The response's http status code.
 describeDeviceResponse_httpStatus :: Lens' DescribeDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.DescribeDevice.DescribeDevice
 
 
 -- | Adds device(s) to your account (i.e., claim one or more devices) if
 --   and only if you received a claim code with the device(s).
-module Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode
+module Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode
 
 -- | <i>See:</i> <a>newClaimDevicesByClaimCode</a> smart constructor.
 data ClaimDevicesByClaimCode
@@ -1391,26 +1391,26 @@ claimDevicesByClaimCodeResponse_total :: Lens' ClaimDevicesByClaimCodeResponse (
 
 -- | The response's http status code.
 claimDevicesByClaimCodeResponse_httpStatus :: Lens' ClaimDevicesByClaimCodeResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCodeResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode.ClaimDevicesByClaimCode
 
 
 -- | Disassociates a device from your AWS account using its device ID.
-module Network.AWS.IoT1ClickDevices.UnclaimDevice
+module Amazonka.IoT1ClickDevices.UnclaimDevice
 
 -- | <i>See:</i> <a>newUnclaimDevice</a> smart constructor.
 data UnclaimDevice
@@ -1467,27 +1467,27 @@ unclaimDeviceResponse_state :: Lens' UnclaimDeviceResponse (Maybe Text)
 
 -- | The response's http status code.
 unclaimDeviceResponse_httpStatus :: Lens' UnclaimDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.UnclaimDevice.UnclaimDevice
 
 
 -- | Using tag keys, deletes the tags (key/value pairs) associated with the
 --   specified resource ARN.
-module Network.AWS.IoT1ClickDevices.UntagResource
+module Amazonka.IoT1ClickDevices.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -1531,26 +1531,26 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.UntagResource.UntagResource
 
 
 -- | Using a Boolean value (true or false), this operation enables or
 --   disables the device given a device ID.
-module Network.AWS.IoT1ClickDevices.UpdateDeviceState
+module Amazonka.IoT1ClickDevices.UpdateDeviceState
 
 -- | <i>See:</i> <a>newUpdateDeviceState</a> smart constructor.
 data UpdateDeviceState
@@ -1609,25 +1609,25 @@ newUpdateDeviceStateResponse :: Int -> UpdateDeviceStateResponse
 
 -- | The response's http status code.
 updateDeviceStateResponse_httpStatus :: Lens' UpdateDeviceStateResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance GHC.Generics.Generic Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance GHC.Generics.Generic Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
+instance GHC.Show.Show Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
+instance GHC.Read.Read Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceStateResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickDevices.UpdateDeviceState.UpdateDeviceState
 
 
-module Network.AWS.IoT1ClickDevices.Lens
+module Amazonka.IoT1ClickDevices.Lens
 
 -- | The unique identifier of the device.
 getDeviceMethods_deviceId :: Lens' GetDeviceMethods Text
@@ -1834,7 +1834,7 @@ deviceMethod_methodName :: Lens' DeviceMethod (Maybe Text)
 deviceMethod_deviceType :: Lens' DeviceMethod (Maybe Text)
 
 
-module Network.AWS.IoT1ClickDevices.Waiters
+module Amazonka.IoT1ClickDevices.Waiters
 
 
 -- | Derived from API version <tt>2018-05-14</tt> of the AWS service
@@ -1843,7 +1843,7 @@ module Network.AWS.IoT1ClickDevices.Waiters
 --   Describes all of the AWS IoT 1-Click device-related API operations for
 --   the service. Also provides sample requests, responses, and errors for
 --   the supported web services protocols.
-module Network.AWS.IoT1ClickDevices
+module Amazonka.IoT1ClickDevices
 
 -- | API version <tt>2018-05-14</tt> of the Amazon IoT 1-Click Devices
 --   Service SDK configuration.

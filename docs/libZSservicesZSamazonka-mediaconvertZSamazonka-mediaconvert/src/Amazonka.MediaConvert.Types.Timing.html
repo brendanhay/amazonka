@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Timing</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Timing</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about when jobs are submitted, started, and finished is</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- specified in Unix epoch format in seconds.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTiming' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680010370"><span id="local-6989586621680010371"></span></span><span class="hs-keyword">data</span><span> </span><span id="Timing"><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-var">Timing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Timing%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-var">Timing'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in Unix epoch format, that transcoding for the job began.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartTime%3ATiming%27"><span class="annot"><span class="annottext">Timing -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AstartTime%3ATiming%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time, in Unix epoch format, that the transcoding job finished</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfinishTime%3ATiming%27"><span class="annot"><span class="annottext">Timing -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AfinishTime%3ATiming%27"><span class="hs-identifier hs-var hs-var">finishTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time, in Unix epoch format, that you submitted the job.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsubmitTime%3ATiming%27"><span class="annot"><span class="annottext">Timing -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AsubmitTime%3ATiming%27"><span class="hs-identifier hs-var hs-var">submitTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680010362"><span id="local-6989586621680010364"><span class="annot"><span class="annottext">Timing -&gt; Timing -&gt; Bool
+(Timing -&gt; Timing -&gt; Bool)
+-&gt; (Timing -&gt; Timing -&gt; Bool) -&gt; Eq Timing
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Timing -&gt; Timing -&gt; Bool
+$c/= :: Timing -&gt; Timing -&gt; Bool
+== :: Timing -&gt; Timing -&gt; Bool
+$c== :: Timing -&gt; Timing -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010353"><span id="local-6989586621680010355"><span id="local-6989586621680010357"><span id="local-6989586621680010359"><span class="annot"><span class="annottext">ReadPrec [Timing]
+ReadPrec Timing
+Int -&gt; ReadS Timing
+ReadS [Timing]
+(Int -&gt; ReadS Timing)
+-&gt; ReadS [Timing]
+-&gt; ReadPrec Timing
+-&gt; ReadPrec [Timing]
+-&gt; Read Timing
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Timing]
+$creadListPrec :: ReadPrec [Timing]
+readPrec :: ReadPrec Timing
+$creadPrec :: ReadPrec Timing
+readList :: ReadS [Timing]
+$creadList :: ReadS [Timing]
+readsPrec :: Int -&gt; ReadS Timing
+$creadsPrec :: Int -&gt; ReadS Timing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010346"><span id="local-6989586621680010348"><span id="local-6989586621680010350"><span class="annot"><span class="annottext">Int -&gt; Timing -&gt; ShowS
+[Timing] -&gt; ShowS
+Timing -&gt; String
+(Int -&gt; Timing -&gt; ShowS)
+-&gt; (Timing -&gt; String) -&gt; ([Timing] -&gt; ShowS) -&gt; Show Timing
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Timing] -&gt; ShowS
+$cshowList :: [Timing] -&gt; ShowS
+show :: Timing -&gt; String
+$cshow :: Timing -&gt; String
+showsPrec :: Int -&gt; Timing -&gt; ShowS
+$cshowsPrec :: Int -&gt; Timing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Timing -&gt; Rep Timing x)
+-&gt; (forall x. Rep Timing x -&gt; Timing) -&gt; Generic Timing
+forall x. Rep Timing x -&gt; Timing
+forall x. Timing -&gt; Rep Timing x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Timing x -&gt; Timing
+$cfrom :: forall x. Timing -&gt; Rep Timing x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'Timing' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'startTime', 'timing_startTime' - The time, in Unix epoch format, that transcoding for the job began.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'finishTime', 'timing_finishTime' - The time, in Unix epoch format, that the transcoding job finished</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'submitTime', 'timing_submitTime' - The time, in Unix epoch format, that you submitted the job.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#newTiming"><span class="hs-identifier hs-type">newTiming</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span>
+</span><span id="line-55"></span><span id="newTiming"><span class="annot"><span class="annottext">newTiming :: Timing
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#newTiming"><span class="hs-identifier hs-var hs-var">newTiming</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Timing' :: Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Timing
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:Timing' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AstartTime%3ATiming%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:finishTime:Timing' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AfinishTime%3ATiming%27"><span class="hs-identifier hs-var">finishTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:submitTime:Timing' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AsubmitTime%3ATiming%27"><span class="hs-identifier hs-var">submitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The time, in Unix epoch format, that transcoding for the job began.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#timing_startTime"><span class="hs-identifier hs-type">timing_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="timing_startTime"><span class="annot"><span class="annottext">timing_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Timing -&gt; f Timing
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#timing_startTime"><span class="hs-identifier hs-var hs-var">timing_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Timing -&gt; Maybe POSIX)
+-&gt; (Timing -&gt; Maybe POSIX -&gt; Timing)
+-&gt; Lens Timing Timing (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010337"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:Timing' :: Timing -&gt; Maybe POSIX
+</span><a href="#local-6989586621680010337"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010337"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010336"><span class="annot"><span class="annottext">s :: Timing
+</span><a href="#local-6989586621680010336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010335"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
+</span><a href="#local-6989586621680010336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Timing' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AstartTime%3ATiming%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Timing
+-&gt; f Timing
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The time, in Unix epoch format, that the transcoding job finished</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#timing_finishTime"><span class="hs-identifier hs-type">timing_finishTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="timing_finishTime"><span class="annot"><span class="annottext">timing_finishTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Timing -&gt; f Timing
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#timing_finishTime"><span class="hs-identifier hs-var hs-var">timing_finishTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Timing -&gt; Maybe POSIX)
+-&gt; (Timing -&gt; Maybe POSIX -&gt; Timing)
+-&gt; Lens Timing Timing (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010330"><span class="annot"><span class="annottext">Maybe POSIX
+finishTime :: Maybe POSIX
+$sel:finishTime:Timing' :: Timing -&gt; Maybe POSIX
+</span><a href="#local-6989586621680010330"><span class="hs-identifier hs-var hs-var">finishTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010330"><span class="hs-identifier hs-var">finishTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010329"><span class="annot"><span class="annottext">s :: Timing
+</span><a href="#local-6989586621680010329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010328"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
+</span><a href="#local-6989586621680010329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finishTime:Timing' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AfinishTime%3ATiming%27"><span class="hs-identifier hs-var">finishTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Timing
+-&gt; f Timing
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The time, in Unix epoch format, that you submitted the job.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#timing_submitTime"><span class="hs-identifier hs-type">timing_submitTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="timing_submitTime"><span class="annot"><span class="annottext">timing_submitTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Timing -&gt; f Timing
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#timing_submitTime"><span class="hs-identifier hs-var hs-var">timing_submitTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Timing -&gt; Maybe POSIX)
+-&gt; (Timing -&gt; Maybe POSIX -&gt; Timing)
+-&gt; Lens Timing Timing (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010326"><span class="annot"><span class="annottext">Maybe POSIX
+submitTime :: Maybe POSIX
+$sel:submitTime:Timing' :: Timing -&gt; Maybe POSIX
+</span><a href="#local-6989586621680010326"><span class="hs-identifier hs-var hs-var">submitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010326"><span class="hs-identifier hs-var">submitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010325"><span class="annot"><span class="annottext">s :: Timing
+</span><a href="#local-6989586621680010325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010324"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
+</span><a href="#local-6989586621680010325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTime:Timing' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#%24sel%3AsubmitTime%3ATiming%27"><span class="hs-identifier hs-var">submitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Timing
+-&gt; f Timing
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010321"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680010319"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Timing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Timing) -&gt; Value -&gt; Parser Timing
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Timing&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680010316"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680010316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Timing
+</span><a href="Amazonka.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-var">Timing'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Timing)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; Timing)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680010316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; Timing)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe POSIX -&gt; Timing)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680010316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;finishTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Timing)
+-&gt; Parser (Maybe POSIX) -&gt; Parser Timing
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680010316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;submitTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010310"><span id="local-6989586621680010312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

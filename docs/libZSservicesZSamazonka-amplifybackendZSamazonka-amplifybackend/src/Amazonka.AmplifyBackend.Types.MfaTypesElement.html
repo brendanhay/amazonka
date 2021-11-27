@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AmplifyBackend.Types.MfaTypesElement</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AmplifyBackend.Types.MfaTypesElement</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement"><span class="hs-identifier">MfaTypesElement</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement_SMS"><span class="hs-identifier">MfaTypesElement_SMS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement_TOTP"><span class="hs-identifier">MfaTypesElement_TOTP</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679230578"><span id="local-6989586621679230579"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MfaTypesElement"><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement"><span class="hs-identifier hs-var">MfaTypesElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MfaTypesElement%27"><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement%27"><span class="hs-identifier hs-var">MfaTypesElement'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMfaTypesElement"><span class="annot"><span class="annottext">MfaTypesElement -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#fromMfaTypesElement"><span class="hs-identifier hs-var hs-var">fromMfaTypesElement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230570"><span id="local-6989586621679230572"><span id="local-6989586621679230574"><span class="annot"><span class="annottext">Int -&gt; MfaTypesElement -&gt; ShowS
+[MfaTypesElement] -&gt; ShowS
+MfaTypesElement -&gt; String
+(Int -&gt; MfaTypesElement -&gt; ShowS)
+-&gt; (MfaTypesElement -&gt; String)
+-&gt; ([MfaTypesElement] -&gt; ShowS)
+-&gt; Show MfaTypesElement
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MfaTypesElement] -&gt; ShowS
+$cshowList :: [MfaTypesElement] -&gt; ShowS
+show :: MfaTypesElement -&gt; String
+$cshow :: MfaTypesElement -&gt; String
+showsPrec :: Int -&gt; MfaTypesElement -&gt; ShowS
+$cshowsPrec :: Int -&gt; MfaTypesElement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679230561"><span id="local-6989586621679230563"><span id="local-6989586621679230565"><span id="local-6989586621679230567"><span class="annot"><span class="annottext">ReadPrec [MfaTypesElement]
+ReadPrec MfaTypesElement
+Int -&gt; ReadS MfaTypesElement
+ReadS [MfaTypesElement]
+(Int -&gt; ReadS MfaTypesElement)
+-&gt; ReadS [MfaTypesElement]
+-&gt; ReadPrec MfaTypesElement
+-&gt; ReadPrec [MfaTypesElement]
+-&gt; Read MfaTypesElement
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MfaTypesElement]
+$creadListPrec :: ReadPrec [MfaTypesElement]
+readPrec :: ReadPrec MfaTypesElement
+$creadPrec :: ReadPrec MfaTypesElement
+readList :: ReadS [MfaTypesElement]
+$creadList :: ReadS [MfaTypesElement]
+readsPrec :: Int -&gt; ReadS MfaTypesElement
+$creadsPrec :: Int -&gt; ReadS MfaTypesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679230556"><span id="local-6989586621679230558"><span class="annot"><span class="annottext">MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+(MfaTypesElement -&gt; MfaTypesElement -&gt; Bool)
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; Bool)
+-&gt; Eq MfaTypesElement
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+$c/= :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+== :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+$c== :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679230540"><span id="local-6989586621679230542"><span id="local-6989586621679230544"><span id="local-6989586621679230546"><span id="local-6989586621679230548"><span id="local-6989586621679230550"><span id="local-6989586621679230552"><span class="annot"><span class="annottext">Eq MfaTypesElement
+Eq MfaTypesElement
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; Ordering)
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; Bool)
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; Bool)
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; Bool)
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; Bool)
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; MfaTypesElement)
+-&gt; (MfaTypesElement -&gt; MfaTypesElement -&gt; MfaTypesElement)
+-&gt; Ord MfaTypesElement
+MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+MfaTypesElement -&gt; MfaTypesElement -&gt; Ordering
+MfaTypesElement -&gt; MfaTypesElement -&gt; MfaTypesElement
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MfaTypesElement -&gt; MfaTypesElement -&gt; MfaTypesElement
+$cmin :: MfaTypesElement -&gt; MfaTypesElement -&gt; MfaTypesElement
+max :: MfaTypesElement -&gt; MfaTypesElement -&gt; MfaTypesElement
+$cmax :: MfaTypesElement -&gt; MfaTypesElement -&gt; MfaTypesElement
+&gt;= :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+$c&gt;= :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+&gt; :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+$c&gt; :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+&lt;= :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+$c&lt;= :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+&lt; :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+$c&lt; :: MfaTypesElement -&gt; MfaTypesElement -&gt; Bool
+compare :: MfaTypesElement -&gt; MfaTypesElement -&gt; Ordering
+$ccompare :: MfaTypesElement -&gt; MfaTypesElement -&gt; Ordering
+$cp1Ord :: Eq MfaTypesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MfaTypesElement -&gt; Rep MfaTypesElement x)
+-&gt; (forall x. Rep MfaTypesElement x -&gt; MfaTypesElement)
+-&gt; Generic MfaTypesElement
+forall x. Rep MfaTypesElement x -&gt; MfaTypesElement
+forall x. MfaTypesElement -&gt; Rep MfaTypesElement x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MfaTypesElement x -&gt; MfaTypesElement
+$cfrom :: forall x. MfaTypesElement -&gt; Rep MfaTypesElement x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230532"><span id="local-6989586621679230534"><span class="annot"><span class="annottext">Int -&gt; MfaTypesElement -&gt; Int
+MfaTypesElement -&gt; Int
+(Int -&gt; MfaTypesElement -&gt; Int)
+-&gt; (MfaTypesElement -&gt; Int) -&gt; Hashable MfaTypesElement
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MfaTypesElement -&gt; Int
+$chash :: MfaTypesElement -&gt; Int
+hashWithSalt :: Int -&gt; MfaTypesElement -&gt; Int
+$chashWithSalt :: Int -&gt; MfaTypesElement -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679230529"><span class="annot"><span class="annottext">MfaTypesElement -&gt; ()
+(MfaTypesElement -&gt; ()) -&gt; NFData MfaTypesElement
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MfaTypesElement -&gt; ()
+$crnf :: MfaTypesElement -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679230526"><span class="annot"><span class="annottext">Text -&gt; Either String MfaTypesElement
+(Text -&gt; Either String MfaTypesElement) -&gt; FromText MfaTypesElement
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MfaTypesElement
+$cfromText :: Text -&gt; Either String MfaTypesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679230523"><span class="annot"><span class="annottext">MfaTypesElement -&gt; Text
+(MfaTypesElement -&gt; Text) -&gt; ToText MfaTypesElement
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MfaTypesElement -&gt; Text
+$ctoText :: MfaTypesElement -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679230520"><span class="annot"><span class="annottext">MfaTypesElement -&gt; ByteString
+(MfaTypesElement -&gt; ByteString) -&gt; ToByteString MfaTypesElement
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MfaTypesElement -&gt; ByteString
+$ctoBS :: MfaTypesElement -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679230517"><span class="annot"><span class="annottext">MfaTypesElement -&gt; ByteStringBuilder
+(MfaTypesElement -&gt; ByteStringBuilder) -&gt; ToLog MfaTypesElement
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MfaTypesElement -&gt; ByteStringBuilder
+$cbuild :: MfaTypesElement -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679230514"><span class="annot"><span class="annottext">HeaderName -&gt; MfaTypesElement -&gt; [Header]
+(HeaderName -&gt; MfaTypesElement -&gt; [Header])
+-&gt; ToHeader MfaTypesElement
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MfaTypesElement -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MfaTypesElement -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679230511"><span class="annot"><span class="annottext">MfaTypesElement -&gt; QueryString
+(MfaTypesElement -&gt; QueryString) -&gt; ToQuery MfaTypesElement
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MfaTypesElement -&gt; QueryString
+$ctoQuery :: MfaTypesElement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679230506"><span id="local-6989586621679230508"><span class="annot"><span class="annottext">Value -&gt; Parser [MfaTypesElement]
+Value -&gt; Parser MfaTypesElement
+(Value -&gt; Parser MfaTypesElement)
+-&gt; (Value -&gt; Parser [MfaTypesElement]) -&gt; FromJSON MfaTypesElement
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MfaTypesElement]
+$cparseJSONList :: Value -&gt; Parser [MfaTypesElement]
+parseJSON :: Value -&gt; Parser MfaTypesElement
+$cparseJSON :: Value -&gt; Parser MfaTypesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679230501"><span id="local-6989586621679230503"><span class="annot"><span class="annottext">FromJSONKeyFunction [MfaTypesElement]
+FromJSONKeyFunction MfaTypesElement
+FromJSONKeyFunction MfaTypesElement
+-&gt; FromJSONKeyFunction [MfaTypesElement]
+-&gt; FromJSONKey MfaTypesElement
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MfaTypesElement]
+$cfromJSONKeyList :: FromJSONKeyFunction [MfaTypesElement]
+fromJSONKey :: FromJSONKeyFunction MfaTypesElement
+$cfromJSONKey :: FromJSONKeyFunction MfaTypesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679230492"><span id="local-6989586621679230494"><span id="local-6989586621679230496"><span id="local-6989586621679230498"><span class="annot"><span class="annottext">[MfaTypesElement] -&gt; Encoding
+[MfaTypesElement] -&gt; Value
+MfaTypesElement -&gt; Encoding
+MfaTypesElement -&gt; Value
+(MfaTypesElement -&gt; Value)
+-&gt; (MfaTypesElement -&gt; Encoding)
+-&gt; ([MfaTypesElement] -&gt; Value)
+-&gt; ([MfaTypesElement] -&gt; Encoding)
+-&gt; ToJSON MfaTypesElement
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MfaTypesElement] -&gt; Encoding
+$ctoEncodingList :: [MfaTypesElement] -&gt; Encoding
+toJSONList :: [MfaTypesElement] -&gt; Value
+$ctoJSONList :: [MfaTypesElement] -&gt; Value
+toEncoding :: MfaTypesElement -&gt; Encoding
+$ctoEncoding :: MfaTypesElement -&gt; Encoding
+toJSON :: MfaTypesElement -&gt; Value
+$ctoJSON :: MfaTypesElement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679230487"><span id="local-6989586621679230489"><span class="annot"><span class="annottext">ToJSONKeyFunction [MfaTypesElement]
+ToJSONKeyFunction MfaTypesElement
+ToJSONKeyFunction MfaTypesElement
+-&gt; ToJSONKeyFunction [MfaTypesElement] -&gt; ToJSONKey MfaTypesElement
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MfaTypesElement]
+$ctoJSONKeyList :: ToJSONKeyFunction [MfaTypesElement]
+toJSONKey :: ToJSONKeyFunction MfaTypesElement
+$ctoJSONKey :: ToJSONKeyFunction MfaTypesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679230484"><span class="annot"><span class="annottext">[Node] -&gt; Either String MfaTypesElement
+([Node] -&gt; Either String MfaTypesElement)
+-&gt; FromXML MfaTypesElement
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MfaTypesElement
+$cparseXML :: [Node] -&gt; Either String MfaTypesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679230481"><span class="annot"><span class="annottext">MfaTypesElement -&gt; XML
+(MfaTypesElement -&gt; XML) -&gt; ToXML MfaTypesElement
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MfaTypesElement -&gt; XML
+$ctoXML :: MfaTypesElement -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement_SMS"><span class="hs-identifier hs-type">MfaTypesElement_SMS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement"><span class="hs-identifier hs-type">MfaTypesElement</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMfaTypesElement_SMS"><span id="%24mMfaTypesElement_SMS"><span id="MfaTypesElement_SMS"><span class="annot"><span class="annottext">$bMfaTypesElement_SMS :: MfaTypesElement
+$mMfaTypesElement_SMS :: forall r. MfaTypesElement -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#%24bMfaTypesElement_SMS"><span class="hs-identifier hs-var hs-var hs-var">MfaTypesElement_SMS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement%27"><span class="hs-identifier hs-type">MfaTypesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement_TOTP"><span class="hs-identifier hs-type">MfaTypesElement_TOTP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement"><span class="hs-identifier hs-type">MfaTypesElement</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMfaTypesElement_TOTP"><span id="%24mMfaTypesElement_TOTP"><span id="MfaTypesElement_TOTP"><span class="annot"><span class="annottext">$bMfaTypesElement_TOTP :: MfaTypesElement
+$mMfaTypesElement_TOTP :: forall r. MfaTypesElement -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#%24bMfaTypesElement_TOTP"><span class="hs-identifier hs-var hs-var hs-var">MfaTypesElement_TOTP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement%27"><span class="hs-identifier hs-type">MfaTypesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TOTP&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement_SMS"><span class="hs-pragma hs-type">MfaTypesElement_SMS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement_TOTP"><span class="hs-pragma hs-type">MfaTypesElement_TOTP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MfaTypesElement.html#MfaTypesElement%27"><span class="hs-pragma hs-type">MfaTypesElement'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

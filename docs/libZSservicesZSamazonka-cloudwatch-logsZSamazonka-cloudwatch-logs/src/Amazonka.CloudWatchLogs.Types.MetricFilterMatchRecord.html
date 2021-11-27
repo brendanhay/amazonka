@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Represents a matched event.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMetricFilterMatchRecord' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679221343"><span id="local-6989586621679221344"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricFilterMatchRecord"><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-var">MetricFilterMatchRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricFilterMatchRecord%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-var">MetricFilterMatchRecord'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The values extracted from the event data by the filter.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AextractedValues%3AMetricFilterMatchRecord%27"><span class="annot"><span class="annottext">MetricFilterMatchRecord -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AextractedValues%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var hs-var">extractedValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The event number.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AeventNumber%3AMetricFilterMatchRecord%27"><span class="annot"><span class="annottext">MetricFilterMatchRecord -&gt; Maybe Integer
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AeventNumber%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var hs-var">eventNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The raw event data.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AeventMessage%3AMetricFilterMatchRecord%27"><span class="annot"><span class="annottext">MetricFilterMatchRecord -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AeventMessage%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var hs-var">eventMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221335"><span id="local-6989586621679221337"><span class="annot"><span class="annottext">MetricFilterMatchRecord -&gt; MetricFilterMatchRecord -&gt; Bool
+(MetricFilterMatchRecord -&gt; MetricFilterMatchRecord -&gt; Bool)
+-&gt; (MetricFilterMatchRecord -&gt; MetricFilterMatchRecord -&gt; Bool)
+-&gt; Eq MetricFilterMatchRecord
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricFilterMatchRecord -&gt; MetricFilterMatchRecord -&gt; Bool
+$c/= :: MetricFilterMatchRecord -&gt; MetricFilterMatchRecord -&gt; Bool
+== :: MetricFilterMatchRecord -&gt; MetricFilterMatchRecord -&gt; Bool
+$c== :: MetricFilterMatchRecord -&gt; MetricFilterMatchRecord -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221326"><span id="local-6989586621679221328"><span id="local-6989586621679221330"><span id="local-6989586621679221332"><span class="annot"><span class="annottext">ReadPrec [MetricFilterMatchRecord]
+ReadPrec MetricFilterMatchRecord
+Int -&gt; ReadS MetricFilterMatchRecord
+ReadS [MetricFilterMatchRecord]
+(Int -&gt; ReadS MetricFilterMatchRecord)
+-&gt; ReadS [MetricFilterMatchRecord]
+-&gt; ReadPrec MetricFilterMatchRecord
+-&gt; ReadPrec [MetricFilterMatchRecord]
+-&gt; Read MetricFilterMatchRecord
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricFilterMatchRecord]
+$creadListPrec :: ReadPrec [MetricFilterMatchRecord]
+readPrec :: ReadPrec MetricFilterMatchRecord
+$creadPrec :: ReadPrec MetricFilterMatchRecord
+readList :: ReadS [MetricFilterMatchRecord]
+$creadList :: ReadS [MetricFilterMatchRecord]
+readsPrec :: Int -&gt; ReadS MetricFilterMatchRecord
+$creadsPrec :: Int -&gt; ReadS MetricFilterMatchRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221319"><span id="local-6989586621679221321"><span id="local-6989586621679221323"><span class="annot"><span class="annottext">Int -&gt; MetricFilterMatchRecord -&gt; ShowS
+[MetricFilterMatchRecord] -&gt; ShowS
+MetricFilterMatchRecord -&gt; String
+(Int -&gt; MetricFilterMatchRecord -&gt; ShowS)
+-&gt; (MetricFilterMatchRecord -&gt; String)
+-&gt; ([MetricFilterMatchRecord] -&gt; ShowS)
+-&gt; Show MetricFilterMatchRecord
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricFilterMatchRecord] -&gt; ShowS
+$cshowList :: [MetricFilterMatchRecord] -&gt; ShowS
+show :: MetricFilterMatchRecord -&gt; String
+$cshow :: MetricFilterMatchRecord -&gt; String
+showsPrec :: Int -&gt; MetricFilterMatchRecord -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricFilterMatchRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MetricFilterMatchRecord -&gt; Rep MetricFilterMatchRecord x)
+-&gt; (forall x.
+    Rep MetricFilterMatchRecord x -&gt; MetricFilterMatchRecord)
+-&gt; Generic MetricFilterMatchRecord
+forall x. Rep MetricFilterMatchRecord x -&gt; MetricFilterMatchRecord
+forall x. MetricFilterMatchRecord -&gt; Rep MetricFilterMatchRecord x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricFilterMatchRecord x -&gt; MetricFilterMatchRecord
+$cfrom :: forall x. MetricFilterMatchRecord -&gt; Rep MetricFilterMatchRecord x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'MetricFilterMatchRecord' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'extractedValues', 'metricFilterMatchRecord_extractedValues' - The values extracted from the event data by the filter.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'eventNumber', 'metricFilterMatchRecord_eventNumber' - The event number.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'eventMessage', 'metricFilterMatchRecord_eventMessage' - The raw event data.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#newMetricFilterMatchRecord"><span class="hs-identifier hs-type">newMetricFilterMatchRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span>
+</span><span id="line-54"></span><span id="newMetricFilterMatchRecord"><span class="annot"><span class="annottext">newMetricFilterMatchRecord :: MetricFilterMatchRecord
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#newMetricFilterMatchRecord"><span class="hs-identifier hs-var hs-var">newMetricFilterMatchRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">MetricFilterMatchRecord' :: Maybe (HashMap Text Text)
+-&gt; Maybe Integer -&gt; Maybe Text -&gt; MetricFilterMatchRecord
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-type">MetricFilterMatchRecord'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:extractedValues:MetricFilterMatchRecord' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AextractedValues%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var">extractedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventNumber:MetricFilterMatchRecord' :: Maybe Integer
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AeventNumber%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var">eventNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventMessage:MetricFilterMatchRecord' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AeventMessage%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var">eventMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The values extracted from the event data by the filter.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#metricFilterMatchRecord_extractedValues"><span class="hs-identifier hs-type">metricFilterMatchRecord_extractedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="metricFilterMatchRecord_extractedValues"><span class="annot"><span class="annottext">metricFilterMatchRecord_extractedValues :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; MetricFilterMatchRecord -&gt; f MetricFilterMatchRecord
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#metricFilterMatchRecord_extractedValues"><span class="hs-identifier hs-var hs-var">metricFilterMatchRecord_extractedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilterMatchRecord -&gt; Maybe (HashMap Text Text))
+-&gt; (MetricFilterMatchRecord
+    -&gt; Maybe (HashMap Text Text) -&gt; MetricFilterMatchRecord)
+-&gt; Lens
+     MetricFilterMatchRecord
+     MetricFilterMatchRecord
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-type">MetricFilterMatchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221310"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+extractedValues :: Maybe (HashMap Text Text)
+$sel:extractedValues:MetricFilterMatchRecord' :: MetricFilterMatchRecord -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221310"><span class="hs-identifier hs-var hs-var">extractedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221310"><span class="hs-identifier hs-var">extractedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221309"><span class="annot"><span class="annottext">s :: MetricFilterMatchRecord
+</span><a href="#local-6989586621679221309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-type">MetricFilterMatchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221308"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilterMatchRecord
+</span><a href="#local-6989586621679221309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extractedValues:MetricFilterMatchRecord' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AextractedValues%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var">extractedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; MetricFilterMatchRecord -&gt; f MetricFilterMatchRecord)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; MetricFilterMatchRecord
+-&gt; f MetricFilterMatchRecord
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The event number.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#metricFilterMatchRecord_eventNumber"><span class="hs-identifier hs-type">metricFilterMatchRecord_eventNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="metricFilterMatchRecord_eventNumber"><span class="annot"><span class="annottext">metricFilterMatchRecord_eventNumber :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; MetricFilterMatchRecord -&gt; f MetricFilterMatchRecord
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#metricFilterMatchRecord_eventNumber"><span class="hs-identifier hs-var hs-var">metricFilterMatchRecord_eventNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilterMatchRecord -&gt; Maybe Integer)
+-&gt; (MetricFilterMatchRecord
+    -&gt; Maybe Integer -&gt; MetricFilterMatchRecord)
+-&gt; Lens
+     MetricFilterMatchRecord
+     MetricFilterMatchRecord
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-type">MetricFilterMatchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221303"><span class="annot"><span class="annottext">Maybe Integer
+eventNumber :: Maybe Integer
+$sel:eventNumber:MetricFilterMatchRecord' :: MetricFilterMatchRecord -&gt; Maybe Integer
+</span><a href="#local-6989586621679221303"><span class="hs-identifier hs-var hs-var">eventNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679221303"><span class="hs-identifier hs-var">eventNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221302"><span class="annot"><span class="annottext">s :: MetricFilterMatchRecord
+</span><a href="#local-6989586621679221302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-type">MetricFilterMatchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221301"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679221301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilterMatchRecord
+</span><a href="#local-6989586621679221302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventNumber:MetricFilterMatchRecord' :: Maybe Integer
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AeventNumber%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var">eventNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679221301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The raw event data.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#metricFilterMatchRecord_eventMessage"><span class="hs-identifier hs-type">metricFilterMatchRecord_eventMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="metricFilterMatchRecord_eventMessage"><span class="annot"><span class="annottext">metricFilterMatchRecord_eventMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MetricFilterMatchRecord -&gt; f MetricFilterMatchRecord
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#metricFilterMatchRecord_eventMessage"><span class="hs-identifier hs-var hs-var">metricFilterMatchRecord_eventMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilterMatchRecord -&gt; Maybe Text)
+-&gt; (MetricFilterMatchRecord
+    -&gt; Maybe Text -&gt; MetricFilterMatchRecord)
+-&gt; Lens
+     MetricFilterMatchRecord
+     MetricFilterMatchRecord
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-type">MetricFilterMatchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221299"><span class="annot"><span class="annottext">Maybe Text
+eventMessage :: Maybe Text
+$sel:eventMessage:MetricFilterMatchRecord' :: MetricFilterMatchRecord -&gt; Maybe Text
+</span><a href="#local-6989586621679221299"><span class="hs-identifier hs-var hs-var">eventMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221299"><span class="hs-identifier hs-var">eventMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221298"><span class="annot"><span class="annottext">s :: MetricFilterMatchRecord
+</span><a href="#local-6989586621679221298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-type">MetricFilterMatchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221297"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilterMatchRecord
+</span><a href="#local-6989586621679221298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventMessage:MetricFilterMatchRecord' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#%24sel%3AeventMessage%3AMetricFilterMatchRecord%27"><span class="hs-identifier hs-var">eventMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221294"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679221292"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricFilterMatchRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MetricFilterMatchRecord)
+-&gt; Value
+-&gt; Parser MetricFilterMatchRecord
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MetricFilterMatchRecord&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221289"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Maybe Integer -&gt; Maybe Text -&gt; MetricFilterMatchRecord
+</span><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord%27"><span class="hs-identifier hs-var">MetricFilterMatchRecord'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Maybe Integer -&gt; Maybe Text -&gt; MetricFilterMatchRecord)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Integer -&gt; Maybe Text -&gt; MetricFilterMatchRecord)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;extractedValues&quot;</span></span><span>
+</span><span id="line-81"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Text -&gt; MetricFilterMatchRecord)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Text -&gt; MetricFilterMatchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MetricFilterMatchRecord)
+-&gt; Parser (Maybe Text) -&gt; Parser MetricFilterMatchRecord
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221282"><span id="local-6989586621679221284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span></span><span>
+</span><span id="line-90"></span></pre></body></html>

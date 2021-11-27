@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSMContacts.Types.AcceptType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSMContacts.Types.AcceptType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType"><span class="hs-identifier">AcceptType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType_DELIVERED"><span class="hs-identifier">AcceptType_DELIVERED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType_READ"><span class="hs-identifier">AcceptType_READ</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679194931"><span id="local-6989586621679194932"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AcceptType"><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType"><span class="hs-identifier hs-var">AcceptType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptType%27"><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType%27"><span class="hs-identifier hs-var">AcceptType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAcceptType"><span class="annot"><span class="annottext">AcceptType -&gt; Text
+</span><a href="Amazonka.SSMContacts.Types.AcceptType.html#fromAcceptType"><span class="hs-identifier hs-var hs-var">fromAcceptType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679194923"><span id="local-6989586621679194925"><span id="local-6989586621679194927"><span class="annot"><span class="annottext">Int -&gt; AcceptType -&gt; ShowS
+[AcceptType] -&gt; ShowS
+AcceptType -&gt; String
+(Int -&gt; AcceptType -&gt; ShowS)
+-&gt; (AcceptType -&gt; String)
+-&gt; ([AcceptType] -&gt; ShowS)
+-&gt; Show AcceptType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptType] -&gt; ShowS
+$cshowList :: [AcceptType] -&gt; ShowS
+show :: AcceptType -&gt; String
+$cshow :: AcceptType -&gt; String
+showsPrec :: Int -&gt; AcceptType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679194914"><span id="local-6989586621679194916"><span id="local-6989586621679194918"><span id="local-6989586621679194920"><span class="annot"><span class="annottext">ReadPrec [AcceptType]
+ReadPrec AcceptType
+Int -&gt; ReadS AcceptType
+ReadS [AcceptType]
+(Int -&gt; ReadS AcceptType)
+-&gt; ReadS [AcceptType]
+-&gt; ReadPrec AcceptType
+-&gt; ReadPrec [AcceptType]
+-&gt; Read AcceptType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptType]
+$creadListPrec :: ReadPrec [AcceptType]
+readPrec :: ReadPrec AcceptType
+$creadPrec :: ReadPrec AcceptType
+readList :: ReadS [AcceptType]
+$creadList :: ReadS [AcceptType]
+readsPrec :: Int -&gt; ReadS AcceptType
+$creadsPrec :: Int -&gt; ReadS AcceptType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679194909"><span id="local-6989586621679194911"><span class="annot"><span class="annottext">AcceptType -&gt; AcceptType -&gt; Bool
+(AcceptType -&gt; AcceptType -&gt; Bool)
+-&gt; (AcceptType -&gt; AcceptType -&gt; Bool) -&gt; Eq AcceptType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptType -&gt; AcceptType -&gt; Bool
+$c/= :: AcceptType -&gt; AcceptType -&gt; Bool
+== :: AcceptType -&gt; AcceptType -&gt; Bool
+$c== :: AcceptType -&gt; AcceptType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679194893"><span id="local-6989586621679194895"><span id="local-6989586621679194897"><span id="local-6989586621679194899"><span id="local-6989586621679194901"><span id="local-6989586621679194903"><span id="local-6989586621679194905"><span class="annot"><span class="annottext">Eq AcceptType
+Eq AcceptType
+-&gt; (AcceptType -&gt; AcceptType -&gt; Ordering)
+-&gt; (AcceptType -&gt; AcceptType -&gt; Bool)
+-&gt; (AcceptType -&gt; AcceptType -&gt; Bool)
+-&gt; (AcceptType -&gt; AcceptType -&gt; Bool)
+-&gt; (AcceptType -&gt; AcceptType -&gt; Bool)
+-&gt; (AcceptType -&gt; AcceptType -&gt; AcceptType)
+-&gt; (AcceptType -&gt; AcceptType -&gt; AcceptType)
+-&gt; Ord AcceptType
+AcceptType -&gt; AcceptType -&gt; Bool
+AcceptType -&gt; AcceptType -&gt; Ordering
+AcceptType -&gt; AcceptType -&gt; AcceptType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AcceptType -&gt; AcceptType -&gt; AcceptType
+$cmin :: AcceptType -&gt; AcceptType -&gt; AcceptType
+max :: AcceptType -&gt; AcceptType -&gt; AcceptType
+$cmax :: AcceptType -&gt; AcceptType -&gt; AcceptType
+&gt;= :: AcceptType -&gt; AcceptType -&gt; Bool
+$c&gt;= :: AcceptType -&gt; AcceptType -&gt; Bool
+&gt; :: AcceptType -&gt; AcceptType -&gt; Bool
+$c&gt; :: AcceptType -&gt; AcceptType -&gt; Bool
+&lt;= :: AcceptType -&gt; AcceptType -&gt; Bool
+$c&lt;= :: AcceptType -&gt; AcceptType -&gt; Bool
+&lt; :: AcceptType -&gt; AcceptType -&gt; Bool
+$c&lt; :: AcceptType -&gt; AcceptType -&gt; Bool
+compare :: AcceptType -&gt; AcceptType -&gt; Ordering
+$ccompare :: AcceptType -&gt; AcceptType -&gt; Ordering
+$cp1Ord :: Eq AcceptType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AcceptType -&gt; Rep AcceptType x)
+-&gt; (forall x. Rep AcceptType x -&gt; AcceptType) -&gt; Generic AcceptType
+forall x. Rep AcceptType x -&gt; AcceptType
+forall x. AcceptType -&gt; Rep AcceptType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AcceptType x -&gt; AcceptType
+$cfrom :: forall x. AcceptType -&gt; Rep AcceptType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679194885"><span id="local-6989586621679194887"><span class="annot"><span class="annottext">Int -&gt; AcceptType -&gt; Int
+AcceptType -&gt; Int
+(Int -&gt; AcceptType -&gt; Int)
+-&gt; (AcceptType -&gt; Int) -&gt; Hashable AcceptType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AcceptType -&gt; Int
+$chash :: AcceptType -&gt; Int
+hashWithSalt :: Int -&gt; AcceptType -&gt; Int
+$chashWithSalt :: Int -&gt; AcceptType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679194882"><span class="annot"><span class="annottext">AcceptType -&gt; ()
+(AcceptType -&gt; ()) -&gt; NFData AcceptType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AcceptType -&gt; ()
+$crnf :: AcceptType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679194879"><span class="annot"><span class="annottext">Text -&gt; Either String AcceptType
+(Text -&gt; Either String AcceptType) -&gt; FromText AcceptType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AcceptType
+$cfromText :: Text -&gt; Either String AcceptType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679194876"><span class="annot"><span class="annottext">AcceptType -&gt; Text
+(AcceptType -&gt; Text) -&gt; ToText AcceptType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AcceptType -&gt; Text
+$ctoText :: AcceptType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679194873"><span class="annot"><span class="annottext">AcceptType -&gt; ByteString
+(AcceptType -&gt; ByteString) -&gt; ToByteString AcceptType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AcceptType -&gt; ByteString
+$ctoBS :: AcceptType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679194870"><span class="annot"><span class="annottext">AcceptType -&gt; ByteStringBuilder
+(AcceptType -&gt; ByteStringBuilder) -&gt; ToLog AcceptType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AcceptType -&gt; ByteStringBuilder
+$cbuild :: AcceptType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679194867"><span class="annot"><span class="annottext">HeaderName -&gt; AcceptType -&gt; [Header]
+(HeaderName -&gt; AcceptType -&gt; [Header]) -&gt; ToHeader AcceptType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AcceptType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AcceptType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679194864"><span class="annot"><span class="annottext">AcceptType -&gt; QueryString
+(AcceptType -&gt; QueryString) -&gt; ToQuery AcceptType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AcceptType -&gt; QueryString
+$ctoQuery :: AcceptType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679194859"><span id="local-6989586621679194861"><span class="annot"><span class="annottext">Value -&gt; Parser [AcceptType]
+Value -&gt; Parser AcceptType
+(Value -&gt; Parser AcceptType)
+-&gt; (Value -&gt; Parser [AcceptType]) -&gt; FromJSON AcceptType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AcceptType]
+$cparseJSONList :: Value -&gt; Parser [AcceptType]
+parseJSON :: Value -&gt; Parser AcceptType
+$cparseJSON :: Value -&gt; Parser AcceptType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679194854"><span id="local-6989586621679194856"><span class="annot"><span class="annottext">FromJSONKeyFunction [AcceptType]
+FromJSONKeyFunction AcceptType
+FromJSONKeyFunction AcceptType
+-&gt; FromJSONKeyFunction [AcceptType] -&gt; FromJSONKey AcceptType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AcceptType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AcceptType]
+fromJSONKey :: FromJSONKeyFunction AcceptType
+$cfromJSONKey :: FromJSONKeyFunction AcceptType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679194845"><span id="local-6989586621679194847"><span id="local-6989586621679194849"><span id="local-6989586621679194851"><span class="annot"><span class="annottext">[AcceptType] -&gt; Encoding
+[AcceptType] -&gt; Value
+AcceptType -&gt; Encoding
+AcceptType -&gt; Value
+(AcceptType -&gt; Value)
+-&gt; (AcceptType -&gt; Encoding)
+-&gt; ([AcceptType] -&gt; Value)
+-&gt; ([AcceptType] -&gt; Encoding)
+-&gt; ToJSON AcceptType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AcceptType] -&gt; Encoding
+$ctoEncodingList :: [AcceptType] -&gt; Encoding
+toJSONList :: [AcceptType] -&gt; Value
+$ctoJSONList :: [AcceptType] -&gt; Value
+toEncoding :: AcceptType -&gt; Encoding
+$ctoEncoding :: AcceptType -&gt; Encoding
+toJSON :: AcceptType -&gt; Value
+$ctoJSON :: AcceptType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679194840"><span id="local-6989586621679194842"><span class="annot"><span class="annottext">ToJSONKeyFunction [AcceptType]
+ToJSONKeyFunction AcceptType
+ToJSONKeyFunction AcceptType
+-&gt; ToJSONKeyFunction [AcceptType] -&gt; ToJSONKey AcceptType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AcceptType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AcceptType]
+toJSONKey :: ToJSONKeyFunction AcceptType
+$ctoJSONKey :: ToJSONKeyFunction AcceptType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679194837"><span class="annot"><span class="annottext">[Node] -&gt; Either String AcceptType
+([Node] -&gt; Either String AcceptType) -&gt; FromXML AcceptType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AcceptType
+$cparseXML :: [Node] -&gt; Either String AcceptType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679194834"><span class="annot"><span class="annottext">AcceptType -&gt; XML
+(AcceptType -&gt; XML) -&gt; ToXML AcceptType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AcceptType -&gt; XML
+$ctoXML :: AcceptType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType_DELIVERED"><span class="hs-identifier hs-type">AcceptType_DELIVERED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType"><span class="hs-identifier hs-type">AcceptType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAcceptType_DELIVERED"><span id="%24mAcceptType_DELIVERED"><span id="AcceptType_DELIVERED"><span class="annot"><span class="annottext">$bAcceptType_DELIVERED :: AcceptType
+$mAcceptType_DELIVERED :: forall r. AcceptType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMContacts.Types.AcceptType.html#%24bAcceptType_DELIVERED"><span class="hs-identifier hs-var hs-var hs-var">AcceptType_DELIVERED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType%27"><span class="hs-identifier hs-type">AcceptType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELIVERED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType_READ"><span class="hs-identifier hs-type">AcceptType_READ</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType"><span class="hs-identifier hs-type">AcceptType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAcceptType_READ"><span id="%24mAcceptType_READ"><span id="AcceptType_READ"><span class="annot"><span class="annottext">$bAcceptType_READ :: AcceptType
+$mAcceptType_READ :: forall r. AcceptType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMContacts.Types.AcceptType.html#%24bAcceptType_READ"><span class="hs-identifier hs-var hs-var hs-var">AcceptType_READ</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType%27"><span class="hs-identifier hs-type">AcceptType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READ&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType_DELIVERED"><span class="hs-pragma hs-type">AcceptType_DELIVERED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType_READ"><span class="hs-pragma hs-type">AcceptType_READ</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.AcceptType.html#AcceptType%27"><span class="hs-pragma hs-type">AcceptType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

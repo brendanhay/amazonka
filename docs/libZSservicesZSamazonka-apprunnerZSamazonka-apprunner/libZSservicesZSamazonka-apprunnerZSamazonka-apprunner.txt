@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.AppRunner.Types.AuthenticationConfiguration
+module Amazonka.AppRunner.Types.AuthenticationConfiguration
 
 -- | Describes resources needed to authenticate access to some source
 --   repositories. The specific resource depends on the repository
@@ -56,44 +56,44 @@ authenticationConfiguration_accessRoleArn :: Lens' AuthenticationConfiguration (
 --   enables the App Runner service to connect to a source repository. It's
 --   required for GitHub code repositories.
 authenticationConfiguration_connectionArn :: Lens' AuthenticationConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.AuthenticationConfiguration.AuthenticationConfiguration
 
 
-module Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus
+module Amazonka.AppRunner.Types.AutoScalingConfigurationStatus
 newtype AutoScalingConfigurationStatus
 AutoScalingConfigurationStatus' :: Text -> AutoScalingConfigurationStatus
 [fromAutoScalingConfigurationStatus] :: AutoScalingConfigurationStatus -> Text
 pattern AutoScalingConfigurationStatus_ACTIVE :: AutoScalingConfigurationStatus
 pattern AutoScalingConfigurationStatus_INACTIVE :: AutoScalingConfigurationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance GHC.Read.Read Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
-instance GHC.Show.Show Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance GHC.Read.Read Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
+instance GHC.Show.Show Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.AutoScalingConfigurationStatus
 
 
-module Network.AWS.AppRunner.Types.AutoScalingConfiguration
+module Amazonka.AppRunner.Types.AutoScalingConfiguration
 
 -- | Describes an App Runner automatic scaling configuration resource.
 --   Multiple revisions of a configuration have the same
@@ -288,16 +288,16 @@ autoScalingConfiguration_latest :: Lens' AutoScalingConfiguration (Maybe Bool)
 --   If the number of concurrent requests exceeds this limit, App Runner
 --   scales the service up.
 autoScalingConfiguration_maxConcurrency :: Lens' AutoScalingConfiguration (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.AutoScalingConfiguration.AutoScalingConfiguration
 
 
-module Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary
+module Amazonka.AppRunner.Types.AutoScalingConfigurationSummary
 
 -- | Provides summary information about an App Runner automatic scaling
 --   configuration resource.
@@ -366,44 +366,44 @@ autoScalingConfigurationSummary_autoScalingConfigurationRevision :: Lens' AutoSc
 
 -- | The Amazon Resource Name (ARN) of this auto scaling configuration.
 autoScalingConfigurationSummary_autoScalingConfigurationArn :: Lens' AutoScalingConfigurationSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
-instance GHC.Show.Show Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
-instance GHC.Read.Read Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
+instance GHC.Show.Show Amazonka.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
+instance GHC.Read.Read Amazonka.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.AutoScalingConfigurationSummary.AutoScalingConfigurationSummary
 
 
-module Network.AWS.AppRunner.Types.CertificateValidationRecordStatus
+module Amazonka.AppRunner.Types.CertificateValidationRecordStatus
 newtype CertificateValidationRecordStatus
 CertificateValidationRecordStatus' :: Text -> CertificateValidationRecordStatus
 [fromCertificateValidationRecordStatus] :: CertificateValidationRecordStatus -> Text
 pattern CertificateValidationRecordStatus_FAILED :: CertificateValidationRecordStatus
 pattern CertificateValidationRecordStatus_PENDING_VALIDATION :: CertificateValidationRecordStatus
 pattern CertificateValidationRecordStatus_SUCCESS :: CertificateValidationRecordStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance GHC.Read.Read Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
-instance GHC.Show.Show Network.AWS.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance GHC.Read.Read Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
+instance GHC.Show.Show Amazonka.AppRunner.Types.CertificateValidationRecordStatus.CertificateValidationRecordStatus
 
 
-module Network.AWS.AppRunner.Types.CertificateValidationRecord
+module Amazonka.AppRunner.Types.CertificateValidationRecord
 
 -- | Describes a certificate CNAME record to add to your DNS. For more
 --   information, see <a>AssociateCustomDomain</a>.
@@ -466,43 +466,43 @@ certificateValidationRecord_name :: Lens' CertificateValidationRecord (Maybe Tex
 
 -- | The record type, always <tt>CNAME</tt>.
 certificateValidationRecord_type :: Lens' CertificateValidationRecord (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
-instance GHC.Show.Show Network.AWS.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
-instance GHC.Read.Read Network.AWS.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
+instance GHC.Show.Show Amazonka.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
+instance GHC.Read.Read Amazonka.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.CertificateValidationRecord.CertificateValidationRecord
 
 
-module Network.AWS.AppRunner.Types.ConfigurationSource
+module Amazonka.AppRunner.Types.ConfigurationSource
 newtype ConfigurationSource
 ConfigurationSource' :: Text -> ConfigurationSource
 [fromConfigurationSource] :: ConfigurationSource -> Text
 pattern ConfigurationSource_API :: ConfigurationSource
 pattern ConfigurationSource_REPOSITORY :: ConfigurationSource
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance GHC.Read.Read Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance GHC.Read.Read Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
+instance GHC.Show.Show Amazonka.AppRunner.Types.ConfigurationSource.ConfigurationSource
 
 
-module Network.AWS.AppRunner.Types.ConnectionStatus
+module Amazonka.AppRunner.Types.ConnectionStatus
 newtype ConnectionStatus
 ConnectionStatus' :: Text -> ConnectionStatus
 [fromConnectionStatus] :: ConnectionStatus -> Text
@@ -510,28 +510,28 @@ pattern ConnectionStatus_AVAILABLE :: ConnectionStatus
 pattern ConnectionStatus_DELETED :: ConnectionStatus
 pattern ConnectionStatus_ERROR :: ConnectionStatus
 pattern ConnectionStatus_PENDING_HANDSHAKE :: ConnectionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Read.Read Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Read.Read Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Show.Show Amazonka.AppRunner.Types.ConnectionStatus.ConnectionStatus
 
 
-module Network.AWS.AppRunner.Types.CustomDomainAssociationStatus
+module Amazonka.AppRunner.Types.CustomDomainAssociationStatus
 newtype CustomDomainAssociationStatus
 CustomDomainAssociationStatus' :: Text -> CustomDomainAssociationStatus
 [fromCustomDomainAssociationStatus] :: CustomDomainAssociationStatus -> Text
@@ -542,28 +542,28 @@ pattern CustomDomainAssociationStatus_CREATING :: CustomDomainAssociationStatus
 pattern CustomDomainAssociationStatus_DELETE_FAILED :: CustomDomainAssociationStatus
 pattern CustomDomainAssociationStatus_DELETING :: CustomDomainAssociationStatus
 pattern CustomDomainAssociationStatus_PENDING_CERTIFICATE_DNS_VALIDATION :: CustomDomainAssociationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance GHC.Read.Read Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
-instance GHC.Show.Show Network.AWS.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance GHC.Read.Read Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
+instance GHC.Show.Show Amazonka.AppRunner.Types.CustomDomainAssociationStatus.CustomDomainAssociationStatus
 
 
-module Network.AWS.AppRunner.Types.CustomDomain
+module Amazonka.AppRunner.Types.CustomDomain
 
 -- | Describes a custom domain that's associated with an App Runner
 --   service.
@@ -631,16 +631,16 @@ customDomain_enableWWWSubdomain :: Lens' CustomDomain Bool
 
 -- | The current state of the domain name association.
 customDomain_status :: Lens' CustomDomain CustomDomainAssociationStatus
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.CustomDomain.CustomDomain
-instance GHC.Show.Show Network.AWS.AppRunner.Types.CustomDomain.CustomDomain
-instance GHC.Read.Read Network.AWS.AppRunner.Types.CustomDomain.CustomDomain
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.CustomDomain.CustomDomain
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.CustomDomain.CustomDomain
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.CustomDomain.CustomDomain
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.CustomDomain.CustomDomain
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.CustomDomain.CustomDomain
+instance GHC.Show.Show Amazonka.AppRunner.Types.CustomDomain.CustomDomain
+instance GHC.Read.Read Amazonka.AppRunner.Types.CustomDomain.CustomDomain
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.CustomDomain.CustomDomain
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.CustomDomain.CustomDomain
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.CustomDomain.CustomDomain
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.CustomDomain.CustomDomain
 
 
-module Network.AWS.AppRunner.Types.EncryptionConfiguration
+module Amazonka.AppRunner.Types.EncryptionConfiguration
 
 -- | Describes a custom encryption key that App Runner uses to encrypt
 --   copies of the source repository and service logs.
@@ -668,44 +668,44 @@ newEncryptionConfiguration :: Text -> EncryptionConfiguration
 
 -- | The ARN of the KMS key that's used for encryption.
 encryptionConfiguration_kmsKey :: Lens' EncryptionConfiguration Text
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.EncryptionConfiguration.EncryptionConfiguration
 
 
-module Network.AWS.AppRunner.Types.HealthCheckProtocol
+module Amazonka.AppRunner.Types.HealthCheckProtocol
 newtype HealthCheckProtocol
 HealthCheckProtocol' :: Text -> HealthCheckProtocol
 [fromHealthCheckProtocol] :: HealthCheckProtocol -> Text
 pattern HealthCheckProtocol_HTTP :: HealthCheckProtocol
 pattern HealthCheckProtocol_TCP :: HealthCheckProtocol
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance GHC.Read.Read Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
-instance GHC.Show.Show Network.AWS.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance GHC.Read.Read Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
+instance GHC.Show.Show Amazonka.AppRunner.Types.HealthCheckProtocol.HealthCheckProtocol
 
 
-module Network.AWS.AppRunner.Types.HealthCheckConfiguration
+module Amazonka.AppRunner.Types.HealthCheckConfiguration
 
 -- | Describes the settings for the health check that App Runner performs
 --   to monitor the health of a service.
@@ -847,17 +847,17 @@ healthCheckConfiguration_timeout :: Lens' HealthCheckConfiguration (Maybe Natura
 --   
 --   Default: <tt>5</tt>
 healthCheckConfiguration_unhealthyThreshold :: Lens' HealthCheckConfiguration (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.HealthCheckConfiguration.HealthCheckConfiguration
 
 
-module Network.AWS.AppRunner.Types.ImageConfiguration
+module Amazonka.AppRunner.Types.ImageConfiguration
 
 -- | Describes the configuration that App Runner uses to run an App Runner
 --   service using an image pulled from a source image repository.
@@ -922,43 +922,43 @@ imageConfiguration_runtimeEnvironmentVariables :: Lens' ImageConfiguration (Mayb
 --   
 --   Default: <tt>8080</tt>
 imageConfiguration_port :: Lens' ImageConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ImageConfiguration.ImageConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ImageConfiguration.ImageConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ImageConfiguration.ImageConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ImageConfiguration.ImageConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ImageConfiguration.ImageConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ImageConfiguration.ImageConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.ImageConfiguration.ImageConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ImageConfiguration.ImageConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.ImageConfiguration.ImageConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ImageConfiguration.ImageConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ImageConfiguration.ImageConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ImageConfiguration.ImageConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ImageConfiguration.ImageConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.ImageConfiguration.ImageConfiguration
 
 
-module Network.AWS.AppRunner.Types.ImageRepositoryType
+module Amazonka.AppRunner.Types.ImageRepositoryType
 newtype ImageRepositoryType
 ImageRepositoryType' :: Text -> ImageRepositoryType
 [fromImageRepositoryType] :: ImageRepositoryType -> Text
 pattern ImageRepositoryType_ECR :: ImageRepositoryType
 pattern ImageRepositoryType_ECR_PUBLIC :: ImageRepositoryType
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance GHC.Read.Read Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance GHC.Read.Read Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
+instance GHC.Show.Show Amazonka.AppRunner.Types.ImageRepositoryType.ImageRepositoryType
 
 
-module Network.AWS.AppRunner.Types.ImageRepository
+module Amazonka.AppRunner.Types.ImageRepository
 
 -- | Describes a source image repository.
 --   
@@ -1019,16 +1019,16 @@ imageRepository_imageIdentifier :: Lens' ImageRepository Text
 -- | The type of the image repository. This reflects the repository
 --   provider and whether the repository is private or public.
 imageRepository_imageRepositoryType :: Lens' ImageRepository ImageRepositoryType
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ImageRepository.ImageRepository
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ImageRepository.ImageRepository
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ImageRepository.ImageRepository
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ImageRepository.ImageRepository
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ImageRepository.ImageRepository
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ImageRepository.ImageRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.ImageRepository.ImageRepository
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ImageRepository.ImageRepository
+instance GHC.Show.Show Amazonka.AppRunner.Types.ImageRepository.ImageRepository
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ImageRepository.ImageRepository
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ImageRepository.ImageRepository
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ImageRepository.ImageRepository
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ImageRepository.ImageRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.ImageRepository.ImageRepository
 
 
-module Network.AWS.AppRunner.Types.InstanceConfiguration
+module Amazonka.AppRunner.Types.InstanceConfiguration
 
 -- | Describes the runtime configuration of an App Runner service instance
 --   (scaling unit).
@@ -1098,17 +1098,17 @@ instanceConfiguration_instanceRoleArn :: Lens' InstanceConfiguration (Maybe Text
 --   
 --   Default: <tt>1 vCPU</tt>
 instanceConfiguration_cpu :: Lens' InstanceConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.InstanceConfiguration.InstanceConfiguration
 
 
-module Network.AWS.AppRunner.Types.OperationStatus
+module Amazonka.AppRunner.Types.OperationStatus
 newtype OperationStatus
 OperationStatus' :: Text -> OperationStatus
 [fromOperationStatus] :: OperationStatus -> Text
@@ -1119,28 +1119,28 @@ pattern OperationStatus_ROLLBACK_FAILED :: OperationStatus
 pattern OperationStatus_ROLLBACK_IN_PROGRESS :: OperationStatus
 pattern OperationStatus_ROLLBACK_SUCCEEDED :: OperationStatus
 pattern OperationStatus_SUCCEEDED :: OperationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance GHC.Read.Read Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
-instance GHC.Show.Show Network.AWS.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance GHC.Read.Read Amazonka.AppRunner.Types.OperationStatus.OperationStatus
+instance GHC.Show.Show Amazonka.AppRunner.Types.OperationStatus.OperationStatus
 
 
-module Network.AWS.AppRunner.Types.OperationType
+module Amazonka.AppRunner.Types.OperationType
 newtype OperationType
 OperationType' :: Text -> OperationType
 [fromOperationType] :: OperationType -> Text
@@ -1149,28 +1149,28 @@ pattern OperationType_DELETE_SERVICE :: OperationType
 pattern OperationType_PAUSE_SERVICE :: OperationType
 pattern OperationType_RESUME_SERVICE :: OperationType
 pattern OperationType_START_DEPLOYMENT :: OperationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.OperationType.OperationType
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.OperationType.OperationType
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.OperationType.OperationType
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.OperationType.OperationType
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.OperationType.OperationType
-instance GHC.Read.Read Network.AWS.AppRunner.Types.OperationType.OperationType
-instance GHC.Show.Show Network.AWS.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.OperationType.OperationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.OperationType.OperationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.OperationType.OperationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.OperationType.OperationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.OperationType.OperationType
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.OperationType.OperationType
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.OperationType.OperationType
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.OperationType.OperationType
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.OperationType.OperationType
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.OperationType.OperationType
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.OperationType.OperationType
+instance GHC.Read.Read Amazonka.AppRunner.Types.OperationType.OperationType
+instance GHC.Show.Show Amazonka.AppRunner.Types.OperationType.OperationType
 
 
-module Network.AWS.AppRunner.Types.OperationSummary
+module Amazonka.AppRunner.Types.OperationSummary
 
 -- | Provides summary information for an operation that occurred on an App
 --   Runner service.
@@ -1265,42 +1265,42 @@ operationSummary_type :: Lens' OperationSummary (Maybe OperationType)
 -- | The time when the operation was last updated. It's in the Unix time
 --   stamp format.
 operationSummary_updatedAt :: Lens' OperationSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.OperationSummary.OperationSummary
-instance GHC.Show.Show Network.AWS.AppRunner.Types.OperationSummary.OperationSummary
-instance GHC.Read.Read Network.AWS.AppRunner.Types.OperationSummary.OperationSummary
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.OperationSummary.OperationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.OperationSummary.OperationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.OperationSummary.OperationSummary
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.OperationSummary.OperationSummary
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.OperationSummary.OperationSummary
+instance GHC.Show.Show Amazonka.AppRunner.Types.OperationSummary.OperationSummary
+instance GHC.Read.Read Amazonka.AppRunner.Types.OperationSummary.OperationSummary
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.OperationSummary.OperationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.OperationSummary.OperationSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.OperationSummary.OperationSummary
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.OperationSummary.OperationSummary
 
 
-module Network.AWS.AppRunner.Types.ProviderType
+module Amazonka.AppRunner.Types.ProviderType
 newtype ProviderType
 ProviderType' :: Text -> ProviderType
 [fromProviderType] :: ProviderType -> Text
 pattern ProviderType_GITHUB :: ProviderType
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance GHC.Read.Read Network.AWS.AppRunner.Types.ProviderType.ProviderType
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance GHC.Read.Read Amazonka.AppRunner.Types.ProviderType.ProviderType
+instance GHC.Show.Show Amazonka.AppRunner.Types.ProviderType.ProviderType
 
 
-module Network.AWS.AppRunner.Types.ConnectionSummary
+module Amazonka.AppRunner.Types.ConnectionSummary
 
 -- | Provides summary information about an App Runner connection resource.
 --   
@@ -1374,16 +1374,16 @@ connectionSummary_connectionName :: Lens' ConnectionSummary (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of this connection.
 connectionSummary_connectionArn :: Lens' ConnectionSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ConnectionSummary.ConnectionSummary
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ConnectionSummary.ConnectionSummary
-instance GHC.Read.Read Network.AWS.AppRunner.Types.ConnectionSummary.ConnectionSummary
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ConnectionSummary.ConnectionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ConnectionSummary.ConnectionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ConnectionSummary.ConnectionSummary
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ConnectionSummary.ConnectionSummary
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ConnectionSummary.ConnectionSummary
+instance GHC.Show.Show Amazonka.AppRunner.Types.ConnectionSummary.ConnectionSummary
+instance GHC.Read.Read Amazonka.AppRunner.Types.ConnectionSummary.ConnectionSummary
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ConnectionSummary.ConnectionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ConnectionSummary.ConnectionSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ConnectionSummary.ConnectionSummary
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ConnectionSummary.ConnectionSummary
 
 
-module Network.AWS.AppRunner.Types.Connection
+module Amazonka.AppRunner.Types.Connection
 
 -- | Describes an App Runner connection resource.
 --   
@@ -1453,43 +1453,43 @@ connection_connectionName :: Lens' Connection (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of this connection.
 connection_connectionArn :: Lens' Connection (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.Connection.Connection
-instance GHC.Show.Show Network.AWS.AppRunner.Types.Connection.Connection
-instance GHC.Read.Read Network.AWS.AppRunner.Types.Connection.Connection
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.Connection.Connection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.Connection.Connection
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.Connection.Connection
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.Connection.Connection
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.Connection.Connection
+instance GHC.Show.Show Amazonka.AppRunner.Types.Connection.Connection
+instance GHC.Read.Read Amazonka.AppRunner.Types.Connection.Connection
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.Connection.Connection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.Connection.Connection
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.Connection.Connection
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.Connection.Connection
 
 
-module Network.AWS.AppRunner.Types.Runtime
+module Amazonka.AppRunner.Types.Runtime
 newtype Runtime
 Runtime' :: Text -> Runtime
 [fromRuntime] :: Runtime -> Text
 pattern Runtime_NODEJS_12 :: Runtime
 pattern Runtime_PYTHON_3 :: Runtime
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.Runtime.Runtime
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.Runtime.Runtime
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.Runtime.Runtime
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.Runtime.Runtime
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.Runtime.Runtime
-instance GHC.Read.Read Network.AWS.AppRunner.Types.Runtime.Runtime
-instance GHC.Show.Show Network.AWS.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.Runtime.Runtime
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.Runtime.Runtime
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.Runtime.Runtime
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.Runtime.Runtime
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.Runtime.Runtime
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.Runtime.Runtime
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.Runtime.Runtime
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.Runtime.Runtime
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.Runtime.Runtime
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.Runtime.Runtime
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.Runtime.Runtime
+instance GHC.Read.Read Amazonka.AppRunner.Types.Runtime.Runtime
+instance GHC.Show.Show Amazonka.AppRunner.Types.Runtime.Runtime
 
 
-module Network.AWS.AppRunner.Types.CodeConfigurationValues
+module Amazonka.AppRunner.Types.CodeConfigurationValues
 
 -- | Describes the basic configuration needed for building and running an
 --   App Runner service. This type doesn't support the full set of possible
@@ -1574,16 +1574,16 @@ codeConfigurationValues_port :: Lens' CodeConfigurationValues (Maybe Text)
 -- | A runtime environment type for building and running an App Runner
 --   service. It represents a programming language runtime.
 codeConfigurationValues_runtime :: Lens' CodeConfigurationValues Runtime
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
-instance GHC.Show.Show Network.AWS.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
+instance GHC.Show.Show Amazonka.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.CodeConfigurationValues.CodeConfigurationValues
 
 
-module Network.AWS.AppRunner.Types.CodeConfiguration
+module Amazonka.AppRunner.Types.CodeConfiguration
 
 -- | Describes the configuration that App Runner uses to build and run an
 --   App Runner service from a source code repository.
@@ -1659,16 +1659,16 @@ codeConfiguration_codeConfigurationValues :: Lens' CodeConfiguration (Maybe Code
 --   <tt>apprunner.yaml</tt> file in the source code repository.</li>
 --   </ul>
 codeConfiguration_configurationSource :: Lens' CodeConfiguration ConfigurationSource
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.CodeConfiguration.CodeConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.CodeConfiguration.CodeConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.CodeConfiguration.CodeConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.CodeConfiguration.CodeConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.CodeConfiguration.CodeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.CodeConfiguration.CodeConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.CodeConfiguration.CodeConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.CodeConfiguration.CodeConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.CodeConfiguration.CodeConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.CodeConfiguration.CodeConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.CodeConfiguration.CodeConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.CodeConfiguration.CodeConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.CodeConfiguration.CodeConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.CodeConfiguration.CodeConfiguration
 
 
-module Network.AWS.AppRunner.Types.ServiceStatus
+module Amazonka.AppRunner.Types.ServiceStatus
 newtype ServiceStatus
 ServiceStatus' :: Text -> ServiceStatus
 [fromServiceStatus] :: ServiceStatus -> Text
@@ -1678,28 +1678,28 @@ pattern ServiceStatus_DELETE_FAILED :: ServiceStatus
 pattern ServiceStatus_OPERATION_IN_PROGRESS :: ServiceStatus
 pattern ServiceStatus_PAUSED :: ServiceStatus
 pattern ServiceStatus_RUNNING :: ServiceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance GHC.Read.Read Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance GHC.Read.Read Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
+instance GHC.Show.Show Amazonka.AppRunner.Types.ServiceStatus.ServiceStatus
 
 
-module Network.AWS.AppRunner.Types.ServiceSummary
+module Amazonka.AppRunner.Types.ServiceSummary
 
 -- | Provides summary information for an App Runner service.
 --   
@@ -1836,42 +1836,42 @@ serviceSummary_serviceArn :: Lens' ServiceSummary (Maybe Text)
 -- | An ID that App Runner generated for this service. It's unique within
 --   the Amazon Web Services Region.
 serviceSummary_serviceId :: Lens' ServiceSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.ServiceSummary.ServiceSummary
-instance GHC.Show.Show Network.AWS.AppRunner.Types.ServiceSummary.ServiceSummary
-instance GHC.Read.Read Network.AWS.AppRunner.Types.ServiceSummary.ServiceSummary
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.ServiceSummary.ServiceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.ServiceSummary.ServiceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.ServiceSummary.ServiceSummary
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.ServiceSummary.ServiceSummary
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.ServiceSummary.ServiceSummary
+instance GHC.Show.Show Amazonka.AppRunner.Types.ServiceSummary.ServiceSummary
+instance GHC.Read.Read Amazonka.AppRunner.Types.ServiceSummary.ServiceSummary
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.ServiceSummary.ServiceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.ServiceSummary.ServiceSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.ServiceSummary.ServiceSummary
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.ServiceSummary.ServiceSummary
 
 
-module Network.AWS.AppRunner.Types.SourceCodeVersionType
+module Amazonka.AppRunner.Types.SourceCodeVersionType
 newtype SourceCodeVersionType
 SourceCodeVersionType' :: Text -> SourceCodeVersionType
 [fromSourceCodeVersionType] :: SourceCodeVersionType -> Text
 pattern SourceCodeVersionType_BRANCH :: SourceCodeVersionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Network.AWS.Data.Text.ToText Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Network.AWS.Data.Text.FromText Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance GHC.Classes.Ord Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance GHC.Read.Read Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
-instance GHC.Show.Show Network.AWS.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.XML.ToXML Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.XML.FromXML Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.Log.ToLog Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.Text.ToText Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Amazonka.Data.Text.FromText Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance GHC.Classes.Ord Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance GHC.Read.Read Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
+instance GHC.Show.Show Amazonka.AppRunner.Types.SourceCodeVersionType.SourceCodeVersionType
 
 
-module Network.AWS.AppRunner.Types.SourceCodeVersion
+module Amazonka.AppRunner.Types.SourceCodeVersion
 
 -- | Identifies a version of code that App Runner refers to within a source
 --   code repository.
@@ -1922,17 +1922,17 @@ sourceCodeVersion_type :: Lens' SourceCodeVersion SourceCodeVersionType
 --   For a git-based repository, a branch name maps to a specific version.
 --   App Runner uses the most recent commit to the branch.
 sourceCodeVersion_value :: Lens' SourceCodeVersion Text
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
-instance GHC.Show.Show Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
-instance GHC.Read.Read Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance GHC.Show.Show Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance GHC.Read.Read Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.SourceCodeVersion.SourceCodeVersion
 
 
-module Network.AWS.AppRunner.Types.CodeRepository
+module Amazonka.AppRunner.Types.CodeRepository
 
 -- | Describes a source code repository.
 --   
@@ -1981,16 +1981,16 @@ codeRepository_repositoryUrl :: Lens' CodeRepository Text
 
 -- | The version that should be used within the source code repository.
 codeRepository_sourceCodeVersion :: Lens' CodeRepository SourceCodeVersion
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.CodeRepository.CodeRepository
-instance GHC.Show.Show Network.AWS.AppRunner.Types.CodeRepository.CodeRepository
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.CodeRepository.CodeRepository
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.CodeRepository.CodeRepository
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.CodeRepository.CodeRepository
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.CodeRepository.CodeRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.CodeRepository.CodeRepository
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.CodeRepository.CodeRepository
+instance GHC.Show.Show Amazonka.AppRunner.Types.CodeRepository.CodeRepository
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.CodeRepository.CodeRepository
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.CodeRepository.CodeRepository
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.CodeRepository.CodeRepository
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.CodeRepository.CodeRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.CodeRepository.CodeRepository
 
 
-module Network.AWS.AppRunner.Types.SourceConfiguration
+module Amazonka.AppRunner.Types.SourceConfiguration
 
 -- | Describes the source deployed to an App Runner service. It can be a
 --   code or an image repository.
@@ -2096,16 +2096,16 @@ sourceConfiguration_autoDeploymentsEnabled :: Lens' SourceConfiguration (Maybe B
 -- | Describes the resources that are needed to authenticate access to some
 --   source repositories.
 sourceConfiguration_authenticationConfiguration :: Lens' SourceConfiguration (Maybe AuthenticationConfiguration)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.SourceConfiguration.SourceConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.Types.SourceConfiguration.SourceConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.SourceConfiguration.SourceConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.SourceConfiguration.SourceConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.SourceConfiguration.SourceConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.SourceConfiguration.SourceConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.SourceConfiguration.SourceConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.SourceConfiguration.SourceConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.Types.SourceConfiguration.SourceConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.SourceConfiguration.SourceConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.SourceConfiguration.SourceConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.SourceConfiguration.SourceConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.SourceConfiguration.SourceConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.SourceConfiguration.SourceConfiguration
 
 
-module Network.AWS.AppRunner.Types.Service
+module Amazonka.AppRunner.Types.Service
 
 -- | Describes an App Runner service. It can describe a service in any
 --   state, including deleted services.
@@ -2321,15 +2321,15 @@ service_instanceConfiguration :: Lens' Service InstanceConfiguration
 -- | Summary information for the App Runner automatic scaling configuration
 --   resource that's associated with this service.
 service_autoScalingConfigurationSummary :: Lens' Service AutoScalingConfigurationSummary
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.Service.Service
-instance GHC.Show.Show Network.AWS.AppRunner.Types.Service.Service
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.Service.Service
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.Service.Service
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.Service.Service
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.Service.Service
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.Service.Service
+instance GHC.Show.Show Amazonka.AppRunner.Types.Service.Service
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.Service.Service
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.Service.Service
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.Service.Service
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.Service.Service
 
 
-module Network.AWS.AppRunner.Types.Tag
+module Amazonka.AppRunner.Types.Tag
 
 -- | Describes a tag that is applied to an App Runner resource. A tag is a
 --   metadata item consisting of a key-value pair.
@@ -2362,17 +2362,17 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key of the tag.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppRunner.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.AppRunner.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.AppRunner.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.AppRunner.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppRunner.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.AppRunner.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.AppRunner.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.AppRunner.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.AppRunner.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppRunner.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.AppRunner.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.Types.Tag.Tag
 
 
-module Network.AWS.AppRunner.Types
+module Amazonka.AppRunner.Types
 
 -- | API version <tt>2020-05-15</tt> of the Amazon App Runner SDK
 --   configuration.
@@ -4269,7 +4269,7 @@ tag_key :: Lens' Tag (Maybe Text)
 
 -- | Add tags to, or update the tag values of, an App Runner resource. A
 --   tag is a key-value pair.
-module Network.AWS.AppRunner.TagResource
+module Amazonka.AppRunner.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4340,22 +4340,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AppRunner.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.AppRunner.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.AppRunner.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.AppRunner.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.AppRunner.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.AppRunner.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AppRunner.TagResource.TagResource
+instance GHC.Show.Show Amazonka.AppRunner.TagResource.TagResource
+instance GHC.Read.Read Amazonka.AppRunner.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.AppRunner.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AppRunner.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.AppRunner.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.AppRunner.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AppRunner.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AppRunner.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.TagResource.TagResource
 
 
 -- | Initiate a manual deployment of the latest commit in a source code
@@ -4371,7 +4371,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.TagResource.TagRes
 --   This is an asynchronous operation. On a successful call, you can use
 --   the returned <tt>OperationId</tt> and the ListOperations call to track
 --   the operation's progress.
-module Network.AWS.AppRunner.StartDeployment
+module Amazonka.AppRunner.StartDeployment
 
 -- | <i>See:</i> <a>newStartDeployment</a> smart constructor.
 data StartDeployment
@@ -4438,22 +4438,22 @@ startDeploymentResponse_httpStatus :: Lens' StartDeploymentResponse Int
 --   You can use it combined with the ListOperations call to track the
 --   operation's progress.
 startDeploymentResponse_operationId :: Lens' StartDeploymentResponse Text
-instance GHC.Generics.Generic Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance GHC.Show.Show Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance GHC.Read.Read Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance GHC.Classes.Eq Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance GHC.Generics.Generic Network.AWS.AppRunner.StartDeployment.StartDeploymentResponse
-instance GHC.Show.Show Network.AWS.AppRunner.StartDeployment.StartDeploymentResponse
-instance GHC.Read.Read Network.AWS.AppRunner.StartDeployment.StartDeploymentResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.StartDeployment.StartDeploymentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.StartDeployment.StartDeploymentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.StartDeployment.StartDeployment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.StartDeployment.StartDeployment
+instance GHC.Generics.Generic Amazonka.AppRunner.StartDeployment.StartDeployment
+instance GHC.Show.Show Amazonka.AppRunner.StartDeployment.StartDeployment
+instance GHC.Read.Read Amazonka.AppRunner.StartDeployment.StartDeployment
+instance GHC.Classes.Eq Amazonka.AppRunner.StartDeployment.StartDeployment
+instance GHC.Generics.Generic Amazonka.AppRunner.StartDeployment.StartDeploymentResponse
+instance GHC.Show.Show Amazonka.AppRunner.StartDeployment.StartDeploymentResponse
+instance GHC.Read.Read Amazonka.AppRunner.StartDeployment.StartDeploymentResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.StartDeployment.StartDeploymentResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.StartDeployment.StartDeployment
+instance Control.DeepSeq.NFData Amazonka.AppRunner.StartDeployment.StartDeploymentResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.StartDeployment.StartDeployment
+instance Control.DeepSeq.NFData Amazonka.AppRunner.StartDeployment.StartDeployment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.StartDeployment.StartDeployment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.StartDeployment.StartDeployment
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.StartDeployment.StartDeployment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.StartDeployment.StartDeployment
 
 
 -- | Resume an active App Runner service. App Runner provisions compute
@@ -4462,7 +4462,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.StartDeployment.St
 --   This is an asynchronous operation. On a successful call, you can use
 --   the returned <tt>OperationId</tt> and the ListOperations call to track
 --   the operation's progress.
-module Network.AWS.AppRunner.ResumeService
+module Amazonka.AppRunner.ResumeService
 
 -- | <i>See:</i> <a>newResumeService</a> smart constructor.
 data ResumeService
@@ -4541,21 +4541,21 @@ resumeServiceResponse_httpStatus :: Lens' ResumeServiceResponse Int
 -- | A description of the App Runner service that this request just
 --   resumed.
 resumeServiceResponse_service :: Lens' ResumeServiceResponse Service
-instance GHC.Generics.Generic Network.AWS.AppRunner.ResumeService.ResumeService
-instance GHC.Show.Show Network.AWS.AppRunner.ResumeService.ResumeService
-instance GHC.Read.Read Network.AWS.AppRunner.ResumeService.ResumeService
-instance GHC.Classes.Eq Network.AWS.AppRunner.ResumeService.ResumeService
-instance GHC.Generics.Generic Network.AWS.AppRunner.ResumeService.ResumeServiceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.ResumeService.ResumeServiceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.ResumeService.ResumeServiceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.ResumeService.ResumeService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ResumeService.ResumeServiceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.ResumeService.ResumeService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ResumeService.ResumeService
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.ResumeService.ResumeService
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.ResumeService.ResumeService
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.ResumeService.ResumeService
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ResumeService.ResumeService
+instance GHC.Generics.Generic Amazonka.AppRunner.ResumeService.ResumeService
+instance GHC.Show.Show Amazonka.AppRunner.ResumeService.ResumeService
+instance GHC.Read.Read Amazonka.AppRunner.ResumeService.ResumeService
+instance GHC.Classes.Eq Amazonka.AppRunner.ResumeService.ResumeService
+instance GHC.Generics.Generic Amazonka.AppRunner.ResumeService.ResumeServiceResponse
+instance GHC.Show.Show Amazonka.AppRunner.ResumeService.ResumeServiceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.ResumeService.ResumeServiceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.ResumeService.ResumeService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ResumeService.ResumeServiceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.ResumeService.ResumeService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ResumeService.ResumeService
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.ResumeService.ResumeService
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.ResumeService.ResumeService
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.ResumeService.ResumeService
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.ResumeService.ResumeService
 
 
 -- | Pause an active App Runner service. App Runner reduces compute
@@ -4565,7 +4565,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ResumeService.Resu
 --   This is an asynchronous operation. On a successful call, you can use
 --   the returned <tt>OperationId</tt> and the ListOperations call to track
 --   the operation's progress.
-module Network.AWS.AppRunner.PauseService
+module Amazonka.AppRunner.PauseService
 
 -- | <i>See:</i> <a>newPauseService</a> smart constructor.
 data PauseService
@@ -4642,26 +4642,26 @@ pauseServiceResponse_httpStatus :: Lens' PauseServiceResponse Int
 
 -- | A description of the App Runner service that this request just paused.
 pauseServiceResponse_service :: Lens' PauseServiceResponse Service
-instance GHC.Generics.Generic Network.AWS.AppRunner.PauseService.PauseService
-instance GHC.Show.Show Network.AWS.AppRunner.PauseService.PauseService
-instance GHC.Read.Read Network.AWS.AppRunner.PauseService.PauseService
-instance GHC.Classes.Eq Network.AWS.AppRunner.PauseService.PauseService
-instance GHC.Generics.Generic Network.AWS.AppRunner.PauseService.PauseServiceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.PauseService.PauseServiceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.PauseService.PauseServiceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.PauseService.PauseService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.PauseService.PauseServiceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.PauseService.PauseService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.PauseService.PauseService
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.PauseService.PauseService
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.PauseService.PauseService
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.PauseService.PauseService
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.PauseService.PauseService
+instance GHC.Generics.Generic Amazonka.AppRunner.PauseService.PauseService
+instance GHC.Show.Show Amazonka.AppRunner.PauseService.PauseService
+instance GHC.Read.Read Amazonka.AppRunner.PauseService.PauseService
+instance GHC.Classes.Eq Amazonka.AppRunner.PauseService.PauseService
+instance GHC.Generics.Generic Amazonka.AppRunner.PauseService.PauseServiceResponse
+instance GHC.Show.Show Amazonka.AppRunner.PauseService.PauseServiceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.PauseService.PauseServiceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.PauseService.PauseService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.PauseService.PauseServiceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.PauseService.PauseService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.PauseService.PauseService
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.PauseService.PauseService
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.PauseService.PauseService
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.PauseService.PauseService
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.PauseService.PauseService
 
 
 -- | List tags that are associated with for an App Runner resource. The
 --   response contains a list of tag key-value pairs.
-module Network.AWS.AppRunner.ListTagsForResource
+module Amazonka.AppRunner.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4730,27 +4730,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.AppRunner.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AppRunner.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.AppRunner.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.AppRunner.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a list of running App Runner services in your Amazon Web
 --   Services account.
-module Network.AWS.AppRunner.ListServices
+module Amazonka.AppRunner.ListServices
 
 -- | <i>See:</i> <a>newListServices</a> smart constructor.
 data ListServices
@@ -4860,22 +4860,22 @@ listServicesResponse_httpStatus :: Lens' ListServicesResponse Int
 -- | A list of service summary information records. In a paginated request,
 --   the request returns up to <tt>MaxResults</tt> records for each call.
 listServicesResponse_serviceSummaryList :: Lens' ListServicesResponse [ServiceSummary]
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListServices.ListServices
-instance GHC.Show.Show Network.AWS.AppRunner.ListServices.ListServices
-instance GHC.Read.Read Network.AWS.AppRunner.ListServices.ListServices
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListServices.ListServices
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListServices.ListServicesResponse
-instance GHC.Show.Show Network.AWS.AppRunner.ListServices.ListServicesResponse
-instance GHC.Read.Read Network.AWS.AppRunner.ListServices.ListServicesResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListServices.ListServicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.ListServices.ListServices
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListServices.ListServicesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.ListServices.ListServices
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListServices.ListServices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.ListServices.ListServices
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.ListServices.ListServices
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.ListServices.ListServices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListServices.ListServices
+instance GHC.Generics.Generic Amazonka.AppRunner.ListServices.ListServices
+instance GHC.Show.Show Amazonka.AppRunner.ListServices.ListServices
+instance GHC.Read.Read Amazonka.AppRunner.ListServices.ListServices
+instance GHC.Classes.Eq Amazonka.AppRunner.ListServices.ListServices
+instance GHC.Generics.Generic Amazonka.AppRunner.ListServices.ListServicesResponse
+instance GHC.Show.Show Amazonka.AppRunner.ListServices.ListServicesResponse
+instance GHC.Read.Read Amazonka.AppRunner.ListServices.ListServicesResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.ListServices.ListServicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.ListServices.ListServices
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListServices.ListServicesResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.ListServices.ListServices
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListServices.ListServices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.ListServices.ListServices
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.ListServices.ListServices
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.ListServices.ListServices
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.ListServices.ListServices
 
 
 -- | Return a list of operations that occurred on an App Runner service.
@@ -4883,7 +4883,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListServices.ListS
 --   The resulting list of OperationSummary objects is sorted in reverse
 --   chronological order. The first object on the list represents the last
 --   started operation.
-module Network.AWS.AppRunner.ListOperations
+module Amazonka.AppRunner.ListOperations
 
 -- | <i>See:</i> <a>newListOperations</a> smart constructor.
 data ListOperations
@@ -5011,27 +5011,27 @@ listOperationsResponse_operationSummaryList :: Lens' ListOperationsResponse (May
 
 -- | The response's http status code.
 listOperationsResponse_httpStatus :: Lens' ListOperationsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListOperations.ListOperations
-instance GHC.Show.Show Network.AWS.AppRunner.ListOperations.ListOperations
-instance GHC.Read.Read Network.AWS.AppRunner.ListOperations.ListOperations
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListOperations.ListOperations
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListOperations.ListOperationsResponse
-instance GHC.Show.Show Network.AWS.AppRunner.ListOperations.ListOperationsResponse
-instance GHC.Read.Read Network.AWS.AppRunner.ListOperations.ListOperationsResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListOperations.ListOperationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.ListOperations.ListOperations
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListOperations.ListOperationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.ListOperations.ListOperations
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListOperations.ListOperations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.ListOperations.ListOperations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.ListOperations.ListOperations
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.ListOperations.ListOperations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListOperations.ListOperations
+instance GHC.Generics.Generic Amazonka.AppRunner.ListOperations.ListOperations
+instance GHC.Show.Show Amazonka.AppRunner.ListOperations.ListOperations
+instance GHC.Read.Read Amazonka.AppRunner.ListOperations.ListOperations
+instance GHC.Classes.Eq Amazonka.AppRunner.ListOperations.ListOperations
+instance GHC.Generics.Generic Amazonka.AppRunner.ListOperations.ListOperationsResponse
+instance GHC.Show.Show Amazonka.AppRunner.ListOperations.ListOperationsResponse
+instance GHC.Read.Read Amazonka.AppRunner.ListOperations.ListOperationsResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.ListOperations.ListOperationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.ListOperations.ListOperations
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListOperations.ListOperationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.ListOperations.ListOperations
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListOperations.ListOperations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.ListOperations.ListOperations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.ListOperations.ListOperations
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.ListOperations.ListOperations
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.ListOperations.ListOperations
 
 
 -- | Returns a list of App Runner connections that are associated with your
 --   Amazon Web Services account.
-module Network.AWS.AppRunner.ListConnections
+module Amazonka.AppRunner.ListConnections
 
 -- | <i>See:</i> <a>newListConnections</a> smart constructor.
 data ListConnections
@@ -5157,22 +5157,22 @@ listConnectionsResponse_httpStatus :: Lens' ListConnectionsResponse Int
 --   request, the request returns up to <tt>MaxResults</tt> records for
 --   each call.
 listConnectionsResponse_connectionSummaryList :: Lens' ListConnectionsResponse [ConnectionSummary]
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListConnections.ListConnections
-instance GHC.Show.Show Network.AWS.AppRunner.ListConnections.ListConnections
-instance GHC.Read.Read Network.AWS.AppRunner.ListConnections.ListConnections
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListConnections.ListConnections
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListConnections.ListConnectionsResponse
-instance GHC.Show.Show Network.AWS.AppRunner.ListConnections.ListConnectionsResponse
-instance GHC.Read.Read Network.AWS.AppRunner.ListConnections.ListConnectionsResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListConnections.ListConnectionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.ListConnections.ListConnections
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListConnections.ListConnectionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.ListConnections.ListConnections
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListConnections.ListConnections
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.ListConnections.ListConnections
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.ListConnections.ListConnections
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.ListConnections.ListConnections
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListConnections.ListConnections
+instance GHC.Generics.Generic Amazonka.AppRunner.ListConnections.ListConnections
+instance GHC.Show.Show Amazonka.AppRunner.ListConnections.ListConnections
+instance GHC.Read.Read Amazonka.AppRunner.ListConnections.ListConnections
+instance GHC.Classes.Eq Amazonka.AppRunner.ListConnections.ListConnections
+instance GHC.Generics.Generic Amazonka.AppRunner.ListConnections.ListConnectionsResponse
+instance GHC.Show.Show Amazonka.AppRunner.ListConnections.ListConnectionsResponse
+instance GHC.Read.Read Amazonka.AppRunner.ListConnections.ListConnectionsResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.ListConnections.ListConnectionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.ListConnections.ListConnections
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListConnections.ListConnectionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.ListConnections.ListConnections
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListConnections.ListConnections
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.ListConnections.ListConnections
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.ListConnections.ListConnections
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.ListConnections.ListConnections
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.ListConnections.ListConnections
 
 
 -- | Returns a list of App Runner automatic scaling configurations in your
@@ -5180,7 +5180,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListConnections.Li
 --   specific configuration name or the revisions for all configurations in
 --   your account. You can optionally query only the latest revision of
 --   each requested name.
-module Network.AWS.AppRunner.ListAutoScalingConfigurations
+module Amazonka.AppRunner.ListAutoScalingConfigurations
 
 -- | <i>See:</i> <a>newListAutoScalingConfigurations</a> smart constructor.
 data ListAutoScalingConfigurations
@@ -5344,22 +5344,22 @@ listAutoScalingConfigurationsResponse_httpStatus :: Lens' ListAutoScalingConfigu
 --   In a paginated request, the request returns up to <tt>MaxResults</tt>
 --   records for each call.
 listAutoScalingConfigurationsResponse_autoScalingConfigurationSummaryList :: Lens' ListAutoScalingConfigurationsResponse [AutoScalingConfigurationSummary]
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance GHC.Show.Show Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance GHC.Read.Read Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance GHC.Generics.Generic Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
-instance GHC.Show.Show Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
-instance GHC.Read.Read Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance GHC.Generics.Generic Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance GHC.Show.Show Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance GHC.Read.Read Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance GHC.Classes.Eq Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance GHC.Generics.Generic Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
+instance GHC.Show.Show Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
+instance GHC.Read.Read Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance Control.DeepSeq.NFData Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.ListAutoScalingConfigurations.ListAutoScalingConfigurations
 
 
 -- | Disassociate a custom domain name from an App Runner service.
@@ -5369,7 +5369,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.ListAutoScalingCon
 --   certificates aren't deleted as part of this action. App Runner delays
 --   certificate deletion for 30 days after a domain is disassociated from
 --   your service.
-module Network.AWS.AppRunner.DisassociateCustomDomain
+module Amazonka.AppRunner.DisassociateCustomDomain
 
 -- | <i>See:</i> <a>newDisassociateCustomDomain</a> smart constructor.
 data DisassociateCustomDomain
@@ -5470,26 +5470,26 @@ disassociateCustomDomainResponse_serviceArn :: Lens' DisassociateCustomDomainRes
 
 -- | A description of the domain name that's being disassociated.
 disassociateCustomDomainResponse_customDomain :: Lens' DisassociateCustomDomainResponse CustomDomain
-instance GHC.Generics.Generic Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance GHC.Show.Show Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance GHC.Read.Read Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance GHC.Classes.Eq Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance GHC.Generics.Generic Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
-instance GHC.Show.Show Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
-instance GHC.Read.Read Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance GHC.Generics.Generic Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance GHC.Show.Show Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance GHC.Read.Read Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance GHC.Classes.Eq Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance GHC.Generics.Generic Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
+instance GHC.Show.Show Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
+instance GHC.Read.Read Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.DisassociateCustomDomain.DisassociateCustomDomain
 
 
 -- | Return a full description of an App Runner service.
-module Network.AWS.AppRunner.DescribeService
+module Amazonka.AppRunner.DescribeService
 
 -- | <i>See:</i> <a>newDescribeService</a> smart constructor.
 data DescribeService
@@ -5552,26 +5552,26 @@ describeServiceResponse_httpStatus :: Lens' DescribeServiceResponse Int
 -- | A full description of the App Runner service that you specified in
 --   this request.
 describeServiceResponse_service :: Lens' DescribeServiceResponse Service
-instance GHC.Generics.Generic Network.AWS.AppRunner.DescribeService.DescribeService
-instance GHC.Show.Show Network.AWS.AppRunner.DescribeService.DescribeService
-instance GHC.Read.Read Network.AWS.AppRunner.DescribeService.DescribeService
-instance GHC.Classes.Eq Network.AWS.AppRunner.DescribeService.DescribeService
-instance GHC.Generics.Generic Network.AWS.AppRunner.DescribeService.DescribeServiceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.DescribeService.DescribeServiceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.DescribeService.DescribeServiceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.DescribeService.DescribeService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DescribeService.DescribeServiceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.DescribeService.DescribeService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DescribeService.DescribeService
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.DescribeService.DescribeService
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.DescribeService.DescribeService
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.DescribeService.DescribeService
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DescribeService.DescribeService
+instance GHC.Generics.Generic Amazonka.AppRunner.DescribeService.DescribeService
+instance GHC.Show.Show Amazonka.AppRunner.DescribeService.DescribeService
+instance GHC.Read.Read Amazonka.AppRunner.DescribeService.DescribeService
+instance GHC.Classes.Eq Amazonka.AppRunner.DescribeService.DescribeService
+instance GHC.Generics.Generic Amazonka.AppRunner.DescribeService.DescribeServiceResponse
+instance GHC.Show.Show Amazonka.AppRunner.DescribeService.DescribeServiceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.DescribeService.DescribeServiceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.DescribeService.DescribeService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DescribeService.DescribeServiceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.DescribeService.DescribeService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DescribeService.DescribeService
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.DescribeService.DescribeService
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.DescribeService.DescribeService
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.DescribeService.DescribeService
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.DescribeService.DescribeService
 
 
 -- | Return a description of custom domain names that are associated with
 --   an App Runner service.
-module Network.AWS.AppRunner.DescribeCustomDomains
+module Amazonka.AppRunner.DescribeCustomDomains
 
 -- | <i>See:</i> <a>newDescribeCustomDomains</a> smart constructor.
 data DescribeCustomDomains
@@ -5727,27 +5727,27 @@ describeCustomDomainsResponse_serviceArn :: Lens' DescribeCustomDomainsResponse 
 --   the service. In a paginated request, the request returns up to
 --   <tt>MaxResults</tt> records per call.
 describeCustomDomainsResponse_customDomains :: Lens' DescribeCustomDomainsResponse [CustomDomain]
-instance GHC.Generics.Generic Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance GHC.Show.Show Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance GHC.Read.Read Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance GHC.Classes.Eq Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance GHC.Generics.Generic Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
-instance GHC.Show.Show Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
-instance GHC.Read.Read Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance GHC.Generics.Generic Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance GHC.Show.Show Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance GHC.Read.Read Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance GHC.Classes.Eq Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance GHC.Generics.Generic Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
+instance GHC.Show.Show Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
+instance GHC.Read.Read Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomainsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.DescribeCustomDomains.DescribeCustomDomains
 
 
 -- | Return a full description of an App Runner automatic scaling
 --   configuration resource.
-module Network.AWS.AppRunner.DescribeAutoScalingConfiguration
+module Amazonka.AppRunner.DescribeAutoScalingConfiguration
 
 -- | <i>See:</i> <a>newDescribeAutoScalingConfiguration</a> smart
 --   constructor.
@@ -5831,22 +5831,22 @@ describeAutoScalingConfigurationResponse_httpStatus :: Lens' DescribeAutoScaling
 -- | A full description of the App Runner auto scaling configuration that
 --   you specified in this request.
 describeAutoScalingConfigurationResponse_autoScalingConfiguration :: Lens' DescribeAutoScalingConfigurationResponse AutoScalingConfiguration
-instance GHC.Generics.Generic Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance GHC.Generics.Generic Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
-instance GHC.Show.Show Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
-instance GHC.Read.Read Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
+instance GHC.Show.Show Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
+instance GHC.Read.Read Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.DescribeAutoScalingConfiguration.DescribeAutoScalingConfiguration
 
 
 -- | Delete an App Runner service.
@@ -5854,7 +5854,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DescribeAutoScalin
 --   This is an asynchronous operation. On a successful call, you can use
 --   the returned <tt>OperationId</tt> and the ListOperations call to track
 --   the operation's progress.
-module Network.AWS.AppRunner.DeleteService
+module Amazonka.AppRunner.DeleteService
 
 -- | <i>See:</i> <a>newDeleteService</a> smart constructor.
 data DeleteService
@@ -5933,27 +5933,27 @@ deleteServiceResponse_service :: Lens' DeleteServiceResponse Service
 --   You can use it combined with the ListOperations call to track the
 --   operation's progress.
 deleteServiceResponse_operationId :: Lens' DeleteServiceResponse Text
-instance GHC.Generics.Generic Network.AWS.AppRunner.DeleteService.DeleteService
-instance GHC.Show.Show Network.AWS.AppRunner.DeleteService.DeleteService
-instance GHC.Read.Read Network.AWS.AppRunner.DeleteService.DeleteService
-instance GHC.Classes.Eq Network.AWS.AppRunner.DeleteService.DeleteService
-instance GHC.Generics.Generic Network.AWS.AppRunner.DeleteService.DeleteServiceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.DeleteService.DeleteServiceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.DeleteService.DeleteServiceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.DeleteService.DeleteService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DeleteService.DeleteServiceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.DeleteService.DeleteService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DeleteService.DeleteService
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.DeleteService.DeleteService
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.DeleteService.DeleteService
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.DeleteService.DeleteService
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DeleteService.DeleteService
+instance GHC.Generics.Generic Amazonka.AppRunner.DeleteService.DeleteService
+instance GHC.Show.Show Amazonka.AppRunner.DeleteService.DeleteService
+instance GHC.Read.Read Amazonka.AppRunner.DeleteService.DeleteService
+instance GHC.Classes.Eq Amazonka.AppRunner.DeleteService.DeleteService
+instance GHC.Generics.Generic Amazonka.AppRunner.DeleteService.DeleteServiceResponse
+instance GHC.Show.Show Amazonka.AppRunner.DeleteService.DeleteServiceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.DeleteService.DeleteServiceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.DeleteService.DeleteService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DeleteService.DeleteServiceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.DeleteService.DeleteService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DeleteService.DeleteService
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.DeleteService.DeleteService
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.DeleteService.DeleteService
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.DeleteService.DeleteService
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.DeleteService.DeleteService
 
 
 -- | Delete an App Runner connection. You must first ensure that there are
 --   no running App Runner services that use this connection. If there are
 --   any, the <tt>DeleteConnection</tt> action fails.
-module Network.AWS.AppRunner.DeleteConnection
+module Amazonka.AppRunner.DeleteConnection
 
 -- | <i>See:</i> <a>newDeleteConnection</a> smart constructor.
 data DeleteConnection
@@ -6016,28 +6016,28 @@ deleteConnectionResponse_connection :: Lens' DeleteConnectionResponse (Maybe Con
 
 -- | The response's http status code.
 deleteConnectionResponse_httpStatus :: Lens' DeleteConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance GHC.Show.Show Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance GHC.Read.Read Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance GHC.Classes.Eq Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance GHC.Generics.Generic Network.AWS.AppRunner.DeleteConnection.DeleteConnectionResponse
-instance GHC.Show.Show Network.AWS.AppRunner.DeleteConnection.DeleteConnectionResponse
-instance GHC.Read.Read Network.AWS.AppRunner.DeleteConnection.DeleteConnectionResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.DeleteConnection.DeleteConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DeleteConnection.DeleteConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance GHC.Show.Show Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance GHC.Read.Read Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance GHC.Classes.Eq Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.AppRunner.DeleteConnection.DeleteConnectionResponse
+instance GHC.Show.Show Amazonka.AppRunner.DeleteConnection.DeleteConnectionResponse
+instance GHC.Read.Read Amazonka.AppRunner.DeleteConnection.DeleteConnectionResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.DeleteConnection.DeleteConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DeleteConnection.DeleteConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.DeleteConnection.DeleteConnection
 
 
 -- | Delete an App Runner automatic scaling configuration resource. You can
 --   delete a specific revision or the latest active revision. You can't
 --   delete a configuration that's used by one or more App Runner services.
-module Network.AWS.AppRunner.DeleteAutoScalingConfiguration
+module Amazonka.AppRunner.DeleteAutoScalingConfiguration
 
 -- | <i>See:</i> <a>newDeleteAutoScalingConfiguration</a> smart
 --   constructor.
@@ -6118,22 +6118,22 @@ deleteAutoScalingConfigurationResponse_httpStatus :: Lens' DeleteAutoScalingConf
 -- | A description of the App Runner auto scaling configuration that this
 --   request just deleted.
 deleteAutoScalingConfigurationResponse_autoScalingConfiguration :: Lens' DeleteAutoScalingConfigurationResponse AutoScalingConfiguration
-instance GHC.Generics.Generic Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance GHC.Generics.Generic Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
-instance GHC.Show.Show Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
-instance GHC.Read.Read Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
+instance GHC.Show.Show Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
+instance GHC.Read.Read Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.DeleteAutoScalingConfiguration.DeleteAutoScalingConfiguration
 
 
 -- | Create an App Runner service. After the service is created, the action
@@ -6142,7 +6142,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.DeleteAutoScalingC
 --   This is an asynchronous operation. On a successful call, you can use
 --   the returned <tt>OperationId</tt> and the <a>ListOperations</a> call
 --   to track the operation's progress.
-module Network.AWS.AppRunner.CreateService
+module Amazonka.AppRunner.CreateService
 
 -- | <i>See:</i> <a>newCreateService</a> smart constructor.
 data CreateService
@@ -6308,20 +6308,20 @@ createServiceResponse_service :: Lens' CreateServiceResponse Service
 --   You can use it combined with the <a>ListOperations</a> call to track
 --   the operation's progress.
 createServiceResponse_operationId :: Lens' CreateServiceResponse Text
-instance GHC.Generics.Generic Network.AWS.AppRunner.CreateService.CreateService
-instance GHC.Show.Show Network.AWS.AppRunner.CreateService.CreateService
-instance GHC.Classes.Eq Network.AWS.AppRunner.CreateService.CreateService
-instance GHC.Generics.Generic Network.AWS.AppRunner.CreateService.CreateServiceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.CreateService.CreateServiceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.CreateService.CreateServiceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.CreateService.CreateService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.CreateService.CreateServiceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.CreateService.CreateService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.CreateService.CreateService
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.CreateService.CreateService
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.CreateService.CreateService
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.CreateService.CreateService
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.CreateService.CreateService
+instance GHC.Generics.Generic Amazonka.AppRunner.CreateService.CreateService
+instance GHC.Show.Show Amazonka.AppRunner.CreateService.CreateService
+instance GHC.Classes.Eq Amazonka.AppRunner.CreateService.CreateService
+instance GHC.Generics.Generic Amazonka.AppRunner.CreateService.CreateServiceResponse
+instance GHC.Show.Show Amazonka.AppRunner.CreateService.CreateServiceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.CreateService.CreateServiceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.CreateService.CreateService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.CreateService.CreateServiceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.CreateService.CreateService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.CreateService.CreateService
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.CreateService.CreateService
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.CreateService.CreateService
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.CreateService.CreateService
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.CreateService.CreateService
 
 
 -- | Create an App Runner connection resource. App Runner requires a
@@ -6332,7 +6332,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.CreateService.Crea
 --   A connection resource is needed to access GitHub repositories. GitHub
 --   requires a user interface approval process through the App Runner
 --   console before you can use the connection.
-module Network.AWS.AppRunner.CreateConnection
+module Amazonka.AppRunner.CreateConnection
 
 -- | <i>See:</i> <a>newCreateConnection</a> smart constructor.
 data CreateConnection
@@ -6419,22 +6419,22 @@ createConnectionResponse_httpStatus :: Lens' CreateConnectionResponse Int
 -- | A description of the App Runner connection that's created by this
 --   request.
 createConnectionResponse_connection :: Lens' CreateConnectionResponse Connection
-instance GHC.Generics.Generic Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance GHC.Show.Show Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance GHC.Read.Read Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance GHC.Classes.Eq Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance GHC.Generics.Generic Network.AWS.AppRunner.CreateConnection.CreateConnectionResponse
-instance GHC.Show.Show Network.AWS.AppRunner.CreateConnection.CreateConnectionResponse
-instance GHC.Read.Read Network.AWS.AppRunner.CreateConnection.CreateConnectionResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.CreateConnection.CreateConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.CreateConnection.CreateConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.CreateConnection.CreateConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.CreateConnection.CreateConnection
+instance GHC.Generics.Generic Amazonka.AppRunner.CreateConnection.CreateConnection
+instance GHC.Show.Show Amazonka.AppRunner.CreateConnection.CreateConnection
+instance GHC.Read.Read Amazonka.AppRunner.CreateConnection.CreateConnection
+instance GHC.Classes.Eq Amazonka.AppRunner.CreateConnection.CreateConnection
+instance GHC.Generics.Generic Amazonka.AppRunner.CreateConnection.CreateConnectionResponse
+instance GHC.Show.Show Amazonka.AppRunner.CreateConnection.CreateConnectionResponse
+instance GHC.Read.Read Amazonka.AppRunner.CreateConnection.CreateConnectionResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.CreateConnection.CreateConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.CreateConnection.CreateConnection
+instance Control.DeepSeq.NFData Amazonka.AppRunner.CreateConnection.CreateConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.CreateConnection.CreateConnection
+instance Control.DeepSeq.NFData Amazonka.AppRunner.CreateConnection.CreateConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.CreateConnection.CreateConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.CreateConnection.CreateConnection
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.CreateConnection.CreateConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.CreateConnection.CreateConnection
 
 
 -- | Create an App Runner automatic scaling configuration resource. App
@@ -6454,7 +6454,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.CreateConnection.C
 --   
 --   Configure a lower <tt>MaxSize</tt> to control your cost. The tradeoff
 --   is lower responsiveness during peak demand.
-module Network.AWS.AppRunner.CreateAutoScalingConfiguration
+module Amazonka.AppRunner.CreateAutoScalingConfiguration
 
 -- | <i>See:</i> <a>newCreateAutoScalingConfiguration</a> smart
 --   constructor.
@@ -6634,22 +6634,22 @@ createAutoScalingConfigurationResponse_httpStatus :: Lens' CreateAutoScalingConf
 -- | A description of the App Runner auto scaling configuration that's
 --   created by this request.
 createAutoScalingConfigurationResponse_autoScalingConfiguration :: Lens' CreateAutoScalingConfigurationResponse AutoScalingConfiguration
-instance GHC.Generics.Generic Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance GHC.Show.Show Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance GHC.Read.Read Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance GHC.Classes.Eq Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance GHC.Generics.Generic Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
-instance GHC.Show.Show Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
-instance GHC.Read.Read Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance GHC.Show.Show Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance GHC.Read.Read Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance GHC.Classes.Eq Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance GHC.Generics.Generic Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
+instance GHC.Show.Show Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
+instance GHC.Read.Read Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.CreateAutoScalingConfiguration.CreateAutoScalingConfiguration
 
 
 -- | Associate your own domain name with the App Runner subdomain URL of
@@ -6663,7 +6663,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.CreateAutoScalingC
 --   then performs DNS validation to verify that you own or control the
 --   domain name that you associated. App Runner tracks domain validity in
 --   a certificate stored in <a>AWS Certificate Manager (ACM)</a>.
-module Network.AWS.AppRunner.AssociateCustomDomain
+module Amazonka.AppRunner.AssociateCustomDomain
 
 -- | <i>See:</i> <a>newAssociateCustomDomain</a> smart constructor.
 data AssociateCustomDomain
@@ -6789,26 +6789,26 @@ associateCustomDomainResponse_serviceArn :: Lens' AssociateCustomDomainResponse 
 
 -- | A description of the domain name that's being associated.
 associateCustomDomainResponse_customDomain :: Lens' AssociateCustomDomainResponse CustomDomain
-instance GHC.Generics.Generic Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance GHC.Show.Show Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance GHC.Read.Read Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance GHC.Classes.Eq Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance GHC.Generics.Generic Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
-instance GHC.Show.Show Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
-instance GHC.Read.Read Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance GHC.Generics.Generic Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance GHC.Show.Show Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance GHC.Read.Read Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance GHC.Classes.Eq Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance GHC.Generics.Generic Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
+instance GHC.Show.Show Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
+instance GHC.Read.Read Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance Control.DeepSeq.NFData Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance Control.DeepSeq.NFData Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.AssociateCustomDomain.AssociateCustomDomain
 
 
 -- | Remove tags from an App Runner resource.
-module Network.AWS.AppRunner.UntagResource
+module Amazonka.AppRunner.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6874,22 +6874,22 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AppRunner.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.AppRunner.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.AppRunner.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.AppRunner.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.AppRunner.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.AppRunner.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AppRunner.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.AppRunner.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.AppRunner.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.AppRunner.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AppRunner.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.AppRunner.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.AppRunner.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AppRunner.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AppRunner.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.UntagResource.UntagResource
 
 
 -- | Update an App Runner service. You can update the source configuration
@@ -6905,7 +6905,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.UntagResource.Unta
 --   This is an asynchronous operation. On a successful call, you can use
 --   the returned <tt>OperationId</tt> and the ListOperations call to track
 --   the operation's progress.
-module Network.AWS.AppRunner.UpdateService
+module Amazonka.AppRunner.UpdateService
 
 -- | <i>See:</i> <a>newUpdateService</a> smart constructor.
 data UpdateService
@@ -7063,23 +7063,23 @@ updateServiceResponse_service :: Lens' UpdateServiceResponse Service
 --   You can use it combined with the ListOperations call to track the
 --   operation's progress.
 updateServiceResponse_operationId :: Lens' UpdateServiceResponse Text
-instance GHC.Generics.Generic Network.AWS.AppRunner.UpdateService.UpdateService
-instance GHC.Show.Show Network.AWS.AppRunner.UpdateService.UpdateService
-instance GHC.Classes.Eq Network.AWS.AppRunner.UpdateService.UpdateService
-instance GHC.Generics.Generic Network.AWS.AppRunner.UpdateService.UpdateServiceResponse
-instance GHC.Show.Show Network.AWS.AppRunner.UpdateService.UpdateServiceResponse
-instance GHC.Classes.Eq Network.AWS.AppRunner.UpdateService.UpdateServiceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppRunner.UpdateService.UpdateService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.UpdateService.UpdateServiceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppRunner.UpdateService.UpdateService
-instance Control.DeepSeq.NFData Network.AWS.AppRunner.UpdateService.UpdateService
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppRunner.UpdateService.UpdateService
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppRunner.UpdateService.UpdateService
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppRunner.UpdateService.UpdateService
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppRunner.UpdateService.UpdateService
+instance GHC.Generics.Generic Amazonka.AppRunner.UpdateService.UpdateService
+instance GHC.Show.Show Amazonka.AppRunner.UpdateService.UpdateService
+instance GHC.Classes.Eq Amazonka.AppRunner.UpdateService.UpdateService
+instance GHC.Generics.Generic Amazonka.AppRunner.UpdateService.UpdateServiceResponse
+instance GHC.Show.Show Amazonka.AppRunner.UpdateService.UpdateServiceResponse
+instance GHC.Classes.Eq Amazonka.AppRunner.UpdateService.UpdateServiceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppRunner.UpdateService.UpdateService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.UpdateService.UpdateServiceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppRunner.UpdateService.UpdateService
+instance Control.DeepSeq.NFData Amazonka.AppRunner.UpdateService.UpdateService
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppRunner.UpdateService.UpdateService
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppRunner.UpdateService.UpdateService
+instance Amazonka.Data.Path.ToPath Amazonka.AppRunner.UpdateService.UpdateService
+instance Amazonka.Data.Query.ToQuery Amazonka.AppRunner.UpdateService.UpdateService
 
 
-module Network.AWS.AppRunner.Lens
+module Amazonka.AppRunner.Lens
 
 -- | A token from a previous result page. Used for a paginated request. The
 --   request retrieves the next result page. All other parameter values
@@ -8057,7 +8057,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag (Maybe Text)
 
 
-module Network.AWS.AppRunner.Waiters
+module Amazonka.AppRunner.Waiters
 
 
 -- | Derived from API version <tt>2020-05-15</tt> of the AWS service
@@ -8090,7 +8090,7 @@ module Network.AWS.AppRunner.Waiters
 --   For a list of Region-specific endpoints that App Runner supports, see
 --   <a>App Runner endpoints and quotas</a> in the <i>Amazon Web Services
 --   General Reference</i>.
-module Network.AWS.AppRunner
+module Amazonka.AppRunner
 
 -- | API version <tt>2020-05-15</tt> of the Amazon App Runner SDK
 --   configuration.

@@ -1,0 +1,779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Kafka.Types.ClusterOperationInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kafka.Types.ClusterOperationInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationStep.html"><span class="hs-identifier">Amazonka.Kafka.Types.ClusterOperationStep</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ErrorInfo.html"><span class="hs-identifier">Amazonka.Kafka.Types.ErrorInfo</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.MutableClusterInfo.html"><span class="hs-identifier">Amazonka.Kafka.Types.MutableClusterInfo</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Returns information about a cluster operation.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newClusterOperationInfo' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679233493"><span id="local-6989586621679233494"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterOperationInfo"><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-var">ClusterOperationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterOperationInfo%27"><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-var">ClusterOperationInfo'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that the operation was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe POSIX
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AcreationTime%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | ARN of the cluster.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AclusterArn%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AclusterArn%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the API request that triggered this operation.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AclientRequestId%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AclientRequestId%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">clientRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about cluster attributes after a cluster is updated.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtargetClusterInfo%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe MutableClusterInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AtargetClusterInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">targetClusterInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.MutableClusterInfo.html#MutableClusterInfo"><span class="hs-identifier hs-type">MutableClusterInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Information about cluster attributes before a cluster is updated.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsourceClusterInfo%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe MutableClusterInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AsourceClusterInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">sourceClusterInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.MutableClusterInfo.html#MutableClusterInfo"><span class="hs-identifier hs-type">MutableClusterInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Steps completed during the operation.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AoperationSteps%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe [ClusterOperationStep]
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationSteps%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">operationSteps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationStep.html#ClusterOperationStep"><span class="hs-identifier hs-type">ClusterOperationStep</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | State of the cluster operation.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AoperationState%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationState%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">operationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The time at which the operation finished.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AendTime%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe POSIX
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AendTime%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Type of the cluster operation.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AoperationType%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationType%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">operationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | ARN of the cluster operation.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AoperationArn%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationArn%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">operationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Describes the error if the operation fails.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AerrorInfo%3AClusterOperationInfo%27"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; Maybe ErrorInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AerrorInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233477"><span id="local-6989586621679233479"><span class="annot"><span class="annottext">ClusterOperationInfo -&gt; ClusterOperationInfo -&gt; Bool
+(ClusterOperationInfo -&gt; ClusterOperationInfo -&gt; Bool)
+-&gt; (ClusterOperationInfo -&gt; ClusterOperationInfo -&gt; Bool)
+-&gt; Eq ClusterOperationInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClusterOperationInfo -&gt; ClusterOperationInfo -&gt; Bool
+$c/= :: ClusterOperationInfo -&gt; ClusterOperationInfo -&gt; Bool
+== :: ClusterOperationInfo -&gt; ClusterOperationInfo -&gt; Bool
+$c== :: ClusterOperationInfo -&gt; ClusterOperationInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233468"><span id="local-6989586621679233470"><span id="local-6989586621679233472"><span id="local-6989586621679233474"><span class="annot"><span class="annottext">ReadPrec [ClusterOperationInfo]
+ReadPrec ClusterOperationInfo
+Int -&gt; ReadS ClusterOperationInfo
+ReadS [ClusterOperationInfo]
+(Int -&gt; ReadS ClusterOperationInfo)
+-&gt; ReadS [ClusterOperationInfo]
+-&gt; ReadPrec ClusterOperationInfo
+-&gt; ReadPrec [ClusterOperationInfo]
+-&gt; Read ClusterOperationInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClusterOperationInfo]
+$creadListPrec :: ReadPrec [ClusterOperationInfo]
+readPrec :: ReadPrec ClusterOperationInfo
+$creadPrec :: ReadPrec ClusterOperationInfo
+readList :: ReadS [ClusterOperationInfo]
+$creadList :: ReadS [ClusterOperationInfo]
+readsPrec :: Int -&gt; ReadS ClusterOperationInfo
+$creadsPrec :: Int -&gt; ReadS ClusterOperationInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233461"><span id="local-6989586621679233463"><span id="local-6989586621679233465"><span class="annot"><span class="annottext">Int -&gt; ClusterOperationInfo -&gt; ShowS
+[ClusterOperationInfo] -&gt; ShowS
+ClusterOperationInfo -&gt; String
+(Int -&gt; ClusterOperationInfo -&gt; ShowS)
+-&gt; (ClusterOperationInfo -&gt; String)
+-&gt; ([ClusterOperationInfo] -&gt; ShowS)
+-&gt; Show ClusterOperationInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClusterOperationInfo] -&gt; ShowS
+$cshowList :: [ClusterOperationInfo] -&gt; ShowS
+show :: ClusterOperationInfo -&gt; String
+$cshow :: ClusterOperationInfo -&gt; String
+showsPrec :: Int -&gt; ClusterOperationInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClusterOperationInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ClusterOperationInfo -&gt; Rep ClusterOperationInfo x)
+-&gt; (forall x. Rep ClusterOperationInfo x -&gt; ClusterOperationInfo)
+-&gt; Generic ClusterOperationInfo
+forall x. Rep ClusterOperationInfo x -&gt; ClusterOperationInfo
+forall x. ClusterOperationInfo -&gt; Rep ClusterOperationInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClusterOperationInfo x -&gt; ClusterOperationInfo
+$cfrom :: forall x. ClusterOperationInfo -&gt; Rep ClusterOperationInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'ClusterOperationInfo' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'creationTime', 'clusterOperationInfo_creationTime' - The time that the operation was created.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'clusterArn', 'clusterOperationInfo_clusterArn' - ARN of the cluster.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'clientRequestId', 'clusterOperationInfo_clientRequestId' - The ID of the API request that triggered this operation.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'targetClusterInfo', 'clusterOperationInfo_targetClusterInfo' - Information about cluster attributes after a cluster is updated.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'sourceClusterInfo', 'clusterOperationInfo_sourceClusterInfo' - Information about cluster attributes before a cluster is updated.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'operationSteps', 'clusterOperationInfo_operationSteps' - Steps completed during the operation.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'operationState', 'clusterOperationInfo_operationState' - State of the cluster operation.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'endTime', 'clusterOperationInfo_endTime' - The time at which the operation finished.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'operationType', 'clusterOperationInfo_operationType' - Type of the cluster operation.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'operationArn', 'clusterOperationInfo_operationArn' - ARN of the cluster operation.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'errorInfo', 'clusterOperationInfo_errorInfo' - Describes the error if the operation fails.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#newClusterOperationInfo"><span class="hs-identifier hs-type">newClusterOperationInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span>
+</span><span id="line-89"></span><span id="newClusterOperationInfo"><span class="annot"><span class="annottext">newClusterOperationInfo :: ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#newClusterOperationInfo"><span class="hs-identifier hs-var hs-var">newClusterOperationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ClusterOperationInfo' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe MutableClusterInfo
+-&gt; Maybe MutableClusterInfo
+-&gt; Maybe [ClusterOperationStep]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ErrorInfo
+-&gt; ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ClusterOperationInfo' :: Maybe POSIX
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AcreationTime%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterArn:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AclusterArn%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestId:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AclientRequestId%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">clientRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetClusterInfo:ClusterOperationInfo' :: Maybe MutableClusterInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AtargetClusterInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">targetClusterInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceClusterInfo:ClusterOperationInfo' :: Maybe MutableClusterInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AsourceClusterInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">sourceClusterInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationSteps:ClusterOperationInfo' :: Maybe [ClusterOperationStep]
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationSteps%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterOperationStep]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationState:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationState%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ClusterOperationInfo' :: Maybe POSIX
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AendTime%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationType:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationType%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationArn:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationArn%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorInfo:ClusterOperationInfo' :: Maybe ErrorInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AerrorInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The time that the operation was created.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_creationTime"><span class="hs-identifier hs-type">clusterOperationInfo_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="clusterOperationInfo_creationTime"><span class="annot"><span class="annottext">clusterOperationInfo_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_creationTime"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe POSIX)
+-&gt; (ClusterOperationInfo -&gt; Maybe POSIX -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo
+     ClusterOperationInfo
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233452"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe POSIX
+</span><a href="#local-6989586621679233452"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679233452"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233451"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233450"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679233450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ClusterOperationInfo' :: Maybe POSIX
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AcreationTime%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679233450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterOperationInfo
+-&gt; f ClusterOperationInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | ARN of the cluster.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_clusterArn"><span class="hs-identifier hs-type">clusterOperationInfo_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="clusterOperationInfo_clusterArn"><span class="annot"><span class="annottext">clusterOperationInfo_clusterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_clusterArn"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe Text)
+-&gt; (ClusterOperationInfo -&gt; Maybe Text -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo ClusterOperationInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233445"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679233445"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233445"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233444"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AclusterArn%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The ID of the API request that triggered this operation.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_clientRequestId"><span class="hs-identifier hs-type">clusterOperationInfo_clientRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="clusterOperationInfo_clientRequestId"><span class="annot"><span class="annottext">clusterOperationInfo_clientRequestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_clientRequestId"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_clientRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe Text)
+-&gt; (ClusterOperationInfo -&gt; Maybe Text -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo ClusterOperationInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233441"><span class="annot"><span class="annottext">Maybe Text
+clientRequestId :: Maybe Text
+$sel:clientRequestId:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679233441"><span class="hs-identifier hs-var hs-var">clientRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233441"><span class="hs-identifier hs-var">clientRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233440"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233439"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestId:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AclientRequestId%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">clientRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Information about cluster attributes after a cluster is updated.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_targetClusterInfo"><span class="hs-identifier hs-type">clusterOperationInfo_targetClusterInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.MutableClusterInfo.html#MutableClusterInfo"><span class="hs-identifier hs-type">MutableClusterInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="clusterOperationInfo_targetClusterInfo"><span class="annot"><span class="annottext">clusterOperationInfo_targetClusterInfo :: (Maybe MutableClusterInfo -&gt; f (Maybe MutableClusterInfo))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_targetClusterInfo"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_targetClusterInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe MutableClusterInfo)
+-&gt; (ClusterOperationInfo
+    -&gt; Maybe MutableClusterInfo -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo
+     ClusterOperationInfo
+     (Maybe MutableClusterInfo)
+     (Maybe MutableClusterInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233437"><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+targetClusterInfo :: Maybe MutableClusterInfo
+$sel:targetClusterInfo:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233437"><span class="hs-identifier hs-var hs-var">targetClusterInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233437"><span class="hs-identifier hs-var">targetClusterInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233436"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233435"><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetClusterInfo:ClusterOperationInfo' :: Maybe MutableClusterInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AtargetClusterInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">targetClusterInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Information about cluster attributes before a cluster is updated.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_sourceClusterInfo"><span class="hs-identifier hs-type">clusterOperationInfo_sourceClusterInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.MutableClusterInfo.html#MutableClusterInfo"><span class="hs-identifier hs-type">MutableClusterInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="clusterOperationInfo_sourceClusterInfo"><span class="annot"><span class="annottext">clusterOperationInfo_sourceClusterInfo :: (Maybe MutableClusterInfo -&gt; f (Maybe MutableClusterInfo))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_sourceClusterInfo"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_sourceClusterInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe MutableClusterInfo)
+-&gt; (ClusterOperationInfo
+    -&gt; Maybe MutableClusterInfo -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo
+     ClusterOperationInfo
+     (Maybe MutableClusterInfo)
+     (Maybe MutableClusterInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233433"><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+sourceClusterInfo :: Maybe MutableClusterInfo
+$sel:sourceClusterInfo:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233433"><span class="hs-identifier hs-var hs-var">sourceClusterInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233433"><span class="hs-identifier hs-var">sourceClusterInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233432"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233431"><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceClusterInfo:ClusterOperationInfo' :: Maybe MutableClusterInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AsourceClusterInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">sourceClusterInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MutableClusterInfo
+</span><a href="#local-6989586621679233431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Steps completed during the operation.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationSteps"><span class="hs-identifier hs-type">clusterOperationInfo_operationSteps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationStep.html#ClusterOperationStep"><span class="hs-identifier hs-type">ClusterOperationStep</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="clusterOperationInfo_operationSteps"><span class="annot"><span class="annottext">clusterOperationInfo_operationSteps :: (Maybe [ClusterOperationStep] -&gt; f (Maybe [ClusterOperationStep]))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationSteps"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_operationSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe [ClusterOperationStep])
+-&gt; (ClusterOperationInfo
+    -&gt; Maybe [ClusterOperationStep] -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo
+     ClusterOperationInfo
+     (Maybe [ClusterOperationStep])
+     (Maybe [ClusterOperationStep])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233429"><span class="annot"><span class="annottext">Maybe [ClusterOperationStep]
+operationSteps :: Maybe [ClusterOperationStep]
+$sel:operationSteps:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe [ClusterOperationStep]
+</span><a href="#local-6989586621679233429"><span class="hs-identifier hs-var hs-var">operationSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterOperationStep]
+</span><a href="#local-6989586621679233429"><span class="hs-identifier hs-var">operationSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233428"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233427"><span class="annot"><span class="annottext">Maybe [ClusterOperationStep]
+</span><a href="#local-6989586621679233427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationSteps:ClusterOperationInfo' :: Maybe [ClusterOperationStep]
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationSteps%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterOperationStep]
+</span><a href="#local-6989586621679233427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterOperationStep] -&gt; f (Maybe [ClusterOperationStep]))
+ -&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo)
+-&gt; ((Maybe [ClusterOperationStep]
+     -&gt; f (Maybe [ClusterOperationStep]))
+    -&gt; Maybe [ClusterOperationStep]
+    -&gt; f (Maybe [ClusterOperationStep]))
+-&gt; (Maybe [ClusterOperationStep]
+    -&gt; f (Maybe [ClusterOperationStep]))
+-&gt; ClusterOperationInfo
+-&gt; f ClusterOperationInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClusterOperationStep]
+  [ClusterOperationStep]
+  [ClusterOperationStep]
+  [ClusterOperationStep]
+-&gt; Iso
+     (Maybe [ClusterOperationStep])
+     (Maybe [ClusterOperationStep])
+     (Maybe [ClusterOperationStep])
+     (Maybe [ClusterOperationStep])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClusterOperationStep]
+  [ClusterOperationStep]
+  [ClusterOperationStep]
+  [ClusterOperationStep]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | State of the cluster operation.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationState"><span class="hs-identifier hs-type">clusterOperationInfo_operationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="clusterOperationInfo_operationState"><span class="annot"><span class="annottext">clusterOperationInfo_operationState :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationState"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_operationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe Text)
+-&gt; (ClusterOperationInfo -&gt; Maybe Text -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo ClusterOperationInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233424"><span class="annot"><span class="annottext">Maybe Text
+operationState :: Maybe Text
+$sel:operationState:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679233424"><span class="hs-identifier hs-var hs-var">operationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233424"><span class="hs-identifier hs-var">operationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233423"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233422"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationState:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationState%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The time at which the operation finished.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_endTime"><span class="hs-identifier hs-type">clusterOperationInfo_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="clusterOperationInfo_endTime"><span class="annot"><span class="annottext">clusterOperationInfo_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_endTime"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe POSIX)
+-&gt; (ClusterOperationInfo -&gt; Maybe POSIX -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo
+     ClusterOperationInfo
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233420"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe POSIX
+</span><a href="#local-6989586621679233420"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679233420"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233419"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233418"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679233418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ClusterOperationInfo' :: Maybe POSIX
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AendTime%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679233418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterOperationInfo
+-&gt; f ClusterOperationInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Type of the cluster operation.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationType"><span class="hs-identifier hs-type">clusterOperationInfo_operationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="clusterOperationInfo_operationType"><span class="annot"><span class="annottext">clusterOperationInfo_operationType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationType"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_operationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe Text)
+-&gt; (ClusterOperationInfo -&gt; Maybe Text -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo ClusterOperationInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233416"><span class="annot"><span class="annottext">Maybe Text
+operationType :: Maybe Text
+$sel:operationType:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679233416"><span class="hs-identifier hs-var hs-var">operationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233416"><span class="hs-identifier hs-var">operationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233415"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233414"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationType:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationType%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | ARN of the cluster operation.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationArn"><span class="hs-identifier hs-type">clusterOperationInfo_operationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="clusterOperationInfo_operationArn"><span class="annot"><span class="annottext">clusterOperationInfo_operationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_operationArn"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_operationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe Text)
+-&gt; (ClusterOperationInfo -&gt; Maybe Text -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo ClusterOperationInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233412"><span class="annot"><span class="annottext">Maybe Text
+operationArn :: Maybe Text
+$sel:operationArn:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679233412"><span class="hs-identifier hs-var hs-var">operationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233412"><span class="hs-identifier hs-var">operationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233411"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233410"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationArn:ClusterOperationInfo' :: Maybe Text
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AoperationArn%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">operationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Describes the error if the operation fails.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_errorInfo"><span class="hs-identifier hs-type">clusterOperationInfo_errorInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="clusterOperationInfo_errorInfo"><span class="annot"><span class="annottext">clusterOperationInfo_errorInfo :: (Maybe ErrorInfo -&gt; f (Maybe ErrorInfo))
+-&gt; ClusterOperationInfo -&gt; f ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#clusterOperationInfo_errorInfo"><span class="hs-identifier hs-var hs-var">clusterOperationInfo_errorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterOperationInfo -&gt; Maybe ErrorInfo)
+-&gt; (ClusterOperationInfo
+    -&gt; Maybe ErrorInfo -&gt; ClusterOperationInfo)
+-&gt; Lens
+     ClusterOperationInfo
+     ClusterOperationInfo
+     (Maybe ErrorInfo)
+     (Maybe ErrorInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233408"><span class="annot"><span class="annottext">Maybe ErrorInfo
+errorInfo :: Maybe ErrorInfo
+$sel:errorInfo:ClusterOperationInfo' :: ClusterOperationInfo -&gt; Maybe ErrorInfo
+</span><a href="#local-6989586621679233408"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679233408"><span class="hs-identifier hs-var">errorInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233407"><span class="annot"><span class="annottext">s :: ClusterOperationInfo
+</span><a href="#local-6989586621679233407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-type">ClusterOperationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233406"><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679233406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterOperationInfo
+</span><a href="#local-6989586621679233407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorInfo:ClusterOperationInfo' :: Maybe ErrorInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#%24sel%3AerrorInfo%3AClusterOperationInfo%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679233406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233403"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679233401"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterOperationInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ClusterOperationInfo)
+-&gt; Value
+-&gt; Parser ClusterOperationInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ClusterOperationInfo&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233398"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe MutableClusterInfo
+-&gt; Maybe MutableClusterInfo
+-&gt; Maybe [ClusterOperationStep]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ErrorInfo
+-&gt; ClusterOperationInfo
+</span><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo%27"><span class="hs-identifier hs-var">ClusterOperationInfo'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe MutableClusterInfo
+ -&gt; Maybe MutableClusterInfo
+ -&gt; Maybe [ClusterOperationStep]
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ErrorInfo
+ -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MutableClusterInfo
+      -&gt; Maybe MutableClusterInfo
+      -&gt; Maybe [ClusterOperationStep]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MutableClusterInfo
+   -&gt; Maybe MutableClusterInfo
+   -&gt; Maybe [ClusterOperationStep]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe MutableClusterInfo
+      -&gt; Maybe MutableClusterInfo
+      -&gt; Maybe [ClusterOperationStep]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe MutableClusterInfo
+   -&gt; Maybe MutableClusterInfo
+   -&gt; Maybe [ClusterOperationStep]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe MutableClusterInfo
+      -&gt; Maybe MutableClusterInfo
+      -&gt; Maybe [ClusterOperationStep]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MutableClusterInfo
+   -&gt; Maybe MutableClusterInfo
+   -&gt; Maybe [ClusterOperationStep]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe MutableClusterInfo)
+-&gt; Parser
+     (Maybe MutableClusterInfo
+      -&gt; Maybe [ClusterOperationStep]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MutableClusterInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetClusterInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MutableClusterInfo
+   -&gt; Maybe [ClusterOperationStep]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe MutableClusterInfo)
+-&gt; Parser
+     (Maybe [ClusterOperationStep]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MutableClusterInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceClusterInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ClusterOperationStep]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe [ClusterOperationStep])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ClusterOperationStep]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operationSteps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ClusterOperationStep]))
+-&gt; Maybe [ClusterOperationStep]
+-&gt; Parser (Maybe [ClusterOperationStep])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterOperationStep]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe ErrorInfo -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe ErrorInfo -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe ErrorInfo -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ErrorInfo -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ErrorInfo -&gt; ClusterOperationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ErrorInfo -&gt; ClusterOperationInfo)
+-&gt; Parser (Maybe ErrorInfo) -&gt; Parser ClusterOperationInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233391"><span id="local-6989586621679233393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ClusterOperationInfo.html#ClusterOperationInfo"><span class="hs-identifier hs-type">ClusterOperationInfo</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.BehaviorCriteria</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.BehaviorCriteria</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.ComparisonOperator.html"><span class="hs-identifier">Amazonka.IoT.Types.ComparisonOperator</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MachineLearningDetectionConfig.html"><span class="hs-identifier">Amazonka.IoT.Types.MachineLearningDetectionConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html"><span class="hs-identifier">Amazonka.IoT.Types.MetricValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.StatisticalThreshold.html"><span class="hs-identifier">Amazonka.IoT.Types.StatisticalThreshold</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The criteria by which the behavior is determined to be normal.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newBehaviorCriteria' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679798832"><span id="local-6989586621679798833"></span></span><span class="hs-keyword">data</span><span> </span><span id="BehaviorCriteria"><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-var">BehaviorCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BehaviorCriteria%27"><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-var">BehaviorCriteria'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration of an ML Detect</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmlDetectionConfig%3ABehaviorCriteria%27"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; Maybe MachineLearningDetectionConfig
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AmlDetectionConfig%3ABehaviorCriteria%27"><span class="hs-identifier hs-var hs-var">mlDetectionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The value to be compared with the @metric@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Avalue%3ABehaviorCriteria%27"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; Maybe MetricValue
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3Avalue%3ABehaviorCriteria%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | If a device is in violation of the behavior for the specified number of</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- consecutive datapoints, an alarm occurs. If not specified, the default</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- is 1.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AconsecutiveDatapointsToAlarm%3ABehaviorCriteria%27"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; Maybe Natural
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AconsecutiveDatapointsToAlarm%3ABehaviorCriteria%27"><span class="hs-identifier hs-var hs-var">consecutiveDatapointsToAlarm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The operator that relates the thing measured (@metric@) to the criteria</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- (containing a @value@ or @statisticalThreshold@). Valid operators</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- include:</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @string-list@: @in-set@ and @not-in-set@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @number-list@: @in-set@ and @not-in-set@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @ip-address-list@: @in-cidr-set@ and @not-in-cidr-set@</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @number@: @less-than@, @less-than-equals@, @greater-than@, and</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     @greater-than-equals@</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcomparisonOperator%3ABehaviorCriteria%27"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; Maybe ComparisonOperator
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AcomparisonOperator%3ABehaviorCriteria%27"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A statistical ranking (percentile)that indicates a threshold value by</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- which a behavior is determined to be in compliance or in violation of</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the behavior.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AstatisticalThreshold%3ABehaviorCriteria%27"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; Maybe StatisticalThreshold
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AstatisticalThreshold%3ABehaviorCriteria%27"><span class="hs-identifier hs-var hs-var">statisticalThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.StatisticalThreshold.html#StatisticalThreshold"><span class="hs-identifier hs-type">StatisticalThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Use this to specify the time duration over which the behavior is</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- evaluated, for those criteria that have a time dimension (for example,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @NUM_MESSAGES_SENT@). For a @statisticalThreshhold@ metric comparison,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- measurements from all devices are accumulated over this time duration</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- before being used to calculate percentiles, and later, measurements from</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- an individual device are also accumulated over this time duration before</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- being given a percentile rank. Cannot be used with list-based metric</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- datatypes.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdurationSeconds%3ABehaviorCriteria%27"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; Maybe Int
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AdurationSeconds%3ABehaviorCriteria%27"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | If an alarm has occurred and the offending device is no longer in</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- violation of the behavior for the specified number of consecutive</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- datapoints, the alarm is cleared. If not specified, the default is 1.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AconsecutiveDatapointsToClear%3ABehaviorCriteria%27"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; Maybe Natural
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AconsecutiveDatapointsToClear%3ABehaviorCriteria%27"><span class="hs-identifier hs-var hs-var">consecutiveDatapointsToClear</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798820"><span id="local-6989586621679798822"><span class="annot"><span class="annottext">BehaviorCriteria -&gt; BehaviorCriteria -&gt; Bool
+(BehaviorCriteria -&gt; BehaviorCriteria -&gt; Bool)
+-&gt; (BehaviorCriteria -&gt; BehaviorCriteria -&gt; Bool)
+-&gt; Eq BehaviorCriteria
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BehaviorCriteria -&gt; BehaviorCriteria -&gt; Bool
+$c/= :: BehaviorCriteria -&gt; BehaviorCriteria -&gt; Bool
+== :: BehaviorCriteria -&gt; BehaviorCriteria -&gt; Bool
+$c== :: BehaviorCriteria -&gt; BehaviorCriteria -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798811"><span id="local-6989586621679798813"><span id="local-6989586621679798815"><span id="local-6989586621679798817"><span class="annot"><span class="annottext">ReadPrec [BehaviorCriteria]
+ReadPrec BehaviorCriteria
+Int -&gt; ReadS BehaviorCriteria
+ReadS [BehaviorCriteria]
+(Int -&gt; ReadS BehaviorCriteria)
+-&gt; ReadS [BehaviorCriteria]
+-&gt; ReadPrec BehaviorCriteria
+-&gt; ReadPrec [BehaviorCriteria]
+-&gt; Read BehaviorCriteria
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BehaviorCriteria]
+$creadListPrec :: ReadPrec [BehaviorCriteria]
+readPrec :: ReadPrec BehaviorCriteria
+$creadPrec :: ReadPrec BehaviorCriteria
+readList :: ReadS [BehaviorCriteria]
+$creadList :: ReadS [BehaviorCriteria]
+readsPrec :: Int -&gt; ReadS BehaviorCriteria
+$creadsPrec :: Int -&gt; ReadS BehaviorCriteria
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798804"><span id="local-6989586621679798806"><span id="local-6989586621679798808"><span class="annot"><span class="annottext">Int -&gt; BehaviorCriteria -&gt; ShowS
+[BehaviorCriteria] -&gt; ShowS
+BehaviorCriteria -&gt; String
+(Int -&gt; BehaviorCriteria -&gt; ShowS)
+-&gt; (BehaviorCriteria -&gt; String)
+-&gt; ([BehaviorCriteria] -&gt; ShowS)
+-&gt; Show BehaviorCriteria
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BehaviorCriteria] -&gt; ShowS
+$cshowList :: [BehaviorCriteria] -&gt; ShowS
+show :: BehaviorCriteria -&gt; String
+$cshow :: BehaviorCriteria -&gt; String
+showsPrec :: Int -&gt; BehaviorCriteria -&gt; ShowS
+$cshowsPrec :: Int -&gt; BehaviorCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BehaviorCriteria -&gt; Rep BehaviorCriteria x)
+-&gt; (forall x. Rep BehaviorCriteria x -&gt; BehaviorCriteria)
+-&gt; Generic BehaviorCriteria
+forall x. Rep BehaviorCriteria x -&gt; BehaviorCriteria
+forall x. BehaviorCriteria -&gt; Rep BehaviorCriteria x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BehaviorCriteria x -&gt; BehaviorCriteria
+$cfrom :: forall x. BehaviorCriteria -&gt; Rep BehaviorCriteria x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'BehaviorCriteria' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'mlDetectionConfig', 'behaviorCriteria_mlDetectionConfig' - The configuration of an ML Detect</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'value', 'behaviorCriteria_value' - The value to be compared with the @metric@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'consecutiveDatapointsToAlarm', 'behaviorCriteria_consecutiveDatapointsToAlarm' - If a device is in violation of the behavior for the specified number of</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- consecutive datapoints, an alarm occurs. If not specified, the default</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- is 1.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'comparisonOperator', 'behaviorCriteria_comparisonOperator' - The operator that relates the thing measured (@metric@) to the criteria</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- (containing a @value@ or @statisticalThreshold@). Valid operators</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- include:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @string-list@: @in-set@ and @not-in-set@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @number-list@: @in-set@ and @not-in-set@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @ip-address-list@: @in-cidr-set@ and @not-in-cidr-set@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   @number@: @less-than@, @less-than-equals@, @greater-than@, and</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     @greater-than-equals@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'statisticalThreshold', 'behaviorCriteria_statisticalThreshold' - A statistical ranking (percentile)that indicates a threshold value by</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- which a behavior is determined to be in compliance or in violation of</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the behavior.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'durationSeconds', 'behaviorCriteria_durationSeconds' - Use this to specify the time duration over which the behavior is</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- evaluated, for those criteria that have a time dimension (for example,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @NUM_MESSAGES_SENT@). For a @statisticalThreshhold@ metric comparison,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- measurements from all devices are accumulated over this time duration</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- before being used to calculate percentiles, and later, measurements from</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- an individual device are also accumulated over this time duration before</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- being given a percentile rank. Cannot be used with list-based metric</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- datatypes.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'consecutiveDatapointsToClear', 'behaviorCriteria_consecutiveDatapointsToClear' - If an alarm has occurred and the offending device is no longer in</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- violation of the behavior for the specified number of consecutive</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- datapoints, the alarm is cleared. If not specified, the default is 1.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#newBehaviorCriteria"><span class="hs-identifier hs-type">newBehaviorCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span>
+</span><span id="line-122"></span><span id="newBehaviorCriteria"><span class="annot"><span class="annottext">newBehaviorCriteria :: BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#newBehaviorCriteria"><span class="hs-identifier hs-var hs-var">newBehaviorCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">BehaviorCriteria' :: Maybe MachineLearningDetectionConfig
+-&gt; Maybe MetricValue
+-&gt; Maybe Natural
+-&gt; Maybe ComparisonOperator
+-&gt; Maybe StatisticalThreshold
+-&gt; Maybe Int
+-&gt; Maybe Natural
+-&gt; BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mlDetectionConfig:BehaviorCriteria' :: Maybe MachineLearningDetectionConfig
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AmlDetectionConfig%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">mlDetectionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe MachineLearningDetectionConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:BehaviorCriteria' :: Maybe MetricValue
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3Avalue%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:consecutiveDatapointsToAlarm:BehaviorCriteria' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AconsecutiveDatapointsToAlarm%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">consecutiveDatapointsToAlarm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:comparisonOperator:BehaviorCriteria' :: Maybe ComparisonOperator
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AcomparisonOperator%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparisonOperator
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:statisticalThreshold:BehaviorCriteria' :: Maybe StatisticalThreshold
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AstatisticalThreshold%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">statisticalThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatisticalThreshold
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationSeconds:BehaviorCriteria' :: Maybe Int
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AdurationSeconds%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:consecutiveDatapointsToClear:BehaviorCriteria' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AconsecutiveDatapointsToClear%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">consecutiveDatapointsToClear</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The configuration of an ML Detect</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_mlDetectionConfig"><span class="hs-identifier hs-type">behaviorCriteria_mlDetectionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="behaviorCriteria_mlDetectionConfig"><span class="annot"><span class="annottext">behaviorCriteria_mlDetectionConfig :: (Maybe MachineLearningDetectionConfig
+ -&gt; f (Maybe MachineLearningDetectionConfig))
+-&gt; BehaviorCriteria -&gt; f BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_mlDetectionConfig"><span class="hs-identifier hs-var hs-var">behaviorCriteria_mlDetectionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Maybe MachineLearningDetectionConfig)
+-&gt; (BehaviorCriteria
+    -&gt; Maybe MachineLearningDetectionConfig -&gt; BehaviorCriteria)
+-&gt; Lens
+     BehaviorCriteria
+     BehaviorCriteria
+     (Maybe MachineLearningDetectionConfig)
+     (Maybe MachineLearningDetectionConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798795"><span class="annot"><span class="annottext">Maybe MachineLearningDetectionConfig
+mlDetectionConfig :: Maybe MachineLearningDetectionConfig
+$sel:mlDetectionConfig:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe MachineLearningDetectionConfig
+</span><a href="#local-6989586621679798795"><span class="hs-identifier hs-var hs-var">mlDetectionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MachineLearningDetectionConfig
+</span><a href="#local-6989586621679798795"><span class="hs-identifier hs-var">mlDetectionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798794"><span class="annot"><span class="annottext">s :: BehaviorCriteria
+</span><a href="#local-6989586621679798794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798793"><span class="annot"><span class="annottext">Maybe MachineLearningDetectionConfig
+</span><a href="#local-6989586621679798793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorCriteria
+</span><a href="#local-6989586621679798794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mlDetectionConfig:BehaviorCriteria' :: Maybe MachineLearningDetectionConfig
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AmlDetectionConfig%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">mlDetectionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MachineLearningDetectionConfig
+</span><a href="#local-6989586621679798793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The value to be compared with the @metric@.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_value"><span class="hs-identifier hs-type">behaviorCriteria_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="behaviorCriteria_value"><span class="annot"><span class="annottext">behaviorCriteria_value :: (Maybe MetricValue -&gt; f (Maybe MetricValue))
+-&gt; BehaviorCriteria -&gt; f BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_value"><span class="hs-identifier hs-var hs-var">behaviorCriteria_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Maybe MetricValue)
+-&gt; (BehaviorCriteria -&gt; Maybe MetricValue -&gt; BehaviorCriteria)
+-&gt; Lens
+     BehaviorCriteria
+     BehaviorCriteria
+     (Maybe MetricValue)
+     (Maybe MetricValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798791"><span class="annot"><span class="annottext">Maybe MetricValue
+value :: Maybe MetricValue
+$sel:value:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe MetricValue
+</span><a href="#local-6989586621679798791"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679798791"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798790"><span class="annot"><span class="annottext">s :: BehaviorCriteria
+</span><a href="#local-6989586621679798790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798789"><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679798789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorCriteria
+</span><a href="#local-6989586621679798790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:BehaviorCriteria' :: Maybe MetricValue
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3Avalue%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679798789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | If a device is in violation of the behavior for the specified number of</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- consecutive datapoints, an alarm occurs. If not specified, the default</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- is 1.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_consecutiveDatapointsToAlarm"><span class="hs-identifier hs-type">behaviorCriteria_consecutiveDatapointsToAlarm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="behaviorCriteria_consecutiveDatapointsToAlarm"><span class="annot"><span class="annottext">behaviorCriteria_consecutiveDatapointsToAlarm :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; BehaviorCriteria -&gt; f BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_consecutiveDatapointsToAlarm"><span class="hs-identifier hs-var hs-var">behaviorCriteria_consecutiveDatapointsToAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Maybe Natural)
+-&gt; (BehaviorCriteria -&gt; Maybe Natural -&gt; BehaviorCriteria)
+-&gt; Lens
+     BehaviorCriteria BehaviorCriteria (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798787"><span class="annot"><span class="annottext">Maybe Natural
+consecutiveDatapointsToAlarm :: Maybe Natural
+$sel:consecutiveDatapointsToAlarm:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe Natural
+</span><a href="#local-6989586621679798787"><span class="hs-identifier hs-var hs-var">consecutiveDatapointsToAlarm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798787"><span class="hs-identifier hs-var">consecutiveDatapointsToAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798786"><span class="annot"><span class="annottext">s :: BehaviorCriteria
+</span><a href="#local-6989586621679798786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798785"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorCriteria
+</span><a href="#local-6989586621679798786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consecutiveDatapointsToAlarm:BehaviorCriteria' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AconsecutiveDatapointsToAlarm%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">consecutiveDatapointsToAlarm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The operator that relates the thing measured (@metric@) to the criteria</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- (containing a @value@ or @statisticalThreshold@). Valid operators</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- include:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   @string-list@: @in-set@ and @not-in-set@</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @number-list@: @in-set@ and @not-in-set@</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @ip-address-list@: @in-cidr-set@ and @not-in-cidr-set@</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   @number@: @less-than@, @less-than-equals@, @greater-than@, and</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     @greater-than-equals@</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_comparisonOperator"><span class="hs-identifier hs-type">behaviorCriteria_comparisonOperator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="behaviorCriteria_comparisonOperator"><span class="annot"><span class="annottext">behaviorCriteria_comparisonOperator :: (Maybe ComparisonOperator -&gt; f (Maybe ComparisonOperator))
+-&gt; BehaviorCriteria -&gt; f BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_comparisonOperator"><span class="hs-identifier hs-var hs-var">behaviorCriteria_comparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Maybe ComparisonOperator)
+-&gt; (BehaviorCriteria
+    -&gt; Maybe ComparisonOperator -&gt; BehaviorCriteria)
+-&gt; Lens
+     BehaviorCriteria
+     BehaviorCriteria
+     (Maybe ComparisonOperator)
+     (Maybe ComparisonOperator)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798783"><span class="annot"><span class="annottext">Maybe ComparisonOperator
+comparisonOperator :: Maybe ComparisonOperator
+$sel:comparisonOperator:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe ComparisonOperator
+</span><a href="#local-6989586621679798783"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComparisonOperator
+</span><a href="#local-6989586621679798783"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798782"><span class="annot"><span class="annottext">s :: BehaviorCriteria
+</span><a href="#local-6989586621679798782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798781"><span class="annot"><span class="annottext">Maybe ComparisonOperator
+</span><a href="#local-6989586621679798781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorCriteria
+</span><a href="#local-6989586621679798782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:BehaviorCriteria' :: Maybe ComparisonOperator
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AcomparisonOperator%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparisonOperator
+</span><a href="#local-6989586621679798781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A statistical ranking (percentile)that indicates a threshold value by</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- which a behavior is determined to be in compliance or in violation of</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- the behavior.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_statisticalThreshold"><span class="hs-identifier hs-type">behaviorCriteria_statisticalThreshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.StatisticalThreshold.html#StatisticalThreshold"><span class="hs-identifier hs-type">StatisticalThreshold</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="behaviorCriteria_statisticalThreshold"><span class="annot"><span class="annottext">behaviorCriteria_statisticalThreshold :: (Maybe StatisticalThreshold -&gt; f (Maybe StatisticalThreshold))
+-&gt; BehaviorCriteria -&gt; f BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_statisticalThreshold"><span class="hs-identifier hs-var hs-var">behaviorCriteria_statisticalThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Maybe StatisticalThreshold)
+-&gt; (BehaviorCriteria
+    -&gt; Maybe StatisticalThreshold -&gt; BehaviorCriteria)
+-&gt; Lens
+     BehaviorCriteria
+     BehaviorCriteria
+     (Maybe StatisticalThreshold)
+     (Maybe StatisticalThreshold)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798779"><span class="annot"><span class="annottext">Maybe StatisticalThreshold
+statisticalThreshold :: Maybe StatisticalThreshold
+$sel:statisticalThreshold:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe StatisticalThreshold
+</span><a href="#local-6989586621679798779"><span class="hs-identifier hs-var hs-var">statisticalThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatisticalThreshold
+</span><a href="#local-6989586621679798779"><span class="hs-identifier hs-var">statisticalThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798778"><span class="annot"><span class="annottext">s :: BehaviorCriteria
+</span><a href="#local-6989586621679798778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798777"><span class="annot"><span class="annottext">Maybe StatisticalThreshold
+</span><a href="#local-6989586621679798777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorCriteria
+</span><a href="#local-6989586621679798778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statisticalThreshold:BehaviorCriteria' :: Maybe StatisticalThreshold
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AstatisticalThreshold%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">statisticalThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatisticalThreshold
+</span><a href="#local-6989586621679798777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Use this to specify the time duration over which the behavior is</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- evaluated, for those criteria that have a time dimension (for example,</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- @NUM_MESSAGES_SENT@). For a @statisticalThreshhold@ metric comparison,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- measurements from all devices are accumulated over this time duration</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- before being used to calculate percentiles, and later, measurements from</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- an individual device are also accumulated over this time duration before</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- being given a percentile rank. Cannot be used with list-based metric</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- datatypes.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_durationSeconds"><span class="hs-identifier hs-type">behaviorCriteria_durationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="behaviorCriteria_durationSeconds"><span class="annot"><span class="annottext">behaviorCriteria_durationSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; BehaviorCriteria -&gt; f BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_durationSeconds"><span class="hs-identifier hs-var hs-var">behaviorCriteria_durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Maybe Int)
+-&gt; (BehaviorCriteria -&gt; Maybe Int -&gt; BehaviorCriteria)
+-&gt; Lens BehaviorCriteria BehaviorCriteria (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798775"><span class="annot"><span class="annottext">Maybe Int
+durationSeconds :: Maybe Int
+$sel:durationSeconds:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe Int
+</span><a href="#local-6989586621679798775"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679798775"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798774"><span class="annot"><span class="annottext">s :: BehaviorCriteria
+</span><a href="#local-6989586621679798774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798773"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679798773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorCriteria
+</span><a href="#local-6989586621679798774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:BehaviorCriteria' :: Maybe Int
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AdurationSeconds%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679798773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | If an alarm has occurred and the offending device is no longer in</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- violation of the behavior for the specified number of consecutive</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- datapoints, the alarm is cleared. If not specified, the default is 1.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_consecutiveDatapointsToClear"><span class="hs-identifier hs-type">behaviorCriteria_consecutiveDatapointsToClear</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="behaviorCriteria_consecutiveDatapointsToClear"><span class="annot"><span class="annottext">behaviorCriteria_consecutiveDatapointsToClear :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; BehaviorCriteria -&gt; f BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#behaviorCriteria_consecutiveDatapointsToClear"><span class="hs-identifier hs-var hs-var">behaviorCriteria_consecutiveDatapointsToClear</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Maybe Natural)
+-&gt; (BehaviorCriteria -&gt; Maybe Natural -&gt; BehaviorCriteria)
+-&gt; Lens
+     BehaviorCriteria BehaviorCriteria (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798771"><span class="annot"><span class="annottext">Maybe Natural
+consecutiveDatapointsToClear :: Maybe Natural
+$sel:consecutiveDatapointsToClear:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe Natural
+</span><a href="#local-6989586621679798771"><span class="hs-identifier hs-var hs-var">consecutiveDatapointsToClear</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798771"><span class="hs-identifier hs-var">consecutiveDatapointsToClear</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798770"><span class="annot"><span class="annottext">s :: BehaviorCriteria
+</span><a href="#local-6989586621679798770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798769"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorCriteria
+</span><a href="#local-6989586621679798770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consecutiveDatapointsToClear:BehaviorCriteria' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#%24sel%3AconsecutiveDatapointsToClear%3ABehaviorCriteria%27"><span class="hs-identifier hs-var">consecutiveDatapointsToClear</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798766"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679798764"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BehaviorCriteria
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BehaviorCriteria)
+-&gt; Value
+-&gt; Parser BehaviorCriteria
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BehaviorCriteria&quot;</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798761"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Maybe MachineLearningDetectionConfig
+-&gt; Maybe MetricValue
+-&gt; Maybe Natural
+-&gt; Maybe ComparisonOperator
+-&gt; Maybe StatisticalThreshold
+-&gt; Maybe Int
+-&gt; Maybe Natural
+-&gt; BehaviorCriteria
+</span><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-var">BehaviorCriteria'</span></a></span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MachineLearningDetectionConfig
+ -&gt; Maybe MetricValue
+ -&gt; Maybe Natural
+ -&gt; Maybe ComparisonOperator
+ -&gt; Maybe StatisticalThreshold
+ -&gt; Maybe Int
+ -&gt; Maybe Natural
+ -&gt; BehaviorCriteria)
+-&gt; Parser (Maybe MachineLearningDetectionConfig)
+-&gt; Parser
+     (Maybe MetricValue
+      -&gt; Maybe Natural
+      -&gt; Maybe ComparisonOperator
+      -&gt; Maybe StatisticalThreshold
+      -&gt; Maybe Int
+      -&gt; Maybe Natural
+      -&gt; BehaviorCriteria)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MachineLearningDetectionConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mlDetectionConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MetricValue
+   -&gt; Maybe Natural
+   -&gt; Maybe ComparisonOperator
+   -&gt; Maybe StatisticalThreshold
+   -&gt; Maybe Int
+   -&gt; Maybe Natural
+   -&gt; BehaviorCriteria)
+-&gt; Parser (Maybe MetricValue)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe ComparisonOperator
+      -&gt; Maybe StatisticalThreshold
+      -&gt; Maybe Int
+      -&gt; Maybe Natural
+      -&gt; BehaviorCriteria)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe ComparisonOperator
+   -&gt; Maybe StatisticalThreshold
+   -&gt; Maybe Int
+   -&gt; Maybe Natural
+   -&gt; BehaviorCriteria)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe ComparisonOperator
+      -&gt; Maybe StatisticalThreshold
+      -&gt; Maybe Int
+      -&gt; Maybe Natural
+      -&gt; BehaviorCriteria)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;consecutiveDatapointsToAlarm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ComparisonOperator
+   -&gt; Maybe StatisticalThreshold
+   -&gt; Maybe Int
+   -&gt; Maybe Natural
+   -&gt; BehaviorCriteria)
+-&gt; Parser (Maybe ComparisonOperator)
+-&gt; Parser
+     (Maybe StatisticalThreshold
+      -&gt; Maybe Int -&gt; Maybe Natural -&gt; BehaviorCriteria)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComparisonOperator)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comparisonOperator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StatisticalThreshold
+   -&gt; Maybe Int -&gt; Maybe Natural -&gt; BehaviorCriteria)
+-&gt; Parser (Maybe StatisticalThreshold)
+-&gt; Parser (Maybe Int -&gt; Maybe Natural -&gt; BehaviorCriteria)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatisticalThreshold)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statisticalThreshold&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Natural -&gt; BehaviorCriteria)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Natural -&gt; BehaviorCriteria)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;durationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; BehaviorCriteria)
+-&gt; Parser (Maybe Natural) -&gt; Parser BehaviorCriteria
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;consecutiveDatapointsToClear&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798755"><span id="local-6989586621679798757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798744"><span id="local-6989586621679798746"><span id="local-6989586621679798748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria"><span class="hs-identifier hs-type">BehaviorCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679798742"><span class="annot"><span class="annottext">toJSON :: BehaviorCriteria -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorCriteria.html#BehaviorCriteria%27"><span class="hs-identifier hs-type">BehaviorCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798734"><span id="local-6989586621679798735"><span id="local-6989586621679798736"><span id="local-6989586621679798737"><span id="local-6989586621679798738"><span id="local-6989586621679798739"><span id="local-6989586621679798740"><span class="annot"><span class="annottext">Maybe Int
+Maybe Natural
+Maybe ComparisonOperator
+Maybe MachineLearningDetectionConfig
+Maybe MetricValue
+Maybe StatisticalThreshold
+consecutiveDatapointsToClear :: Maybe Natural
+durationSeconds :: Maybe Int
+statisticalThreshold :: Maybe StatisticalThreshold
+comparisonOperator :: Maybe ComparisonOperator
+consecutiveDatapointsToAlarm :: Maybe Natural
+value :: Maybe MetricValue
+mlDetectionConfig :: Maybe MachineLearningDetectionConfig
+$sel:consecutiveDatapointsToClear:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe Natural
+$sel:durationSeconds:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe Int
+$sel:statisticalThreshold:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe StatisticalThreshold
+$sel:comparisonOperator:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe ComparisonOperator
+$sel:consecutiveDatapointsToAlarm:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe Natural
+$sel:value:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe MetricValue
+$sel:mlDetectionConfig:BehaviorCriteria' :: BehaviorCriteria -&gt; Maybe MachineLearningDetectionConfig
+</span><a href="#local-6989586621679798734"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-209"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mlDetectionConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MachineLearningDetectionConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(MachineLearningDetectionConfig -&gt; Pair)
+-&gt; Maybe MachineLearningDetectionConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MachineLearningDetectionConfig
+</span><a href="#local-6989586621679798740"><span class="hs-identifier hs-var">mlDetectionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MetricValue -&gt; Pair) -&gt; Maybe MetricValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679798739"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;consecutiveDatapointsToAlarm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798738"><span class="hs-identifier hs-var">consecutiveDatapointsToAlarm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comparisonOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComparisonOperator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(ComparisonOperator -&gt; Pair)
+-&gt; Maybe ComparisonOperator -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComparisonOperator
+</span><a href="#local-6989586621679798737"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statisticalThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StatisticalThreshold -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(StatisticalThreshold -&gt; Pair)
+-&gt; Maybe StatisticalThreshold -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StatisticalThreshold
+</span><a href="#local-6989586621679798736"><span class="hs-identifier hs-var">statisticalThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;durationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679798735"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;consecutiveDatapointsToClear&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679798734"><span class="hs-identifier hs-var">consecutiveDatapointsToClear</span></a></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span></pre></body></html>

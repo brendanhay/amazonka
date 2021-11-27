@@ -1,0 +1,1144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.CreatePortal</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a portal, which can contain projects and dashboards. IoT</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- SiteWise Monitor uses Amazon Web Services SSO or IAM to authenticate</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- portal users and manage user permissions.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Before you can sign in to a new portal, you must add at least one</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- identity to that portal. For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins Adding or removing portal administrators&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.CreatePortal</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#newCreatePortal"><span class="hs-identifier">newCreatePortal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalAuthMode"><span class="hs-identifier">createPortal_portalAuthMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_clientToken"><span class="hs-identifier">createPortal_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalDescription"><span class="hs-identifier">createPortal_portalDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_notificationSenderEmail"><span class="hs-identifier">createPortal_notificationSenderEmail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_alarms"><span class="hs-identifier">createPortal_alarms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalLogoImageFile"><span class="hs-identifier">createPortal_portalLogoImageFile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_tags"><span class="hs-identifier">createPortal_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalName"><span class="hs-identifier">createPortal_portalName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalContactEmail"><span class="hs-identifier">createPortal_portalContactEmail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_roleArn"><span class="hs-identifier">createPortal_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier">CreatePortalResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#newCreatePortalResponse"><span class="hs-identifier">newCreatePortalResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_httpStatus"><span class="hs-identifier">createPortalResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalId"><span class="hs-identifier">createPortalResponse_portalId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalArn"><span class="hs-identifier">createPortalResponse_portalArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalStartUrl"><span class="hs-identifier">createPortalResponse_portalStartUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalStatus"><span class="hs-identifier">createPortalResponse_portalStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_ssoApplicationId"><span class="hs-identifier">createPortalResponse_ssoApplicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newCreatePortal' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679357889"><span id="local-6989586621679357890"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePortal"><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-var">CreatePortal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePortal%27"><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-var">CreatePortal'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service to use to authenticate users to the portal. Choose from the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- following options:</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @SSO@ &#8211; The portal uses Amazon Web Services Single Sign On to</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     authenticate users and manage user permissions. Before you can</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     create a portal that uses Amazon Web Services SSO, you must enable</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     Amazon Web Services SSO. For more information, see</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling Amazon Web Services SSO&gt;</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     in the /IoT SiteWise User Guide/. This option is only available in</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     Amazon Web Services Regions other than the China Regions.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @IAM@ &#8211; The portal uses Identity and Access Management to</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     authenticate users and manage user permissions. This option is only</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     available in the China Regions.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- You can\'t change this value after you create a portal.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Default: @SSO@</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AportalAuthMode%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Maybe AuthMode
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalAuthMode%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">portalAuthMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-type">AuthMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AclientToken%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AclientToken%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | A description for the portal.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AportalDescription%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalDescription%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">portalDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The email address that sends alarm notifications.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- If you use the</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html IoT Events managed Lambda function&gt;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- to manage your emails, you must</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html verify the sender email address in Amazon SES&gt;.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AnotificationSenderEmail%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AnotificationSenderEmail%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">notificationSenderEmail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of an alarm created in an IoT</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- SiteWise Monitor portal. You can use the alarm to monitor an asset</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- property and get notified when the asset property value is outside a</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- specified range. For more information, see</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms&gt;</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise Application Guide/.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3Aalarms%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Maybe Alarms
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3Aalarms%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">alarms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.Alarms.html#Alarms"><span class="hs-identifier hs-type">Alarms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | A logo image to display in the portal. Upload a square, high-resolution</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- image. The image is displayed on a dark background.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AportalLogoImageFile%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Maybe ImageFile
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalLogoImageFile%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">portalLogoImageFile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | A list of key-value pairs that contain metadata for the portal. For more</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources&gt;</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3Atags%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3Atags%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | A friendly name for the portal.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AportalName%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalName%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">portalName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services administrator\'s contact email address.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AportalContactEmail%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalContactEmail%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">portalContactEmail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- of a service role that allows the portal\'s users to access your IoT</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- SiteWise resources on your behalf. For more information, see</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html Using service roles for IoT SiteWise Monitor&gt;</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AroleArn%3ACreatePortal%27"><span class="annot"><span class="annottext">CreatePortal -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AroleArn%3ACreatePortal%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357874"><span id="local-6989586621679357876"><span class="annot"><span class="annottext">CreatePortal -&gt; CreatePortal -&gt; Bool
+(CreatePortal -&gt; CreatePortal -&gt; Bool)
+-&gt; (CreatePortal -&gt; CreatePortal -&gt; Bool) -&gt; Eq CreatePortal
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePortal -&gt; CreatePortal -&gt; Bool
+$c/= :: CreatePortal -&gt; CreatePortal -&gt; Bool
+== :: CreatePortal -&gt; CreatePortal -&gt; Bool
+$c== :: CreatePortal -&gt; CreatePortal -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357865"><span id="local-6989586621679357867"><span id="local-6989586621679357869"><span id="local-6989586621679357871"><span class="annot"><span class="annottext">ReadPrec [CreatePortal]
+ReadPrec CreatePortal
+Int -&gt; ReadS CreatePortal
+ReadS [CreatePortal]
+(Int -&gt; ReadS CreatePortal)
+-&gt; ReadS [CreatePortal]
+-&gt; ReadPrec CreatePortal
+-&gt; ReadPrec [CreatePortal]
+-&gt; Read CreatePortal
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePortal]
+$creadListPrec :: ReadPrec [CreatePortal]
+readPrec :: ReadPrec CreatePortal
+$creadPrec :: ReadPrec CreatePortal
+readList :: ReadS [CreatePortal]
+$creadList :: ReadS [CreatePortal]
+readsPrec :: Int -&gt; ReadS CreatePortal
+$creadsPrec :: Int -&gt; ReadS CreatePortal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357858"><span id="local-6989586621679357860"><span id="local-6989586621679357862"><span class="annot"><span class="annottext">Int -&gt; CreatePortal -&gt; ShowS
+[CreatePortal] -&gt; ShowS
+CreatePortal -&gt; String
+(Int -&gt; CreatePortal -&gt; ShowS)
+-&gt; (CreatePortal -&gt; String)
+-&gt; ([CreatePortal] -&gt; ShowS)
+-&gt; Show CreatePortal
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePortal] -&gt; ShowS
+$cshowList :: [CreatePortal] -&gt; ShowS
+show :: CreatePortal -&gt; String
+$cshow :: CreatePortal -&gt; String
+showsPrec :: Int -&gt; CreatePortal -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePortal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreatePortal -&gt; Rep CreatePortal x)
+-&gt; (forall x. Rep CreatePortal x -&gt; CreatePortal)
+-&gt; Generic CreatePortal
+forall x. Rep CreatePortal x -&gt; CreatePortal
+forall x. CreatePortal -&gt; Rep CreatePortal x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreatePortal x -&gt; CreatePortal
+$cfrom :: forall x. CreatePortal -&gt; Rep CreatePortal x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'CreatePortal' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'portalAuthMode', 'createPortal_portalAuthMode' - The service to use to authenticate users to the portal. Choose from the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- following options:</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @SSO@ &#8211; The portal uses Amazon Web Services Single Sign On to</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     authenticate users and manage user permissions. Before you can</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     create a portal that uses Amazon Web Services SSO, you must enable</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     Amazon Web Services SSO. For more information, see</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling Amazon Web Services SSO&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     in the /IoT SiteWise User Guide/. This option is only available in</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     Amazon Web Services Regions other than the China Regions.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @IAM@ &#8211; The portal uses Identity and Access Management to</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     authenticate users and manage user permissions. This option is only</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     available in the China Regions.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- You can\'t change this value after you create a portal.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Default: @SSO@</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'clientToken', 'createPortal_clientToken' - A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'portalDescription', 'createPortal_portalDescription' - A description for the portal.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'notificationSenderEmail', 'createPortal_notificationSenderEmail' - The email address that sends alarm notifications.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- If you use the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html IoT Events managed Lambda function&gt;</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- to manage your emails, you must</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html verify the sender email address in Amazon SES&gt;.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'alarms', 'createPortal_alarms' - Contains the configuration information of an alarm created in an IoT</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- SiteWise Monitor portal. You can use the alarm to monitor an asset</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- property and get notified when the asset property value is outside a</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- specified range. For more information, see</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms&gt;</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- in the /IoT SiteWise Application Guide/.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'portalLogoImageFile', 'createPortal_portalLogoImageFile' - A logo image to display in the portal. Upload a square, high-resolution</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- image. The image is displayed on a dark background.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'tags', 'createPortal_tags' - A list of key-value pairs that contain metadata for the portal. For more</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources&gt;</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'portalName', 'createPortal_portalName' - A friendly name for the portal.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'portalContactEmail', 'createPortal_portalContactEmail' - The Amazon Web Services administrator\'s contact email address.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'roleArn', 'createPortal_roleArn' - The</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- of a service role that allows the portal\'s users to access your IoT</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- SiteWise resources on your behalf. For more information, see</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html Using service roles for IoT SiteWise Monitor&gt;</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#newCreatePortal"><span class="hs-identifier hs-type">newCreatePortal</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'portalName'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'portalContactEmail'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span>
+</span><span id="line-205"></span><span id="newCreatePortal"><span class="annot"><span class="annottext">newCreatePortal :: Text -&gt; Text -&gt; Text -&gt; CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#newCreatePortal"><span class="hs-identifier hs-var hs-var">newCreatePortal</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679357853"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357853"><span class="hs-identifier hs-var">pPortalName_</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679357852"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357852"><span class="hs-identifier hs-var">pPortalContactEmail_</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679357851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357851"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">CreatePortal' :: Maybe AuthMode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Alarms
+-&gt; Maybe ImageFile
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:portalAuthMode:CreatePortal' :: Maybe AuthMode
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalAuthMode%3ACreatePortal%27"><span class="hs-identifier hs-var">portalAuthMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreatePortal' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AclientToken%3ACreatePortal%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalDescription:CreatePortal' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalDescription%3ACreatePortal%27"><span class="hs-identifier hs-var">portalDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationSenderEmail:CreatePortal' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AnotificationSenderEmail%3ACreatePortal%27"><span class="hs-identifier hs-var">notificationSenderEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">$sel:alarms:CreatePortal' :: Maybe Alarms
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3Aalarms%3ACreatePortal%27"><span class="hs-identifier hs-var">alarms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Alarms
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalLogoImageFile:CreatePortal' :: Maybe ImageFile
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalLogoImageFile%3ACreatePortal%27"><span class="hs-identifier hs-var">portalLogoImageFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageFile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreatePortal' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3Atags%3ACreatePortal%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalName:CreatePortal' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalName%3ACreatePortal%27"><span class="hs-identifier hs-var">portalName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357853"><span class="hs-identifier hs-var">pPortalName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalContactEmail:CreatePortal' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalContactEmail%3ACreatePortal%27"><span class="hs-identifier hs-var">portalContactEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357852"><span class="hs-identifier hs-var">pPortalContactEmail_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreatePortal' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AroleArn%3ACreatePortal%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357851"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The service to use to authenticate users to the portal. Choose from the</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- following options:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   @SSO@ &#8211; The portal uses Amazon Web Services Single Sign On to</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     authenticate users and manage user permissions. Before you can</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     create a portal that uses Amazon Web Services SSO, you must enable</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     Amazon Web Services SSO. For more information, see</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling Amazon Web Services SSO&gt;</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     in the /IoT SiteWise User Guide/. This option is only available in</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     Amazon Web Services Regions other than the China Regions.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   @IAM@ &#8211; The portal uses Identity and Access Management to</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     authenticate users and manage user permissions. This option is only</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     available in the China Regions.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- You can\'t change this value after you create a portal.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Default: @SSO@</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalAuthMode"><span class="hs-identifier hs-type">createPortal_portalAuthMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-type">AuthMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="createPortal_portalAuthMode"><span class="annot"><span class="annottext">createPortal_portalAuthMode :: (Maybe AuthMode -&gt; f (Maybe AuthMode))
+-&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalAuthMode"><span class="hs-identifier hs-var hs-var">createPortal_portalAuthMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Maybe AuthMode)
+-&gt; (CreatePortal -&gt; Maybe AuthMode -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal (Maybe AuthMode) (Maybe AuthMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357848"><span class="annot"><span class="annottext">Maybe AuthMode
+portalAuthMode :: Maybe AuthMode
+$sel:portalAuthMode:CreatePortal' :: CreatePortal -&gt; Maybe AuthMode
+</span><a href="#local-6989586621679357848"><span class="hs-identifier hs-var hs-var">portalAuthMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMode
+</span><a href="#local-6989586621679357848"><span class="hs-identifier hs-var">portalAuthMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357847"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357846"><span class="annot"><span class="annottext">Maybe AuthMode
+</span><a href="#local-6989586621679357846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalAuthMode:CreatePortal' :: Maybe AuthMode
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalAuthMode%3ACreatePortal%27"><span class="hs-identifier hs-var">portalAuthMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMode
+</span><a href="#local-6989586621679357846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_clientToken"><span class="hs-identifier hs-type">createPortal_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="createPortal_clientToken"><span class="annot"><span class="annottext">createPortal_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_clientToken"><span class="hs-identifier hs-var hs-var">createPortal_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Maybe Text)
+-&gt; (CreatePortal -&gt; Maybe Text -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357845"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreatePortal' :: CreatePortal -&gt; Maybe Text
+</span><a href="#local-6989586621679357845"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357845"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357844"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357843"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreatePortal' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AclientToken%3ACreatePortal%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | A description for the portal.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalDescription"><span class="hs-identifier hs-type">createPortal_portalDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="createPortal_portalDescription"><span class="annot"><span class="annottext">createPortal_portalDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalDescription"><span class="hs-identifier hs-var hs-var">createPortal_portalDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Maybe Text)
+-&gt; (CreatePortal -&gt; Maybe Text -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357842"><span class="annot"><span class="annottext">Maybe Text
+portalDescription :: Maybe Text
+$sel:portalDescription:CreatePortal' :: CreatePortal -&gt; Maybe Text
+</span><a href="#local-6989586621679357842"><span class="hs-identifier hs-var hs-var">portalDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357842"><span class="hs-identifier hs-var">portalDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357841"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357840"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalDescription:CreatePortal' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalDescription%3ACreatePortal%27"><span class="hs-identifier hs-var">portalDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The email address that sends alarm notifications.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- If you use the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html IoT Events managed Lambda function&gt;</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- to manage your emails, you must</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html verify the sender email address in Amazon SES&gt;.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_notificationSenderEmail"><span class="hs-identifier hs-type">createPortal_notificationSenderEmail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="createPortal_notificationSenderEmail"><span class="annot"><span class="annottext">createPortal_notificationSenderEmail :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_notificationSenderEmail"><span class="hs-identifier hs-var hs-var">createPortal_notificationSenderEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Maybe Text)
+-&gt; (CreatePortal -&gt; Maybe Text -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357839"><span class="annot"><span class="annottext">Maybe Text
+notificationSenderEmail :: Maybe Text
+$sel:notificationSenderEmail:CreatePortal' :: CreatePortal -&gt; Maybe Text
+</span><a href="#local-6989586621679357839"><span class="hs-identifier hs-var hs-var">notificationSenderEmail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357839"><span class="hs-identifier hs-var">notificationSenderEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357838"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationSenderEmail:CreatePortal' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AnotificationSenderEmail%3ACreatePortal%27"><span class="hs-identifier hs-var">notificationSenderEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Contains the configuration information of an alarm created in an IoT</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- SiteWise Monitor portal. You can use the alarm to monitor an asset</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- property and get notified when the asset property value is outside a</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- specified range. For more information, see</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms&gt;</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- in the /IoT SiteWise Application Guide/.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_alarms"><span class="hs-identifier hs-type">createPortal_alarms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.Alarms.html#Alarms"><span class="hs-identifier hs-type">Alarms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="createPortal_alarms"><span class="annot"><span class="annottext">createPortal_alarms :: (Maybe Alarms -&gt; f (Maybe Alarms))
+-&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_alarms"><span class="hs-identifier hs-var hs-var">createPortal_alarms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Maybe Alarms)
+-&gt; (CreatePortal -&gt; Maybe Alarms -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal (Maybe Alarms) (Maybe Alarms)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357836"><span class="annot"><span class="annottext">Maybe Alarms
+alarms :: Maybe Alarms
+$sel:alarms:CreatePortal' :: CreatePortal -&gt; Maybe Alarms
+</span><a href="#local-6989586621679357836"><span class="hs-identifier hs-var hs-var">alarms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Alarms
+</span><a href="#local-6989586621679357836"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357835"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357834"><span class="annot"><span class="annottext">Maybe Alarms
+</span><a href="#local-6989586621679357834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarms:CreatePortal' :: Maybe Alarms
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3Aalarms%3ACreatePortal%27"><span class="hs-identifier hs-var">alarms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Alarms
+</span><a href="#local-6989586621679357834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | A logo image to display in the portal. Upload a square, high-resolution</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- image. The image is displayed on a dark background.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalLogoImageFile"><span class="hs-identifier hs-type">createPortal_portalLogoImageFile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="createPortal_portalLogoImageFile"><span class="annot"><span class="annottext">createPortal_portalLogoImageFile :: (Maybe ImageFile -&gt; f (Maybe ImageFile))
+-&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalLogoImageFile"><span class="hs-identifier hs-var hs-var">createPortal_portalLogoImageFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Maybe ImageFile)
+-&gt; (CreatePortal -&gt; Maybe ImageFile -&gt; CreatePortal)
+-&gt; Lens
+     CreatePortal CreatePortal (Maybe ImageFile) (Maybe ImageFile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357833"><span class="annot"><span class="annottext">Maybe ImageFile
+portalLogoImageFile :: Maybe ImageFile
+$sel:portalLogoImageFile:CreatePortal' :: CreatePortal -&gt; Maybe ImageFile
+</span><a href="#local-6989586621679357833"><span class="hs-identifier hs-var hs-var">portalLogoImageFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageFile
+</span><a href="#local-6989586621679357833"><span class="hs-identifier hs-var">portalLogoImageFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357832"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357831"><span class="annot"><span class="annottext">Maybe ImageFile
+</span><a href="#local-6989586621679357831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalLogoImageFile:CreatePortal' :: Maybe ImageFile
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalLogoImageFile%3ACreatePortal%27"><span class="hs-identifier hs-var">portalLogoImageFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageFile
+</span><a href="#local-6989586621679357831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | A list of key-value pairs that contain metadata for the portal. For more</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources&gt;</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_tags"><span class="hs-identifier hs-type">createPortal_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="createPortal_tags"><span class="annot"><span class="annottext">createPortal_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_tags"><span class="hs-identifier hs-var hs-var">createPortal_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Maybe (HashMap Text Text))
+-&gt; (CreatePortal -&gt; Maybe (HashMap Text Text) -&gt; CreatePortal)
+-&gt; Lens
+     CreatePortal
+     CreatePortal
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357830"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreatePortal' :: CreatePortal -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679357830"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679357830"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357829"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357828"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679357828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePortal' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3Atags%3ACreatePortal%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679357828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreatePortal -&gt; f CreatePortal)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePortal
+-&gt; f CreatePortal
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | A friendly name for the portal.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalName"><span class="hs-identifier hs-type">createPortal_portalName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-285"></span><span id="createPortal_portalName"><span class="annot"><span class="annottext">createPortal_portalName :: (Text -&gt; f Text) -&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalName"><span class="hs-identifier hs-var hs-var">createPortal_portalName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Text)
+-&gt; (CreatePortal -&gt; Text -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357824"><span class="annot"><span class="annottext">Text
+portalName :: Text
+$sel:portalName:CreatePortal' :: CreatePortal -&gt; Text
+</span><a href="#local-6989586621679357824"><span class="hs-identifier hs-var hs-var">portalName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357824"><span class="hs-identifier hs-var">portalName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357823"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalName:CreatePortal' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalName%3ACreatePortal%27"><span class="hs-identifier hs-var">portalName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The Amazon Web Services administrator\'s contact email address.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalContactEmail"><span class="hs-identifier hs-type">createPortal_portalContactEmail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-289"></span><span id="createPortal_portalContactEmail"><span class="annot"><span class="annottext">createPortal_portalContactEmail :: (Text -&gt; f Text) -&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_portalContactEmail"><span class="hs-identifier hs-var hs-var">createPortal_portalContactEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Text)
+-&gt; (CreatePortal -&gt; Text -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357821"><span class="annot"><span class="annottext">Text
+portalContactEmail :: Text
+$sel:portalContactEmail:CreatePortal' :: CreatePortal -&gt; Text
+</span><a href="#local-6989586621679357821"><span class="hs-identifier hs-var hs-var">portalContactEmail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357821"><span class="hs-identifier hs-var">portalContactEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357820"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357819"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalContactEmail:CreatePortal' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalContactEmail%3ACreatePortal%27"><span class="hs-identifier hs-var">portalContactEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- of a service role that allows the portal\'s users to access your IoT</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- SiteWise resources on your behalf. For more information, see</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html Using service roles for IoT SiteWise Monitor&gt;</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_roleArn"><span class="hs-identifier hs-type">createPortal_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-298"></span><span id="createPortal_roleArn"><span class="annot"><span class="annottext">createPortal_roleArn :: (Text -&gt; f Text) -&gt; CreatePortal -&gt; f CreatePortal
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortal_roleArn"><span class="hs-identifier hs-var hs-var">createPortal_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortal -&gt; Text)
+-&gt; (CreatePortal -&gt; Text -&gt; CreatePortal)
+-&gt; Lens CreatePortal CreatePortal Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357818"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreatePortal' :: CreatePortal -&gt; Text
+</span><a href="#local-6989586621679357818"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357818"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357817"><span class="annot"><span class="annottext">s :: CreatePortal
+</span><a href="#local-6989586621679357817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortal
+</span><a href="#local-6989586621679357817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreatePortal' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AroleArn%3ACreatePortal%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-301"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679357812"><span class="annot"><span class="annottext">request :: CreatePortal -&gt; Request CreatePortal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePortal -&gt; Request CreatePortal
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679357808"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreatePortal
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreatePortal)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreatePortal))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreatePortal
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreatePortal)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-305"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357805"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357805"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357804"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679357804"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357803"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PortalStatus
+-&gt; Text
+-&gt; CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-var">CreatePortalResponse'</span></a></span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; PortalStatus
+ -&gt; Text
+ -&gt; CreatePortalResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text -&gt; Text -&gt; PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357805"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text -&gt; Text -&gt; PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text -&gt; Text -&gt; PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; Text -&gt; PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (Text -&gt; PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Either String Text
+-&gt; Either String (PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalStartUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Either String (PortalStatus -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Either String PortalStatus
+-&gt; Either String (Text -&gt; CreatePortalResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PortalStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreatePortalResponse)
+-&gt; Either String Text -&gt; Either String CreatePortalResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ssoApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357795"><span id="local-6989586621679357797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span></span></span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679357788"><span class="annot"><span class="annottext">toHeaders :: CreatePortal -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePortal -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-323"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-324"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-325"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-326"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-328"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357778"><span id="local-6989586621679357780"><span id="local-6989586621679357782"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679357776"><span class="annot"><span class="annottext">toJSON :: CreatePortal -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal%27"><span class="hs-identifier hs-type">CreatePortal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357765"><span id="local-6989586621679357766"><span id="local-6989586621679357767"><span id="local-6989586621679357768"><span id="local-6989586621679357769"><span id="local-6989586621679357770"><span id="local-6989586621679357771"><span id="local-6989586621679357772"><span id="local-6989586621679357773"><span id="local-6989586621679357774"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe Alarms
+Maybe AuthMode
+Maybe ImageFile
+Text
+roleArn :: Text
+portalContactEmail :: Text
+portalName :: Text
+tags :: Maybe (HashMap Text Text)
+portalLogoImageFile :: Maybe ImageFile
+alarms :: Maybe Alarms
+notificationSenderEmail :: Maybe Text
+portalDescription :: Maybe Text
+clientToken :: Maybe Text
+portalAuthMode :: Maybe AuthMode
+$sel:roleArn:CreatePortal' :: CreatePortal -&gt; Text
+$sel:portalContactEmail:CreatePortal' :: CreatePortal -&gt; Text
+$sel:portalName:CreatePortal' :: CreatePortal -&gt; Text
+$sel:tags:CreatePortal' :: CreatePortal -&gt; Maybe (HashMap Text Text)
+$sel:portalLogoImageFile:CreatePortal' :: CreatePortal -&gt; Maybe ImageFile
+$sel:alarms:CreatePortal' :: CreatePortal -&gt; Maybe Alarms
+$sel:notificationSenderEmail:CreatePortal' :: CreatePortal -&gt; Maybe Text
+$sel:portalDescription:CreatePortal' :: CreatePortal -&gt; Maybe Text
+$sel:clientToken:CreatePortal' :: CreatePortal -&gt; Maybe Text
+$sel:portalAuthMode:CreatePortal' :: CreatePortal -&gt; Maybe AuthMode
+</span><a href="#local-6989586621679357765"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-334"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalAuthMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>              </span><span class="annot"><span class="annottext">(AuthMode -&gt; Pair) -&gt; Maybe AuthMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthMode
+</span><a href="#local-6989586621679357774"><span class="hs-identifier hs-var">portalAuthMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357773"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357772"><span class="hs-identifier hs-var">portalDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notificationSenderEmail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357771"><span class="hs-identifier hs-var">notificationSenderEmail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alarms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Alarms -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Alarms -&gt; Pair) -&gt; Maybe Alarms -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Alarms
+</span><a href="#local-6989586621679357770"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalLogoImageFile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImageFile -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>              </span><span class="annot"><span class="annottext">(ImageFile -&gt; Pair) -&gt; Maybe ImageFile -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ImageFile
+</span><a href="#local-6989586621679357769"><span class="hs-identifier hs-var">portalLogoImageFile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679357768"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357767"><span class="hs-identifier hs-var">portalName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-347"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portalContactEmail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357766"><span class="hs-identifier hs-var">portalContactEmail</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357765"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-350"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-353"></span><span>  </span><span id="local-6989586621679357759"><span class="annot"><span class="annottext">toPath :: CreatePortal -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePortal -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/portals&quot;</span></span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortal"><span class="hs-identifier hs-type">CreatePortal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-356"></span><span>  </span><span id="local-6989586621679357755"><span class="annot"><span class="annottext">toQuery :: CreatePortal -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePortal -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | /See:/ 'newCreatePortalResponse' smart constructor.</span><span>
+</span><span id="line-359"></span><span id="local-6989586621679357752"><span id="local-6989586621679357753"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePortalResponse"><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-var">CreatePortalResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePortalResponse%27"><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-var">CreatePortalResponse'</span></a></span></span><span>
+</span><span id="line-360"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-361"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePortalResponse%27"><span class="annot"><span class="annottext">CreatePortalResponse -&gt; Int
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AhttpStatus%3ACreatePortalResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>    </span><span class="hs-comment">-- | The ID of the created portal.</span><span>
+</span><span id="line-363"></span><span>    </span><span id="%24sel%3AportalId%3ACreatePortalResponse%27"><span class="annot"><span class="annottext">CreatePortalResponse -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalId%3ACreatePortalResponse%27"><span class="hs-identifier hs-var hs-var">portalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-365"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-366"></span><span>    </span><span class="hs-comment">-- of the portal, which has the following format.</span><span>
+</span><span id="line-367"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:portal\/${PortalId}@</span><span>
+</span><span id="line-369"></span><span>    </span><span id="%24sel%3AportalArn%3ACreatePortalResponse%27"><span class="annot"><span class="annottext">CreatePortalResponse -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalArn%3ACreatePortalResponse%27"><span class="hs-identifier hs-var hs-var">portalArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>    </span><span class="hs-comment">-- | The URL for the IoT SiteWise Monitor portal. You can use this URL to</span><span>
+</span><span id="line-371"></span><span>    </span><span class="hs-comment">-- access portals that use Amazon Web Services SSO for authentication. For</span><span>
+</span><span id="line-372"></span><span>    </span><span class="hs-comment">-- portals that use IAM for authentication, you must use the IoT SiteWise</span><span>
+</span><span id="line-373"></span><span>    </span><span class="hs-comment">-- console to get a URL that you can use to access the portal.</span><span>
+</span><span id="line-374"></span><span>    </span><span id="%24sel%3AportalStartUrl%3ACreatePortalResponse%27"><span class="annot"><span class="annottext">CreatePortalResponse -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalStartUrl%3ACreatePortalResponse%27"><span class="hs-identifier hs-var hs-var">portalStartUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>    </span><span class="hs-comment">-- | The status of the portal, which contains a state (@CREATING@ after</span><span>
+</span><span id="line-376"></span><span>    </span><span class="hs-comment">-- successfully calling this operation) and any error message.</span><span>
+</span><span id="line-377"></span><span>    </span><span id="%24sel%3AportalStatus%3ACreatePortalResponse%27"><span class="annot"><span class="annottext">CreatePortalResponse -&gt; PortalStatus
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalStatus%3ACreatePortalResponse%27"><span class="hs-identifier hs-var hs-var">portalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.PortalStatus.html#PortalStatus"><span class="hs-identifier hs-type">PortalStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="hs-comment">-- | The associated Amazon Web Services SSO application ID, if the portal</span><span>
+</span><span id="line-379"></span><span>    </span><span class="hs-comment">-- uses Amazon Web Services SSO.</span><span>
+</span><span id="line-380"></span><span>    </span><span id="%24sel%3AssoApplicationId%3ACreatePortalResponse%27"><span class="annot"><span class="annottext">CreatePortalResponse -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AssoApplicationId%3ACreatePortalResponse%27"><span class="hs-identifier hs-var hs-var">ssoApplicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-381"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-382"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357742"><span id="local-6989586621679357744"><span class="annot"><span class="annottext">CreatePortalResponse -&gt; CreatePortalResponse -&gt; Bool
+(CreatePortalResponse -&gt; CreatePortalResponse -&gt; Bool)
+-&gt; (CreatePortalResponse -&gt; CreatePortalResponse -&gt; Bool)
+-&gt; Eq CreatePortalResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePortalResponse -&gt; CreatePortalResponse -&gt; Bool
+$c/= :: CreatePortalResponse -&gt; CreatePortalResponse -&gt; Bool
+== :: CreatePortalResponse -&gt; CreatePortalResponse -&gt; Bool
+$c== :: CreatePortalResponse -&gt; CreatePortalResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357734"><span id="local-6989586621679357736"><span id="local-6989586621679357738"><span id="local-6989586621679357740"><span class="annot"><span class="annottext">ReadPrec [CreatePortalResponse]
+ReadPrec CreatePortalResponse
+Int -&gt; ReadS CreatePortalResponse
+ReadS [CreatePortalResponse]
+(Int -&gt; ReadS CreatePortalResponse)
+-&gt; ReadS [CreatePortalResponse]
+-&gt; ReadPrec CreatePortalResponse
+-&gt; ReadPrec [CreatePortalResponse]
+-&gt; Read CreatePortalResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePortalResponse]
+$creadListPrec :: ReadPrec [CreatePortalResponse]
+readPrec :: ReadPrec CreatePortalResponse
+$creadPrec :: ReadPrec CreatePortalResponse
+readList :: ReadS [CreatePortalResponse]
+$creadList :: ReadS [CreatePortalResponse]
+readsPrec :: Int -&gt; ReadS CreatePortalResponse
+$creadsPrec :: Int -&gt; ReadS CreatePortalResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357728"><span id="local-6989586621679357730"><span id="local-6989586621679357732"><span class="annot"><span class="annottext">Int -&gt; CreatePortalResponse -&gt; ShowS
+[CreatePortalResponse] -&gt; ShowS
+CreatePortalResponse -&gt; String
+(Int -&gt; CreatePortalResponse -&gt; ShowS)
+-&gt; (CreatePortalResponse -&gt; String)
+-&gt; ([CreatePortalResponse] -&gt; ShowS)
+-&gt; Show CreatePortalResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePortalResponse] -&gt; ShowS
+$cshowList :: [CreatePortalResponse] -&gt; ShowS
+show :: CreatePortalResponse -&gt; String
+$cshow :: CreatePortalResponse -&gt; String
+showsPrec :: Int -&gt; CreatePortalResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePortalResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreatePortalResponse -&gt; Rep CreatePortalResponse x)
+-&gt; (forall x. Rep CreatePortalResponse x -&gt; CreatePortalResponse)
+-&gt; Generic CreatePortalResponse
+forall x. Rep CreatePortalResponse x -&gt; CreatePortalResponse
+forall x. CreatePortalResponse -&gt; Rep CreatePortalResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreatePortalResponse x -&gt; CreatePortalResponse
+$cfrom :: forall x. CreatePortalResponse -&gt; Rep CreatePortalResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- Create a value of 'CreatePortalResponse' with all optional fields omitted.</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-388"></span><span class="hs-comment">--</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- 'httpStatus', 'createPortalResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- 'portalId', 'createPortalResponse_portalId' - The ID of the created portal.</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- 'portalArn', 'createPortalResponse_portalArn' - The</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- of the portal, which has the following format.</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:portal\/${PortalId}@</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- 'portalStartUrl', 'createPortalResponse_portalStartUrl' - The URL for the IoT SiteWise Monitor portal. You can use this URL to</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- access portals that use Amazon Web Services SSO for authentication. For</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- portals that use IAM for authentication, you must use the IoT SiteWise</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- console to get a URL that you can use to access the portal.</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- 'portalStatus', 'createPortalResponse_portalStatus' - The status of the portal, which contains a state (@CREATING@ after</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- successfully calling this operation) and any error message.</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- 'ssoApplicationId', 'createPortalResponse_ssoApplicationId' - The associated Amazon Web Services SSO application ID, if the portal</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- uses Amazon Web Services SSO.</span><span>
+</span><span id="line-412"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#newCreatePortalResponse"><span class="hs-identifier hs-type">newCreatePortalResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-413"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-414"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-415"></span><span>  </span><span class="hs-comment">-- | 'portalId'</span><span>
+</span><span id="line-416"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-417"></span><span>  </span><span class="hs-comment">-- | 'portalArn'</span><span>
+</span><span id="line-418"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-419"></span><span>  </span><span class="hs-comment">-- | 'portalStartUrl'</span><span>
+</span><span id="line-420"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-421"></span><span>  </span><span class="hs-comment">-- | 'portalStatus'</span><span>
+</span><span id="line-422"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.PortalStatus.html#PortalStatus"><span class="hs-identifier hs-type">PortalStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-423"></span><span>  </span><span class="hs-comment">-- | 'ssoApplicationId'</span><span>
+</span><span id="line-424"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-425"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span>
+</span><span id="line-426"></span><span id="newCreatePortalResponse"><span class="annot"><span class="annottext">newCreatePortalResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PortalStatus
+-&gt; Text
+-&gt; CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#newCreatePortalResponse"><span class="hs-identifier hs-var hs-var">newCreatePortalResponse</span></a></span></span><span>
+</span><span id="line-427"></span><span>  </span><span id="local-6989586621679357725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357725"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-428"></span><span>  </span><span id="local-6989586621679357724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357724"><span class="hs-identifier hs-var">pPortalId_</span></a></span></span><span>
+</span><span id="line-429"></span><span>  </span><span id="local-6989586621679357723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357723"><span class="hs-identifier hs-var">pPortalArn_</span></a></span></span><span>
+</span><span id="line-430"></span><span>  </span><span id="local-6989586621679357722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357722"><span class="hs-identifier hs-var">pPortalStartUrl_</span></a></span></span><span>
+</span><span id="line-431"></span><span>  </span><span id="local-6989586621679357721"><span class="annot"><span class="annottext">PortalStatus
+</span><a href="#local-6989586621679357721"><span class="hs-identifier hs-var">pPortalStatus_</span></a></span></span><span>
+</span><span id="line-432"></span><span>  </span><span id="local-6989586621679357720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357720"><span class="hs-identifier hs-var">pSsoApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><span class="annottext">CreatePortalResponse' :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PortalStatus
+-&gt; Text
+-&gt; CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span>
+</span><span id="line-434"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePortalResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AhttpStatus%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357725"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalId:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalId%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357724"><span class="hs-identifier hs-var">pPortalId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-436"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalArn:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalArn%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357723"><span class="hs-identifier hs-var">pPortalArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalStartUrl:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalStartUrl%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalStartUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357722"><span class="hs-identifier hs-var">pPortalStartUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-438"></span><span>        </span><span class="annot"><span class="annottext">$sel:portalStatus:CreatePortalResponse' :: PortalStatus
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalStatus%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortalStatus
+</span><a href="#local-6989586621679357721"><span class="hs-identifier hs-var">pPortalStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>        </span><span class="annot"><span class="annottext">$sel:ssoApplicationId:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AssoApplicationId%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">ssoApplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357720"><span class="hs-identifier hs-var">pSsoApplicationId_</span></a></span><span>
+</span><span id="line-440"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-441"></span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-443"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_httpStatus"><span class="hs-identifier hs-type">createPortalResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-444"></span><span id="createPortalResponse_httpStatus"><span class="annot"><span class="annottext">createPortalResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreatePortalResponse -&gt; f CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createPortalResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortalResponse -&gt; Int)
+-&gt; (CreatePortalResponse -&gt; Int -&gt; CreatePortalResponse)
+-&gt; Lens CreatePortalResponse CreatePortalResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357719"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreatePortalResponse' :: CreatePortalResponse -&gt; Int
+</span><a href="#local-6989586621679357719"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357719"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357718"><span class="annot"><span class="annottext">s :: CreatePortalResponse
+</span><a href="#local-6989586621679357718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357717"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortalResponse
+</span><a href="#local-6989586621679357718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePortalResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AhttpStatus%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-445"></span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- | The ID of the created portal.</span><span>
+</span><span id="line-447"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalId"><span class="hs-identifier hs-type">createPortalResponse_portalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-448"></span><span id="createPortalResponse_portalId"><span class="annot"><span class="annottext">createPortalResponse_portalId :: (Text -&gt; f Text) -&gt; CreatePortalResponse -&gt; f CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalId"><span class="hs-identifier hs-var hs-var">createPortalResponse_portalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortalResponse -&gt; Text)
+-&gt; (CreatePortalResponse -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Lens CreatePortalResponse CreatePortalResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357716"><span class="annot"><span class="annottext">Text
+portalId :: Text
+$sel:portalId:CreatePortalResponse' :: CreatePortalResponse -&gt; Text
+</span><a href="#local-6989586621679357716"><span class="hs-identifier hs-var hs-var">portalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357716"><span class="hs-identifier hs-var">portalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357715"><span class="annot"><span class="annottext">s :: CreatePortalResponse
+</span><a href="#local-6989586621679357715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortalResponse
+</span><a href="#local-6989586621679357715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalId:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalId%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- of the portal, which has the following format.</span><span>
+</span><span id="line-453"></span><span class="hs-comment">--</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:portal\/${PortalId}@</span><span>
+</span><span id="line-455"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalArn"><span class="hs-identifier hs-type">createPortalResponse_portalArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-456"></span><span id="createPortalResponse_portalArn"><span class="annot"><span class="annottext">createPortalResponse_portalArn :: (Text -&gt; f Text) -&gt; CreatePortalResponse -&gt; f CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalArn"><span class="hs-identifier hs-var hs-var">createPortalResponse_portalArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortalResponse -&gt; Text)
+-&gt; (CreatePortalResponse -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Lens CreatePortalResponse CreatePortalResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357713"><span class="annot"><span class="annottext">Text
+portalArn :: Text
+$sel:portalArn:CreatePortalResponse' :: CreatePortalResponse -&gt; Text
+</span><a href="#local-6989586621679357713"><span class="hs-identifier hs-var hs-var">portalArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357713"><span class="hs-identifier hs-var">portalArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357712"><span class="annot"><span class="annottext">s :: CreatePortalResponse
+</span><a href="#local-6989586621679357712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortalResponse
+</span><a href="#local-6989586621679357712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalArn:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalArn%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- | The URL for the IoT SiteWise Monitor portal. You can use this URL to</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- access portals that use Amazon Web Services SSO for authentication. For</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- portals that use IAM for authentication, you must use the IoT SiteWise</span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- console to get a URL that you can use to access the portal.</span><span>
+</span><span id="line-462"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalStartUrl"><span class="hs-identifier hs-type">createPortalResponse_portalStartUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-463"></span><span id="createPortalResponse_portalStartUrl"><span class="annot"><span class="annottext">createPortalResponse_portalStartUrl :: (Text -&gt; f Text) -&gt; CreatePortalResponse -&gt; f CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalStartUrl"><span class="hs-identifier hs-var hs-var">createPortalResponse_portalStartUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortalResponse -&gt; Text)
+-&gt; (CreatePortalResponse -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Lens CreatePortalResponse CreatePortalResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357710"><span class="annot"><span class="annottext">Text
+portalStartUrl :: Text
+$sel:portalStartUrl:CreatePortalResponse' :: CreatePortalResponse -&gt; Text
+</span><a href="#local-6989586621679357710"><span class="hs-identifier hs-var hs-var">portalStartUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357710"><span class="hs-identifier hs-var">portalStartUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357709"><span class="annot"><span class="annottext">s :: CreatePortalResponse
+</span><a href="#local-6989586621679357709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortalResponse
+</span><a href="#local-6989586621679357709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalStartUrl:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalStartUrl%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalStartUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-464"></span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- | The status of the portal, which contains a state (@CREATING@ after</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- successfully calling this operation) and any error message.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalStatus"><span class="hs-identifier hs-type">createPortalResponse_portalStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.PortalStatus.html#PortalStatus"><span class="hs-identifier hs-type">PortalStatus</span></a></span><span>
+</span><span id="line-468"></span><span id="createPortalResponse_portalStatus"><span class="annot"><span class="annottext">createPortalResponse_portalStatus :: (PortalStatus -&gt; f PortalStatus)
+-&gt; CreatePortalResponse -&gt; f CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_portalStatus"><span class="hs-identifier hs-var hs-var">createPortalResponse_portalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortalResponse -&gt; PortalStatus)
+-&gt; (CreatePortalResponse -&gt; PortalStatus -&gt; CreatePortalResponse)
+-&gt; Lens
+     CreatePortalResponse CreatePortalResponse PortalStatus PortalStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357707"><span class="annot"><span class="annottext">PortalStatus
+portalStatus :: PortalStatus
+$sel:portalStatus:CreatePortalResponse' :: CreatePortalResponse -&gt; PortalStatus
+</span><a href="#local-6989586621679357707"><span class="hs-identifier hs-var hs-var">portalStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortalStatus
+</span><a href="#local-6989586621679357707"><span class="hs-identifier hs-var">portalStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357706"><span class="annot"><span class="annottext">s :: CreatePortalResponse
+</span><a href="#local-6989586621679357706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357705"><span class="annot"><span class="annottext">PortalStatus
+</span><a href="#local-6989586621679357705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortalResponse
+</span><a href="#local-6989586621679357706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portalStatus:CreatePortalResponse' :: PortalStatus
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AportalStatus%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">portalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortalStatus
+</span><a href="#local-6989586621679357705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- | The associated Amazon Web Services SSO application ID, if the portal</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- uses Amazon Web Services SSO.</span><span>
+</span><span id="line-472"></span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_ssoApplicationId"><span class="hs-identifier hs-type">createPortalResponse_ssoApplicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-473"></span><span id="createPortalResponse_ssoApplicationId"><span class="annot"><span class="annottext">createPortalResponse_ssoApplicationId :: (Text -&gt; f Text) -&gt; CreatePortalResponse -&gt; f CreatePortalResponse
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#createPortalResponse_ssoApplicationId"><span class="hs-identifier hs-var hs-var">createPortalResponse_ssoApplicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePortalResponse -&gt; Text)
+-&gt; (CreatePortalResponse -&gt; Text -&gt; CreatePortalResponse)
+-&gt; Lens CreatePortalResponse CreatePortalResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357704"><span class="annot"><span class="annottext">Text
+ssoApplicationId :: Text
+$sel:ssoApplicationId:CreatePortalResponse' :: CreatePortalResponse -&gt; Text
+</span><a href="#local-6989586621679357704"><span class="hs-identifier hs-var hs-var">ssoApplicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357704"><span class="hs-identifier hs-var">ssoApplicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357703"><span class="annot"><span class="annottext">s :: CreatePortalResponse
+</span><a href="#local-6989586621679357703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse%27"><span class="hs-identifier hs-type">CreatePortalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePortalResponse
+</span><a href="#local-6989586621679357703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssoApplicationId:CreatePortalResponse' :: Text
+</span><a href="Amazonka.IoTSiteWise.CreatePortal.html#%24sel%3AssoApplicationId%3ACreatePortalResponse%27"><span class="hs-identifier hs-var">ssoApplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-474"></span><span>
+</span><span id="line-475"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.CreatePortal.html#CreatePortalResponse"><span class="hs-identifier hs-type">CreatePortalResponse</span></a></span></span><span>
+</span><span id="line-476"></span></pre></body></html>

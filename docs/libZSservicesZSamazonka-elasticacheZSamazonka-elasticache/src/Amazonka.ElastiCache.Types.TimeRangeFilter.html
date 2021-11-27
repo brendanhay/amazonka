@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.Types.TimeRangeFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.Types.TimeRangeFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Filters update actions from the service updates that are in available</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- status during the time range.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTimeRangeFilter' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679406932"><span id="local-6989586621679406933"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeRangeFilter"><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-var">TimeRangeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeRangeFilter%27"><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter%27"><span class="hs-identifier hs-var">TimeRangeFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time of the time range filter</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartTime%3ATimeRangeFilter%27"><span class="annot"><span class="annottext">TimeRangeFilter -&gt; Maybe ISO8601
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#%24sel%3AstartTime%3ATimeRangeFilter%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The end time of the time range filter</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AendTime%3ATimeRangeFilter%27"><span class="annot"><span class="annottext">TimeRangeFilter -&gt; Maybe ISO8601
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#%24sel%3AendTime%3ATimeRangeFilter%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406925"><span id="local-6989586621679406927"><span class="annot"><span class="annottext">TimeRangeFilter -&gt; TimeRangeFilter -&gt; Bool
+(TimeRangeFilter -&gt; TimeRangeFilter -&gt; Bool)
+-&gt; (TimeRangeFilter -&gt; TimeRangeFilter -&gt; Bool)
+-&gt; Eq TimeRangeFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimeRangeFilter -&gt; TimeRangeFilter -&gt; Bool
+$c/= :: TimeRangeFilter -&gt; TimeRangeFilter -&gt; Bool
+== :: TimeRangeFilter -&gt; TimeRangeFilter -&gt; Bool
+$c== :: TimeRangeFilter -&gt; TimeRangeFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406916"><span id="local-6989586621679406918"><span id="local-6989586621679406920"><span id="local-6989586621679406922"><span class="annot"><span class="annottext">ReadPrec [TimeRangeFilter]
+ReadPrec TimeRangeFilter
+Int -&gt; ReadS TimeRangeFilter
+ReadS [TimeRangeFilter]
+(Int -&gt; ReadS TimeRangeFilter)
+-&gt; ReadS [TimeRangeFilter]
+-&gt; ReadPrec TimeRangeFilter
+-&gt; ReadPrec [TimeRangeFilter]
+-&gt; Read TimeRangeFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimeRangeFilter]
+$creadListPrec :: ReadPrec [TimeRangeFilter]
+readPrec :: ReadPrec TimeRangeFilter
+$creadPrec :: ReadPrec TimeRangeFilter
+readList :: ReadS [TimeRangeFilter]
+$creadList :: ReadS [TimeRangeFilter]
+readsPrec :: Int -&gt; ReadS TimeRangeFilter
+$creadsPrec :: Int -&gt; ReadS TimeRangeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406909"><span id="local-6989586621679406911"><span id="local-6989586621679406913"><span class="annot"><span class="annottext">Int -&gt; TimeRangeFilter -&gt; ShowS
+[TimeRangeFilter] -&gt; ShowS
+TimeRangeFilter -&gt; String
+(Int -&gt; TimeRangeFilter -&gt; ShowS)
+-&gt; (TimeRangeFilter -&gt; String)
+-&gt; ([TimeRangeFilter] -&gt; ShowS)
+-&gt; Show TimeRangeFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimeRangeFilter] -&gt; ShowS
+$cshowList :: [TimeRangeFilter] -&gt; ShowS
+show :: TimeRangeFilter -&gt; String
+$cshow :: TimeRangeFilter -&gt; String
+showsPrec :: Int -&gt; TimeRangeFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimeRangeFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TimeRangeFilter -&gt; Rep TimeRangeFilter x)
+-&gt; (forall x. Rep TimeRangeFilter x -&gt; TimeRangeFilter)
+-&gt; Generic TimeRangeFilter
+forall x. Rep TimeRangeFilter x -&gt; TimeRangeFilter
+forall x. TimeRangeFilter -&gt; Rep TimeRangeFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimeRangeFilter x -&gt; TimeRangeFilter
+$cfrom :: forall x. TimeRangeFilter -&gt; Rep TimeRangeFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'TimeRangeFilter' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'startTime', 'timeRangeFilter_startTime' - The start time of the time range filter</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'endTime', 'timeRangeFilter_endTime' - The end time of the time range filter</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#newTimeRangeFilter"><span class="hs-identifier hs-type">newTimeRangeFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span><span>
+</span><span id="line-51"></span><span id="newTimeRangeFilter"><span class="annot"><span class="annottext">newTimeRangeFilter :: TimeRangeFilter
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#newTimeRangeFilter"><span class="hs-identifier hs-var hs-var">newTimeRangeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">TimeRangeFilter' :: Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; TimeRangeFilter
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter%27"><span class="hs-identifier hs-type">TimeRangeFilter'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:TimeRangeFilter' :: Maybe ISO8601
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#%24sel%3AstartTime%3ATimeRangeFilter%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:TimeRangeFilter' :: Maybe ISO8601
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#%24sel%3AendTime%3ATimeRangeFilter%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The start time of the time range filter</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#timeRangeFilter_startTime"><span class="hs-identifier hs-type">timeRangeFilter_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="timeRangeFilter_startTime"><span class="annot"><span class="annottext">timeRangeFilter_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TimeRangeFilter -&gt; f TimeRangeFilter
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#timeRangeFilter_startTime"><span class="hs-identifier hs-var hs-var">timeRangeFilter_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeRangeFilter -&gt; Maybe ISO8601)
+-&gt; (TimeRangeFilter -&gt; Maybe ISO8601 -&gt; TimeRangeFilter)
+-&gt; Lens
+     TimeRangeFilter TimeRangeFilter (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter%27"><span class="hs-identifier hs-type">TimeRangeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406900"><span class="annot"><span class="annottext">Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:startTime:TimeRangeFilter' :: TimeRangeFilter -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679406900"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406900"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406899"><span class="annot"><span class="annottext">s :: TimeRangeFilter
+</span><a href="#local-6989586621679406899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter%27"><span class="hs-identifier hs-type">TimeRangeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406898"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRangeFilter
+</span><a href="#local-6989586621679406899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:TimeRangeFilter' :: Maybe ISO8601
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#%24sel%3AstartTime%3ATimeRangeFilter%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; TimeRangeFilter -&gt; f TimeRangeFilter)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TimeRangeFilter
+-&gt; f TimeRangeFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The end time of the time range filter</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#timeRangeFilter_endTime"><span class="hs-identifier hs-type">timeRangeFilter_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="timeRangeFilter_endTime"><span class="annot"><span class="annottext">timeRangeFilter_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TimeRangeFilter -&gt; f TimeRangeFilter
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#timeRangeFilter_endTime"><span class="hs-identifier hs-var hs-var">timeRangeFilter_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeRangeFilter -&gt; Maybe ISO8601)
+-&gt; (TimeRangeFilter -&gt; Maybe ISO8601 -&gt; TimeRangeFilter)
+-&gt; Lens
+     TimeRangeFilter TimeRangeFilter (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter%27"><span class="hs-identifier hs-type">TimeRangeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406893"><span class="annot"><span class="annottext">Maybe ISO8601
+endTime :: Maybe ISO8601
+$sel:endTime:TimeRangeFilter' :: TimeRangeFilter -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679406893"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406893"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406892"><span class="annot"><span class="annottext">s :: TimeRangeFilter
+</span><a href="#local-6989586621679406892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter%27"><span class="hs-identifier hs-type">TimeRangeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406891"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRangeFilter
+</span><a href="#local-6989586621679406892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:TimeRangeFilter' :: Maybe ISO8601
+</span><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#%24sel%3AendTime%3ATimeRangeFilter%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; TimeRangeFilter -&gt; f TimeRangeFilter)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TimeRangeFilter
+-&gt; f TimeRangeFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406887"><span id="local-6989586621679406889"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter"><span class="hs-identifier hs-type">TimeRangeFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679406880"><span class="annot"><span class="annottext">toQuery :: TimeRangeFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.TimeRangeFilter.html#TimeRangeFilter%27"><span class="hs-identifier hs-type">TimeRangeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406877"><span id="local-6989586621679406878"><span class="annot"><span class="annottext">Maybe ISO8601
+endTime :: Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:endTime:TimeRangeFilter' :: TimeRangeFilter -&gt; Maybe ISO8601
+$sel:startTime:TimeRangeFilter' :: TimeRangeFilter -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679406877"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406878"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679406877"><span class="hs-identifier hs-var">endTime</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span></pre></body></html>

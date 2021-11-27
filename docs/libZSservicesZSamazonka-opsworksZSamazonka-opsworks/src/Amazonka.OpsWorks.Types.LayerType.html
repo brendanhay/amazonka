@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.Types.LayerType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.Types.LayerType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier">LayerType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Aws_flow_ruby"><span class="hs-identifier">LayerType_Aws_flow_ruby</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Custom"><span class="hs-identifier">LayerType_Custom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Db_master"><span class="hs-identifier">LayerType_Db_master</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Ecs_cluster"><span class="hs-identifier">LayerType_Ecs_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Java_app"><span class="hs-identifier">LayerType_Java_app</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Lb"><span class="hs-identifier">LayerType_Lb</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Memcached"><span class="hs-identifier">LayerType_Memcached</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Monitoring_master"><span class="hs-identifier">LayerType_Monitoring_master</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Nodejs_app"><span class="hs-identifier">LayerType_Nodejs_app</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Php_app"><span class="hs-identifier">LayerType_Php_app</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Rails_app"><span class="hs-identifier">LayerType_Rails_app</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Web"><span class="hs-identifier">LayerType_Web</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679375406"><span id="local-6989586621679375407"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LayerType"><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-var">LayerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LayerType%27"><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-var">LayerType'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLayerType"><span class="annot"><span class="annottext">LayerType -&gt; Text
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#fromLayerType"><span class="hs-identifier hs-var hs-var">fromLayerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375398"><span id="local-6989586621679375400"><span id="local-6989586621679375402"><span class="annot"><span class="annottext">Int -&gt; LayerType -&gt; ShowS
+[LayerType] -&gt; ShowS
+LayerType -&gt; String
+(Int -&gt; LayerType -&gt; ShowS)
+-&gt; (LayerType -&gt; String)
+-&gt; ([LayerType] -&gt; ShowS)
+-&gt; Show LayerType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LayerType] -&gt; ShowS
+$cshowList :: [LayerType] -&gt; ShowS
+show :: LayerType -&gt; String
+$cshow :: LayerType -&gt; String
+showsPrec :: Int -&gt; LayerType -&gt; ShowS
+$cshowsPrec :: Int -&gt; LayerType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679375389"><span id="local-6989586621679375391"><span id="local-6989586621679375393"><span id="local-6989586621679375395"><span class="annot"><span class="annottext">ReadPrec [LayerType]
+ReadPrec LayerType
+Int -&gt; ReadS LayerType
+ReadS [LayerType]
+(Int -&gt; ReadS LayerType)
+-&gt; ReadS [LayerType]
+-&gt; ReadPrec LayerType
+-&gt; ReadPrec [LayerType]
+-&gt; Read LayerType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LayerType]
+$creadListPrec :: ReadPrec [LayerType]
+readPrec :: ReadPrec LayerType
+$creadPrec :: ReadPrec LayerType
+readList :: ReadS [LayerType]
+$creadList :: ReadS [LayerType]
+readsPrec :: Int -&gt; ReadS LayerType
+$creadsPrec :: Int -&gt; ReadS LayerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679375384"><span id="local-6989586621679375386"><span class="annot"><span class="annottext">LayerType -&gt; LayerType -&gt; Bool
+(LayerType -&gt; LayerType -&gt; Bool)
+-&gt; (LayerType -&gt; LayerType -&gt; Bool) -&gt; Eq LayerType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LayerType -&gt; LayerType -&gt; Bool
+$c/= :: LayerType -&gt; LayerType -&gt; Bool
+== :: LayerType -&gt; LayerType -&gt; Bool
+$c== :: LayerType -&gt; LayerType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679375368"><span id="local-6989586621679375370"><span id="local-6989586621679375372"><span id="local-6989586621679375374"><span id="local-6989586621679375376"><span id="local-6989586621679375378"><span id="local-6989586621679375380"><span class="annot"><span class="annottext">Eq LayerType
+Eq LayerType
+-&gt; (LayerType -&gt; LayerType -&gt; Ordering)
+-&gt; (LayerType -&gt; LayerType -&gt; Bool)
+-&gt; (LayerType -&gt; LayerType -&gt; Bool)
+-&gt; (LayerType -&gt; LayerType -&gt; Bool)
+-&gt; (LayerType -&gt; LayerType -&gt; Bool)
+-&gt; (LayerType -&gt; LayerType -&gt; LayerType)
+-&gt; (LayerType -&gt; LayerType -&gt; LayerType)
+-&gt; Ord LayerType
+LayerType -&gt; LayerType -&gt; Bool
+LayerType -&gt; LayerType -&gt; Ordering
+LayerType -&gt; LayerType -&gt; LayerType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LayerType -&gt; LayerType -&gt; LayerType
+$cmin :: LayerType -&gt; LayerType -&gt; LayerType
+max :: LayerType -&gt; LayerType -&gt; LayerType
+$cmax :: LayerType -&gt; LayerType -&gt; LayerType
+&gt;= :: LayerType -&gt; LayerType -&gt; Bool
+$c&gt;= :: LayerType -&gt; LayerType -&gt; Bool
+&gt; :: LayerType -&gt; LayerType -&gt; Bool
+$c&gt; :: LayerType -&gt; LayerType -&gt; Bool
+&lt;= :: LayerType -&gt; LayerType -&gt; Bool
+$c&lt;= :: LayerType -&gt; LayerType -&gt; Bool
+&lt; :: LayerType -&gt; LayerType -&gt; Bool
+$c&lt; :: LayerType -&gt; LayerType -&gt; Bool
+compare :: LayerType -&gt; LayerType -&gt; Ordering
+$ccompare :: LayerType -&gt; LayerType -&gt; Ordering
+$cp1Ord :: Eq LayerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LayerType -&gt; Rep LayerType x)
+-&gt; (forall x. Rep LayerType x -&gt; LayerType) -&gt; Generic LayerType
+forall x. Rep LayerType x -&gt; LayerType
+forall x. LayerType -&gt; Rep LayerType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LayerType x -&gt; LayerType
+$cfrom :: forall x. LayerType -&gt; Rep LayerType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375360"><span id="local-6989586621679375362"><span class="annot"><span class="annottext">Int -&gt; LayerType -&gt; Int
+LayerType -&gt; Int
+(Int -&gt; LayerType -&gt; Int)
+-&gt; (LayerType -&gt; Int) -&gt; Hashable LayerType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LayerType -&gt; Int
+$chash :: LayerType -&gt; Int
+hashWithSalt :: Int -&gt; LayerType -&gt; Int
+$chashWithSalt :: Int -&gt; LayerType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679375357"><span class="annot"><span class="annottext">LayerType -&gt; ()
+(LayerType -&gt; ()) -&gt; NFData LayerType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LayerType -&gt; ()
+$crnf :: LayerType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679375354"><span class="annot"><span class="annottext">Text -&gt; Either String LayerType
+(Text -&gt; Either String LayerType) -&gt; FromText LayerType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LayerType
+$cfromText :: Text -&gt; Either String LayerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679375351"><span class="annot"><span class="annottext">LayerType -&gt; Text
+(LayerType -&gt; Text) -&gt; ToText LayerType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LayerType -&gt; Text
+$ctoText :: LayerType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679375348"><span class="annot"><span class="annottext">LayerType -&gt; ByteString
+(LayerType -&gt; ByteString) -&gt; ToByteString LayerType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LayerType -&gt; ByteString
+$ctoBS :: LayerType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679375345"><span class="annot"><span class="annottext">LayerType -&gt; ByteStringBuilder
+(LayerType -&gt; ByteStringBuilder) -&gt; ToLog LayerType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LayerType -&gt; ByteStringBuilder
+$cbuild :: LayerType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679375342"><span class="annot"><span class="annottext">HeaderName -&gt; LayerType -&gt; [Header]
+(HeaderName -&gt; LayerType -&gt; [Header]) -&gt; ToHeader LayerType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LayerType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LayerType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679375339"><span class="annot"><span class="annottext">LayerType -&gt; QueryString
+(LayerType -&gt; QueryString) -&gt; ToQuery LayerType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LayerType -&gt; QueryString
+$ctoQuery :: LayerType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679375334"><span id="local-6989586621679375336"><span class="annot"><span class="annottext">Value -&gt; Parser [LayerType]
+Value -&gt; Parser LayerType
+(Value -&gt; Parser LayerType)
+-&gt; (Value -&gt; Parser [LayerType]) -&gt; FromJSON LayerType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LayerType]
+$cparseJSONList :: Value -&gt; Parser [LayerType]
+parseJSON :: Value -&gt; Parser LayerType
+$cparseJSON :: Value -&gt; Parser LayerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679375329"><span id="local-6989586621679375331"><span class="annot"><span class="annottext">FromJSONKeyFunction [LayerType]
+FromJSONKeyFunction LayerType
+FromJSONKeyFunction LayerType
+-&gt; FromJSONKeyFunction [LayerType] -&gt; FromJSONKey LayerType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LayerType]
+$cfromJSONKeyList :: FromJSONKeyFunction [LayerType]
+fromJSONKey :: FromJSONKeyFunction LayerType
+$cfromJSONKey :: FromJSONKeyFunction LayerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679375320"><span id="local-6989586621679375322"><span id="local-6989586621679375324"><span id="local-6989586621679375326"><span class="annot"><span class="annottext">[LayerType] -&gt; Encoding
+[LayerType] -&gt; Value
+LayerType -&gt; Encoding
+LayerType -&gt; Value
+(LayerType -&gt; Value)
+-&gt; (LayerType -&gt; Encoding)
+-&gt; ([LayerType] -&gt; Value)
+-&gt; ([LayerType] -&gt; Encoding)
+-&gt; ToJSON LayerType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LayerType] -&gt; Encoding
+$ctoEncodingList :: [LayerType] -&gt; Encoding
+toJSONList :: [LayerType] -&gt; Value
+$ctoJSONList :: [LayerType] -&gt; Value
+toEncoding :: LayerType -&gt; Encoding
+$ctoEncoding :: LayerType -&gt; Encoding
+toJSON :: LayerType -&gt; Value
+$ctoJSON :: LayerType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679375315"><span id="local-6989586621679375317"><span class="annot"><span class="annottext">ToJSONKeyFunction [LayerType]
+ToJSONKeyFunction LayerType
+ToJSONKeyFunction LayerType
+-&gt; ToJSONKeyFunction [LayerType] -&gt; ToJSONKey LayerType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LayerType]
+$ctoJSONKeyList :: ToJSONKeyFunction [LayerType]
+toJSONKey :: ToJSONKeyFunction LayerType
+$ctoJSONKey :: ToJSONKeyFunction LayerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679375312"><span class="annot"><span class="annottext">[Node] -&gt; Either String LayerType
+([Node] -&gt; Either String LayerType) -&gt; FromXML LayerType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LayerType
+$cparseXML :: [Node] -&gt; Either String LayerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679375309"><span class="annot"><span class="annottext">LayerType -&gt; XML
+(LayerType -&gt; XML) -&gt; ToXML LayerType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LayerType -&gt; XML
+$ctoXML :: LayerType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Aws_flow_ruby"><span class="hs-identifier hs-type">LayerType_Aws_flow_ruby</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Aws_flow_ruby"><span id="%24mLayerType_Aws_flow_ruby"><span id="LayerType_Aws_flow_ruby"><span class="annot"><span class="annottext">$bLayerType_Aws_flow_ruby :: LayerType
+$mLayerType_Aws_flow_ruby :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Aws_flow_ruby"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Aws_flow_ruby</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aws-flow-ruby&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Custom"><span class="hs-identifier hs-type">LayerType_Custom</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Custom"><span id="%24mLayerType_Custom"><span id="LayerType_Custom"><span class="annot"><span class="annottext">$bLayerType_Custom :: LayerType
+$mLayerType_Custom :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Custom"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Custom</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;custom&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Db_master"><span class="hs-identifier hs-type">LayerType_Db_master</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Db_master"><span id="%24mLayerType_Db_master"><span id="LayerType_Db_master"><span class="annot"><span class="annottext">$bLayerType_Db_master :: LayerType
+$mLayerType_Db_master :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Db_master"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Db_master</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;db-master&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Ecs_cluster"><span class="hs-identifier hs-type">LayerType_Ecs_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Ecs_cluster"><span id="%24mLayerType_Ecs_cluster"><span id="LayerType_Ecs_cluster"><span class="annot"><span class="annottext">$bLayerType_Ecs_cluster :: LayerType
+$mLayerType_Ecs_cluster :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Ecs_cluster"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Ecs_cluster</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ecs-cluster&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Java_app"><span class="hs-identifier hs-type">LayerType_Java_app</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Java_app"><span id="%24mLayerType_Java_app"><span id="LayerType_Java_app"><span class="annot"><span class="annottext">$bLayerType_Java_app :: LayerType
+$mLayerType_Java_app :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Java_app"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Java_app</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;java-app&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Lb"><span class="hs-identifier hs-type">LayerType_Lb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Lb"><span id="%24mLayerType_Lb"><span id="LayerType_Lb"><span class="annot"><span class="annottext">$bLayerType_Lb :: LayerType
+$mLayerType_Lb :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Lb"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Lb</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;lb&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Memcached"><span class="hs-identifier hs-type">LayerType_Memcached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Memcached"><span id="%24mLayerType_Memcached"><span id="LayerType_Memcached"><span class="annot"><span class="annottext">$bLayerType_Memcached :: LayerType
+$mLayerType_Memcached :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Memcached"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Memcached</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;memcached&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Monitoring_master"><span class="hs-identifier hs-type">LayerType_Monitoring_master</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Monitoring_master"><span id="%24mLayerType_Monitoring_master"><span id="LayerType_Monitoring_master"><span class="annot"><span class="annottext">$bLayerType_Monitoring_master :: LayerType
+$mLayerType_Monitoring_master :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Monitoring_master"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Monitoring_master</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;monitoring-master&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Nodejs_app"><span class="hs-identifier hs-type">LayerType_Nodejs_app</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Nodejs_app"><span id="%24mLayerType_Nodejs_app"><span id="LayerType_Nodejs_app"><span class="annot"><span class="annottext">$bLayerType_Nodejs_app :: LayerType
+$mLayerType_Nodejs_app :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Nodejs_app"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Nodejs_app</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;nodejs-app&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Php_app"><span class="hs-identifier hs-type">LayerType_Php_app</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Php_app"><span id="%24mLayerType_Php_app"><span id="LayerType_Php_app"><span class="annot"><span class="annottext">$bLayerType_Php_app :: LayerType
+$mLayerType_Php_app :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Php_app"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Php_app</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;php-app&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Rails_app"><span class="hs-identifier hs-type">LayerType_Rails_app</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Rails_app"><span id="%24mLayerType_Rails_app"><span id="LayerType_Rails_app"><span class="annot"><span class="annottext">$bLayerType_Rails_app :: LayerType
+$mLayerType_Rails_app :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Rails_app"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Rails_app</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rails-app&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Web"><span class="hs-identifier hs-type">LayerType_Web</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType"><span class="hs-identifier hs-type">LayerType</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerType_Web"><span id="%24mLayerType_Web"><span id="LayerType_Web"><span class="annot"><span class="annottext">$bLayerType_Web :: LayerType
+$mLayerType_Web :: forall r. LayerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.LayerType.html#%24bLayerType_Web"><span class="hs-identifier hs-var hs-var hs-var">LayerType_Web</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-identifier hs-type">LayerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;web&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Aws_flow_ruby"><span class="hs-pragma hs-type">LayerType_Aws_flow_ruby</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Custom"><span class="hs-pragma hs-type">LayerType_Custom</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Db_master"><span class="hs-pragma hs-type">LayerType_Db_master</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Ecs_cluster"><span class="hs-pragma hs-type">LayerType_Ecs_cluster</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Java_app"><span class="hs-pragma hs-type">LayerType_Java_app</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Lb"><span class="hs-pragma hs-type">LayerType_Lb</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Memcached"><span class="hs-pragma hs-type">LayerType_Memcached</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Monitoring_master"><span class="hs-pragma hs-type">LayerType_Monitoring_master</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Nodejs_app"><span class="hs-pragma hs-type">LayerType_Nodejs_app</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Php_app"><span class="hs-pragma hs-type">LayerType_Php_app</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Rails_app"><span class="hs-pragma hs-type">LayerType_Rails_app</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType_Web"><span class="hs-pragma hs-type">LayerType_Web</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerType.html#LayerType%27"><span class="hs-pragma hs-type">LayerType'</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-121"></span></pre></body></html>

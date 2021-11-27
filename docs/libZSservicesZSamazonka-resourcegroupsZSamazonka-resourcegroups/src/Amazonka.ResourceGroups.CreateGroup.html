@@ -1,0 +1,891 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroups.CreateGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a resource group with the specified name and description. You</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- can optionally include a resource query, or a service configuration. For</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- more information about constructing a resource query, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For more information about service configurations, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- __Minimum permissions__</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- To run this command, you must have the following permissions:</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   @resource-groups:CreateGroup@</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroups.CreateGroup</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier">CreateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#newCreateGroup"><span class="hs-identifier">newCreateGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_resourceQuery"><span class="hs-identifier">createGroup_resourceQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_configuration"><span class="hs-identifier">createGroup_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_description"><span class="hs-identifier">createGroup_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_tags"><span class="hs-identifier">createGroup_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_name"><span class="hs-identifier">createGroup_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier">CreateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#newCreateGroupResponse"><span class="hs-identifier">newCreateGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_group"><span class="hs-identifier">createGroupResponse_group</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_groupConfiguration"><span class="hs-identifier">createGroupResponse_groupConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_resourceQuery"><span class="hs-identifier">createGroupResponse_resourceQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_tags"><span class="hs-identifier">createGroupResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_httpStatus"><span class="hs-identifier">createGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.html"><span class="hs-identifier">Amazonka.ResourceGroups.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newCreateGroup' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679180448"><span id="local-6989586621679180449"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGroup"><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-var">CreateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGroup%27"><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-var">CreateGroup'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource query that determines which AWS resources are members of</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- this group. For more information about resource queries, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- A resource group can contain either a @ResourceQuery@ or a</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @Configuration@, but not both.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AresourceQuery%3ACreateGroup%27"><span class="annot"><span class="annottext">CreateGroup -&gt; Maybe ResourceQuery
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AresourceQuery%3ACreateGroup%27"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A configuration associates the resource group with an AWS service and</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- specifies how the service can interact with the resources in the group.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- A configuration is an array of GroupConfigurationItem elements. For</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- details about the syntax of service configurations, see</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- A resource group can contain either a @Configuration@ or a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @ResourceQuery@, but not both.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aconfiguration%3ACreateGroup%27"><span class="annot"><span class="annottext">CreateGroup -&gt; Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Aconfiguration%3ACreateGroup%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationItem.html#GroupConfigurationItem"><span class="hs-identifier hs-type">GroupConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The description of the resource group. Descriptions can consist of</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- letters, numbers, hyphens, underscores, periods, and spaces.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Adescription%3ACreateGroup%27"><span class="annot"><span class="annottext">CreateGroup -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Adescription%3ACreateGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The tags to add to the group. A tag is key-value pair string.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Atags%3ACreateGroup%27"><span class="annot"><span class="annottext">CreateGroup -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Atags%3ACreateGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The name of the group, which is the identifier of the group in other</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- operations. You can\'t change the name of a resource group after you</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- create it. A resource group name can consist of letters, numbers,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- hyphens, periods, and underscores. The name cannot start with @AWS@ or</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- @aws@; these are reserved. A resource group name must be unique within</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- each AWS Region in your AWS account.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Aname%3ACreateGroup%27"><span class="annot"><span class="annottext">CreateGroup -&gt; Text
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Aname%3ACreateGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180438"><span id="local-6989586621679180440"><span class="annot"><span class="annottext">CreateGroup -&gt; CreateGroup -&gt; Bool
+(CreateGroup -&gt; CreateGroup -&gt; Bool)
+-&gt; (CreateGroup -&gt; CreateGroup -&gt; Bool) -&gt; Eq CreateGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateGroup -&gt; CreateGroup -&gt; Bool
+$c/= :: CreateGroup -&gt; CreateGroup -&gt; Bool
+== :: CreateGroup -&gt; CreateGroup -&gt; Bool
+$c== :: CreateGroup -&gt; CreateGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180429"><span id="local-6989586621679180431"><span id="local-6989586621679180433"><span id="local-6989586621679180435"><span class="annot"><span class="annottext">ReadPrec [CreateGroup]
+ReadPrec CreateGroup
+Int -&gt; ReadS CreateGroup
+ReadS [CreateGroup]
+(Int -&gt; ReadS CreateGroup)
+-&gt; ReadS [CreateGroup]
+-&gt; ReadPrec CreateGroup
+-&gt; ReadPrec [CreateGroup]
+-&gt; Read CreateGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateGroup]
+$creadListPrec :: ReadPrec [CreateGroup]
+readPrec :: ReadPrec CreateGroup
+$creadPrec :: ReadPrec CreateGroup
+readList :: ReadS [CreateGroup]
+$creadList :: ReadS [CreateGroup]
+readsPrec :: Int -&gt; ReadS CreateGroup
+$creadsPrec :: Int -&gt; ReadS CreateGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180422"><span id="local-6989586621679180424"><span id="local-6989586621679180426"><span class="annot"><span class="annottext">Int -&gt; CreateGroup -&gt; ShowS
+[CreateGroup] -&gt; ShowS
+CreateGroup -&gt; String
+(Int -&gt; CreateGroup -&gt; ShowS)
+-&gt; (CreateGroup -&gt; String)
+-&gt; ([CreateGroup] -&gt; ShowS)
+-&gt; Show CreateGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateGroup] -&gt; ShowS
+$cshowList :: [CreateGroup] -&gt; ShowS
+show :: CreateGroup -&gt; String
+$cshow :: CreateGroup -&gt; String
+showsPrec :: Int -&gt; CreateGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateGroup -&gt; Rep CreateGroup x)
+-&gt; (forall x. Rep CreateGroup x -&gt; CreateGroup)
+-&gt; Generic CreateGroup
+forall x. Rep CreateGroup x -&gt; CreateGroup
+forall x. CreateGroup -&gt; Rep CreateGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateGroup x -&gt; CreateGroup
+$cfrom :: forall x. CreateGroup -&gt; Rep CreateGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'CreateGroup' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'resourceQuery', 'createGroup_resourceQuery' - The resource query that determines which AWS resources are members of</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- this group. For more information about resource queries, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- A resource group can contain either a @ResourceQuery@ or a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @Configuration@, but not both.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'configuration', 'createGroup_configuration' - A configuration associates the resource group with an AWS service and</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- specifies how the service can interact with the resources in the group.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- A configuration is an array of GroupConfigurationItem elements. For</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- details about the syntax of service configurations, see</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- A resource group can contain either a @Configuration@ or a</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @ResourceQuery@, but not both.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'description', 'createGroup_description' - The description of the resource group. Descriptions can consist of</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- letters, numbers, hyphens, underscores, periods, and spaces.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'tags', 'createGroup_tags' - The tags to add to the group. A tag is key-value pair string.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'name', 'createGroup_name' - The name of the group, which is the identifier of the group in other</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- operations. You can\'t change the name of a resource group after you</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- create it. A resource group name can consist of letters, numbers,</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- hyphens, periods, and underscores. The name cannot start with @AWS@ or</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @aws@; these are reserved. A resource group name must be unique within</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- each AWS Region in your AWS account.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#newCreateGroup"><span class="hs-identifier hs-type">newCreateGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span>
+</span><span id="line-139"></span><span id="newCreateGroup"><span class="annot"><span class="annottext">newCreateGroup :: Text -&gt; CreateGroup
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#newCreateGroup"><span class="hs-identifier hs-var hs-var">newCreateGroup</span></a></span></span><span> </span><span id="local-6989586621679180417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180417"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">CreateGroup' :: Maybe ResourceQuery
+-&gt; Maybe [GroupConfigurationItem]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; CreateGroup
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceQuery:CreateGroup' :: Maybe ResourceQuery
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AresourceQuery%3ACreateGroup%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceQuery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:CreateGroup' :: Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Aconfiguration%3ACreateGroup%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateGroup' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Adescription%3ACreateGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateGroup' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Atags%3ACreateGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateGroup' :: Text
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Aname%3ACreateGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180417"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The resource query that determines which AWS resources are members of</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- this group. For more information about resource queries, see</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- A resource group can contain either a @ResourceQuery@ or a</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @Configuration@, but not both.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_resourceQuery"><span class="hs-identifier hs-type">createGroup_resourceQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createGroup_resourceQuery"><span class="annot"><span class="annottext">createGroup_resourceQuery :: (Maybe ResourceQuery -&gt; f (Maybe ResourceQuery))
+-&gt; CreateGroup -&gt; f CreateGroup
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_resourceQuery"><span class="hs-identifier hs-var hs-var">createGroup_resourceQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroup -&gt; Maybe ResourceQuery)
+-&gt; (CreateGroup -&gt; Maybe ResourceQuery -&gt; CreateGroup)
+-&gt; Lens
+     CreateGroup CreateGroup (Maybe ResourceQuery) (Maybe ResourceQuery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180414"><span class="annot"><span class="annottext">Maybe ResourceQuery
+resourceQuery :: Maybe ResourceQuery
+$sel:resourceQuery:CreateGroup' :: CreateGroup -&gt; Maybe ResourceQuery
+</span><a href="#local-6989586621679180414"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceQuery
+</span><a href="#local-6989586621679180414"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180413"><span class="annot"><span class="annottext">s :: CreateGroup
+</span><a href="#local-6989586621679180413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180412"><span class="annot"><span class="annottext">Maybe ResourceQuery
+</span><a href="#local-6989586621679180412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
+</span><a href="#local-6989586621679180413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceQuery:CreateGroup' :: Maybe ResourceQuery
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AresourceQuery%3ACreateGroup%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceQuery
+</span><a href="#local-6989586621679180412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | A configuration associates the resource group with an AWS service and</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- specifies how the service can interact with the resources in the group.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- A configuration is an array of GroupConfigurationItem elements. For</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- details about the syntax of service configurations, see</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- A resource group can contain either a @Configuration@ or a</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- @ResourceQuery@, but not both.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_configuration"><span class="hs-identifier hs-type">createGroup_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationItem.html#GroupConfigurationItem"><span class="hs-identifier hs-type">GroupConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="createGroup_configuration"><span class="annot"><span class="annottext">createGroup_configuration :: (Maybe [GroupConfigurationItem]
+ -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; CreateGroup -&gt; f CreateGroup
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_configuration"><span class="hs-identifier hs-var hs-var">createGroup_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroup -&gt; Maybe [GroupConfigurationItem])
+-&gt; (CreateGroup -&gt; Maybe [GroupConfigurationItem] -&gt; CreateGroup)
+-&gt; Lens
+     CreateGroup
+     CreateGroup
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180411"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+configuration :: Maybe [GroupConfigurationItem]
+$sel:configuration:CreateGroup' :: CreateGroup -&gt; Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679180411"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679180411"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180410"><span class="annot"><span class="annottext">s :: CreateGroup
+</span><a href="#local-6989586621679180410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180409"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679180409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
+</span><a href="#local-6989586621679180410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:CreateGroup' :: Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Aconfiguration%3ACreateGroup%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679180409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupConfigurationItem]
+  -&gt; f (Maybe [GroupConfigurationItem]))
+ -&gt; CreateGroup -&gt; f CreateGroup)
+-&gt; ((Maybe [GroupConfigurationItem]
+     -&gt; f (Maybe [GroupConfigurationItem]))
+    -&gt; Maybe [GroupConfigurationItem]
+    -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; (Maybe [GroupConfigurationItem]
+    -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; CreateGroup
+-&gt; f CreateGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+-&gt; Iso
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The description of the resource group. Descriptions can consist of</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- letters, numbers, hyphens, underscores, periods, and spaces.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_description"><span class="hs-identifier hs-type">createGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="createGroup_description"><span class="annot"><span class="annottext">createGroup_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateGroup -&gt; f CreateGroup
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_description"><span class="hs-identifier hs-var hs-var">createGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroup -&gt; Maybe Text)
+-&gt; (CreateGroup -&gt; Maybe Text -&gt; CreateGroup)
+-&gt; Lens CreateGroup CreateGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180405"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateGroup' :: CreateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679180405"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180405"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180404"><span class="annot"><span class="annottext">s :: CreateGroup
+</span><a href="#local-6989586621679180404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
+</span><a href="#local-6989586621679180404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateGroup' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Adescription%3ACreateGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The tags to add to the group. A tag is key-value pair string.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_tags"><span class="hs-identifier hs-type">createGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createGroup_tags"><span class="annot"><span class="annottext">createGroup_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateGroup -&gt; f CreateGroup
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_tags"><span class="hs-identifier hs-var hs-var">createGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroup -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateGroup -&gt; Maybe (HashMap Text Text) -&gt; CreateGroup)
+-&gt; Lens
+     CreateGroup
+     CreateGroup
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180402"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateGroup' :: CreateGroup -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180402"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180402"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180401"><span class="annot"><span class="annottext">s :: CreateGroup
+</span><a href="#local-6989586621679180401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180400"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
+</span><a href="#local-6989586621679180401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateGroup' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Atags%3ACreateGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateGroup -&gt; f CreateGroup)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateGroup
+-&gt; f CreateGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The name of the group, which is the identifier of the group in other</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- operations. You can\'t change the name of a resource group after you</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- create it. A resource group name can consist of letters, numbers,</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- hyphens, periods, and underscores. The name cannot start with @AWS@ or</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- @aws@; these are reserved. A resource group name must be unique within</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- each AWS Region in your AWS account.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_name"><span class="hs-identifier hs-type">createGroup_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-184"></span><span id="createGroup_name"><span class="annot"><span class="annottext">createGroup_name :: (Text -&gt; f Text) -&gt; CreateGroup -&gt; f CreateGroup
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroup_name"><span class="hs-identifier hs-var hs-var">createGroup_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroup -&gt; Text)
+-&gt; (CreateGroup -&gt; Text -&gt; CreateGroup)
+-&gt; Lens CreateGroup CreateGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180399"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateGroup' :: CreateGroup -&gt; Text
+</span><a href="#local-6989586621679180399"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180399"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180398"><span class="annot"><span class="annottext">s :: CreateGroup
+</span><a href="#local-6989586621679180398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
+</span><a href="#local-6989586621679180398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateGroup' :: Text
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Aname%3ACreateGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679180393"><span class="annot"><span class="annottext">request :: CreateGroup -&gt; Request CreateGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateGroup -&gt; Request CreateGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679180389"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180386"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180385"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679180385"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe Group
+-&gt; Maybe GroupConfiguration
+-&gt; Maybe ResourceQuery
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-var">CreateGroupResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Group
+ -&gt; Maybe GroupConfiguration
+ -&gt; Maybe ResourceQuery
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; CreateGroupResponse)
+-&gt; Either String (Maybe Group)
+-&gt; Either
+     String
+     (Maybe GroupConfiguration
+      -&gt; Maybe ResourceQuery
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Group)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe GroupConfiguration
+   -&gt; Maybe ResourceQuery
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateGroupResponse)
+-&gt; Either String (Maybe GroupConfiguration)
+-&gt; Either
+     String
+     (Maybe ResourceQuery
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ResourceQuery
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateGroupResponse)
+-&gt; Either String (Maybe ResourceQuery)
+-&gt; Either
+     String (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourceQuery)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceQuery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateGroupResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; CreateGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateGroupResponse)
+-&gt; Either String Int -&gt; Either String CreateGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180386"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180375"><span id="local-6989586621679180377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679180368"><span class="annot"><span class="annottext">toHeaders :: CreateGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180359"><span id="local-6989586621679180361"><span id="local-6989586621679180363"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679180357"><span class="annot"><span class="annottext">toJSON :: CreateGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180351"><span id="local-6989586621679180352"><span id="local-6989586621679180353"><span id="local-6989586621679180354"><span id="local-6989586621679180355"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe ResourceQuery
+Text
+name :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+configuration :: Maybe [GroupConfigurationItem]
+resourceQuery :: Maybe ResourceQuery
+$sel:name:CreateGroup' :: CreateGroup -&gt; Text
+$sel:tags:CreateGroup' :: CreateGroup -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateGroup' :: CreateGroup -&gt; Maybe Text
+$sel:configuration:CreateGroup' :: CreateGroup -&gt; Maybe [GroupConfigurationItem]
+$sel:resourceQuery:CreateGroup' :: CreateGroup -&gt; Maybe ResourceQuery
+</span><a href="#local-6989586621679180351"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceQuery&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceQuery -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ResourceQuery -&gt; Pair) -&gt; Maybe ResourceQuery -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceQuery
+</span><a href="#local-6989586621679180355"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GroupConfigurationItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([GroupConfigurationItem] -&gt; Pair)
+-&gt; Maybe [GroupConfigurationItem] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679180354"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180353"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180352"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180351"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679180345"><span class="annot"><span class="annottext">toPath :: CreateGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/groups&quot;</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679180341"><span class="annot"><span class="annottext">toQuery :: CreateGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | /See:/ 'newCreateGroupResponse' smart constructor.</span><span>
+</span><span id="line-226"></span><span id="local-6989586621679180338"><span id="local-6989586621679180339"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGroupResponse"><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-var">CreateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGroupResponse%27"><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-var">CreateGroupResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the resource group.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; Maybe Group
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The service configuration associated with the resource group. For</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- details about the syntax of a service configuration, see</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AgroupConfiguration%3ACreateGroupResponse%27"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; Maybe GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AgroupConfiguration%3ACreateGroupResponse%27"><span class="hs-identifier hs-var hs-var">groupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | The resource query associated with the group. For more information about</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- resource queries, see</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AresourceQuery%3ACreateGroupResponse%27"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; Maybe ResourceQuery
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AresourceQuery%3ACreateGroupResponse%27"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The tags associated with the group.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3Atags%3ACreateGroupResponse%27"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Atags%3ACreateGroupResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; Int
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180329"><span id="local-6989586621679180331"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
+(CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool)
+-&gt; (CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool)
+-&gt; Eq CreateGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
+$c/= :: CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
+== :: CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
+$c== :: CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180321"><span id="local-6989586621679180323"><span id="local-6989586621679180325"><span id="local-6989586621679180327"><span class="annot"><span class="annottext">ReadPrec [CreateGroupResponse]
+ReadPrec CreateGroupResponse
+Int -&gt; ReadS CreateGroupResponse
+ReadS [CreateGroupResponse]
+(Int -&gt; ReadS CreateGroupResponse)
+-&gt; ReadS [CreateGroupResponse]
+-&gt; ReadPrec CreateGroupResponse
+-&gt; ReadPrec [CreateGroupResponse]
+-&gt; Read CreateGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateGroupResponse]
+$creadListPrec :: ReadPrec [CreateGroupResponse]
+readPrec :: ReadPrec CreateGroupResponse
+$creadPrec :: ReadPrec CreateGroupResponse
+readList :: ReadS [CreateGroupResponse]
+$creadList :: ReadS [CreateGroupResponse]
+readsPrec :: Int -&gt; ReadS CreateGroupResponse
+$creadsPrec :: Int -&gt; ReadS CreateGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180315"><span id="local-6989586621679180317"><span id="local-6989586621679180319"><span class="annot"><span class="annottext">Int -&gt; CreateGroupResponse -&gt; ShowS
+[CreateGroupResponse] -&gt; ShowS
+CreateGroupResponse -&gt; String
+(Int -&gt; CreateGroupResponse -&gt; ShowS)
+-&gt; (CreateGroupResponse -&gt; String)
+-&gt; ([CreateGroupResponse] -&gt; ShowS)
+-&gt; Show CreateGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateGroupResponse] -&gt; ShowS
+$cshowList :: [CreateGroupResponse] -&gt; ShowS
+show :: CreateGroupResponse -&gt; String
+$cshow :: CreateGroupResponse -&gt; String
+showsPrec :: Int -&gt; CreateGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateGroupResponse -&gt; Rep CreateGroupResponse x)
+-&gt; (forall x. Rep CreateGroupResponse x -&gt; CreateGroupResponse)
+-&gt; Generic CreateGroupResponse
+forall x. Rep CreateGroupResponse x -&gt; CreateGroupResponse
+forall x. CreateGroupResponse -&gt; Rep CreateGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateGroupResponse x -&gt; CreateGroupResponse
+$cfrom :: forall x. CreateGroupResponse -&gt; Rep CreateGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Create a value of 'CreateGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'group'', 'createGroupResponse_group' - The description of the resource group.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'groupConfiguration', 'createGroupResponse_groupConfiguration' - The service configuration associated with the resource group. For</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- details about the syntax of a service configuration, see</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'resourceQuery', 'createGroupResponse_resourceQuery' - The resource query associated with the group. For more information about</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- resource queries, see</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'tags', 'createGroupResponse_tags' - The tags associated with the group.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'httpStatus', 'createGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#newCreateGroupResponse"><span class="hs-identifier hs-type">newCreateGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span>
+</span><span id="line-269"></span><span id="newCreateGroupResponse"><span class="annot"><span class="annottext">newCreateGroupResponse :: Int -&gt; CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#newCreateGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679180312"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180312"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">CreateGroupResponse' :: Maybe Group
+-&gt; Maybe GroupConfiguration
+-&gt; Maybe ResourceQuery
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':CreateGroupResponse' :: Maybe Group
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupConfiguration:CreateGroupResponse' :: Maybe GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AgroupConfiguration%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">groupConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceQuery:CreateGroupResponse' :: Maybe ResourceQuery
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AresourceQuery%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceQuery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateGroupResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Atags%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGroupResponse' :: Int
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180312"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The description of the resource group.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_group"><span class="hs-identifier hs-type">createGroupResponse_group</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="createGroupResponse_group"><span class="annot"><span class="annottext">createGroupResponse_group :: (Maybe Group -&gt; f (Maybe Group))
+-&gt; CreateGroupResponse -&gt; f CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_group"><span class="hs-identifier hs-var hs-var">createGroupResponse_group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroupResponse -&gt; Maybe Group)
+-&gt; (CreateGroupResponse -&gt; Maybe Group -&gt; CreateGroupResponse)
+-&gt; Lens
+     CreateGroupResponse CreateGroupResponse (Maybe Group) (Maybe Group)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180311"><span class="annot"><span class="annottext">Maybe Group
+group' :: Maybe Group
+$sel:group':CreateGroupResponse' :: CreateGroupResponse -&gt; Maybe Group
+</span><a href="#local-6989586621679180311"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679180311"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180310"><span class="annot"><span class="annottext">s :: CreateGroupResponse
+</span><a href="#local-6989586621679180310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180309"><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679180309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
+</span><a href="#local-6989586621679180310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':CreateGroupResponse' :: Maybe Group
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679180309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The service configuration associated with the resource group. For</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- details about the syntax of a service configuration, see</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_groupConfiguration"><span class="hs-identifier hs-type">createGroupResponse_groupConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="createGroupResponse_groupConfiguration"><span class="annot"><span class="annottext">createGroupResponse_groupConfiguration :: (Maybe GroupConfiguration -&gt; f (Maybe GroupConfiguration))
+-&gt; CreateGroupResponse -&gt; f CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_groupConfiguration"><span class="hs-identifier hs-var hs-var">createGroupResponse_groupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroupResponse -&gt; Maybe GroupConfiguration)
+-&gt; (CreateGroupResponse
+    -&gt; Maybe GroupConfiguration -&gt; CreateGroupResponse)
+-&gt; Lens
+     CreateGroupResponse
+     CreateGroupResponse
+     (Maybe GroupConfiguration)
+     (Maybe GroupConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180308"><span class="annot"><span class="annottext">Maybe GroupConfiguration
+groupConfiguration :: Maybe GroupConfiguration
+$sel:groupConfiguration:CreateGroupResponse' :: CreateGroupResponse -&gt; Maybe GroupConfiguration
+</span><a href="#local-6989586621679180308"><span class="hs-identifier hs-var hs-var">groupConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfiguration
+</span><a href="#local-6989586621679180308"><span class="hs-identifier hs-var">groupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180307"><span class="annot"><span class="annottext">s :: CreateGroupResponse
+</span><a href="#local-6989586621679180307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180306"><span class="annot"><span class="annottext">Maybe GroupConfiguration
+</span><a href="#local-6989586621679180306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
+</span><a href="#local-6989586621679180307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupConfiguration:CreateGroupResponse' :: Maybe GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AgroupConfiguration%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">groupConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfiguration
+</span><a href="#local-6989586621679180306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The resource query associated with the group. For more information about</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- resource queries, see</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_resourceQuery"><span class="hs-identifier hs-type">createGroupResponse_resourceQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="createGroupResponse_resourceQuery"><span class="annot"><span class="annottext">createGroupResponse_resourceQuery :: (Maybe ResourceQuery -&gt; f (Maybe ResourceQuery))
+-&gt; CreateGroupResponse -&gt; f CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_resourceQuery"><span class="hs-identifier hs-var hs-var">createGroupResponse_resourceQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroupResponse -&gt; Maybe ResourceQuery)
+-&gt; (CreateGroupResponse
+    -&gt; Maybe ResourceQuery -&gt; CreateGroupResponse)
+-&gt; Lens
+     CreateGroupResponse
+     CreateGroupResponse
+     (Maybe ResourceQuery)
+     (Maybe ResourceQuery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180305"><span class="annot"><span class="annottext">Maybe ResourceQuery
+resourceQuery :: Maybe ResourceQuery
+$sel:resourceQuery:CreateGroupResponse' :: CreateGroupResponse -&gt; Maybe ResourceQuery
+</span><a href="#local-6989586621679180305"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceQuery
+</span><a href="#local-6989586621679180305"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180304"><span class="annot"><span class="annottext">s :: CreateGroupResponse
+</span><a href="#local-6989586621679180304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180303"><span class="annot"><span class="annottext">Maybe ResourceQuery
+</span><a href="#local-6989586621679180303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
+</span><a href="#local-6989586621679180304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceQuery:CreateGroupResponse' :: Maybe ResourceQuery
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AresourceQuery%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceQuery
+</span><a href="#local-6989586621679180303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The tags associated with the group.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_tags"><span class="hs-identifier hs-type">createGroupResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="createGroupResponse_tags"><span class="annot"><span class="annottext">createGroupResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateGroupResponse -&gt; f CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_tags"><span class="hs-identifier hs-var hs-var">createGroupResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroupResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateGroupResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateGroupResponse)
+-&gt; Lens
+     CreateGroupResponse
+     CreateGroupResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180302"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateGroupResponse' :: CreateGroupResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180302"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180302"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180301"><span class="annot"><span class="annottext">s :: CreateGroupResponse
+</span><a href="#local-6989586621679180301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180300"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
+</span><a href="#local-6989586621679180301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateGroupResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3Atags%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679180300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateGroupResponse -&gt; f CreateGroupResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateGroupResponse
+-&gt; f CreateGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_httpStatus"><span class="hs-identifier hs-type">createGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-300"></span><span id="createGroupResponse_httpStatus"><span class="annot"><span class="annottext">createGroupResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateGroupResponse -&gt; f CreateGroupResponse
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#createGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGroupResponse -&gt; Int)
+-&gt; (CreateGroupResponse -&gt; Int -&gt; CreateGroupResponse)
+-&gt; Lens CreateGroupResponse CreateGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180299"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateGroupResponse' :: CreateGroupResponse -&gt; Int
+</span><a href="#local-6989586621679180299"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180299"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180298"><span class="annot"><span class="annottext">s :: CreateGroupResponse
+</span><a href="#local-6989586621679180298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
+</span><a href="#local-6989586621679180298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGroupResponse' :: Int
+</span><a href="Amazonka.ResourceGroups.CreateGroup.html#%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span></span><span>
+</span><span id="line-303"></span></pre></body></html>

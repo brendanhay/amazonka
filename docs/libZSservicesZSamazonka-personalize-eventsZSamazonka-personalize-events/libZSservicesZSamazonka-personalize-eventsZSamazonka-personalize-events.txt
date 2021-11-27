@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.PersonalizeEvents.Types.Event
+module Amazonka.PersonalizeEvents.Types.Event
 
 -- | Represents user interaction event information sent using the
 --   <tt>PutEvents</tt> API.
@@ -166,16 +166,16 @@ event_eventType :: Lens' Event Text
 -- | The timestamp (in Unix time) on the client side when the event
 --   occurred.
 event_sentAt :: Lens' Event UTCTime
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.Types.Event.Event
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.Types.Event.Event
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.Types.Event.Event
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.Types.Event.Event
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeEvents.Types.Event.Event
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.Types.Event.Event
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeEvents.Types.Event.Event
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.Types.Event.Event
+instance GHC.Show.Show Amazonka.PersonalizeEvents.Types.Event.Event
+instance GHC.Read.Read Amazonka.PersonalizeEvents.Types.Event.Event
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.Types.Event.Event
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeEvents.Types.Event.Event
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.Types.Event.Event
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeEvents.Types.Event.Event
 
 
-module Network.AWS.PersonalizeEvents.Types.Item
+module Amazonka.PersonalizeEvents.Types.Item
 
 -- | Represents item metadata added to an Items dataset using the
 --   <tt>PutItems</tt> API. For more information see <a>Importing Items
@@ -237,16 +237,16 @@ item_properties :: Lens' Item (Maybe Text)
 
 -- | The ID associated with the item.
 item_itemId :: Lens' Item Text
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.Types.Item.Item
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.Types.Item.Item
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.Types.Item.Item
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.Types.Item.Item
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeEvents.Types.Item.Item
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.Types.Item.Item
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeEvents.Types.Item.Item
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.Types.Item.Item
+instance GHC.Show.Show Amazonka.PersonalizeEvents.Types.Item.Item
+instance GHC.Read.Read Amazonka.PersonalizeEvents.Types.Item.Item
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.Types.Item.Item
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeEvents.Types.Item.Item
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.Types.Item.Item
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeEvents.Types.Item.Item
 
 
-module Network.AWS.PersonalizeEvents.Types.User
+module Amazonka.PersonalizeEvents.Types.User
 
 -- | Represents user metadata added to a Users dataset using the
 --   <tt>PutUsers</tt> API. For more information see <a>Importing Users
@@ -311,16 +311,16 @@ user_properties :: Lens' User (Maybe Text)
 
 -- | The ID associated with the user.
 user_userId :: Lens' User Text
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.Types.User.User
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.Types.User.User
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.Types.User.User
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.Types.User.User
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeEvents.Types.User.User
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.Types.User.User
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeEvents.Types.User.User
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.Types.User.User
+instance GHC.Show.Show Amazonka.PersonalizeEvents.Types.User.User
+instance GHC.Read.Read Amazonka.PersonalizeEvents.Types.User.User
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.Types.User.User
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeEvents.Types.User.User
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.Types.User.User
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeEvents.Types.User.User
 
 
-module Network.AWS.PersonalizeEvents.Types
+module Amazonka.PersonalizeEvents.Types
 
 -- | API version <tt>2018-03-22</tt> of the Amazon Personalize Events SDK
 --   configuration.
@@ -623,7 +623,7 @@ user_userId :: Lens' User Text
 
 -- | Adds one or more users to a Users dataset. For more information see
 --   <a>Importing Users Incrementally</a>.
-module Network.AWS.PersonalizeEvents.PutUsers
+module Amazonka.PersonalizeEvents.PutUsers
 
 -- | <i>See:</i> <a>newPutUsers</a> smart constructor.
 data PutUsers
@@ -669,27 +669,27 @@ PutUsersResponse' :: PutUsersResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutUsersResponse :: PutUsersResponse
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.PutUsers.PutUsersResponse
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.PutUsers.PutUsersResponse
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.PutUsers.PutUsersResponse
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.PutUsers.PutUsersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.PutUsers.PutUsersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance Network.AWS.Data.Path.ToPath Network.AWS.PersonalizeEvents.PutUsers.PutUsers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PersonalizeEvents.PutUsers.PutUsers
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance GHC.Show.Show Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance GHC.Read.Read Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.PutUsers.PutUsersResponse
+instance GHC.Show.Show Amazonka.PersonalizeEvents.PutUsers.PutUsersResponse
+instance GHC.Read.Read Amazonka.PersonalizeEvents.PutUsers.PutUsersResponse
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.PutUsers.PutUsersResponse
+instance Amazonka.Types.AWSRequest Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.PutUsers.PutUsersResponse
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance Amazonka.Data.Path.ToPath Amazonka.PersonalizeEvents.PutUsers.PutUsers
+instance Amazonka.Data.Query.ToQuery Amazonka.PersonalizeEvents.PutUsers.PutUsers
 
 
 -- | Adds one or more items to an Items dataset. For more information see
 --   <a>Importing Items Incrementally</a>.
-module Network.AWS.PersonalizeEvents.PutItems
+module Amazonka.PersonalizeEvents.PutItems
 
 -- | <i>See:</i> <a>newPutItems</a> smart constructor.
 data PutItems
@@ -735,27 +735,27 @@ PutItemsResponse' :: PutItemsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutItemsResponse :: PutItemsResponse
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.PutItems.PutItemsResponse
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.PutItems.PutItemsResponse
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.PutItems.PutItemsResponse
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.PutItems.PutItemsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.PutItems.PutItemsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance Network.AWS.Data.Path.ToPath Network.AWS.PersonalizeEvents.PutItems.PutItems
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PersonalizeEvents.PutItems.PutItems
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.PutItems.PutItems
+instance GHC.Show.Show Amazonka.PersonalizeEvents.PutItems.PutItems
+instance GHC.Read.Read Amazonka.PersonalizeEvents.PutItems.PutItems
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.PutItems.PutItems
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.PutItems.PutItemsResponse
+instance GHC.Show.Show Amazonka.PersonalizeEvents.PutItems.PutItemsResponse
+instance GHC.Read.Read Amazonka.PersonalizeEvents.PutItems.PutItemsResponse
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.PutItems.PutItemsResponse
+instance Amazonka.Types.AWSRequest Amazonka.PersonalizeEvents.PutItems.PutItems
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.PutItems.PutItemsResponse
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeEvents.PutItems.PutItems
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.PutItems.PutItems
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PersonalizeEvents.PutItems.PutItems
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeEvents.PutItems.PutItems
+instance Amazonka.Data.Path.ToPath Amazonka.PersonalizeEvents.PutItems.PutItems
+instance Amazonka.Data.Query.ToQuery Amazonka.PersonalizeEvents.PutItems.PutItems
 
 
 -- | Records user interaction event data. For more information see
 --   <a>Recording Events</a>.
-module Network.AWS.PersonalizeEvents.PutEvents
+module Amazonka.PersonalizeEvents.PutEvents
 
 -- | <i>See:</i> <a>newPutEvents</a> smart constructor.
 data PutEvents
@@ -831,25 +831,25 @@ PutEventsResponse' :: PutEventsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutEventsResponse :: PutEventsResponse
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance GHC.Generics.Generic Network.AWS.PersonalizeEvents.PutEvents.PutEventsResponse
-instance GHC.Show.Show Network.AWS.PersonalizeEvents.PutEvents.PutEventsResponse
-instance GHC.Read.Read Network.AWS.PersonalizeEvents.PutEvents.PutEventsResponse
-instance GHC.Classes.Eq Network.AWS.PersonalizeEvents.PutEvents.PutEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.PutEvents.PutEventsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.PersonalizeEvents.PutEvents.PutEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PersonalizeEvents.PutEvents.PutEvents
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance GHC.Show.Show Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance GHC.Read.Read Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance GHC.Generics.Generic Amazonka.PersonalizeEvents.PutEvents.PutEventsResponse
+instance GHC.Show.Show Amazonka.PersonalizeEvents.PutEvents.PutEventsResponse
+instance GHC.Read.Read Amazonka.PersonalizeEvents.PutEvents.PutEventsResponse
+instance GHC.Classes.Eq Amazonka.PersonalizeEvents.PutEvents.PutEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.PutEvents.PutEventsResponse
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance Control.DeepSeq.NFData Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance Amazonka.Data.Path.ToPath Amazonka.PersonalizeEvents.PutEvents.PutEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.PersonalizeEvents.PutEvents.PutEvents
 
 
-module Network.AWS.PersonalizeEvents.Lens
+module Amazonka.PersonalizeEvents.Lens
 
 -- | The Amazon Resource Name (ARN) of the Users dataset you are adding the
 --   user or users to.
@@ -963,7 +963,7 @@ user_properties :: Lens' User (Maybe Text)
 user_userId :: Lens' User Text
 
 
-module Network.AWS.PersonalizeEvents.Waiters
+module Amazonka.PersonalizeEvents.Waiters
 
 
 -- | Derived from API version <tt>2018-03-22</tt> of the AWS service
@@ -973,7 +973,7 @@ module Network.AWS.PersonalizeEvents.Waiters
 --   <i>stream</i> or <i>click</i> data, and use it for model training
 --   either alone or combined with historical data. For more information
 --   see <a>Recording Events</a>.
-module Network.AWS.PersonalizeEvents
+module Amazonka.PersonalizeEvents
 
 -- | API version <tt>2018-03-22</tt> of the Amazon Personalize Events SDK
 --   configuration.

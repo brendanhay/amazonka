@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier">AutoScalingPolicyStateChangeReasonCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE"><span class="hs-identifier">AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE"><span class="hs-identifier">AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_USER_REQUEST"><span class="hs-identifier">AutoScalingPolicyStateChangeReasonCode_USER_REQUEST</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679365141"><span id="local-6989586621679365142"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoScalingPolicyStateChangeReasonCode"><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicyStateChangeReasonCode%27"><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode%27"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoScalingPolicyStateChangeReasonCode"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; Text
+</span><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#fromAutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromAutoScalingPolicyStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365133"><span id="local-6989586621679365135"><span id="local-6989586621679365137"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS
+[AutoScalingPolicyStateChangeReasonCode] -&gt; ShowS
+AutoScalingPolicyStateChangeReasonCode -&gt; String
+(Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS)
+-&gt; (AutoScalingPolicyStateChangeReasonCode -&gt; String)
+-&gt; ([AutoScalingPolicyStateChangeReasonCode] -&gt; ShowS)
+-&gt; Show AutoScalingPolicyStateChangeReasonCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoScalingPolicyStateChangeReasonCode] -&gt; ShowS
+$cshowList :: [AutoScalingPolicyStateChangeReasonCode] -&gt; ShowS
+show :: AutoScalingPolicyStateChangeReasonCode -&gt; String
+$cshow :: AutoScalingPolicyStateChangeReasonCode -&gt; String
+showsPrec :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365124"><span id="local-6989586621679365126"><span id="local-6989586621679365128"><span id="local-6989586621679365130"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicyStateChangeReasonCode]
+ReadPrec AutoScalingPolicyStateChangeReasonCode
+Int -&gt; ReadS AutoScalingPolicyStateChangeReasonCode
+ReadS [AutoScalingPolicyStateChangeReasonCode]
+(Int -&gt; ReadS AutoScalingPolicyStateChangeReasonCode)
+-&gt; ReadS [AutoScalingPolicyStateChangeReasonCode]
+-&gt; ReadPrec AutoScalingPolicyStateChangeReasonCode
+-&gt; ReadPrec [AutoScalingPolicyStateChangeReasonCode]
+-&gt; Read AutoScalingPolicyStateChangeReasonCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoScalingPolicyStateChangeReasonCode]
+$creadListPrec :: ReadPrec [AutoScalingPolicyStateChangeReasonCode]
+readPrec :: ReadPrec AutoScalingPolicyStateChangeReasonCode
+$creadPrec :: ReadPrec AutoScalingPolicyStateChangeReasonCode
+readList :: ReadS [AutoScalingPolicyStateChangeReasonCode]
+$creadList :: ReadS [AutoScalingPolicyStateChangeReasonCode]
+readsPrec :: Int -&gt; ReadS AutoScalingPolicyStateChangeReasonCode
+$creadsPrec :: Int -&gt; ReadS AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679365119"><span id="local-6989586621679365121"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+(AutoScalingPolicyStateChangeReasonCode
+ -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool)
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool)
+-&gt; Eq AutoScalingPolicyStateChangeReasonCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+$c/= :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+== :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+$c== :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679365103"><span id="local-6989586621679365105"><span id="local-6989586621679365107"><span id="local-6989586621679365109"><span id="local-6989586621679365111"><span id="local-6989586621679365113"><span id="local-6989586621679365115"><span class="annot"><span class="annottext">Eq AutoScalingPolicyStateChangeReasonCode
+Eq AutoScalingPolicyStateChangeReasonCode
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Ordering)
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool)
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool)
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool)
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool)
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode)
+-&gt; (AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode
+    -&gt; AutoScalingPolicyStateChangeReasonCode)
+-&gt; Ord AutoScalingPolicyStateChangeReasonCode
+AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Ordering
+AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+$cmin :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+max :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+$cmax :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode
+&gt;= :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+$c&gt;= :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+&gt; :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+$c&gt; :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+&lt;= :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+$c&lt;= :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+&lt; :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+$c&lt; :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
+compare :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Ordering
+$ccompare :: AutoScalingPolicyStateChangeReasonCode
+-&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Ordering
+$cp1Ord :: Eq AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AutoScalingPolicyStateChangeReasonCode
+ -&gt; Rep AutoScalingPolicyStateChangeReasonCode x)
+-&gt; (forall x.
+    Rep AutoScalingPolicyStateChangeReasonCode x
+    -&gt; AutoScalingPolicyStateChangeReasonCode)
+-&gt; Generic AutoScalingPolicyStateChangeReasonCode
+forall x.
+Rep AutoScalingPolicyStateChangeReasonCode x
+-&gt; AutoScalingPolicyStateChangeReasonCode
+forall x.
+AutoScalingPolicyStateChangeReasonCode
+-&gt; Rep AutoScalingPolicyStateChangeReasonCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AutoScalingPolicyStateChangeReasonCode x
+-&gt; AutoScalingPolicyStateChangeReasonCode
+$cfrom :: forall x.
+AutoScalingPolicyStateChangeReasonCode
+-&gt; Rep AutoScalingPolicyStateChangeReasonCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365095"><span id="local-6989586621679365097"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int
+AutoScalingPolicyStateChangeReasonCode -&gt; Int
+(Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int)
+-&gt; (AutoScalingPolicyStateChangeReasonCode -&gt; Int)
+-&gt; Hashable AutoScalingPolicyStateChangeReasonCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AutoScalingPolicyStateChangeReasonCode -&gt; Int
+$chash :: AutoScalingPolicyStateChangeReasonCode -&gt; Int
+hashWithSalt :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int
+$chashWithSalt :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365092"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ()
+(AutoScalingPolicyStateChangeReasonCode -&gt; ())
+-&gt; NFData AutoScalingPolicyStateChangeReasonCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AutoScalingPolicyStateChangeReasonCode -&gt; ()
+$crnf :: AutoScalingPolicyStateChangeReasonCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365089"><span class="annot"><span class="annottext">Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+(Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode)
+-&gt; FromText AutoScalingPolicyStateChangeReasonCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+$cfromText :: Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365086"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; Text
+(AutoScalingPolicyStateChangeReasonCode -&gt; Text)
+-&gt; ToText AutoScalingPolicyStateChangeReasonCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AutoScalingPolicyStateChangeReasonCode -&gt; Text
+$ctoText :: AutoScalingPolicyStateChangeReasonCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365083"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ByteString
+(AutoScalingPolicyStateChangeReasonCode -&gt; ByteString)
+-&gt; ToByteString AutoScalingPolicyStateChangeReasonCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteString
+$ctoBS :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365080"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder
+(AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder)
+-&gt; ToLog AutoScalingPolicyStateChangeReasonCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder
+$cbuild :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365077"><span class="annot"><span class="annottext">HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header]
+(HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header])
+-&gt; ToHeader AutoScalingPolicyStateChangeReasonCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365074"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; QueryString
+(AutoScalingPolicyStateChangeReasonCode -&gt; QueryString)
+-&gt; ToQuery AutoScalingPolicyStateChangeReasonCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AutoScalingPolicyStateChangeReasonCode -&gt; QueryString
+$ctoQuery :: AutoScalingPolicyStateChangeReasonCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365069"><span id="local-6989586621679365071"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode]
+Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode
+(Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode)
+-&gt; (Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode])
+-&gt; FromJSON AutoScalingPolicyStateChangeReasonCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode]
+$cparseJSONList :: Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode]
+parseJSON :: Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode
+$cparseJSON :: Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365064"><span id="local-6989586621679365066"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+-&gt; FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+-&gt; FromJSONKey AutoScalingPolicyStateChangeReasonCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+fromJSONKey :: FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+$cfromJSONKey :: FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365055"><span id="local-6989586621679365057"><span id="local-6989586621679365059"><span id="local-6989586621679365061"><span class="annot"><span class="annottext">[AutoScalingPolicyStateChangeReasonCode] -&gt; Encoding
+[AutoScalingPolicyStateChangeReasonCode] -&gt; Value
+AutoScalingPolicyStateChangeReasonCode -&gt; Encoding
+AutoScalingPolicyStateChangeReasonCode -&gt; Value
+(AutoScalingPolicyStateChangeReasonCode -&gt; Value)
+-&gt; (AutoScalingPolicyStateChangeReasonCode -&gt; Encoding)
+-&gt; ([AutoScalingPolicyStateChangeReasonCode] -&gt; Value)
+-&gt; ([AutoScalingPolicyStateChangeReasonCode] -&gt; Encoding)
+-&gt; ToJSON AutoScalingPolicyStateChangeReasonCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AutoScalingPolicyStateChangeReasonCode] -&gt; Encoding
+$ctoEncodingList :: [AutoScalingPolicyStateChangeReasonCode] -&gt; Encoding
+toJSONList :: [AutoScalingPolicyStateChangeReasonCode] -&gt; Value
+$ctoJSONList :: [AutoScalingPolicyStateChangeReasonCode] -&gt; Value
+toEncoding :: AutoScalingPolicyStateChangeReasonCode -&gt; Encoding
+$ctoEncoding :: AutoScalingPolicyStateChangeReasonCode -&gt; Encoding
+toJSON :: AutoScalingPolicyStateChangeReasonCode -&gt; Value
+$ctoJSON :: AutoScalingPolicyStateChangeReasonCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365050"><span id="local-6989586621679365052"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+-&gt; ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+-&gt; ToJSONKey AutoScalingPolicyStateChangeReasonCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+toJSONKey :: ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+$ctoJSONKey :: ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365047"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+([Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode)
+-&gt; FromXML AutoScalingPolicyStateChangeReasonCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+$cparseXML :: [Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365044"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; XML
+(AutoScalingPolicyStateChangeReasonCode -&gt; XML)
+-&gt; ToXML AutoScalingPolicyStateChangeReasonCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AutoScalingPolicyStateChangeReasonCode -&gt; XML
+$ctoXML :: AutoScalingPolicyStateChangeReasonCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE"><span id="%24mAutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE"><span id="AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE"><span class="annot"><span class="annottext">$bAutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE :: AutoScalingPolicyStateChangeReasonCode
+$mAutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE :: forall r.
+AutoScalingPolicyStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#%24bAutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLEANUP_FAILURE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE"><span id="%24mAutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE"><span id="AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE"><span class="annot"><span class="annottext">$bAutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE :: AutoScalingPolicyStateChangeReasonCode
+$mAutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE :: forall r.
+AutoScalingPolicyStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#%24bAutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROVISION_FAILURE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_USER_REQUEST"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode_USER_REQUEST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoScalingPolicyStateChangeReasonCode_USER_REQUEST"><span id="%24mAutoScalingPolicyStateChangeReasonCode_USER_REQUEST"><span id="AutoScalingPolicyStateChangeReasonCode_USER_REQUEST"><span class="annot"><span class="annottext">$bAutoScalingPolicyStateChangeReasonCode_USER_REQUEST :: AutoScalingPolicyStateChangeReasonCode
+$mAutoScalingPolicyStateChangeReasonCode_USER_REQUEST :: forall r.
+AutoScalingPolicyStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#%24bAutoScalingPolicyStateChangeReasonCode_USER_REQUEST"><span class="hs-identifier hs-var hs-var hs-var">AutoScalingPolicyStateChangeReasonCode_USER_REQUEST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USER_REQUEST&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE"><span class="hs-pragma hs-type">AutoScalingPolicyStateChangeReasonCode_CLEANUP_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE"><span class="hs-pragma hs-type">AutoScalingPolicyStateChangeReasonCode_PROVISION_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode_USER_REQUEST"><span class="hs-pragma hs-type">AutoScalingPolicyStateChangeReasonCode_USER_REQUEST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode%27"><span class="hs-pragma hs-type">AutoScalingPolicyStateChangeReasonCode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

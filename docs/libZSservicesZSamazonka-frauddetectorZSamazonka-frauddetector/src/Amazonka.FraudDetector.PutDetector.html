@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.PutDetector</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates or updates a detector.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.PutDetector</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier">PutDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#newPutDetector"><span class="hs-identifier">newPutDetector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_description"><span class="hs-identifier">putDetector_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_tags"><span class="hs-identifier">putDetector_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_detectorId"><span class="hs-identifier">putDetector_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_eventTypeName"><span class="hs-identifier">putDetector_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse"><span class="hs-identifier">PutDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#newPutDetectorResponse"><span class="hs-identifier">newPutDetectorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetectorResponse_httpStatus"><span class="hs-identifier">putDetectorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html"><span class="hs-identifier">Amazonka.FraudDetector.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newPutDetector' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679311588"><span id="local-6989586621679311589"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDetector"><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-var">PutDetector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDetector%27"><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-var">PutDetector'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the detector.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Adescription%3APutDetector%27"><span class="annot"><span class="annottext">PutDetector -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3Adescription%3APutDetector%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A collection of key and value pairs.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3APutDetector%27"><span class="annot"><span class="annottext">PutDetector -&gt; Maybe [Tag]
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3Atags%3APutDetector%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The detector ID.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdetectorId%3APutDetector%27"><span class="annot"><span class="annottext">PutDetector -&gt; Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AdetectorId%3APutDetector%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the event type.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AeventTypeName%3APutDetector%27"><span class="annot"><span class="annottext">PutDetector -&gt; Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AeventTypeName%3APutDetector%27"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311579"><span id="local-6989586621679311581"><span class="annot"><span class="annottext">PutDetector -&gt; PutDetector -&gt; Bool
+(PutDetector -&gt; PutDetector -&gt; Bool)
+-&gt; (PutDetector -&gt; PutDetector -&gt; Bool) -&gt; Eq PutDetector
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutDetector -&gt; PutDetector -&gt; Bool
+$c/= :: PutDetector -&gt; PutDetector -&gt; Bool
+== :: PutDetector -&gt; PutDetector -&gt; Bool
+$c== :: PutDetector -&gt; PutDetector -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311570"><span id="local-6989586621679311572"><span id="local-6989586621679311574"><span id="local-6989586621679311576"><span class="annot"><span class="annottext">ReadPrec [PutDetector]
+ReadPrec PutDetector
+Int -&gt; ReadS PutDetector
+ReadS [PutDetector]
+(Int -&gt; ReadS PutDetector)
+-&gt; ReadS [PutDetector]
+-&gt; ReadPrec PutDetector
+-&gt; ReadPrec [PutDetector]
+-&gt; Read PutDetector
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutDetector]
+$creadListPrec :: ReadPrec [PutDetector]
+readPrec :: ReadPrec PutDetector
+$creadPrec :: ReadPrec PutDetector
+readList :: ReadS [PutDetector]
+$creadList :: ReadS [PutDetector]
+readsPrec :: Int -&gt; ReadS PutDetector
+$creadsPrec :: Int -&gt; ReadS PutDetector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311563"><span id="local-6989586621679311565"><span id="local-6989586621679311567"><span class="annot"><span class="annottext">Int -&gt; PutDetector -&gt; ShowS
+[PutDetector] -&gt; ShowS
+PutDetector -&gt; String
+(Int -&gt; PutDetector -&gt; ShowS)
+-&gt; (PutDetector -&gt; String)
+-&gt; ([PutDetector] -&gt; ShowS)
+-&gt; Show PutDetector
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutDetector] -&gt; ShowS
+$cshowList :: [PutDetector] -&gt; ShowS
+show :: PutDetector -&gt; String
+$cshow :: PutDetector -&gt; String
+showsPrec :: Int -&gt; PutDetector -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutDetector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutDetector -&gt; Rep PutDetector x)
+-&gt; (forall x. Rep PutDetector x -&gt; PutDetector)
+-&gt; Generic PutDetector
+forall x. Rep PutDetector x -&gt; PutDetector
+forall x. PutDetector -&gt; Rep PutDetector x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutDetector x -&gt; PutDetector
+$cfrom :: forall x. PutDetector -&gt; Rep PutDetector x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'PutDetector' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'description', 'putDetector_description' - The description of the detector.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'tags', 'putDetector_tags' - A collection of key and value pairs.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'detectorId', 'putDetector_detectorId' - The detector ID.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'eventTypeName', 'putDetector_eventTypeName' - The name of the event type.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#newPutDetector"><span class="hs-identifier hs-type">newPutDetector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'eventTypeName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span>
+</span><span id="line-85"></span><span id="newPutDetector"><span class="annot"><span class="annottext">newPutDetector :: Text -&gt; Text -&gt; PutDetector
+</span><a href="Amazonka.FraudDetector.PutDetector.html#newPutDetector"><span class="hs-identifier hs-var hs-var">newPutDetector</span></a></span></span><span> </span><span id="local-6989586621679311558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311558"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679311557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311557"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">PutDetector' :: Maybe Text -&gt; Maybe [Tag] -&gt; Text -&gt; Text -&gt; PutDetector
+</span><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:PutDetector' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3Adescription%3APutDetector%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:PutDetector' :: Maybe [Tag]
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3Atags%3APutDetector%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorId:PutDetector' :: Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AdetectorId%3APutDetector%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311558"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventTypeName:PutDetector' :: Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AeventTypeName%3APutDetector%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311557"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The description of the detector.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_description"><span class="hs-identifier hs-type">putDetector_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="putDetector_description"><span class="annot"><span class="annottext">putDetector_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutDetector -&gt; f PutDetector
+</span><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_description"><span class="hs-identifier hs-var hs-var">putDetector_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutDetector -&gt; Maybe Text)
+-&gt; (PutDetector -&gt; Maybe Text -&gt; PutDetector)
+-&gt; Lens PutDetector PutDetector (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311554"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:PutDetector' :: PutDetector -&gt; Maybe Text
+</span><a href="#local-6989586621679311554"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311554"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311553"><span class="annot"><span class="annottext">s :: PutDetector
+</span><a href="#local-6989586621679311553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311552"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDetector
+</span><a href="#local-6989586621679311553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PutDetector' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3Adescription%3APutDetector%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A collection of key and value pairs.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_tags"><span class="hs-identifier hs-type">putDetector_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="putDetector_tags"><span class="annot"><span class="annottext">putDetector_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; PutDetector -&gt; f PutDetector
+</span><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_tags"><span class="hs-identifier hs-var hs-var">putDetector_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutDetector -&gt; Maybe [Tag])
+-&gt; (PutDetector -&gt; Maybe [Tag] -&gt; PutDetector)
+-&gt; Lens PutDetector PutDetector (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311551"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:PutDetector' :: PutDetector -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679311551"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679311551"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311550"><span class="annot"><span class="annottext">s :: PutDetector
+</span><a href="#local-6989586621679311550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311549"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679311549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDetector
+</span><a href="#local-6989586621679311550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutDetector' :: Maybe [Tag]
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3Atags%3APutDetector%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679311549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; PutDetector -&gt; f PutDetector)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; PutDetector
+-&gt; f PutDetector
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The detector ID.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_detectorId"><span class="hs-identifier hs-type">putDetector_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="putDetector_detectorId"><span class="annot"><span class="annottext">putDetector_detectorId :: (Text -&gt; f Text) -&gt; PutDetector -&gt; f PutDetector
+</span><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_detectorId"><span class="hs-identifier hs-var hs-var">putDetector_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutDetector -&gt; Text)
+-&gt; (PutDetector -&gt; Text -&gt; PutDetector)
+-&gt; Lens PutDetector PutDetector Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311545"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:PutDetector' :: PutDetector -&gt; Text
+</span><a href="#local-6989586621679311545"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311545"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311544"><span class="annot"><span class="annottext">s :: PutDetector
+</span><a href="#local-6989586621679311544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDetector
+</span><a href="#local-6989586621679311544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:PutDetector' :: Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AdetectorId%3APutDetector%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the event type.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_eventTypeName"><span class="hs-identifier hs-type">putDetector_eventTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="putDetector_eventTypeName"><span class="annot"><span class="annottext">putDetector_eventTypeName :: (Text -&gt; f Text) -&gt; PutDetector -&gt; f PutDetector
+</span><a href="Amazonka.FraudDetector.PutDetector.html#putDetector_eventTypeName"><span class="hs-identifier hs-var hs-var">putDetector_eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutDetector -&gt; Text)
+-&gt; (PutDetector -&gt; Text -&gt; PutDetector)
+-&gt; Lens PutDetector PutDetector Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311542"><span class="annot"><span class="annottext">Text
+eventTypeName :: Text
+$sel:eventTypeName:PutDetector' :: PutDetector -&gt; Text
+</span><a href="#local-6989586621679311542"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311542"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311541"><span class="annot"><span class="annottext">s :: PutDetector
+</span><a href="#local-6989586621679311541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDetector
+</span><a href="#local-6989586621679311541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeName:PutDetector' :: Text
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AeventTypeName%3APutDetector%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse"><span class="hs-identifier hs-type">PutDetectorResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679311536"><span class="annot"><span class="annottext">request :: PutDetector -&gt; Request PutDetector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutDetector -&gt; Request PutDetector
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679311532"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutDetector
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutDetector)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutDetector))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutDetector
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutDetector)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311529"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311529"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311528"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311528"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311527"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679311527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutDetectorResponse
+</span><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse%27"><span class="hs-identifier hs-var">PutDetectorResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutDetectorResponse)
+-&gt; Either String Int -&gt; Either String PutDetectorResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311529"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311520"><span id="local-6989586621679311522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679311513"><span class="annot"><span class="annottext">toHeaders :: PutDetector -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutDetector -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.PutDetector&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311503"><span id="local-6989586621679311505"><span id="local-6989586621679311507"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679311501"><span class="annot"><span class="annottext">toJSON :: PutDetector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector%27"><span class="hs-identifier hs-type">PutDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311496"><span id="local-6989586621679311497"><span id="local-6989586621679311498"><span id="local-6989586621679311499"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+eventTypeName :: Text
+detectorId :: Text
+tags :: Maybe [Tag]
+description :: Maybe Text
+$sel:eventTypeName:PutDetector' :: PutDetector -&gt; Text
+$sel:detectorId:PutDetector' :: PutDetector -&gt; Text
+$sel:tags:PutDetector' :: PutDetector -&gt; Maybe [Tag]
+$sel:description:PutDetector' :: PutDetector -&gt; Maybe Text
+</span><a href="#local-6989586621679311496"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311499"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679311498"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311497"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311496"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679311490"><span class="annot"><span class="annottext">toPath :: PutDetector -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutDetector -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetector"><span class="hs-identifier hs-type">PutDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679311486"><span class="annot"><span class="annottext">toQuery :: PutDetector -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutDetector -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newPutDetectorResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679311483"><span id="local-6989586621679311484"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDetectorResponse"><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse"><span class="hs-identifier hs-var">PutDetectorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDetectorResponse%27"><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse%27"><span class="hs-identifier hs-var">PutDetectorResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutDetectorResponse%27"><span class="annot"><span class="annottext">PutDetectorResponse -&gt; Int
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AhttpStatus%3APutDetectorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311478"><span id="local-6989586621679311480"><span class="annot"><span class="annottext">PutDetectorResponse -&gt; PutDetectorResponse -&gt; Bool
+(PutDetectorResponse -&gt; PutDetectorResponse -&gt; Bool)
+-&gt; (PutDetectorResponse -&gt; PutDetectorResponse -&gt; Bool)
+-&gt; Eq PutDetectorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutDetectorResponse -&gt; PutDetectorResponse -&gt; Bool
+$c/= :: PutDetectorResponse -&gt; PutDetectorResponse -&gt; Bool
+== :: PutDetectorResponse -&gt; PutDetectorResponse -&gt; Bool
+$c== :: PutDetectorResponse -&gt; PutDetectorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311470"><span id="local-6989586621679311472"><span id="local-6989586621679311474"><span id="local-6989586621679311476"><span class="annot"><span class="annottext">ReadPrec [PutDetectorResponse]
+ReadPrec PutDetectorResponse
+Int -&gt; ReadS PutDetectorResponse
+ReadS [PutDetectorResponse]
+(Int -&gt; ReadS PutDetectorResponse)
+-&gt; ReadS [PutDetectorResponse]
+-&gt; ReadPrec PutDetectorResponse
+-&gt; ReadPrec [PutDetectorResponse]
+-&gt; Read PutDetectorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutDetectorResponse]
+$creadListPrec :: ReadPrec [PutDetectorResponse]
+readPrec :: ReadPrec PutDetectorResponse
+$creadPrec :: ReadPrec PutDetectorResponse
+readList :: ReadS [PutDetectorResponse]
+$creadList :: ReadS [PutDetectorResponse]
+readsPrec :: Int -&gt; ReadS PutDetectorResponse
+$creadsPrec :: Int -&gt; ReadS PutDetectorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311464"><span id="local-6989586621679311466"><span id="local-6989586621679311468"><span class="annot"><span class="annottext">Int -&gt; PutDetectorResponse -&gt; ShowS
+[PutDetectorResponse] -&gt; ShowS
+PutDetectorResponse -&gt; String
+(Int -&gt; PutDetectorResponse -&gt; ShowS)
+-&gt; (PutDetectorResponse -&gt; String)
+-&gt; ([PutDetectorResponse] -&gt; ShowS)
+-&gt; Show PutDetectorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutDetectorResponse] -&gt; ShowS
+$cshowList :: [PutDetectorResponse] -&gt; ShowS
+show :: PutDetectorResponse -&gt; String
+$cshow :: PutDetectorResponse -&gt; String
+showsPrec :: Int -&gt; PutDetectorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutDetectorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutDetectorResponse -&gt; Rep PutDetectorResponse x)
+-&gt; (forall x. Rep PutDetectorResponse x -&gt; PutDetectorResponse)
+-&gt; Generic PutDetectorResponse
+forall x. Rep PutDetectorResponse x -&gt; PutDetectorResponse
+forall x. PutDetectorResponse -&gt; Rep PutDetectorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutDetectorResponse x -&gt; PutDetectorResponse
+$cfrom :: forall x. PutDetectorResponse -&gt; Rep PutDetectorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'PutDetectorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'putDetectorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#newPutDetectorResponse"><span class="hs-identifier hs-type">newPutDetectorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse"><span class="hs-identifier hs-type">PutDetectorResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newPutDetectorResponse"><span class="annot"><span class="annottext">newPutDetectorResponse :: Int -&gt; PutDetectorResponse
+</span><a href="Amazonka.FraudDetector.PutDetector.html#newPutDetectorResponse"><span class="hs-identifier hs-var hs-var">newPutDetectorResponse</span></a></span></span><span> </span><span id="local-6989586621679311461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">PutDetectorResponse' :: Int -&gt; PutDetectorResponse
+</span><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse%27"><span class="hs-identifier hs-type">PutDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDetectorResponse' :: Int
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AhttpStatus%3APutDetectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#putDetectorResponse_httpStatus"><span class="hs-identifier hs-type">putDetectorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse"><span class="hs-identifier hs-type">PutDetectorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="putDetectorResponse_httpStatus"><span class="annot"><span class="annottext">putDetectorResponse_httpStatus :: (Int -&gt; f Int) -&gt; PutDetectorResponse -&gt; f PutDetectorResponse
+</span><a href="Amazonka.FraudDetector.PutDetector.html#putDetectorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putDetectorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutDetectorResponse -&gt; Int)
+-&gt; (PutDetectorResponse -&gt; Int -&gt; PutDetectorResponse)
+-&gt; Lens PutDetectorResponse PutDetectorResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse%27"><span class="hs-identifier hs-type">PutDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311460"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutDetectorResponse' :: PutDetectorResponse -&gt; Int
+</span><a href="#local-6989586621679311460"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311460"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311459"><span class="annot"><span class="annottext">s :: PutDetectorResponse
+</span><a href="#local-6989586621679311459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse%27"><span class="hs-identifier hs-type">PutDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDetectorResponse
+</span><a href="#local-6989586621679311459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDetectorResponse' :: Int
+</span><a href="Amazonka.FraudDetector.PutDetector.html#%24sel%3AhttpStatus%3APutDetectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse"><span class="hs-identifier hs-type">PutDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.PutDetector.html#PutDetectorResponse"><span class="hs-identifier hs-type">PutDetectorResponse</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

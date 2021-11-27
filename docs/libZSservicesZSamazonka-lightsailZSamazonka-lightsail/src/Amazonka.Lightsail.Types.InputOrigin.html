@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.InputOrigin</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.InputOrigin</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.OriginProtocolPolicyEnum.html"><span class="hs-identifier">Amazonka.Lightsail.Types.OriginProtocolPolicyEnum</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RegionName.html"><span class="hs-identifier">Amazonka.Lightsail.Types.RegionName</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the origin resource of an Amazon Lightsail content delivery</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- network (CDN) distribution.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- An origin can be a Lightsail instance or load balancer. A distribution</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- pulls content from an origin, caches it, and serves it to viewers via a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- worldwide network of edge servers.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newInputOrigin' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679619663"><span id="local-6989586621679619664"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputOrigin"><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-var">InputOrigin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputOrigin%27"><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-var">InputOrigin'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS Region name of the origin resource.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AregionName%3AInputOrigin%27"><span class="annot"><span class="annottext">InputOrigin -&gt; Maybe RegionName
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3AregionName%3AInputOrigin%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the origin resource.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AInputOrigin%27"><span class="annot"><span class="annottext">InputOrigin -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3Aname%3AInputOrigin%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The protocol that your Amazon Lightsail distribution uses when</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- establishing a connection with your origin to pull content.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AprotocolPolicy%3AInputOrigin%27"><span class="annot"><span class="annottext">InputOrigin -&gt; Maybe OriginProtocolPolicyEnum
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3AprotocolPolicy%3AInputOrigin%27"><span class="hs-identifier hs-var hs-var">protocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.OriginProtocolPolicyEnum.html#OriginProtocolPolicyEnum"><span class="hs-identifier hs-type">OriginProtocolPolicyEnum</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679619655"><span id="local-6989586621679619657"><span class="annot"><span class="annottext">InputOrigin -&gt; InputOrigin -&gt; Bool
+(InputOrigin -&gt; InputOrigin -&gt; Bool)
+-&gt; (InputOrigin -&gt; InputOrigin -&gt; Bool) -&gt; Eq InputOrigin
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputOrigin -&gt; InputOrigin -&gt; Bool
+$c/= :: InputOrigin -&gt; InputOrigin -&gt; Bool
+== :: InputOrigin -&gt; InputOrigin -&gt; Bool
+$c== :: InputOrigin -&gt; InputOrigin -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619646"><span id="local-6989586621679619648"><span id="local-6989586621679619650"><span id="local-6989586621679619652"><span class="annot"><span class="annottext">ReadPrec [InputOrigin]
+ReadPrec InputOrigin
+Int -&gt; ReadS InputOrigin
+ReadS [InputOrigin]
+(Int -&gt; ReadS InputOrigin)
+-&gt; ReadS [InputOrigin]
+-&gt; ReadPrec InputOrigin
+-&gt; ReadPrec [InputOrigin]
+-&gt; Read InputOrigin
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputOrigin]
+$creadListPrec :: ReadPrec [InputOrigin]
+readPrec :: ReadPrec InputOrigin
+$creadPrec :: ReadPrec InputOrigin
+readList :: ReadS [InputOrigin]
+$creadList :: ReadS [InputOrigin]
+readsPrec :: Int -&gt; ReadS InputOrigin
+$creadsPrec :: Int -&gt; ReadS InputOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619639"><span id="local-6989586621679619641"><span id="local-6989586621679619643"><span class="annot"><span class="annottext">Int -&gt; InputOrigin -&gt; ShowS
+[InputOrigin] -&gt; ShowS
+InputOrigin -&gt; String
+(Int -&gt; InputOrigin -&gt; ShowS)
+-&gt; (InputOrigin -&gt; String)
+-&gt; ([InputOrigin] -&gt; ShowS)
+-&gt; Show InputOrigin
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputOrigin] -&gt; ShowS
+$cshowList :: [InputOrigin] -&gt; ShowS
+show :: InputOrigin -&gt; String
+$cshow :: InputOrigin -&gt; String
+showsPrec :: Int -&gt; InputOrigin -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputOrigin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputOrigin -&gt; Rep InputOrigin x)
+-&gt; (forall x. Rep InputOrigin x -&gt; InputOrigin)
+-&gt; Generic InputOrigin
+forall x. Rep InputOrigin x -&gt; InputOrigin
+forall x. InputOrigin -&gt; Rep InputOrigin x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputOrigin x -&gt; InputOrigin
+$cfrom :: forall x. InputOrigin -&gt; Rep InputOrigin x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'InputOrigin' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'regionName', 'inputOrigin_regionName' - The AWS Region name of the origin resource.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'name', 'inputOrigin_name' - The name of the origin resource.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'protocolPolicy', 'inputOrigin_protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- establishing a connection with your origin to pull content.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#newInputOrigin"><span class="hs-identifier hs-type">newInputOrigin</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span><span>
+</span><span id="line-63"></span><span id="newInputOrigin"><span class="annot"><span class="annottext">newInputOrigin :: InputOrigin
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#newInputOrigin"><span class="hs-identifier hs-var hs-var">newInputOrigin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">InputOrigin' :: Maybe RegionName
+-&gt; Maybe Text -&gt; Maybe OriginProtocolPolicyEnum -&gt; InputOrigin
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:regionName:InputOrigin' :: Maybe RegionName
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3AregionName%3AInputOrigin%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegionName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InputOrigin' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3Aname%3AInputOrigin%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocolPolicy:InputOrigin' :: Maybe OriginProtocolPolicyEnum
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3AprotocolPolicy%3AInputOrigin%27"><span class="hs-identifier hs-var">protocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginProtocolPolicyEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The AWS Region name of the origin resource.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#inputOrigin_regionName"><span class="hs-identifier hs-type">inputOrigin_regionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="inputOrigin_regionName"><span class="annot"><span class="annottext">inputOrigin_regionName :: (Maybe RegionName -&gt; f (Maybe RegionName))
+-&gt; InputOrigin -&gt; f InputOrigin
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#inputOrigin_regionName"><span class="hs-identifier hs-var hs-var">inputOrigin_regionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputOrigin -&gt; Maybe RegionName)
+-&gt; (InputOrigin -&gt; Maybe RegionName -&gt; InputOrigin)
+-&gt; Lens
+     InputOrigin InputOrigin (Maybe RegionName) (Maybe RegionName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619630"><span class="annot"><span class="annottext">Maybe RegionName
+regionName :: Maybe RegionName
+$sel:regionName:InputOrigin' :: InputOrigin -&gt; Maybe RegionName
+</span><a href="#local-6989586621679619630"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegionName
+</span><a href="#local-6989586621679619630"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619629"><span class="annot"><span class="annottext">s :: InputOrigin
+</span><a href="#local-6989586621679619629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619628"><span class="annot"><span class="annottext">Maybe RegionName
+</span><a href="#local-6989586621679619628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputOrigin
+</span><a href="#local-6989586621679619629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:InputOrigin' :: Maybe RegionName
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3AregionName%3AInputOrigin%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegionName
+</span><a href="#local-6989586621679619628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the origin resource.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#inputOrigin_name"><span class="hs-identifier hs-type">inputOrigin_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="inputOrigin_name"><span class="annot"><span class="annottext">inputOrigin_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InputOrigin -&gt; f InputOrigin
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#inputOrigin_name"><span class="hs-identifier hs-var hs-var">inputOrigin_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputOrigin -&gt; Maybe Text)
+-&gt; (InputOrigin -&gt; Maybe Text -&gt; InputOrigin)
+-&gt; Lens InputOrigin InputOrigin (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619626"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InputOrigin' :: InputOrigin -&gt; Maybe Text
+</span><a href="#local-6989586621679619626"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619626"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619625"><span class="annot"><span class="annottext">s :: InputOrigin
+</span><a href="#local-6989586621679619625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619624"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputOrigin
+</span><a href="#local-6989586621679619625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputOrigin' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3Aname%3AInputOrigin%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The protocol that your Amazon Lightsail distribution uses when</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- establishing a connection with your origin to pull content.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#inputOrigin_protocolPolicy"><span class="hs-identifier hs-type">inputOrigin_protocolPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.OriginProtocolPolicyEnum.html#OriginProtocolPolicyEnum"><span class="hs-identifier hs-type">OriginProtocolPolicyEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="inputOrigin_protocolPolicy"><span class="annot"><span class="annottext">inputOrigin_protocolPolicy :: (Maybe OriginProtocolPolicyEnum
+ -&gt; f (Maybe OriginProtocolPolicyEnum))
+-&gt; InputOrigin -&gt; f InputOrigin
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#inputOrigin_protocolPolicy"><span class="hs-identifier hs-var hs-var">inputOrigin_protocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputOrigin -&gt; Maybe OriginProtocolPolicyEnum)
+-&gt; (InputOrigin -&gt; Maybe OriginProtocolPolicyEnum -&gt; InputOrigin)
+-&gt; Lens
+     InputOrigin
+     InputOrigin
+     (Maybe OriginProtocolPolicyEnum)
+     (Maybe OriginProtocolPolicyEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619622"><span class="annot"><span class="annottext">Maybe OriginProtocolPolicyEnum
+protocolPolicy :: Maybe OriginProtocolPolicyEnum
+$sel:protocolPolicy:InputOrigin' :: InputOrigin -&gt; Maybe OriginProtocolPolicyEnum
+</span><a href="#local-6989586621679619622"><span class="hs-identifier hs-var hs-var">protocolPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginProtocolPolicyEnum
+</span><a href="#local-6989586621679619622"><span class="hs-identifier hs-var">protocolPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619621"><span class="annot"><span class="annottext">s :: InputOrigin
+</span><a href="#local-6989586621679619621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619620"><span class="annot"><span class="annottext">Maybe OriginProtocolPolicyEnum
+</span><a href="#local-6989586621679619620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputOrigin
+</span><a href="#local-6989586621679619621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolPolicy:InputOrigin' :: Maybe OriginProtocolPolicyEnum
+</span><a href="Amazonka.Lightsail.Types.InputOrigin.html#%24sel%3AprotocolPolicy%3AInputOrigin%27"><span class="hs-identifier hs-var">protocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginProtocolPolicyEnum
+</span><a href="#local-6989586621679619620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619616"><span id="local-6989586621679619618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619605"><span id="local-6989586621679619607"><span id="local-6989586621679619609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin"><span class="hs-identifier hs-type">InputOrigin</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679619603"><span class="annot"><span class="annottext">toJSON :: InputOrigin -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InputOrigin.html#InputOrigin%27"><span class="hs-identifier hs-type">InputOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619599"><span id="local-6989586621679619600"><span id="local-6989586621679619601"><span class="annot"><span class="annottext">Maybe Text
+Maybe OriginProtocolPolicyEnum
+Maybe RegionName
+protocolPolicy :: Maybe OriginProtocolPolicyEnum
+name :: Maybe Text
+regionName :: Maybe RegionName
+$sel:protocolPolicy:InputOrigin' :: InputOrigin -&gt; Maybe OriginProtocolPolicyEnum
+$sel:name:InputOrigin' :: InputOrigin -&gt; Maybe Text
+$sel:regionName:InputOrigin' :: InputOrigin -&gt; Maybe RegionName
+</span><a href="#local-6989586621679619599"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;regionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegionName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RegionName -&gt; Pair) -&gt; Maybe RegionName -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegionName
+</span><a href="#local-6989586621679619601"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619600"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocolPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OriginProtocolPolicyEnum -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">(OriginProtocolPolicyEnum -&gt; Pair)
+-&gt; Maybe OriginProtocolPolicyEnum -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OriginProtocolPolicyEnum
+</span><a href="#local-6989586621679619599"><span class="hs-identifier hs-var">protocolPolicy</span></a></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span></pre></body></html>

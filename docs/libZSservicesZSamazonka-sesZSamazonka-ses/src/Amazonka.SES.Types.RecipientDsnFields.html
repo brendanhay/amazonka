@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SES.Types.RecipientDsnFields</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.Types.RecipientDsnFields</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.DsnAction.html"><span class="hs-identifier">Amazonka.SES.Types.DsnAction</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.ExtensionField.html"><span class="hs-identifier">Amazonka.SES.Types.ExtensionField</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Recipient-related information to include in the Delivery Status</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Notification (DSN) when an email that Amazon SES receives on your behalf</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- bounces.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For information about receiving email through Amazon SES, see the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newRecipientDsnFields' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679274160"><span id="local-6989586621679274161"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecipientDsnFields"><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-var">RecipientDsnFields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecipientDsnFields%27"><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-var">RecipientDsnFields'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An extended explanation of what went wrong; this is usually an SMTP</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- response. See &lt;https://tools.ietf.org/html/rfc3463 RFC 3463&gt; for the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- correct formatting of this parameter.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdiagnosticCode%3ARecipientDsnFields%27"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AdiagnosticCode%3ARecipientDsnFields%27"><span class="hs-identifier hs-var hs-var">diagnosticCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The MTA to which the remote MTA attempted to deliver the message,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- formatted as specified in &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- (@mta-name-type; mta-name@). This parameter typically applies only to</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- propagating synchronous bounces.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AremoteMta%3ARecipientDsnFields%27"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AremoteMta%3ARecipientDsnFields%27"><span class="hs-identifier hs-var hs-var">remoteMta</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The email address that the message was ultimately delivered to. This</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- corresponds to the @Final-Recipient@ in the DSN. If not specified,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @FinalRecipient@ will be set to the @Recipient@ specified in the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- recipient in @BouncedRecipientInfo@ must be a recipient of the original</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- bounced message.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Do not prepend the @FinalRecipient@ email address with @rfc 822;@, as</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- described in &lt;https://tools.ietf.org/html/rfc3798 RFC 3798&gt;.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AfinalRecipient%3ARecipientDsnFields%27"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AfinalRecipient%3ARecipientDsnFields%27"><span class="hs-identifier hs-var hs-var">finalRecipient</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Additional X-headers to include in the DSN.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AextensionFields%3ARecipientDsnFields%27"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; Maybe [ExtensionField]
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AextensionFields%3ARecipientDsnFields%27"><span class="hs-identifier hs-var hs-var">extensionFields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The time the final delivery attempt was made, in</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://www.ietf.org/rfc/rfc0822.txt RFC 822&gt; date-time format.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlastAttemptDate%3ARecipientDsnFields%27"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; Maybe ISO8601
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AlastAttemptDate%3ARecipientDsnFields%27"><span class="hs-identifier hs-var hs-var">lastAttemptDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The action performed by the reporting mail transfer agent (MTA) as a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- result of its attempt to deliver the message to the recipient address.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- This is required by &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aaction%3ARecipientDsnFields%27"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; DsnAction
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3Aaction%3ARecipientDsnFields%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.DsnAction.html#DsnAction"><span class="hs-identifier hs-type">DsnAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The status code that indicates what went wrong. This is required by</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Astatus%3ARecipientDsnFields%27"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3Astatus%3ARecipientDsnFields%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274148"><span id="local-6989586621679274150"><span class="annot"><span class="annottext">RecipientDsnFields -&gt; RecipientDsnFields -&gt; Bool
+(RecipientDsnFields -&gt; RecipientDsnFields -&gt; Bool)
+-&gt; (RecipientDsnFields -&gt; RecipientDsnFields -&gt; Bool)
+-&gt; Eq RecipientDsnFields
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecipientDsnFields -&gt; RecipientDsnFields -&gt; Bool
+$c/= :: RecipientDsnFields -&gt; RecipientDsnFields -&gt; Bool
+== :: RecipientDsnFields -&gt; RecipientDsnFields -&gt; Bool
+$c== :: RecipientDsnFields -&gt; RecipientDsnFields -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274139"><span id="local-6989586621679274141"><span id="local-6989586621679274143"><span id="local-6989586621679274145"><span class="annot"><span class="annottext">ReadPrec [RecipientDsnFields]
+ReadPrec RecipientDsnFields
+Int -&gt; ReadS RecipientDsnFields
+ReadS [RecipientDsnFields]
+(Int -&gt; ReadS RecipientDsnFields)
+-&gt; ReadS [RecipientDsnFields]
+-&gt; ReadPrec RecipientDsnFields
+-&gt; ReadPrec [RecipientDsnFields]
+-&gt; Read RecipientDsnFields
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecipientDsnFields]
+$creadListPrec :: ReadPrec [RecipientDsnFields]
+readPrec :: ReadPrec RecipientDsnFields
+$creadPrec :: ReadPrec RecipientDsnFields
+readList :: ReadS [RecipientDsnFields]
+$creadList :: ReadS [RecipientDsnFields]
+readsPrec :: Int -&gt; ReadS RecipientDsnFields
+$creadsPrec :: Int -&gt; ReadS RecipientDsnFields
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274132"><span id="local-6989586621679274134"><span id="local-6989586621679274136"><span class="annot"><span class="annottext">Int -&gt; RecipientDsnFields -&gt; ShowS
+[RecipientDsnFields] -&gt; ShowS
+RecipientDsnFields -&gt; String
+(Int -&gt; RecipientDsnFields -&gt; ShowS)
+-&gt; (RecipientDsnFields -&gt; String)
+-&gt; ([RecipientDsnFields] -&gt; ShowS)
+-&gt; Show RecipientDsnFields
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecipientDsnFields] -&gt; ShowS
+$cshowList :: [RecipientDsnFields] -&gt; ShowS
+show :: RecipientDsnFields -&gt; String
+$cshow :: RecipientDsnFields -&gt; String
+showsPrec :: Int -&gt; RecipientDsnFields -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecipientDsnFields -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RecipientDsnFields -&gt; Rep RecipientDsnFields x)
+-&gt; (forall x. Rep RecipientDsnFields x -&gt; RecipientDsnFields)
+-&gt; Generic RecipientDsnFields
+forall x. Rep RecipientDsnFields x -&gt; RecipientDsnFields
+forall x. RecipientDsnFields -&gt; Rep RecipientDsnFields x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RecipientDsnFields x -&gt; RecipientDsnFields
+$cfrom :: forall x. RecipientDsnFields -&gt; Rep RecipientDsnFields x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'RecipientDsnFields' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'diagnosticCode', 'recipientDsnFields_diagnosticCode' - An extended explanation of what went wrong; this is usually an SMTP</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- response. See &lt;https://tools.ietf.org/html/rfc3463 RFC 3463&gt; for the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- correct formatting of this parameter.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'remoteMta', 'recipientDsnFields_remoteMta' - The MTA to which the remote MTA attempted to deliver the message,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- formatted as specified in &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- (@mta-name-type; mta-name@). This parameter typically applies only to</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- propagating synchronous bounces.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'finalRecipient', 'recipientDsnFields_finalRecipient' - The email address that the message was ultimately delivered to. This</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- corresponds to the @Final-Recipient@ in the DSN. If not specified,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- @FinalRecipient@ will be set to the @Recipient@ specified in the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- recipient in @BouncedRecipientInfo@ must be a recipient of the original</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- bounced message.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Do not prepend the @FinalRecipient@ email address with @rfc 822;@, as</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- described in &lt;https://tools.ietf.org/html/rfc3798 RFC 3798&gt;.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'extensionFields', 'recipientDsnFields_extensionFields' - Additional X-headers to include in the DSN.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'lastAttemptDate', 'recipientDsnFields_lastAttemptDate' - The time the final delivery attempt was made, in</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- &lt;https://www.ietf.org/rfc/rfc0822.txt RFC 822&gt; date-time format.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'action', 'recipientDsnFields_action' - The action performed by the reporting mail transfer agent (MTA) as a</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- result of its attempt to deliver the message to the recipient address.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- This is required by &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'status', 'recipientDsnFields_status' - The status code that indicates what went wrong. This is required by</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#newRecipientDsnFields"><span class="hs-identifier hs-type">newRecipientDsnFields</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'action'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.DsnAction.html#DsnAction"><span class="hs-identifier hs-type">DsnAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span>
+</span><span id="line-115"></span><span id="newRecipientDsnFields"><span class="annot"><span class="annottext">newRecipientDsnFields :: DsnAction -&gt; Text -&gt; RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#newRecipientDsnFields"><span class="hs-identifier hs-var hs-var">newRecipientDsnFields</span></a></span></span><span> </span><span id="local-6989586621679274126"><span class="annot"><span class="annottext">DsnAction
+</span><a href="#local-6989586621679274126"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679274125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274125"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">RecipientDsnFields' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [ExtensionField]
+-&gt; Maybe ISO8601
+-&gt; DsnAction
+-&gt; Text
+-&gt; RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:diagnosticCode:RecipientDsnFields' :: Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AdiagnosticCode%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">diagnosticCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteMta:RecipientDsnFields' :: Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AremoteMta%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">remoteMta</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:finalRecipient:RecipientDsnFields' :: Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AfinalRecipient%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">finalRecipient</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:extensionFields:RecipientDsnFields' :: Maybe [ExtensionField]
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AextensionFields%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">extensionFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExtensionField]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAttemptDate:RecipientDsnFields' :: Maybe ISO8601
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AlastAttemptDate%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">lastAttemptDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:RecipientDsnFields' :: DsnAction
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3Aaction%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DsnAction
+</span><a href="#local-6989586621679274126"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:RecipientDsnFields' :: Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3Astatus%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274125"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | An extended explanation of what went wrong; this is usually an SMTP</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- response. See &lt;https://tools.ietf.org/html/rfc3463 RFC 3463&gt; for the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- correct formatting of this parameter.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_diagnosticCode"><span class="hs-identifier hs-type">recipientDsnFields_diagnosticCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="recipientDsnFields_diagnosticCode"><span class="annot"><span class="annottext">recipientDsnFields_diagnosticCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RecipientDsnFields -&gt; f RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_diagnosticCode"><span class="hs-identifier hs-var hs-var">recipientDsnFields_diagnosticCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecipientDsnFields -&gt; Maybe Text)
+-&gt; (RecipientDsnFields -&gt; Maybe Text -&gt; RecipientDsnFields)
+-&gt; Lens
+     RecipientDsnFields RecipientDsnFields (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274121"><span class="annot"><span class="annottext">Maybe Text
+diagnosticCode :: Maybe Text
+$sel:diagnosticCode:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe Text
+</span><a href="#local-6989586621679274121"><span class="hs-identifier hs-var hs-var">diagnosticCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274121"><span class="hs-identifier hs-var">diagnosticCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274120"><span class="annot"><span class="annottext">s :: RecipientDsnFields
+</span><a href="#local-6989586621679274120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274119"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecipientDsnFields
+</span><a href="#local-6989586621679274120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diagnosticCode:RecipientDsnFields' :: Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AdiagnosticCode%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">diagnosticCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The MTA to which the remote MTA attempted to deliver the message,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- formatted as specified in &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- (@mta-name-type; mta-name@). This parameter typically applies only to</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- propagating synchronous bounces.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_remoteMta"><span class="hs-identifier hs-type">recipientDsnFields_remoteMta</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="recipientDsnFields_remoteMta"><span class="annot"><span class="annottext">recipientDsnFields_remoteMta :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RecipientDsnFields -&gt; f RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_remoteMta"><span class="hs-identifier hs-var hs-var">recipientDsnFields_remoteMta</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecipientDsnFields -&gt; Maybe Text)
+-&gt; (RecipientDsnFields -&gt; Maybe Text -&gt; RecipientDsnFields)
+-&gt; Lens
+     RecipientDsnFields RecipientDsnFields (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274117"><span class="annot"><span class="annottext">Maybe Text
+remoteMta :: Maybe Text
+$sel:remoteMta:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe Text
+</span><a href="#local-6989586621679274117"><span class="hs-identifier hs-var hs-var">remoteMta</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274117"><span class="hs-identifier hs-var">remoteMta</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274116"><span class="annot"><span class="annottext">s :: RecipientDsnFields
+</span><a href="#local-6989586621679274116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecipientDsnFields
+</span><a href="#local-6989586621679274116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteMta:RecipientDsnFields' :: Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AremoteMta%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">remoteMta</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The email address that the message was ultimately delivered to. This</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- corresponds to the @Final-Recipient@ in the DSN. If not specified,</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @FinalRecipient@ will be set to the @Recipient@ specified in the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- recipient in @BouncedRecipientInfo@ must be a recipient of the original</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- bounced message.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Do not prepend the @FinalRecipient@ email address with @rfc 822;@, as</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- described in &lt;https://tools.ietf.org/html/rfc3798 RFC 3798&gt;.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_finalRecipient"><span class="hs-identifier hs-type">recipientDsnFields_finalRecipient</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="recipientDsnFields_finalRecipient"><span class="annot"><span class="annottext">recipientDsnFields_finalRecipient :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RecipientDsnFields -&gt; f RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_finalRecipient"><span class="hs-identifier hs-var hs-var">recipientDsnFields_finalRecipient</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecipientDsnFields -&gt; Maybe Text)
+-&gt; (RecipientDsnFields -&gt; Maybe Text -&gt; RecipientDsnFields)
+-&gt; Lens
+     RecipientDsnFields RecipientDsnFields (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274113"><span class="annot"><span class="annottext">Maybe Text
+finalRecipient :: Maybe Text
+$sel:finalRecipient:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe Text
+</span><a href="#local-6989586621679274113"><span class="hs-identifier hs-var hs-var">finalRecipient</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274113"><span class="hs-identifier hs-var">finalRecipient</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274112"><span class="annot"><span class="annottext">s :: RecipientDsnFields
+</span><a href="#local-6989586621679274112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecipientDsnFields
+</span><a href="#local-6989586621679274112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalRecipient:RecipientDsnFields' :: Maybe Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AfinalRecipient%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">finalRecipient</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Additional X-headers to include in the DSN.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_extensionFields"><span class="hs-identifier hs-type">recipientDsnFields_extensionFields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="recipientDsnFields_extensionFields"><span class="annot"><span class="annottext">recipientDsnFields_extensionFields :: (Maybe [ExtensionField] -&gt; f (Maybe [ExtensionField]))
+-&gt; RecipientDsnFields -&gt; f RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_extensionFields"><span class="hs-identifier hs-var hs-var">recipientDsnFields_extensionFields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecipientDsnFields -&gt; Maybe [ExtensionField])
+-&gt; (RecipientDsnFields
+    -&gt; Maybe [ExtensionField] -&gt; RecipientDsnFields)
+-&gt; Lens
+     RecipientDsnFields
+     RecipientDsnFields
+     (Maybe [ExtensionField])
+     (Maybe [ExtensionField])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274109"><span class="annot"><span class="annottext">Maybe [ExtensionField]
+extensionFields :: Maybe [ExtensionField]
+$sel:extensionFields:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe [ExtensionField]
+</span><a href="#local-6989586621679274109"><span class="hs-identifier hs-var hs-var">extensionFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExtensionField]
+</span><a href="#local-6989586621679274109"><span class="hs-identifier hs-var">extensionFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274108"><span class="annot"><span class="annottext">s :: RecipientDsnFields
+</span><a href="#local-6989586621679274108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274107"><span class="annot"><span class="annottext">Maybe [ExtensionField]
+</span><a href="#local-6989586621679274107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecipientDsnFields
+</span><a href="#local-6989586621679274108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extensionFields:RecipientDsnFields' :: Maybe [ExtensionField]
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AextensionFields%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">extensionFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExtensionField]
+</span><a href="#local-6989586621679274107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExtensionField] -&gt; f (Maybe [ExtensionField]))
+ -&gt; RecipientDsnFields -&gt; f RecipientDsnFields)
+-&gt; ((Maybe [ExtensionField] -&gt; f (Maybe [ExtensionField]))
+    -&gt; Maybe [ExtensionField] -&gt; f (Maybe [ExtensionField]))
+-&gt; (Maybe [ExtensionField] -&gt; f (Maybe [ExtensionField]))
+-&gt; RecipientDsnFields
+-&gt; f RecipientDsnFields
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ExtensionField] [ExtensionField] [ExtensionField] [ExtensionField]
+-&gt; Iso
+     (Maybe [ExtensionField])
+     (Maybe [ExtensionField])
+     (Maybe [ExtensionField])
+     (Maybe [ExtensionField])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ExtensionField] [ExtensionField] [ExtensionField] [ExtensionField]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The time the final delivery attempt was made, in</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- &lt;https://www.ietf.org/rfc/rfc0822.txt RFC 822&gt; date-time format.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_lastAttemptDate"><span class="hs-identifier hs-type">recipientDsnFields_lastAttemptDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="recipientDsnFields_lastAttemptDate"><span class="annot"><span class="annottext">recipientDsnFields_lastAttemptDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecipientDsnFields -&gt; f RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_lastAttemptDate"><span class="hs-identifier hs-var hs-var">recipientDsnFields_lastAttemptDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecipientDsnFields -&gt; Maybe ISO8601)
+-&gt; (RecipientDsnFields -&gt; Maybe ISO8601 -&gt; RecipientDsnFields)
+-&gt; Lens
+     RecipientDsnFields
+     RecipientDsnFields
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274102"><span class="annot"><span class="annottext">Maybe ISO8601
+lastAttemptDate :: Maybe ISO8601
+$sel:lastAttemptDate:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679274102"><span class="hs-identifier hs-var hs-var">lastAttemptDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679274102"><span class="hs-identifier hs-var">lastAttemptDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274101"><span class="annot"><span class="annottext">s :: RecipientDsnFields
+</span><a href="#local-6989586621679274101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274100"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679274100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecipientDsnFields
+</span><a href="#local-6989586621679274101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAttemptDate:RecipientDsnFields' :: Maybe ISO8601
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3AlastAttemptDate%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">lastAttemptDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679274100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; RecipientDsnFields -&gt; f RecipientDsnFields)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecipientDsnFields
+-&gt; f RecipientDsnFields
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The action performed by the reporting mail transfer agent (MTA) as a</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- result of its attempt to deliver the message to the recipient address.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- This is required by &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_action"><span class="hs-identifier hs-type">recipientDsnFields_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.DsnAction.html#DsnAction"><span class="hs-identifier hs-type">DsnAction</span></a></span><span>
+</span><span id="line-165"></span><span id="recipientDsnFields_action"><span class="annot"><span class="annottext">recipientDsnFields_action :: (DsnAction -&gt; f DsnAction)
+-&gt; RecipientDsnFields -&gt; f RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_action"><span class="hs-identifier hs-var hs-var">recipientDsnFields_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecipientDsnFields -&gt; DsnAction)
+-&gt; (RecipientDsnFields -&gt; DsnAction -&gt; RecipientDsnFields)
+-&gt; Lens RecipientDsnFields RecipientDsnFields DsnAction DsnAction
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274097"><span class="annot"><span class="annottext">DsnAction
+action :: DsnAction
+$sel:action:RecipientDsnFields' :: RecipientDsnFields -&gt; DsnAction
+</span><a href="#local-6989586621679274097"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DsnAction
+</span><a href="#local-6989586621679274097"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274096"><span class="annot"><span class="annottext">s :: RecipientDsnFields
+</span><a href="#local-6989586621679274096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274095"><span class="annot"><span class="annottext">DsnAction
+</span><a href="#local-6989586621679274095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecipientDsnFields
+</span><a href="#local-6989586621679274096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:RecipientDsnFields' :: DsnAction
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3Aaction%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DsnAction
+</span><a href="#local-6989586621679274095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The status code that indicates what went wrong. This is required by</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3464 RFC 3464&gt;.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_status"><span class="hs-identifier hs-type">recipientDsnFields_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="recipientDsnFields_status"><span class="annot"><span class="annottext">recipientDsnFields_status :: (Text -&gt; f Text) -&gt; RecipientDsnFields -&gt; f RecipientDsnFields
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#recipientDsnFields_status"><span class="hs-identifier hs-var hs-var">recipientDsnFields_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecipientDsnFields -&gt; Text)
+-&gt; (RecipientDsnFields -&gt; Text -&gt; RecipientDsnFields)
+-&gt; Lens RecipientDsnFields RecipientDsnFields Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274093"><span class="annot"><span class="annottext">Text
+status :: Text
+$sel:status:RecipientDsnFields' :: RecipientDsnFields -&gt; Text
+</span><a href="#local-6989586621679274093"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274093"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274092"><span class="annot"><span class="annottext">s :: RecipientDsnFields
+</span><a href="#local-6989586621679274092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274091"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecipientDsnFields
+</span><a href="#local-6989586621679274092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RecipientDsnFields' :: Text
+</span><a href="Amazonka.SES.Types.RecipientDsnFields.html#%24sel%3Astatus%3ARecipientDsnFields%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274087"><span id="local-6989586621679274089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields"><span class="hs-identifier hs-type">RecipientDsnFields</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679274080"><span class="annot"><span class="annottext">toQuery :: RecipientDsnFields -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.RecipientDsnFields.html#RecipientDsnFields%27"><span class="hs-identifier hs-type">RecipientDsnFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274072"><span id="local-6989586621679274073"><span id="local-6989586621679274074"><span id="local-6989586621679274075"><span id="local-6989586621679274076"><span id="local-6989586621679274077"><span id="local-6989586621679274078"><span class="annot"><span class="annottext">Maybe [ExtensionField]
+Maybe Text
+Maybe ISO8601
+Text
+DsnAction
+status :: Text
+action :: DsnAction
+lastAttemptDate :: Maybe ISO8601
+extensionFields :: Maybe [ExtensionField]
+finalRecipient :: Maybe Text
+remoteMta :: Maybe Text
+diagnosticCode :: Maybe Text
+$sel:status:RecipientDsnFields' :: RecipientDsnFields -&gt; Text
+$sel:action:RecipientDsnFields' :: RecipientDsnFields -&gt; DsnAction
+$sel:lastAttemptDate:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe ISO8601
+$sel:extensionFields:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe [ExtensionField]
+$sel:finalRecipient:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe Text
+$sel:remoteMta:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe Text
+$sel:diagnosticCode:RecipientDsnFields' :: RecipientDsnFields -&gt; Maybe Text
+</span><a href="#local-6989586621679274072"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DiagnosticCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274078"><span class="hs-identifier hs-var">diagnosticCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RemoteMta&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274077"><span class="hs-identifier hs-var">remoteMta</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FinalRecipient&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274076"><span class="hs-identifier hs-var">finalRecipient</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExtensionFields&quot;</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [ExtensionField] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-185"></span><span>                </span><span class="annot"><span class="annottext">([ExtensionField] -&gt; QueryString)
+-&gt; Maybe [ExtensionField] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ExtensionField]
+</span><a href="#local-6989586621679274075"><span class="hs-identifier hs-var">extensionFields</span></a></span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LastAttemptDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679274074"><span class="hs-identifier hs-var">lastAttemptDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DsnAction -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">DsnAction
+</span><a href="#local-6989586621679274073"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274072"><span class="hs-identifier hs-var">status</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span></pre></body></html>

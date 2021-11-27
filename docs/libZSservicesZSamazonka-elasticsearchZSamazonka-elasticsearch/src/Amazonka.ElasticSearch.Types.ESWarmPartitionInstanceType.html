@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier">ESWarmPartitionInstanceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch"><span class="hs-identifier">ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch"><span class="hs-identifier">ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295162"><span id="local-6989586621679295163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ESWarmPartitionInstanceType"><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier hs-var">ESWarmPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ESWarmPartitionInstanceType%27"><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType%27"><span class="hs-identifier hs-var">ESWarmPartitionInstanceType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromESWarmPartitionInstanceType"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; Text
+</span><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#fromESWarmPartitionInstanceType"><span class="hs-identifier hs-var hs-var">fromESWarmPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295154"><span id="local-6989586621679295156"><span id="local-6989586621679295158"><span class="annot"><span class="annottext">Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS
+[ESWarmPartitionInstanceType] -&gt; ShowS
+ESWarmPartitionInstanceType -&gt; String
+(Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS)
+-&gt; (ESWarmPartitionInstanceType -&gt; String)
+-&gt; ([ESWarmPartitionInstanceType] -&gt; ShowS)
+-&gt; Show ESWarmPartitionInstanceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ESWarmPartitionInstanceType] -&gt; ShowS
+$cshowList :: [ESWarmPartitionInstanceType] -&gt; ShowS
+show :: ESWarmPartitionInstanceType -&gt; String
+$cshow :: ESWarmPartitionInstanceType -&gt; String
+showsPrec :: Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295145"><span id="local-6989586621679295147"><span id="local-6989586621679295149"><span id="local-6989586621679295151"><span class="annot"><span class="annottext">ReadPrec [ESWarmPartitionInstanceType]
+ReadPrec ESWarmPartitionInstanceType
+Int -&gt; ReadS ESWarmPartitionInstanceType
+ReadS [ESWarmPartitionInstanceType]
+(Int -&gt; ReadS ESWarmPartitionInstanceType)
+-&gt; ReadS [ESWarmPartitionInstanceType]
+-&gt; ReadPrec ESWarmPartitionInstanceType
+-&gt; ReadPrec [ESWarmPartitionInstanceType]
+-&gt; Read ESWarmPartitionInstanceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ESWarmPartitionInstanceType]
+$creadListPrec :: ReadPrec [ESWarmPartitionInstanceType]
+readPrec :: ReadPrec ESWarmPartitionInstanceType
+$creadPrec :: ReadPrec ESWarmPartitionInstanceType
+readList :: ReadS [ESWarmPartitionInstanceType]
+$creadList :: ReadS [ESWarmPartitionInstanceType]
+readsPrec :: Int -&gt; ReadS ESWarmPartitionInstanceType
+$creadsPrec :: Int -&gt; ReadS ESWarmPartitionInstanceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295140"><span id="local-6989586621679295142"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+(ESWarmPartitionInstanceType
+ -&gt; ESWarmPartitionInstanceType -&gt; Bool)
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; Bool)
+-&gt; Eq ESWarmPartitionInstanceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+$c/= :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+== :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+$c== :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295124"><span id="local-6989586621679295126"><span id="local-6989586621679295128"><span id="local-6989586621679295130"><span id="local-6989586621679295132"><span id="local-6989586621679295134"><span id="local-6989586621679295136"><span class="annot"><span class="annottext">Eq ESWarmPartitionInstanceType
+Eq ESWarmPartitionInstanceType
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; Ordering)
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; Bool)
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; Bool)
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; Bool)
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; Bool)
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType)
+-&gt; (ESWarmPartitionInstanceType
+    -&gt; ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType)
+-&gt; Ord ESWarmPartitionInstanceType
+ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; Ordering
+ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType
+$cmin :: ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType
+max :: ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType
+$cmax :: ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType
+&gt;= :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+$c&gt;= :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+&gt; :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+$c&gt; :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+&lt;= :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+$c&lt;= :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+&lt; :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+$c&lt; :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+compare :: ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; Ordering
+$ccompare :: ESWarmPartitionInstanceType
+-&gt; ESWarmPartitionInstanceType -&gt; Ordering
+$cp1Ord :: Eq ESWarmPartitionInstanceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ESWarmPartitionInstanceType -&gt; Rep ESWarmPartitionInstanceType x)
+-&gt; (forall x.
+    Rep ESWarmPartitionInstanceType x -&gt; ESWarmPartitionInstanceType)
+-&gt; Generic ESWarmPartitionInstanceType
+forall x.
+Rep ESWarmPartitionInstanceType x -&gt; ESWarmPartitionInstanceType
+forall x.
+ESWarmPartitionInstanceType -&gt; Rep ESWarmPartitionInstanceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ESWarmPartitionInstanceType x -&gt; ESWarmPartitionInstanceType
+$cfrom :: forall x.
+ESWarmPartitionInstanceType -&gt; Rep ESWarmPartitionInstanceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295116"><span id="local-6989586621679295118"><span class="annot"><span class="annottext">Int -&gt; ESWarmPartitionInstanceType -&gt; Int
+ESWarmPartitionInstanceType -&gt; Int
+(Int -&gt; ESWarmPartitionInstanceType -&gt; Int)
+-&gt; (ESWarmPartitionInstanceType -&gt; Int)
+-&gt; Hashable ESWarmPartitionInstanceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ESWarmPartitionInstanceType -&gt; Int
+$chash :: ESWarmPartitionInstanceType -&gt; Int
+hashWithSalt :: Int -&gt; ESWarmPartitionInstanceType -&gt; Int
+$chashWithSalt :: Int -&gt; ESWarmPartitionInstanceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295113"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ()
+(ESWarmPartitionInstanceType -&gt; ())
+-&gt; NFData ESWarmPartitionInstanceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ESWarmPartitionInstanceType -&gt; ()
+$crnf :: ESWarmPartitionInstanceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295110"><span class="annot"><span class="annottext">Text -&gt; Either String ESWarmPartitionInstanceType
+(Text -&gt; Either String ESWarmPartitionInstanceType)
+-&gt; FromText ESWarmPartitionInstanceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ESWarmPartitionInstanceType
+$cfromText :: Text -&gt; Either String ESWarmPartitionInstanceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295107"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; Text
+(ESWarmPartitionInstanceType -&gt; Text)
+-&gt; ToText ESWarmPartitionInstanceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ESWarmPartitionInstanceType -&gt; Text
+$ctoText :: ESWarmPartitionInstanceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295104"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ByteString
+(ESWarmPartitionInstanceType -&gt; ByteString)
+-&gt; ToByteString ESWarmPartitionInstanceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ESWarmPartitionInstanceType -&gt; ByteString
+$ctoBS :: ESWarmPartitionInstanceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295101"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ByteStringBuilder
+(ESWarmPartitionInstanceType -&gt; ByteStringBuilder)
+-&gt; ToLog ESWarmPartitionInstanceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ESWarmPartitionInstanceType -&gt; ByteStringBuilder
+$cbuild :: ESWarmPartitionInstanceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295098"><span class="annot"><span class="annottext">HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header]
+(HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header])
+-&gt; ToHeader ESWarmPartitionInstanceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295095"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; QueryString
+(ESWarmPartitionInstanceType -&gt; QueryString)
+-&gt; ToQuery ESWarmPartitionInstanceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ESWarmPartitionInstanceType -&gt; QueryString
+$ctoQuery :: ESWarmPartitionInstanceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295090"><span id="local-6989586621679295092"><span class="annot"><span class="annottext">Value -&gt; Parser [ESWarmPartitionInstanceType]
+Value -&gt; Parser ESWarmPartitionInstanceType
+(Value -&gt; Parser ESWarmPartitionInstanceType)
+-&gt; (Value -&gt; Parser [ESWarmPartitionInstanceType])
+-&gt; FromJSON ESWarmPartitionInstanceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ESWarmPartitionInstanceType]
+$cparseJSONList :: Value -&gt; Parser [ESWarmPartitionInstanceType]
+parseJSON :: Value -&gt; Parser ESWarmPartitionInstanceType
+$cparseJSON :: Value -&gt; Parser ESWarmPartitionInstanceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295085"><span id="local-6989586621679295087"><span class="annot"><span class="annottext">FromJSONKeyFunction [ESWarmPartitionInstanceType]
+FromJSONKeyFunction ESWarmPartitionInstanceType
+FromJSONKeyFunction ESWarmPartitionInstanceType
+-&gt; FromJSONKeyFunction [ESWarmPartitionInstanceType]
+-&gt; FromJSONKey ESWarmPartitionInstanceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ESWarmPartitionInstanceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ESWarmPartitionInstanceType]
+fromJSONKey :: FromJSONKeyFunction ESWarmPartitionInstanceType
+$cfromJSONKey :: FromJSONKeyFunction ESWarmPartitionInstanceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295076"><span id="local-6989586621679295078"><span id="local-6989586621679295080"><span id="local-6989586621679295082"><span class="annot"><span class="annottext">[ESWarmPartitionInstanceType] -&gt; Encoding
+[ESWarmPartitionInstanceType] -&gt; Value
+ESWarmPartitionInstanceType -&gt; Encoding
+ESWarmPartitionInstanceType -&gt; Value
+(ESWarmPartitionInstanceType -&gt; Value)
+-&gt; (ESWarmPartitionInstanceType -&gt; Encoding)
+-&gt; ([ESWarmPartitionInstanceType] -&gt; Value)
+-&gt; ([ESWarmPartitionInstanceType] -&gt; Encoding)
+-&gt; ToJSON ESWarmPartitionInstanceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ESWarmPartitionInstanceType] -&gt; Encoding
+$ctoEncodingList :: [ESWarmPartitionInstanceType] -&gt; Encoding
+toJSONList :: [ESWarmPartitionInstanceType] -&gt; Value
+$ctoJSONList :: [ESWarmPartitionInstanceType] -&gt; Value
+toEncoding :: ESWarmPartitionInstanceType -&gt; Encoding
+$ctoEncoding :: ESWarmPartitionInstanceType -&gt; Encoding
+toJSON :: ESWarmPartitionInstanceType -&gt; Value
+$ctoJSON :: ESWarmPartitionInstanceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295071"><span id="local-6989586621679295073"><span class="annot"><span class="annottext">ToJSONKeyFunction [ESWarmPartitionInstanceType]
+ToJSONKeyFunction ESWarmPartitionInstanceType
+ToJSONKeyFunction ESWarmPartitionInstanceType
+-&gt; ToJSONKeyFunction [ESWarmPartitionInstanceType]
+-&gt; ToJSONKey ESWarmPartitionInstanceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ESWarmPartitionInstanceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ESWarmPartitionInstanceType]
+toJSONKey :: ToJSONKeyFunction ESWarmPartitionInstanceType
+$ctoJSONKey :: ToJSONKeyFunction ESWarmPartitionInstanceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295068"><span class="annot"><span class="annottext">[Node] -&gt; Either String ESWarmPartitionInstanceType
+([Node] -&gt; Either String ESWarmPartitionInstanceType)
+-&gt; FromXML ESWarmPartitionInstanceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ESWarmPartitionInstanceType
+$cparseXML :: [Node] -&gt; Either String ESWarmPartitionInstanceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295065"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; XML
+(ESWarmPartitionInstanceType -&gt; XML)
+-&gt; ToXML ESWarmPartitionInstanceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ESWarmPartitionInstanceType -&gt; XML
+$ctoXML :: ESWarmPartitionInstanceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch"><span id="%24mESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch"><span id="ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch"><span class="annot"><span class="annottext">$bESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch :: ESWarmPartitionInstanceType
+$mESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch :: forall r.
+ESWarmPartitionInstanceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#%24bESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch"><span class="hs-identifier hs-var hs-var hs-var">ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType%27"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ultrawarm1.large.elasticsearch&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch"><span id="%24mESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch"><span id="ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch"><span class="annot"><span class="annottext">$bESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch :: ESWarmPartitionInstanceType
+$mESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch :: forall r.
+ESWarmPartitionInstanceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#%24bESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch"><span class="hs-identifier hs-var hs-var hs-var">ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType%27"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ultrawarm1.medium.elasticsearch&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch"><span class="hs-pragma hs-type">ESWarmPartitionInstanceType_Ultrawarm1_large_elasticsearch</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch"><span class="hs-pragma hs-type">ESWarmPartitionInstanceType_Ultrawarm1_medium_elasticsearch</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType%27"><span class="hs-pragma hs-type">ESWarmPartitionInstanceType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

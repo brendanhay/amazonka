@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The details of the endpoint for the messaging session.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier">GetMessagingSessionEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#newGetMessagingSessionEndpoint"><span class="hs-identifier">newGetMessagingSessionEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier">GetMessagingSessionEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#newGetMessagingSessionEndpointResponse"><span class="hs-identifier">newGetMessagingSessionEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#getMessagingSessionEndpointResponse_endpoint"><span class="hs-identifier">getMessagingSessionEndpointResponse_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#getMessagingSessionEndpointResponse_httpStatus"><span class="hs-identifier">getMessagingSessionEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.html"><span class="hs-identifier">Amazonka.ChimeSDKMessaging.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newGetMessagingSessionEndpoint' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679236713"><span id="local-6989586621679236714"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMessagingSessionEndpoint"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-var">GetMessagingSessionEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMessagingSessionEndpoint%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint%27"><span class="hs-identifier hs-var">GetMessagingSessionEndpoint'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236708"><span id="local-6989586621679236710"><span class="annot"><span class="annottext">GetMessagingSessionEndpoint -&gt; GetMessagingSessionEndpoint -&gt; Bool
+(GetMessagingSessionEndpoint
+ -&gt; GetMessagingSessionEndpoint -&gt; Bool)
+-&gt; (GetMessagingSessionEndpoint
+    -&gt; GetMessagingSessionEndpoint -&gt; Bool)
+-&gt; Eq GetMessagingSessionEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMessagingSessionEndpoint -&gt; GetMessagingSessionEndpoint -&gt; Bool
+$c/= :: GetMessagingSessionEndpoint -&gt; GetMessagingSessionEndpoint -&gt; Bool
+== :: GetMessagingSessionEndpoint -&gt; GetMessagingSessionEndpoint -&gt; Bool
+$c== :: GetMessagingSessionEndpoint -&gt; GetMessagingSessionEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236699"><span id="local-6989586621679236701"><span id="local-6989586621679236703"><span id="local-6989586621679236705"><span class="annot"><span class="annottext">ReadPrec [GetMessagingSessionEndpoint]
+ReadPrec GetMessagingSessionEndpoint
+Int -&gt; ReadS GetMessagingSessionEndpoint
+ReadS [GetMessagingSessionEndpoint]
+(Int -&gt; ReadS GetMessagingSessionEndpoint)
+-&gt; ReadS [GetMessagingSessionEndpoint]
+-&gt; ReadPrec GetMessagingSessionEndpoint
+-&gt; ReadPrec [GetMessagingSessionEndpoint]
+-&gt; Read GetMessagingSessionEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMessagingSessionEndpoint]
+$creadListPrec :: ReadPrec [GetMessagingSessionEndpoint]
+readPrec :: ReadPrec GetMessagingSessionEndpoint
+$creadPrec :: ReadPrec GetMessagingSessionEndpoint
+readList :: ReadS [GetMessagingSessionEndpoint]
+$creadList :: ReadS [GetMessagingSessionEndpoint]
+readsPrec :: Int -&gt; ReadS GetMessagingSessionEndpoint
+$creadsPrec :: Int -&gt; ReadS GetMessagingSessionEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236692"><span id="local-6989586621679236694"><span id="local-6989586621679236696"><span class="annot"><span class="annottext">Int -&gt; GetMessagingSessionEndpoint -&gt; ShowS
+[GetMessagingSessionEndpoint] -&gt; ShowS
+GetMessagingSessionEndpoint -&gt; String
+(Int -&gt; GetMessagingSessionEndpoint -&gt; ShowS)
+-&gt; (GetMessagingSessionEndpoint -&gt; String)
+-&gt; ([GetMessagingSessionEndpoint] -&gt; ShowS)
+-&gt; Show GetMessagingSessionEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMessagingSessionEndpoint] -&gt; ShowS
+$cshowList :: [GetMessagingSessionEndpoint] -&gt; ShowS
+show :: GetMessagingSessionEndpoint -&gt; String
+$cshow :: GetMessagingSessionEndpoint -&gt; String
+showsPrec :: Int -&gt; GetMessagingSessionEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMessagingSessionEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMessagingSessionEndpoint -&gt; Rep GetMessagingSessionEndpoint x)
+-&gt; (forall x.
+    Rep GetMessagingSessionEndpoint x -&gt; GetMessagingSessionEndpoint)
+-&gt; Generic GetMessagingSessionEndpoint
+forall x.
+Rep GetMessagingSessionEndpoint x -&gt; GetMessagingSessionEndpoint
+forall x.
+GetMessagingSessionEndpoint -&gt; Rep GetMessagingSessionEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMessagingSessionEndpoint x -&gt; GetMessagingSessionEndpoint
+$cfrom :: forall x.
+GetMessagingSessionEndpoint -&gt; Rep GetMessagingSessionEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'GetMessagingSessionEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#newGetMessagingSessionEndpoint"><span class="hs-identifier hs-type">newGetMessagingSessionEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span><span>
+</span><span id="line-58"></span><span id="newGetMessagingSessionEndpoint"><span class="annot"><span class="annottext">newGetMessagingSessionEndpoint :: GetMessagingSessionEndpoint
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#newGetMessagingSessionEndpoint"><span class="hs-identifier hs-var hs-var">newGetMessagingSessionEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">GetMessagingSessionEndpoint
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint%27"><span class="hs-identifier hs-var">GetMessagingSessionEndpoint'</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-63"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679236684"><span class="annot"><span class="annottext">request :: GetMessagingSessionEndpoint -&gt; Request GetMessagingSessionEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetMessagingSessionEndpoint
+-&gt; Request GetMessagingSessionEndpoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679236680"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetMessagingSessionEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMessagingSessionEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetMessagingSessionEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetMessagingSessionEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMessagingSessionEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679236676"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679236675"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe MessagingSessionEndpoint
+-&gt; Int -&gt; GetMessagingSessionEndpointResponse
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var">GetMessagingSessionEndpointResponse'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MessagingSessionEndpoint
+ -&gt; Int -&gt; GetMessagingSessionEndpointResponse)
+-&gt; Either String (Maybe MessagingSessionEndpoint)
+-&gt; Either String (Int -&gt; GetMessagingSessionEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe MessagingSessionEndpoint)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetMessagingSessionEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String GetMessagingSessionEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236667"><span id="local-6989586621679236669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679236660"><span class="annot"><span class="annottext">toHeaders :: GetMessagingSessionEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMessagingSessionEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679236655"><span class="annot"><span class="annottext">toPath :: GetMessagingSessionEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMessagingSessionEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/endpoints/messaging-session&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpoint"><span class="hs-identifier hs-type">GetMessagingSessionEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679236651"><span class="annot"><span class="annottext">toQuery :: GetMessagingSessionEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMessagingSessionEndpoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | /See:/ 'newGetMessagingSessionEndpointResponse' smart constructor.</span><span>
+</span><span id="line-88"></span><span id="local-6989586621679236648"><span id="local-6989586621679236649"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMessagingSessionEndpointResponse"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-var">GetMessagingSessionEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMessagingSessionEndpointResponse%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var">GetMessagingSessionEndpointResponse'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The endpoint returned in the response.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Aendpoint%3AGetMessagingSessionEndpointResponse%27"><span class="annot"><span class="annottext">GetMessagingSessionEndpointResponse
+-&gt; Maybe MessagingSessionEndpoint
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#%24sel%3Aendpoint%3AGetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint.html#MessagingSessionEndpoint"><span class="hs-identifier hs-type">MessagingSessionEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMessagingSessionEndpointResponse%27"><span class="annot"><span class="annottext">GetMessagingSessionEndpointResponse -&gt; Int
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#%24sel%3AhttpStatus%3AGetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236642"><span id="local-6989586621679236644"><span class="annot"><span class="annottext">GetMessagingSessionEndpointResponse
+-&gt; GetMessagingSessionEndpointResponse -&gt; Bool
+(GetMessagingSessionEndpointResponse
+ -&gt; GetMessagingSessionEndpointResponse -&gt; Bool)
+-&gt; (GetMessagingSessionEndpointResponse
+    -&gt; GetMessagingSessionEndpointResponse -&gt; Bool)
+-&gt; Eq GetMessagingSessionEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMessagingSessionEndpointResponse
+-&gt; GetMessagingSessionEndpointResponse -&gt; Bool
+$c/= :: GetMessagingSessionEndpointResponse
+-&gt; GetMessagingSessionEndpointResponse -&gt; Bool
+== :: GetMessagingSessionEndpointResponse
+-&gt; GetMessagingSessionEndpointResponse -&gt; Bool
+$c== :: GetMessagingSessionEndpointResponse
+-&gt; GetMessagingSessionEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236634"><span id="local-6989586621679236636"><span id="local-6989586621679236638"><span id="local-6989586621679236640"><span class="annot"><span class="annottext">ReadPrec [GetMessagingSessionEndpointResponse]
+ReadPrec GetMessagingSessionEndpointResponse
+Int -&gt; ReadS GetMessagingSessionEndpointResponse
+ReadS [GetMessagingSessionEndpointResponse]
+(Int -&gt; ReadS GetMessagingSessionEndpointResponse)
+-&gt; ReadS [GetMessagingSessionEndpointResponse]
+-&gt; ReadPrec GetMessagingSessionEndpointResponse
+-&gt; ReadPrec [GetMessagingSessionEndpointResponse]
+-&gt; Read GetMessagingSessionEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMessagingSessionEndpointResponse]
+$creadListPrec :: ReadPrec [GetMessagingSessionEndpointResponse]
+readPrec :: ReadPrec GetMessagingSessionEndpointResponse
+$creadPrec :: ReadPrec GetMessagingSessionEndpointResponse
+readList :: ReadS [GetMessagingSessionEndpointResponse]
+$creadList :: ReadS [GetMessagingSessionEndpointResponse]
+readsPrec :: Int -&gt; ReadS GetMessagingSessionEndpointResponse
+$creadsPrec :: Int -&gt; ReadS GetMessagingSessionEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236628"><span id="local-6989586621679236630"><span id="local-6989586621679236632"><span class="annot"><span class="annottext">Int -&gt; GetMessagingSessionEndpointResponse -&gt; ShowS
+[GetMessagingSessionEndpointResponse] -&gt; ShowS
+GetMessagingSessionEndpointResponse -&gt; String
+(Int -&gt; GetMessagingSessionEndpointResponse -&gt; ShowS)
+-&gt; (GetMessagingSessionEndpointResponse -&gt; String)
+-&gt; ([GetMessagingSessionEndpointResponse] -&gt; ShowS)
+-&gt; Show GetMessagingSessionEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMessagingSessionEndpointResponse] -&gt; ShowS
+$cshowList :: [GetMessagingSessionEndpointResponse] -&gt; ShowS
+show :: GetMessagingSessionEndpointResponse -&gt; String
+$cshow :: GetMessagingSessionEndpointResponse -&gt; String
+showsPrec :: Int -&gt; GetMessagingSessionEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMessagingSessionEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMessagingSessionEndpointResponse
+ -&gt; Rep GetMessagingSessionEndpointResponse x)
+-&gt; (forall x.
+    Rep GetMessagingSessionEndpointResponse x
+    -&gt; GetMessagingSessionEndpointResponse)
+-&gt; Generic GetMessagingSessionEndpointResponse
+forall x.
+Rep GetMessagingSessionEndpointResponse x
+-&gt; GetMessagingSessionEndpointResponse
+forall x.
+GetMessagingSessionEndpointResponse
+-&gt; Rep GetMessagingSessionEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMessagingSessionEndpointResponse x
+-&gt; GetMessagingSessionEndpointResponse
+$cfrom :: forall x.
+GetMessagingSessionEndpointResponse
+-&gt; Rep GetMessagingSessionEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'GetMessagingSessionEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'endpoint', 'getMessagingSessionEndpointResponse_endpoint' - The endpoint returned in the response.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'httpStatus', 'getMessagingSessionEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#newGetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">newGetMessagingSessionEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse</span></a></span><span>
+</span><span id="line-111"></span><span id="newGetMessagingSessionEndpointResponse"><span class="annot"><span class="annottext">newGetMessagingSessionEndpointResponse :: Int -&gt; GetMessagingSessionEndpointResponse
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#newGetMessagingSessionEndpointResponse"><span class="hs-identifier hs-var hs-var">newGetMessagingSessionEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679236625"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236625"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">GetMessagingSessionEndpointResponse' :: Maybe MessagingSessionEndpoint
+-&gt; Int -&gt; GetMessagingSessionEndpointResponse
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpoint:GetMessagingSessionEndpointResponse' :: Maybe MessagingSessionEndpoint
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#%24sel%3Aendpoint%3AGetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe MessagingSessionEndpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMessagingSessionEndpointResponse' :: Int
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#%24sel%3AhttpStatus%3AGetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236625"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The endpoint returned in the response.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#getMessagingSessionEndpointResponse_endpoint"><span class="hs-identifier hs-type">getMessagingSessionEndpointResponse_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint.html#MessagingSessionEndpoint"><span class="hs-identifier hs-type">MessagingSessionEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="getMessagingSessionEndpointResponse_endpoint"><span class="annot"><span class="annottext">getMessagingSessionEndpointResponse_endpoint :: (Maybe MessagingSessionEndpoint
+ -&gt; f (Maybe MessagingSessionEndpoint))
+-&gt; GetMessagingSessionEndpointResponse
+-&gt; f GetMessagingSessionEndpointResponse
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#getMessagingSessionEndpointResponse_endpoint"><span class="hs-identifier hs-var hs-var">getMessagingSessionEndpointResponse_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMessagingSessionEndpointResponse
+ -&gt; Maybe MessagingSessionEndpoint)
+-&gt; (GetMessagingSessionEndpointResponse
+    -&gt; Maybe MessagingSessionEndpoint
+    -&gt; GetMessagingSessionEndpointResponse)
+-&gt; Lens
+     GetMessagingSessionEndpointResponse
+     GetMessagingSessionEndpointResponse
+     (Maybe MessagingSessionEndpoint)
+     (Maybe MessagingSessionEndpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236622"><span class="annot"><span class="annottext">Maybe MessagingSessionEndpoint
+endpoint :: Maybe MessagingSessionEndpoint
+$sel:endpoint:GetMessagingSessionEndpointResponse' :: GetMessagingSessionEndpointResponse
+-&gt; Maybe MessagingSessionEndpoint
+</span><a href="#local-6989586621679236622"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessagingSessionEndpoint
+</span><a href="#local-6989586621679236622"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236621"><span class="annot"><span class="annottext">s :: GetMessagingSessionEndpointResponse
+</span><a href="#local-6989586621679236621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236620"><span class="annot"><span class="annottext">Maybe MessagingSessionEndpoint
+</span><a href="#local-6989586621679236620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMessagingSessionEndpointResponse
+</span><a href="#local-6989586621679236621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:GetMessagingSessionEndpointResponse' :: Maybe MessagingSessionEndpoint
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#%24sel%3Aendpoint%3AGetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessagingSessionEndpoint
+</span><a href="#local-6989586621679236620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#getMessagingSessionEndpointResponse_httpStatus"><span class="hs-identifier hs-type">getMessagingSessionEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span id="getMessagingSessionEndpointResponse_httpStatus"><span class="annot"><span class="annottext">getMessagingSessionEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetMessagingSessionEndpointResponse
+-&gt; f GetMessagingSessionEndpointResponse
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#getMessagingSessionEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMessagingSessionEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMessagingSessionEndpointResponse -&gt; Int)
+-&gt; (GetMessagingSessionEndpointResponse
+    -&gt; Int -&gt; GetMessagingSessionEndpointResponse)
+-&gt; Lens
+     GetMessagingSessionEndpointResponse
+     GetMessagingSessionEndpointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236619"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetMessagingSessionEndpointResponse' :: GetMessagingSessionEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679236619"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236619"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236618"><span class="annot"><span class="annottext">s :: GetMessagingSessionEndpointResponse
+</span><a href="#local-6989586621679236618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236617"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMessagingSessionEndpointResponse
+</span><a href="#local-6989586621679236618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMessagingSessionEndpointResponse' :: Int
+</span><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#%24sel%3AhttpStatus%3AGetMessagingSessionEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679236615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint.html#GetMessagingSessionEndpointResponse"><span class="hs-identifier hs-type">GetMessagingSessionEndpointResponse</span></a></span></span><span>
+</span><span id="line-129"></span></pre></body></html>

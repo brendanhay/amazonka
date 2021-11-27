@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html"><span class="hs-identifier">Amazonka.Transcribe.Types.LanguageCode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalContentIdentificationType.html"><span class="hs-identifier">Amazonka.Transcribe.Types.MedicalContentIdentificationType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.OutputLocationType.html"><span class="hs-identifier">Amazonka.Transcribe.Types.OutputLocationType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Specialty.html"><span class="hs-identifier">Amazonka.Transcribe.Types.Specialty</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html"><span class="hs-identifier">Amazonka.Transcribe.Types.TranscriptionJobStatus</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Type.html"><span class="hs-identifier">Amazonka.Transcribe.Types.Type</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Provides summary information about a transcription job.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newMedicalTranscriptionJobSummary' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679276735"><span id="local-6989586621679276736"></span></span><span class="hs-keyword">data</span><span> </span><span id="MedicalTranscriptionJobSummary"><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-var">MedicalTranscriptionJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MedicalTranscriptionJobSummary%27"><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">MedicalTranscriptionJobSummary'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A timestamp that shows when the medical transcription job was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationTime%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcreationTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The medical specialty of the transcription job. Refer to</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation&gt;for</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- a list of supported specialties.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aspecialty%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe Specialty
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3Aspecialty%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">specialty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Specialty.html#Specialty"><span class="hs-identifier hs-type">Specialty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AfailureReason%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AfailureReason%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The language of the transcript in the source audio file.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlanguageCode%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe LanguageCode
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AlanguageCode%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Indicates the location of the transcription job\'s output. This field</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- must be the path of an S3 bucket; if you don\'t already have an S3</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- bucket, one is created based on the path you add.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AoutputLocationType%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe OutputLocationType
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AoutputLocationType%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">outputLocationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.OutputLocationType.html#OutputLocationType"><span class="hs-identifier hs-type">OutputLocationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A timestamp that shows when the job began processing.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AstartTime%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AstartTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | A timestamp that shows when the job was completed.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcompletionTime%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcompletionTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of a medical transcription job.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AmedicalTranscriptionJobName%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AmedicalTranscriptionJobName%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The status of the medical transcription job.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtranscriptionJobStatus%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe TranscriptionJobStatus
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AtranscriptionJobStatus%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">transcriptionJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-type">TranscriptionJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The speech of the clinician in the input audio.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Atype%27%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary -&gt; Maybe Type
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3Atype%27%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Shows the type of information you\'ve configured Amazon Transcribe</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Medical to identify in a transcription job. If the value is @PHI@,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- you\'ve configured the transcription job to identify personal health</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- information (PHI).</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcontentIdentificationType%3AMedicalTranscriptionJobSummary%27"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+-&gt; Maybe MedicalContentIdentificationType
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcontentIdentificationType%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var hs-var">contentIdentificationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalContentIdentificationType.html#MedicalContentIdentificationType"><span class="hs-identifier hs-type">MedicalContentIdentificationType</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276719"><span id="local-6989586621679276721"><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+-&gt; MedicalTranscriptionJobSummary -&gt; Bool
+(MedicalTranscriptionJobSummary
+ -&gt; MedicalTranscriptionJobSummary -&gt; Bool)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; MedicalTranscriptionJobSummary -&gt; Bool)
+-&gt; Eq MedicalTranscriptionJobSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MedicalTranscriptionJobSummary
+-&gt; MedicalTranscriptionJobSummary -&gt; Bool
+$c/= :: MedicalTranscriptionJobSummary
+-&gt; MedicalTranscriptionJobSummary -&gt; Bool
+== :: MedicalTranscriptionJobSummary
+-&gt; MedicalTranscriptionJobSummary -&gt; Bool
+$c== :: MedicalTranscriptionJobSummary
+-&gt; MedicalTranscriptionJobSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276710"><span id="local-6989586621679276712"><span id="local-6989586621679276714"><span id="local-6989586621679276716"><span class="annot"><span class="annottext">ReadPrec [MedicalTranscriptionJobSummary]
+ReadPrec MedicalTranscriptionJobSummary
+Int -&gt; ReadS MedicalTranscriptionJobSummary
+ReadS [MedicalTranscriptionJobSummary]
+(Int -&gt; ReadS MedicalTranscriptionJobSummary)
+-&gt; ReadS [MedicalTranscriptionJobSummary]
+-&gt; ReadPrec MedicalTranscriptionJobSummary
+-&gt; ReadPrec [MedicalTranscriptionJobSummary]
+-&gt; Read MedicalTranscriptionJobSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MedicalTranscriptionJobSummary]
+$creadListPrec :: ReadPrec [MedicalTranscriptionJobSummary]
+readPrec :: ReadPrec MedicalTranscriptionJobSummary
+$creadPrec :: ReadPrec MedicalTranscriptionJobSummary
+readList :: ReadS [MedicalTranscriptionJobSummary]
+$creadList :: ReadS [MedicalTranscriptionJobSummary]
+readsPrec :: Int -&gt; ReadS MedicalTranscriptionJobSummary
+$creadsPrec :: Int -&gt; ReadS MedicalTranscriptionJobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276703"><span id="local-6989586621679276705"><span id="local-6989586621679276707"><span class="annot"><span class="annottext">Int -&gt; MedicalTranscriptionJobSummary -&gt; ShowS
+[MedicalTranscriptionJobSummary] -&gt; ShowS
+MedicalTranscriptionJobSummary -&gt; String
+(Int -&gt; MedicalTranscriptionJobSummary -&gt; ShowS)
+-&gt; (MedicalTranscriptionJobSummary -&gt; String)
+-&gt; ([MedicalTranscriptionJobSummary] -&gt; ShowS)
+-&gt; Show MedicalTranscriptionJobSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MedicalTranscriptionJobSummary] -&gt; ShowS
+$cshowList :: [MedicalTranscriptionJobSummary] -&gt; ShowS
+show :: MedicalTranscriptionJobSummary -&gt; String
+$cshow :: MedicalTranscriptionJobSummary -&gt; String
+showsPrec :: Int -&gt; MedicalTranscriptionJobSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; MedicalTranscriptionJobSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MedicalTranscriptionJobSummary
+ -&gt; Rep MedicalTranscriptionJobSummary x)
+-&gt; (forall x.
+    Rep MedicalTranscriptionJobSummary x
+    -&gt; MedicalTranscriptionJobSummary)
+-&gt; Generic MedicalTranscriptionJobSummary
+forall x.
+Rep MedicalTranscriptionJobSummary x
+-&gt; MedicalTranscriptionJobSummary
+forall x.
+MedicalTranscriptionJobSummary
+-&gt; Rep MedicalTranscriptionJobSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MedicalTranscriptionJobSummary x
+-&gt; MedicalTranscriptionJobSummary
+$cfrom :: forall x.
+MedicalTranscriptionJobSummary
+-&gt; Rep MedicalTranscriptionJobSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'MedicalTranscriptionJobSummary' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'creationTime', 'medicalTranscriptionJobSummary_creationTime' - A timestamp that shows when the medical transcription job was created.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'specialty', 'medicalTranscriptionJobSummary_specialty' - The medical specialty of the transcription job. Refer to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation&gt;for</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- a list of supported specialties.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'failureReason', 'medicalTranscriptionJobSummary_failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@, a description of the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'languageCode', 'medicalTranscriptionJobSummary_languageCode' - The language of the transcript in the source audio file.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'outputLocationType', 'medicalTranscriptionJobSummary_outputLocationType' - Indicates the location of the transcription job\'s output. This field</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- must be the path of an S3 bucket; if you don\'t already have an S3</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- bucket, one is created based on the path you add.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'startTime', 'medicalTranscriptionJobSummary_startTime' - A timestamp that shows when the job began processing.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'completionTime', 'medicalTranscriptionJobSummary_completionTime' - A timestamp that shows when the job was completed.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'medicalTranscriptionJobName', 'medicalTranscriptionJobSummary_medicalTranscriptionJobName' - The name of a medical transcription job.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'transcriptionJobStatus', 'medicalTranscriptionJobSummary_transcriptionJobStatus' - The status of the medical transcription job.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'type'', 'medicalTranscriptionJobSummary_type' - The speech of the clinician in the input audio.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'contentIdentificationType', 'medicalTranscriptionJobSummary_contentIdentificationType' - Shows the type of information you\'ve configured Amazon Transcribe</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Medical to identify in a transcription job. If the value is @PHI@,</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- you\'ve configured the transcription job to identify personal health</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- information (PHI).</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#newMedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">newMedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span>
+</span><span id="line-108"></span><span id="newMedicalTranscriptionJobSummary"><span class="annot"><span class="annottext">newMedicalTranscriptionJobSummary :: MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#newMedicalTranscriptionJobSummary"><span class="hs-identifier hs-var hs-var">newMedicalTranscriptionJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary' :: Maybe POSIX
+-&gt; Maybe Specialty
+-&gt; Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe OutputLocationType
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe TranscriptionJobStatus
+-&gt; Maybe Type
+-&gt; Maybe MedicalContentIdentificationType
+-&gt; MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:MedicalTranscriptionJobSummary' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcreationTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:specialty:MedicalTranscriptionJobSummary' :: Maybe Specialty
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3Aspecialty%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">specialty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Specialty
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:MedicalTranscriptionJobSummary' :: Maybe Text
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AfailureReason%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:MedicalTranscriptionJobSummary' :: Maybe LanguageCode
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AlanguageCode%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputLocationType:MedicalTranscriptionJobSummary' :: Maybe OutputLocationType
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AoutputLocationType%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">outputLocationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:MedicalTranscriptionJobSummary' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AstartTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionTime:MedicalTranscriptionJobSummary' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcompletionTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:medicalTranscriptionJobName:MedicalTranscriptionJobSummary' :: Maybe Text
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AmedicalTranscriptionJobName%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">medicalTranscriptionJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:transcriptionJobStatus:MedicalTranscriptionJobSummary' :: Maybe TranscriptionJobStatus
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AtranscriptionJobStatus%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">transcriptionJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':MedicalTranscriptionJobSummary' :: Maybe Type
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3Atype%27%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentIdentificationType:MedicalTranscriptionJobSummary' :: Maybe MedicalContentIdentificationType
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcontentIdentificationType%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">contentIdentificationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MedicalContentIdentificationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A timestamp that shows when the medical transcription job was created.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_creationTime"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="medicalTranscriptionJobSummary_creationTime"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_creationTime"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe POSIX)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe POSIX -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276694"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679276694"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276694"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276693"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276692"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MedicalTranscriptionJobSummary' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcreationTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; MedicalTranscriptionJobSummary
+ -&gt; f MedicalTranscriptionJobSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The medical specialty of the transcription job. Refer to</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation&gt;for</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- a list of supported specialties.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_specialty"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_specialty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Specialty.html#Specialty"><span class="hs-identifier hs-type">Specialty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="medicalTranscriptionJobSummary_specialty"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_specialty :: (Maybe Specialty -&gt; f (Maybe Specialty))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_specialty"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_specialty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe Specialty)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe Specialty -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe Specialty)
+     (Maybe Specialty)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276687"><span class="annot"><span class="annottext">Maybe Specialty
+specialty :: Maybe Specialty
+$sel:specialty:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe Specialty
+</span><a href="#local-6989586621679276687"><span class="hs-identifier hs-var hs-var">specialty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Specialty
+</span><a href="#local-6989586621679276687"><span class="hs-identifier hs-var">specialty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276686"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276685"><span class="annot"><span class="annottext">Maybe Specialty
+</span><a href="#local-6989586621679276685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:specialty:MedicalTranscriptionJobSummary' :: Maybe Specialty
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3Aspecialty%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">specialty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Specialty
+</span><a href="#local-6989586621679276685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_failureReason"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="medicalTranscriptionJobSummary_failureReason"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_failureReason"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe Text)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe Text -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276683"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679276683"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276683"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276682"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:MedicalTranscriptionJobSummary' :: Maybe Text
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AfailureReason%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The language of the transcript in the source audio file.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_languageCode"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="medicalTranscriptionJobSummary_languageCode"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_languageCode"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe LanguageCode)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe LanguageCode -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe LanguageCode)
+     (Maybe LanguageCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276679"><span class="annot"><span class="annottext">Maybe LanguageCode
+languageCode :: Maybe LanguageCode
+$sel:languageCode:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe LanguageCode
+</span><a href="#local-6989586621679276679"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679276679"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276678"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276677"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:MedicalTranscriptionJobSummary' :: Maybe LanguageCode
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AlanguageCode%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Indicates the location of the transcription job\'s output. This field</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- must be the path of an S3 bucket; if you don\'t already have an S3</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- bucket, one is created based on the path you add.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_outputLocationType"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_outputLocationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.OutputLocationType.html#OutputLocationType"><span class="hs-identifier hs-type">OutputLocationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="medicalTranscriptionJobSummary_outputLocationType"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_outputLocationType :: (Maybe OutputLocationType -&gt; f (Maybe OutputLocationType))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_outputLocationType"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_outputLocationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe OutputLocationType)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe OutputLocationType -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe OutputLocationType)
+     (Maybe OutputLocationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276675"><span class="annot"><span class="annottext">Maybe OutputLocationType
+outputLocationType :: Maybe OutputLocationType
+$sel:outputLocationType:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe OutputLocationType
+</span><a href="#local-6989586621679276675"><span class="hs-identifier hs-var hs-var">outputLocationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocationType
+</span><a href="#local-6989586621679276675"><span class="hs-identifier hs-var">outputLocationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276674"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276673"><span class="annot"><span class="annottext">Maybe OutputLocationType
+</span><a href="#local-6989586621679276673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocationType:MedicalTranscriptionJobSummary' :: Maybe OutputLocationType
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AoutputLocationType%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">outputLocationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocationType
+</span><a href="#local-6989586621679276673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | A timestamp that shows when the job began processing.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_startTime"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="medicalTranscriptionJobSummary_startTime"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_startTime"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe POSIX)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe POSIX -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276671"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679276671"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276671"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276670"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276669"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:MedicalTranscriptionJobSummary' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AstartTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; MedicalTranscriptionJobSummary
+ -&gt; f MedicalTranscriptionJobSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | A timestamp that shows when the job was completed.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_completionTime"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_completionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="medicalTranscriptionJobSummary_completionTime"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_completionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_completionTime"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_completionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe POSIX)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe POSIX -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276667"><span class="annot"><span class="annottext">Maybe POSIX
+completionTime :: Maybe POSIX
+$sel:completionTime:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679276667"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276667"><span class="hs-identifier hs-var">completionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276666"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276665"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionTime:MedicalTranscriptionJobSummary' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcompletionTime%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679276665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; MedicalTranscriptionJobSummary
+ -&gt; f MedicalTranscriptionJobSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The name of a medical transcription job.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_medicalTranscriptionJobName"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_medicalTranscriptionJobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="medicalTranscriptionJobSummary_medicalTranscriptionJobName"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_medicalTranscriptionJobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_medicalTranscriptionJobName"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_medicalTranscriptionJobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe Text)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe Text -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276663"><span class="annot"><span class="annottext">Maybe Text
+medicalTranscriptionJobName :: Maybe Text
+$sel:medicalTranscriptionJobName:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679276663"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276663"><span class="hs-identifier hs-var">medicalTranscriptionJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276662"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276661"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:medicalTranscriptionJobName:MedicalTranscriptionJobSummary' :: Maybe Text
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AmedicalTranscriptionJobName%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">medicalTranscriptionJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The status of the medical transcription job.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_transcriptionJobStatus"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_transcriptionJobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-type">TranscriptionJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="medicalTranscriptionJobSummary_transcriptionJobStatus"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_transcriptionJobStatus :: (Maybe TranscriptionJobStatus -&gt; f (Maybe TranscriptionJobStatus))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_transcriptionJobStatus"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_transcriptionJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe TranscriptionJobStatus)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe TranscriptionJobStatus -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe TranscriptionJobStatus)
+     (Maybe TranscriptionJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276659"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+transcriptionJobStatus :: Maybe TranscriptionJobStatus
+$sel:transcriptionJobStatus:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679276659"><span class="hs-identifier hs-var hs-var">transcriptionJobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679276659"><span class="hs-identifier hs-var">transcriptionJobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276658"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276657"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679276657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptionJobStatus:MedicalTranscriptionJobSummary' :: Maybe TranscriptionJobStatus
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AtranscriptionJobStatus%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">transcriptionJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679276657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The speech of the clinician in the input audio.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_type"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="medicalTranscriptionJobSummary_type"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_type :: (Maybe Type -&gt; f (Maybe Type))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_type"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary -&gt; Maybe Type)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe Type -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe Type)
+     (Maybe Type)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276655"><span class="annot"><span class="annottext">Maybe Type
+type' :: Maybe Type
+$sel:type':MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary -&gt; Maybe Type
+</span><a href="#local-6989586621679276655"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679276655"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276654"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276653"><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679276653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':MedicalTranscriptionJobSummary' :: Maybe Type
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3Atype%27%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679276653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Shows the type of information you\'ve configured Amazon Transcribe</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Medical to identify in a transcription job. If the value is @PHI@,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- you\'ve configured the transcription job to identify personal health</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- information (PHI).</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_contentIdentificationType"><span class="hs-identifier hs-type">medicalTranscriptionJobSummary_contentIdentificationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalContentIdentificationType.html#MedicalContentIdentificationType"><span class="hs-identifier hs-type">MedicalContentIdentificationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="medicalTranscriptionJobSummary_contentIdentificationType"><span class="annot"><span class="annottext">medicalTranscriptionJobSummary_contentIdentificationType :: (Maybe MedicalContentIdentificationType
+ -&gt; f (Maybe MedicalContentIdentificationType))
+-&gt; MedicalTranscriptionJobSummary
+-&gt; f MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#medicalTranscriptionJobSummary_contentIdentificationType"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobSummary_contentIdentificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MedicalTranscriptionJobSummary
+ -&gt; Maybe MedicalContentIdentificationType)
+-&gt; (MedicalTranscriptionJobSummary
+    -&gt; Maybe MedicalContentIdentificationType
+    -&gt; MedicalTranscriptionJobSummary)
+-&gt; Lens
+     MedicalTranscriptionJobSummary
+     MedicalTranscriptionJobSummary
+     (Maybe MedicalContentIdentificationType)
+     (Maybe MedicalContentIdentificationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276651"><span class="annot"><span class="annottext">Maybe MedicalContentIdentificationType
+contentIdentificationType :: Maybe MedicalContentIdentificationType
+$sel:contentIdentificationType:MedicalTranscriptionJobSummary' :: MedicalTranscriptionJobSummary
+-&gt; Maybe MedicalContentIdentificationType
+</span><a href="#local-6989586621679276651"><span class="hs-identifier hs-var hs-var">contentIdentificationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MedicalContentIdentificationType
+</span><a href="#local-6989586621679276651"><span class="hs-identifier hs-var">contentIdentificationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276650"><span class="annot"><span class="annottext">s :: MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276649"><span class="annot"><span class="annottext">Maybe MedicalContentIdentificationType
+</span><a href="#local-6989586621679276649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscriptionJobSummary
+</span><a href="#local-6989586621679276650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentIdentificationType:MedicalTranscriptionJobSummary' :: Maybe MedicalContentIdentificationType
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#%24sel%3AcontentIdentificationType%3AMedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">contentIdentificationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MedicalContentIdentificationType
+</span><a href="#local-6989586621679276649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276646"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679276644"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MedicalTranscriptionJobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MedicalTranscriptionJobSummary)
+-&gt; Value
+-&gt; Parser MedicalTranscriptionJobSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MedicalTranscriptionJobSummary&quot;</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276641"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Specialty
+-&gt; Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe OutputLocationType
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe TranscriptionJobStatus
+-&gt; Maybe Type
+-&gt; Maybe MedicalContentIdentificationType
+-&gt; MedicalTranscriptionJobSummary
+</span><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary%27"><span class="hs-identifier hs-var">MedicalTranscriptionJobSummary'</span></a></span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Specialty
+ -&gt; Maybe Text
+ -&gt; Maybe LanguageCode
+ -&gt; Maybe OutputLocationType
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe TranscriptionJobStatus
+ -&gt; Maybe Type
+ -&gt; Maybe MedicalContentIdentificationType
+ -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Specialty
+      -&gt; Maybe Text
+      -&gt; Maybe LanguageCode
+      -&gt; Maybe OutputLocationType
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Specialty
+   -&gt; Maybe Text
+   -&gt; Maybe LanguageCode
+   -&gt; Maybe OutputLocationType
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe Specialty)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe LanguageCode
+      -&gt; Maybe OutputLocationType
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Specialty)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Specialty&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe LanguageCode
+   -&gt; Maybe OutputLocationType
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe LanguageCode
+      -&gt; Maybe OutputLocationType
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LanguageCode
+   -&gt; Maybe OutputLocationType
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe LanguageCode)
+-&gt; Parser
+     (Maybe OutputLocationType
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LanguageCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OutputLocationType
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe OutputLocationType)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputLocationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputLocationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompletionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TranscriptionJobStatus
+      -&gt; Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MedicalTranscriptionJobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TranscriptionJobStatus
+   -&gt; Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe TranscriptionJobStatus)
+-&gt; Parser
+     (Maybe Type
+      -&gt; Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TranscriptionJobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TranscriptionJobStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Type
+   -&gt; Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe Type)
+-&gt; Parser
+     (Maybe MedicalContentIdentificationType
+      -&gt; MedicalTranscriptionJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Type)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MedicalContentIdentificationType
+   -&gt; MedicalTranscriptionJobSummary)
+-&gt; Parser (Maybe MedicalContentIdentificationType)
+-&gt; Parser MedicalTranscriptionJobSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MedicalContentIdentificationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentIdentificationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679276635"><span id="local-6989586621679276637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679276632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary.html#MedicalTranscriptionJobSummary"><span class="hs-identifier hs-type">MedicalTranscriptionJobSummary</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

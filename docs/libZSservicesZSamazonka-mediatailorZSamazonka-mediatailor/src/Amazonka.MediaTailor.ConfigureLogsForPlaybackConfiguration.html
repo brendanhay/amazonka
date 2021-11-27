@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Configures Amazon CloudWatch log settings for a playback configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier">ConfigureLogsForPlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#newConfigureLogsForPlaybackConfiguration"><span class="hs-identifier">newConfigureLogsForPlaybackConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfiguration_percentEnabled"><span class="hs-identifier">configureLogsForPlaybackConfiguration_percentEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfiguration_playbackConfigurationName"><span class="hs-identifier">configureLogsForPlaybackConfiguration_playbackConfigurationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#newConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier">newConfigureLogsForPlaybackConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_playbackConfigurationName"><span class="hs-identifier">configureLogsForPlaybackConfigurationResponse_playbackConfigurationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_percentEnabled"><span class="hs-identifier">configureLogsForPlaybackConfigurationResponse_percentEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_httpStatus"><span class="hs-identifier">configureLogsForPlaybackConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.html"><span class="hs-identifier">Amazonka.MediaTailor.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | Configures Amazon CloudWatch log settings for a playback configuration.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newConfigureLogsForPlaybackConfiguration' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679277554"><span id="local-6989586621679277555"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigureLogsForPlaybackConfiguration"><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-var">ConfigureLogsForPlaybackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigureLogsForPlaybackConfiguration%27"><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-var">ConfigureLogsForPlaybackConfiguration'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of session logs that MediaTailor sends to your Cloudwatch</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Logs account. For example, if your playback configuration has 1000</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- sessions and percentEnabled is set to 60, MediaTailor sends logs for 600</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- of the sessions to CloudWatch Logs. MediaTailor decides at random which</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- of the playback configuration sessions to send logs for. If you want to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- view logs for a specific session, you can use the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html debug log mode&gt;.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Valid values: 0 - 100</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfiguration%27"><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfiguration -&gt; Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">percentEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the playback configuration.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfiguration%27"><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfiguration -&gt; Text
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">playbackConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277547"><span id="local-6989586621679277549"><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfiguration
+-&gt; ConfigureLogsForPlaybackConfiguration -&gt; Bool
+(ConfigureLogsForPlaybackConfiguration
+ -&gt; ConfigureLogsForPlaybackConfiguration -&gt; Bool)
+-&gt; (ConfigureLogsForPlaybackConfiguration
+    -&gt; ConfigureLogsForPlaybackConfiguration -&gt; Bool)
+-&gt; Eq ConfigureLogsForPlaybackConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigureLogsForPlaybackConfiguration
+-&gt; ConfigureLogsForPlaybackConfiguration -&gt; Bool
+$c/= :: ConfigureLogsForPlaybackConfiguration
+-&gt; ConfigureLogsForPlaybackConfiguration -&gt; Bool
+== :: ConfigureLogsForPlaybackConfiguration
+-&gt; ConfigureLogsForPlaybackConfiguration -&gt; Bool
+$c== :: ConfigureLogsForPlaybackConfiguration
+-&gt; ConfigureLogsForPlaybackConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277538"><span id="local-6989586621679277540"><span id="local-6989586621679277542"><span id="local-6989586621679277544"><span class="annot"><span class="annottext">ReadPrec [ConfigureLogsForPlaybackConfiguration]
+ReadPrec ConfigureLogsForPlaybackConfiguration
+Int -&gt; ReadS ConfigureLogsForPlaybackConfiguration
+ReadS [ConfigureLogsForPlaybackConfiguration]
+(Int -&gt; ReadS ConfigureLogsForPlaybackConfiguration)
+-&gt; ReadS [ConfigureLogsForPlaybackConfiguration]
+-&gt; ReadPrec ConfigureLogsForPlaybackConfiguration
+-&gt; ReadPrec [ConfigureLogsForPlaybackConfiguration]
+-&gt; Read ConfigureLogsForPlaybackConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigureLogsForPlaybackConfiguration]
+$creadListPrec :: ReadPrec [ConfigureLogsForPlaybackConfiguration]
+readPrec :: ReadPrec ConfigureLogsForPlaybackConfiguration
+$creadPrec :: ReadPrec ConfigureLogsForPlaybackConfiguration
+readList :: ReadS [ConfigureLogsForPlaybackConfiguration]
+$creadList :: ReadS [ConfigureLogsForPlaybackConfiguration]
+readsPrec :: Int -&gt; ReadS ConfigureLogsForPlaybackConfiguration
+$creadsPrec :: Int -&gt; ReadS ConfigureLogsForPlaybackConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277531"><span id="local-6989586621679277533"><span id="local-6989586621679277535"><span class="annot"><span class="annottext">Int -&gt; ConfigureLogsForPlaybackConfiguration -&gt; ShowS
+[ConfigureLogsForPlaybackConfiguration] -&gt; ShowS
+ConfigureLogsForPlaybackConfiguration -&gt; String
+(Int -&gt; ConfigureLogsForPlaybackConfiguration -&gt; ShowS)
+-&gt; (ConfigureLogsForPlaybackConfiguration -&gt; String)
+-&gt; ([ConfigureLogsForPlaybackConfiguration] -&gt; ShowS)
+-&gt; Show ConfigureLogsForPlaybackConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigureLogsForPlaybackConfiguration] -&gt; ShowS
+$cshowList :: [ConfigureLogsForPlaybackConfiguration] -&gt; ShowS
+show :: ConfigureLogsForPlaybackConfiguration -&gt; String
+$cshow :: ConfigureLogsForPlaybackConfiguration -&gt; String
+showsPrec :: Int -&gt; ConfigureLogsForPlaybackConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigureLogsForPlaybackConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConfigureLogsForPlaybackConfiguration
+ -&gt; Rep ConfigureLogsForPlaybackConfiguration x)
+-&gt; (forall x.
+    Rep ConfigureLogsForPlaybackConfiguration x
+    -&gt; ConfigureLogsForPlaybackConfiguration)
+-&gt; Generic ConfigureLogsForPlaybackConfiguration
+forall x.
+Rep ConfigureLogsForPlaybackConfiguration x
+-&gt; ConfigureLogsForPlaybackConfiguration
+forall x.
+ConfigureLogsForPlaybackConfiguration
+-&gt; Rep ConfigureLogsForPlaybackConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigureLogsForPlaybackConfiguration x
+-&gt; ConfigureLogsForPlaybackConfiguration
+$cfrom :: forall x.
+ConfigureLogsForPlaybackConfiguration
+-&gt; Rep ConfigureLogsForPlaybackConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'ConfigureLogsForPlaybackConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'percentEnabled', 'configureLogsForPlaybackConfiguration_percentEnabled' - The percentage of session logs that MediaTailor sends to your Cloudwatch</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Logs account. For example, if your playback configuration has 1000</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- sessions and percentEnabled is set to 60, MediaTailor sends logs for 600</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- of the sessions to CloudWatch Logs. MediaTailor decides at random which</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- of the playback configuration sessions to send logs for. If you want to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- view logs for a specific session, you can use the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html debug log mode&gt;.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Valid values: 0 - 100</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'playbackConfigurationName', 'configureLogsForPlaybackConfiguration_playbackConfigurationName' - The name of the playback configuration.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#newConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">newConfigureLogsForPlaybackConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'percentEnabled'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'playbackConfigurationName'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span>
+</span><span id="line-95"></span><span id="newConfigureLogsForPlaybackConfiguration"><span class="annot"><span class="annottext">newConfigureLogsForPlaybackConfiguration :: Int -&gt; Text -&gt; ConfigureLogsForPlaybackConfiguration
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#newConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-var hs-var">newConfigureLogsForPlaybackConfiguration</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679277526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277526"><span class="hs-identifier hs-var">pPercentEnabled_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679277525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277525"><span class="hs-identifier hs-var">pPlaybackConfigurationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfiguration' :: Int -&gt; Text -&gt; ConfigureLogsForPlaybackConfiguration
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:percentEnabled:ConfigureLogsForPlaybackConfiguration' :: Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-var">percentEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277526"><span class="hs-identifier hs-var">pPercentEnabled_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:playbackConfigurationName:ConfigureLogsForPlaybackConfiguration' :: Text
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277525"><span class="hs-identifier hs-var">pPlaybackConfigurationName_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The percentage of session logs that MediaTailor sends to your Cloudwatch</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Logs account. For example, if your playback configuration has 1000</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- sessions and percentEnabled is set to 60, MediaTailor sends logs for 600</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- of the sessions to CloudWatch Logs. MediaTailor decides at random which</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- of the playback configuration sessions to send logs for. If you want to</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- view logs for a specific session, you can use the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html debug log mode&gt;.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Valid values: 0 - 100</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfiguration_percentEnabled"><span class="hs-identifier hs-type">configureLogsForPlaybackConfiguration_percentEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-115"></span><span id="configureLogsForPlaybackConfiguration_percentEnabled"><span class="annot"><span class="annottext">configureLogsForPlaybackConfiguration_percentEnabled :: (Int -&gt; f Int)
+-&gt; ConfigureLogsForPlaybackConfiguration
+-&gt; f ConfigureLogsForPlaybackConfiguration
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfiguration_percentEnabled"><span class="hs-identifier hs-var hs-var">configureLogsForPlaybackConfiguration_percentEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsForPlaybackConfiguration -&gt; Int)
+-&gt; (ConfigureLogsForPlaybackConfiguration
+    -&gt; Int -&gt; ConfigureLogsForPlaybackConfiguration)
+-&gt; Lens
+     ConfigureLogsForPlaybackConfiguration
+     ConfigureLogsForPlaybackConfiguration
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277522"><span class="annot"><span class="annottext">Int
+percentEnabled :: Int
+$sel:percentEnabled:ConfigureLogsForPlaybackConfiguration' :: ConfigureLogsForPlaybackConfiguration -&gt; Int
+</span><a href="#local-6989586621679277522"><span class="hs-identifier hs-var hs-var">percentEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277522"><span class="hs-identifier hs-var">percentEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277521"><span class="annot"><span class="annottext">s :: ConfigureLogsForPlaybackConfiguration
+</span><a href="#local-6989586621679277521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfiguration
+</span><a href="#local-6989586621679277521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentEnabled:ConfigureLogsForPlaybackConfiguration' :: Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-var">percentEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The name of the playback configuration.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfiguration_playbackConfigurationName"><span class="hs-identifier hs-type">configureLogsForPlaybackConfiguration_playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="configureLogsForPlaybackConfiguration_playbackConfigurationName"><span class="annot"><span class="annottext">configureLogsForPlaybackConfiguration_playbackConfigurationName :: (Text -&gt; f Text)
+-&gt; ConfigureLogsForPlaybackConfiguration
+-&gt; f ConfigureLogsForPlaybackConfiguration
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfiguration_playbackConfigurationName"><span class="hs-identifier hs-var hs-var">configureLogsForPlaybackConfiguration_playbackConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsForPlaybackConfiguration -&gt; Text)
+-&gt; (ConfigureLogsForPlaybackConfiguration
+    -&gt; Text -&gt; ConfigureLogsForPlaybackConfiguration)
+-&gt; Lens
+     ConfigureLogsForPlaybackConfiguration
+     ConfigureLogsForPlaybackConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277519"><span class="annot"><span class="annottext">Text
+playbackConfigurationName :: Text
+$sel:playbackConfigurationName:ConfigureLogsForPlaybackConfiguration' :: ConfigureLogsForPlaybackConfiguration -&gt; Text
+</span><a href="#local-6989586621679277519"><span class="hs-identifier hs-var hs-var">playbackConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277519"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277518"><span class="annot"><span class="annottext">s :: ConfigureLogsForPlaybackConfiguration
+</span><a href="#local-6989586621679277518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277517"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfiguration
+</span><a href="#local-6989586621679277518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playbackConfigurationName:ConfigureLogsForPlaybackConfiguration' :: Text
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679277513"><span class="annot"><span class="annottext">request :: ConfigureLogsForPlaybackConfiguration
+-&gt; Request ConfigureLogsForPlaybackConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ConfigureLogsForPlaybackConfiguration
+-&gt; Request ConfigureLogsForPlaybackConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679277509"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ConfigureLogsForPlaybackConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ConfigureLogsForPlaybackConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse ConfigureLogsForPlaybackConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ConfigureLogsForPlaybackConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ConfigureLogsForPlaybackConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277506"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277506"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679277505"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679277505"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679277504"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Int
+-&gt; ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Int
+ -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int -&gt; Int -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlaybackConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int -&gt; Int -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String (Int -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PercentEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String ConfigureLogsForPlaybackConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277506"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679277496"><span id="local-6989586621679277498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679277493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679277489"><span class="annot"><span class="annottext">toHeaders :: ConfigureLogsForPlaybackConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ConfigureLogsForPlaybackConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679277479"><span id="local-6989586621679277481"><span id="local-6989586621679277483"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679277477"><span class="annot"><span class="annottext">toJSON :: ConfigureLogsForPlaybackConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277474"><span id="local-6989586621679277475"><span class="annot"><span class="annottext">Int
+Text
+playbackConfigurationName :: Text
+percentEnabled :: Int
+$sel:playbackConfigurationName:ConfigureLogsForPlaybackConfiguration' :: ConfigureLogsForPlaybackConfiguration -&gt; Text
+$sel:percentEnabled:ConfigureLogsForPlaybackConfiguration' :: ConfigureLogsForPlaybackConfiguration -&gt; Int
+</span><a href="#local-6989586621679277474"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-169"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PercentEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277475"><span class="hs-identifier hs-var">percentEnabled</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlaybackConfigurationName&quot;</span></span><span>
+</span><span id="line-172"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277474"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span>
+</span><span id="line-173"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679277468"><span class="annot"><span class="annottext">toPath :: ConfigureLogsForPlaybackConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ConfigureLogsForPlaybackConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/configureLogs/playbackConfiguration&quot;</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfiguration"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfiguration</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679277464"><span class="annot"><span class="annottext">toQuery :: ConfigureLogsForPlaybackConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ConfigureLogsForPlaybackConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newConfigureLogsForPlaybackConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-192"></span><span id="local-6989586621679277461"><span id="local-6989586621679277462"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigureLogsForPlaybackConfigurationResponse"><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-var">ConfigureLogsForPlaybackConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigureLogsForPlaybackConfigurationResponse%27"><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the playback configuration.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">playbackConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The percentage of session logs that MediaTailor sends to your Cloudwatch</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- Logs account.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse -&gt; Maybe Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">percentEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse -&gt; Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AhttpStatus%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277454"><span id="local-6989586621679277456"><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse
+-&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; Bool
+(ConfigureLogsForPlaybackConfigurationResponse
+ -&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; Bool)
+-&gt; (ConfigureLogsForPlaybackConfigurationResponse
+    -&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; Bool)
+-&gt; Eq ConfigureLogsForPlaybackConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigureLogsForPlaybackConfigurationResponse
+-&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; Bool
+$c/= :: ConfigureLogsForPlaybackConfigurationResponse
+-&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; Bool
+== :: ConfigureLogsForPlaybackConfigurationResponse
+-&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; Bool
+$c== :: ConfigureLogsForPlaybackConfigurationResponse
+-&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277446"><span id="local-6989586621679277448"><span id="local-6989586621679277450"><span id="local-6989586621679277452"><span class="annot"><span class="annottext">ReadPrec [ConfigureLogsForPlaybackConfigurationResponse]
+ReadPrec ConfigureLogsForPlaybackConfigurationResponse
+Int -&gt; ReadS ConfigureLogsForPlaybackConfigurationResponse
+ReadS [ConfigureLogsForPlaybackConfigurationResponse]
+(Int -&gt; ReadS ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; ReadS [ConfigureLogsForPlaybackConfigurationResponse]
+-&gt; ReadPrec ConfigureLogsForPlaybackConfigurationResponse
+-&gt; ReadPrec [ConfigureLogsForPlaybackConfigurationResponse]
+-&gt; Read ConfigureLogsForPlaybackConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigureLogsForPlaybackConfigurationResponse]
+$creadListPrec :: ReadPrec [ConfigureLogsForPlaybackConfigurationResponse]
+readPrec :: ReadPrec ConfigureLogsForPlaybackConfigurationResponse
+$creadPrec :: ReadPrec ConfigureLogsForPlaybackConfigurationResponse
+readList :: ReadS [ConfigureLogsForPlaybackConfigurationResponse]
+$creadList :: ReadS [ConfigureLogsForPlaybackConfigurationResponse]
+readsPrec :: Int -&gt; ReadS ConfigureLogsForPlaybackConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS ConfigureLogsForPlaybackConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277440"><span id="local-6989586621679277442"><span id="local-6989586621679277444"><span class="annot"><span class="annottext">Int -&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; ShowS
+[ConfigureLogsForPlaybackConfigurationResponse] -&gt; ShowS
+ConfigureLogsForPlaybackConfigurationResponse -&gt; String
+(Int -&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; ShowS)
+-&gt; (ConfigureLogsForPlaybackConfigurationResponse -&gt; String)
+-&gt; ([ConfigureLogsForPlaybackConfigurationResponse] -&gt; ShowS)
+-&gt; Show ConfigureLogsForPlaybackConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigureLogsForPlaybackConfigurationResponse] -&gt; ShowS
+$cshowList :: [ConfigureLogsForPlaybackConfigurationResponse] -&gt; ShowS
+show :: ConfigureLogsForPlaybackConfigurationResponse -&gt; String
+$cshow :: ConfigureLogsForPlaybackConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigureLogsForPlaybackConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConfigureLogsForPlaybackConfigurationResponse
+ -&gt; Rep ConfigureLogsForPlaybackConfigurationResponse x)
+-&gt; (forall x.
+    Rep ConfigureLogsForPlaybackConfigurationResponse x
+    -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; Generic ConfigureLogsForPlaybackConfigurationResponse
+forall x.
+Rep ConfigureLogsForPlaybackConfigurationResponse x
+-&gt; ConfigureLogsForPlaybackConfigurationResponse
+forall x.
+ConfigureLogsForPlaybackConfigurationResponse
+-&gt; Rep ConfigureLogsForPlaybackConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigureLogsForPlaybackConfigurationResponse x
+-&gt; ConfigureLogsForPlaybackConfigurationResponse
+$cfrom :: forall x.
+ConfigureLogsForPlaybackConfigurationResponse
+-&gt; Rep ConfigureLogsForPlaybackConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Create a value of 'ConfigureLogsForPlaybackConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'playbackConfigurationName', 'configureLogsForPlaybackConfigurationResponse_playbackConfigurationName' - The name of the playback configuration.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'percentEnabled', 'configureLogsForPlaybackConfigurationResponse_percentEnabled' - The percentage of session logs that MediaTailor sends to your Cloudwatch</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Logs account.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'httpStatus', 'configureLogsForPlaybackConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#newConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">newConfigureLogsForPlaybackConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span>
+</span><span id="line-221"></span><span id="newConfigureLogsForPlaybackConfigurationResponse"><span class="annot"><span class="annottext">newConfigureLogsForPlaybackConfigurationResponse :: Int -&gt; ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#newConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-var hs-var">newConfigureLogsForPlaybackConfigurationResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679277437"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277437"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Int
+-&gt; ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playbackConfigurationName:ConfigureLogsForPlaybackConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:percentEnabled:ConfigureLogsForPlaybackConfigurationResponse' :: Maybe Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">percentEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ConfigureLogsForPlaybackConfigurationResponse' :: Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AhttpStatus%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277437"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The name of the playback configuration.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_playbackConfigurationName"><span class="hs-identifier hs-type">configureLogsForPlaybackConfigurationResponse_playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="configureLogsForPlaybackConfigurationResponse_playbackConfigurationName"><span class="annot"><span class="annottext">configureLogsForPlaybackConfigurationResponse_playbackConfigurationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigureLogsForPlaybackConfigurationResponse
+-&gt; f ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_playbackConfigurationName"><span class="hs-identifier hs-var hs-var">configureLogsForPlaybackConfigurationResponse_playbackConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsForPlaybackConfigurationResponse -&gt; Maybe Text)
+-&gt; (ConfigureLogsForPlaybackConfigurationResponse
+    -&gt; Maybe Text -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; Lens
+     ConfigureLogsForPlaybackConfigurationResponse
+     ConfigureLogsForPlaybackConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277436"><span class="annot"><span class="annottext">Maybe Text
+playbackConfigurationName :: Maybe Text
+$sel:playbackConfigurationName:ConfigureLogsForPlaybackConfigurationResponse' :: ConfigureLogsForPlaybackConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679277436"><span class="hs-identifier hs-var hs-var">playbackConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277436"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277435"><span class="annot"><span class="annottext">s :: ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="#local-6989586621679277435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277434"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="#local-6989586621679277435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playbackConfigurationName:ConfigureLogsForPlaybackConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AplaybackConfigurationName%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The percentage of session logs that MediaTailor sends to your Cloudwatch</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Logs account.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_percentEnabled"><span class="hs-identifier hs-type">configureLogsForPlaybackConfigurationResponse_percentEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="configureLogsForPlaybackConfigurationResponse_percentEnabled"><span class="annot"><span class="annottext">configureLogsForPlaybackConfigurationResponse_percentEnabled :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ConfigureLogsForPlaybackConfigurationResponse
+-&gt; f ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_percentEnabled"><span class="hs-identifier hs-var hs-var">configureLogsForPlaybackConfigurationResponse_percentEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsForPlaybackConfigurationResponse -&gt; Maybe Int)
+-&gt; (ConfigureLogsForPlaybackConfigurationResponse
+    -&gt; Maybe Int -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; Lens
+     ConfigureLogsForPlaybackConfigurationResponse
+     ConfigureLogsForPlaybackConfigurationResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277433"><span class="annot"><span class="annottext">Maybe Int
+percentEnabled :: Maybe Int
+$sel:percentEnabled:ConfigureLogsForPlaybackConfigurationResponse' :: ConfigureLogsForPlaybackConfigurationResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679277433"><span class="hs-identifier hs-var hs-var">percentEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679277433"><span class="hs-identifier hs-var">percentEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277432"><span class="annot"><span class="annottext">s :: ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="#local-6989586621679277432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277431"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679277431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="#local-6989586621679277432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentEnabled:ConfigureLogsForPlaybackConfigurationResponse' :: Maybe Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3ApercentEnabled%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">percentEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679277431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">configureLogsForPlaybackConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-242"></span><span id="configureLogsForPlaybackConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">configureLogsForPlaybackConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ConfigureLogsForPlaybackConfigurationResponse
+-&gt; f ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#configureLogsForPlaybackConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">configureLogsForPlaybackConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsForPlaybackConfigurationResponse -&gt; Int)
+-&gt; (ConfigureLogsForPlaybackConfigurationResponse
+    -&gt; Int -&gt; ConfigureLogsForPlaybackConfigurationResponse)
+-&gt; Lens
+     ConfigureLogsForPlaybackConfigurationResponse
+     ConfigureLogsForPlaybackConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277430"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ConfigureLogsForPlaybackConfigurationResponse' :: ConfigureLogsForPlaybackConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679277430"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277430"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277429"><span class="annot"><span class="annottext">s :: ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="#local-6989586621679277429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsForPlaybackConfigurationResponse
+</span><a href="#local-6989586621679277429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfigureLogsForPlaybackConfigurationResponse' :: Int
+</span><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#%24sel%3AhttpStatus%3AConfigureLogsForPlaybackConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679277426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration.html#ConfigureLogsForPlaybackConfigurationResponse"><span class="hs-identifier hs-type">ConfigureLogsForPlaybackConfigurationResponse</span></a></span></span><span>
+</span><span id="line-247"></span></pre></body></html>

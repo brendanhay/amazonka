@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowAutomationParameters.html"><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowAutomationParameters</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowLambdaParameters.html"><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowLambdaParameters</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters.html"><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowStepFunctionsParameters.html"><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowStepFunctionsParameters</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The parameters for task execution.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newMaintenanceWindowTaskInvocationParameters' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679801262"><span id="local-6989586621679801263"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowTaskInvocationParameters"><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-var">MaintenanceWindowTaskInvocationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowTaskInvocationParameters%27"><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">MaintenanceWindowTaskInvocationParameters'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameters for an @AUTOMATION@ task type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aautomation%3AMaintenanceWindowTaskInvocationParameters%27"><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowAutomationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3Aautomation%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var hs-var">automation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowAutomationParameters.html#MaintenanceWindowAutomationParameters"><span class="hs-identifier hs-type">MaintenanceWindowAutomationParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The parameters for a @STEP_FUNCTIONS@ task type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstepFunctions%3AMaintenanceWindowTaskInvocationParameters%27"><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3AstepFunctions%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var hs-var">stepFunctions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowStepFunctionsParameters.html#MaintenanceWindowStepFunctionsParameters"><span class="hs-identifier hs-type">MaintenanceWindowStepFunctionsParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The parameters for a @RUN_COMMAND@ task type.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArunCommand%3AMaintenanceWindowTaskInvocationParameters%27"><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowRunCommandParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3ArunCommand%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var hs-var">runCommand</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters.html#MaintenanceWindowRunCommandParameters"><span class="hs-identifier hs-type">MaintenanceWindowRunCommandParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The parameters for a @LAMBDA@ task type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Alambda%3AMaintenanceWindowTaskInvocationParameters%27"><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowLambdaParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3Alambda%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801253"><span id="local-6989586621679801255"><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+-&gt; MaintenanceWindowTaskInvocationParameters -&gt; Bool
+(MaintenanceWindowTaskInvocationParameters
+ -&gt; MaintenanceWindowTaskInvocationParameters -&gt; Bool)
+-&gt; (MaintenanceWindowTaskInvocationParameters
+    -&gt; MaintenanceWindowTaskInvocationParameters -&gt; Bool)
+-&gt; Eq MaintenanceWindowTaskInvocationParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MaintenanceWindowTaskInvocationParameters
+-&gt; MaintenanceWindowTaskInvocationParameters -&gt; Bool
+$c/= :: MaintenanceWindowTaskInvocationParameters
+-&gt; MaintenanceWindowTaskInvocationParameters -&gt; Bool
+== :: MaintenanceWindowTaskInvocationParameters
+-&gt; MaintenanceWindowTaskInvocationParameters -&gt; Bool
+$c== :: MaintenanceWindowTaskInvocationParameters
+-&gt; MaintenanceWindowTaskInvocationParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801246"><span id="local-6989586621679801248"><span id="local-6989586621679801250"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowTaskInvocationParameters -&gt; ShowS
+[MaintenanceWindowTaskInvocationParameters] -&gt; ShowS
+MaintenanceWindowTaskInvocationParameters -&gt; String
+(Int -&gt; MaintenanceWindowTaskInvocationParameters -&gt; ShowS)
+-&gt; (MaintenanceWindowTaskInvocationParameters -&gt; String)
+-&gt; ([MaintenanceWindowTaskInvocationParameters] -&gt; ShowS)
+-&gt; Show MaintenanceWindowTaskInvocationParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MaintenanceWindowTaskInvocationParameters] -&gt; ShowS
+$cshowList :: [MaintenanceWindowTaskInvocationParameters] -&gt; ShowS
+show :: MaintenanceWindowTaskInvocationParameters -&gt; String
+$cshow :: MaintenanceWindowTaskInvocationParameters -&gt; String
+showsPrec :: Int -&gt; MaintenanceWindowTaskInvocationParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; MaintenanceWindowTaskInvocationParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MaintenanceWindowTaskInvocationParameters
+ -&gt; Rep MaintenanceWindowTaskInvocationParameters x)
+-&gt; (forall x.
+    Rep MaintenanceWindowTaskInvocationParameters x
+    -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Generic MaintenanceWindowTaskInvocationParameters
+forall x.
+Rep MaintenanceWindowTaskInvocationParameters x
+-&gt; MaintenanceWindowTaskInvocationParameters
+forall x.
+MaintenanceWindowTaskInvocationParameters
+-&gt; Rep MaintenanceWindowTaskInvocationParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MaintenanceWindowTaskInvocationParameters x
+-&gt; MaintenanceWindowTaskInvocationParameters
+$cfrom :: forall x.
+MaintenanceWindowTaskInvocationParameters
+-&gt; Rep MaintenanceWindowTaskInvocationParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'MaintenanceWindowTaskInvocationParameters' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'automation', 'maintenanceWindowTaskInvocationParameters_automation' - The parameters for an @AUTOMATION@ task type.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'stepFunctions', 'maintenanceWindowTaskInvocationParameters_stepFunctions' - The parameters for a @STEP_FUNCTIONS@ task type.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'runCommand', 'maintenanceWindowTaskInvocationParameters_runCommand' - The parameters for a @RUN_COMMAND@ task type.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'lambda', 'maintenanceWindowTaskInvocationParameters_lambda' - The parameters for a @LAMBDA@ task type.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#newMaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">newMaintenanceWindowTaskInvocationParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span>
+</span><span id="line-62"></span><span id="newMaintenanceWindowTaskInvocationParameters"><span class="annot"><span class="annottext">newMaintenanceWindowTaskInvocationParameters :: MaintenanceWindowTaskInvocationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#newMaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-var hs-var">newMaintenanceWindowTaskInvocationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowAutomationParameters
+-&gt; Maybe MaintenanceWindowStepFunctionsParameters
+-&gt; Maybe MaintenanceWindowRunCommandParameters
+-&gt; Maybe MaintenanceWindowLambdaParameters
+-&gt; MaintenanceWindowTaskInvocationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:automation:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowAutomationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3Aautomation%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">automation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:stepFunctions:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3AstepFunctions%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowStepFunctionsParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:runCommand:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowRunCommandParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3ArunCommand%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">runCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowRunCommandParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambda:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowLambdaParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3Alambda%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowLambdaParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The parameters for an @AUTOMATION@ task type.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_automation"><span class="hs-identifier hs-type">maintenanceWindowTaskInvocationParameters_automation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowAutomationParameters.html#MaintenanceWindowAutomationParameters"><span class="hs-identifier hs-type">MaintenanceWindowAutomationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="maintenanceWindowTaskInvocationParameters_automation"><span class="annot"><span class="annottext">maintenanceWindowTaskInvocationParameters_automation :: (Maybe MaintenanceWindowAutomationParameters
+ -&gt; f (Maybe MaintenanceWindowAutomationParameters))
+-&gt; MaintenanceWindowTaskInvocationParameters
+-&gt; f MaintenanceWindowTaskInvocationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_automation"><span class="hs-identifier hs-var hs-var">maintenanceWindowTaskInvocationParameters_automation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTaskInvocationParameters
+ -&gt; Maybe MaintenanceWindowAutomationParameters)
+-&gt; (MaintenanceWindowTaskInvocationParameters
+    -&gt; Maybe MaintenanceWindowAutomationParameters
+    -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Lens
+     MaintenanceWindowTaskInvocationParameters
+     MaintenanceWindowTaskInvocationParameters
+     (Maybe MaintenanceWindowAutomationParameters)
+     (Maybe MaintenanceWindowAutomationParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801237"><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+automation :: Maybe MaintenanceWindowAutomationParameters
+$sel:automation:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowAutomationParameters
+</span><a href="#local-6989586621679801237"><span class="hs-identifier hs-var hs-var">automation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+</span><a href="#local-6989586621679801237"><span class="hs-identifier hs-var">automation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801236"><span class="annot"><span class="annottext">s :: MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801235"><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+</span><a href="#local-6989586621679801235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automation:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowAutomationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3Aautomation%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">automation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+</span><a href="#local-6989586621679801235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The parameters for a @STEP_FUNCTIONS@ task type.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_stepFunctions"><span class="hs-identifier hs-type">maintenanceWindowTaskInvocationParameters_stepFunctions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowStepFunctionsParameters.html#MaintenanceWindowStepFunctionsParameters"><span class="hs-identifier hs-type">MaintenanceWindowStepFunctionsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="maintenanceWindowTaskInvocationParameters_stepFunctions"><span class="annot"><span class="annottext">maintenanceWindowTaskInvocationParameters_stepFunctions :: (Maybe MaintenanceWindowStepFunctionsParameters
+ -&gt; f (Maybe MaintenanceWindowStepFunctionsParameters))
+-&gt; MaintenanceWindowTaskInvocationParameters
+-&gt; f MaintenanceWindowTaskInvocationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_stepFunctions"><span class="hs-identifier hs-var hs-var">maintenanceWindowTaskInvocationParameters_stepFunctions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTaskInvocationParameters
+ -&gt; Maybe MaintenanceWindowStepFunctionsParameters)
+-&gt; (MaintenanceWindowTaskInvocationParameters
+    -&gt; Maybe MaintenanceWindowStepFunctionsParameters
+    -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Lens
+     MaintenanceWindowTaskInvocationParameters
+     MaintenanceWindowTaskInvocationParameters
+     (Maybe MaintenanceWindowStepFunctionsParameters)
+     (Maybe MaintenanceWindowStepFunctionsParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801233"><span class="annot"><span class="annottext">Maybe MaintenanceWindowStepFunctionsParameters
+stepFunctions :: Maybe MaintenanceWindowStepFunctionsParameters
+$sel:stepFunctions:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="#local-6989586621679801233"><span class="hs-identifier hs-var hs-var">stepFunctions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="#local-6989586621679801233"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801232"><span class="annot"><span class="annottext">s :: MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801231"><span class="annot"><span class="annottext">Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="#local-6989586621679801231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepFunctions:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3AstepFunctions%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="#local-6989586621679801231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The parameters for a @RUN_COMMAND@ task type.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_runCommand"><span class="hs-identifier hs-type">maintenanceWindowTaskInvocationParameters_runCommand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters.html#MaintenanceWindowRunCommandParameters"><span class="hs-identifier hs-type">MaintenanceWindowRunCommandParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="maintenanceWindowTaskInvocationParameters_runCommand"><span class="annot"><span class="annottext">maintenanceWindowTaskInvocationParameters_runCommand :: (Maybe MaintenanceWindowRunCommandParameters
+ -&gt; f (Maybe MaintenanceWindowRunCommandParameters))
+-&gt; MaintenanceWindowTaskInvocationParameters
+-&gt; f MaintenanceWindowTaskInvocationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_runCommand"><span class="hs-identifier hs-var hs-var">maintenanceWindowTaskInvocationParameters_runCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTaskInvocationParameters
+ -&gt; Maybe MaintenanceWindowRunCommandParameters)
+-&gt; (MaintenanceWindowTaskInvocationParameters
+    -&gt; Maybe MaintenanceWindowRunCommandParameters
+    -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Lens
+     MaintenanceWindowTaskInvocationParameters
+     MaintenanceWindowTaskInvocationParameters
+     (Maybe MaintenanceWindowRunCommandParameters)
+     (Maybe MaintenanceWindowRunCommandParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801229"><span class="annot"><span class="annottext">Maybe MaintenanceWindowRunCommandParameters
+runCommand :: Maybe MaintenanceWindowRunCommandParameters
+$sel:runCommand:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowRunCommandParameters
+</span><a href="#local-6989586621679801229"><span class="hs-identifier hs-var hs-var">runCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowRunCommandParameters
+</span><a href="#local-6989586621679801229"><span class="hs-identifier hs-var">runCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801228"><span class="annot"><span class="annottext">s :: MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801227"><span class="annot"><span class="annottext">Maybe MaintenanceWindowRunCommandParameters
+</span><a href="#local-6989586621679801227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runCommand:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowRunCommandParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3ArunCommand%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">runCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowRunCommandParameters
+</span><a href="#local-6989586621679801227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The parameters for a @LAMBDA@ task type.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_lambda"><span class="hs-identifier hs-type">maintenanceWindowTaskInvocationParameters_lambda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="maintenanceWindowTaskInvocationParameters_lambda"><span class="annot"><span class="annottext">maintenanceWindowTaskInvocationParameters_lambda :: (Maybe MaintenanceWindowLambdaParameters
+ -&gt; f (Maybe MaintenanceWindowLambdaParameters))
+-&gt; MaintenanceWindowTaskInvocationParameters
+-&gt; f MaintenanceWindowTaskInvocationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#maintenanceWindowTaskInvocationParameters_lambda"><span class="hs-identifier hs-var hs-var">maintenanceWindowTaskInvocationParameters_lambda</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTaskInvocationParameters
+ -&gt; Maybe MaintenanceWindowLambdaParameters)
+-&gt; (MaintenanceWindowTaskInvocationParameters
+    -&gt; Maybe MaintenanceWindowLambdaParameters
+    -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Lens
+     MaintenanceWindowTaskInvocationParameters
+     MaintenanceWindowTaskInvocationParameters
+     (Maybe MaintenanceWindowLambdaParameters)
+     (Maybe MaintenanceWindowLambdaParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801225"><span class="annot"><span class="annottext">Maybe MaintenanceWindowLambdaParameters
+lambda :: Maybe MaintenanceWindowLambdaParameters
+$sel:lambda:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679801225"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679801225"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801224"><span class="annot"><span class="annottext">s :: MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801223"><span class="annot"><span class="annottext">Maybe MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679801223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTaskInvocationParameters
+</span><a href="#local-6989586621679801224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:MaintenanceWindowTaskInvocationParameters' :: Maybe MaintenanceWindowLambdaParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#%24sel%3Alambda%3AMaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679801223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679801220"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679801218"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowTaskInvocationParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MaintenanceWindowTaskInvocationParameters)
+-&gt; Value
+-&gt; Parser MaintenanceWindowTaskInvocationParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MaintenanceWindowTaskInvocationParameters&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679801215"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801215"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+-&gt; Maybe MaintenanceWindowStepFunctionsParameters
+-&gt; Maybe MaintenanceWindowRunCommandParameters
+-&gt; Maybe MaintenanceWindowLambdaParameters
+-&gt; MaintenanceWindowTaskInvocationParameters
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-var">MaintenanceWindowTaskInvocationParameters'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MaintenanceWindowAutomationParameters
+ -&gt; Maybe MaintenanceWindowStepFunctionsParameters
+ -&gt; Maybe MaintenanceWindowRunCommandParameters
+ -&gt; Maybe MaintenanceWindowLambdaParameters
+ -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Parser (Maybe MaintenanceWindowAutomationParameters)
+-&gt; Parser
+     (Maybe MaintenanceWindowStepFunctionsParameters
+      -&gt; Maybe MaintenanceWindowRunCommandParameters
+      -&gt; Maybe MaintenanceWindowLambdaParameters
+      -&gt; MaintenanceWindowTaskInvocationParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe MaintenanceWindowAutomationParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Automation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe MaintenanceWindowStepFunctionsParameters
+   -&gt; Maybe MaintenanceWindowRunCommandParameters
+   -&gt; Maybe MaintenanceWindowLambdaParameters
+   -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Parser (Maybe MaintenanceWindowStepFunctionsParameters)
+-&gt; Parser
+     (Maybe MaintenanceWindowRunCommandParameters
+      -&gt; Maybe MaintenanceWindowLambdaParameters
+      -&gt; MaintenanceWindowTaskInvocationParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe MaintenanceWindowStepFunctionsParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StepFunctions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe MaintenanceWindowRunCommandParameters
+   -&gt; Maybe MaintenanceWindowLambdaParameters
+   -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Parser (Maybe MaintenanceWindowRunCommandParameters)
+-&gt; Parser
+     (Maybe MaintenanceWindowLambdaParameters
+      -&gt; MaintenanceWindowTaskInvocationParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe MaintenanceWindowRunCommandParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunCommand&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe MaintenanceWindowLambdaParameters
+   -&gt; MaintenanceWindowTaskInvocationParameters)
+-&gt; Parser (Maybe MaintenanceWindowLambdaParameters)
+-&gt; Parser MaintenanceWindowTaskInvocationParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MaintenanceWindowLambdaParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Lambda&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679801209"><span id="local-6989586621679801211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679801206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679801198"><span id="local-6989586621679801200"><span id="local-6989586621679801202"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters</span></a></span></span></span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679801196"><span class="annot"><span class="annottext">toJSON :: MaintenanceWindowTaskInvocationParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters.html#MaintenanceWindowTaskInvocationParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskInvocationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801191"><span id="local-6989586621679801192"><span id="local-6989586621679801193"><span id="local-6989586621679801194"><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+Maybe MaintenanceWindowLambdaParameters
+Maybe MaintenanceWindowStepFunctionsParameters
+Maybe MaintenanceWindowRunCommandParameters
+lambda :: Maybe MaintenanceWindowLambdaParameters
+runCommand :: Maybe MaintenanceWindowRunCommandParameters
+stepFunctions :: Maybe MaintenanceWindowStepFunctionsParameters
+automation :: Maybe MaintenanceWindowAutomationParameters
+$sel:lambda:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowLambdaParameters
+$sel:runCommand:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowRunCommandParameters
+$sel:stepFunctions:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowStepFunctionsParameters
+$sel:automation:MaintenanceWindowTaskInvocationParameters' :: MaintenanceWindowTaskInvocationParameters
+-&gt; Maybe MaintenanceWindowAutomationParameters
+</span><a href="#local-6989586621679801191"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Automation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MaintenanceWindowAutomationParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowAutomationParameters -&gt; Pair)
+-&gt; Maybe MaintenanceWindowAutomationParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowAutomationParameters
+</span><a href="#local-6989586621679801194"><span class="hs-identifier hs-var">automation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StepFunctions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MaintenanceWindowStepFunctionsParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowStepFunctionsParameters -&gt; Pair)
+-&gt; Maybe MaintenanceWindowStepFunctionsParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowStepFunctionsParameters
+</span><a href="#local-6989586621679801193"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunCommand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MaintenanceWindowRunCommandParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowRunCommandParameters -&gt; Pair)
+-&gt; Maybe MaintenanceWindowRunCommandParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowRunCommandParameters
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">runCommand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Lambda&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MaintenanceWindowLambdaParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowLambdaParameters -&gt; Pair)
+-&gt; Maybe MaintenanceWindowLambdaParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679801191"><span class="hs-identifier hs-var">lambda</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span></pre></body></html>

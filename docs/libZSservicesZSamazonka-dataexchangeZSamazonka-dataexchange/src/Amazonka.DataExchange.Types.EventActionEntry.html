@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types.EventActionEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types.EventActionEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Action</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Event</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An event action is an object that defines the relationship between a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- specific event and an automated action that will be taken on behalf of</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the customer.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEventActionEntry' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679239098"><span id="local-6989586621679239099"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventActionEntry"><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-var">EventActionEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventActionEntry%27"><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-var">EventActionEntry'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | What occurs after a certain event.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aaction%3AEventActionEntry%27"><span class="annot"><span class="annottext">EventActionEntry -&gt; Action
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aaction%3AEventActionEntry%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date and time that the event action was created, in ISO 8601 format.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreatedAt%3AEventActionEntry%27"><span class="annot"><span class="annottext">EventActionEntry -&gt; POSIX
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3AcreatedAt%3AEventActionEntry%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | What occurs to start an action.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aevent%3AEventActionEntry%27"><span class="annot"><span class="annottext">EventActionEntry -&gt; Event
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aevent%3AEventActionEntry%27"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the event action.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aid%3AEventActionEntry%27"><span class="annot"><span class="annottext">EventActionEntry -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aid%3AEventActionEntry%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the event action.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aarn%3AEventActionEntry%27"><span class="annot"><span class="annottext">EventActionEntry -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aarn%3AEventActionEntry%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date and time that the event action was last updated, in ISO 8601</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AupdatedAt%3AEventActionEntry%27"><span class="annot"><span class="annottext">EventActionEntry -&gt; POSIX
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3AupdatedAt%3AEventActionEntry%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239087"><span id="local-6989586621679239089"><span class="annot"><span class="annottext">EventActionEntry -&gt; EventActionEntry -&gt; Bool
+(EventActionEntry -&gt; EventActionEntry -&gt; Bool)
+-&gt; (EventActionEntry -&gt; EventActionEntry -&gt; Bool)
+-&gt; Eq EventActionEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EventActionEntry -&gt; EventActionEntry -&gt; Bool
+$c/= :: EventActionEntry -&gt; EventActionEntry -&gt; Bool
+== :: EventActionEntry -&gt; EventActionEntry -&gt; Bool
+$c== :: EventActionEntry -&gt; EventActionEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239078"><span id="local-6989586621679239080"><span id="local-6989586621679239082"><span id="local-6989586621679239084"><span class="annot"><span class="annottext">ReadPrec [EventActionEntry]
+ReadPrec EventActionEntry
+Int -&gt; ReadS EventActionEntry
+ReadS [EventActionEntry]
+(Int -&gt; ReadS EventActionEntry)
+-&gt; ReadS [EventActionEntry]
+-&gt; ReadPrec EventActionEntry
+-&gt; ReadPrec [EventActionEntry]
+-&gt; Read EventActionEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EventActionEntry]
+$creadListPrec :: ReadPrec [EventActionEntry]
+readPrec :: ReadPrec EventActionEntry
+$creadPrec :: ReadPrec EventActionEntry
+readList :: ReadS [EventActionEntry]
+$creadList :: ReadS [EventActionEntry]
+readsPrec :: Int -&gt; ReadS EventActionEntry
+$creadsPrec :: Int -&gt; ReadS EventActionEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239071"><span id="local-6989586621679239073"><span id="local-6989586621679239075"><span class="annot"><span class="annottext">Int -&gt; EventActionEntry -&gt; ShowS
+[EventActionEntry] -&gt; ShowS
+EventActionEntry -&gt; String
+(Int -&gt; EventActionEntry -&gt; ShowS)
+-&gt; (EventActionEntry -&gt; String)
+-&gt; ([EventActionEntry] -&gt; ShowS)
+-&gt; Show EventActionEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EventActionEntry] -&gt; ShowS
+$cshowList :: [EventActionEntry] -&gt; ShowS
+show :: EventActionEntry -&gt; String
+$cshow :: EventActionEntry -&gt; String
+showsPrec :: Int -&gt; EventActionEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; EventActionEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EventActionEntry -&gt; Rep EventActionEntry x)
+-&gt; (forall x. Rep EventActionEntry x -&gt; EventActionEntry)
+-&gt; Generic EventActionEntry
+forall x. Rep EventActionEntry x -&gt; EventActionEntry
+forall x. EventActionEntry -&gt; Rep EventActionEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EventActionEntry x -&gt; EventActionEntry
+$cfrom :: forall x. EventActionEntry -&gt; Rep EventActionEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'EventActionEntry' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'action', 'eventActionEntry_action' - What occurs after a certain event.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'createdAt', 'eventActionEntry_createdAt' - The date and time that the event action was created, in ISO 8601 format.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'event', 'eventActionEntry_event' - What occurs to start an action.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'id', 'eventActionEntry_id' - The unique identifier for the event action.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'arn', 'eventActionEntry_arn' - The Amazon Resource Name (ARN) for the event action.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'updatedAt', 'eventActionEntry_updatedAt' - The date and time that the event action was last updated, in ISO 8601</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#newEventActionEntry"><span class="hs-identifier hs-type">newEventActionEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'action'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'event'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'updatedAt'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span>
+</span><span id="line-84"></span><span id="newEventActionEntry"><span class="annot"><span class="annottext">newEventActionEntry :: Action
+-&gt; UTCTime -&gt; Event -&gt; Text -&gt; Text -&gt; UTCTime -&gt; EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#newEventActionEntry"><span class="hs-identifier hs-var hs-var">newEventActionEntry</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679239065"><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679239065"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679239064"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239064"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679239063"><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679239063"><span class="hs-identifier hs-var">pEvent_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679239062"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239062"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679239061"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239061"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679239060"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239060"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">EventActionEntry' :: Action
+-&gt; POSIX -&gt; Event -&gt; Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:action:EventActionEntry' :: Action
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aaction%3AEventActionEntry%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679239065"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:EventActionEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3AcreatedAt%3AEventActionEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239064"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:event:EventActionEntry' :: Event
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aevent%3AEventActionEntry%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679239063"><span class="hs-identifier hs-var">pEvent_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:EventActionEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aid%3AEventActionEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239062"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:EventActionEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aarn%3AEventActionEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239061"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:EventActionEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3AupdatedAt%3AEventActionEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239060"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | What occurs after a certain event.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_action"><span class="hs-identifier hs-type">eventActionEntry_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span>
+</span><span id="line-102"></span><span id="eventActionEntry_action"><span class="annot"><span class="annottext">eventActionEntry_action :: (Action -&gt; f Action) -&gt; EventActionEntry -&gt; f EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_action"><span class="hs-identifier hs-var hs-var">eventActionEntry_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventActionEntry -&gt; Action)
+-&gt; (EventActionEntry -&gt; Action -&gt; EventActionEntry)
+-&gt; Lens EventActionEntry EventActionEntry Action Action
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239054"><span class="annot"><span class="annottext">Action
+action :: Action
+$sel:action:EventActionEntry' :: EventActionEntry -&gt; Action
+</span><a href="#local-6989586621679239054"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679239054"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239053"><span class="annot"><span class="annottext">s :: EventActionEntry
+</span><a href="#local-6989586621679239053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239052"><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679239052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventActionEntry
+</span><a href="#local-6989586621679239053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:EventActionEntry' :: Action
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aaction%3AEventActionEntry%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679239052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The date and time that the event action was created, in ISO 8601 format.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_createdAt"><span class="hs-identifier hs-type">eventActionEntry_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-106"></span><span id="eventActionEntry_createdAt"><span class="annot"><span class="annottext">eventActionEntry_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; EventActionEntry -&gt; f EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_createdAt"><span class="hs-identifier hs-var hs-var">eventActionEntry_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventActionEntry -&gt; POSIX)
+-&gt; (EventActionEntry -&gt; POSIX -&gt; EventActionEntry)
+-&gt; Lens EventActionEntry EventActionEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239050"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:EventActionEntry' :: EventActionEntry -&gt; POSIX
+</span><a href="#local-6989586621679239050"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239050"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239049"><span class="annot"><span class="annottext">s :: EventActionEntry
+</span><a href="#local-6989586621679239049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239048"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventActionEntry
+</span><a href="#local-6989586621679239049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:EventActionEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3AcreatedAt%3AEventActionEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EventActionEntry -&gt; f EventActionEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; EventActionEntry
+-&gt; f EventActionEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | What occurs to start an action.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_event"><span class="hs-identifier hs-type">eventActionEntry_event</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span>
+</span><span id="line-110"></span><span id="eventActionEntry_event"><span class="annot"><span class="annottext">eventActionEntry_event :: (Event -&gt; f Event) -&gt; EventActionEntry -&gt; f EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_event"><span class="hs-identifier hs-var hs-var">eventActionEntry_event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventActionEntry -&gt; Event)
+-&gt; (EventActionEntry -&gt; Event -&gt; EventActionEntry)
+-&gt; Lens EventActionEntry EventActionEntry Event Event
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239045"><span class="annot"><span class="annottext">Event
+event :: Event
+$sel:event:EventActionEntry' :: EventActionEntry -&gt; Event
+</span><a href="#local-6989586621679239045"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679239045"><span class="hs-identifier hs-var">event</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239044"><span class="annot"><span class="annottext">s :: EventActionEntry
+</span><a href="#local-6989586621679239044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239043"><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679239043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventActionEntry
+</span><a href="#local-6989586621679239044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:event:EventActionEntry' :: Event
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aevent%3AEventActionEntry%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679239043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The unique identifier for the event action.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_id"><span class="hs-identifier hs-type">eventActionEntry_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="eventActionEntry_id"><span class="annot"><span class="annottext">eventActionEntry_id :: (Text -&gt; f Text) -&gt; EventActionEntry -&gt; f EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_id"><span class="hs-identifier hs-var hs-var">eventActionEntry_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventActionEntry -&gt; Text)
+-&gt; (EventActionEntry -&gt; Text -&gt; EventActionEntry)
+-&gt; Lens EventActionEntry EventActionEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239041"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:EventActionEntry' :: EventActionEntry -&gt; Text
+</span><a href="#local-6989586621679239041"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239041"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239040"><span class="annot"><span class="annottext">s :: EventActionEntry
+</span><a href="#local-6989586621679239040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239039"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventActionEntry
+</span><a href="#local-6989586621679239040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:EventActionEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aid%3AEventActionEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the event action.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_arn"><span class="hs-identifier hs-type">eventActionEntry_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="eventActionEntry_arn"><span class="annot"><span class="annottext">eventActionEntry_arn :: (Text -&gt; f Text) -&gt; EventActionEntry -&gt; f EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_arn"><span class="hs-identifier hs-var hs-var">eventActionEntry_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventActionEntry -&gt; Text)
+-&gt; (EventActionEntry -&gt; Text -&gt; EventActionEntry)
+-&gt; Lens EventActionEntry EventActionEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239037"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:EventActionEntry' :: EventActionEntry -&gt; Text
+</span><a href="#local-6989586621679239037"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239037"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239036"><span class="annot"><span class="annottext">s :: EventActionEntry
+</span><a href="#local-6989586621679239036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventActionEntry
+</span><a href="#local-6989586621679239036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:EventActionEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3Aarn%3AEventActionEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The date and time that the event action was last updated, in ISO 8601</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_updatedAt"><span class="hs-identifier hs-type">eventActionEntry_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-123"></span><span id="eventActionEntry_updatedAt"><span class="annot"><span class="annottext">eventActionEntry_updatedAt :: (UTCTime -&gt; f UTCTime) -&gt; EventActionEntry -&gt; f EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_updatedAt"><span class="hs-identifier hs-var hs-var">eventActionEntry_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventActionEntry -&gt; POSIX)
+-&gt; (EventActionEntry -&gt; POSIX -&gt; EventActionEntry)
+-&gt; Lens EventActionEntry EventActionEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239033"><span class="annot"><span class="annottext">POSIX
+updatedAt :: POSIX
+$sel:updatedAt:EventActionEntry' :: EventActionEntry -&gt; POSIX
+</span><a href="#local-6989586621679239033"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239033"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239032"><span class="annot"><span class="annottext">s :: EventActionEntry
+</span><a href="#local-6989586621679239032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-type">EventActionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239031"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventActionEntry
+</span><a href="#local-6989586621679239032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:EventActionEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#%24sel%3AupdatedAt%3AEventActionEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EventActionEntry -&gt; f EventActionEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; EventActionEntry
+-&gt; f EventActionEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239028"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679239026"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventActionEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EventActionEntry)
+-&gt; Value
+-&gt; Parser EventActionEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EventActionEntry&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239023"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Action
+-&gt; POSIX -&gt; Event -&gt; Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry
+</span><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry%27"><span class="hs-identifier hs-var">EventActionEntry'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Action
+ -&gt; POSIX -&gt; Event -&gt; Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry)
+-&gt; Parser Action
+-&gt; Parser
+     (POSIX -&gt; Event -&gt; Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Action
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Action&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX -&gt; Event -&gt; Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry)
+-&gt; Parser POSIX
+-&gt; Parser (Event -&gt; Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Event -&gt; Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry)
+-&gt; Parser Event
+-&gt; Parser (Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Event
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Event&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; POSIX -&gt; EventActionEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; POSIX -&gt; EventActionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; EventActionEntry)
+-&gt; Parser Text -&gt; Parser (POSIX -&gt; EventActionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; EventActionEntry)
+-&gt; Parser POSIX -&gt; Parser EventActionEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239017"><span id="local-6989586621679239019"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier hs-type">EventActionEntry</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

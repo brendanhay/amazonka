@@ -1,0 +1,668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates a transit gateway Connect peer with a device, and optionally,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with a link. If you specify a link, it must be associated with the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- specified device.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You can only associate transit gateway Connect peers that have been</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- created on a transit gateway that\'s registered in your global network.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- You cannot associate a transit gateway Connect peer with more than one</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- device and link.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier">AssociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#newAssociateTransitGatewayConnectPeer"><span class="hs-identifier">newAssociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_linkId"><span class="hs-identifier">associateTransitGatewayConnectPeer_linkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_globalNetworkId"><span class="hs-identifier">associateTransitGatewayConnectPeer_globalNetworkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="hs-identifier">associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_deviceId"><span class="hs-identifier">associateTransitGatewayConnectPeer_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier">AssociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#newAssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier">newAssociateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="hs-identifier">associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier">associateTransitGatewayConnectPeerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.html"><span class="hs-identifier">Amazonka.NetworkManager.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newAssociateTransitGatewayConnectPeer' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679229874"><span id="local-6989586621679229875"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateTransitGatewayConnectPeer"><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-var">AssociateTransitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateTransitGatewayConnectPeer%27"><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">AssociateTransitGatewayConnectPeer'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the link.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AlinkId%3AAssociateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AlinkId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">linkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AglobalNetworkId%3AAssociateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AglobalNetworkId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Connect peer.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AtransitGatewayConnectPeerArn%3AAssociateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerArn%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ID of the device.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdeviceId%3AAssociateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AdeviceId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229865"><span id="local-6989586621679229867"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer
+-&gt; AssociateTransitGatewayConnectPeer -&gt; Bool
+(AssociateTransitGatewayConnectPeer
+ -&gt; AssociateTransitGatewayConnectPeer -&gt; Bool)
+-&gt; (AssociateTransitGatewayConnectPeer
+    -&gt; AssociateTransitGatewayConnectPeer -&gt; Bool)
+-&gt; Eq AssociateTransitGatewayConnectPeer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateTransitGatewayConnectPeer
+-&gt; AssociateTransitGatewayConnectPeer -&gt; Bool
+$c/= :: AssociateTransitGatewayConnectPeer
+-&gt; AssociateTransitGatewayConnectPeer -&gt; Bool
+== :: AssociateTransitGatewayConnectPeer
+-&gt; AssociateTransitGatewayConnectPeer -&gt; Bool
+$c== :: AssociateTransitGatewayConnectPeer
+-&gt; AssociateTransitGatewayConnectPeer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229856"><span id="local-6989586621679229858"><span id="local-6989586621679229860"><span id="local-6989586621679229862"><span class="annot"><span class="annottext">ReadPrec [AssociateTransitGatewayConnectPeer]
+ReadPrec AssociateTransitGatewayConnectPeer
+Int -&gt; ReadS AssociateTransitGatewayConnectPeer
+ReadS [AssociateTransitGatewayConnectPeer]
+(Int -&gt; ReadS AssociateTransitGatewayConnectPeer)
+-&gt; ReadS [AssociateTransitGatewayConnectPeer]
+-&gt; ReadPrec AssociateTransitGatewayConnectPeer
+-&gt; ReadPrec [AssociateTransitGatewayConnectPeer]
+-&gt; Read AssociateTransitGatewayConnectPeer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateTransitGatewayConnectPeer]
+$creadListPrec :: ReadPrec [AssociateTransitGatewayConnectPeer]
+readPrec :: ReadPrec AssociateTransitGatewayConnectPeer
+$creadPrec :: ReadPrec AssociateTransitGatewayConnectPeer
+readList :: ReadS [AssociateTransitGatewayConnectPeer]
+$creadList :: ReadS [AssociateTransitGatewayConnectPeer]
+readsPrec :: Int -&gt; ReadS AssociateTransitGatewayConnectPeer
+$creadsPrec :: Int -&gt; ReadS AssociateTransitGatewayConnectPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229849"><span id="local-6989586621679229851"><span id="local-6989586621679229853"><span class="annot"><span class="annottext">Int -&gt; AssociateTransitGatewayConnectPeer -&gt; ShowS
+[AssociateTransitGatewayConnectPeer] -&gt; ShowS
+AssociateTransitGatewayConnectPeer -&gt; String
+(Int -&gt; AssociateTransitGatewayConnectPeer -&gt; ShowS)
+-&gt; (AssociateTransitGatewayConnectPeer -&gt; String)
+-&gt; ([AssociateTransitGatewayConnectPeer] -&gt; ShowS)
+-&gt; Show AssociateTransitGatewayConnectPeer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateTransitGatewayConnectPeer] -&gt; ShowS
+$cshowList :: [AssociateTransitGatewayConnectPeer] -&gt; ShowS
+show :: AssociateTransitGatewayConnectPeer -&gt; String
+$cshow :: AssociateTransitGatewayConnectPeer -&gt; String
+showsPrec :: Int -&gt; AssociateTransitGatewayConnectPeer -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateTransitGatewayConnectPeer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateTransitGatewayConnectPeer
+ -&gt; Rep AssociateTransitGatewayConnectPeer x)
+-&gt; (forall x.
+    Rep AssociateTransitGatewayConnectPeer x
+    -&gt; AssociateTransitGatewayConnectPeer)
+-&gt; Generic AssociateTransitGatewayConnectPeer
+forall x.
+Rep AssociateTransitGatewayConnectPeer x
+-&gt; AssociateTransitGatewayConnectPeer
+forall x.
+AssociateTransitGatewayConnectPeer
+-&gt; Rep AssociateTransitGatewayConnectPeer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateTransitGatewayConnectPeer x
+-&gt; AssociateTransitGatewayConnectPeer
+$cfrom :: forall x.
+AssociateTransitGatewayConnectPeer
+-&gt; Rep AssociateTransitGatewayConnectPeer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'AssociateTransitGatewayConnectPeer' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'linkId', 'associateTransitGatewayConnectPeer_linkId' - The ID of the link.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'globalNetworkId', 'associateTransitGatewayConnectPeer_globalNetworkId' - The ID of the global network.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'transitGatewayConnectPeerArn', 'associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn' - The Amazon Resource Name (ARN) of the Connect peer.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'deviceId', 'associateTransitGatewayConnectPeer_deviceId' - The ID of the device.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#newAssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">newAssociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'globalNetworkId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayConnectPeerArn'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-96"></span><span id="newAssociateTransitGatewayConnectPeer"><span class="annot"><span class="annottext">newAssociateTransitGatewayConnectPeer :: Text -&gt; Text -&gt; Text -&gt; AssociateTransitGatewayConnectPeer
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#newAssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-var hs-var">newAssociateTransitGatewayConnectPeer</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679229844"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229844"><span class="hs-identifier hs-var">pGlobalNetworkId_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679229843"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229843"><span class="hs-identifier hs-var">pTransitGatewayConnectPeerArn_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679229842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229842"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer' :: Maybe Text
+-&gt; Text -&gt; Text -&gt; Text -&gt; AssociateTransitGatewayConnectPeer
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:linkId:AssociateTransitGatewayConnectPeer' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AlinkId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">linkId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:globalNetworkId:AssociateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AglobalNetworkId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229844"><span class="hs-identifier hs-var">pGlobalNetworkId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerArn:AssociateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerArn%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229843"><span class="hs-identifier hs-var">pTransitGatewayConnectPeerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceId:AssociateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AdeviceId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229842"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The ID of the link.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_linkId"><span class="hs-identifier hs-type">associateTransitGatewayConnectPeer_linkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="associateTransitGatewayConnectPeer_linkId"><span class="annot"><span class="annottext">associateTransitGatewayConnectPeer_linkId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociateTransitGatewayConnectPeer
+-&gt; f AssociateTransitGatewayConnectPeer
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_linkId"><span class="hs-identifier hs-var hs-var">associateTransitGatewayConnectPeer_linkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTransitGatewayConnectPeer -&gt; Maybe Text)
+-&gt; (AssociateTransitGatewayConnectPeer
+    -&gt; Maybe Text -&gt; AssociateTransitGatewayConnectPeer)
+-&gt; Lens
+     AssociateTransitGatewayConnectPeer
+     AssociateTransitGatewayConnectPeer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229839"><span class="annot"><span class="annottext">Maybe Text
+linkId :: Maybe Text
+$sel:linkId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679229839"><span class="hs-identifier hs-var hs-var">linkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229839"><span class="hs-identifier hs-var">linkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229838"><span class="annot"><span class="annottext">s :: AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkId:AssociateTransitGatewayConnectPeer' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AlinkId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">linkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_globalNetworkId"><span class="hs-identifier hs-type">associateTransitGatewayConnectPeer_globalNetworkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="associateTransitGatewayConnectPeer_globalNetworkId"><span class="annot"><span class="annottext">associateTransitGatewayConnectPeer_globalNetworkId :: (Text -&gt; f Text)
+-&gt; AssociateTransitGatewayConnectPeer
+-&gt; f AssociateTransitGatewayConnectPeer
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_globalNetworkId"><span class="hs-identifier hs-var hs-var">associateTransitGatewayConnectPeer_globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTransitGatewayConnectPeer -&gt; Text)
+-&gt; (AssociateTransitGatewayConnectPeer
+    -&gt; Text -&gt; AssociateTransitGatewayConnectPeer)
+-&gt; Lens
+     AssociateTransitGatewayConnectPeer
+     AssociateTransitGatewayConnectPeer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229836"><span class="annot"><span class="annottext">Text
+globalNetworkId :: Text
+$sel:globalNetworkId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621679229836"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229836"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229835"><span class="annot"><span class="annottext">s :: AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229834"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNetworkId:AssociateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AglobalNetworkId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Connect peer.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="hs-identifier hs-type">associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="annot"><span class="annottext">associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn :: (Text -&gt; f Text)
+-&gt; AssociateTransitGatewayConnectPeer
+-&gt; f AssociateTransitGatewayConnectPeer
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="hs-identifier hs-var hs-var">associateTransitGatewayConnectPeer_transitGatewayConnectPeerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTransitGatewayConnectPeer -&gt; Text)
+-&gt; (AssociateTransitGatewayConnectPeer
+    -&gt; Text -&gt; AssociateTransitGatewayConnectPeer)
+-&gt; Lens
+     AssociateTransitGatewayConnectPeer
+     AssociateTransitGatewayConnectPeer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229833"><span class="annot"><span class="annottext">Text
+transitGatewayConnectPeerArn :: Text
+$sel:transitGatewayConnectPeerArn:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621679229833"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229833"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229832"><span class="annot"><span class="annottext">s :: AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerArn:AssociateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerArn%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of the device.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_deviceId"><span class="hs-identifier hs-type">associateTransitGatewayConnectPeer_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="associateTransitGatewayConnectPeer_deviceId"><span class="annot"><span class="annottext">associateTransitGatewayConnectPeer_deviceId :: (Text -&gt; f Text)
+-&gt; AssociateTransitGatewayConnectPeer
+-&gt; f AssociateTransitGatewayConnectPeer
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeer_deviceId"><span class="hs-identifier hs-var hs-var">associateTransitGatewayConnectPeer_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTransitGatewayConnectPeer -&gt; Text)
+-&gt; (AssociateTransitGatewayConnectPeer
+    -&gt; Text -&gt; AssociateTransitGatewayConnectPeer)
+-&gt; Lens
+     AssociateTransitGatewayConnectPeer
+     AssociateTransitGatewayConnectPeer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229830"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621679229830"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229830"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229829"><span class="annot"><span class="annottext">s :: AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679229829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:AssociateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AdeviceId%3AAssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679229824"><span class="annot"><span class="annottext">request :: AssociateTransitGatewayConnectPeer
+-&gt; Request AssociateTransitGatewayConnectPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AssociateTransitGatewayConnectPeer
+-&gt; Request AssociateTransitGatewayConnectPeer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679229820"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateTransitGatewayConnectPeer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateTransitGatewayConnectPeer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AssociateTransitGatewayConnectPeer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateTransitGatewayConnectPeer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateTransitGatewayConnectPeer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229817"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229816"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229816"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229815"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229815"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+-&gt; Int -&gt; AssociateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">AssociateTransitGatewayConnectPeerResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayConnectPeerAssociation
+ -&gt; Int -&gt; AssociateTransitGatewayConnectPeerResponse)
+-&gt; Either String (Maybe TransitGatewayConnectPeerAssociation)
+-&gt; Either
+     String (Int -&gt; AssociateTransitGatewayConnectPeerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe TransitGatewayConnectPeerAssociation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransitGatewayConnectPeerAssociation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; AssociateTransitGatewayConnectPeerResponse)
+-&gt; Either String Int
+-&gt; Either String AssociateTransitGatewayConnectPeerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229817"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679229807"><span id="local-6989586621679229809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679229804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679229800"><span class="annot"><span class="annottext">toHeaders :: AssociateTransitGatewayConnectPeer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; AssociateTransitGatewayConnectPeer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679229790"><span id="local-6989586621679229792"><span id="local-6989586621679229794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span></span></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679229788"><span class="annot"><span class="annottext">toJSON :: AssociateTransitGatewayConnectPeer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229783"><span id="local-6989586621679229784"><span id="local-6989586621679229785"><span id="local-6989586621679229786"><span class="annot"><span class="annottext">Maybe Text
+Text
+deviceId :: Text
+transitGatewayConnectPeerArn :: Text
+globalNetworkId :: Text
+linkId :: Maybe Text
+$sel:deviceId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+$sel:transitGatewayConnectPeerArn:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+$sel:globalNetworkId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+$sel:linkId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679229783"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229786"><span class="hs-identifier hs-var">linkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransitGatewayConnectPeerArn&quot;</span></span><span>
+</span><span id="line-173"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229784"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span>
+</span><span id="line-174"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229783"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679229777"><span class="annot"><span class="annottext">toPath :: AssociateTransitGatewayConnectPeer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229772"><span id="local-6989586621679229773"><span id="local-6989586621679229774"><span id="local-6989586621679229775"><span class="annot"><span class="annottext">Maybe Text
+Text
+deviceId :: Text
+transitGatewayConnectPeerArn :: Text
+globalNetworkId :: Text
+linkId :: Maybe Text
+$sel:deviceId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+$sel:transitGatewayConnectPeerArn:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+$sel:globalNetworkId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Text
+$sel:linkId:AssociateTransitGatewayConnectPeer' :: AssociateTransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679229772"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/global-networks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229774"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/transit-gateway-connect-peer-associations&quot;</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679229768"><span class="annot"><span class="annottext">toQuery :: AssociateTransitGatewayConnectPeer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateTransitGatewayConnectPeer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newAssociateTransitGatewayConnectPeerResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679229765"><span id="local-6989586621679229766"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateTransitGatewayConnectPeerResponse"><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-var">AssociateTransitGatewayConnectPeerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateTransitGatewayConnectPeerResponse%27"><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">AssociateTransitGatewayConnectPeerResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The transit gateway Connect peer association.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AtransitGatewayConnectPeerAssociation%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeerResponse
+-&gt; Maybe TransitGatewayConnectPeerAssociation
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerAssociation%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.html#TransitGatewayConnectPeerAssociation"><span class="hs-identifier hs-type">TransitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeerResponse -&gt; Int
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229759"><span id="local-6989586621679229761"><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeerResponse
+-&gt; AssociateTransitGatewayConnectPeerResponse -&gt; Bool
+(AssociateTransitGatewayConnectPeerResponse
+ -&gt; AssociateTransitGatewayConnectPeerResponse -&gt; Bool)
+-&gt; (AssociateTransitGatewayConnectPeerResponse
+    -&gt; AssociateTransitGatewayConnectPeerResponse -&gt; Bool)
+-&gt; Eq AssociateTransitGatewayConnectPeerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateTransitGatewayConnectPeerResponse
+-&gt; AssociateTransitGatewayConnectPeerResponse -&gt; Bool
+$c/= :: AssociateTransitGatewayConnectPeerResponse
+-&gt; AssociateTransitGatewayConnectPeerResponse -&gt; Bool
+== :: AssociateTransitGatewayConnectPeerResponse
+-&gt; AssociateTransitGatewayConnectPeerResponse -&gt; Bool
+$c== :: AssociateTransitGatewayConnectPeerResponse
+-&gt; AssociateTransitGatewayConnectPeerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229751"><span id="local-6989586621679229753"><span id="local-6989586621679229755"><span id="local-6989586621679229757"><span class="annot"><span class="annottext">ReadPrec [AssociateTransitGatewayConnectPeerResponse]
+ReadPrec AssociateTransitGatewayConnectPeerResponse
+Int -&gt; ReadS AssociateTransitGatewayConnectPeerResponse
+ReadS [AssociateTransitGatewayConnectPeerResponse]
+(Int -&gt; ReadS AssociateTransitGatewayConnectPeerResponse)
+-&gt; ReadS [AssociateTransitGatewayConnectPeerResponse]
+-&gt; ReadPrec AssociateTransitGatewayConnectPeerResponse
+-&gt; ReadPrec [AssociateTransitGatewayConnectPeerResponse]
+-&gt; Read AssociateTransitGatewayConnectPeerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateTransitGatewayConnectPeerResponse]
+$creadListPrec :: ReadPrec [AssociateTransitGatewayConnectPeerResponse]
+readPrec :: ReadPrec AssociateTransitGatewayConnectPeerResponse
+$creadPrec :: ReadPrec AssociateTransitGatewayConnectPeerResponse
+readList :: ReadS [AssociateTransitGatewayConnectPeerResponse]
+$creadList :: ReadS [AssociateTransitGatewayConnectPeerResponse]
+readsPrec :: Int -&gt; ReadS AssociateTransitGatewayConnectPeerResponse
+$creadsPrec :: Int -&gt; ReadS AssociateTransitGatewayConnectPeerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229745"><span id="local-6989586621679229747"><span id="local-6989586621679229749"><span class="annot"><span class="annottext">Int -&gt; AssociateTransitGatewayConnectPeerResponse -&gt; ShowS
+[AssociateTransitGatewayConnectPeerResponse] -&gt; ShowS
+AssociateTransitGatewayConnectPeerResponse -&gt; String
+(Int -&gt; AssociateTransitGatewayConnectPeerResponse -&gt; ShowS)
+-&gt; (AssociateTransitGatewayConnectPeerResponse -&gt; String)
+-&gt; ([AssociateTransitGatewayConnectPeerResponse] -&gt; ShowS)
+-&gt; Show AssociateTransitGatewayConnectPeerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateTransitGatewayConnectPeerResponse] -&gt; ShowS
+$cshowList :: [AssociateTransitGatewayConnectPeerResponse] -&gt; ShowS
+show :: AssociateTransitGatewayConnectPeerResponse -&gt; String
+$cshow :: AssociateTransitGatewayConnectPeerResponse -&gt; String
+showsPrec :: Int -&gt; AssociateTransitGatewayConnectPeerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateTransitGatewayConnectPeerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateTransitGatewayConnectPeerResponse
+ -&gt; Rep AssociateTransitGatewayConnectPeerResponse x)
+-&gt; (forall x.
+    Rep AssociateTransitGatewayConnectPeerResponse x
+    -&gt; AssociateTransitGatewayConnectPeerResponse)
+-&gt; Generic AssociateTransitGatewayConnectPeerResponse
+forall x.
+Rep AssociateTransitGatewayConnectPeerResponse x
+-&gt; AssociateTransitGatewayConnectPeerResponse
+forall x.
+AssociateTransitGatewayConnectPeerResponse
+-&gt; Rep AssociateTransitGatewayConnectPeerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateTransitGatewayConnectPeerResponse x
+-&gt; AssociateTransitGatewayConnectPeerResponse
+$cfrom :: forall x.
+AssociateTransitGatewayConnectPeerResponse
+-&gt; Rep AssociateTransitGatewayConnectPeerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Create a value of 'AssociateTransitGatewayConnectPeerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'transitGatewayConnectPeerAssociation', 'associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation' - The transit gateway Connect peer association.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'httpStatus', 'associateTransitGatewayConnectPeerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#newAssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">newAssociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse</span></a></span><span>
+</span><span id="line-220"></span><span id="newAssociateTransitGatewayConnectPeerResponse"><span class="annot"><span class="annottext">newAssociateTransitGatewayConnectPeerResponse :: Int -&gt; AssociateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#newAssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-var hs-var">newAssociateTransitGatewayConnectPeerResponse</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679229742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeerAssociation
+-&gt; Int -&gt; AssociateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse'</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerAssociation:AssociateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeerAssociation
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerAssociation%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateTransitGatewayConnectPeerResponse' :: Int
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The transit gateway Connect peer association.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="hs-identifier hs-type">associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.html#TransitGatewayConnectPeerAssociation"><span class="hs-identifier hs-type">TransitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="annot"><span class="annottext">associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation :: (Maybe TransitGatewayConnectPeerAssociation
+ -&gt; f (Maybe TransitGatewayConnectPeerAssociation))
+-&gt; AssociateTransitGatewayConnectPeerResponse
+-&gt; f AssociateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="hs-identifier hs-var hs-var">associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTransitGatewayConnectPeerResponse
+ -&gt; Maybe TransitGatewayConnectPeerAssociation)
+-&gt; (AssociateTransitGatewayConnectPeerResponse
+    -&gt; Maybe TransitGatewayConnectPeerAssociation
+    -&gt; AssociateTransitGatewayConnectPeerResponse)
+-&gt; Lens
+     AssociateTransitGatewayConnectPeerResponse
+     AssociateTransitGatewayConnectPeerResponse
+     (Maybe TransitGatewayConnectPeerAssociation)
+     (Maybe TransitGatewayConnectPeerAssociation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229741"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+transitGatewayConnectPeerAssociation :: Maybe TransitGatewayConnectPeerAssociation
+$sel:transitGatewayConnectPeerAssociation:AssociateTransitGatewayConnectPeerResponse' :: AssociateTransitGatewayConnectPeerResponse
+-&gt; Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679229741"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679229741"><span class="hs-identifier hs-var">transitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229740"><span class="annot"><span class="annottext">s :: AssociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679229740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229739"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679229739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679229740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerAssociation:AssociateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeerAssociation
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerAssociation%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679229739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier hs-type">associateTransitGatewayConnectPeerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-234"></span><span id="associateTransitGatewayConnectPeerResponse_httpStatus"><span class="annot"><span class="annottext">associateTransitGatewayConnectPeerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateTransitGatewayConnectPeerResponse
+-&gt; f AssociateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#associateTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateTransitGatewayConnectPeerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTransitGatewayConnectPeerResponse -&gt; Int)
+-&gt; (AssociateTransitGatewayConnectPeerResponse
+    -&gt; Int -&gt; AssociateTransitGatewayConnectPeerResponse)
+-&gt; Lens
+     AssociateTransitGatewayConnectPeerResponse
+     AssociateTransitGatewayConnectPeerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229738"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateTransitGatewayConnectPeerResponse' :: AssociateTransitGatewayConnectPeerResponse -&gt; Int
+</span><a href="#local-6989586621679229738"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229738"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229737"><span class="annot"><span class="annottext">s :: AssociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679229737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679229737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateTransitGatewayConnectPeerResponse' :: Int
+</span><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3AAssociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679229734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.html#AssociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">AssociateTransitGatewayConnectPeerResponse</span></a></span></span><span>
+</span><span id="line-239"></span></pre></body></html>

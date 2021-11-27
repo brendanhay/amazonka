@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkMail.PutInboundDmarcSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables or disables a DMARC policy for a given organization.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkMail.PutInboundDmarcSettings</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettings"><span class="hs-identifier">newPutInboundDmarcSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettings_organizationId"><span class="hs-identifier">putInboundDmarcSettings_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettings_enforced"><span class="hs-identifier">putInboundDmarcSettings_enforced</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier">PutInboundDmarcSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettingsResponse"><span class="hs-identifier">newPutInboundDmarcSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettingsResponse_httpStatus"><span class="hs-identifier">putInboundDmarcSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.html"><span class="hs-identifier">Amazonka.WorkMail.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newPutInboundDmarcSettings' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679284567"><span id="local-6989586621679284568"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInboundDmarcSettings"><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-var">PutInboundDmarcSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInboundDmarcSettings%27"><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-var">PutInboundDmarcSettings'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the organization that you are applying the DMARC policy to.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="annot"><span class="annottext">PutInboundDmarcSettings -&gt; Text
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Enforces or suspends a policy after it\'s applied.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="annot"><span class="annottext">PutInboundDmarcSettings -&gt; Bool
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var hs-var">enforced</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284560"><span id="local-6989586621679284562"><span class="annot"><span class="annottext">PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
+(PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool)
+-&gt; (PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool)
+-&gt; Eq PutInboundDmarcSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
+$c/= :: PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
+== :: PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
+$c== :: PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284551"><span id="local-6989586621679284553"><span id="local-6989586621679284555"><span id="local-6989586621679284557"><span class="annot"><span class="annottext">ReadPrec [PutInboundDmarcSettings]
+ReadPrec PutInboundDmarcSettings
+Int -&gt; ReadS PutInboundDmarcSettings
+ReadS [PutInboundDmarcSettings]
+(Int -&gt; ReadS PutInboundDmarcSettings)
+-&gt; ReadS [PutInboundDmarcSettings]
+-&gt; ReadPrec PutInboundDmarcSettings
+-&gt; ReadPrec [PutInboundDmarcSettings]
+-&gt; Read PutInboundDmarcSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutInboundDmarcSettings]
+$creadListPrec :: ReadPrec [PutInboundDmarcSettings]
+readPrec :: ReadPrec PutInboundDmarcSettings
+$creadPrec :: ReadPrec PutInboundDmarcSettings
+readList :: ReadS [PutInboundDmarcSettings]
+$creadList :: ReadS [PutInboundDmarcSettings]
+readsPrec :: Int -&gt; ReadS PutInboundDmarcSettings
+$creadsPrec :: Int -&gt; ReadS PutInboundDmarcSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284544"><span id="local-6989586621679284546"><span id="local-6989586621679284548"><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettings -&gt; ShowS
+[PutInboundDmarcSettings] -&gt; ShowS
+PutInboundDmarcSettings -&gt; String
+(Int -&gt; PutInboundDmarcSettings -&gt; ShowS)
+-&gt; (PutInboundDmarcSettings -&gt; String)
+-&gt; ([PutInboundDmarcSettings] -&gt; ShowS)
+-&gt; Show PutInboundDmarcSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutInboundDmarcSettings] -&gt; ShowS
+$cshowList :: [PutInboundDmarcSettings] -&gt; ShowS
+show :: PutInboundDmarcSettings -&gt; String
+$cshow :: PutInboundDmarcSettings -&gt; String
+showsPrec :: Int -&gt; PutInboundDmarcSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutInboundDmarcSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutInboundDmarcSettings -&gt; Rep PutInboundDmarcSettings x)
+-&gt; (forall x.
+    Rep PutInboundDmarcSettings x -&gt; PutInboundDmarcSettings)
+-&gt; Generic PutInboundDmarcSettings
+forall x. Rep PutInboundDmarcSettings x -&gt; PutInboundDmarcSettings
+forall x. PutInboundDmarcSettings -&gt; Rep PutInboundDmarcSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutInboundDmarcSettings x -&gt; PutInboundDmarcSettings
+$cfrom :: forall x. PutInboundDmarcSettings -&gt; Rep PutInboundDmarcSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'PutInboundDmarcSettings' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'organizationId', 'putInboundDmarcSettings_organizationId' - The ID of the organization that you are applying the DMARC policy to.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'enforced', 'putInboundDmarcSettings_enforced' - Enforces or suspends a policy after it\'s applied.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettings"><span class="hs-identifier hs-type">newPutInboundDmarcSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'enforced'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span>
+</span><span id="line-75"></span><span id="newPutInboundDmarcSettings"><span class="annot"><span class="annottext">newPutInboundDmarcSettings :: Text -&gt; Bool -&gt; PutInboundDmarcSettings
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettings"><span class="hs-identifier hs-var hs-var">newPutInboundDmarcSettings</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679284539"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284539"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679284538"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284538"><span class="hs-identifier hs-var">pEnforced_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">PutInboundDmarcSettings' :: Text -&gt; Bool -&gt; PutInboundDmarcSettings
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:PutInboundDmarcSettings' :: Text
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284539"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:enforced:PutInboundDmarcSettings' :: Bool
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">enforced</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284538"><span class="hs-identifier hs-var">pEnforced_</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The ID of the organization that you are applying the DMARC policy to.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettings_organizationId"><span class="hs-identifier hs-type">putInboundDmarcSettings_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="putInboundDmarcSettings_organizationId"><span class="annot"><span class="annottext">putInboundDmarcSettings_organizationId :: (Text -&gt; f Text)
+-&gt; PutInboundDmarcSettings -&gt; f PutInboundDmarcSettings
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettings_organizationId"><span class="hs-identifier hs-var hs-var">putInboundDmarcSettings_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutInboundDmarcSettings -&gt; Text)
+-&gt; (PutInboundDmarcSettings -&gt; Text -&gt; PutInboundDmarcSettings)
+-&gt; Lens PutInboundDmarcSettings PutInboundDmarcSettings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284535"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Text
+</span><a href="#local-6989586621679284535"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284535"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284534"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettings
+</span><a href="#local-6989586621679284534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettings
+</span><a href="#local-6989586621679284534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:PutInboundDmarcSettings' :: Text
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Enforces or suspends a policy after it\'s applied.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettings_enforced"><span class="hs-identifier hs-type">putInboundDmarcSettings_enforced</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-90"></span><span id="putInboundDmarcSettings_enforced"><span class="annot"><span class="annottext">putInboundDmarcSettings_enforced :: (Bool -&gt; f Bool)
+-&gt; PutInboundDmarcSettings -&gt; f PutInboundDmarcSettings
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettings_enforced"><span class="hs-identifier hs-var hs-var">putInboundDmarcSettings_enforced</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutInboundDmarcSettings -&gt; Bool)
+-&gt; (PutInboundDmarcSettings -&gt; Bool -&gt; PutInboundDmarcSettings)
+-&gt; Lens PutInboundDmarcSettings PutInboundDmarcSettings Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284532"><span class="annot"><span class="annottext">Bool
+enforced :: Bool
+$sel:enforced:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Bool
+</span><a href="#local-6989586621679284532"><span class="hs-identifier hs-var hs-var">enforced</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284532"><span class="hs-identifier hs-var">enforced</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284531"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettings
+</span><a href="#local-6989586621679284531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284530"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettings
+</span><a href="#local-6989586621679284531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enforced:PutInboundDmarcSettings' :: Bool
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">enforced</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679284526"><span class="annot"><span class="annottext">request :: PutInboundDmarcSettings -&gt; Request PutInboundDmarcSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutInboundDmarcSettings -&gt; Request PutInboundDmarcSettings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679284522"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutInboundDmarcSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutInboundDmarcSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutInboundDmarcSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutInboundDmarcSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutInboundDmarcSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284519"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284519"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284518"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284518"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284517"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679284517"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettingsResponse
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutInboundDmarcSettingsResponse)
+-&gt; Either String Int
+-&gt; Either String PutInboundDmarcSettingsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284519"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284510"><span id="local-6989586621679284512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679284503"><span class="annot"><span class="annottext">toHeaders :: PutInboundDmarcSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutInboundDmarcSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.PutInboundDmarcSettings&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284493"><span id="local-6989586621679284495"><span id="local-6989586621679284497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284491"><span class="annot"><span class="annottext">toJSON :: PutInboundDmarcSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284488"><span id="local-6989586621679284489"><span class="annot"><span class="annottext">Bool
+Text
+enforced :: Bool
+organizationId :: Text
+$sel:enforced:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Bool
+$sel:organizationId:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Text
+</span><a href="#local-6989586621679284488"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284489"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enforced&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284488"><span class="hs-identifier hs-var">enforced</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679284482"><span class="annot"><span class="annottext">toPath :: PutInboundDmarcSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutInboundDmarcSettings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679284478"><span class="annot"><span class="annottext">toQuery :: PutInboundDmarcSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutInboundDmarcSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newPutInboundDmarcSettingsResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679284475"><span id="local-6989586621679284476"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInboundDmarcSettingsResponse"><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInboundDmarcSettingsResponse%27"><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse -&gt; Int
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284470"><span id="local-6989586621679284472"><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse
+-&gt; PutInboundDmarcSettingsResponse -&gt; Bool
+(PutInboundDmarcSettingsResponse
+ -&gt; PutInboundDmarcSettingsResponse -&gt; Bool)
+-&gt; (PutInboundDmarcSettingsResponse
+    -&gt; PutInboundDmarcSettingsResponse -&gt; Bool)
+-&gt; Eq PutInboundDmarcSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutInboundDmarcSettingsResponse
+-&gt; PutInboundDmarcSettingsResponse -&gt; Bool
+$c/= :: PutInboundDmarcSettingsResponse
+-&gt; PutInboundDmarcSettingsResponse -&gt; Bool
+== :: PutInboundDmarcSettingsResponse
+-&gt; PutInboundDmarcSettingsResponse -&gt; Bool
+$c== :: PutInboundDmarcSettingsResponse
+-&gt; PutInboundDmarcSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284462"><span id="local-6989586621679284464"><span id="local-6989586621679284466"><span id="local-6989586621679284468"><span class="annot"><span class="annottext">ReadPrec [PutInboundDmarcSettingsResponse]
+ReadPrec PutInboundDmarcSettingsResponse
+Int -&gt; ReadS PutInboundDmarcSettingsResponse
+ReadS [PutInboundDmarcSettingsResponse]
+(Int -&gt; ReadS PutInboundDmarcSettingsResponse)
+-&gt; ReadS [PutInboundDmarcSettingsResponse]
+-&gt; ReadPrec PutInboundDmarcSettingsResponse
+-&gt; ReadPrec [PutInboundDmarcSettingsResponse]
+-&gt; Read PutInboundDmarcSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutInboundDmarcSettingsResponse]
+$creadListPrec :: ReadPrec [PutInboundDmarcSettingsResponse]
+readPrec :: ReadPrec PutInboundDmarcSettingsResponse
+$creadPrec :: ReadPrec PutInboundDmarcSettingsResponse
+readList :: ReadS [PutInboundDmarcSettingsResponse]
+$creadList :: ReadS [PutInboundDmarcSettingsResponse]
+readsPrec :: Int -&gt; ReadS PutInboundDmarcSettingsResponse
+$creadsPrec :: Int -&gt; ReadS PutInboundDmarcSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284456"><span id="local-6989586621679284458"><span id="local-6989586621679284460"><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettingsResponse -&gt; ShowS
+[PutInboundDmarcSettingsResponse] -&gt; ShowS
+PutInboundDmarcSettingsResponse -&gt; String
+(Int -&gt; PutInboundDmarcSettingsResponse -&gt; ShowS)
+-&gt; (PutInboundDmarcSettingsResponse -&gt; String)
+-&gt; ([PutInboundDmarcSettingsResponse] -&gt; ShowS)
+-&gt; Show PutInboundDmarcSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutInboundDmarcSettingsResponse] -&gt; ShowS
+$cshowList :: [PutInboundDmarcSettingsResponse] -&gt; ShowS
+show :: PutInboundDmarcSettingsResponse -&gt; String
+$cshow :: PutInboundDmarcSettingsResponse -&gt; String
+showsPrec :: Int -&gt; PutInboundDmarcSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutInboundDmarcSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutInboundDmarcSettingsResponse
+ -&gt; Rep PutInboundDmarcSettingsResponse x)
+-&gt; (forall x.
+    Rep PutInboundDmarcSettingsResponse x
+    -&gt; PutInboundDmarcSettingsResponse)
+-&gt; Generic PutInboundDmarcSettingsResponse
+forall x.
+Rep PutInboundDmarcSettingsResponse x
+-&gt; PutInboundDmarcSettingsResponse
+forall x.
+PutInboundDmarcSettingsResponse
+-&gt; Rep PutInboundDmarcSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutInboundDmarcSettingsResponse x
+-&gt; PutInboundDmarcSettingsResponse
+$cfrom :: forall x.
+PutInboundDmarcSettingsResponse
+-&gt; Rep PutInboundDmarcSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'PutInboundDmarcSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'putInboundDmarcSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">newPutInboundDmarcSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newPutInboundDmarcSettingsResponse"><span class="annot"><span class="annottext">newPutInboundDmarcSettingsResponse :: Int -&gt; PutInboundDmarcSettingsResponse
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettingsResponse"><span class="hs-identifier hs-var hs-var">newPutInboundDmarcSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679284453"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284453"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse' :: Int -&gt; PutInboundDmarcSettingsResponse
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutInboundDmarcSettingsResponse' :: Int
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284453"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettingsResponse_httpStatus"><span class="hs-identifier hs-type">putInboundDmarcSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="putInboundDmarcSettingsResponse_httpStatus"><span class="annot"><span class="annottext">putInboundDmarcSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutInboundDmarcSettingsResponse
+-&gt; f PutInboundDmarcSettingsResponse
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putInboundDmarcSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutInboundDmarcSettingsResponse -&gt; Int)
+-&gt; (PutInboundDmarcSettingsResponse
+    -&gt; Int -&gt; PutInboundDmarcSettingsResponse)
+-&gt; Lens
+     PutInboundDmarcSettingsResponse
+     PutInboundDmarcSettingsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284452"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutInboundDmarcSettingsResponse' :: PutInboundDmarcSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679284452"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284452"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284451"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettingsResponse
+</span><a href="#local-6989586621679284451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284450"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse
+</span><a href="#local-6989586621679284451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutInboundDmarcSettingsResponse' :: Int
+</span><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679284448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

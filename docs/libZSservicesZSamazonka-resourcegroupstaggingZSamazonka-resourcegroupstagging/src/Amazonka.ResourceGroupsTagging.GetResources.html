@@ -1,0 +1,1261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroupsTagging.GetResources</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns all the tagged or previously tagged resources that are located</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- in the specified Region for the AWS account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Depending on what information you want returned, you can also specify</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the following:</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   /Filters/ that specify what tags and resource types you want</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     returned. The response includes all tags that are associated with</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     the requested resources.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   Information about compliance with the account\'s effective tag</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     policy. For more information on tag policies, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html Tag Policies&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     in the /AWS Organizations User Guide./</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- This operation supports pagination, where the response can be sent in</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- multiple pages. You should check the @PaginationToken@ response</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- parameter to determine if there are additional results available to</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- return. Repeat the query, passing the @PaginationToken@ response</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- parameter value as an input to the next request until you recieve a</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- @null@ value. A null value for @PaginationToken@ indicates that there</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- are no more results waiting to be returned.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroupsTagging.GetResources</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#newGetResources"><span class="hs-identifier">newGetResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_paginationToken"><span class="hs-identifier">getResources_paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourcesPerPage"><span class="hs-identifier">getResources_resourcesPerPage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_excludeCompliantResources"><span class="hs-identifier">getResources_excludeCompliantResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_includeComplianceDetails"><span class="hs-identifier">getResources_includeComplianceDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourceTypeFilters"><span class="hs-identifier">getResources_resourceTypeFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_tagFilters"><span class="hs-identifier">getResources_tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourceARNList"><span class="hs-identifier">getResources_resourceARNList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_tagsPerPage"><span class="hs-identifier">getResources_tagsPerPage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier">GetResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#newGetResourcesResponse"><span class="hs-identifier">newGetResourcesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_paginationToken"><span class="hs-identifier">getResourcesResponse_paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_resourceTagMappingList"><span class="hs-identifier">getResourcesResponse_resourceTagMappingList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_httpStatus"><span class="hs-identifier">getResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | /See:/ 'newGetResources' smart constructor.</span><span>
+</span><span id="line-81"></span><span id="local-6989586621679158286"><span id="local-6989586621679158287"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResources"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-var">GetResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResources%27"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-var">GetResources'</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies a @PaginationToken@ response value from a previous request to</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- indicate that you want the next page of results. Leave this parameter</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- empty in your initial request.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3ApaginationToken%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3ApaginationToken%3AGetResources%27"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum number of results to be returned in each page. A</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- query can return fewer than this maximum, even if there are more results</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- still to return. You should always check the @PaginationToken@ response</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- value to see if there are more results. You can specify a minimum of 1</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- and a maximum value of 100.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AresourcesPerPage%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourcesPerPage%3AGetResources%27"><span class="hs-identifier hs-var hs-var">resourcesPerPage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Specifies whether to exclude resources that are compliant with the tag</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- policy. Set this to @true@ if you are interested in retrieving</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- information on noncompliant resources only.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- You can use this parameter only if the @IncludeComplianceDetails@</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- parameter is also set to @true@.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AexcludeCompliantResources%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe Bool
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AexcludeCompliantResources%3AGetResources%27"><span class="hs-identifier hs-var hs-var">excludeCompliantResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | Specifies whether to include details regarding the compliance with the</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- effective tag policy. Set this to @true@ to determine whether resources</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- are compliant with the tag policy and to get details.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AincludeComplianceDetails%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe Bool
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AincludeComplianceDetails%3AGetResources%27"><span class="hs-identifier hs-var hs-var">includeComplianceDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Specifies the resource types that you want included in the response. The</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- format of each resource type is @service[:resourceType]@. For example,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- specifying a resource type of @ec2@ returns all Amazon EC2 resources</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- (which includes EC2 instances). Specifying a resource type of</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @ec2:instance@ returns only EC2 instances.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- The string for each service name and resource type is the same as that</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- General Reference/ for the following:</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- You can specify multiple resource types by using an array. The array can</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- include up to 100 items. Note that the length constraint requirement</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- applies to each resource type filter.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AresourceTypeFilters%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe [Text]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceTypeFilters%3AGetResources%27"><span class="hs-identifier hs-var hs-var">resourceTypeFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Specifies a list of TagFilters (keys and values) to restrict the output</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- to only those resources that have the specified tag and, if included,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- the specified value. Each @TagFilter@ must contain a key with values</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- optional. A request can include up to 50 keys, and each key can include</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- up to 20 values.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- Note the following when deciding how to use TagFilters:</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   If you /don\'t/ specify a @TagFilter@, the response includes all</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--     resources that are currently tagged or ever had a tag. Resources</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--     that currently don\'t have tags are shown with an empty tag set,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     like this: @\&quot;Tags\&quot;: []@.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   If you specify more than one filter in a single request, the</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--     response returns only those resources that satisfy all filters.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- -   If you specify a filter that contains more than one value for a key,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     the response returns resources that match any of the specified</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--     values for that key.</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- -   If you don\'t specify any values for a key, the response returns</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--     resources that are tagged with that key and any or no value.</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     For example, for the following filters: @filter1= {keyA,{value1}}@,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--     @filter2={keyB,{value2,value3,value4}}@, @filter3= {keyC}@:</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--     -   @GetResources({filter1})@ returns resources tagged with</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--         @key1=value1@</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--     -   @GetResources({filter2})@ returns resources tagged with</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--         @key2=value2@ or @key2=value3@ or @key2=value4@</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--     -   @GetResources({filter3})@ returns resources tagged with any tag</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--         with the key @key3@, and with any or no value</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--     -   @GetResources({filter1,filter2,filter3})@ returns resources</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--         tagged with</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--         @(key1=value1) and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)@</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AtagFilters%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe [TagFilter]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AtagFilters%3AGetResources%27"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | Specifies a list of ARNs of resources for which you want to retrieve tag</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- data. You can\'t specify both this parameter and any of the pagination</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- same request. If you specify both, you get an @Invalid Parameter@</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- exception.</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- If a resource specified by this parameter doesn\'t exist, it doesn\'t</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- generate an error; it simply isn\'t included in the response.</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- An ARN (Amazon Resource Name) uniquely identifies a resource. For more</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- in the /AWS General Reference/.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AresourceARNList%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceARNList%3AGetResources%27"><span class="hs-identifier hs-var hs-var">resourceARNList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | AWS recommends using @ResourcesPerPage@ instead of this parameter.</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- A limit that restricts the number of tags (key and value pairs) returned</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- by @GetResources@ in paginated output. A resource with no tags is</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- counted as having one tag (one key and value pair).</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- @GetResources@ does not split a resource and its associated tags across</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- pages. If the specified @TagsPerPage@ would cause such a break, a</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- @PaginationToken@ is returned in place of the affected resource and its</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- tags. Use that token in another request to get the remaining data. For</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- example, if you specify a @TagsPerPage@ of @100@ and the account has 22</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- resources with 10 tags each (meaning that each resource has 10 key and</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- value pairs), the output will consist of three pages. The first page</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- displays the first 10 resources, each with its 10 tags. The second page</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- displays the next 10 resources, each with its 10 tags. The third page</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- displays the remaining 2 resources, each with its 10 tags.</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- You can set @TagsPerPage@ to a minimum of 100 items up to a maximum of</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- 500 items.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AtagsPerPage%3AGetResources%27"><span class="annot"><span class="annottext">GetResources -&gt; Maybe Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AtagsPerPage%3AGetResources%27"><span class="hs-identifier hs-var hs-var">tagsPerPage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158273"><span id="local-6989586621679158275"><span class="annot"><span class="annottext">GetResources -&gt; GetResources -&gt; Bool
+(GetResources -&gt; GetResources -&gt; Bool)
+-&gt; (GetResources -&gt; GetResources -&gt; Bool) -&gt; Eq GetResources
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResources -&gt; GetResources -&gt; Bool
+$c/= :: GetResources -&gt; GetResources -&gt; Bool
+== :: GetResources -&gt; GetResources -&gt; Bool
+$c== :: GetResources -&gt; GetResources -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158264"><span id="local-6989586621679158266"><span id="local-6989586621679158268"><span id="local-6989586621679158270"><span class="annot"><span class="annottext">ReadPrec [GetResources]
+ReadPrec GetResources
+Int -&gt; ReadS GetResources
+ReadS [GetResources]
+(Int -&gt; ReadS GetResources)
+-&gt; ReadS [GetResources]
+-&gt; ReadPrec GetResources
+-&gt; ReadPrec [GetResources]
+-&gt; Read GetResources
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResources]
+$creadListPrec :: ReadPrec [GetResources]
+readPrec :: ReadPrec GetResources
+$creadPrec :: ReadPrec GetResources
+readList :: ReadS [GetResources]
+$creadList :: ReadS [GetResources]
+readsPrec :: Int -&gt; ReadS GetResources
+$creadsPrec :: Int -&gt; ReadS GetResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158257"><span id="local-6989586621679158259"><span id="local-6989586621679158261"><span class="annot"><span class="annottext">Int -&gt; GetResources -&gt; ShowS
+[GetResources] -&gt; ShowS
+GetResources -&gt; String
+(Int -&gt; GetResources -&gt; ShowS)
+-&gt; (GetResources -&gt; String)
+-&gt; ([GetResources] -&gt; ShowS)
+-&gt; Show GetResources
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResources] -&gt; ShowS
+$cshowList :: [GetResources] -&gt; ShowS
+show :: GetResources -&gt; String
+$cshow :: GetResources -&gt; String
+showsPrec :: Int -&gt; GetResources -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResources -&gt; Rep GetResources x)
+-&gt; (forall x. Rep GetResources x -&gt; GetResources)
+-&gt; Generic GetResources
+forall x. Rep GetResources x -&gt; GetResources
+forall x. GetResources -&gt; Rep GetResources x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResources x -&gt; GetResources
+$cfrom :: forall x. GetResources -&gt; Rep GetResources x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'GetResources' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'paginationToken', 'getResources_paginationToken' - Specifies a @PaginationToken@ response value from a previous request to</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- indicate that you want the next page of results. Leave this parameter</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- empty in your initial request.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'resourcesPerPage', 'getResources_resourcesPerPage' - Specifies the maximum number of results to be returned in each page. A</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- query can return fewer than this maximum, even if there are more results</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- still to return. You should always check the @PaginationToken@ response</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- value to see if there are more results. You can specify a minimum of 1</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- and a maximum value of 100.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'excludeCompliantResources', 'getResources_excludeCompliantResources' - Specifies whether to exclude resources that are compliant with the tag</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- policy. Set this to @true@ if you are interested in retrieving</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- information on noncompliant resources only.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- You can use this parameter only if the @IncludeComplianceDetails@</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- parameter is also set to @true@.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'includeComplianceDetails', 'getResources_includeComplianceDetails' - Specifies whether to include details regarding the compliance with the</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- effective tag policy. Set this to @true@ to determine whether resources</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- are compliant with the tag policy and to get details.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'resourceTypeFilters', 'getResources_resourceTypeFilters' - Specifies the resource types that you want included in the response. The</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- format of each resource type is @service[:resourceType]@. For example,</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- specifying a resource type of @ec2@ returns all Amazon EC2 resources</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- (which includes EC2 instances). Specifying a resource type of</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @ec2:instance@ returns only EC2 instances.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- The string for each service name and resource type is the same as that</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- General Reference/ for the following:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- You can specify multiple resource types by using an array. The array can</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- include up to 100 items. Note that the length constraint requirement</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- applies to each resource type filter.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'tagFilters', 'getResources_tagFilters' - Specifies a list of TagFilters (keys and values) to restrict the output</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- to only those resources that have the specified tag and, if included,</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- the specified value. Each @TagFilter@ must contain a key with values</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- optional. A request can include up to 50 keys, and each key can include</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- up to 20 values.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Note the following when deciding how to use TagFilters:</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   If you /don\'t/ specify a @TagFilter@, the response includes all</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     resources that are currently tagged or ever had a tag. Resources</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     that currently don\'t have tags are shown with an empty tag set,</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     like this: @\&quot;Tags\&quot;: []@.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- -   If you specify more than one filter in a single request, the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     response returns only those resources that satisfy all filters.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   If you specify a filter that contains more than one value for a key,</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     the response returns resources that match any of the specified</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     values for that key.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- -   If you don\'t specify any values for a key, the response returns</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     resources that are tagged with that key and any or no value.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--     For example, for the following filters: @filter1= {keyA,{value1}}@,</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     @filter2={keyB,{value2,value3,value4}}@, @filter3= {keyC}@:</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     -   @GetResources({filter1})@ returns resources tagged with</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--         @key1=value1@</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     -   @GetResources({filter2})@ returns resources tagged with</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--         @key2=value2@ or @key2=value3@ or @key2=value4@</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     -   @GetResources({filter3})@ returns resources tagged with any tag</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--         with the key @key3@, and with any or no value</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     -   @GetResources({filter1,filter2,filter3})@ returns resources</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--         tagged with</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--         @(key1=value1) and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)@</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'resourceARNList', 'getResources_resourceARNList' - Specifies a list of ARNs of resources for which you want to retrieve tag</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- data. You can\'t specify both this parameter and any of the pagination</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- same request. If you specify both, you get an @Invalid Parameter@</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- exception.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- If a resource specified by this parameter doesn\'t exist, it doesn\'t</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- generate an error; it simply isn\'t included in the response.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- An ARN (Amazon Resource Name) uniquely identifies a resource. For more</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- in the /AWS General Reference/.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'tagsPerPage', 'getResources_tagsPerPage' - AWS recommends using @ResourcesPerPage@ instead of this parameter.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- A limit that restricts the number of tags (key and value pairs) returned</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- by @GetResources@ in paginated output. A resource with no tags is</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- counted as having one tag (one key and value pair).</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- @GetResources@ does not split a resource and its associated tags across</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- pages. If the specified @TagsPerPage@ would cause such a break, a</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- @PaginationToken@ is returned in place of the affected resource and its</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- tags. Use that token in another request to get the remaining data. For</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- example, if you specify a @TagsPerPage@ of @100@ and the account has 22</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- resources with 10 tags each (meaning that each resource has 10 key and</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- value pairs), the output will consist of three pages. The first page</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- displays the first 10 resources, each with its 10 tags. The second page</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- displays the next 10 resources, each with its 10 tags. The third page</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- displays the remaining 2 resources, each with its 10 tags.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- You can set @TagsPerPage@ to a minimum of 100 items up to a maximum of</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- 500 items.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#newGetResources"><span class="hs-identifier hs-type">newGetResources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-315"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span>
+</span><span id="line-316"></span><span id="newGetResources"><span class="annot"><span class="annottext">newGetResources :: GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#newGetResources"><span class="hs-identifier hs-var hs-var">newGetResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>  </span><span class="annot"><span class="annottext">GetResources' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe [TagFilter]
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Int
+-&gt; GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paginationToken:GetResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3ApaginationToken%3AGetResources%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourcesPerPage:GetResources' :: Maybe Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourcesPerPage%3AGetResources%27"><span class="hs-identifier hs-var">resourcesPerPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>      </span><span class="annot"><span class="annottext">$sel:excludeCompliantResources:GetResources' :: Maybe Bool
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AexcludeCompliantResources%3AGetResources%27"><span class="hs-identifier hs-var">excludeCompliantResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeComplianceDetails:GetResources' :: Maybe Bool
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AincludeComplianceDetails%3AGetResources%27"><span class="hs-identifier hs-var">includeComplianceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTypeFilters:GetResources' :: Maybe [Text]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceTypeFilters%3AGetResources%27"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagFilters:GetResources' :: Maybe [TagFilter]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AtagFilters%3AGetResources%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceARNList:GetResources' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceARNList%3AGetResources%27"><span class="hs-identifier hs-var">resourceARNList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagsPerPage:GetResources' :: Maybe Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AtagsPerPage%3AGetResources%27"><span class="hs-identifier hs-var">tagsPerPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | Specifies a @PaginationToken@ response value from a previous request to</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- indicate that you want the next page of results. Leave this parameter</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- empty in your initial request.</span><span>
+</span><span id="line-331"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_paginationToken"><span class="hs-identifier hs-type">getResources_paginationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span id="getResources_paginationToken"><span class="annot"><span class="annottext">getResources_paginationToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_paginationToken"><span class="hs-identifier hs-var hs-var">getResources_paginationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe Text)
+-&gt; (GetResources -&gt; Maybe Text -&gt; GetResources)
+-&gt; Lens GetResources GetResources (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158251"><span class="annot"><span class="annottext">Maybe Text
+paginationToken :: Maybe Text
+$sel:paginationToken:GetResources' :: GetResources -&gt; Maybe Text
+</span><a href="#local-6989586621679158251"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158251"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158250"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:GetResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3ApaginationToken%3AGetResources%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- | Specifies the maximum number of results to be returned in each page. A</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- query can return fewer than this maximum, even if there are more results</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- still to return. You should always check the @PaginationToken@ response</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- value to see if there are more results. You can specify a minimum of 1</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- and a maximum value of 100.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourcesPerPage"><span class="hs-identifier hs-type">getResources_resourcesPerPage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span id="getResources_resourcesPerPage"><span class="annot"><span class="annottext">getResources_resourcesPerPage :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourcesPerPage"><span class="hs-identifier hs-var hs-var">getResources_resourcesPerPage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe Int)
+-&gt; (GetResources -&gt; Maybe Int -&gt; GetResources)
+-&gt; Lens GetResources GetResources (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158248"><span class="annot"><span class="annottext">Maybe Int
+resourcesPerPage :: Maybe Int
+$sel:resourcesPerPage:GetResources' :: GetResources -&gt; Maybe Int
+</span><a href="#local-6989586621679158248"><span class="hs-identifier hs-var hs-var">resourcesPerPage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158248"><span class="hs-identifier hs-var">resourcesPerPage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158247"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158246"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcesPerPage:GetResources' :: Maybe Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourcesPerPage%3AGetResources%27"><span class="hs-identifier hs-var">resourcesPerPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- | Specifies whether to exclude resources that are compliant with the tag</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- policy. Set this to @true@ if you are interested in retrieving</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- information on noncompliant resources only.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- You can use this parameter only if the @IncludeComplianceDetails@</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- parameter is also set to @true@.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_excludeCompliantResources"><span class="hs-identifier hs-type">getResources_excludeCompliantResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span id="getResources_excludeCompliantResources"><span class="annot"><span class="annottext">getResources_excludeCompliantResources :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_excludeCompliantResources"><span class="hs-identifier hs-var hs-var">getResources_excludeCompliantResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe Bool)
+-&gt; (GetResources -&gt; Maybe Bool -&gt; GetResources)
+-&gt; Lens GetResources GetResources (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158245"><span class="annot"><span class="annottext">Maybe Bool
+excludeCompliantResources :: Maybe Bool
+$sel:excludeCompliantResources:GetResources' :: GetResources -&gt; Maybe Bool
+</span><a href="#local-6989586621679158245"><span class="hs-identifier hs-var hs-var">excludeCompliantResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158245"><span class="hs-identifier hs-var">excludeCompliantResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158244"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158243"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeCompliantResources:GetResources' :: Maybe Bool
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AexcludeCompliantResources%3AGetResources%27"><span class="hs-identifier hs-var">excludeCompliantResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- | Specifies whether to include details regarding the compliance with the</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- effective tag policy. Set this to @true@ to determine whether resources</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- are compliant with the tag policy and to get details.</span><span>
+</span><span id="line-354"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_includeComplianceDetails"><span class="hs-identifier hs-type">getResources_includeComplianceDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span id="getResources_includeComplianceDetails"><span class="annot"><span class="annottext">getResources_includeComplianceDetails :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_includeComplianceDetails"><span class="hs-identifier hs-var hs-var">getResources_includeComplianceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe Bool)
+-&gt; (GetResources -&gt; Maybe Bool -&gt; GetResources)
+-&gt; Lens GetResources GetResources (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158242"><span class="annot"><span class="annottext">Maybe Bool
+includeComplianceDetails :: Maybe Bool
+$sel:includeComplianceDetails:GetResources' :: GetResources -&gt; Maybe Bool
+</span><a href="#local-6989586621679158242"><span class="hs-identifier hs-var hs-var">includeComplianceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158242"><span class="hs-identifier hs-var">includeComplianceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158241"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158240"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeComplianceDetails:GetResources' :: Maybe Bool
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AincludeComplianceDetails%3AGetResources%27"><span class="hs-identifier hs-var">includeComplianceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- | Specifies the resource types that you want included in the response. The</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- format of each resource type is @service[:resourceType]@. For example,</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- specifying a resource type of @ec2@ returns all Amazon EC2 resources</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- (which includes EC2 instances). Specifying a resource type of</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- @ec2:instance@ returns only EC2 instances.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- The string for each service name and resource type is the same as that</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- General Reference/ for the following:</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- You can specify multiple resource types by using an array. The array can</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- include up to 100 items. Note that the length constraint requirement</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- applies to each resource type filter.</span><span>
+</span><span id="line-373"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourceTypeFilters"><span class="hs-identifier hs-type">getResources_resourceTypeFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span id="getResources_resourceTypeFilters"><span class="annot"><span class="annottext">getResources_resourceTypeFilters :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourceTypeFilters"><span class="hs-identifier hs-var hs-var">getResources_resourceTypeFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe [Text])
+-&gt; (GetResources -&gt; Maybe [Text] -&gt; GetResources)
+-&gt; Lens GetResources GetResources (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158239"><span class="annot"><span class="annottext">Maybe [Text]
+resourceTypeFilters :: Maybe [Text]
+$sel:resourceTypeFilters:GetResources' :: GetResources -&gt; Maybe [Text]
+</span><a href="#local-6989586621679158239"><span class="hs-identifier hs-var hs-var">resourceTypeFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158239"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158238"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158237"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypeFilters:GetResources' :: Maybe [Text]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceTypeFilters%3AGetResources%27"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetResources -&gt; f GetResources)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetResources
+-&gt; f GetResources
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | Specifies a list of TagFilters (keys and values) to restrict the output</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- to only those resources that have the specified tag and, if included,</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- the specified value. Each @TagFilter@ must contain a key with values</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- optional. A request can include up to 50 keys, and each key can include</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- up to 20 values.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- Note the following when deciding how to use TagFilters:</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- -   If you /don\'t/ specify a @TagFilter@, the response includes all</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--     resources that are currently tagged or ever had a tag. Resources</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--     that currently don\'t have tags are shown with an empty tag set,</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--     like this: @\&quot;Tags\&quot;: []@.</span><span>
+</span><span id="line-388"></span><span class="hs-comment">--</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- -   If you specify more than one filter in a single request, the</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--     response returns only those resources that satisfy all filters.</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- -   If you specify a filter that contains more than one value for a key,</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--     the response returns resources that match any of the specified</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--     values for that key.</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- -   If you don\'t specify any values for a key, the response returns</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--     resources that are tagged with that key and any or no value.</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--     For example, for the following filters: @filter1= {keyA,{value1}}@,</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--     @filter2={keyB,{value2,value3,value4}}@, @filter3= {keyC}@:</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--     -   @GetResources({filter1})@ returns resources tagged with</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--         @key1=value1@</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--     -   @GetResources({filter2})@ returns resources tagged with</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--         @key2=value2@ or @key2=value3@ or @key2=value4@</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--     -   @GetResources({filter3})@ returns resources tagged with any tag</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--         with the key @key3@, and with any or no value</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--     -   @GetResources({filter1,filter2,filter3})@ returns resources</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--         tagged with</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--         @(key1=value1) and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)@</span><span>
+</span><span id="line-414"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_tagFilters"><span class="hs-identifier hs-type">getResources_tagFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span id="getResources_tagFilters"><span class="annot"><span class="annottext">getResources_tagFilters :: (Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_tagFilters"><span class="hs-identifier hs-var hs-var">getResources_tagFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe [TagFilter])
+-&gt; (GetResources -&gt; Maybe [TagFilter] -&gt; GetResources)
+-&gt; Lens
+     GetResources GetResources (Maybe [TagFilter]) (Maybe [TagFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158233"><span class="annot"><span class="annottext">Maybe [TagFilter]
+tagFilters :: Maybe [TagFilter]
+$sel:tagFilters:GetResources' :: GetResources -&gt; Maybe [TagFilter]
+</span><a href="#local-6989586621679158233"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679158233"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158232"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158231"><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679158231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagFilters:GetResources' :: Maybe [TagFilter]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AtagFilters%3AGetResources%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679158231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+ -&gt; GetResources -&gt; f GetResources)
+-&gt; ((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+    -&gt; Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; (Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; GetResources
+-&gt; f GetResources
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagFilter] [TagFilter] [TagFilter] [TagFilter]
+-&gt; Iso
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagFilter] [TagFilter] [TagFilter] [TagFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- | Specifies a list of ARNs of resources for which you want to retrieve tag</span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- data. You can\'t specify both this parameter and any of the pagination</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- same request. If you specify both, you get an @Invalid Parameter@</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- exception.</span><span>
+</span><span id="line-422"></span><span class="hs-comment">--</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- If a resource specified by this parameter doesn\'t exist, it doesn\'t</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- generate an error; it simply isn\'t included in the response.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- An ARN (Amazon Resource Name) uniquely identifies a resource. For more</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- in the /AWS General Reference/.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourceARNList"><span class="hs-identifier hs-type">getResources_resourceARNList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span id="getResources_resourceARNList"><span class="annot"><span class="annottext">getResources_resourceARNList :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_resourceARNList"><span class="hs-identifier hs-var hs-var">getResources_resourceARNList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe (NonEmpty Text))
+-&gt; (GetResources -&gt; Maybe (NonEmpty Text) -&gt; GetResources)
+-&gt; Lens
+     GetResources
+     GetResources
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158230"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+resourceARNList :: Maybe (NonEmpty Text)
+$sel:resourceARNList:GetResources' :: GetResources -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158230"><span class="hs-identifier hs-var hs-var">resourceARNList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158230"><span class="hs-identifier hs-var">resourceARNList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158229"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158228"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARNList:GetResources' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceARNList%3AGetResources%27"><span class="hs-identifier hs-var">resourceARNList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; GetResources -&gt; f GetResources)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetResources
+-&gt; f GetResources
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | AWS recommends using @ResourcesPerPage@ instead of this parameter.</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- A limit that restricts the number of tags (key and value pairs) returned</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- by @GetResources@ in paginated output. A resource with no tags is</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- counted as having one tag (one key and value pair).</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- @GetResources@ does not split a resource and its associated tags across</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- pages. If the specified @TagsPerPage@ would cause such a break, a</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- @PaginationToken@ is returned in place of the affected resource and its</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- tags. Use that token in another request to get the remaining data. For</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- example, if you specify a @TagsPerPage@ of @100@ and the account has 22</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- resources with 10 tags each (meaning that each resource has 10 key and</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- value pairs), the output will consist of three pages. The first page</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- displays the first 10 resources, each with its 10 tags. The second page</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- displays the next 10 resources, each with its 10 tags. The third page</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- displays the remaining 2 resources, each with its 10 tags.</span><span>
+</span><span id="line-449"></span><span class="hs-comment">--</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- You can set @TagsPerPage@ to a minimum of 100 items up to a maximum of</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- 500 items.</span><span>
+</span><span id="line-452"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_tagsPerPage"><span class="hs-identifier hs-type">getResources_tagsPerPage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span id="getResources_tagsPerPage"><span class="annot"><span class="annottext">getResources_tagsPerPage :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GetResources -&gt; f GetResources
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_tagsPerPage"><span class="hs-identifier hs-var hs-var">getResources_tagsPerPage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe Int)
+-&gt; (GetResources -&gt; Maybe Int -&gt; GetResources)
+-&gt; Lens GetResources GetResources (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158227"><span class="annot"><span class="annottext">Maybe Int
+tagsPerPage :: Maybe Int
+$sel:tagsPerPage:GetResources' :: GetResources -&gt; Maybe Int
+</span><a href="#local-6989586621679158227"><span class="hs-identifier hs-var hs-var">tagsPerPage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158227"><span class="hs-identifier hs-var">tagsPerPage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158226"><span class="annot"><span class="annottext">s :: GetResources
+</span><a href="#local-6989586621679158226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158225"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagsPerPage:GetResources' :: Maybe Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AtagsPerPage%3AGetResources%27"><span class="hs-identifier hs-var">tagsPerPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-454"></span><span>
+</span><span id="line-455"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-456"></span><span>  </span><span id="local-6989586621679158221"><span class="annot"><span class="annottext">page :: GetResources -&gt; AWSResponse GetResources -&gt; Maybe GetResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679158219"><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158219"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679158218"><span class="annot"><span class="annottext">AWSResponse GetResources
+</span><a href="#local-6989586621679158218"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-457"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-458"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetResources
+GetResourcesResponse
+</span><a href="#local-6989586621679158218"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-459"></span><span>            </span><span class="annot"><span class="annottext">GetResourcesResponse
+-&gt; Getting (First Text) GetResourcesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetResourcesResponse -&gt; Const (First Text) GetResourcesResponse
+Lens' GetResourcesResponse (Maybe Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_paginationToken"><span class="hs-identifier hs-var">getResourcesResponse_paginationToken</span></a></span><span>
+</span><span id="line-460"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetResourcesResponse -&gt; Const (First Text) GetResourcesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetResourcesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-461"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-462"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetResources
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-463"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTagMapping] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-464"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetResources
+GetResourcesResponse
+</span><a href="#local-6989586621679158218"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-465"></span><span>            </span><span class="annot"><span class="annottext">GetResourcesResponse
+-&gt; Getting
+     (First [ResourceTagMapping])
+     GetResourcesResponse
+     [ResourceTagMapping]
+-&gt; Maybe [ResourceTagMapping]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ResourceTagMapping]
+ -&gt; Const (First [ResourceTagMapping]) (Maybe [ResourceTagMapping]))
+-&gt; GetResourcesResponse
+-&gt; Const (First [ResourceTagMapping]) GetResourcesResponse
+Lens' GetResourcesResponse (Maybe [ResourceTagMapping])
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_resourceTagMappingList"><span class="hs-identifier hs-var">getResourcesResponse_resourceTagMappingList</span></a></span><span>
+</span><span id="line-466"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ResourceTagMapping]
+  -&gt; Const (First [ResourceTagMapping]) (Maybe [ResourceTagMapping]))
+ -&gt; GetResourcesResponse
+ -&gt; Const (First [ResourceTagMapping]) GetResourcesResponse)
+-&gt; (([ResourceTagMapping]
+     -&gt; Const (First [ResourceTagMapping]) [ResourceTagMapping])
+    -&gt; Maybe [ResourceTagMapping]
+    -&gt; Const (First [ResourceTagMapping]) (Maybe [ResourceTagMapping]))
+-&gt; Getting
+     (First [ResourceTagMapping])
+     GetResourcesResponse
+     [ResourceTagMapping]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceTagMapping]
+ -&gt; Const (First [ResourceTagMapping]) [ResourceTagMapping])
+-&gt; Maybe [ResourceTagMapping]
+-&gt; Const (First [ResourceTagMapping]) (Maybe [ResourceTagMapping])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-467"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-468"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetResources
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-469"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-470"></span><span>      </span><span class="annot"><span class="annottext">GetResources -&gt; Maybe GetResources
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetResources -&gt; Maybe GetResources)
+-&gt; GetResources -&gt; Maybe GetResources
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-471"></span><span>        </span><span class="annot"><span class="annottext">GetResources
+</span><a href="#local-6989586621679158219"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-472"></span><span>          </span><span class="annot"><span class="annottext">GetResources -&gt; (GetResources -&gt; GetResources) -&gt; GetResources
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetResources -&gt; Identity GetResources
+Lens GetResources GetResources (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResources_paginationToken"><span class="hs-identifier hs-var">getResources_paginationToken</span></a></span><span>
+</span><span id="line-473"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetResources -&gt; Identity GetResources)
+-&gt; Maybe Text -&gt; GetResources -&gt; GetResources
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetResources
+GetResourcesResponse
+</span><a href="#local-6989586621679158218"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-474"></span><span>          </span><span class="annot"><span class="annottext">GetResourcesResponse
+-&gt; Getting (First Text) GetResourcesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetResourcesResponse -&gt; Const (First Text) GetResourcesResponse
+Lens' GetResourcesResponse (Maybe Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_paginationToken"><span class="hs-identifier hs-var">getResourcesResponse_paginationToken</span></a></span><span>
+</span><span id="line-475"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetResourcesResponse -&gt; Const (First Text) GetResourcesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetResourcesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-476"></span><span>
+</span><span id="line-477"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-478"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span>
+</span><span id="line-479"></span><span>  </span><span id="local-6989586621679158209"><span class="annot"><span class="annottext">request :: GetResources -&gt; Request GetResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetResources -&gt; Request GetResources
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-480"></span><span>  </span><span id="local-6989586621679158205"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetResources)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-481"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetResources))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetResources)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-482"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679158202"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158202"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679158201"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679158201"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679158200"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-483"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ResourceTagMapping] -&gt; Int -&gt; GetResourcesResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-var">GetResourcesResponse'</span></a></span><span>
+</span><span id="line-484"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ResourceTagMapping] -&gt; Int -&gt; GetResourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [ResourceTagMapping] -&gt; Int -&gt; GetResourcesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaginationToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-485"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [ResourceTagMapping] -&gt; Int -&gt; GetResourcesResponse)
+-&gt; Either String (Maybe [ResourceTagMapping])
+-&gt; Either String (Int -&gt; GetResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ResourceTagMapping]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceTagMappingList&quot;</span></span><span>
+</span><span id="line-486"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceTagMapping]))
+-&gt; Maybe [ResourceTagMapping]
+-&gt; Either String (Maybe [ResourceTagMapping])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTagMapping]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-487"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-488"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetResourcesResponse)
+-&gt; Either String Int -&gt; Either String GetResourcesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158202"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-489"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158191"><span id="local-6989586621679158193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span></span></span><span>
+</span><span id="line-492"></span><span>
+</span><span id="line-493"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span></span><span>
+</span><span id="line-494"></span><span>
+</span><span id="line-495"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-496"></span><span>  </span><span id="local-6989586621679158184"><span class="annot"><span class="annottext">toHeaders :: GetResources -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-497"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResources -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-498"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-499"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-500"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceGroupsTaggingAPI_20170126.GetResources&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-501"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-502"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-503"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-504"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-505"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-506"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-507"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-508"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-509"></span><span>
+</span><span id="line-510"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158174"><span id="local-6989586621679158176"><span id="local-6989586621679158178"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-511"></span><span>  </span><span id="local-6989586621679158172"><span class="annot"><span class="annottext">toJSON :: GetResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources%27"><span class="hs-identifier hs-type">GetResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158163"><span id="local-6989586621679158164"><span id="local-6989586621679158165"><span id="local-6989586621679158166"><span id="local-6989586621679158167"><span id="local-6989586621679158168"><span id="local-6989586621679158169"><span id="local-6989586621679158170"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Text]
+Maybe [TagFilter]
+Maybe (NonEmpty Text)
+Maybe Text
+tagsPerPage :: Maybe Int
+resourceARNList :: Maybe (NonEmpty Text)
+tagFilters :: Maybe [TagFilter]
+resourceTypeFilters :: Maybe [Text]
+includeComplianceDetails :: Maybe Bool
+excludeCompliantResources :: Maybe Bool
+resourcesPerPage :: Maybe Int
+paginationToken :: Maybe Text
+$sel:tagsPerPage:GetResources' :: GetResources -&gt; Maybe Int
+$sel:resourceARNList:GetResources' :: GetResources -&gt; Maybe (NonEmpty Text)
+$sel:tagFilters:GetResources' :: GetResources -&gt; Maybe [TagFilter]
+$sel:resourceTypeFilters:GetResources' :: GetResources -&gt; Maybe [Text]
+$sel:includeComplianceDetails:GetResources' :: GetResources -&gt; Maybe Bool
+$sel:excludeCompliantResources:GetResources' :: GetResources -&gt; Maybe Bool
+$sel:resourcesPerPage:GetResources' :: GetResources -&gt; Maybe Int
+$sel:paginationToken:GetResources' :: GetResources -&gt; Maybe Text
+</span><a href="#local-6989586621679158163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-512"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-513"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-514"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaginationToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-515"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158170"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-516"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourcesPerPage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-517"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158169"><span class="hs-identifier hs-var">resourcesPerPage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-518"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExcludeCompliantResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-519"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158168"><span class="hs-identifier hs-var">excludeCompliantResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-520"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IncludeComplianceDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-521"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679158167"><span class="hs-identifier hs-var">includeComplianceDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-522"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceTypeFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-523"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158166"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-524"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagFilter] -&gt; Pair) -&gt; Maybe [TagFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679158165"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-525"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceARNList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-526"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158164"><span class="hs-identifier hs-var">resourceARNList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-527"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagsPerPage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679158163"><span class="hs-identifier hs-var">tagsPerPage</span></a></span><span>
+</span><span id="line-528"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-529"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-530"></span><span>
+</span><span id="line-531"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-532"></span><span>  </span><span id="local-6989586621679158157"><span class="annot"><span class="annottext">toPath :: GetResources -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetResources -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-533"></span><span>
+</span><span id="line-534"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResources"><span class="hs-identifier hs-type">GetResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-535"></span><span>  </span><span id="local-6989586621679158153"><span class="annot"><span class="annottext">toQuery :: GetResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetResources -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-536"></span><span>
+</span><span id="line-537"></span><span class="hs-comment">-- | /See:/ 'newGetResourcesResponse' smart constructor.</span><span>
+</span><span id="line-538"></span><span id="local-6989586621679158150"><span id="local-6989586621679158151"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourcesResponse"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-var">GetResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourcesResponse%27"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-var">GetResourcesResponse'</span></a></span></span><span>
+</span><span id="line-539"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that indicates that there is more data available than this</span><span>
+</span><span id="line-540"></span><span>    </span><span class="hs-comment">-- response contains. To receive the next part of the response, specify</span><span>
+</span><span id="line-541"></span><span>    </span><span class="hs-comment">-- this response value as the @PaginationToken@ value in the request for</span><span>
+</span><span id="line-542"></span><span>    </span><span class="hs-comment">-- the next page.</span><span>
+</span><span id="line-543"></span><span>    </span><span id="%24sel%3ApaginationToken%3AGetResourcesResponse%27"><span class="annot"><span class="annottext">GetResourcesResponse -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3ApaginationToken%3AGetResourcesResponse%27"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-544"></span><span>    </span><span class="hs-comment">-- | A list of resource ARNs and the tags (keys and values) associated with</span><span>
+</span><span id="line-545"></span><span>    </span><span class="hs-comment">-- those ARNs.</span><span>
+</span><span id="line-546"></span><span>    </span><span id="%24sel%3AresourceTagMappingList%3AGetResourcesResponse%27"><span class="annot"><span class="annottext">GetResourcesResponse -&gt; Maybe [ResourceTagMapping]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceTagMappingList%3AGetResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resourceTagMappingList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html#ResourceTagMapping"><span class="hs-identifier hs-type">ResourceTagMapping</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-547"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-548"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetResourcesResponse%27"><span class="annot"><span class="annottext">GetResourcesResponse -&gt; Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AhttpStatus%3AGetResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-549"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-550"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158143"><span id="local-6989586621679158145"><span class="annot"><span class="annottext">GetResourcesResponse -&gt; GetResourcesResponse -&gt; Bool
+(GetResourcesResponse -&gt; GetResourcesResponse -&gt; Bool)
+-&gt; (GetResourcesResponse -&gt; GetResourcesResponse -&gt; Bool)
+-&gt; Eq GetResourcesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourcesResponse -&gt; GetResourcesResponse -&gt; Bool
+$c/= :: GetResourcesResponse -&gt; GetResourcesResponse -&gt; Bool
+== :: GetResourcesResponse -&gt; GetResourcesResponse -&gt; Bool
+$c== :: GetResourcesResponse -&gt; GetResourcesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158135"><span id="local-6989586621679158137"><span id="local-6989586621679158139"><span id="local-6989586621679158141"><span class="annot"><span class="annottext">ReadPrec [GetResourcesResponse]
+ReadPrec GetResourcesResponse
+Int -&gt; ReadS GetResourcesResponse
+ReadS [GetResourcesResponse]
+(Int -&gt; ReadS GetResourcesResponse)
+-&gt; ReadS [GetResourcesResponse]
+-&gt; ReadPrec GetResourcesResponse
+-&gt; ReadPrec [GetResourcesResponse]
+-&gt; Read GetResourcesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourcesResponse]
+$creadListPrec :: ReadPrec [GetResourcesResponse]
+readPrec :: ReadPrec GetResourcesResponse
+$creadPrec :: ReadPrec GetResourcesResponse
+readList :: ReadS [GetResourcesResponse]
+$creadList :: ReadS [GetResourcesResponse]
+readsPrec :: Int -&gt; ReadS GetResourcesResponse
+$creadsPrec :: Int -&gt; ReadS GetResourcesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158129"><span id="local-6989586621679158131"><span id="local-6989586621679158133"><span class="annot"><span class="annottext">Int -&gt; GetResourcesResponse -&gt; ShowS
+[GetResourcesResponse] -&gt; ShowS
+GetResourcesResponse -&gt; String
+(Int -&gt; GetResourcesResponse -&gt; ShowS)
+-&gt; (GetResourcesResponse -&gt; String)
+-&gt; ([GetResourcesResponse] -&gt; ShowS)
+-&gt; Show GetResourcesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourcesResponse] -&gt; ShowS
+$cshowList :: [GetResourcesResponse] -&gt; ShowS
+show :: GetResourcesResponse -&gt; String
+$cshow :: GetResourcesResponse -&gt; String
+showsPrec :: Int -&gt; GetResourcesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResourcesResponse -&gt; Rep GetResourcesResponse x)
+-&gt; (forall x. Rep GetResourcesResponse x -&gt; GetResourcesResponse)
+-&gt; Generic GetResourcesResponse
+forall x. Rep GetResourcesResponse x -&gt; GetResourcesResponse
+forall x. GetResourcesResponse -&gt; Rep GetResourcesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResourcesResponse x -&gt; GetResourcesResponse
+$cfrom :: forall x. GetResourcesResponse -&gt; Rep GetResourcesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-551"></span><span>
+</span><span id="line-552"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-553"></span><span class="hs-comment">-- Create a value of 'GetResourcesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-554"></span><span class="hs-comment">--</span><span>
+</span><span id="line-555"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-556"></span><span class="hs-comment">--</span><span>
+</span><span id="line-557"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-558"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-559"></span><span class="hs-comment">--</span><span>
+</span><span id="line-560"></span><span class="hs-comment">-- 'paginationToken', 'getResourcesResponse_paginationToken' - A string that indicates that there is more data available than this</span><span>
+</span><span id="line-561"></span><span class="hs-comment">-- response contains. To receive the next part of the response, specify</span><span>
+</span><span id="line-562"></span><span class="hs-comment">-- this response value as the @PaginationToken@ value in the request for</span><span>
+</span><span id="line-563"></span><span class="hs-comment">-- the next page.</span><span>
+</span><span id="line-564"></span><span class="hs-comment">--</span><span>
+</span><span id="line-565"></span><span class="hs-comment">-- 'resourceTagMappingList', 'getResourcesResponse_resourceTagMappingList' - A list of resource ARNs and the tags (keys and values) associated with</span><span>
+</span><span id="line-566"></span><span class="hs-comment">-- those ARNs.</span><span>
+</span><span id="line-567"></span><span class="hs-comment">--</span><span>
+</span><span id="line-568"></span><span class="hs-comment">-- 'httpStatus', 'getResourcesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-569"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#newGetResourcesResponse"><span class="hs-identifier hs-type">newGetResourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-570"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-571"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-572"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span>
+</span><span id="line-573"></span><span id="newGetResourcesResponse"><span class="annot"><span class="annottext">newGetResourcesResponse :: Int -&gt; GetResourcesResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#newGetResourcesResponse"><span class="hs-identifier hs-var hs-var">newGetResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679158126"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-574"></span><span>  </span><span class="annot"><span class="annottext">GetResourcesResponse' :: Maybe Text
+-&gt; Maybe [ResourceTagMapping] -&gt; Int -&gt; GetResourcesResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-type">GetResourcesResponse'</span></a></span><span>
+</span><span id="line-575"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paginationToken:GetResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3ApaginationToken%3AGetResourcesResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-576"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-577"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTagMappingList:GetResourcesResponse' :: Maybe [ResourceTagMapping]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceTagMappingList%3AGetResourcesResponse%27"><span class="hs-identifier hs-var">resourceTagMappingList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTagMapping]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-578"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourcesResponse' :: Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AhttpStatus%3AGetResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-579"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-580"></span><span>
+</span><span id="line-581"></span><span class="hs-comment">-- | A string that indicates that there is more data available than this</span><span>
+</span><span id="line-582"></span><span class="hs-comment">-- response contains. To receive the next part of the response, specify</span><span>
+</span><span id="line-583"></span><span class="hs-comment">-- this response value as the @PaginationToken@ value in the request for</span><span>
+</span><span id="line-584"></span><span class="hs-comment">-- the next page.</span><span>
+</span><span id="line-585"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_paginationToken"><span class="hs-identifier hs-type">getResourcesResponse_paginationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-586"></span><span id="getResourcesResponse_paginationToken"><span class="annot"><span class="annottext">getResourcesResponse_paginationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourcesResponse -&gt; f GetResourcesResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_paginationToken"><span class="hs-identifier hs-var hs-var">getResourcesResponse_paginationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourcesResponse -&gt; Maybe Text)
+-&gt; (GetResourcesResponse -&gt; Maybe Text -&gt; GetResourcesResponse)
+-&gt; Lens' GetResourcesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-type">GetResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158125"><span class="annot"><span class="annottext">Maybe Text
+paginationToken :: Maybe Text
+$sel:paginationToken:GetResourcesResponse' :: GetResourcesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679158125"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158125"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158124"><span class="annot"><span class="annottext">s :: GetResourcesResponse
+</span><a href="#local-6989586621679158124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-type">GetResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourcesResponse
+</span><a href="#local-6989586621679158124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:GetResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3ApaginationToken%3AGetResourcesResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-587"></span><span>
+</span><span id="line-588"></span><span class="hs-comment">-- | A list of resource ARNs and the tags (keys and values) associated with</span><span>
+</span><span id="line-589"></span><span class="hs-comment">-- those ARNs.</span><span>
+</span><span id="line-590"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_resourceTagMappingList"><span class="hs-identifier hs-type">getResourcesResponse_resourceTagMappingList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html#ResourceTagMapping"><span class="hs-identifier hs-type">ResourceTagMapping</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-591"></span><span id="getResourcesResponse_resourceTagMappingList"><span class="annot"><span class="annottext">getResourcesResponse_resourceTagMappingList :: (Maybe [ResourceTagMapping] -&gt; f (Maybe [ResourceTagMapping]))
+-&gt; GetResourcesResponse -&gt; f GetResourcesResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_resourceTagMappingList"><span class="hs-identifier hs-var hs-var">getResourcesResponse_resourceTagMappingList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourcesResponse -&gt; Maybe [ResourceTagMapping])
+-&gt; (GetResourcesResponse
+    -&gt; Maybe [ResourceTagMapping] -&gt; GetResourcesResponse)
+-&gt; Lens' GetResourcesResponse (Maybe [ResourceTagMapping])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-type">GetResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158122"><span class="annot"><span class="annottext">Maybe [ResourceTagMapping]
+resourceTagMappingList :: Maybe [ResourceTagMapping]
+$sel:resourceTagMappingList:GetResourcesResponse' :: GetResourcesResponse -&gt; Maybe [ResourceTagMapping]
+</span><a href="#local-6989586621679158122"><span class="hs-identifier hs-var hs-var">resourceTagMappingList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTagMapping]
+</span><a href="#local-6989586621679158122"><span class="hs-identifier hs-var">resourceTagMappingList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158121"><span class="annot"><span class="annottext">s :: GetResourcesResponse
+</span><a href="#local-6989586621679158121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-type">GetResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158120"><span class="annot"><span class="annottext">Maybe [ResourceTagMapping]
+</span><a href="#local-6989586621679158120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourcesResponse
+</span><a href="#local-6989586621679158121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTagMappingList:GetResourcesResponse' :: Maybe [ResourceTagMapping]
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AresourceTagMappingList%3AGetResourcesResponse%27"><span class="hs-identifier hs-var">resourceTagMappingList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTagMapping]
+</span><a href="#local-6989586621679158120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceTagMapping] -&gt; f (Maybe [ResourceTagMapping]))
+ -&gt; GetResourcesResponse -&gt; f GetResourcesResponse)
+-&gt; ((Maybe [ResourceTagMapping] -&gt; f (Maybe [ResourceTagMapping]))
+    -&gt; Maybe [ResourceTagMapping] -&gt; f (Maybe [ResourceTagMapping]))
+-&gt; (Maybe [ResourceTagMapping] -&gt; f (Maybe [ResourceTagMapping]))
+-&gt; GetResourcesResponse
+-&gt; f GetResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceTagMapping]
+  [ResourceTagMapping]
+  [ResourceTagMapping]
+  [ResourceTagMapping]
+-&gt; Iso
+     (Maybe [ResourceTagMapping])
+     (Maybe [ResourceTagMapping])
+     (Maybe [ResourceTagMapping])
+     (Maybe [ResourceTagMapping])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceTagMapping]
+  [ResourceTagMapping]
+  [ResourceTagMapping]
+  [ResourceTagMapping]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-592"></span><span>
+</span><span id="line-593"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-594"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_httpStatus"><span class="hs-identifier hs-type">getResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-595"></span><span id="getResourcesResponse_httpStatus"><span class="annot"><span class="annottext">getResourcesResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetResourcesResponse -&gt; f GetResourcesResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#getResourcesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getResourcesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourcesResponse -&gt; Int)
+-&gt; (GetResourcesResponse -&gt; Int -&gt; GetResourcesResponse)
+-&gt; Lens GetResourcesResponse GetResourcesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-type">GetResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158119"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetResourcesResponse' :: GetResourcesResponse -&gt; Int
+</span><a href="#local-6989586621679158119"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158119"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158118"><span class="annot"><span class="annottext">s :: GetResourcesResponse
+</span><a href="#local-6989586621679158118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse%27"><span class="hs-identifier hs-type">GetResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourcesResponse
+</span><a href="#local-6989586621679158118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourcesResponse' :: Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetResources.html#%24sel%3AhttpStatus%3AGetResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-596"></span><span>
+</span><span id="line-597"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetResources.html#GetResourcesResponse"><span class="hs-identifier hs-type">GetResourcesResponse</span></a></span></span><span>
+</span><span id="line-598"></span></pre></body></html>

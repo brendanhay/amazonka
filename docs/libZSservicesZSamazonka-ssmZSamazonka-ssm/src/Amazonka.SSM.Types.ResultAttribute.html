@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.ResultAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.ResultAttribute</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The inventory item result attribute.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newResultAttribute' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679813281"><span id="local-6989586621679813282"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultAttribute"><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-var">ResultAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultAttribute%27"><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-var">ResultAttribute'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the inventory item type. Valid value: @AWS:InstanceInformation@.</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Default Value: @AWS:InstanceInformation@.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtypeName%3AResultAttribute%27"><span class="annot"><span class="annottext">ResultAttribute -&gt; Text
+</span><a href="Amazonka.SSM.Types.ResultAttribute.html#%24sel%3AtypeName%3AResultAttribute%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813275"><span id="local-6989586621679813277"><span class="annot"><span class="annottext">ResultAttribute -&gt; ResultAttribute -&gt; Bool
+(ResultAttribute -&gt; ResultAttribute -&gt; Bool)
+-&gt; (ResultAttribute -&gt; ResultAttribute -&gt; Bool)
+-&gt; Eq ResultAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResultAttribute -&gt; ResultAttribute -&gt; Bool
+$c/= :: ResultAttribute -&gt; ResultAttribute -&gt; Bool
+== :: ResultAttribute -&gt; ResultAttribute -&gt; Bool
+$c== :: ResultAttribute -&gt; ResultAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813266"><span id="local-6989586621679813268"><span id="local-6989586621679813270"><span id="local-6989586621679813272"><span class="annot"><span class="annottext">ReadPrec [ResultAttribute]
+ReadPrec ResultAttribute
+Int -&gt; ReadS ResultAttribute
+ReadS [ResultAttribute]
+(Int -&gt; ReadS ResultAttribute)
+-&gt; ReadS [ResultAttribute]
+-&gt; ReadPrec ResultAttribute
+-&gt; ReadPrec [ResultAttribute]
+-&gt; Read ResultAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResultAttribute]
+$creadListPrec :: ReadPrec [ResultAttribute]
+readPrec :: ReadPrec ResultAttribute
+$creadPrec :: ReadPrec ResultAttribute
+readList :: ReadS [ResultAttribute]
+$creadList :: ReadS [ResultAttribute]
+readsPrec :: Int -&gt; ReadS ResultAttribute
+$creadsPrec :: Int -&gt; ReadS ResultAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813259"><span id="local-6989586621679813261"><span id="local-6989586621679813263"><span class="annot"><span class="annottext">Int -&gt; ResultAttribute -&gt; ShowS
+[ResultAttribute] -&gt; ShowS
+ResultAttribute -&gt; String
+(Int -&gt; ResultAttribute -&gt; ShowS)
+-&gt; (ResultAttribute -&gt; String)
+-&gt; ([ResultAttribute] -&gt; ShowS)
+-&gt; Show ResultAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResultAttribute] -&gt; ShowS
+$cshowList :: [ResultAttribute] -&gt; ShowS
+show :: ResultAttribute -&gt; String
+$cshow :: ResultAttribute -&gt; String
+showsPrec :: Int -&gt; ResultAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResultAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResultAttribute -&gt; Rep ResultAttribute x)
+-&gt; (forall x. Rep ResultAttribute x -&gt; ResultAttribute)
+-&gt; Generic ResultAttribute
+forall x. Rep ResultAttribute x -&gt; ResultAttribute
+forall x. ResultAttribute -&gt; Rep ResultAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResultAttribute x -&gt; ResultAttribute
+$cfrom :: forall x. ResultAttribute -&gt; Rep ResultAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'ResultAttribute' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'typeName', 'resultAttribute_typeName' - Name of the inventory item type. Valid value: @AWS:InstanceInformation@.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Default Value: @AWS:InstanceInformation@.</span><span>
+</span><span id="line-46"></span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#newResultAttribute"><span class="hs-identifier hs-type">newResultAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-comment">-- | 'typeName'</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span>
+</span><span id="line-50"></span><span id="newResultAttribute"><span class="annot"><span class="annottext">newResultAttribute :: Text -&gt; ResultAttribute
+</span><a href="Amazonka.SSM.Types.ResultAttribute.html#newResultAttribute"><span class="hs-identifier hs-var hs-var">newResultAttribute</span></a></span></span><span> </span><span id="local-6989586621679813253"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813253"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ResultAttribute' :: Text -&gt; ResultAttribute
+</span><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ResultAttribute' :: Text
+</span><a href="Amazonka.SSM.Types.ResultAttribute.html#%24sel%3AtypeName%3AResultAttribute%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813253"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Name of the inventory item type. Valid value: @AWS:InstanceInformation@.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Default Value: @AWS:InstanceInformation@.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#resultAttribute_typeName"><span class="hs-identifier hs-type">resultAttribute_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span id="resultAttribute_typeName"><span class="annot"><span class="annottext">resultAttribute_typeName :: (Text -&gt; f Text) -&gt; ResultAttribute -&gt; f ResultAttribute
+</span><a href="Amazonka.SSM.Types.ResultAttribute.html#resultAttribute_typeName"><span class="hs-identifier hs-var hs-var">resultAttribute_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultAttribute -&gt; Text)
+-&gt; (ResultAttribute -&gt; Text -&gt; ResultAttribute)
+-&gt; Lens ResultAttribute ResultAttribute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813249"><span class="annot"><span class="annottext">Text
+typeName :: Text
+$sel:typeName:ResultAttribute' :: ResultAttribute -&gt; Text
+</span><a href="#local-6989586621679813249"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813249"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813248"><span class="annot"><span class="annottext">s :: ResultAttribute
+</span><a href="#local-6989586621679813248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultAttribute
+</span><a href="#local-6989586621679813248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ResultAttribute' :: Text
+</span><a href="Amazonka.SSM.Types.ResultAttribute.html#%24sel%3AtypeName%3AResultAttribute%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813243"><span id="local-6989586621679813245"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813232"><span id="local-6989586621679813234"><span id="local-6989586621679813236"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679813230"><span class="annot"><span class="annottext">toJSON :: ResultAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813228"><span class="annot"><span class="annottext">Text
+typeName :: Text
+$sel:typeName:ResultAttribute' :: ResultAttribute -&gt; Text
+</span><a href="#local-6989586621679813228"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-66"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813228"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span></pre></body></html>

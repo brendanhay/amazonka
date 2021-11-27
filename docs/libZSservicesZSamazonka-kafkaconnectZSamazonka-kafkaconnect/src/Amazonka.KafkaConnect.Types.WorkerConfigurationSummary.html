@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KafkaConnect.Types.WorkerConfigurationSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KafkaConnect.Types.WorkerConfigurationSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The summary of a worker configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWorkerConfigurationSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679205872"><span id="local-6989586621679205873"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkerConfigurationSummary"><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-var">WorkerConfigurationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkerConfigurationSummary%27"><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-var">WorkerConfigurationSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that a worker configuration was created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3AWorkerConfigurationSummary%27"><span class="annot"><span class="annottext">WorkerConfigurationSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AcreationTime%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The latest revision of a worker configuration.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlatestRevision%3AWorkerConfigurationSummary%27"><span class="annot"><span class="annottext">WorkerConfigurationSummary
+-&gt; Maybe WorkerConfigurationRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AlatestRevision%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.html#WorkerConfigurationRevisionSummary"><span class="hs-identifier hs-type">WorkerConfigurationRevisionSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the worker configuration.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AWorkerConfigurationSummary%27"><span class="annot"><span class="annottext">WorkerConfigurationSummary -&gt; Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3Aname%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the worker configuration.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AworkerConfigurationArn%3AWorkerConfigurationSummary%27"><span class="annot"><span class="annottext">WorkerConfigurationSummary -&gt; Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AworkerConfigurationArn%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var hs-var">workerConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description of a worker configuration.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AWorkerConfigurationSummary%27"><span class="annot"><span class="annottext">WorkerConfigurationSummary -&gt; Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3Adescription%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205862"><span id="local-6989586621679205864"><span class="annot"><span class="annottext">WorkerConfigurationSummary -&gt; WorkerConfigurationSummary -&gt; Bool
+(WorkerConfigurationSummary -&gt; WorkerConfigurationSummary -&gt; Bool)
+-&gt; (WorkerConfigurationSummary
+    -&gt; WorkerConfigurationSummary -&gt; Bool)
+-&gt; Eq WorkerConfigurationSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkerConfigurationSummary -&gt; WorkerConfigurationSummary -&gt; Bool
+$c/= :: WorkerConfigurationSummary -&gt; WorkerConfigurationSummary -&gt; Bool
+== :: WorkerConfigurationSummary -&gt; WorkerConfigurationSummary -&gt; Bool
+$c== :: WorkerConfigurationSummary -&gt; WorkerConfigurationSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205853"><span id="local-6989586621679205855"><span id="local-6989586621679205857"><span id="local-6989586621679205859"><span class="annot"><span class="annottext">ReadPrec [WorkerConfigurationSummary]
+ReadPrec WorkerConfigurationSummary
+Int -&gt; ReadS WorkerConfigurationSummary
+ReadS [WorkerConfigurationSummary]
+(Int -&gt; ReadS WorkerConfigurationSummary)
+-&gt; ReadS [WorkerConfigurationSummary]
+-&gt; ReadPrec WorkerConfigurationSummary
+-&gt; ReadPrec [WorkerConfigurationSummary]
+-&gt; Read WorkerConfigurationSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkerConfigurationSummary]
+$creadListPrec :: ReadPrec [WorkerConfigurationSummary]
+readPrec :: ReadPrec WorkerConfigurationSummary
+$creadPrec :: ReadPrec WorkerConfigurationSummary
+readList :: ReadS [WorkerConfigurationSummary]
+$creadList :: ReadS [WorkerConfigurationSummary]
+readsPrec :: Int -&gt; ReadS WorkerConfigurationSummary
+$creadsPrec :: Int -&gt; ReadS WorkerConfigurationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205846"><span id="local-6989586621679205848"><span id="local-6989586621679205850"><span class="annot"><span class="annottext">Int -&gt; WorkerConfigurationSummary -&gt; ShowS
+[WorkerConfigurationSummary] -&gt; ShowS
+WorkerConfigurationSummary -&gt; String
+(Int -&gt; WorkerConfigurationSummary -&gt; ShowS)
+-&gt; (WorkerConfigurationSummary -&gt; String)
+-&gt; ([WorkerConfigurationSummary] -&gt; ShowS)
+-&gt; Show WorkerConfigurationSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkerConfigurationSummary] -&gt; ShowS
+$cshowList :: [WorkerConfigurationSummary] -&gt; ShowS
+show :: WorkerConfigurationSummary -&gt; String
+$cshow :: WorkerConfigurationSummary -&gt; String
+showsPrec :: Int -&gt; WorkerConfigurationSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkerConfigurationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ WorkerConfigurationSummary -&gt; Rep WorkerConfigurationSummary x)
+-&gt; (forall x.
+    Rep WorkerConfigurationSummary x -&gt; WorkerConfigurationSummary)
+-&gt; Generic WorkerConfigurationSummary
+forall x.
+Rep WorkerConfigurationSummary x -&gt; WorkerConfigurationSummary
+forall x.
+WorkerConfigurationSummary -&gt; Rep WorkerConfigurationSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep WorkerConfigurationSummary x -&gt; WorkerConfigurationSummary
+$cfrom :: forall x.
+WorkerConfigurationSummary -&gt; Rep WorkerConfigurationSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'WorkerConfigurationSummary' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'creationTime', 'workerConfigurationSummary_creationTime' - The time that a worker configuration was created.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'latestRevision', 'workerConfigurationSummary_latestRevision' - The latest revision of a worker configuration.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'name', 'workerConfigurationSummary_name' - The name of the worker configuration.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'workerConfigurationArn', 'workerConfigurationSummary_workerConfigurationArn' - The Amazon Resource Name (ARN) of the worker configuration.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'description', 'workerConfigurationSummary_description' - The description of a worker configuration.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#newWorkerConfigurationSummary"><span class="hs-identifier hs-type">newWorkerConfigurationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span>
+</span><span id="line-63"></span><span id="newWorkerConfigurationSummary"><span class="annot"><span class="annottext">newWorkerConfigurationSummary :: WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#newWorkerConfigurationSummary"><span class="hs-identifier hs-var hs-var">newWorkerConfigurationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">WorkerConfigurationSummary' :: Maybe POSIX
+-&gt; Maybe WorkerConfigurationRevisionSummary
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:WorkerConfigurationSummary' :: Maybe POSIX
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AcreationTime%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestRevision:WorkerConfigurationSummary' :: Maybe WorkerConfigurationRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AlatestRevision%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerConfigurationRevisionSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:WorkerConfigurationSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3Aname%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:workerConfigurationArn:WorkerConfigurationSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AworkerConfigurationArn%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">workerConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:WorkerConfigurationSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3Adescription%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The time that a worker configuration was created.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_creationTime"><span class="hs-identifier hs-type">workerConfigurationSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="workerConfigurationSummary_creationTime"><span class="annot"><span class="annottext">workerConfigurationSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; WorkerConfigurationSummary -&gt; f WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_creationTime"><span class="hs-identifier hs-var hs-var">workerConfigurationSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerConfigurationSummary -&gt; Maybe POSIX)
+-&gt; (WorkerConfigurationSummary
+    -&gt; Maybe POSIX -&gt; WorkerConfigurationSummary)
+-&gt; Lens
+     WorkerConfigurationSummary
+     WorkerConfigurationSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205837"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:WorkerConfigurationSummary' :: WorkerConfigurationSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205837"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205837"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205836"><span class="annot"><span class="annottext">s :: WorkerConfigurationSummary
+</span><a href="#local-6989586621679205836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205835"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerConfigurationSummary
+</span><a href="#local-6989586621679205836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:WorkerConfigurationSummary' :: Maybe POSIX
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AcreationTime%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; WorkerConfigurationSummary -&gt; f WorkerConfigurationSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; WorkerConfigurationSummary
+-&gt; f WorkerConfigurationSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The latest revision of a worker configuration.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_latestRevision"><span class="hs-identifier hs-type">workerConfigurationSummary_latestRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.html#WorkerConfigurationRevisionSummary"><span class="hs-identifier hs-type">WorkerConfigurationRevisionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="workerConfigurationSummary_latestRevision"><span class="annot"><span class="annottext">workerConfigurationSummary_latestRevision :: (Maybe WorkerConfigurationRevisionSummary
+ -&gt; f (Maybe WorkerConfigurationRevisionSummary))
+-&gt; WorkerConfigurationSummary -&gt; f WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_latestRevision"><span class="hs-identifier hs-var hs-var">workerConfigurationSummary_latestRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerConfigurationSummary
+ -&gt; Maybe WorkerConfigurationRevisionSummary)
+-&gt; (WorkerConfigurationSummary
+    -&gt; Maybe WorkerConfigurationRevisionSummary
+    -&gt; WorkerConfigurationSummary)
+-&gt; Lens
+     WorkerConfigurationSummary
+     WorkerConfigurationSummary
+     (Maybe WorkerConfigurationRevisionSummary)
+     (Maybe WorkerConfigurationRevisionSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205830"><span class="annot"><span class="annottext">Maybe WorkerConfigurationRevisionSummary
+latestRevision :: Maybe WorkerConfigurationRevisionSummary
+$sel:latestRevision:WorkerConfigurationSummary' :: WorkerConfigurationSummary
+-&gt; Maybe WorkerConfigurationRevisionSummary
+</span><a href="#local-6989586621679205830"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerConfigurationRevisionSummary
+</span><a href="#local-6989586621679205830"><span class="hs-identifier hs-var">latestRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205829"><span class="annot"><span class="annottext">s :: WorkerConfigurationSummary
+</span><a href="#local-6989586621679205829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205828"><span class="annot"><span class="annottext">Maybe WorkerConfigurationRevisionSummary
+</span><a href="#local-6989586621679205828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerConfigurationSummary
+</span><a href="#local-6989586621679205829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRevision:WorkerConfigurationSummary' :: Maybe WorkerConfigurationRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AlatestRevision%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerConfigurationRevisionSummary
+</span><a href="#local-6989586621679205828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the worker configuration.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_name"><span class="hs-identifier hs-type">workerConfigurationSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="workerConfigurationSummary_name"><span class="annot"><span class="annottext">workerConfigurationSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkerConfigurationSummary -&gt; f WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_name"><span class="hs-identifier hs-var hs-var">workerConfigurationSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerConfigurationSummary -&gt; Maybe Text)
+-&gt; (WorkerConfigurationSummary
+    -&gt; Maybe Text -&gt; WorkerConfigurationSummary)
+-&gt; Lens
+     WorkerConfigurationSummary
+     WorkerConfigurationSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205826"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:WorkerConfigurationSummary' :: WorkerConfigurationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679205826"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205826"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205825"><span class="annot"><span class="annottext">s :: WorkerConfigurationSummary
+</span><a href="#local-6989586621679205825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205824"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerConfigurationSummary
+</span><a href="#local-6989586621679205825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WorkerConfigurationSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3Aname%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the worker configuration.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_workerConfigurationArn"><span class="hs-identifier hs-type">workerConfigurationSummary_workerConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="workerConfigurationSummary_workerConfigurationArn"><span class="annot"><span class="annottext">workerConfigurationSummary_workerConfigurationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkerConfigurationSummary -&gt; f WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_workerConfigurationArn"><span class="hs-identifier hs-var hs-var">workerConfigurationSummary_workerConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerConfigurationSummary -&gt; Maybe Text)
+-&gt; (WorkerConfigurationSummary
+    -&gt; Maybe Text -&gt; WorkerConfigurationSummary)
+-&gt; Lens
+     WorkerConfigurationSummary
+     WorkerConfigurationSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205822"><span class="annot"><span class="annottext">Maybe Text
+workerConfigurationArn :: Maybe Text
+$sel:workerConfigurationArn:WorkerConfigurationSummary' :: WorkerConfigurationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679205822"><span class="hs-identifier hs-var hs-var">workerConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205822"><span class="hs-identifier hs-var">workerConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205821"><span class="annot"><span class="annottext">s :: WorkerConfigurationSummary
+</span><a href="#local-6989586621679205821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerConfigurationSummary
+</span><a href="#local-6989586621679205821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workerConfigurationArn:WorkerConfigurationSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3AworkerConfigurationArn%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">workerConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The description of a worker configuration.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_description"><span class="hs-identifier hs-type">workerConfigurationSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="workerConfigurationSummary_description"><span class="annot"><span class="annottext">workerConfigurationSummary_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkerConfigurationSummary -&gt; f WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#workerConfigurationSummary_description"><span class="hs-identifier hs-var hs-var">workerConfigurationSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerConfigurationSummary -&gt; Maybe Text)
+-&gt; (WorkerConfigurationSummary
+    -&gt; Maybe Text -&gt; WorkerConfigurationSummary)
+-&gt; Lens
+     WorkerConfigurationSummary
+     WorkerConfigurationSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205818"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:WorkerConfigurationSummary' :: WorkerConfigurationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679205818"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205818"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205817"><span class="annot"><span class="annottext">s :: WorkerConfigurationSummary
+</span><a href="#local-6989586621679205817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-type">WorkerConfigurationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205816"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerConfigurationSummary
+</span><a href="#local-6989586621679205817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:WorkerConfigurationSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#%24sel%3Adescription%3AWorkerConfigurationSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205813"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679205811"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkerConfigurationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WorkerConfigurationSummary)
+-&gt; Value
+-&gt; Parser WorkerConfigurationSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WorkerConfigurationSummary&quot;</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205808"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205808"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe WorkerConfigurationRevisionSummary
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; WorkerConfigurationSummary
+</span><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary%27"><span class="hs-identifier hs-var">WorkerConfigurationSummary'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe WorkerConfigurationRevisionSummary
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; WorkerConfigurationSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe WorkerConfigurationRevisionSummary
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; WorkerConfigurationSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkerConfigurationRevisionSummary
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; WorkerConfigurationSummary)
+-&gt; Parser (Maybe WorkerConfigurationRevisionSummary)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkerConfigurationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkerConfigurationRevisionSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;latestRevision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkerConfigurationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; WorkerConfigurationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; WorkerConfigurationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; WorkerConfigurationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workerConfigurationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; WorkerConfigurationSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser WorkerConfigurationSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205802"><span id="local-6989586621679205804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.html#WorkerConfigurationSummary"><span class="hs-identifier hs-type">WorkerConfigurationSummary</span></a></span></span><span>
+</span><span id="line-109"></span></pre></body></html>

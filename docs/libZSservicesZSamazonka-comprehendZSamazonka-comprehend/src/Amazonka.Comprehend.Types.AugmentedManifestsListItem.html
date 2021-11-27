@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Comprehend.Types.AugmentedManifestsListItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Comprehend.Types.AugmentedManifestsListItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat.html"><span class="hs-identifier">Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.Split.html"><span class="hs-identifier">Amazonka.Comprehend.Types.Split</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An augmented manifest file that provides training data for your custom</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- model. An augmented manifest file is a labeled dataset that is produced</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- by Amazon SageMaker Ground Truth.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAugmentedManifestsListItem' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679348474"><span id="local-6989586621679348475"></span></span><span class="hs-keyword">data</span><span> </span><span id="AugmentedManifestsListItem"><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-var">AugmentedManifestsListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AugmentedManifestsListItem%27"><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-var">AugmentedManifestsListItem'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 prefix to the source files (PDFs) that are referred to in the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- augmented manifest file.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsourceDocumentsS3Uri%3AAugmentedManifestsListItem%27"><span class="annot"><span class="annottext">AugmentedManifestsListItem -&gt; Maybe Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AsourceDocumentsS3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var hs-var">sourceDocumentsS3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The type of augmented manifest. PlainTextDocument or</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- SemiStructuredDocument. If you don\'t specify, the default is</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- PlainTextDocument.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @PLAIN_TEXT_DOCUMENT@ A document type that represents any unicode</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     text that is encoded in UTF-8.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @SEMI_STRUCTURED_DOCUMENT@ A document type with positional and</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     structural context, like a PDF. For training with Amazon Comprehend,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     only PDFs are supported. For inference, Amazon Comprehend support</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     PDFs, DOCX and TXT.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdocumentType%3AAugmentedManifestsListItem%27"><span class="annot"><span class="annottext">AugmentedManifestsListItem
+-&gt; Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AdocumentType%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var hs-var">documentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat.html#AugmentedManifestsDocumentTypeFormat"><span class="hs-identifier hs-type">AugmentedManifestsDocumentTypeFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The purpose of the data you\'ve provided in the augmented manifest. You</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- can either train or test this data. If you don\'t specify, the default</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- is train.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- TRAIN - all of the documents in the manifest will be used for training.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- If no test documents are provided, Amazon Comprehend will automatically</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- reserve a portion of the training documents for testing.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- TEST - all of the documents in the manifest will be used for testing.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Asplit%3AAugmentedManifestsListItem%27"><span class="annot"><span class="annottext">AugmentedManifestsListItem -&gt; Maybe Split
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3Asplit%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var hs-var">split</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.Split.html#Split"><span class="hs-identifier hs-type">Split</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The S3 prefix to the annotation files that are referred in the augmented</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- manifest file.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AannotationDataS3Uri%3AAugmentedManifestsListItem%27"><span class="annot"><span class="annottext">AugmentedManifestsListItem -&gt; Maybe Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AannotationDataS3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var hs-var">annotationDataS3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 location of the augmented manifest file.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3As3Uri%3AAugmentedManifestsListItem%27"><span class="annot"><span class="annottext">AugmentedManifestsListItem -&gt; Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3As3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The JSON attribute that contains the annotations for your training</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- documents. The number of attribute names that you specify depends on</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- whether your augmented manifest file is the output of a single labeling</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- job or a chained labeling job.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If your file is the output of a single labeling job, specify the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- LabelAttributeName key that was used when the job was created in Ground</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Truth.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If your file is the output of a chained labeling job, specify the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- LabelAttributeName key for one or more jobs in the chain. Each</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- LabelAttributeName key provides the annotations from an individual job.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AattributeNames%3AAugmentedManifestsListItem%27"><span class="annot"><span class="annottext">AugmentedManifestsListItem -&gt; [Text]
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AattributeNames%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348463"><span id="local-6989586621679348465"><span class="annot"><span class="annottext">AugmentedManifestsListItem -&gt; AugmentedManifestsListItem -&gt; Bool
+(AugmentedManifestsListItem -&gt; AugmentedManifestsListItem -&gt; Bool)
+-&gt; (AugmentedManifestsListItem
+    -&gt; AugmentedManifestsListItem -&gt; Bool)
+-&gt; Eq AugmentedManifestsListItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AugmentedManifestsListItem -&gt; AugmentedManifestsListItem -&gt; Bool
+$c/= :: AugmentedManifestsListItem -&gt; AugmentedManifestsListItem -&gt; Bool
+== :: AugmentedManifestsListItem -&gt; AugmentedManifestsListItem -&gt; Bool
+$c== :: AugmentedManifestsListItem -&gt; AugmentedManifestsListItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348454"><span id="local-6989586621679348456"><span id="local-6989586621679348458"><span id="local-6989586621679348460"><span class="annot"><span class="annottext">ReadPrec [AugmentedManifestsListItem]
+ReadPrec AugmentedManifestsListItem
+Int -&gt; ReadS AugmentedManifestsListItem
+ReadS [AugmentedManifestsListItem]
+(Int -&gt; ReadS AugmentedManifestsListItem)
+-&gt; ReadS [AugmentedManifestsListItem]
+-&gt; ReadPrec AugmentedManifestsListItem
+-&gt; ReadPrec [AugmentedManifestsListItem]
+-&gt; Read AugmentedManifestsListItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AugmentedManifestsListItem]
+$creadListPrec :: ReadPrec [AugmentedManifestsListItem]
+readPrec :: ReadPrec AugmentedManifestsListItem
+$creadPrec :: ReadPrec AugmentedManifestsListItem
+readList :: ReadS [AugmentedManifestsListItem]
+$creadList :: ReadS [AugmentedManifestsListItem]
+readsPrec :: Int -&gt; ReadS AugmentedManifestsListItem
+$creadsPrec :: Int -&gt; ReadS AugmentedManifestsListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348447"><span id="local-6989586621679348449"><span id="local-6989586621679348451"><span class="annot"><span class="annottext">Int -&gt; AugmentedManifestsListItem -&gt; ShowS
+[AugmentedManifestsListItem] -&gt; ShowS
+AugmentedManifestsListItem -&gt; String
+(Int -&gt; AugmentedManifestsListItem -&gt; ShowS)
+-&gt; (AugmentedManifestsListItem -&gt; String)
+-&gt; ([AugmentedManifestsListItem] -&gt; ShowS)
+-&gt; Show AugmentedManifestsListItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AugmentedManifestsListItem] -&gt; ShowS
+$cshowList :: [AugmentedManifestsListItem] -&gt; ShowS
+show :: AugmentedManifestsListItem -&gt; String
+$cshow :: AugmentedManifestsListItem -&gt; String
+showsPrec :: Int -&gt; AugmentedManifestsListItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; AugmentedManifestsListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AugmentedManifestsListItem -&gt; Rep AugmentedManifestsListItem x)
+-&gt; (forall x.
+    Rep AugmentedManifestsListItem x -&gt; AugmentedManifestsListItem)
+-&gt; Generic AugmentedManifestsListItem
+forall x.
+Rep AugmentedManifestsListItem x -&gt; AugmentedManifestsListItem
+forall x.
+AugmentedManifestsListItem -&gt; Rep AugmentedManifestsListItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AugmentedManifestsListItem x -&gt; AugmentedManifestsListItem
+$cfrom :: forall x.
+AugmentedManifestsListItem -&gt; Rep AugmentedManifestsListItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'AugmentedManifestsListItem' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'sourceDocumentsS3Uri', 'augmentedManifestsListItem_sourceDocumentsS3Uri' - The S3 prefix to the source files (PDFs) that are referred to in the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- augmented manifest file.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'documentType', 'augmentedManifestsListItem_documentType' - The type of augmented manifest. PlainTextDocument or</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- SemiStructuredDocument. If you don\'t specify, the default is</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- PlainTextDocument.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @PLAIN_TEXT_DOCUMENT@ A document type that represents any unicode</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     text that is encoded in UTF-8.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @SEMI_STRUCTURED_DOCUMENT@ A document type with positional and</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     structural context, like a PDF. For training with Amazon Comprehend,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     only PDFs are supported. For inference, Amazon Comprehend support</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     PDFs, DOCX and TXT.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'split', 'augmentedManifestsListItem_split' - The purpose of the data you\'ve provided in the augmented manifest. You</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- can either train or test this data. If you don\'t specify, the default</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- is train.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- TRAIN - all of the documents in the manifest will be used for training.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- If no test documents are provided, Amazon Comprehend will automatically</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- reserve a portion of the training documents for testing.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- TEST - all of the documents in the manifest will be used for testing.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'annotationDataS3Uri', 'augmentedManifestsListItem_annotationDataS3Uri' - The S3 prefix to the annotation files that are referred in the augmented</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- manifest file.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 's3Uri', 'augmentedManifestsListItem_s3Uri' - The Amazon S3 location of the augmented manifest file.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'attributeNames', 'augmentedManifestsListItem_attributeNames' - The JSON attribute that contains the annotations for your training</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- documents. The number of attribute names that you specify depends on</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- whether your augmented manifest file is the output of a single labeling</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- job or a chained labeling job.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- If your file is the output of a single labeling job, specify the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- LabelAttributeName key that was used when the job was created in Ground</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Truth.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- If your file is the output of a chained labeling job, specify the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- LabelAttributeName key for one or more jobs in the chain. Each</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- LabelAttributeName key provides the annotations from an individual job.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#newAugmentedManifestsListItem"><span class="hs-identifier hs-type">newAugmentedManifestsListItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 's3Uri'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span>
+</span><span id="line-134"></span><span id="newAugmentedManifestsListItem"><span class="annot"><span class="annottext">newAugmentedManifestsListItem :: Text -&gt; AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#newAugmentedManifestsListItem"><span class="hs-identifier hs-var hs-var">newAugmentedManifestsListItem</span></a></span></span><span> </span><span id="local-6989586621679348441"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348441"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">AugmentedManifestsListItem' :: Maybe Text
+-&gt; Maybe AugmentedManifestsDocumentTypeFormat
+-&gt; Maybe Split
+-&gt; Maybe Text
+-&gt; Text
+-&gt; [Text]
+-&gt; AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceDocumentsS3Uri:AugmentedManifestsListItem' :: Maybe Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AsourceDocumentsS3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">sourceDocumentsS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentType:AugmentedManifestsListItem' :: Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AdocumentType%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">documentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AugmentedManifestsDocumentTypeFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:split:AugmentedManifestsListItem' :: Maybe Split
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3Asplit%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">split</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Split
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:annotationDataS3Uri:AugmentedManifestsListItem' :: Maybe Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AannotationDataS3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">annotationDataS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:AugmentedManifestsListItem' :: Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3As3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348441"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeNames:AugmentedManifestsListItem' :: [Text]
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AattributeNames%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The S3 prefix to the source files (PDFs) that are referred to in the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- augmented manifest file.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_sourceDocumentsS3Uri"><span class="hs-identifier hs-type">augmentedManifestsListItem_sourceDocumentsS3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="augmentedManifestsListItem_sourceDocumentsS3Uri"><span class="annot"><span class="annottext">augmentedManifestsListItem_sourceDocumentsS3Uri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AugmentedManifestsListItem -&gt; f AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_sourceDocumentsS3Uri"><span class="hs-identifier hs-var hs-var">augmentedManifestsListItem_sourceDocumentsS3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AugmentedManifestsListItem -&gt; Maybe Text)
+-&gt; (AugmentedManifestsListItem
+    -&gt; Maybe Text -&gt; AugmentedManifestsListItem)
+-&gt; Lens
+     AugmentedManifestsListItem
+     AugmentedManifestsListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348437"><span class="annot"><span class="annottext">Maybe Text
+sourceDocumentsS3Uri :: Maybe Text
+$sel:sourceDocumentsS3Uri:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679348437"><span class="hs-identifier hs-var hs-var">sourceDocumentsS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348437"><span class="hs-identifier hs-var">sourceDocumentsS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348436"><span class="annot"><span class="annottext">s :: AugmentedManifestsListItem
+</span><a href="#local-6989586621679348436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348435"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AugmentedManifestsListItem
+</span><a href="#local-6989586621679348436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDocumentsS3Uri:AugmentedManifestsListItem' :: Maybe Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AsourceDocumentsS3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">sourceDocumentsS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The type of augmented manifest. PlainTextDocument or</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- SemiStructuredDocument. If you don\'t specify, the default is</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- PlainTextDocument.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @PLAIN_TEXT_DOCUMENT@ A document type that represents any unicode</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     text that is encoded in UTF-8.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @SEMI_STRUCTURED_DOCUMENT@ A document type with positional and</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     structural context, like a PDF. For training with Amazon Comprehend,</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     only PDFs are supported. For inference, Amazon Comprehend support</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     PDFs, DOCX and TXT.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_documentType"><span class="hs-identifier hs-type">augmentedManifestsListItem_documentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat.html#AugmentedManifestsDocumentTypeFormat"><span class="hs-identifier hs-type">AugmentedManifestsDocumentTypeFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="augmentedManifestsListItem_documentType"><span class="annot"><span class="annottext">augmentedManifestsListItem_documentType :: (Maybe AugmentedManifestsDocumentTypeFormat
+ -&gt; f (Maybe AugmentedManifestsDocumentTypeFormat))
+-&gt; AugmentedManifestsListItem -&gt; f AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_documentType"><span class="hs-identifier hs-var hs-var">augmentedManifestsListItem_documentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AugmentedManifestsListItem
+ -&gt; Maybe AugmentedManifestsDocumentTypeFormat)
+-&gt; (AugmentedManifestsListItem
+    -&gt; Maybe AugmentedManifestsDocumentTypeFormat
+    -&gt; AugmentedManifestsListItem)
+-&gt; Lens
+     AugmentedManifestsListItem
+     AugmentedManifestsListItem
+     (Maybe AugmentedManifestsDocumentTypeFormat)
+     (Maybe AugmentedManifestsDocumentTypeFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348433"><span class="annot"><span class="annottext">Maybe AugmentedManifestsDocumentTypeFormat
+documentType :: Maybe AugmentedManifestsDocumentTypeFormat
+$sel:documentType:AugmentedManifestsListItem' :: AugmentedManifestsListItem
+-&gt; Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="#local-6989586621679348433"><span class="hs-identifier hs-var hs-var">documentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="#local-6989586621679348433"><span class="hs-identifier hs-var">documentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348432"><span class="annot"><span class="annottext">s :: AugmentedManifestsListItem
+</span><a href="#local-6989586621679348432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348431"><span class="annot"><span class="annottext">Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="#local-6989586621679348431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AugmentedManifestsListItem
+</span><a href="#local-6989586621679348432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentType:AugmentedManifestsListItem' :: Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AdocumentType%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">documentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="#local-6989586621679348431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The purpose of the data you\'ve provided in the augmented manifest. You</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- can either train or test this data. If you don\'t specify, the default</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- is train.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- TRAIN - all of the documents in the manifest will be used for training.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- If no test documents are provided, Amazon Comprehend will automatically</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- reserve a portion of the training documents for testing.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- TEST - all of the documents in the manifest will be used for testing.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_split"><span class="hs-identifier hs-type">augmentedManifestsListItem_split</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.Split.html#Split"><span class="hs-identifier hs-type">Split</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="augmentedManifestsListItem_split"><span class="annot"><span class="annottext">augmentedManifestsListItem_split :: (Maybe Split -&gt; f (Maybe Split))
+-&gt; AugmentedManifestsListItem -&gt; f AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_split"><span class="hs-identifier hs-var hs-var">augmentedManifestsListItem_split</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AugmentedManifestsListItem -&gt; Maybe Split)
+-&gt; (AugmentedManifestsListItem
+    -&gt; Maybe Split -&gt; AugmentedManifestsListItem)
+-&gt; Lens
+     AugmentedManifestsListItem
+     AugmentedManifestsListItem
+     (Maybe Split)
+     (Maybe Split)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348429"><span class="annot"><span class="annottext">Maybe Split
+split :: Maybe Split
+$sel:split:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Maybe Split
+</span><a href="#local-6989586621679348429"><span class="hs-identifier hs-var hs-var">split</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Split
+</span><a href="#local-6989586621679348429"><span class="hs-identifier hs-var">split</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348428"><span class="annot"><span class="annottext">s :: AugmentedManifestsListItem
+</span><a href="#local-6989586621679348428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348427"><span class="annot"><span class="annottext">Maybe Split
+</span><a href="#local-6989586621679348427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AugmentedManifestsListItem
+</span><a href="#local-6989586621679348428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:split:AugmentedManifestsListItem' :: Maybe Split
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3Asplit%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">split</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Split
+</span><a href="#local-6989586621679348427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The S3 prefix to the annotation files that are referred in the augmented</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- manifest file.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_annotationDataS3Uri"><span class="hs-identifier hs-type">augmentedManifestsListItem_annotationDataS3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="augmentedManifestsListItem_annotationDataS3Uri"><span class="annot"><span class="annottext">augmentedManifestsListItem_annotationDataS3Uri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AugmentedManifestsListItem -&gt; f AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_annotationDataS3Uri"><span class="hs-identifier hs-var hs-var">augmentedManifestsListItem_annotationDataS3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AugmentedManifestsListItem -&gt; Maybe Text)
+-&gt; (AugmentedManifestsListItem
+    -&gt; Maybe Text -&gt; AugmentedManifestsListItem)
+-&gt; Lens
+     AugmentedManifestsListItem
+     AugmentedManifestsListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348425"><span class="annot"><span class="annottext">Maybe Text
+annotationDataS3Uri :: Maybe Text
+$sel:annotationDataS3Uri:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679348425"><span class="hs-identifier hs-var hs-var">annotationDataS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348425"><span class="hs-identifier hs-var">annotationDataS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348424"><span class="annot"><span class="annottext">s :: AugmentedManifestsListItem
+</span><a href="#local-6989586621679348424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348423"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AugmentedManifestsListItem
+</span><a href="#local-6989586621679348424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotationDataS3Uri:AugmentedManifestsListItem' :: Maybe Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AannotationDataS3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">annotationDataS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The Amazon S3 location of the augmented manifest file.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_s3Uri"><span class="hs-identifier hs-type">augmentedManifestsListItem_s3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-183"></span><span id="augmentedManifestsListItem_s3Uri"><span class="annot"><span class="annottext">augmentedManifestsListItem_s3Uri :: (Text -&gt; f Text)
+-&gt; AugmentedManifestsListItem -&gt; f AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_s3Uri"><span class="hs-identifier hs-var hs-var">augmentedManifestsListItem_s3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AugmentedManifestsListItem -&gt; Text)
+-&gt; (AugmentedManifestsListItem
+    -&gt; Text -&gt; AugmentedManifestsListItem)
+-&gt; Lens
+     AugmentedManifestsListItem AugmentedManifestsListItem Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348421"><span class="annot"><span class="annottext">Text
+s3Uri :: Text
+$sel:s3Uri:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Text
+</span><a href="#local-6989586621679348421"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348421"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348420"><span class="annot"><span class="annottext">s :: AugmentedManifestsListItem
+</span><a href="#local-6989586621679348420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AugmentedManifestsListItem
+</span><a href="#local-6989586621679348420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:AugmentedManifestsListItem' :: Text
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3As3Uri%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The JSON attribute that contains the annotations for your training</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- documents. The number of attribute names that you specify depends on</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- whether your augmented manifest file is the output of a single labeling</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- job or a chained labeling job.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- If your file is the output of a single labeling job, specify the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- LabelAttributeName key that was used when the job was created in Ground</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Truth.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- If your file is the output of a chained labeling job, specify the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- LabelAttributeName key for one or more jobs in the chain. Each</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- LabelAttributeName key provides the annotations from an individual job.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_attributeNames"><span class="hs-identifier hs-type">augmentedManifestsListItem_attributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span id="augmentedManifestsListItem_attributeNames"><span class="annot"><span class="annottext">augmentedManifestsListItem_attributeNames :: ([Text] -&gt; f [Text])
+-&gt; AugmentedManifestsListItem -&gt; f AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#augmentedManifestsListItem_attributeNames"><span class="hs-identifier hs-var hs-var">augmentedManifestsListItem_attributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AugmentedManifestsListItem -&gt; [Text])
+-&gt; (AugmentedManifestsListItem
+    -&gt; [Text] -&gt; AugmentedManifestsListItem)
+-&gt; Lens
+     AugmentedManifestsListItem AugmentedManifestsListItem [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348417"><span class="annot"><span class="annottext">[Text]
+attributeNames :: [Text]
+$sel:attributeNames:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; [Text]
+</span><a href="#local-6989586621679348417"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679348417"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348416"><span class="annot"><span class="annottext">s :: AugmentedManifestsListItem
+</span><a href="#local-6989586621679348416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348415"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679348415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AugmentedManifestsListItem
+</span><a href="#local-6989586621679348416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:AugmentedManifestsListItem' :: [Text]
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#%24sel%3AattributeNames%3AAugmentedManifestsListItem%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679348415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; AugmentedManifestsListItem -&gt; f AugmentedManifestsListItem)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; AugmentedManifestsListItem
+-&gt; f AugmentedManifestsListItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679348408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AugmentedManifestsListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AugmentedManifestsListItem)
+-&gt; Value
+-&gt; Parser AugmentedManifestsListItem
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AugmentedManifestsListItem&quot;</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348405"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe AugmentedManifestsDocumentTypeFormat
+-&gt; Maybe Split
+-&gt; Maybe Text
+-&gt; Text
+-&gt; [Text]
+-&gt; AugmentedManifestsListItem
+</span><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-var">AugmentedManifestsListItem'</span></a></span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe AugmentedManifestsDocumentTypeFormat
+ -&gt; Maybe Split
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; [Text]
+ -&gt; AugmentedManifestsListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AugmentedManifestsDocumentTypeFormat
+      -&gt; Maybe Split
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; [Text]
+      -&gt; AugmentedManifestsListItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceDocumentsS3Uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AugmentedManifestsDocumentTypeFormat
+   -&gt; Maybe Split
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; [Text]
+   -&gt; AugmentedManifestsListItem)
+-&gt; Parser (Maybe AugmentedManifestsDocumentTypeFormat)
+-&gt; Parser
+     (Maybe Split
+      -&gt; Maybe Text -&gt; Text -&gt; [Text] -&gt; AugmentedManifestsListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe AugmentedManifestsDocumentTypeFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Split
+   -&gt; Maybe Text -&gt; Text -&gt; [Text] -&gt; AugmentedManifestsListItem)
+-&gt; Parser (Maybe Split)
+-&gt; Parser
+     (Maybe Text -&gt; Text -&gt; [Text] -&gt; AugmentedManifestsListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Split)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Split&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; [Text] -&gt; AugmentedManifestsListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; [Text] -&gt; AugmentedManifestsListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnnotationDataS3Uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [Text] -&gt; AugmentedManifestsListItem)
+-&gt; Parser Text -&gt; Parser ([Text] -&gt; AugmentedManifestsListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; AugmentedManifestsListItem)
+-&gt; Parser [Text] -&gt; Parser AugmentedManifestsListItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeNames&quot;</span></span><span>
+</span><span id="line-212"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-213"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348397"><span id="local-6989586621679348399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span></span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348386"><span id="local-6989586621679348388"><span id="local-6989586621679348390"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679348384"><span class="annot"><span class="annottext">toJSON :: AugmentedManifestsListItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem%27"><span class="hs-identifier hs-type">AugmentedManifestsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348377"><span id="local-6989586621679348378"><span id="local-6989586621679348379"><span id="local-6989586621679348380"><span id="local-6989586621679348381"><span id="local-6989586621679348382"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Maybe AugmentedManifestsDocumentTypeFormat
+Maybe Split
+Text
+attributeNames :: [Text]
+s3Uri :: Text
+annotationDataS3Uri :: Maybe Text
+split :: Maybe Split
+documentType :: Maybe AugmentedManifestsDocumentTypeFormat
+sourceDocumentsS3Uri :: Maybe Text
+$sel:attributeNames:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; [Text]
+$sel:s3Uri:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Text
+$sel:annotationDataS3Uri:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Maybe Text
+$sel:split:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Maybe Split
+$sel:documentType:AugmentedManifestsListItem' :: AugmentedManifestsListItem
+-&gt; Maybe AugmentedManifestsDocumentTypeFormat
+$sel:sourceDocumentsS3Uri:AugmentedManifestsListItem' :: AugmentedManifestsListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679348377"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-224"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceDocumentsS3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348382"><span class="hs-identifier hs-var">sourceDocumentsS3Uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AugmentedManifestsDocumentTypeFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AugmentedManifestsDocumentTypeFormat -&gt; Pair)
+-&gt; Maybe AugmentedManifestsDocumentTypeFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AugmentedManifestsDocumentTypeFormat
+</span><a href="#local-6989586621679348381"><span class="hs-identifier hs-var">documentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Split&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Split -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Split -&gt; Pair) -&gt; Maybe Split -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Split
+</span><a href="#local-6989586621679348380"><span class="hs-identifier hs-var">split</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnnotationDataS3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348379"><span class="hs-identifier hs-var">annotationDataS3Uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348378"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-232"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679348377"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span></pre></body></html>

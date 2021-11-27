@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.Edition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.Edition</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition"><span class="hs-identifier">Edition</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition_ENTERPRISE"><span class="hs-identifier">Edition_ENTERPRISE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition_STANDARD"><span class="hs-identifier">Edition_STANDARD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679553988"><span id="local-6989586621679553989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Edition"><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition"><span class="hs-identifier hs-var">Edition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Edition%27"><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition%27"><span class="hs-identifier hs-var">Edition'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromEdition"><span class="annot"><span class="annottext">Edition -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.Edition.html#fromEdition"><span class="hs-identifier hs-var hs-var">fromEdition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553980"><span id="local-6989586621679553982"><span id="local-6989586621679553984"><span class="annot"><span class="annottext">Int -&gt; Edition -&gt; ShowS
+[Edition] -&gt; ShowS
+Edition -&gt; String
+(Int -&gt; Edition -&gt; ShowS)
+-&gt; (Edition -&gt; String) -&gt; ([Edition] -&gt; ShowS) -&gt; Show Edition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Edition] -&gt; ShowS
+$cshowList :: [Edition] -&gt; ShowS
+show :: Edition -&gt; String
+$cshow :: Edition -&gt; String
+showsPrec :: Int -&gt; Edition -&gt; ShowS
+$cshowsPrec :: Int -&gt; Edition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679553971"><span id="local-6989586621679553973"><span id="local-6989586621679553975"><span id="local-6989586621679553977"><span class="annot"><span class="annottext">ReadPrec [Edition]
+ReadPrec Edition
+Int -&gt; ReadS Edition
+ReadS [Edition]
+(Int -&gt; ReadS Edition)
+-&gt; ReadS [Edition]
+-&gt; ReadPrec Edition
+-&gt; ReadPrec [Edition]
+-&gt; Read Edition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Edition]
+$creadListPrec :: ReadPrec [Edition]
+readPrec :: ReadPrec Edition
+$creadPrec :: ReadPrec Edition
+readList :: ReadS [Edition]
+$creadList :: ReadS [Edition]
+readsPrec :: Int -&gt; ReadS Edition
+$creadsPrec :: Int -&gt; ReadS Edition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679553966"><span id="local-6989586621679553968"><span class="annot"><span class="annottext">Edition -&gt; Edition -&gt; Bool
+(Edition -&gt; Edition -&gt; Bool)
+-&gt; (Edition -&gt; Edition -&gt; Bool) -&gt; Eq Edition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Edition -&gt; Edition -&gt; Bool
+$c/= :: Edition -&gt; Edition -&gt; Bool
+== :: Edition -&gt; Edition -&gt; Bool
+$c== :: Edition -&gt; Edition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679553950"><span id="local-6989586621679553952"><span id="local-6989586621679553954"><span id="local-6989586621679553956"><span id="local-6989586621679553958"><span id="local-6989586621679553960"><span id="local-6989586621679553962"><span class="annot"><span class="annottext">Eq Edition
+Eq Edition
+-&gt; (Edition -&gt; Edition -&gt; Ordering)
+-&gt; (Edition -&gt; Edition -&gt; Bool)
+-&gt; (Edition -&gt; Edition -&gt; Bool)
+-&gt; (Edition -&gt; Edition -&gt; Bool)
+-&gt; (Edition -&gt; Edition -&gt; Bool)
+-&gt; (Edition -&gt; Edition -&gt; Edition)
+-&gt; (Edition -&gt; Edition -&gt; Edition)
+-&gt; Ord Edition
+Edition -&gt; Edition -&gt; Bool
+Edition -&gt; Edition -&gt; Ordering
+Edition -&gt; Edition -&gt; Edition
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Edition -&gt; Edition -&gt; Edition
+$cmin :: Edition -&gt; Edition -&gt; Edition
+max :: Edition -&gt; Edition -&gt; Edition
+$cmax :: Edition -&gt; Edition -&gt; Edition
+&gt;= :: Edition -&gt; Edition -&gt; Bool
+$c&gt;= :: Edition -&gt; Edition -&gt; Bool
+&gt; :: Edition -&gt; Edition -&gt; Bool
+$c&gt; :: Edition -&gt; Edition -&gt; Bool
+&lt;= :: Edition -&gt; Edition -&gt; Bool
+$c&lt;= :: Edition -&gt; Edition -&gt; Bool
+&lt; :: Edition -&gt; Edition -&gt; Bool
+$c&lt; :: Edition -&gt; Edition -&gt; Bool
+compare :: Edition -&gt; Edition -&gt; Ordering
+$ccompare :: Edition -&gt; Edition -&gt; Ordering
+$cp1Ord :: Eq Edition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Edition -&gt; Rep Edition x)
+-&gt; (forall x. Rep Edition x -&gt; Edition) -&gt; Generic Edition
+forall x. Rep Edition x -&gt; Edition
+forall x. Edition -&gt; Rep Edition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Edition x -&gt; Edition
+$cfrom :: forall x. Edition -&gt; Rep Edition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553942"><span id="local-6989586621679553944"><span class="annot"><span class="annottext">Int -&gt; Edition -&gt; Int
+Edition -&gt; Int
+(Int -&gt; Edition -&gt; Int) -&gt; (Edition -&gt; Int) -&gt; Hashable Edition
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Edition -&gt; Int
+$chash :: Edition -&gt; Int
+hashWithSalt :: Int -&gt; Edition -&gt; Int
+$chashWithSalt :: Int -&gt; Edition -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679553939"><span class="annot"><span class="annottext">Edition -&gt; ()
+(Edition -&gt; ()) -&gt; NFData Edition
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Edition -&gt; ()
+$crnf :: Edition -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679553936"><span class="annot"><span class="annottext">Text -&gt; Either String Edition
+(Text -&gt; Either String Edition) -&gt; FromText Edition
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Edition
+$cfromText :: Text -&gt; Either String Edition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679553933"><span class="annot"><span class="annottext">Edition -&gt; Text
+(Edition -&gt; Text) -&gt; ToText Edition
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Edition -&gt; Text
+$ctoText :: Edition -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679553930"><span class="annot"><span class="annottext">Edition -&gt; ByteString
+(Edition -&gt; ByteString) -&gt; ToByteString Edition
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Edition -&gt; ByteString
+$ctoBS :: Edition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679553927"><span class="annot"><span class="annottext">Edition -&gt; ByteStringBuilder
+(Edition -&gt; ByteStringBuilder) -&gt; ToLog Edition
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Edition -&gt; ByteStringBuilder
+$cbuild :: Edition -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679553924"><span class="annot"><span class="annottext">HeaderName -&gt; Edition -&gt; [Header]
+(HeaderName -&gt; Edition -&gt; [Header]) -&gt; ToHeader Edition
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Edition -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Edition -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679553921"><span class="annot"><span class="annottext">Edition -&gt; QueryString
+(Edition -&gt; QueryString) -&gt; ToQuery Edition
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Edition -&gt; QueryString
+$ctoQuery :: Edition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679553916"><span id="local-6989586621679553918"><span class="annot"><span class="annottext">Value -&gt; Parser [Edition]
+Value -&gt; Parser Edition
+(Value -&gt; Parser Edition)
+-&gt; (Value -&gt; Parser [Edition]) -&gt; FromJSON Edition
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Edition]
+$cparseJSONList :: Value -&gt; Parser [Edition]
+parseJSON :: Value -&gt; Parser Edition
+$cparseJSON :: Value -&gt; Parser Edition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679553911"><span id="local-6989586621679553913"><span class="annot"><span class="annottext">FromJSONKeyFunction [Edition]
+FromJSONKeyFunction Edition
+FromJSONKeyFunction Edition
+-&gt; FromJSONKeyFunction [Edition] -&gt; FromJSONKey Edition
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Edition]
+$cfromJSONKeyList :: FromJSONKeyFunction [Edition]
+fromJSONKey :: FromJSONKeyFunction Edition
+$cfromJSONKey :: FromJSONKeyFunction Edition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679553902"><span id="local-6989586621679553904"><span id="local-6989586621679553906"><span id="local-6989586621679553908"><span class="annot"><span class="annottext">[Edition] -&gt; Encoding
+[Edition] -&gt; Value
+Edition -&gt; Encoding
+Edition -&gt; Value
+(Edition -&gt; Value)
+-&gt; (Edition -&gt; Encoding)
+-&gt; ([Edition] -&gt; Value)
+-&gt; ([Edition] -&gt; Encoding)
+-&gt; ToJSON Edition
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Edition] -&gt; Encoding
+$ctoEncodingList :: [Edition] -&gt; Encoding
+toJSONList :: [Edition] -&gt; Value
+$ctoJSONList :: [Edition] -&gt; Value
+toEncoding :: Edition -&gt; Encoding
+$ctoEncoding :: Edition -&gt; Encoding
+toJSON :: Edition -&gt; Value
+$ctoJSON :: Edition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679553897"><span id="local-6989586621679553899"><span class="annot"><span class="annottext">ToJSONKeyFunction [Edition]
+ToJSONKeyFunction Edition
+ToJSONKeyFunction Edition
+-&gt; ToJSONKeyFunction [Edition] -&gt; ToJSONKey Edition
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Edition]
+$ctoJSONKeyList :: ToJSONKeyFunction [Edition]
+toJSONKey :: ToJSONKeyFunction Edition
+$ctoJSONKey :: ToJSONKeyFunction Edition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679553894"><span class="annot"><span class="annottext">[Node] -&gt; Either String Edition
+([Node] -&gt; Either String Edition) -&gt; FromXML Edition
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Edition
+$cparseXML :: [Node] -&gt; Either String Edition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679553891"><span class="annot"><span class="annottext">Edition -&gt; XML
+(Edition -&gt; XML) -&gt; ToXML Edition
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Edition -&gt; XML
+$ctoXML :: Edition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition_ENTERPRISE"><span class="hs-identifier hs-type">Edition_ENTERPRISE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition"><span class="hs-identifier hs-type">Edition</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEdition_ENTERPRISE"><span id="%24mEdition_ENTERPRISE"><span id="Edition_ENTERPRISE"><span class="annot"><span class="annottext">$bEdition_ENTERPRISE :: Edition
+$mEdition_ENTERPRISE :: forall r. Edition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.Edition.html#%24bEdition_ENTERPRISE"><span class="hs-identifier hs-var hs-var hs-var">Edition_ENTERPRISE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition%27"><span class="hs-identifier hs-type">Edition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENTERPRISE&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition_STANDARD"><span class="hs-identifier hs-type">Edition_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition"><span class="hs-identifier hs-type">Edition</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEdition_STANDARD"><span id="%24mEdition_STANDARD"><span id="Edition_STANDARD"><span class="annot"><span class="annottext">$bEdition_STANDARD :: Edition
+$mEdition_STANDARD :: forall r. Edition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.Edition.html#%24bEdition_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">Edition_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition%27"><span class="hs-identifier hs-type">Edition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition_ENTERPRISE"><span class="hs-pragma hs-type">Edition_ENTERPRISE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition_STANDARD"><span class="hs-pragma hs-type">Edition_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.Edition.html#Edition%27"><span class="hs-pragma hs-type">Edition'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

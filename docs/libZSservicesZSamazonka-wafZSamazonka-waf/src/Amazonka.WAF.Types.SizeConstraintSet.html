@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WAF.Types.SizeConstraintSet</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAF.Types.SizeConstraintSet</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraint.html"><span class="hs-identifier">Amazonka.WAF.Types.SizeConstraint</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- A complex type that contains @SizeConstraint@ objects, which specify the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- parts of web requests that you want AWS WAF to inspect the size of. If a</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @SizeConstraintSet@ contains more than one @SizeConstraint@ object, a</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- request only needs to match one constraint to be considered a match.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newSizeConstraintSet' smart constructor.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679305461"><span id="local-6989586621679305462"></span></span><span class="hs-keyword">data</span><span> </span><span id="SizeConstraintSet"><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-var">SizeConstraintSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SizeConstraintSet%27"><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-var">SizeConstraintSet'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name, if any, of the @SizeConstraintSet@.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3ASizeConstraintSet%27"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; Maybe Text
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3Aname%3ASizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A unique identifier for a @SizeConstraintSet@. You use</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @SizeConstraintSetId@ to get information about a @SizeConstraintSet@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- (see GetSizeConstraintSet), update a @SizeConstraintSet@ (see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- UpdateSizeConstraintSet), insert a @SizeConstraintSet@ into a @Rule@ or</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- delete one from a @Rule@ (see UpdateRule), and delete a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @SizeConstraintSet@ from AWS WAF (see DeleteSizeConstraintSet).</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- ListSizeConstraintSets.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsizeConstraintSetId%3ASizeConstraintSet%27"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; Text
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3ASizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">sizeConstraintSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Specifies the parts of web requests that you want to inspect the size</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- of.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; [SizeConstraint]
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">sizeConstraints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305453"><span id="local-6989586621679305455"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
+(SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool)
+-&gt; (SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool)
+-&gt; Eq SizeConstraintSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
+$c/= :: SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
+== :: SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
+$c== :: SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305444"><span id="local-6989586621679305446"><span id="local-6989586621679305448"><span id="local-6989586621679305450"><span class="annot"><span class="annottext">ReadPrec [SizeConstraintSet]
+ReadPrec SizeConstraintSet
+Int -&gt; ReadS SizeConstraintSet
+ReadS [SizeConstraintSet]
+(Int -&gt; ReadS SizeConstraintSet)
+-&gt; ReadS [SizeConstraintSet]
+-&gt; ReadPrec SizeConstraintSet
+-&gt; ReadPrec [SizeConstraintSet]
+-&gt; Read SizeConstraintSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SizeConstraintSet]
+$creadListPrec :: ReadPrec [SizeConstraintSet]
+readPrec :: ReadPrec SizeConstraintSet
+$creadPrec :: ReadPrec SizeConstraintSet
+readList :: ReadS [SizeConstraintSet]
+$creadList :: ReadS [SizeConstraintSet]
+readsPrec :: Int -&gt; ReadS SizeConstraintSet
+$creadsPrec :: Int -&gt; ReadS SizeConstraintSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305437"><span id="local-6989586621679305439"><span id="local-6989586621679305441"><span class="annot"><span class="annottext">Int -&gt; SizeConstraintSet -&gt; ShowS
+[SizeConstraintSet] -&gt; ShowS
+SizeConstraintSet -&gt; String
+(Int -&gt; SizeConstraintSet -&gt; ShowS)
+-&gt; (SizeConstraintSet -&gt; String)
+-&gt; ([SizeConstraintSet] -&gt; ShowS)
+-&gt; Show SizeConstraintSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SizeConstraintSet] -&gt; ShowS
+$cshowList :: [SizeConstraintSet] -&gt; ShowS
+show :: SizeConstraintSet -&gt; String
+$cshow :: SizeConstraintSet -&gt; String
+showsPrec :: Int -&gt; SizeConstraintSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; SizeConstraintSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SizeConstraintSet -&gt; Rep SizeConstraintSet x)
+-&gt; (forall x. Rep SizeConstraintSet x -&gt; SizeConstraintSet)
+-&gt; Generic SizeConstraintSet
+forall x. Rep SizeConstraintSet x -&gt; SizeConstraintSet
+forall x. SizeConstraintSet -&gt; Rep SizeConstraintSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SizeConstraintSet x -&gt; SizeConstraintSet
+$cfrom :: forall x. SizeConstraintSet -&gt; Rep SizeConstraintSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'SizeConstraintSet' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'sizeConstraintSet_name' - The name, if any, of the @SizeConstraintSet@.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'sizeConstraintSetId', 'sizeConstraintSet_sizeConstraintSetId' - A unique identifier for a @SizeConstraintSet@. You use</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @SizeConstraintSetId@ to get information about a @SizeConstraintSet@</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- (see GetSizeConstraintSet), update a @SizeConstraintSet@ (see</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- UpdateSizeConstraintSet), insert a @SizeConstraintSet@ into a @Rule@ or</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- delete one from a @Rule@ (see UpdateRule), and delete a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @SizeConstraintSet@ from AWS WAF (see DeleteSizeConstraintSet).</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- ListSizeConstraintSets.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'sizeConstraints', 'sizeConstraintSet_sizeConstraints' - Specifies the parts of web requests that you want to inspect the size</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- of.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#newSizeConstraintSet"><span class="hs-identifier hs-type">newSizeConstraintSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'sizeConstraintSetId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span>
+</span><span id="line-87"></span><span id="newSizeConstraintSet"><span class="annot"><span class="annottext">newSizeConstraintSet :: Text -&gt; SizeConstraintSet
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#newSizeConstraintSet"><span class="hs-identifier hs-var hs-var">newSizeConstraintSet</span></a></span></span><span> </span><span id="local-6989586621679305431"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305431"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">SizeConstraintSet' :: Maybe Text -&gt; Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:SizeConstraintSet' :: Maybe Text
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3Aname%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeConstraintSetId:SizeConstraintSet' :: Text
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305431"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeConstraints:SizeConstraintSet' :: [SizeConstraint]
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name, if any, of the @SizeConstraintSet@.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#sizeConstraintSet_name"><span class="hs-identifier hs-type">sizeConstraintSet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="sizeConstraintSet_name"><span class="annot"><span class="annottext">sizeConstraintSet_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SizeConstraintSet -&gt; f SizeConstraintSet
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#sizeConstraintSet_name"><span class="hs-identifier hs-var hs-var">sizeConstraintSet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SizeConstraintSet -&gt; Maybe Text)
+-&gt; (SizeConstraintSet -&gt; Maybe Text -&gt; SizeConstraintSet)
+-&gt; Lens
+     SizeConstraintSet SizeConstraintSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305427"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:SizeConstraintSet' :: SizeConstraintSet -&gt; Maybe Text
+</span><a href="#local-6989586621679305427"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305427"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305426"><span class="annot"><span class="annottext">s :: SizeConstraintSet
+</span><a href="#local-6989586621679305426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305425"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
+</span><a href="#local-6989586621679305426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SizeConstraintSet' :: Maybe Text
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3Aname%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A unique identifier for a @SizeConstraintSet@. You use</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @SizeConstraintSetId@ to get information about a @SizeConstraintSet@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- (see GetSizeConstraintSet), update a @SizeConstraintSet@ (see</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- UpdateSizeConstraintSet), insert a @SizeConstraintSet@ into a @Rule@ or</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- delete one from a @Rule@ (see UpdateRule), and delete a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @SizeConstraintSet@ from AWS WAF (see DeleteSizeConstraintSet).</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- ListSizeConstraintSets.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#sizeConstraintSet_sizeConstraintSetId"><span class="hs-identifier hs-type">sizeConstraintSet_sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="sizeConstraintSet_sizeConstraintSetId"><span class="annot"><span class="annottext">sizeConstraintSet_sizeConstraintSetId :: (Text -&gt; f Text) -&gt; SizeConstraintSet -&gt; f SizeConstraintSet
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#sizeConstraintSet_sizeConstraintSetId"><span class="hs-identifier hs-var hs-var">sizeConstraintSet_sizeConstraintSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SizeConstraintSet -&gt; Text)
+-&gt; (SizeConstraintSet -&gt; Text -&gt; SizeConstraintSet)
+-&gt; Lens SizeConstraintSet SizeConstraintSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305423"><span class="annot"><span class="annottext">Text
+sizeConstraintSetId :: Text
+$sel:sizeConstraintSetId:SizeConstraintSet' :: SizeConstraintSet -&gt; Text
+</span><a href="#local-6989586621679305423"><span class="hs-identifier hs-var hs-var">sizeConstraintSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305423"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305422"><span class="annot"><span class="annottext">s :: SizeConstraintSet
+</span><a href="#local-6989586621679305422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
+</span><a href="#local-6989586621679305422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeConstraintSetId:SizeConstraintSet' :: Text
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Specifies the parts of web requests that you want to inspect the size</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- of.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#sizeConstraintSet_sizeConstraints"><span class="hs-identifier hs-type">sizeConstraintSet_sizeConstraints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span id="sizeConstraintSet_sizeConstraints"><span class="annot"><span class="annottext">sizeConstraintSet_sizeConstraints :: ([SizeConstraint] -&gt; f [SizeConstraint])
+-&gt; SizeConstraintSet -&gt; f SizeConstraintSet
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#sizeConstraintSet_sizeConstraints"><span class="hs-identifier hs-var hs-var">sizeConstraintSet_sizeConstraints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SizeConstraintSet -&gt; [SizeConstraint])
+-&gt; (SizeConstraintSet -&gt; [SizeConstraint] -&gt; SizeConstraintSet)
+-&gt; Lens
+     SizeConstraintSet
+     SizeConstraintSet
+     [SizeConstraint]
+     [SizeConstraint]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305419"><span class="annot"><span class="annottext">[SizeConstraint]
+sizeConstraints :: [SizeConstraint]
+$sel:sizeConstraints:SizeConstraintSet' :: SizeConstraintSet -&gt; [SizeConstraint]
+</span><a href="#local-6989586621679305419"><span class="hs-identifier hs-var hs-var">sizeConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
+</span><a href="#local-6989586621679305419"><span class="hs-identifier hs-var">sizeConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305418"><span class="annot"><span class="annottext">s :: SizeConstraintSet
+</span><a href="#local-6989586621679305418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305417"><span class="annot"><span class="annottext">[SizeConstraint]
+</span><a href="#local-6989586621679305417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
+</span><a href="#local-6989586621679305418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeConstraints:SizeConstraintSet' :: [SizeConstraint]
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
+</span><a href="#local-6989586621679305417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SizeConstraint] -&gt; f [SizeConstraint])
+ -&gt; SizeConstraintSet -&gt; f SizeConstraintSet)
+-&gt; (([SizeConstraint] -&gt; f [SizeConstraint])
+    -&gt; [SizeConstraint] -&gt; f [SizeConstraint])
+-&gt; ([SizeConstraint] -&gt; f [SizeConstraint])
+-&gt; SizeConstraintSet
+-&gt; f SizeConstraintSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SizeConstraint] -&gt; f [SizeConstraint])
+-&gt; [SizeConstraint] -&gt; f [SizeConstraint]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305412"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679305410"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SizeConstraintSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SizeConstraintSet)
+-&gt; Value
+-&gt; Parser SizeConstraintSet
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SizeConstraintSet&quot;</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305407"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet
+</span><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-var">SizeConstraintSet'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet)
+-&gt; Parser Text -&gt; Parser ([SizeConstraint] -&gt; SizeConstraintSet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SizeConstraintSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser ([SizeConstraint] -&gt; SizeConstraintSet)
+-&gt; Parser [SizeConstraint] -&gt; Parser SizeConstraintSet
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SizeConstraint])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SizeConstraints&quot;</span></span><span>
+</span><span id="line-124"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [SizeConstraint])
+-&gt; [SizeConstraint] -&gt; Parser [SizeConstraint]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305399"><span id="local-6989586621679305401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span><span>
+</span><span id="line-131"></span></pre></body></html>

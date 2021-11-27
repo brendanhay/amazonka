@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTEvents.StartDetectorModelAnalysis</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Performs an analysis of your detector model. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html Troubleshooting a detector model&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the /AWS IoT Events Developer Guide/.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEvents.StartDetectorModelAnalysis</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier">StartDetectorModelAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#newStartDetectorModelAnalysis"><span class="hs-identifier">newStartDetectorModelAnalysis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysis_detectorModelDefinition"><span class="hs-identifier">startDetectorModelAnalysis_detectorModelDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier">StartDetectorModelAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#newStartDetectorModelAnalysisResponse"><span class="hs-identifier">newStartDetectorModelAnalysisResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysisResponse_analysisId"><span class="hs-identifier">startDetectorModelAnalysisResponse_analysisId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysisResponse_httpStatus"><span class="hs-identifier">startDetectorModelAnalysisResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.html"><span class="hs-identifier">Amazonka.IoTEvents.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newStartDetectorModelAnalysis' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679248021"><span id="local-6989586621679248022"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDetectorModelAnalysis"><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-var">StartDetectorModelAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDetectorModelAnalysis%27"><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis%27"><span class="hs-identifier hs-var">StartDetectorModelAnalysis'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdetectorModelDefinition%3AStartDetectorModelAnalysis%27"><span class="annot"><span class="annottext">StartDetectorModelAnalysis -&gt; DetectorModelDefinition
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AdetectorModelDefinition%3AStartDetectorModelAnalysis%27"><span class="hs-identifier hs-var hs-var">detectorModelDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.DetectorModelDefinition.html#DetectorModelDefinition"><span class="hs-identifier hs-type">DetectorModelDefinition</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248015"><span id="local-6989586621679248017"><span class="annot"><span class="annottext">StartDetectorModelAnalysis -&gt; StartDetectorModelAnalysis -&gt; Bool
+(StartDetectorModelAnalysis -&gt; StartDetectorModelAnalysis -&gt; Bool)
+-&gt; (StartDetectorModelAnalysis
+    -&gt; StartDetectorModelAnalysis -&gt; Bool)
+-&gt; Eq StartDetectorModelAnalysis
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDetectorModelAnalysis -&gt; StartDetectorModelAnalysis -&gt; Bool
+$c/= :: StartDetectorModelAnalysis -&gt; StartDetectorModelAnalysis -&gt; Bool
+== :: StartDetectorModelAnalysis -&gt; StartDetectorModelAnalysis -&gt; Bool
+$c== :: StartDetectorModelAnalysis -&gt; StartDetectorModelAnalysis -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248006"><span id="local-6989586621679248008"><span id="local-6989586621679248010"><span id="local-6989586621679248012"><span class="annot"><span class="annottext">ReadPrec [StartDetectorModelAnalysis]
+ReadPrec StartDetectorModelAnalysis
+Int -&gt; ReadS StartDetectorModelAnalysis
+ReadS [StartDetectorModelAnalysis]
+(Int -&gt; ReadS StartDetectorModelAnalysis)
+-&gt; ReadS [StartDetectorModelAnalysis]
+-&gt; ReadPrec StartDetectorModelAnalysis
+-&gt; ReadPrec [StartDetectorModelAnalysis]
+-&gt; Read StartDetectorModelAnalysis
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDetectorModelAnalysis]
+$creadListPrec :: ReadPrec [StartDetectorModelAnalysis]
+readPrec :: ReadPrec StartDetectorModelAnalysis
+$creadPrec :: ReadPrec StartDetectorModelAnalysis
+readList :: ReadS [StartDetectorModelAnalysis]
+$creadList :: ReadS [StartDetectorModelAnalysis]
+readsPrec :: Int -&gt; ReadS StartDetectorModelAnalysis
+$creadsPrec :: Int -&gt; ReadS StartDetectorModelAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247999"><span id="local-6989586621679248001"><span id="local-6989586621679248003"><span class="annot"><span class="annottext">Int -&gt; StartDetectorModelAnalysis -&gt; ShowS
+[StartDetectorModelAnalysis] -&gt; ShowS
+StartDetectorModelAnalysis -&gt; String
+(Int -&gt; StartDetectorModelAnalysis -&gt; ShowS)
+-&gt; (StartDetectorModelAnalysis -&gt; String)
+-&gt; ([StartDetectorModelAnalysis] -&gt; ShowS)
+-&gt; Show StartDetectorModelAnalysis
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDetectorModelAnalysis] -&gt; ShowS
+$cshowList :: [StartDetectorModelAnalysis] -&gt; ShowS
+show :: StartDetectorModelAnalysis -&gt; String
+$cshow :: StartDetectorModelAnalysis -&gt; String
+showsPrec :: Int -&gt; StartDetectorModelAnalysis -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDetectorModelAnalysis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDetectorModelAnalysis -&gt; Rep StartDetectorModelAnalysis x)
+-&gt; (forall x.
+    Rep StartDetectorModelAnalysis x -&gt; StartDetectorModelAnalysis)
+-&gt; Generic StartDetectorModelAnalysis
+forall x.
+Rep StartDetectorModelAnalysis x -&gt; StartDetectorModelAnalysis
+forall x.
+StartDetectorModelAnalysis -&gt; Rep StartDetectorModelAnalysis x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartDetectorModelAnalysis x -&gt; StartDetectorModelAnalysis
+$cfrom :: forall x.
+StartDetectorModelAnalysis -&gt; Rep StartDetectorModelAnalysis x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'StartDetectorModelAnalysis' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'detectorModelDefinition', 'startDetectorModelAnalysis_detectorModelDefinition' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#newStartDetectorModelAnalysis"><span class="hs-identifier hs-type">newStartDetectorModelAnalysis</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'detectorModelDefinition'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.DetectorModelDefinition.html#DetectorModelDefinition"><span class="hs-identifier hs-type">DetectorModelDefinition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span>
+</span><span id="line-70"></span><span id="newStartDetectorModelAnalysis"><span class="annot"><span class="annottext">newStartDetectorModelAnalysis :: DetectorModelDefinition -&gt; StartDetectorModelAnalysis
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#newStartDetectorModelAnalysis"><span class="hs-identifier hs-var hs-var">newStartDetectorModelAnalysis</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679247994"><span class="annot"><span class="annottext">DetectorModelDefinition
+</span><a href="#local-6989586621679247994"><span class="hs-identifier hs-var">pDetectorModelDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">StartDetectorModelAnalysis' :: DetectorModelDefinition -&gt; StartDetectorModelAnalysis
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysis'</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorModelDefinition:StartDetectorModelAnalysis' :: DetectorModelDefinition
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AdetectorModelDefinition%3AStartDetectorModelAnalysis%27"><span class="hs-identifier hs-var">detectorModelDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">DetectorModelDefinition
+</span><a href="#local-6989586621679247994"><span class="hs-identifier hs-var">pDetectorModelDefinition_</span></a></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysis_detectorModelDefinition"><span class="hs-identifier hs-type">startDetectorModelAnalysis_detectorModelDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.DetectorModelDefinition.html#DetectorModelDefinition"><span class="hs-identifier hs-type">DetectorModelDefinition</span></a></span><span>
+</span><span id="line-79"></span><span id="startDetectorModelAnalysis_detectorModelDefinition"><span class="annot"><span class="annottext">startDetectorModelAnalysis_detectorModelDefinition :: (DetectorModelDefinition -&gt; f DetectorModelDefinition)
+-&gt; StartDetectorModelAnalysis -&gt; f StartDetectorModelAnalysis
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysis_detectorModelDefinition"><span class="hs-identifier hs-var hs-var">startDetectorModelAnalysis_detectorModelDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDetectorModelAnalysis -&gt; DetectorModelDefinition)
+-&gt; (StartDetectorModelAnalysis
+    -&gt; DetectorModelDefinition -&gt; StartDetectorModelAnalysis)
+-&gt; Lens
+     StartDetectorModelAnalysis
+     StartDetectorModelAnalysis
+     DetectorModelDefinition
+     DetectorModelDefinition
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247991"><span class="annot"><span class="annottext">DetectorModelDefinition
+detectorModelDefinition :: DetectorModelDefinition
+$sel:detectorModelDefinition:StartDetectorModelAnalysis' :: StartDetectorModelAnalysis -&gt; DetectorModelDefinition
+</span><a href="#local-6989586621679247991"><span class="hs-identifier hs-var hs-var">detectorModelDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorModelDefinition
+</span><a href="#local-6989586621679247991"><span class="hs-identifier hs-var">detectorModelDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247990"><span class="annot"><span class="annottext">s :: StartDetectorModelAnalysis
+</span><a href="#local-6989586621679247990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247989"><span class="annot"><span class="annottext">DetectorModelDefinition
+</span><a href="#local-6989586621679247989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDetectorModelAnalysis
+</span><a href="#local-6989586621679247990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorModelDefinition:StartDetectorModelAnalysis' :: DetectorModelDefinition
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AdetectorModelDefinition%3AStartDetectorModelAnalysis%27"><span class="hs-identifier hs-var">detectorModelDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetectorModelDefinition
+</span><a href="#local-6989586621679247989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679247985"><span class="annot"><span class="annottext">request :: StartDetectorModelAnalysis -&gt; Request StartDetectorModelAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartDetectorModelAnalysis -&gt; Request StartDetectorModelAnalysis
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679247981"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartDetectorModelAnalysis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDetectorModelAnalysis)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartDetectorModelAnalysis))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartDetectorModelAnalysis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDetectorModelAnalysis)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247978"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247978"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247977"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679247977"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247976"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartDetectorModelAnalysisResponse
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var">StartDetectorModelAnalysisResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartDetectorModelAnalysisResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartDetectorModelAnalysisResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;analysisId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartDetectorModelAnalysisResponse)
+-&gt; Either String Int
+-&gt; Either String StartDetectorModelAnalysisResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247978"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247968"><span id="local-6989586621679247970"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679247961"><span class="annot"><span class="annottext">toHeaders :: StartDetectorModelAnalysis -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartDetectorModelAnalysis -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247952"><span id="local-6989586621679247954"><span id="local-6989586621679247956"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679247950"><span class="annot"><span class="annottext">toJSON :: StartDetectorModelAnalysis -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247948"><span class="annot"><span class="annottext">DetectorModelDefinition
+detectorModelDefinition :: DetectorModelDefinition
+$sel:detectorModelDefinition:StartDetectorModelAnalysis' :: StartDetectorModelAnalysis -&gt; DetectorModelDefinition
+</span><a href="#local-6989586621679247948"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorModelDefinition&quot;</span></span><span>
+</span><span id="line-107"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; DetectorModelDefinition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DetectorModelDefinition
+</span><a href="#local-6989586621679247948"><span class="hs-identifier hs-var">detectorModelDefinition</span></a></span><span>
+</span><span id="line-108"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679247942"><span class="annot"><span class="annottext">toPath :: StartDetectorModelAnalysis -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartDetectorModelAnalysis -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/analysis/detector-models/&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysis"><span class="hs-identifier hs-type">StartDetectorModelAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679247938"><span class="annot"><span class="annottext">toQuery :: StartDetectorModelAnalysis -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartDetectorModelAnalysis -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newStartDetectorModelAnalysisResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679247935"><span id="local-6989586621679247936"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDetectorModelAnalysisResponse"><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-var">StartDetectorModelAnalysisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDetectorModelAnalysisResponse%27"><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var">StartDetectorModelAnalysisResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID that you can use to retrieve the analysis result.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AanalysisId%3AStartDetectorModelAnalysisResponse%27"><span class="annot"><span class="annottext">StartDetectorModelAnalysisResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AanalysisId%3AStartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartDetectorModelAnalysisResponse%27"><span class="annot"><span class="annottext">StartDetectorModelAnalysisResponse -&gt; Int
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AhttpStatus%3AStartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247929"><span id="local-6989586621679247931"><span class="annot"><span class="annottext">StartDetectorModelAnalysisResponse
+-&gt; StartDetectorModelAnalysisResponse -&gt; Bool
+(StartDetectorModelAnalysisResponse
+ -&gt; StartDetectorModelAnalysisResponse -&gt; Bool)
+-&gt; (StartDetectorModelAnalysisResponse
+    -&gt; StartDetectorModelAnalysisResponse -&gt; Bool)
+-&gt; Eq StartDetectorModelAnalysisResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDetectorModelAnalysisResponse
+-&gt; StartDetectorModelAnalysisResponse -&gt; Bool
+$c/= :: StartDetectorModelAnalysisResponse
+-&gt; StartDetectorModelAnalysisResponse -&gt; Bool
+== :: StartDetectorModelAnalysisResponse
+-&gt; StartDetectorModelAnalysisResponse -&gt; Bool
+$c== :: StartDetectorModelAnalysisResponse
+-&gt; StartDetectorModelAnalysisResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247921"><span id="local-6989586621679247923"><span id="local-6989586621679247925"><span id="local-6989586621679247927"><span class="annot"><span class="annottext">ReadPrec [StartDetectorModelAnalysisResponse]
+ReadPrec StartDetectorModelAnalysisResponse
+Int -&gt; ReadS StartDetectorModelAnalysisResponse
+ReadS [StartDetectorModelAnalysisResponse]
+(Int -&gt; ReadS StartDetectorModelAnalysisResponse)
+-&gt; ReadS [StartDetectorModelAnalysisResponse]
+-&gt; ReadPrec StartDetectorModelAnalysisResponse
+-&gt; ReadPrec [StartDetectorModelAnalysisResponse]
+-&gt; Read StartDetectorModelAnalysisResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDetectorModelAnalysisResponse]
+$creadListPrec :: ReadPrec [StartDetectorModelAnalysisResponse]
+readPrec :: ReadPrec StartDetectorModelAnalysisResponse
+$creadPrec :: ReadPrec StartDetectorModelAnalysisResponse
+readList :: ReadS [StartDetectorModelAnalysisResponse]
+$creadList :: ReadS [StartDetectorModelAnalysisResponse]
+readsPrec :: Int -&gt; ReadS StartDetectorModelAnalysisResponse
+$creadsPrec :: Int -&gt; ReadS StartDetectorModelAnalysisResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247915"><span id="local-6989586621679247917"><span id="local-6989586621679247919"><span class="annot"><span class="annottext">Int -&gt; StartDetectorModelAnalysisResponse -&gt; ShowS
+[StartDetectorModelAnalysisResponse] -&gt; ShowS
+StartDetectorModelAnalysisResponse -&gt; String
+(Int -&gt; StartDetectorModelAnalysisResponse -&gt; ShowS)
+-&gt; (StartDetectorModelAnalysisResponse -&gt; String)
+-&gt; ([StartDetectorModelAnalysisResponse] -&gt; ShowS)
+-&gt; Show StartDetectorModelAnalysisResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDetectorModelAnalysisResponse] -&gt; ShowS
+$cshowList :: [StartDetectorModelAnalysisResponse] -&gt; ShowS
+show :: StartDetectorModelAnalysisResponse -&gt; String
+$cshow :: StartDetectorModelAnalysisResponse -&gt; String
+showsPrec :: Int -&gt; StartDetectorModelAnalysisResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDetectorModelAnalysisResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDetectorModelAnalysisResponse
+ -&gt; Rep StartDetectorModelAnalysisResponse x)
+-&gt; (forall x.
+    Rep StartDetectorModelAnalysisResponse x
+    -&gt; StartDetectorModelAnalysisResponse)
+-&gt; Generic StartDetectorModelAnalysisResponse
+forall x.
+Rep StartDetectorModelAnalysisResponse x
+-&gt; StartDetectorModelAnalysisResponse
+forall x.
+StartDetectorModelAnalysisResponse
+-&gt; Rep StartDetectorModelAnalysisResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartDetectorModelAnalysisResponse x
+-&gt; StartDetectorModelAnalysisResponse
+$cfrom :: forall x.
+StartDetectorModelAnalysisResponse
+-&gt; Rep StartDetectorModelAnalysisResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'StartDetectorModelAnalysisResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'analysisId', 'startDetectorModelAnalysisResponse_analysisId' - The ID that you can use to retrieve the analysis result.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'startDetectorModelAnalysisResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#newStartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">newStartDetectorModelAnalysisResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newStartDetectorModelAnalysisResponse"><span class="annot"><span class="annottext">newStartDetectorModelAnalysisResponse :: Int -&gt; StartDetectorModelAnalysisResponse
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#newStartDetectorModelAnalysisResponse"><span class="hs-identifier hs-var hs-var">newStartDetectorModelAnalysisResponse</span></a></span></span><span> </span><span id="local-6989586621679247912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">StartDetectorModelAnalysisResponse' :: Maybe Text -&gt; Int -&gt; StartDetectorModelAnalysisResponse
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:analysisId:StartDetectorModelAnalysisResponse' :: Maybe Text
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AanalysisId%3AStartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartDetectorModelAnalysisResponse' :: Int
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AhttpStatus%3AStartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The ID that you can use to retrieve the analysis result.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysisResponse_analysisId"><span class="hs-identifier hs-type">startDetectorModelAnalysisResponse_analysisId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="startDetectorModelAnalysisResponse_analysisId"><span class="annot"><span class="annottext">startDetectorModelAnalysisResponse_analysisId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDetectorModelAnalysisResponse
+-&gt; f StartDetectorModelAnalysisResponse
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysisResponse_analysisId"><span class="hs-identifier hs-var hs-var">startDetectorModelAnalysisResponse_analysisId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDetectorModelAnalysisResponse -&gt; Maybe Text)
+-&gt; (StartDetectorModelAnalysisResponse
+    -&gt; Maybe Text -&gt; StartDetectorModelAnalysisResponse)
+-&gt; Lens
+     StartDetectorModelAnalysisResponse
+     StartDetectorModelAnalysisResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247911"><span class="annot"><span class="annottext">Maybe Text
+analysisId :: Maybe Text
+$sel:analysisId:StartDetectorModelAnalysisResponse' :: StartDetectorModelAnalysisResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679247911"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247911"><span class="hs-identifier hs-var">analysisId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247910"><span class="annot"><span class="annottext">s :: StartDetectorModelAnalysisResponse
+</span><a href="#local-6989586621679247910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDetectorModelAnalysisResponse
+</span><a href="#local-6989586621679247910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisId:StartDetectorModelAnalysisResponse' :: Maybe Text
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AanalysisId%3AStartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysisResponse_httpStatus"><span class="hs-identifier hs-type">startDetectorModelAnalysisResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span id="startDetectorModelAnalysisResponse_httpStatus"><span class="annot"><span class="annottext">startDetectorModelAnalysisResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartDetectorModelAnalysisResponse
+-&gt; f StartDetectorModelAnalysisResponse
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#startDetectorModelAnalysisResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startDetectorModelAnalysisResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDetectorModelAnalysisResponse -&gt; Int)
+-&gt; (StartDetectorModelAnalysisResponse
+    -&gt; Int -&gt; StartDetectorModelAnalysisResponse)
+-&gt; Lens
+     StartDetectorModelAnalysisResponse
+     StartDetectorModelAnalysisResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247908"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartDetectorModelAnalysisResponse' :: StartDetectorModelAnalysisResponse -&gt; Int
+</span><a href="#local-6989586621679247908"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247908"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247907"><span class="annot"><span class="annottext">s :: StartDetectorModelAnalysisResponse
+</span><a href="#local-6989586621679247907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDetectorModelAnalysisResponse
+</span><a href="#local-6989586621679247907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDetectorModelAnalysisResponse' :: Int
+</span><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#%24sel%3AhttpStatus%3AStartDetectorModelAnalysisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679247904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEvents.StartDetectorModelAnalysis.html#StartDetectorModelAnalysisResponse"><span class="hs-identifier hs-type">StartDetectorModelAnalysisResponse</span></a></span></span><span>
+</span><span id="line-160"></span></pre></body></html>

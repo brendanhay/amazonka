@@ -1,0 +1,910 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of anomalous metrics for a measure in an anomaly group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#newListAnomalyGroupTimeSeries"><span class="hs-identifier">newListAnomalyGroupTimeSeries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_nextToken"><span class="hs-identifier">listAnomalyGroupTimeSeries_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_maxResults"><span class="hs-identifier">listAnomalyGroupTimeSeries_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_anomalyDetectorArn"><span class="hs-identifier">listAnomalyGroupTimeSeries_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_anomalyGroupId"><span class="hs-identifier">listAnomalyGroupTimeSeries_anomalyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_metricName"><span class="hs-identifier">listAnomalyGroupTimeSeries_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier">ListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#newListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier">newListAnomalyGroupTimeSeriesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_timeSeriesList"><span class="hs-identifier">listAnomalyGroupTimeSeriesResponse_timeSeriesList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_timestampList"><span class="hs-identifier">listAnomalyGroupTimeSeriesResponse_timestampList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_metricName"><span class="hs-identifier">listAnomalyGroupTimeSeriesResponse_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_anomalyGroupId"><span class="hs-identifier">listAnomalyGroupTimeSeriesResponse_anomalyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_nextToken"><span class="hs-identifier">listAnomalyGroupTimeSeriesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_httpStatus"><span class="hs-identifier">listAnomalyGroupTimeSeriesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.html"><span class="hs-identifier">Amazonka.LookoutMetrics.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListAnomalyGroupTimeSeries' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679227484"><span id="local-6989586621679227485"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAnomalyGroupTimeSeries"><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-var">ListAnomalyGroupTimeSeries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAnomalyGroupTimeSeries%27"><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">ListAnomalyGroupTimeSeries'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListAnomalyGroupTimeSeries%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries -&gt; Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AnextToken%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAnomalyGroupTimeSeries%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries -&gt; Maybe Natural
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmaxResults%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the anomaly detector.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AanomalyDetectorArn%3AListAnomalyGroupTimeSeries%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyDetectorArn%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the anomaly group.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeries%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var hs-var">anomalyGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the measure field.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmetricName%3AListAnomalyGroupTimeSeries%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmetricName%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227474"><span id="local-6989586621679227476"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries -&gt; ListAnomalyGroupTimeSeries -&gt; Bool
+(ListAnomalyGroupTimeSeries -&gt; ListAnomalyGroupTimeSeries -&gt; Bool)
+-&gt; (ListAnomalyGroupTimeSeries
+    -&gt; ListAnomalyGroupTimeSeries -&gt; Bool)
+-&gt; Eq ListAnomalyGroupTimeSeries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAnomalyGroupTimeSeries -&gt; ListAnomalyGroupTimeSeries -&gt; Bool
+$c/= :: ListAnomalyGroupTimeSeries -&gt; ListAnomalyGroupTimeSeries -&gt; Bool
+== :: ListAnomalyGroupTimeSeries -&gt; ListAnomalyGroupTimeSeries -&gt; Bool
+$c== :: ListAnomalyGroupTimeSeries -&gt; ListAnomalyGroupTimeSeries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227465"><span id="local-6989586621679227467"><span id="local-6989586621679227469"><span id="local-6989586621679227471"><span class="annot"><span class="annottext">ReadPrec [ListAnomalyGroupTimeSeries]
+ReadPrec ListAnomalyGroupTimeSeries
+Int -&gt; ReadS ListAnomalyGroupTimeSeries
+ReadS [ListAnomalyGroupTimeSeries]
+(Int -&gt; ReadS ListAnomalyGroupTimeSeries)
+-&gt; ReadS [ListAnomalyGroupTimeSeries]
+-&gt; ReadPrec ListAnomalyGroupTimeSeries
+-&gt; ReadPrec [ListAnomalyGroupTimeSeries]
+-&gt; Read ListAnomalyGroupTimeSeries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAnomalyGroupTimeSeries]
+$creadListPrec :: ReadPrec [ListAnomalyGroupTimeSeries]
+readPrec :: ReadPrec ListAnomalyGroupTimeSeries
+$creadPrec :: ReadPrec ListAnomalyGroupTimeSeries
+readList :: ReadS [ListAnomalyGroupTimeSeries]
+$creadList :: ReadS [ListAnomalyGroupTimeSeries]
+readsPrec :: Int -&gt; ReadS ListAnomalyGroupTimeSeries
+$creadsPrec :: Int -&gt; ReadS ListAnomalyGroupTimeSeries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227458"><span id="local-6989586621679227460"><span id="local-6989586621679227462"><span class="annot"><span class="annottext">Int -&gt; ListAnomalyGroupTimeSeries -&gt; ShowS
+[ListAnomalyGroupTimeSeries] -&gt; ShowS
+ListAnomalyGroupTimeSeries -&gt; String
+(Int -&gt; ListAnomalyGroupTimeSeries -&gt; ShowS)
+-&gt; (ListAnomalyGroupTimeSeries -&gt; String)
+-&gt; ([ListAnomalyGroupTimeSeries] -&gt; ShowS)
+-&gt; Show ListAnomalyGroupTimeSeries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAnomalyGroupTimeSeries] -&gt; ShowS
+$cshowList :: [ListAnomalyGroupTimeSeries] -&gt; ShowS
+show :: ListAnomalyGroupTimeSeries -&gt; String
+$cshow :: ListAnomalyGroupTimeSeries -&gt; String
+showsPrec :: Int -&gt; ListAnomalyGroupTimeSeries -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAnomalyGroupTimeSeries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAnomalyGroupTimeSeries -&gt; Rep ListAnomalyGroupTimeSeries x)
+-&gt; (forall x.
+    Rep ListAnomalyGroupTimeSeries x -&gt; ListAnomalyGroupTimeSeries)
+-&gt; Generic ListAnomalyGroupTimeSeries
+forall x.
+Rep ListAnomalyGroupTimeSeries x -&gt; ListAnomalyGroupTimeSeries
+forall x.
+ListAnomalyGroupTimeSeries -&gt; Rep ListAnomalyGroupTimeSeries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAnomalyGroupTimeSeries x -&gt; ListAnomalyGroupTimeSeries
+$cfrom :: forall x.
+ListAnomalyGroupTimeSeries -&gt; Rep ListAnomalyGroupTimeSeries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'ListAnomalyGroupTimeSeries' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'nextToken', 'listAnomalyGroupTimeSeries_nextToken' - Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'maxResults', 'listAnomalyGroupTimeSeries_maxResults' - The maximum number of results to return.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'anomalyDetectorArn', 'listAnomalyGroupTimeSeries_anomalyDetectorArn' - The Amazon Resource Name (ARN) of the anomaly detector.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'anomalyGroupId', 'listAnomalyGroupTimeSeries_anomalyGroupId' - The ID of the anomaly group.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'metricName', 'listAnomalyGroupTimeSeries_metricName' - The name of the measure field.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#newListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">newListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'anomalyDetectorArn'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'anomalyGroupId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'metricName'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span>
+</span><span id="line-99"></span><span id="newListAnomalyGroupTimeSeries"><span class="annot"><span class="annottext">newListAnomalyGroupTimeSeries :: Text -&gt; Text -&gt; Text -&gt; ListAnomalyGroupTimeSeries
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#newListAnomalyGroupTimeSeries"><span class="hs-identifier hs-var hs-var">newListAnomalyGroupTimeSeries</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679227453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227453"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679227452"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227452"><span class="hs-identifier hs-var">pAnomalyGroupId_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679227451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227451"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ListAnomalyGroupTimeSeries
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAnomalyGroupTimeSeries' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AnextToken%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListAnomalyGroupTimeSeries' :: Maybe Natural
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmaxResults%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:ListAnomalyGroupTimeSeries' :: Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyDetectorArn%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227453"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:anomalyGroupId:ListAnomalyGroupTimeSeries' :: Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227452"><span class="hs-identifier hs-var">pAnomalyGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricName:ListAnomalyGroupTimeSeries' :: Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmetricName%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227451"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_nextToken"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeries_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="listAnomalyGroupTimeSeries_nextToken"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeries_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAnomalyGroupTimeSeries -&gt; f ListAnomalyGroupTimeSeries
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_nextToken"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeries_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeries -&gt; Maybe Text)
+-&gt; (ListAnomalyGroupTimeSeries
+    -&gt; Maybe Text -&gt; ListAnomalyGroupTimeSeries)
+-&gt; Lens
+     ListAnomalyGroupTimeSeries
+     ListAnomalyGroupTimeSeries
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227448"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Maybe Text
+</span><a href="#local-6989586621679227448"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227448"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227447"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227446"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAnomalyGroupTimeSeries' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AnextToken%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_maxResults"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeries_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listAnomalyGroupTimeSeries_maxResults"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeries_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAnomalyGroupTimeSeries -&gt; f ListAnomalyGroupTimeSeries
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_maxResults"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeries_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeries -&gt; Maybe Natural)
+-&gt; (ListAnomalyGroupTimeSeries
+    -&gt; Maybe Natural -&gt; ListAnomalyGroupTimeSeries)
+-&gt; Lens
+     ListAnomalyGroupTimeSeries
+     ListAnomalyGroupTimeSeries
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227445"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Maybe Natural
+</span><a href="#local-6989586621679227445"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227445"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227444"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227443"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAnomalyGroupTimeSeries' :: Maybe Natural
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmaxResults%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the anomaly detector.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_anomalyDetectorArn"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeries_anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="listAnomalyGroupTimeSeries_anomalyDetectorArn"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeries_anomalyDetectorArn :: (Text -&gt; f Text)
+-&gt; ListAnomalyGroupTimeSeries -&gt; f ListAnomalyGroupTimeSeries
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_anomalyDetectorArn"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeries_anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeries -&gt; Text)
+-&gt; (ListAnomalyGroupTimeSeries
+    -&gt; Text -&gt; ListAnomalyGroupTimeSeries)
+-&gt; Lens
+     ListAnomalyGroupTimeSeries ListAnomalyGroupTimeSeries Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227442"><span class="annot"><span class="annottext">Text
+anomalyDetectorArn :: Text
+$sel:anomalyDetectorArn:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Text
+</span><a href="#local-6989586621679227442"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227442"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227441"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:ListAnomalyGroupTimeSeries' :: Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyDetectorArn%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The ID of the anomaly group.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_anomalyGroupId"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeries_anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="listAnomalyGroupTimeSeries_anomalyGroupId"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeries_anomalyGroupId :: (Text -&gt; f Text)
+-&gt; ListAnomalyGroupTimeSeries -&gt; f ListAnomalyGroupTimeSeries
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_anomalyGroupId"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeries_anomalyGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeries -&gt; Text)
+-&gt; (ListAnomalyGroupTimeSeries
+    -&gt; Text -&gt; ListAnomalyGroupTimeSeries)
+-&gt; Lens
+     ListAnomalyGroupTimeSeries ListAnomalyGroupTimeSeries Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227439"><span class="annot"><span class="annottext">Text
+anomalyGroupId :: Text
+$sel:anomalyGroupId:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Text
+</span><a href="#local-6989586621679227439"><span class="hs-identifier hs-var hs-var">anomalyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227439"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227438"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227437"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyGroupId:ListAnomalyGroupTimeSeries' :: Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of the measure field.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_metricName"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeries_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="listAnomalyGroupTimeSeries_metricName"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeries_metricName :: (Text -&gt; f Text)
+-&gt; ListAnomalyGroupTimeSeries -&gt; f ListAnomalyGroupTimeSeries
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeries_metricName"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeries_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeries -&gt; Text)
+-&gt; (ListAnomalyGroupTimeSeries
+    -&gt; Text -&gt; ListAnomalyGroupTimeSeries)
+-&gt; Lens
+     ListAnomalyGroupTimeSeries ListAnomalyGroupTimeSeries Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227436"><span class="annot"><span class="annottext">Text
+metricName :: Text
+$sel:metricName:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Text
+</span><a href="#local-6989586621679227436"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227436"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227435"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeries
+</span><a href="#local-6989586621679227435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:ListAnomalyGroupTimeSeries' :: Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmetricName%3AListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679227430"><span class="annot"><span class="annottext">request :: ListAnomalyGroupTimeSeries -&gt; Request ListAnomalyGroupTimeSeries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListAnomalyGroupTimeSeries -&gt; Request ListAnomalyGroupTimeSeries
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679227426"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAnomalyGroupTimeSeries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAnomalyGroupTimeSeries)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAnomalyGroupTimeSeries))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAnomalyGroupTimeSeries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAnomalyGroupTimeSeries)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227423"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227423"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227422"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227422"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227421"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227421"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TimeSeries]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TimeSeries]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Either String (Maybe [TimeSeries])
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ListAnomalyGroupTimeSeriesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TimeSeries]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimeSeriesList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TimeSeries]))
+-&gt; Maybe [TimeSeries] -&gt; Either String (Maybe [TimeSeries])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TimeSeries]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ListAnomalyGroupTimeSeriesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimestampList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; ListAnomalyGroupTimeSeriesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListAnomalyGroupTimeSeriesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListAnomalyGroupTimeSeriesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Either String Int
+-&gt; Either String ListAnomalyGroupTimeSeriesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227423"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227412"><span id="local-6989586621679227414"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679227405"><span class="annot"><span class="annottext">toHeaders :: ListAnomalyGroupTimeSeries -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAnomalyGroupTimeSeries -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227395"><span id="local-6989586621679227397"><span id="local-6989586621679227399"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679227393"><span class="annot"><span class="annottext">toJSON :: ListAnomalyGroupTimeSeries -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227387"><span id="local-6989586621679227388"><span id="local-6989586621679227389"><span id="local-6989586621679227390"><span id="local-6989586621679227391"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+metricName :: Text
+anomalyGroupId :: Text
+anomalyDetectorArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:metricName:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Text
+$sel:anomalyGroupId:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Text
+$sel:anomalyDetectorArn:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Text
+$sel:maxResults:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Maybe Natural
+$sel:nextToken:ListAnomalyGroupTimeSeries' :: ListAnomalyGroupTimeSeries -&gt; Maybe Text
+</span><a href="#local-6989586621679227387"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227391"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227390"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyDetectorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227389"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-174"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227388"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227387"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679227381"><span class="annot"><span class="annottext">toPath :: ListAnomalyGroupTimeSeries -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAnomalyGroupTimeSeries -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ListAnomalyGroupTimeSeries&quot;</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeries"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679227377"><span class="annot"><span class="annottext">toQuery :: ListAnomalyGroupTimeSeries -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAnomalyGroupTimeSeries -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newListAnomalyGroupTimeSeriesResponse' smart constructor.</span><span>
+</span><span id="line-186"></span><span id="local-6989586621679227374"><span id="local-6989586621679227375"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAnomalyGroupTimeSeriesResponse"><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-var">ListAnomalyGroupTimeSeriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAnomalyGroupTimeSeriesResponse%27"><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">ListAnomalyGroupTimeSeriesResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of anomalous metrics.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AtimeSeriesList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse -&gt; Maybe [TimeSeries]
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AtimeSeriesList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var hs-var">timeSeriesList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | Timestamps for the anomalous metrics.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AtimestampList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AtimestampList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var hs-var">timestampList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The name of the measure field.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AmetricName%3AListAnomalyGroupTimeSeriesResponse%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmetricName%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The ID of the anomaly group.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeriesResponse%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var hs-var">anomalyGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AnextToken%3AListAnomalyGroupTimeSeriesResponse%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AnextToken%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAnomalyGroupTimeSeriesResponse%27"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse -&gt; Int
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AhttpStatus%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227364"><span id="local-6989586621679227366"><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse
+-&gt; ListAnomalyGroupTimeSeriesResponse -&gt; Bool
+(ListAnomalyGroupTimeSeriesResponse
+ -&gt; ListAnomalyGroupTimeSeriesResponse -&gt; Bool)
+-&gt; (ListAnomalyGroupTimeSeriesResponse
+    -&gt; ListAnomalyGroupTimeSeriesResponse -&gt; Bool)
+-&gt; Eq ListAnomalyGroupTimeSeriesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAnomalyGroupTimeSeriesResponse
+-&gt; ListAnomalyGroupTimeSeriesResponse -&gt; Bool
+$c/= :: ListAnomalyGroupTimeSeriesResponse
+-&gt; ListAnomalyGroupTimeSeriesResponse -&gt; Bool
+== :: ListAnomalyGroupTimeSeriesResponse
+-&gt; ListAnomalyGroupTimeSeriesResponse -&gt; Bool
+$c== :: ListAnomalyGroupTimeSeriesResponse
+-&gt; ListAnomalyGroupTimeSeriesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227356"><span id="local-6989586621679227358"><span id="local-6989586621679227360"><span id="local-6989586621679227362"><span class="annot"><span class="annottext">ReadPrec [ListAnomalyGroupTimeSeriesResponse]
+ReadPrec ListAnomalyGroupTimeSeriesResponse
+Int -&gt; ReadS ListAnomalyGroupTimeSeriesResponse
+ReadS [ListAnomalyGroupTimeSeriesResponse]
+(Int -&gt; ReadS ListAnomalyGroupTimeSeriesResponse)
+-&gt; ReadS [ListAnomalyGroupTimeSeriesResponse]
+-&gt; ReadPrec ListAnomalyGroupTimeSeriesResponse
+-&gt; ReadPrec [ListAnomalyGroupTimeSeriesResponse]
+-&gt; Read ListAnomalyGroupTimeSeriesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAnomalyGroupTimeSeriesResponse]
+$creadListPrec :: ReadPrec [ListAnomalyGroupTimeSeriesResponse]
+readPrec :: ReadPrec ListAnomalyGroupTimeSeriesResponse
+$creadPrec :: ReadPrec ListAnomalyGroupTimeSeriesResponse
+readList :: ReadS [ListAnomalyGroupTimeSeriesResponse]
+$creadList :: ReadS [ListAnomalyGroupTimeSeriesResponse]
+readsPrec :: Int -&gt; ReadS ListAnomalyGroupTimeSeriesResponse
+$creadsPrec :: Int -&gt; ReadS ListAnomalyGroupTimeSeriesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227350"><span id="local-6989586621679227352"><span id="local-6989586621679227354"><span class="annot"><span class="annottext">Int -&gt; ListAnomalyGroupTimeSeriesResponse -&gt; ShowS
+[ListAnomalyGroupTimeSeriesResponse] -&gt; ShowS
+ListAnomalyGroupTimeSeriesResponse -&gt; String
+(Int -&gt; ListAnomalyGroupTimeSeriesResponse -&gt; ShowS)
+-&gt; (ListAnomalyGroupTimeSeriesResponse -&gt; String)
+-&gt; ([ListAnomalyGroupTimeSeriesResponse] -&gt; ShowS)
+-&gt; Show ListAnomalyGroupTimeSeriesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAnomalyGroupTimeSeriesResponse] -&gt; ShowS
+$cshowList :: [ListAnomalyGroupTimeSeriesResponse] -&gt; ShowS
+show :: ListAnomalyGroupTimeSeriesResponse -&gt; String
+$cshow :: ListAnomalyGroupTimeSeriesResponse -&gt; String
+showsPrec :: Int -&gt; ListAnomalyGroupTimeSeriesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAnomalyGroupTimeSeriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAnomalyGroupTimeSeriesResponse
+ -&gt; Rep ListAnomalyGroupTimeSeriesResponse x)
+-&gt; (forall x.
+    Rep ListAnomalyGroupTimeSeriesResponse x
+    -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Generic ListAnomalyGroupTimeSeriesResponse
+forall x.
+Rep ListAnomalyGroupTimeSeriesResponse x
+-&gt; ListAnomalyGroupTimeSeriesResponse
+forall x.
+ListAnomalyGroupTimeSeriesResponse
+-&gt; Rep ListAnomalyGroupTimeSeriesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAnomalyGroupTimeSeriesResponse x
+-&gt; ListAnomalyGroupTimeSeriesResponse
+$cfrom :: forall x.
+ListAnomalyGroupTimeSeriesResponse
+-&gt; Rep ListAnomalyGroupTimeSeriesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'ListAnomalyGroupTimeSeriesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'timeSeriesList', 'listAnomalyGroupTimeSeriesResponse_timeSeriesList' - A list of anomalous metrics.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'timestampList', 'listAnomalyGroupTimeSeriesResponse_timestampList' - Timestamps for the anomalous metrics.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'metricName', 'listAnomalyGroupTimeSeriesResponse_metricName' - The name of the measure field.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'anomalyGroupId', 'listAnomalyGroupTimeSeriesResponse_anomalyGroupId' - The ID of the anomaly group.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'nextToken', 'listAnomalyGroupTimeSeriesResponse_nextToken' - The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'listAnomalyGroupTimeSeriesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#newListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">newListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span>
+</span><span id="line-225"></span><span id="newListAnomalyGroupTimeSeriesResponse"><span class="annot"><span class="annottext">newListAnomalyGroupTimeSeriesResponse :: Int -&gt; ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#newListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-var hs-var">newListAnomalyGroupTimeSeriesResponse</span></a></span></span><span> </span><span id="local-6989586621679227347"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse' :: Maybe [TimeSeries]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeSeriesList:ListAnomalyGroupTimeSeriesResponse' :: Maybe [TimeSeries]
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AtimeSeriesList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">timeSeriesList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe [TimeSeries]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestampList:ListAnomalyGroupTimeSeriesResponse' :: Maybe [Text]
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AtimestampList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">timestampList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:ListAnomalyGroupTimeSeriesResponse' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmetricName%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:anomalyGroupId:ListAnomalyGroupTimeSeriesResponse' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAnomalyGroupTimeSeriesResponse' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AnextToken%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAnomalyGroupTimeSeriesResponse' :: Int
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AhttpStatus%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | A list of anomalous metrics.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_timeSeriesList"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeriesResponse_timeSeriesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="listAnomalyGroupTimeSeriesResponse_timeSeriesList"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeriesResponse_timeSeriesList :: (Maybe [TimeSeries] -&gt; f (Maybe [TimeSeries]))
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_timeSeriesList"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeriesResponse_timeSeriesList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeriesResponse -&gt; Maybe [TimeSeries])
+-&gt; (ListAnomalyGroupTimeSeriesResponse
+    -&gt; Maybe [TimeSeries] -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Lens
+     ListAnomalyGroupTimeSeriesResponse
+     ListAnomalyGroupTimeSeriesResponse
+     (Maybe [TimeSeries])
+     (Maybe [TimeSeries])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227346"><span class="annot"><span class="annottext">Maybe [TimeSeries]
+timeSeriesList :: Maybe [TimeSeries]
+$sel:timeSeriesList:ListAnomalyGroupTimeSeriesResponse' :: ListAnomalyGroupTimeSeriesResponse -&gt; Maybe [TimeSeries]
+</span><a href="#local-6989586621679227346"><span class="hs-identifier hs-var hs-var">timeSeriesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TimeSeries]
+</span><a href="#local-6989586621679227346"><span class="hs-identifier hs-var">timeSeriesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227345"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227344"><span class="annot"><span class="annottext">Maybe [TimeSeries]
+</span><a href="#local-6989586621679227344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeSeriesList:ListAnomalyGroupTimeSeriesResponse' :: Maybe [TimeSeries]
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AtimeSeriesList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">timeSeriesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TimeSeries]
+</span><a href="#local-6989586621679227344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TimeSeries] -&gt; f (Maybe [TimeSeries]))
+ -&gt; ListAnomalyGroupTimeSeriesResponse
+ -&gt; f ListAnomalyGroupTimeSeriesResponse)
+-&gt; ((Maybe [TimeSeries] -&gt; f (Maybe [TimeSeries]))
+    -&gt; Maybe [TimeSeries] -&gt; f (Maybe [TimeSeries]))
+-&gt; (Maybe [TimeSeries] -&gt; f (Maybe [TimeSeries]))
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TimeSeries] [TimeSeries] [TimeSeries] [TimeSeries]
+-&gt; Iso
+     (Maybe [TimeSeries])
+     (Maybe [TimeSeries])
+     (Maybe [TimeSeries])
+     (Maybe [TimeSeries])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TimeSeries] [TimeSeries] [TimeSeries] [TimeSeries]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Timestamps for the anomalous metrics.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_timestampList"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeriesResponse_timestampList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="listAnomalyGroupTimeSeriesResponse_timestampList"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeriesResponse_timestampList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_timestampList"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeriesResponse_timestampList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeriesResponse -&gt; Maybe [Text])
+-&gt; (ListAnomalyGroupTimeSeriesResponse
+    -&gt; Maybe [Text] -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Lens
+     ListAnomalyGroupTimeSeriesResponse
+     ListAnomalyGroupTimeSeriesResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227340"><span class="annot"><span class="annottext">Maybe [Text]
+timestampList :: Maybe [Text]
+$sel:timestampList:ListAnomalyGroupTimeSeriesResponse' :: ListAnomalyGroupTimeSeriesResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679227340"><span class="hs-identifier hs-var hs-var">timestampList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679227340"><span class="hs-identifier hs-var">timestampList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227339"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227338"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679227338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestampList:ListAnomalyGroupTimeSeriesResponse' :: Maybe [Text]
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AtimestampList%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">timestampList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679227338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListAnomalyGroupTimeSeriesResponse
+ -&gt; f ListAnomalyGroupTimeSeriesResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The name of the measure field.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_metricName"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeriesResponse_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="listAnomalyGroupTimeSeriesResponse_metricName"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeriesResponse_metricName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_metricName"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeriesResponse_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text)
+-&gt; (ListAnomalyGroupTimeSeriesResponse
+    -&gt; Maybe Text -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Lens
+     ListAnomalyGroupTimeSeriesResponse
+     ListAnomalyGroupTimeSeriesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227337"><span class="annot"><span class="annottext">Maybe Text
+metricName :: Maybe Text
+$sel:metricName:ListAnomalyGroupTimeSeriesResponse' :: ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227337"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227337"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227336"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:ListAnomalyGroupTimeSeriesResponse' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AmetricName%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The ID of the anomaly group.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_anomalyGroupId"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeriesResponse_anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="listAnomalyGroupTimeSeriesResponse_anomalyGroupId"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeriesResponse_anomalyGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_anomalyGroupId"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeriesResponse_anomalyGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text)
+-&gt; (ListAnomalyGroupTimeSeriesResponse
+    -&gt; Maybe Text -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Lens
+     ListAnomalyGroupTimeSeriesResponse
+     ListAnomalyGroupTimeSeriesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227334"><span class="annot"><span class="annottext">Maybe Text
+anomalyGroupId :: Maybe Text
+$sel:anomalyGroupId:ListAnomalyGroupTimeSeriesResponse' :: ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227334"><span class="hs-identifier hs-var hs-var">anomalyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227334"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227333"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227332"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyGroupId:ListAnomalyGroupTimeSeriesResponse' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AanomalyGroupId%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_nextToken"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeriesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="listAnomalyGroupTimeSeriesResponse_nextToken"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeriesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeriesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text)
+-&gt; (ListAnomalyGroupTimeSeriesResponse
+    -&gt; Maybe Text -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Lens
+     ListAnomalyGroupTimeSeriesResponse
+     ListAnomalyGroupTimeSeriesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227331"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAnomalyGroupTimeSeriesResponse' :: ListAnomalyGroupTimeSeriesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227331"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227331"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227330"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAnomalyGroupTimeSeriesResponse' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AnextToken%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_httpStatus"><span class="hs-identifier hs-type">listAnomalyGroupTimeSeriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span id="listAnomalyGroupTimeSeriesResponse_httpStatus"><span class="annot"><span class="annottext">listAnomalyGroupTimeSeriesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAnomalyGroupTimeSeriesResponse
+-&gt; f ListAnomalyGroupTimeSeriesResponse
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#listAnomalyGroupTimeSeriesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAnomalyGroupTimeSeriesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAnomalyGroupTimeSeriesResponse -&gt; Int)
+-&gt; (ListAnomalyGroupTimeSeriesResponse
+    -&gt; Int -&gt; ListAnomalyGroupTimeSeriesResponse)
+-&gt; Lens
+     ListAnomalyGroupTimeSeriesResponse
+     ListAnomalyGroupTimeSeriesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227328"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAnomalyGroupTimeSeriesResponse' :: ListAnomalyGroupTimeSeriesResponse -&gt; Int
+</span><a href="#local-6989586621679227328"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227328"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227327"><span class="annot"><span class="annottext">s :: ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227326"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAnomalyGroupTimeSeriesResponse
+</span><a href="#local-6989586621679227327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAnomalyGroupTimeSeriesResponse' :: Int
+</span><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#%24sel%3AhttpStatus%3AListAnomalyGroupTimeSeriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679227324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.html#ListAnomalyGroupTimeSeriesResponse"><span class="hs-identifier hs-type">ListAnomalyGroupTimeSeriesResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.TemplateVersion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.TemplateVersion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetConfiguration.html"><span class="hs-identifier">Amazonka.QuickSight.Types.DataSetConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourceStatus.html"><span class="hs-identifier">Amazonka.QuickSight.Types.ResourceStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Sheet.html"><span class="hs-identifier">Amazonka.QuickSight.Types.Sheet</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateError.html"><span class="hs-identifier">Amazonka.QuickSight.Types.TemplateError</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A version of a template.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTemplateVersion' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679567937"><span id="local-6989586621679567938"></span></span><span class="hs-keyword">data</span><span> </span><span id="TemplateVersion"><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-var">TemplateVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemplateVersion%27"><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-var">TemplateVersion'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe ResourceStatus
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Astatus%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ARN of the theme associated with this version of the template.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AthemeArn%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AthemeArn%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">themeArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A list of the associated sheets with the unique identifier and name of</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- each sheet.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Asheets%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe [Sheet]
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Asheets%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">sheets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.Sheet.html#Sheet"><span class="hs-identifier hs-type">Sheet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time that this template version was created.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreatedTime%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AcreatedTime%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an analysis or template that was used</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- to create this template.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsourceEntityArn%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AsourceEntityArn%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">sourceEntityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Schema of the dataset identified by the placeholder. Any dashboard</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- created from this template should be bound to new datasets matching the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- same schema described through this API operation.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdataSetConfigurations%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe [DataSetConfiguration]
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AdataSetConfigurations%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">dataSetConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetConfiguration.html#DataSetConfiguration"><span class="hs-identifier hs-type">DataSetConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The version number of the template version.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AversionNumber%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe Natural
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AversionNumber%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Errors associated with this template version.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aerrors%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe (NonEmpty TemplateError)
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Aerrors%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateError.html#TemplateError"><span class="hs-identifier hs-type">TemplateError</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The description of the template.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Adescription%3ATemplateVersion%27"><span class="annot"><span class="annottext">TemplateVersion -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Adescription%3ATemplateVersion%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679567923"><span id="local-6989586621679567925"><span class="annot"><span class="annottext">TemplateVersion -&gt; TemplateVersion -&gt; Bool
+(TemplateVersion -&gt; TemplateVersion -&gt; Bool)
+-&gt; (TemplateVersion -&gt; TemplateVersion -&gt; Bool)
+-&gt; Eq TemplateVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TemplateVersion -&gt; TemplateVersion -&gt; Bool
+$c/= :: TemplateVersion -&gt; TemplateVersion -&gt; Bool
+== :: TemplateVersion -&gt; TemplateVersion -&gt; Bool
+$c== :: TemplateVersion -&gt; TemplateVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679567914"><span id="local-6989586621679567916"><span id="local-6989586621679567918"><span id="local-6989586621679567920"><span class="annot"><span class="annottext">ReadPrec [TemplateVersion]
+ReadPrec TemplateVersion
+Int -&gt; ReadS TemplateVersion
+ReadS [TemplateVersion]
+(Int -&gt; ReadS TemplateVersion)
+-&gt; ReadS [TemplateVersion]
+-&gt; ReadPrec TemplateVersion
+-&gt; ReadPrec [TemplateVersion]
+-&gt; Read TemplateVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TemplateVersion]
+$creadListPrec :: ReadPrec [TemplateVersion]
+readPrec :: ReadPrec TemplateVersion
+$creadPrec :: ReadPrec TemplateVersion
+readList :: ReadS [TemplateVersion]
+$creadList :: ReadS [TemplateVersion]
+readsPrec :: Int -&gt; ReadS TemplateVersion
+$creadsPrec :: Int -&gt; ReadS TemplateVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679567907"><span id="local-6989586621679567909"><span id="local-6989586621679567911"><span class="annot"><span class="annottext">Int -&gt; TemplateVersion -&gt; ShowS
+[TemplateVersion] -&gt; ShowS
+TemplateVersion -&gt; String
+(Int -&gt; TemplateVersion -&gt; ShowS)
+-&gt; (TemplateVersion -&gt; String)
+-&gt; ([TemplateVersion] -&gt; ShowS)
+-&gt; Show TemplateVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TemplateVersion] -&gt; ShowS
+$cshowList :: [TemplateVersion] -&gt; ShowS
+show :: TemplateVersion -&gt; String
+$cshow :: TemplateVersion -&gt; String
+showsPrec :: Int -&gt; TemplateVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; TemplateVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TemplateVersion -&gt; Rep TemplateVersion x)
+-&gt; (forall x. Rep TemplateVersion x -&gt; TemplateVersion)
+-&gt; Generic TemplateVersion
+forall x. Rep TemplateVersion x -&gt; TemplateVersion
+forall x. TemplateVersion -&gt; Rep TemplateVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TemplateVersion x -&gt; TemplateVersion
+$cfrom :: forall x. TemplateVersion -&gt; Rep TemplateVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'TemplateVersion' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'status', 'templateVersion_status' - The HTTP status of the request.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'themeArn', 'templateVersion_themeArn' - The ARN of the theme associated with this version of the template.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'sheets', 'templateVersion_sheets' - A list of the associated sheets with the unique identifier and name of</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- each sheet.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'createdTime', 'templateVersion_createdTime' - The time that this template version was created.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'sourceEntityArn', 'templateVersion_sourceEntityArn' - The Amazon Resource Name (ARN) of an analysis or template that was used</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- to create this template.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'dataSetConfigurations', 'templateVersion_dataSetConfigurations' - Schema of the dataset identified by the placeholder. Any dashboard</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- created from this template should be bound to new datasets matching the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- same schema described through this API operation.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'versionNumber', 'templateVersion_versionNumber' - The version number of the template version.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'errors', 'templateVersion_errors' - Errors associated with this template version.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'description', 'templateVersion_description' - The description of the template.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#newTemplateVersion"><span class="hs-identifier hs-type">newTemplateVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span>
+</span><span id="line-90"></span><span id="newTemplateVersion"><span class="annot"><span class="annottext">newTemplateVersion :: TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#newTemplateVersion"><span class="hs-identifier hs-var hs-var">newTemplateVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">TemplateVersion' :: Maybe ResourceStatus
+-&gt; Maybe Text
+-&gt; Maybe [Sheet]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe [DataSetConfiguration]
+-&gt; Maybe Natural
+-&gt; Maybe (NonEmpty TemplateError)
+-&gt; Maybe Text
+-&gt; TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:TemplateVersion' :: Maybe ResourceStatus
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Astatus%3ATemplateVersion%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:themeArn:TemplateVersion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AthemeArn%3ATemplateVersion%27"><span class="hs-identifier hs-var">themeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:sheets:TemplateVersion' :: Maybe [Sheet]
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Asheets%3ATemplateVersion%27"><span class="hs-identifier hs-var">sheets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sheet]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:TemplateVersion' :: Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AcreatedTime%3ATemplateVersion%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceEntityArn:TemplateVersion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AsourceEntityArn%3ATemplateVersion%27"><span class="hs-identifier hs-var">sourceEntityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSetConfigurations:TemplateVersion' :: Maybe [DataSetConfiguration]
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AdataSetConfigurations%3ATemplateVersion%27"><span class="hs-identifier hs-var">dataSetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSetConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionNumber:TemplateVersion' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AversionNumber%3ATemplateVersion%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:TemplateVersion' :: Maybe (NonEmpty TemplateError)
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Aerrors%3ATemplateVersion%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty TemplateError)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:TemplateVersion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Adescription%3ATemplateVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_status"><span class="hs-identifier hs-type">templateVersion_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="templateVersion_status"><span class="annot"><span class="annottext">templateVersion_status :: (Maybe ResourceStatus -&gt; f (Maybe ResourceStatus))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_status"><span class="hs-identifier hs-var hs-var">templateVersion_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe ResourceStatus)
+-&gt; (TemplateVersion -&gt; Maybe ResourceStatus -&gt; TemplateVersion)
+-&gt; Lens
+     TemplateVersion
+     TemplateVersion
+     (Maybe ResourceStatus)
+     (Maybe ResourceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567898"><span class="annot"><span class="annottext">Maybe ResourceStatus
+status :: Maybe ResourceStatus
+$sel:status:TemplateVersion' :: TemplateVersion -&gt; Maybe ResourceStatus
+</span><a href="#local-6989586621679567898"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679567898"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567897"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567896"><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679567896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TemplateVersion' :: Maybe ResourceStatus
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Astatus%3ATemplateVersion%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679567896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The ARN of the theme associated with this version of the template.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_themeArn"><span class="hs-identifier hs-type">templateVersion_themeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="templateVersion_themeArn"><span class="annot"><span class="annottext">templateVersion_themeArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_themeArn"><span class="hs-identifier hs-var hs-var">templateVersion_themeArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe Text)
+-&gt; (TemplateVersion -&gt; Maybe Text -&gt; TemplateVersion)
+-&gt; Lens TemplateVersion TemplateVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567894"><span class="annot"><span class="annottext">Maybe Text
+themeArn :: Maybe Text
+$sel:themeArn:TemplateVersion' :: TemplateVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679567894"><span class="hs-identifier hs-var hs-var">themeArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567894"><span class="hs-identifier hs-var">themeArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567893"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeArn:TemplateVersion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AthemeArn%3ATemplateVersion%27"><span class="hs-identifier hs-var">themeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A list of the associated sheets with the unique identifier and name of</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- each sheet.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_sheets"><span class="hs-identifier hs-type">templateVersion_sheets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.Sheet.html#Sheet"><span class="hs-identifier hs-type">Sheet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="templateVersion_sheets"><span class="annot"><span class="annottext">templateVersion_sheets :: (Maybe [Sheet] -&gt; f (Maybe [Sheet]))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_sheets"><span class="hs-identifier hs-var hs-var">templateVersion_sheets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe [Sheet])
+-&gt; (TemplateVersion -&gt; Maybe [Sheet] -&gt; TemplateVersion)
+-&gt; Lens
+     TemplateVersion TemplateVersion (Maybe [Sheet]) (Maybe [Sheet])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567890"><span class="annot"><span class="annottext">Maybe [Sheet]
+sheets :: Maybe [Sheet]
+$sel:sheets:TemplateVersion' :: TemplateVersion -&gt; Maybe [Sheet]
+</span><a href="#local-6989586621679567890"><span class="hs-identifier hs-var hs-var">sheets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Sheet]
+</span><a href="#local-6989586621679567890"><span class="hs-identifier hs-var">sheets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567889"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567888"><span class="annot"><span class="annottext">Maybe [Sheet]
+</span><a href="#local-6989586621679567888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sheets:TemplateVersion' :: Maybe [Sheet]
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Asheets%3ATemplateVersion%27"><span class="hs-identifier hs-var">sheets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sheet]
+</span><a href="#local-6989586621679567888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Sheet] -&gt; f (Maybe [Sheet]))
+ -&gt; TemplateVersion -&gt; f TemplateVersion)
+-&gt; ((Maybe [Sheet] -&gt; f (Maybe [Sheet]))
+    -&gt; Maybe [Sheet] -&gt; f (Maybe [Sheet]))
+-&gt; (Maybe [Sheet] -&gt; f (Maybe [Sheet]))
+-&gt; TemplateVersion
+-&gt; f TemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sheet] [Sheet] [Sheet] [Sheet]
+-&gt; Iso
+     (Maybe [Sheet]) (Maybe [Sheet]) (Maybe [Sheet]) (Maybe [Sheet])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sheet] [Sheet] [Sheet] [Sheet]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The time that this template version was created.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_createdTime"><span class="hs-identifier hs-type">templateVersion_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="templateVersion_createdTime"><span class="annot"><span class="annottext">templateVersion_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_createdTime"><span class="hs-identifier hs-var hs-var">templateVersion_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe POSIX)
+-&gt; (TemplateVersion -&gt; Maybe POSIX -&gt; TemplateVersion)
+-&gt; Lens TemplateVersion TemplateVersion (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567883"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:TemplateVersion' :: TemplateVersion -&gt; Maybe POSIX
+</span><a href="#local-6989586621679567883"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679567883"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567882"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567881"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679567881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:TemplateVersion' :: Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AcreatedTime%3ATemplateVersion%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679567881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TemplateVersion -&gt; f TemplateVersion)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TemplateVersion
+-&gt; f TemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an analysis or template that was used</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- to create this template.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_sourceEntityArn"><span class="hs-identifier hs-type">templateVersion_sourceEntityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="templateVersion_sourceEntityArn"><span class="annot"><span class="annottext">templateVersion_sourceEntityArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_sourceEntityArn"><span class="hs-identifier hs-var hs-var">templateVersion_sourceEntityArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe Text)
+-&gt; (TemplateVersion -&gt; Maybe Text -&gt; TemplateVersion)
+-&gt; Lens TemplateVersion TemplateVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567878"><span class="annot"><span class="annottext">Maybe Text
+sourceEntityArn :: Maybe Text
+$sel:sourceEntityArn:TemplateVersion' :: TemplateVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679567878"><span class="hs-identifier hs-var hs-var">sourceEntityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567878"><span class="hs-identifier hs-var">sourceEntityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567877"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEntityArn:TemplateVersion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AsourceEntityArn%3ATemplateVersion%27"><span class="hs-identifier hs-var">sourceEntityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Schema of the dataset identified by the placeholder. Any dashboard</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- created from this template should be bound to new datasets matching the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- same schema described through this API operation.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_dataSetConfigurations"><span class="hs-identifier hs-type">templateVersion_dataSetConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetConfiguration.html#DataSetConfiguration"><span class="hs-identifier hs-type">DataSetConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="templateVersion_dataSetConfigurations"><span class="annot"><span class="annottext">templateVersion_dataSetConfigurations :: (Maybe [DataSetConfiguration] -&gt; f (Maybe [DataSetConfiguration]))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_dataSetConfigurations"><span class="hs-identifier hs-var hs-var">templateVersion_dataSetConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe [DataSetConfiguration])
+-&gt; (TemplateVersion
+    -&gt; Maybe [DataSetConfiguration] -&gt; TemplateVersion)
+-&gt; Lens
+     TemplateVersion
+     TemplateVersion
+     (Maybe [DataSetConfiguration])
+     (Maybe [DataSetConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567874"><span class="annot"><span class="annottext">Maybe [DataSetConfiguration]
+dataSetConfigurations :: Maybe [DataSetConfiguration]
+$sel:dataSetConfigurations:TemplateVersion' :: TemplateVersion -&gt; Maybe [DataSetConfiguration]
+</span><a href="#local-6989586621679567874"><span class="hs-identifier hs-var hs-var">dataSetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSetConfiguration]
+</span><a href="#local-6989586621679567874"><span class="hs-identifier hs-var">dataSetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567873"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567872"><span class="annot"><span class="annottext">Maybe [DataSetConfiguration]
+</span><a href="#local-6989586621679567872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetConfigurations:TemplateVersion' :: Maybe [DataSetConfiguration]
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AdataSetConfigurations%3ATemplateVersion%27"><span class="hs-identifier hs-var">dataSetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSetConfiguration]
+</span><a href="#local-6989586621679567872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataSetConfiguration] -&gt; f (Maybe [DataSetConfiguration]))
+ -&gt; TemplateVersion -&gt; f TemplateVersion)
+-&gt; ((Maybe [DataSetConfiguration]
+     -&gt; f (Maybe [DataSetConfiguration]))
+    -&gt; Maybe [DataSetConfiguration]
+    -&gt; f (Maybe [DataSetConfiguration]))
+-&gt; (Maybe [DataSetConfiguration]
+    -&gt; f (Maybe [DataSetConfiguration]))
+-&gt; TemplateVersion
+-&gt; f TemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataSetConfiguration]
+  [DataSetConfiguration]
+  [DataSetConfiguration]
+  [DataSetConfiguration]
+-&gt; Iso
+     (Maybe [DataSetConfiguration])
+     (Maybe [DataSetConfiguration])
+     (Maybe [DataSetConfiguration])
+     (Maybe [DataSetConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataSetConfiguration]
+  [DataSetConfiguration]
+  [DataSetConfiguration]
+  [DataSetConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The version number of the template version.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_versionNumber"><span class="hs-identifier hs-type">templateVersion_versionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="templateVersion_versionNumber"><span class="annot"><span class="annottext">templateVersion_versionNumber :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_versionNumber"><span class="hs-identifier hs-var hs-var">templateVersion_versionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe Natural)
+-&gt; (TemplateVersion -&gt; Maybe Natural -&gt; TemplateVersion)
+-&gt; Lens
+     TemplateVersion TemplateVersion (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567870"><span class="annot"><span class="annottext">Maybe Natural
+versionNumber :: Maybe Natural
+$sel:versionNumber:TemplateVersion' :: TemplateVersion -&gt; Maybe Natural
+</span><a href="#local-6989586621679567870"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679567870"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567869"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567868"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679567868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:TemplateVersion' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3AversionNumber%3ATemplateVersion%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679567868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Errors associated with this template version.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_errors"><span class="hs-identifier hs-type">templateVersion_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateError.html#TemplateError"><span class="hs-identifier hs-type">TemplateError</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="templateVersion_errors"><span class="annot"><span class="annottext">templateVersion_errors :: (Maybe (NonEmpty TemplateError)
+ -&gt; f (Maybe (NonEmpty TemplateError)))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_errors"><span class="hs-identifier hs-var hs-var">templateVersion_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe (NonEmpty TemplateError))
+-&gt; (TemplateVersion
+    -&gt; Maybe (NonEmpty TemplateError) -&gt; TemplateVersion)
+-&gt; Lens
+     TemplateVersion
+     TemplateVersion
+     (Maybe (NonEmpty TemplateError))
+     (Maybe (NonEmpty TemplateError))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567866"><span class="annot"><span class="annottext">Maybe (NonEmpty TemplateError)
+errors :: Maybe (NonEmpty TemplateError)
+$sel:errors:TemplateVersion' :: TemplateVersion -&gt; Maybe (NonEmpty TemplateError)
+</span><a href="#local-6989586621679567866"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty TemplateError)
+</span><a href="#local-6989586621679567866"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567865"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567864"><span class="annot"><span class="annottext">Maybe (NonEmpty TemplateError)
+</span><a href="#local-6989586621679567864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:TemplateVersion' :: Maybe (NonEmpty TemplateError)
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Aerrors%3ATemplateVersion%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty TemplateError)
+</span><a href="#local-6989586621679567864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty TemplateError)
+  -&gt; f (Maybe (NonEmpty TemplateError)))
+ -&gt; TemplateVersion -&gt; f TemplateVersion)
+-&gt; ((Maybe (NonEmpty TemplateError)
+     -&gt; f (Maybe (NonEmpty TemplateError)))
+    -&gt; Maybe (NonEmpty TemplateError)
+    -&gt; f (Maybe (NonEmpty TemplateError)))
+-&gt; (Maybe (NonEmpty TemplateError)
+    -&gt; f (Maybe (NonEmpty TemplateError)))
+-&gt; TemplateVersion
+-&gt; f TemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty TemplateError)
+  (NonEmpty TemplateError)
+  (NonEmpty TemplateError)
+  (NonEmpty TemplateError)
+-&gt; Iso
+     (Maybe (NonEmpty TemplateError))
+     (Maybe (NonEmpty TemplateError))
+     (Maybe (NonEmpty TemplateError))
+     (Maybe (NonEmpty TemplateError))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty TemplateError)
+  (NonEmpty TemplateError)
+  (NonEmpty TemplateError)
+  (NonEmpty TemplateError)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The description of the template.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_description"><span class="hs-identifier hs-type">templateVersion_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="templateVersion_description"><span class="annot"><span class="annottext">templateVersion_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TemplateVersion -&gt; f TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#templateVersion_description"><span class="hs-identifier hs-var hs-var">templateVersion_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateVersion -&gt; Maybe Text)
+-&gt; (TemplateVersion -&gt; Maybe Text -&gt; TemplateVersion)
+-&gt; Lens TemplateVersion TemplateVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567862"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:TemplateVersion' :: TemplateVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679567862"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567862"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567861"><span class="annot"><span class="annottext">s :: TemplateVersion
+</span><a href="#local-6989586621679567861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-type">TemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateVersion
+</span><a href="#local-6989586621679567861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:TemplateVersion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#%24sel%3Adescription%3ATemplateVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567857"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679567855"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TemplateVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TemplateVersion)
+-&gt; Value
+-&gt; Parser TemplateVersion
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TemplateVersion&quot;</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679567852"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+-&gt; Maybe Text
+-&gt; Maybe [Sheet]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe [DataSetConfiguration]
+-&gt; Maybe Natural
+-&gt; Maybe (NonEmpty TemplateError)
+-&gt; Maybe Text
+-&gt; TemplateVersion
+</span><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion%27"><span class="hs-identifier hs-var">TemplateVersion'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceStatus
+ -&gt; Maybe Text
+ -&gt; Maybe [Sheet]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe [DataSetConfiguration]
+ -&gt; Maybe Natural
+ -&gt; Maybe (NonEmpty TemplateError)
+ -&gt; Maybe Text
+ -&gt; TemplateVersion)
+-&gt; Parser (Maybe ResourceStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Sheet]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe [DataSetConfiguration]
+      -&gt; Maybe Natural
+      -&gt; Maybe (NonEmpty TemplateError)
+      -&gt; Maybe Text
+      -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Sheet]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [DataSetConfiguration]
+   -&gt; Maybe Natural
+   -&gt; Maybe (NonEmpty TemplateError)
+   -&gt; Maybe Text
+   -&gt; TemplateVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Sheet]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe [DataSetConfiguration]
+      -&gt; Maybe Natural
+      -&gt; Maybe (NonEmpty TemplateError)
+      -&gt; Maybe Text
+      -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThemeArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Sheet]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [DataSetConfiguration]
+   -&gt; Maybe Natural
+   -&gt; Maybe (NonEmpty TemplateError)
+   -&gt; Maybe Text
+   -&gt; TemplateVersion)
+-&gt; Parser (Maybe [Sheet])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe [DataSetConfiguration]
+      -&gt; Maybe Natural
+      -&gt; Maybe (NonEmpty TemplateError)
+      -&gt; Maybe Text
+      -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Sheet]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sheets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Sheet]))
+-&gt; Maybe [Sheet] -&gt; Parser (Maybe [Sheet])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Sheet]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [DataSetConfiguration]
+   -&gt; Maybe Natural
+   -&gt; Maybe (NonEmpty TemplateError)
+   -&gt; Maybe Text
+   -&gt; TemplateVersion)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [DataSetConfiguration]
+      -&gt; Maybe Natural
+      -&gt; Maybe (NonEmpty TemplateError)
+      -&gt; Maybe Text
+      -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [DataSetConfiguration]
+   -&gt; Maybe Natural
+   -&gt; Maybe (NonEmpty TemplateError)
+   -&gt; Maybe Text
+   -&gt; TemplateVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [DataSetConfiguration]
+      -&gt; Maybe Natural
+      -&gt; Maybe (NonEmpty TemplateError)
+      -&gt; Maybe Text
+      -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceEntityArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [DataSetConfiguration]
+   -&gt; Maybe Natural
+   -&gt; Maybe (NonEmpty TemplateError)
+   -&gt; Maybe Text
+   -&gt; TemplateVersion)
+-&gt; Parser (Maybe [DataSetConfiguration])
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe (NonEmpty TemplateError) -&gt; Maybe Text -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DataSetConfiguration]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetConfigurations&quot;</span></span><span>
+</span><span id="line-155"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DataSetConfiguration]))
+-&gt; Maybe [DataSetConfiguration]
+-&gt; Parser (Maybe [DataSetConfiguration])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataSetConfiguration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe (NonEmpty TemplateError) -&gt; Maybe Text -&gt; TemplateVersion)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe (NonEmpty TemplateError) -&gt; Maybe Text -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty TemplateError) -&gt; Maybe Text -&gt; TemplateVersion)
+-&gt; Parser (Maybe (NonEmpty TemplateError))
+-&gt; Parser (Maybe Text -&gt; TemplateVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty TemplateError))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TemplateVersion)
+-&gt; Parser (Maybe Text) -&gt; Parser TemplateVersion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679567852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567845"><span id="local-6989586621679567847"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TemplateVersion.html#TemplateVersion"><span class="hs-identifier hs-type">TemplateVersion</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

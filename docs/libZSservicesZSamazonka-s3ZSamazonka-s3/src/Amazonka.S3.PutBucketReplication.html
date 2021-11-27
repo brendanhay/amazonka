@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.S3.PutBucketReplication</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a replication configuration or replaces an existing one. For</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Specify the replication configuration in the request body. In the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- replication configuration, you provide the name of the destination</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- bucket or buckets where you want Amazon S3 to replicate objects, the IAM</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- role that Amazon S3 can assume to replicate objects on your behalf, and</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- other relevant information.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- A replication configuration must include at least one rule, and can</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- contain a maximum of 1,000. Each rule identifies a subset of objects to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- replicate by filtering the objects in the source bucket. To choose</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- additional subsets of objects to replicate, add a rule for each subset.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- To specify a subset of the objects in the source bucket to apply a</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- replication rule to, add the Filter element as a child of the Rule</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- element. You can filter objects based on an object key prefix, one or</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- more object tags, or both. When you add the Filter element in the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- configuration, you must also add the following elements:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- @DeleteMarkerReplication@, @Status@, and @Priority@.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- If you are using an earlier version of the replication configuration,</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Amazon S3 handles replication of delete markers differently. For more</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations Backward Compatibility&gt;.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- For information about enabling versioning on a bucket, see</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html Using Versioning&gt;.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- __Handling Replication of Encrypted Objects__</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- By default, Amazon S3 doesn\'t replicate objects that are stored at rest</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- using server-side encryption with KMS keys. To replicate Amazon Web</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Services KMS-encrypted objects, add the following:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- @SourceSelectionCriteria@, @SseKmsEncryptedObjects@, @Status@,</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- @EncryptionConfiguration@, and @ReplicaKmsKeyID@. For information about</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- replication configuration, see</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html Replicating Objects Created with SSE Using KMS keys&gt;.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- For information on @PutBucketReplication@ errors, see</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList List of replication-related error codes&gt;</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- __Permissions__</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- To create a @PutBucketReplication@ request, you must have</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- @s3:PutReplicationConfiguration@ permissions for the bucket.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- By default, a resource owner, in this case the Amazon Web Services</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- account that created the bucket, can perform this operation. The</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- resource owner can also grant others permissions to perform the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- operation. For more information about permissions, see</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy&gt;</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources&gt;.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- To perform this operation, the user or role performing the action must</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- have the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html iam:PassRole&gt;</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- permission.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following operations are related to @PutBucketReplication@:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html GetBucketReplication&gt;</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html DeleteBucketReplication&gt;</span><span>
+</span><span id="line-90"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.PutBucketReplication</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier">PutBucketReplication</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#newPutBucketReplication"><span class="hs-identifier">newPutBucketReplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_token"><span class="hs-identifier">putBucketReplication_token</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_contentMD5"><span class="hs-identifier">putBucketReplication_contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_expectedBucketOwner"><span class="hs-identifier">putBucketReplication_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_bucket"><span class="hs-identifier">putBucketReplication_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_replicationConfiguration"><span class="hs-identifier">putBucketReplication_replicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier">PutBucketReplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#newPutBucketReplicationResponse"><span class="hs-identifier">newPutBucketReplicationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.html"><span class="hs-identifier">Amazonka.S3.Types</span></a></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newPutBucketReplication' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679564986"><span id="local-6989586621679564987"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketReplication"><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-var">PutBucketReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketReplication%27"><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-var">PutBucketReplication'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to allow Object Lock to be enabled for an existing bucket.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Atoken%3APutBucketReplication%27"><span class="annot"><span class="annottext">PutBucketReplication -&gt; Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3Atoken%3APutBucketReplication%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The base64-encoded 128-bit MD5 digest of the data. You must use this</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- header as a message integrity check to verify that the request body was</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- not corrupted in transit. For more information, see</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- &lt;http://www.ietf.org/rfc/rfc1864.txt RFC 1864&gt;.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AcontentMD5%3APutBucketReplication%27"><span class="annot"><span class="annottext">PutBucketReplication -&gt; Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AcontentMD5%3APutBucketReplication%27"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3APutBucketReplication%27"><span class="annot"><span class="annottext">PutBucketReplication -&gt; Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AexpectedBucketOwner%3APutBucketReplication%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The name of the bucket</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Abucket%3APutBucketReplication%27"><span class="annot"><span class="annottext">PutBucketReplication -&gt; BucketName
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3Abucket%3APutBucketReplication%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="annot"><span class="annottext">PutBucketReplication -&gt; ReplicationConfiguration
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679564976"><span id="local-6989586621679564978"><span class="annot"><span class="annottext">PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
+(PutBucketReplication -&gt; PutBucketReplication -&gt; Bool)
+-&gt; (PutBucketReplication -&gt; PutBucketReplication -&gt; Bool)
+-&gt; Eq PutBucketReplication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
+$c/= :: PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
+== :: PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
+$c== :: PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564967"><span id="local-6989586621679564969"><span id="local-6989586621679564971"><span id="local-6989586621679564973"><span class="annot"><span class="annottext">ReadPrec [PutBucketReplication]
+ReadPrec PutBucketReplication
+Int -&gt; ReadS PutBucketReplication
+ReadS [PutBucketReplication]
+(Int -&gt; ReadS PutBucketReplication)
+-&gt; ReadS [PutBucketReplication]
+-&gt; ReadPrec PutBucketReplication
+-&gt; ReadPrec [PutBucketReplication]
+-&gt; Read PutBucketReplication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketReplication]
+$creadListPrec :: ReadPrec [PutBucketReplication]
+readPrec :: ReadPrec PutBucketReplication
+$creadPrec :: ReadPrec PutBucketReplication
+readList :: ReadS [PutBucketReplication]
+$creadList :: ReadS [PutBucketReplication]
+readsPrec :: Int -&gt; ReadS PutBucketReplication
+$creadsPrec :: Int -&gt; ReadS PutBucketReplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564960"><span id="local-6989586621679564962"><span id="local-6989586621679564964"><span class="annot"><span class="annottext">Int -&gt; PutBucketReplication -&gt; ShowS
+[PutBucketReplication] -&gt; ShowS
+PutBucketReplication -&gt; String
+(Int -&gt; PutBucketReplication -&gt; ShowS)
+-&gt; (PutBucketReplication -&gt; String)
+-&gt; ([PutBucketReplication] -&gt; ShowS)
+-&gt; Show PutBucketReplication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketReplication] -&gt; ShowS
+$cshowList :: [PutBucketReplication] -&gt; ShowS
+show :: PutBucketReplication -&gt; String
+$cshow :: PutBucketReplication -&gt; String
+showsPrec :: Int -&gt; PutBucketReplication -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketReplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutBucketReplication -&gt; Rep PutBucketReplication x)
+-&gt; (forall x. Rep PutBucketReplication x -&gt; PutBucketReplication)
+-&gt; Generic PutBucketReplication
+forall x. Rep PutBucketReplication x -&gt; PutBucketReplication
+forall x. PutBucketReplication -&gt; Rep PutBucketReplication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutBucketReplication x -&gt; PutBucketReplication
+$cfrom :: forall x. PutBucketReplication -&gt; Rep PutBucketReplication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'PutBucketReplication' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'token', 'putBucketReplication_token' - A token to allow Object Lock to be enabled for an existing bucket.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'contentMD5', 'putBucketReplication_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- header as a message integrity check to verify that the request body was</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- not corrupted in transit. For more information, see</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- &lt;http://www.ietf.org/rfc/rfc1864.txt RFC 1864&gt;.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'expectedBucketOwner', 'putBucketReplication_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'bucket', 'putBucketReplication_bucket' - The name of the bucket</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'replicationConfiguration', 'putBucketReplication_replicationConfiguration' - Undocumented member.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#newPutBucketReplication"><span class="hs-identifier hs-type">newPutBucketReplication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'replicationConfiguration'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span>
+</span><span id="line-170"></span><span id="newPutBucketReplication"><span class="annot"><span class="annottext">newPutBucketReplication :: BucketName -&gt; ReplicationConfiguration -&gt; PutBucketReplication
+</span><a href="Amazonka.S3.PutBucketReplication.html#newPutBucketReplication"><span class="hs-identifier hs-var hs-var">newPutBucketReplication</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679564955"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679564955"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679564954"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679564954"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">PutBucketReplication' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; BucketName
+-&gt; ReplicationConfiguration
+-&gt; PutBucketReplication
+</span><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:token:PutBucketReplication' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3Atoken%3APutBucketReplication%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketReplication' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AcontentMD5%3APutBucketReplication%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketReplication' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AexpectedBucketOwner%3APutBucketReplication%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketReplication' :: BucketName
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3Abucket%3APutBucketReplication%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679564955"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutBucketReplication' :: ReplicationConfiguration
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679564954"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | A token to allow Object Lock to be enabled for an existing bucket.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_token"><span class="hs-identifier hs-type">putBucketReplication_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="putBucketReplication_token"><span class="annot"><span class="annottext">putBucketReplication_token :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketReplication -&gt; f PutBucketReplication
+</span><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_token"><span class="hs-identifier hs-var hs-var">putBucketReplication_token</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketReplication -&gt; Maybe Text)
+-&gt; (PutBucketReplication -&gt; Maybe Text -&gt; PutBucketReplication)
+-&gt; Lens
+     PutBucketReplication PutBucketReplication (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564951"><span class="annot"><span class="annottext">Maybe Text
+token :: Maybe Text
+$sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+</span><a href="#local-6989586621679564951"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564951"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564950"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679564950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679564950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:PutBucketReplication' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3Atoken%3APutBucketReplication%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The base64-encoded 128-bit MD5 digest of the data. You must use this</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- header as a message integrity check to verify that the request body was</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- not corrupted in transit. For more information, see</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- &lt;http://www.ietf.org/rfc/rfc1864.txt RFC 1864&gt;.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_contentMD5"><span class="hs-identifier hs-type">putBucketReplication_contentMD5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="putBucketReplication_contentMD5"><span class="annot"><span class="annottext">putBucketReplication_contentMD5 :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketReplication -&gt; f PutBucketReplication
+</span><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_contentMD5"><span class="hs-identifier hs-var hs-var">putBucketReplication_contentMD5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketReplication -&gt; Maybe Text)
+-&gt; (PutBucketReplication -&gt; Maybe Text -&gt; PutBucketReplication)
+-&gt; Lens
+     PutBucketReplication PutBucketReplication (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564948"><span class="annot"><span class="annottext">Maybe Text
+contentMD5 :: Maybe Text
+$sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+</span><a href="#local-6989586621679564948"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564948"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564947"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679564947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679564947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketReplication' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AcontentMD5%3APutBucketReplication%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_expectedBucketOwner"><span class="hs-identifier hs-type">putBucketReplication_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="putBucketReplication_expectedBucketOwner"><span class="annot"><span class="annottext">putBucketReplication_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketReplication -&gt; f PutBucketReplication
+</span><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">putBucketReplication_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketReplication -&gt; Maybe Text)
+-&gt; (PutBucketReplication -&gt; Maybe Text -&gt; PutBucketReplication)
+-&gt; Lens
+     PutBucketReplication PutBucketReplication (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564945"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+</span><a href="#local-6989586621679564945"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564945"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564944"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679564944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564943"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679564944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketReplication' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AexpectedBucketOwner%3APutBucketReplication%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The name of the bucket</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_bucket"><span class="hs-identifier hs-type">putBucketReplication_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-205"></span><span id="putBucketReplication_bucket"><span class="annot"><span class="annottext">putBucketReplication_bucket :: (BucketName -&gt; f BucketName)
+-&gt; PutBucketReplication -&gt; f PutBucketReplication
+</span><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_bucket"><span class="hs-identifier hs-var hs-var">putBucketReplication_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketReplication -&gt; BucketName)
+-&gt; (PutBucketReplication -&gt; BucketName -&gt; PutBucketReplication)
+-&gt; Lens
+     PutBucketReplication PutBucketReplication BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564942"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
+</span><a href="#local-6989586621679564942"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679564942"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564941"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679564941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564940"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679564940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679564941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketReplication' :: BucketName
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3Abucket%3APutBucketReplication%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679564940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_replicationConfiguration"><span class="hs-identifier hs-type">putBucketReplication_replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span>
+</span><span id="line-209"></span><span id="putBucketReplication_replicationConfiguration"><span class="annot"><span class="annottext">putBucketReplication_replicationConfiguration :: (ReplicationConfiguration -&gt; f ReplicationConfiguration)
+-&gt; PutBucketReplication -&gt; f PutBucketReplication
+</span><a href="Amazonka.S3.PutBucketReplication.html#putBucketReplication_replicationConfiguration"><span class="hs-identifier hs-var hs-var">putBucketReplication_replicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketReplication -&gt; ReplicationConfiguration)
+-&gt; (PutBucketReplication
+    -&gt; ReplicationConfiguration -&gt; PutBucketReplication)
+-&gt; Lens
+     PutBucketReplication
+     PutBucketReplication
+     ReplicationConfiguration
+     ReplicationConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564939"><span class="annot"><span class="annottext">ReplicationConfiguration
+replicationConfiguration :: ReplicationConfiguration
+$sel:replicationConfiguration:PutBucketReplication' :: PutBucketReplication -&gt; ReplicationConfiguration
+</span><a href="#local-6989586621679564939"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679564939"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564938"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679564938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564937"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679564937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679564938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutBucketReplication' :: ReplicationConfiguration
+</span><a href="Amazonka.S3.PutBucketReplication.html#%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679564937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-213"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-type">PutBucketReplicationResponse</span></a></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679564933"><span class="annot"><span class="annottext">request :: PutBucketReplication -&gt; Request PutBucketReplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">Request PutBucketReplication -&gt; Request PutBucketReplication
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">(Request PutBucketReplication -&gt; Request PutBucketReplication)
+-&gt; (PutBucketReplication -&gt; Request PutBucketReplication)
+-&gt; PutBucketReplication
+-&gt; Request PutBucketReplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutBucketReplication -&gt; Request PutBucketReplication
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679564927"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutBucketReplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutBucketReplication)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketReplication
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutBucketReplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutBucketReplication)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse PutBucketReplication
+PutBucketReplicationResponse
+</span><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse%27"><span class="hs-identifier hs-var">PutBucketReplicationResponse'</span></a></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679564920"><span id="local-6989586621679564922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span></span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679564917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679564913"><span class="annot"><span class="annottext">toElement :: PutBucketReplication -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564907"><span id="local-6989586621679564908"><span id="local-6989586621679564909"><span id="local-6989586621679564910"><span id="local-6989586621679564911"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+ReplicationConfiguration
+replicationConfiguration :: ReplicationConfiguration
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
+token :: Maybe Text
+$sel:replicationConfiguration:PutBucketReplication' :: PutBucketReplication -&gt; ReplicationConfiguration
+$sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+$sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+$sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+</span><a href="#local-6989586621679564907"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; ReplicationConfiguration -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}ReplicationConfiguration&quot;</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679564907"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679564903"><span class="annot"><span class="annottext">toHeaders :: PutBucketReplication -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564897"><span id="local-6989586621679564898"><span id="local-6989586621679564899"><span id="local-6989586621679564900"><span id="local-6989586621679564901"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+ReplicationConfiguration
+replicationConfiguration :: ReplicationConfiguration
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
+token :: Maybe Text
+$sel:replicationConfiguration:PutBucketReplication' :: PutBucketReplication -&gt; ReplicationConfiguration
+$sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+$sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+$sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+</span><a href="#local-6989586621679564897"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-bucket-object-lock-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564901"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-MD5&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564900"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679564899"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679564893"><span class="annot"><span class="annottext">toPath :: PutBucketReplication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564887"><span id="local-6989586621679564888"><span id="local-6989586621679564889"><span id="local-6989586621679564890"><span id="local-6989586621679564891"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+ReplicationConfiguration
+replicationConfiguration :: ReplicationConfiguration
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
+token :: Maybe Text
+$sel:replicationConfiguration:PutBucketReplication' :: PutBucketReplication -&gt; ReplicationConfiguration
+$sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+$sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+$sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
+</span><a href="#local-6989586621679564887"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679564888"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679564883"><span class="annot"><span class="annottext">toQuery :: PutBucketReplication -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketReplication -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;replication&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | /See:/ 'newPutBucketReplicationResponse' smart constructor.</span><span>
+</span><span id="line-249"></span><span id="local-6989586621679564879"><span id="local-6989586621679564880"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketReplicationResponse"><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-var">PutBucketReplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketReplicationResponse%27"><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse%27"><span class="hs-identifier hs-var">PutBucketReplicationResponse'</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679564875"><span id="local-6989586621679564877"><span class="annot"><span class="annottext">PutBucketReplicationResponse
+-&gt; PutBucketReplicationResponse -&gt; Bool
+(PutBucketReplicationResponse
+ -&gt; PutBucketReplicationResponse -&gt; Bool)
+-&gt; (PutBucketReplicationResponse
+    -&gt; PutBucketReplicationResponse -&gt; Bool)
+-&gt; Eq PutBucketReplicationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketReplicationResponse
+-&gt; PutBucketReplicationResponse -&gt; Bool
+$c/= :: PutBucketReplicationResponse
+-&gt; PutBucketReplicationResponse -&gt; Bool
+== :: PutBucketReplicationResponse
+-&gt; PutBucketReplicationResponse -&gt; Bool
+$c== :: PutBucketReplicationResponse
+-&gt; PutBucketReplicationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564867"><span id="local-6989586621679564869"><span id="local-6989586621679564871"><span id="local-6989586621679564873"><span class="annot"><span class="annottext">ReadPrec [PutBucketReplicationResponse]
+ReadPrec PutBucketReplicationResponse
+Int -&gt; ReadS PutBucketReplicationResponse
+ReadS [PutBucketReplicationResponse]
+(Int -&gt; ReadS PutBucketReplicationResponse)
+-&gt; ReadS [PutBucketReplicationResponse]
+-&gt; ReadPrec PutBucketReplicationResponse
+-&gt; ReadPrec [PutBucketReplicationResponse]
+-&gt; Read PutBucketReplicationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketReplicationResponse]
+$creadListPrec :: ReadPrec [PutBucketReplicationResponse]
+readPrec :: ReadPrec PutBucketReplicationResponse
+$creadPrec :: ReadPrec PutBucketReplicationResponse
+readList :: ReadS [PutBucketReplicationResponse]
+$creadList :: ReadS [PutBucketReplicationResponse]
+readsPrec :: Int -&gt; ReadS PutBucketReplicationResponse
+$creadsPrec :: Int -&gt; ReadS PutBucketReplicationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564861"><span id="local-6989586621679564863"><span id="local-6989586621679564865"><span class="annot"><span class="annottext">Int -&gt; PutBucketReplicationResponse -&gt; ShowS
+[PutBucketReplicationResponse] -&gt; ShowS
+PutBucketReplicationResponse -&gt; String
+(Int -&gt; PutBucketReplicationResponse -&gt; ShowS)
+-&gt; (PutBucketReplicationResponse -&gt; String)
+-&gt; ([PutBucketReplicationResponse] -&gt; ShowS)
+-&gt; Show PutBucketReplicationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketReplicationResponse] -&gt; ShowS
+$cshowList :: [PutBucketReplicationResponse] -&gt; ShowS
+show :: PutBucketReplicationResponse -&gt; String
+$cshow :: PutBucketReplicationResponse -&gt; String
+showsPrec :: Int -&gt; PutBucketReplicationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketReplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBucketReplicationResponse -&gt; Rep PutBucketReplicationResponse x)
+-&gt; (forall x.
+    Rep PutBucketReplicationResponse x -&gt; PutBucketReplicationResponse)
+-&gt; Generic PutBucketReplicationResponse
+forall x.
+Rep PutBucketReplicationResponse x -&gt; PutBucketReplicationResponse
+forall x.
+PutBucketReplicationResponse -&gt; Rep PutBucketReplicationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutBucketReplicationResponse x -&gt; PutBucketReplicationResponse
+$cfrom :: forall x.
+PutBucketReplicationResponse -&gt; Rep PutBucketReplicationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Create a value of 'PutBucketReplicationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#newPutBucketReplicationResponse"><span class="hs-identifier hs-type">newPutBucketReplicationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-type">PutBucketReplicationResponse</span></a></span><span>
+</span><span id="line-260"></span><span id="newPutBucketReplicationResponse"><span class="annot"><span class="annottext">newPutBucketReplicationResponse :: PutBucketReplicationResponse
+</span><a href="Amazonka.S3.PutBucketReplication.html#newPutBucketReplicationResponse"><span class="hs-identifier hs-var hs-var">newPutBucketReplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="annottext">PutBucketReplicationResponse
+</span><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse%27"><span class="hs-identifier hs-var">PutBucketReplicationResponse'</span></a></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679564857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-type">PutBucketReplicationResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

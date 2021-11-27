@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.StartDBInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts an Amazon RDS DB instance that was stopped using the Amazon Web</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Services console, the stop-db-instance CLI command, or the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- StopDBInstance action.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html Starting an Amazon RDS DB instance That Was Previously Stopped&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This command doesn\'t apply to Aurora MySQL and Aurora PostgreSQL. For</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Aurora DB clusters, use @StartDBCluster@ instead.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.StartDBInstance</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier">StartDBInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#newStartDBInstance"><span class="hs-identifier">newStartDBInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#startDBInstance_dbInstanceIdentifier"><span class="hs-identifier">startDBInstance_dbInstanceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier">StartDBInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#newStartDBInstanceResponse"><span class="hs-identifier">newStartDBInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#startDBInstanceResponse_dbInstance"><span class="hs-identifier">startDBInstanceResponse_dbInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#startDBInstanceResponse_httpStatus"><span class="hs-identifier">startDBInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStartDBInstance' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679774895"><span id="local-6989586621679774896"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDBInstance"><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-var">StartDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDBInstance%27"><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-var">StartDBInstance'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user-supplied instance identifier.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="annot"><span class="annottext">StartDBInstance -&gt; Text
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774889"><span id="local-6989586621679774891"><span class="annot"><span class="annottext">StartDBInstance -&gt; StartDBInstance -&gt; Bool
+(StartDBInstance -&gt; StartDBInstance -&gt; Bool)
+-&gt; (StartDBInstance -&gt; StartDBInstance -&gt; Bool)
+-&gt; Eq StartDBInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDBInstance -&gt; StartDBInstance -&gt; Bool
+$c/= :: StartDBInstance -&gt; StartDBInstance -&gt; Bool
+== :: StartDBInstance -&gt; StartDBInstance -&gt; Bool
+$c== :: StartDBInstance -&gt; StartDBInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774880"><span id="local-6989586621679774882"><span id="local-6989586621679774884"><span id="local-6989586621679774886"><span class="annot"><span class="annottext">ReadPrec [StartDBInstance]
+ReadPrec StartDBInstance
+Int -&gt; ReadS StartDBInstance
+ReadS [StartDBInstance]
+(Int -&gt; ReadS StartDBInstance)
+-&gt; ReadS [StartDBInstance]
+-&gt; ReadPrec StartDBInstance
+-&gt; ReadPrec [StartDBInstance]
+-&gt; Read StartDBInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDBInstance]
+$creadListPrec :: ReadPrec [StartDBInstance]
+readPrec :: ReadPrec StartDBInstance
+$creadPrec :: ReadPrec StartDBInstance
+readList :: ReadS [StartDBInstance]
+$creadList :: ReadS [StartDBInstance]
+readsPrec :: Int -&gt; ReadS StartDBInstance
+$creadsPrec :: Int -&gt; ReadS StartDBInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774873"><span id="local-6989586621679774875"><span id="local-6989586621679774877"><span class="annot"><span class="annottext">Int -&gt; StartDBInstance -&gt; ShowS
+[StartDBInstance] -&gt; ShowS
+StartDBInstance -&gt; String
+(Int -&gt; StartDBInstance -&gt; ShowS)
+-&gt; (StartDBInstance -&gt; String)
+-&gt; ([StartDBInstance] -&gt; ShowS)
+-&gt; Show StartDBInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDBInstance] -&gt; ShowS
+$cshowList :: [StartDBInstance] -&gt; ShowS
+show :: StartDBInstance -&gt; String
+$cshow :: StartDBInstance -&gt; String
+showsPrec :: Int -&gt; StartDBInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDBInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartDBInstance -&gt; Rep StartDBInstance x)
+-&gt; (forall x. Rep StartDBInstance x -&gt; StartDBInstance)
+-&gt; Generic StartDBInstance
+forall x. Rep StartDBInstance x -&gt; StartDBInstance
+forall x. StartDBInstance -&gt; Rep StartDBInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartDBInstance x -&gt; StartDBInstance
+$cfrom :: forall x. StartDBInstance -&gt; Rep StartDBInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'StartDBInstance' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'dbInstanceIdentifier', 'startDBInstance_dbInstanceIdentifier' - The user-supplied instance identifier.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#newStartDBInstance"><span class="hs-identifier hs-type">newStartDBInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'dbInstanceIdentifier'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span>
+</span><span id="line-78"></span><span id="newStartDBInstance"><span class="annot"><span class="annottext">newStartDBInstance :: Text -&gt; StartDBInstance
+</span><a href="Amazonka.RDS.StartDBInstance.html#newStartDBInstance"><span class="hs-identifier hs-var hs-var">newStartDBInstance</span></a></span></span><span> </span><span id="local-6989586621679774868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774868"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">StartDBInstance' :: Text -&gt; StartDBInstance
+</span><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StartDBInstance' :: Text
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774868"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The user-supplied instance identifier.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#startDBInstance_dbInstanceIdentifier"><span class="hs-identifier hs-type">startDBInstance_dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="startDBInstance_dbInstanceIdentifier"><span class="annot"><span class="annottext">startDBInstance_dbInstanceIdentifier :: (Text -&gt; f Text) -&gt; StartDBInstance -&gt; f StartDBInstance
+</span><a href="Amazonka.RDS.StartDBInstance.html#startDBInstance_dbInstanceIdentifier"><span class="hs-identifier hs-var hs-var">startDBInstance_dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDBInstance -&gt; Text)
+-&gt; (StartDBInstance -&gt; Text -&gt; StartDBInstance)
+-&gt; Lens StartDBInstance StartDBInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774865"><span class="annot"><span class="annottext">Text
+dbInstanceIdentifier :: Text
+$sel:dbInstanceIdentifier:StartDBInstance' :: StartDBInstance -&gt; Text
+</span><a href="#local-6989586621679774865"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774865"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774864"><span class="annot"><span class="annottext">s :: StartDBInstance
+</span><a href="#local-6989586621679774864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstance
+</span><a href="#local-6989586621679774864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StartDBInstance' :: Text
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679774859"><span class="annot"><span class="annottext">request :: StartDBInstance -&gt; Request StartDBInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartDBInstance -&gt; Request StartDBInstance
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679774855"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartDBInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartDBInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse StartDBInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartDBInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartDBInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartDBInstanceResult&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774852"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774852"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679774851"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679774851"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679774850"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679774850"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBInstance -&gt; Int -&gt; StartDBInstanceResponse
+</span><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-var">StartDBInstanceResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBInstance -&gt; Int -&gt; StartDBInstanceResponse)
+-&gt; Either String (Maybe DBInstance)
+-&gt; Either String (Int -&gt; StartDBInstanceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679774850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstance)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBInstance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartDBInstanceResponse)
+-&gt; Either String Int -&gt; Either String StartDBInstanceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774852"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774842"><span id="local-6989586621679774844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679774835"><span class="annot"><span class="annottext">toHeaders :: StartDBInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartDBInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679774830"><span class="annot"><span class="annottext">toPath :: StartDBInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartDBInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679774826"><span class="annot"><span class="annottext">toQuery :: StartDBInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774824"><span class="annot"><span class="annottext">Text
+dbInstanceIdentifier :: Text
+$sel:dbInstanceIdentifier:StartDBInstance' :: StartDBInstance -&gt; Text
+</span><a href="#local-6989586621679774824"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StartDBInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774824"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newStartDBInstanceResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679774821"><span id="local-6989586621679774822"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDBInstanceResponse"><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-var">StartDBInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDBInstanceResponse%27"><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-var">StartDBInstanceResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbInstance%3AStartDBInstanceResponse%27"><span class="annot"><span class="annottext">StartDBInstanceResponse -&gt; Maybe DBInstance
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AdbInstance%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBInstance.html#DBInstance"><span class="hs-identifier hs-type">DBInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="annot"><span class="annottext">StartDBInstanceResponse -&gt; Int
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774815"><span id="local-6989586621679774817"><span class="annot"><span class="annottext">StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
+(StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool)
+-&gt; (StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool)
+-&gt; Eq StartDBInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
+$c/= :: StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
+== :: StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
+$c== :: StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774807"><span id="local-6989586621679774809"><span id="local-6989586621679774811"><span id="local-6989586621679774813"><span class="annot"><span class="annottext">ReadPrec [StartDBInstanceResponse]
+ReadPrec StartDBInstanceResponse
+Int -&gt; ReadS StartDBInstanceResponse
+ReadS [StartDBInstanceResponse]
+(Int -&gt; ReadS StartDBInstanceResponse)
+-&gt; ReadS [StartDBInstanceResponse]
+-&gt; ReadPrec StartDBInstanceResponse
+-&gt; ReadPrec [StartDBInstanceResponse]
+-&gt; Read StartDBInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDBInstanceResponse]
+$creadListPrec :: ReadPrec [StartDBInstanceResponse]
+readPrec :: ReadPrec StartDBInstanceResponse
+$creadPrec :: ReadPrec StartDBInstanceResponse
+readList :: ReadS [StartDBInstanceResponse]
+$creadList :: ReadS [StartDBInstanceResponse]
+readsPrec :: Int -&gt; ReadS StartDBInstanceResponse
+$creadsPrec :: Int -&gt; ReadS StartDBInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774801"><span id="local-6989586621679774803"><span id="local-6989586621679774805"><span class="annot"><span class="annottext">Int -&gt; StartDBInstanceResponse -&gt; ShowS
+[StartDBInstanceResponse] -&gt; ShowS
+StartDBInstanceResponse -&gt; String
+(Int -&gt; StartDBInstanceResponse -&gt; ShowS)
+-&gt; (StartDBInstanceResponse -&gt; String)
+-&gt; ([StartDBInstanceResponse] -&gt; ShowS)
+-&gt; Show StartDBInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDBInstanceResponse] -&gt; ShowS
+$cshowList :: [StartDBInstanceResponse] -&gt; ShowS
+show :: StartDBInstanceResponse -&gt; String
+$cshow :: StartDBInstanceResponse -&gt; String
+showsPrec :: Int -&gt; StartDBInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDBInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDBInstanceResponse -&gt; Rep StartDBInstanceResponse x)
+-&gt; (forall x.
+    Rep StartDBInstanceResponse x -&gt; StartDBInstanceResponse)
+-&gt; Generic StartDBInstanceResponse
+forall x. Rep StartDBInstanceResponse x -&gt; StartDBInstanceResponse
+forall x. StartDBInstanceResponse -&gt; Rep StartDBInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartDBInstanceResponse x -&gt; StartDBInstanceResponse
+$cfrom :: forall x. StartDBInstanceResponse -&gt; Rep StartDBInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'StartDBInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'dbInstance', 'startDBInstanceResponse_dbInstance' - Undocumented member.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'httpStatus', 'startDBInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#newStartDBInstanceResponse"><span class="hs-identifier hs-type">newStartDBInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span>
+</span><span id="line-145"></span><span id="newStartDBInstanceResponse"><span class="annot"><span class="annottext">newStartDBInstanceResponse :: Int -&gt; StartDBInstanceResponse
+</span><a href="Amazonka.RDS.StartDBInstance.html#newStartDBInstanceResponse"><span class="hs-identifier hs-var hs-var">newStartDBInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679774798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">StartDBInstanceResponse' :: Maybe DBInstance -&gt; Int -&gt; StartDBInstanceResponse
+</span><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstance:StartDBInstanceResponse' :: Maybe DBInstance
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AdbInstance%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var">dbInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Maybe DBInstance
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartDBInstanceResponse' :: Int
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#startDBInstanceResponse_dbInstance"><span class="hs-identifier hs-type">startDBInstanceResponse_dbInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBInstance.html#DBInstance"><span class="hs-identifier hs-type">DBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="startDBInstanceResponse_dbInstance"><span class="annot"><span class="annottext">startDBInstanceResponse_dbInstance :: (Maybe DBInstance -&gt; f (Maybe DBInstance))
+-&gt; StartDBInstanceResponse -&gt; f StartDBInstanceResponse
+</span><a href="Amazonka.RDS.StartDBInstance.html#startDBInstanceResponse_dbInstance"><span class="hs-identifier hs-var hs-var">startDBInstanceResponse_dbInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDBInstanceResponse -&gt; Maybe DBInstance)
+-&gt; (StartDBInstanceResponse
+    -&gt; Maybe DBInstance -&gt; StartDBInstanceResponse)
+-&gt; Lens
+     StartDBInstanceResponse
+     StartDBInstanceResponse
+     (Maybe DBInstance)
+     (Maybe DBInstance)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774797"><span class="annot"><span class="annottext">Maybe DBInstance
+dbInstance :: Maybe DBInstance
+$sel:dbInstance:StartDBInstanceResponse' :: StartDBInstanceResponse -&gt; Maybe DBInstance
+</span><a href="#local-6989586621679774797"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679774797"><span class="hs-identifier hs-var">dbInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774796"><span class="annot"><span class="annottext">s :: StartDBInstanceResponse
+</span><a href="#local-6989586621679774796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774795"><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679774795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstanceResponse
+</span><a href="#local-6989586621679774796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstance:StartDBInstanceResponse' :: Maybe DBInstance
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AdbInstance%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var">dbInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679774795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#startDBInstanceResponse_httpStatus"><span class="hs-identifier hs-type">startDBInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="startDBInstanceResponse_httpStatus"><span class="annot"><span class="annottext">startDBInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartDBInstanceResponse -&gt; f StartDBInstanceResponse
+</span><a href="Amazonka.RDS.StartDBInstance.html#startDBInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startDBInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDBInstanceResponse -&gt; Int)
+-&gt; (StartDBInstanceResponse -&gt; Int -&gt; StartDBInstanceResponse)
+-&gt; Lens StartDBInstanceResponse StartDBInstanceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774794"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartDBInstanceResponse' :: StartDBInstanceResponse -&gt; Int
+</span><a href="#local-6989586621679774794"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774794"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774793"><span class="annot"><span class="annottext">s :: StartDBInstanceResponse
+</span><a href="#local-6989586621679774793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstanceResponse
+</span><a href="#local-6989586621679774793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDBInstanceResponse' :: Int
+</span><a href="Amazonka.RDS.StartDBInstance.html#%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

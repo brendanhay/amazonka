@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Grafana.Types.User</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Grafana.Types.User</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.UserType.html"><span class="hs-identifier">Amazonka.Grafana.Types.UserType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A structure that specifies one user or group in the workspace.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUser' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679186056"><span id="local-6989586621679186057"></span></span><span class="hs-keyword">data</span><span> </span><span id="User"><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-var">User</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="User%27"><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-var">User'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the user or group.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aid%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Text
+</span><a href="Amazonka.Grafana.Types.User.html#%24sel%3Aid%3AUser%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Specifies whether this is a single user or a group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3AUser%27"><span class="annot"><span class="annottext">User -&gt; UserType
+</span><a href="Amazonka.Grafana.Types.User.html#%24sel%3Atype%27%3AUser%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186049"><span id="local-6989586621679186051"><span class="annot"><span class="annottext">User -&gt; User -&gt; Bool
+(User -&gt; User -&gt; Bool) -&gt; (User -&gt; User -&gt; Bool) -&gt; Eq User
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: User -&gt; User -&gt; Bool
+$c/= :: User -&gt; User -&gt; Bool
+== :: User -&gt; User -&gt; Bool
+$c== :: User -&gt; User -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186040"><span id="local-6989586621679186042"><span id="local-6989586621679186044"><span id="local-6989586621679186046"><span class="annot"><span class="annottext">ReadPrec [User]
+ReadPrec User
+Int -&gt; ReadS User
+ReadS [User]
+(Int -&gt; ReadS User)
+-&gt; ReadS [User] -&gt; ReadPrec User -&gt; ReadPrec [User] -&gt; Read User
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [User]
+$creadListPrec :: ReadPrec [User]
+readPrec :: ReadPrec User
+$creadPrec :: ReadPrec User
+readList :: ReadS [User]
+$creadList :: ReadS [User]
+readsPrec :: Int -&gt; ReadS User
+$creadsPrec :: Int -&gt; ReadS User
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186033"><span id="local-6989586621679186035"><span id="local-6989586621679186037"><span class="annot"><span class="annottext">Int -&gt; User -&gt; ShowS
+[User] -&gt; ShowS
+User -&gt; String
+(Int -&gt; User -&gt; ShowS)
+-&gt; (User -&gt; String) -&gt; ([User] -&gt; ShowS) -&gt; Show User
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [User] -&gt; ShowS
+$cshowList :: [User] -&gt; ShowS
+show :: User -&gt; String
+$cshow :: User -&gt; String
+showsPrec :: Int -&gt; User -&gt; ShowS
+$cshowsPrec :: Int -&gt; User -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. User -&gt; Rep User x)
+-&gt; (forall x. Rep User x -&gt; User) -&gt; Generic User
+forall x. Rep User x -&gt; User
+forall x. User -&gt; Rep User x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep User x -&gt; User
+$cfrom :: forall x. User -&gt; Rep User x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'User' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'id', 'user_id' - The ID of the user or group.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'type'', 'user_type' - Specifies whether this is a single user or a group.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#newUser"><span class="hs-identifier hs-type">newUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span>
+</span><span id="line-55"></span><span id="newUser"><span class="annot"><span class="annottext">newUser :: Text -&gt; UserType -&gt; User
+</span><a href="Amazonka.Grafana.Types.User.html#newUser"><span class="hs-identifier hs-var hs-var">newUser</span></a></span></span><span> </span><span id="local-6989586621679186027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186027"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679186026"><span class="annot"><span class="annottext">UserType
+</span><a href="#local-6989586621679186026"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">User' :: Text -&gt; UserType -&gt; User
+</span><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:User' :: Text
+</span><a href="Amazonka.Grafana.Types.User.html#%24sel%3Aid%3AUser%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186027"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':User' :: UserType
+</span><a href="Amazonka.Grafana.Types.User.html#%24sel%3Atype%27%3AUser%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UserType
+</span><a href="#local-6989586621679186026"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The ID of the user or group.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#user_id"><span class="hs-identifier hs-type">user_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span id="user_id"><span class="annot"><span class="annottext">user_id :: (Text -&gt; f Text) -&gt; User -&gt; f User
+</span><a href="Amazonka.Grafana.Types.User.html#user_id"><span class="hs-identifier hs-var hs-var">user_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Text)
+-&gt; (User -&gt; Text -&gt; User) -&gt; Lens User User Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186022"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:User' :: User -&gt; Text
+</span><a href="#local-6989586621679186022"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186022"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186021"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679186021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679186021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:User' :: Text
+</span><a href="Amazonka.Grafana.Types.User.html#%24sel%3Aid%3AUser%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Specifies whether this is a single user or a group.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#user_type"><span class="hs-identifier hs-type">user_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span>
+</span><span id="line-64"></span><span id="user_type"><span class="annot"><span class="annottext">user_type :: (UserType -&gt; f UserType) -&gt; User -&gt; f User
+</span><a href="Amazonka.Grafana.Types.User.html#user_type"><span class="hs-identifier hs-var hs-var">user_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; UserType)
+-&gt; (User -&gt; UserType -&gt; User) -&gt; Lens User User UserType UserType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186018"><span class="annot"><span class="annottext">UserType
+type' :: UserType
+$sel:type':User' :: User -&gt; UserType
+</span><a href="#local-6989586621679186018"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserType
+</span><a href="#local-6989586621679186018"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186017"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679186017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186016"><span class="annot"><span class="annottext">UserType
+</span><a href="#local-6989586621679186016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679186017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':User' :: UserType
+</span><a href="Amazonka.Grafana.Types.User.html#%24sel%3Atype%27%3AUser%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UserType
+</span><a href="#local-6989586621679186016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186013"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679186011"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser User
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser User) -&gt; Value -&gt; Parser User
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;User&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186008"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; UserType -&gt; User
+</span><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-var">User'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; UserType -&gt; User)
+-&gt; Parser Text -&gt; Parser (UserType -&gt; User)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (UserType -&gt; User) -&gt; Parser UserType -&gt; Parser User
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UserType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186002"><span id="local-6989586621679186004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185991"><span id="local-6989586621679185993"><span id="local-6989586621679185995"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679185989"><span class="annot"><span class="annottext">toJSON :: User -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185986"><span id="local-6989586621679185987"><span class="annot"><span class="annottext">Text
+UserType
+type' :: UserType
+id :: Text
+$sel:type':User' :: User -&gt; UserType
+$sel:id:User' :: User -&gt; Text
+</span><a href="#local-6989586621679185986"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185987"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UserType
+</span><a href="#local-6989586621679185986"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span></pre></body></html>

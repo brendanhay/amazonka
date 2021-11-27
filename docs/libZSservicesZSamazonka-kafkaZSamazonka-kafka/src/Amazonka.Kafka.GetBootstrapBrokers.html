@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kafka.GetBootstrapBrokers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- A list of brokers that a client application can use to bootstrap.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kafka.GetBootstrapBrokers</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier">GetBootstrapBrokers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#newGetBootstrapBrokers"><span class="hs-identifier">newGetBootstrapBrokers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokers_clusterArn"><span class="hs-identifier">getBootstrapBrokers_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier">GetBootstrapBrokersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#newGetBootstrapBrokersResponse"><span class="hs-identifier">newGetBootstrapBrokersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerString"><span class="hs-identifier">getBootstrapBrokersResponse_bootstrapBrokerString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram"><span class="hs-identifier">getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringTls"><span class="hs-identifier">getBootstrapBrokersResponse_bootstrapBrokerStringTls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam"><span class="hs-identifier">getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_httpStatus"><span class="hs-identifier">getBootstrapBrokersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.html"><span class="hs-identifier">Amazonka.Kafka.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetBootstrapBrokers' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679237507"><span id="local-6989586621679237508"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBootstrapBrokers"><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-var">GetBootstrapBrokers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBootstrapBrokers%27"><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers%27"><span class="hs-identifier hs-var">GetBootstrapBrokers'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AclusterArn%3AGetBootstrapBrokers%27"><span class="annot"><span class="annottext">GetBootstrapBrokers -&gt; Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AclusterArn%3AGetBootstrapBrokers%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237501"><span id="local-6989586621679237503"><span class="annot"><span class="annottext">GetBootstrapBrokers -&gt; GetBootstrapBrokers -&gt; Bool
+(GetBootstrapBrokers -&gt; GetBootstrapBrokers -&gt; Bool)
+-&gt; (GetBootstrapBrokers -&gt; GetBootstrapBrokers -&gt; Bool)
+-&gt; Eq GetBootstrapBrokers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBootstrapBrokers -&gt; GetBootstrapBrokers -&gt; Bool
+$c/= :: GetBootstrapBrokers -&gt; GetBootstrapBrokers -&gt; Bool
+== :: GetBootstrapBrokers -&gt; GetBootstrapBrokers -&gt; Bool
+$c== :: GetBootstrapBrokers -&gt; GetBootstrapBrokers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237492"><span id="local-6989586621679237494"><span id="local-6989586621679237496"><span id="local-6989586621679237498"><span class="annot"><span class="annottext">ReadPrec [GetBootstrapBrokers]
+ReadPrec GetBootstrapBrokers
+Int -&gt; ReadS GetBootstrapBrokers
+ReadS [GetBootstrapBrokers]
+(Int -&gt; ReadS GetBootstrapBrokers)
+-&gt; ReadS [GetBootstrapBrokers]
+-&gt; ReadPrec GetBootstrapBrokers
+-&gt; ReadPrec [GetBootstrapBrokers]
+-&gt; Read GetBootstrapBrokers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBootstrapBrokers]
+$creadListPrec :: ReadPrec [GetBootstrapBrokers]
+readPrec :: ReadPrec GetBootstrapBrokers
+$creadPrec :: ReadPrec GetBootstrapBrokers
+readList :: ReadS [GetBootstrapBrokers]
+$creadList :: ReadS [GetBootstrapBrokers]
+readsPrec :: Int -&gt; ReadS GetBootstrapBrokers
+$creadsPrec :: Int -&gt; ReadS GetBootstrapBrokers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237485"><span id="local-6989586621679237487"><span id="local-6989586621679237489"><span class="annot"><span class="annottext">Int -&gt; GetBootstrapBrokers -&gt; ShowS
+[GetBootstrapBrokers] -&gt; ShowS
+GetBootstrapBrokers -&gt; String
+(Int -&gt; GetBootstrapBrokers -&gt; ShowS)
+-&gt; (GetBootstrapBrokers -&gt; String)
+-&gt; ([GetBootstrapBrokers] -&gt; ShowS)
+-&gt; Show GetBootstrapBrokers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBootstrapBrokers] -&gt; ShowS
+$cshowList :: [GetBootstrapBrokers] -&gt; ShowS
+show :: GetBootstrapBrokers -&gt; String
+$cshow :: GetBootstrapBrokers -&gt; String
+showsPrec :: Int -&gt; GetBootstrapBrokers -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBootstrapBrokers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBootstrapBrokers -&gt; Rep GetBootstrapBrokers x)
+-&gt; (forall x. Rep GetBootstrapBrokers x -&gt; GetBootstrapBrokers)
+-&gt; Generic GetBootstrapBrokers
+forall x. Rep GetBootstrapBrokers x -&gt; GetBootstrapBrokers
+forall x. GetBootstrapBrokers -&gt; Rep GetBootstrapBrokers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBootstrapBrokers x -&gt; GetBootstrapBrokers
+$cfrom :: forall x. GetBootstrapBrokers -&gt; Rep GetBootstrapBrokers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetBootstrapBrokers' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'clusterArn', 'getBootstrapBrokers_clusterArn' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#newGetBootstrapBrokers"><span class="hs-identifier hs-type">newGetBootstrapBrokers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'clusterArn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetBootstrapBrokers"><span class="annot"><span class="annottext">newGetBootstrapBrokers :: Text -&gt; GetBootstrapBrokers
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#newGetBootstrapBrokers"><span class="hs-identifier hs-var hs-var">newGetBootstrapBrokers</span></a></span></span><span> </span><span id="local-6989586621679237480"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237480"><span class="hs-identifier hs-var">pClusterArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetBootstrapBrokers' :: Text -&gt; GetBootstrapBrokers
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers%27"><span class="hs-identifier hs-type">GetBootstrapBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:GetBootstrapBrokers' :: Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AclusterArn%3AGetBootstrapBrokers%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237480"><span class="hs-identifier hs-var">pClusterArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokers_clusterArn"><span class="hs-identifier hs-type">getBootstrapBrokers_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="getBootstrapBrokers_clusterArn"><span class="annot"><span class="annottext">getBootstrapBrokers_clusterArn :: (Text -&gt; f Text) -&gt; GetBootstrapBrokers -&gt; f GetBootstrapBrokers
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokers_clusterArn"><span class="hs-identifier hs-var hs-var">getBootstrapBrokers_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBootstrapBrokers -&gt; Text)
+-&gt; (GetBootstrapBrokers -&gt; Text -&gt; GetBootstrapBrokers)
+-&gt; Lens GetBootstrapBrokers GetBootstrapBrokers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers%27"><span class="hs-identifier hs-type">GetBootstrapBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237477"><span class="annot"><span class="annottext">Text
+clusterArn :: Text
+$sel:clusterArn:GetBootstrapBrokers' :: GetBootstrapBrokers -&gt; Text
+</span><a href="#local-6989586621679237477"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237477"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237476"><span class="annot"><span class="annottext">s :: GetBootstrapBrokers
+</span><a href="#local-6989586621679237476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers%27"><span class="hs-identifier hs-type">GetBootstrapBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBootstrapBrokers
+</span><a href="#local-6989586621679237476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:GetBootstrapBrokers' :: Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AclusterArn%3AGetBootstrapBrokers%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679237471"><span class="annot"><span class="annottext">request :: GetBootstrapBrokers -&gt; Request GetBootstrapBrokers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBootstrapBrokers -&gt; Request GetBootstrapBrokers
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kafka.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679237467"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBootstrapBrokers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBootstrapBrokers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBootstrapBrokers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBootstrapBrokers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBootstrapBrokers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237464"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237464"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237463"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237463"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237462"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">GetBootstrapBrokersResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetBootstrapBrokersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetBootstrapBrokersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bootstrapBrokerString&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetBootstrapBrokersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetBootstrapBrokersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bootstrapBrokerStringSaslScram&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetBootstrapBrokersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetBootstrapBrokersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bootstrapBrokerStringTls&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetBootstrapBrokersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetBootstrapBrokersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bootstrapBrokerStringSaslIam&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBootstrapBrokersResponse)
+-&gt; Either String Int -&gt; Either String GetBootstrapBrokersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237464"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237454"><span id="local-6989586621679237456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679237447"><span class="annot"><span class="annottext">toHeaders :: GetBootstrapBrokers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBootstrapBrokers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679237441"><span class="annot"><span class="annottext">toPath :: GetBootstrapBrokers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers%27"><span class="hs-identifier hs-type">GetBootstrapBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237439"><span class="annot"><span class="annottext">Text
+clusterArn :: Text
+$sel:clusterArn:GetBootstrapBrokers' :: GetBootstrapBrokers -&gt; Text
+</span><a href="#local-6989586621679237439"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/clusters/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237439"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/bootstrap-brokers&quot;</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokers"><span class="hs-identifier hs-type">GetBootstrapBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679237435"><span class="annot"><span class="annottext">toQuery :: GetBootstrapBrokers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBootstrapBrokers -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newGetBootstrapBrokersResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679237432"><span id="local-6989586621679237433"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBootstrapBrokersResponse"><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-var">GetBootstrapBrokersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBootstrapBrokersResponse%27"><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">GetBootstrapBrokersResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string containing one or more hostname:port pairs.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AbootstrapBrokerString%3AGetBootstrapBrokersResponse%27"><span class="annot"><span class="annottext">GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerString%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var hs-var">bootstrapBrokerString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | A string containing one or more DNS names (or IP) and Sasl Scram port</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- pairs.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AbootstrapBrokerStringSaslScram%3AGetBootstrapBrokersResponse%27"><span class="annot"><span class="annottext">GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringSaslScram%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var hs-var">bootstrapBrokerStringSaslScram</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | A string containing one or more DNS names (or IP) and TLS port pairs.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AbootstrapBrokerStringTls%3AGetBootstrapBrokersResponse%27"><span class="annot"><span class="annottext">GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringTls%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var hs-var">bootstrapBrokerStringTls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | A string that contains one or more DNS names (or IP addresses) and SASL</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- IAM port pairs.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AbootstrapBrokerStringSaslIam%3AGetBootstrapBrokersResponse%27"><span class="annot"><span class="annottext">GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringSaslIam%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var hs-var">bootstrapBrokerStringSaslIam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBootstrapBrokersResponse%27"><span class="annot"><span class="annottext">GetBootstrapBrokersResponse -&gt; Int
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AhttpStatus%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237423"><span id="local-6989586621679237425"><span class="annot"><span class="annottext">GetBootstrapBrokersResponse -&gt; GetBootstrapBrokersResponse -&gt; Bool
+(GetBootstrapBrokersResponse
+ -&gt; GetBootstrapBrokersResponse -&gt; Bool)
+-&gt; (GetBootstrapBrokersResponse
+    -&gt; GetBootstrapBrokersResponse -&gt; Bool)
+-&gt; Eq GetBootstrapBrokersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBootstrapBrokersResponse -&gt; GetBootstrapBrokersResponse -&gt; Bool
+$c/= :: GetBootstrapBrokersResponse -&gt; GetBootstrapBrokersResponse -&gt; Bool
+== :: GetBootstrapBrokersResponse -&gt; GetBootstrapBrokersResponse -&gt; Bool
+$c== :: GetBootstrapBrokersResponse -&gt; GetBootstrapBrokersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237415"><span id="local-6989586621679237417"><span id="local-6989586621679237419"><span id="local-6989586621679237421"><span class="annot"><span class="annottext">ReadPrec [GetBootstrapBrokersResponse]
+ReadPrec GetBootstrapBrokersResponse
+Int -&gt; ReadS GetBootstrapBrokersResponse
+ReadS [GetBootstrapBrokersResponse]
+(Int -&gt; ReadS GetBootstrapBrokersResponse)
+-&gt; ReadS [GetBootstrapBrokersResponse]
+-&gt; ReadPrec GetBootstrapBrokersResponse
+-&gt; ReadPrec [GetBootstrapBrokersResponse]
+-&gt; Read GetBootstrapBrokersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBootstrapBrokersResponse]
+$creadListPrec :: ReadPrec [GetBootstrapBrokersResponse]
+readPrec :: ReadPrec GetBootstrapBrokersResponse
+$creadPrec :: ReadPrec GetBootstrapBrokersResponse
+readList :: ReadS [GetBootstrapBrokersResponse]
+$creadList :: ReadS [GetBootstrapBrokersResponse]
+readsPrec :: Int -&gt; ReadS GetBootstrapBrokersResponse
+$creadsPrec :: Int -&gt; ReadS GetBootstrapBrokersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237409"><span id="local-6989586621679237411"><span id="local-6989586621679237413"><span class="annot"><span class="annottext">Int -&gt; GetBootstrapBrokersResponse -&gt; ShowS
+[GetBootstrapBrokersResponse] -&gt; ShowS
+GetBootstrapBrokersResponse -&gt; String
+(Int -&gt; GetBootstrapBrokersResponse -&gt; ShowS)
+-&gt; (GetBootstrapBrokersResponse -&gt; String)
+-&gt; ([GetBootstrapBrokersResponse] -&gt; ShowS)
+-&gt; Show GetBootstrapBrokersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBootstrapBrokersResponse] -&gt; ShowS
+$cshowList :: [GetBootstrapBrokersResponse] -&gt; ShowS
+show :: GetBootstrapBrokersResponse -&gt; String
+$cshow :: GetBootstrapBrokersResponse -&gt; String
+showsPrec :: Int -&gt; GetBootstrapBrokersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBootstrapBrokersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBootstrapBrokersResponse -&gt; Rep GetBootstrapBrokersResponse x)
+-&gt; (forall x.
+    Rep GetBootstrapBrokersResponse x -&gt; GetBootstrapBrokersResponse)
+-&gt; Generic GetBootstrapBrokersResponse
+forall x.
+Rep GetBootstrapBrokersResponse x -&gt; GetBootstrapBrokersResponse
+forall x.
+GetBootstrapBrokersResponse -&gt; Rep GetBootstrapBrokersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBootstrapBrokersResponse x -&gt; GetBootstrapBrokersResponse
+$cfrom :: forall x.
+GetBootstrapBrokersResponse -&gt; Rep GetBootstrapBrokersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'GetBootstrapBrokersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'bootstrapBrokerString', 'getBootstrapBrokersResponse_bootstrapBrokerString' - A string containing one or more hostname:port pairs.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'bootstrapBrokerStringSaslScram', 'getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram' - A string containing one or more DNS names (or IP) and Sasl Scram port</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- pairs.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'bootstrapBrokerStringTls', 'getBootstrapBrokersResponse_bootstrapBrokerStringTls' - A string containing one or more DNS names (or IP) and TLS port pairs.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'bootstrapBrokerStringSaslIam', 'getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam' - A string that contains one or more DNS names (or IP addresses) and SASL</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- IAM port pairs.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'getBootstrapBrokersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#newGetBootstrapBrokersResponse"><span class="hs-identifier hs-type">newGetBootstrapBrokersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newGetBootstrapBrokersResponse"><span class="annot"><span class="annottext">newGetBootstrapBrokersResponse :: Int -&gt; GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#newGetBootstrapBrokersResponse"><span class="hs-identifier hs-var hs-var">newGetBootstrapBrokersResponse</span></a></span></span><span> </span><span id="local-6989586621679237406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">GetBootstrapBrokersResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bootstrapBrokerString:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerString%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerString</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:bootstrapBrokerStringSaslScram:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringSaslScram%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerStringSaslScram</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:bootstrapBrokerStringTls:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringTls%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerStringTls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:bootstrapBrokerStringSaslIam:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringSaslIam%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerStringSaslIam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBootstrapBrokersResponse' :: Int
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AhttpStatus%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | A string containing one or more hostname:port pairs.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerString"><span class="hs-identifier hs-type">getBootstrapBrokersResponse_bootstrapBrokerString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="getBootstrapBrokersResponse_bootstrapBrokerString"><span class="annot"><span class="annottext">getBootstrapBrokersResponse_bootstrapBrokerString :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBootstrapBrokersResponse -&gt; f GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerString"><span class="hs-identifier hs-var hs-var">getBootstrapBrokersResponse_bootstrapBrokerString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBootstrapBrokersResponse -&gt; Maybe Text)
+-&gt; (GetBootstrapBrokersResponse
+    -&gt; Maybe Text -&gt; GetBootstrapBrokersResponse)
+-&gt; Lens
+     GetBootstrapBrokersResponse
+     GetBootstrapBrokersResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237405"><span class="annot"><span class="annottext">Maybe Text
+bootstrapBrokerString :: Maybe Text
+$sel:bootstrapBrokerString:GetBootstrapBrokersResponse' :: GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679237405"><span class="hs-identifier hs-var hs-var">bootstrapBrokerString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237405"><span class="hs-identifier hs-var">bootstrapBrokerString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237404"><span class="annot"><span class="annottext">s :: GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bootstrapBrokerString:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerString%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | A string containing one or more DNS names (or IP) and Sasl Scram port</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- pairs.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram"><span class="hs-identifier hs-type">getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram"><span class="annot"><span class="annottext">getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBootstrapBrokersResponse -&gt; f GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram"><span class="hs-identifier hs-var hs-var">getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBootstrapBrokersResponse -&gt; Maybe Text)
+-&gt; (GetBootstrapBrokersResponse
+    -&gt; Maybe Text -&gt; GetBootstrapBrokersResponse)
+-&gt; Lens
+     GetBootstrapBrokersResponse
+     GetBootstrapBrokersResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237402"><span class="annot"><span class="annottext">Maybe Text
+bootstrapBrokerStringSaslScram :: Maybe Text
+$sel:bootstrapBrokerStringSaslScram:GetBootstrapBrokersResponse' :: GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679237402"><span class="hs-identifier hs-var hs-var">bootstrapBrokerStringSaslScram</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237402"><span class="hs-identifier hs-var">bootstrapBrokerStringSaslScram</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237401"><span class="annot"><span class="annottext">s :: GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237400"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bootstrapBrokerStringSaslScram:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringSaslScram%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerStringSaslScram</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | A string containing one or more DNS names (or IP) and TLS port pairs.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringTls"><span class="hs-identifier hs-type">getBootstrapBrokersResponse_bootstrapBrokerStringTls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="getBootstrapBrokersResponse_bootstrapBrokerStringTls"><span class="annot"><span class="annottext">getBootstrapBrokersResponse_bootstrapBrokerStringTls :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBootstrapBrokersResponse -&gt; f GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringTls"><span class="hs-identifier hs-var hs-var">getBootstrapBrokersResponse_bootstrapBrokerStringTls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBootstrapBrokersResponse -&gt; Maybe Text)
+-&gt; (GetBootstrapBrokersResponse
+    -&gt; Maybe Text -&gt; GetBootstrapBrokersResponse)
+-&gt; Lens
+     GetBootstrapBrokersResponse
+     GetBootstrapBrokersResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237399"><span class="annot"><span class="annottext">Maybe Text
+bootstrapBrokerStringTls :: Maybe Text
+$sel:bootstrapBrokerStringTls:GetBootstrapBrokersResponse' :: GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679237399"><span class="hs-identifier hs-var hs-var">bootstrapBrokerStringTls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237399"><span class="hs-identifier hs-var">bootstrapBrokerStringTls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237398"><span class="annot"><span class="annottext">s :: GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237397"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bootstrapBrokerStringTls:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringTls%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerStringTls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A string that contains one or more DNS names (or IP addresses) and SASL</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- IAM port pairs.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam"><span class="hs-identifier hs-type">getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam"><span class="annot"><span class="annottext">getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBootstrapBrokersResponse -&gt; f GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam"><span class="hs-identifier hs-var hs-var">getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBootstrapBrokersResponse -&gt; Maybe Text)
+-&gt; (GetBootstrapBrokersResponse
+    -&gt; Maybe Text -&gt; GetBootstrapBrokersResponse)
+-&gt; Lens
+     GetBootstrapBrokersResponse
+     GetBootstrapBrokersResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237396"><span class="annot"><span class="annottext">Maybe Text
+bootstrapBrokerStringSaslIam :: Maybe Text
+$sel:bootstrapBrokerStringSaslIam:GetBootstrapBrokersResponse' :: GetBootstrapBrokersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679237396"><span class="hs-identifier hs-var hs-var">bootstrapBrokerStringSaslIam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237396"><span class="hs-identifier hs-var">bootstrapBrokerStringSaslIam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237395"><span class="annot"><span class="annottext">s :: GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bootstrapBrokerStringSaslIam:GetBootstrapBrokersResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AbootstrapBrokerStringSaslIam%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">bootstrapBrokerStringSaslIam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_httpStatus"><span class="hs-identifier hs-type">getBootstrapBrokersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span id="getBootstrapBrokersResponse_httpStatus"><span class="annot"><span class="annottext">getBootstrapBrokersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBootstrapBrokersResponse -&gt; f GetBootstrapBrokersResponse
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#getBootstrapBrokersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBootstrapBrokersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBootstrapBrokersResponse -&gt; Int)
+-&gt; (GetBootstrapBrokersResponse
+    -&gt; Int -&gt; GetBootstrapBrokersResponse)
+-&gt; Lens
+     GetBootstrapBrokersResponse GetBootstrapBrokersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237393"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBootstrapBrokersResponse' :: GetBootstrapBrokersResponse -&gt; Int
+</span><a href="#local-6989586621679237393"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237393"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237392"><span class="annot"><span class="annottext">s :: GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse%27"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237391"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBootstrapBrokersResponse
+</span><a href="#local-6989586621679237392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBootstrapBrokersResponse' :: Int
+</span><a href="Amazonka.Kafka.GetBootstrapBrokers.html#%24sel%3AhttpStatus%3AGetBootstrapBrokersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetBootstrapBrokers.html#GetBootstrapBrokersResponse"><span class="hs-identifier hs-type">GetBootstrapBrokersResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

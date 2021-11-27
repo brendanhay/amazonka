@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WAFRegional.Types.MatchFieldType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAFRegional.Types.MatchFieldType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier">MatchFieldType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_ALL_QUERY_ARGS"><span class="hs-identifier">MatchFieldType_ALL_QUERY_ARGS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_BODY"><span class="hs-identifier">MatchFieldType_BODY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_HEADER"><span class="hs-identifier">MatchFieldType_HEADER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_METHOD"><span class="hs-identifier">MatchFieldType_METHOD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_QUERY_STRING"><span class="hs-identifier">MatchFieldType_QUERY_STRING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_SINGLE_QUERY_ARG"><span class="hs-identifier">MatchFieldType_SINGLE_QUERY_ARG</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_URI"><span class="hs-identifier">MatchFieldType_URI</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679305252"><span id="local-6989586621679305253"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MatchFieldType"><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-var">MatchFieldType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MatchFieldType%27"><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-var">MatchFieldType'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMatchFieldType"><span class="annot"><span class="annottext">MatchFieldType -&gt; Text
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#fromMatchFieldType"><span class="hs-identifier hs-var hs-var">fromMatchFieldType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305244"><span id="local-6989586621679305246"><span id="local-6989586621679305248"><span class="annot"><span class="annottext">Int -&gt; MatchFieldType -&gt; ShowS
+[MatchFieldType] -&gt; ShowS
+MatchFieldType -&gt; String
+(Int -&gt; MatchFieldType -&gt; ShowS)
+-&gt; (MatchFieldType -&gt; String)
+-&gt; ([MatchFieldType] -&gt; ShowS)
+-&gt; Show MatchFieldType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MatchFieldType] -&gt; ShowS
+$cshowList :: [MatchFieldType] -&gt; ShowS
+show :: MatchFieldType -&gt; String
+$cshow :: MatchFieldType -&gt; String
+showsPrec :: Int -&gt; MatchFieldType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MatchFieldType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679305235"><span id="local-6989586621679305237"><span id="local-6989586621679305239"><span id="local-6989586621679305241"><span class="annot"><span class="annottext">ReadPrec [MatchFieldType]
+ReadPrec MatchFieldType
+Int -&gt; ReadS MatchFieldType
+ReadS [MatchFieldType]
+(Int -&gt; ReadS MatchFieldType)
+-&gt; ReadS [MatchFieldType]
+-&gt; ReadPrec MatchFieldType
+-&gt; ReadPrec [MatchFieldType]
+-&gt; Read MatchFieldType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MatchFieldType]
+$creadListPrec :: ReadPrec [MatchFieldType]
+readPrec :: ReadPrec MatchFieldType
+$creadPrec :: ReadPrec MatchFieldType
+readList :: ReadS [MatchFieldType]
+$creadList :: ReadS [MatchFieldType]
+readsPrec :: Int -&gt; ReadS MatchFieldType
+$creadsPrec :: Int -&gt; ReadS MatchFieldType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679305230"><span id="local-6989586621679305232"><span class="annot"><span class="annottext">MatchFieldType -&gt; MatchFieldType -&gt; Bool
+(MatchFieldType -&gt; MatchFieldType -&gt; Bool)
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; Bool) -&gt; Eq MatchFieldType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+$c/= :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+== :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+$c== :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679305214"><span id="local-6989586621679305216"><span id="local-6989586621679305218"><span id="local-6989586621679305220"><span id="local-6989586621679305222"><span id="local-6989586621679305224"><span id="local-6989586621679305226"><span class="annot"><span class="annottext">Eq MatchFieldType
+Eq MatchFieldType
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; Ordering)
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; Bool)
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; Bool)
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; Bool)
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; Bool)
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; MatchFieldType)
+-&gt; (MatchFieldType -&gt; MatchFieldType -&gt; MatchFieldType)
+-&gt; Ord MatchFieldType
+MatchFieldType -&gt; MatchFieldType -&gt; Bool
+MatchFieldType -&gt; MatchFieldType -&gt; Ordering
+MatchFieldType -&gt; MatchFieldType -&gt; MatchFieldType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MatchFieldType -&gt; MatchFieldType -&gt; MatchFieldType
+$cmin :: MatchFieldType -&gt; MatchFieldType -&gt; MatchFieldType
+max :: MatchFieldType -&gt; MatchFieldType -&gt; MatchFieldType
+$cmax :: MatchFieldType -&gt; MatchFieldType -&gt; MatchFieldType
+&gt;= :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+$c&gt;= :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+&gt; :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+$c&gt; :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+&lt;= :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+$c&lt;= :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+&lt; :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+$c&lt; :: MatchFieldType -&gt; MatchFieldType -&gt; Bool
+compare :: MatchFieldType -&gt; MatchFieldType -&gt; Ordering
+$ccompare :: MatchFieldType -&gt; MatchFieldType -&gt; Ordering
+$cp1Ord :: Eq MatchFieldType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MatchFieldType -&gt; Rep MatchFieldType x)
+-&gt; (forall x. Rep MatchFieldType x -&gt; MatchFieldType)
+-&gt; Generic MatchFieldType
+forall x. Rep MatchFieldType x -&gt; MatchFieldType
+forall x. MatchFieldType -&gt; Rep MatchFieldType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MatchFieldType x -&gt; MatchFieldType
+$cfrom :: forall x. MatchFieldType -&gt; Rep MatchFieldType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305206"><span id="local-6989586621679305208"><span class="annot"><span class="annottext">Int -&gt; MatchFieldType -&gt; Int
+MatchFieldType -&gt; Int
+(Int -&gt; MatchFieldType -&gt; Int)
+-&gt; (MatchFieldType -&gt; Int) -&gt; Hashable MatchFieldType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MatchFieldType -&gt; Int
+$chash :: MatchFieldType -&gt; Int
+hashWithSalt :: Int -&gt; MatchFieldType -&gt; Int
+$chashWithSalt :: Int -&gt; MatchFieldType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679305203"><span class="annot"><span class="annottext">MatchFieldType -&gt; ()
+(MatchFieldType -&gt; ()) -&gt; NFData MatchFieldType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MatchFieldType -&gt; ()
+$crnf :: MatchFieldType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679305200"><span class="annot"><span class="annottext">Text -&gt; Either String MatchFieldType
+(Text -&gt; Either String MatchFieldType) -&gt; FromText MatchFieldType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MatchFieldType
+$cfromText :: Text -&gt; Either String MatchFieldType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679305197"><span class="annot"><span class="annottext">MatchFieldType -&gt; Text
+(MatchFieldType -&gt; Text) -&gt; ToText MatchFieldType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MatchFieldType -&gt; Text
+$ctoText :: MatchFieldType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679305194"><span class="annot"><span class="annottext">MatchFieldType -&gt; ByteString
+(MatchFieldType -&gt; ByteString) -&gt; ToByteString MatchFieldType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MatchFieldType -&gt; ByteString
+$ctoBS :: MatchFieldType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679305191"><span class="annot"><span class="annottext">MatchFieldType -&gt; ByteStringBuilder
+(MatchFieldType -&gt; ByteStringBuilder) -&gt; ToLog MatchFieldType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MatchFieldType -&gt; ByteStringBuilder
+$cbuild :: MatchFieldType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679305188"><span class="annot"><span class="annottext">HeaderName -&gt; MatchFieldType -&gt; [Header]
+(HeaderName -&gt; MatchFieldType -&gt; [Header])
+-&gt; ToHeader MatchFieldType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MatchFieldType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MatchFieldType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679305185"><span class="annot"><span class="annottext">MatchFieldType -&gt; QueryString
+(MatchFieldType -&gt; QueryString) -&gt; ToQuery MatchFieldType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MatchFieldType -&gt; QueryString
+$ctoQuery :: MatchFieldType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679305180"><span id="local-6989586621679305182"><span class="annot"><span class="annottext">Value -&gt; Parser [MatchFieldType]
+Value -&gt; Parser MatchFieldType
+(Value -&gt; Parser MatchFieldType)
+-&gt; (Value -&gt; Parser [MatchFieldType]) -&gt; FromJSON MatchFieldType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MatchFieldType]
+$cparseJSONList :: Value -&gt; Parser [MatchFieldType]
+parseJSON :: Value -&gt; Parser MatchFieldType
+$cparseJSON :: Value -&gt; Parser MatchFieldType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679305175"><span id="local-6989586621679305177"><span class="annot"><span class="annottext">FromJSONKeyFunction [MatchFieldType]
+FromJSONKeyFunction MatchFieldType
+FromJSONKeyFunction MatchFieldType
+-&gt; FromJSONKeyFunction [MatchFieldType]
+-&gt; FromJSONKey MatchFieldType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MatchFieldType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MatchFieldType]
+fromJSONKey :: FromJSONKeyFunction MatchFieldType
+$cfromJSONKey :: FromJSONKeyFunction MatchFieldType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679305166"><span id="local-6989586621679305168"><span id="local-6989586621679305170"><span id="local-6989586621679305172"><span class="annot"><span class="annottext">[MatchFieldType] -&gt; Encoding
+[MatchFieldType] -&gt; Value
+MatchFieldType -&gt; Encoding
+MatchFieldType -&gt; Value
+(MatchFieldType -&gt; Value)
+-&gt; (MatchFieldType -&gt; Encoding)
+-&gt; ([MatchFieldType] -&gt; Value)
+-&gt; ([MatchFieldType] -&gt; Encoding)
+-&gt; ToJSON MatchFieldType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MatchFieldType] -&gt; Encoding
+$ctoEncodingList :: [MatchFieldType] -&gt; Encoding
+toJSONList :: [MatchFieldType] -&gt; Value
+$ctoJSONList :: [MatchFieldType] -&gt; Value
+toEncoding :: MatchFieldType -&gt; Encoding
+$ctoEncoding :: MatchFieldType -&gt; Encoding
+toJSON :: MatchFieldType -&gt; Value
+$ctoJSON :: MatchFieldType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679305161"><span id="local-6989586621679305163"><span class="annot"><span class="annottext">ToJSONKeyFunction [MatchFieldType]
+ToJSONKeyFunction MatchFieldType
+ToJSONKeyFunction MatchFieldType
+-&gt; ToJSONKeyFunction [MatchFieldType] -&gt; ToJSONKey MatchFieldType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MatchFieldType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MatchFieldType]
+toJSONKey :: ToJSONKeyFunction MatchFieldType
+$ctoJSONKey :: ToJSONKeyFunction MatchFieldType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679305158"><span class="annot"><span class="annottext">[Node] -&gt; Either String MatchFieldType
+([Node] -&gt; Either String MatchFieldType) -&gt; FromXML MatchFieldType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MatchFieldType
+$cparseXML :: [Node] -&gt; Either String MatchFieldType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679305155"><span class="annot"><span class="annottext">MatchFieldType -&gt; XML
+(MatchFieldType -&gt; XML) -&gt; ToXML MatchFieldType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MatchFieldType -&gt; XML
+$ctoXML :: MatchFieldType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_ALL_QUERY_ARGS"><span class="hs-identifier hs-type">MatchFieldType_ALL_QUERY_ARGS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-type">MatchFieldType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMatchFieldType_ALL_QUERY_ARGS"><span id="%24mMatchFieldType_ALL_QUERY_ARGS"><span id="MatchFieldType_ALL_QUERY_ARGS"><span class="annot"><span class="annottext">$bMatchFieldType_ALL_QUERY_ARGS :: MatchFieldType
+$mMatchFieldType_ALL_QUERY_ARGS :: forall r. MatchFieldType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#%24bMatchFieldType_ALL_QUERY_ARGS"><span class="hs-identifier hs-var hs-var hs-var">MatchFieldType_ALL_QUERY_ARGS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-type">MatchFieldType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL_QUERY_ARGS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_BODY"><span class="hs-identifier hs-type">MatchFieldType_BODY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-type">MatchFieldType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMatchFieldType_BODY"><span id="%24mMatchFieldType_BODY"><span id="MatchFieldType_BODY"><span class="annot"><span class="annottext">$bMatchFieldType_BODY :: MatchFieldType
+$mMatchFieldType_BODY :: forall r. MatchFieldType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#%24bMatchFieldType_BODY"><span class="hs-identifier hs-var hs-var hs-var">MatchFieldType_BODY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-type">MatchFieldType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BODY&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_HEADER"><span class="hs-identifier hs-type">MatchFieldType_HEADER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-type">MatchFieldType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMatchFieldType_HEADER"><span id="%24mMatchFieldType_HEADER"><span id="MatchFieldType_HEADER"><span class="annot"><span class="annottext">$bMatchFieldType_HEADER :: MatchFieldType
+$mMatchFieldType_HEADER :: forall r. MatchFieldType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#%24bMatchFieldType_HEADER"><span class="hs-identifier hs-var hs-var hs-var">MatchFieldType_HEADER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-type">MatchFieldType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEADER&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_METHOD"><span class="hs-identifier hs-type">MatchFieldType_METHOD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-type">MatchFieldType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMatchFieldType_METHOD"><span id="%24mMatchFieldType_METHOD"><span id="MatchFieldType_METHOD"><span class="annot"><span class="annottext">$bMatchFieldType_METHOD :: MatchFieldType
+$mMatchFieldType_METHOD :: forall r. MatchFieldType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#%24bMatchFieldType_METHOD"><span class="hs-identifier hs-var hs-var hs-var">MatchFieldType_METHOD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-type">MatchFieldType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;METHOD&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_QUERY_STRING"><span class="hs-identifier hs-type">MatchFieldType_QUERY_STRING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-type">MatchFieldType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMatchFieldType_QUERY_STRING"><span id="%24mMatchFieldType_QUERY_STRING"><span id="MatchFieldType_QUERY_STRING"><span class="annot"><span class="annottext">$bMatchFieldType_QUERY_STRING :: MatchFieldType
+$mMatchFieldType_QUERY_STRING :: forall r. MatchFieldType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#%24bMatchFieldType_QUERY_STRING"><span class="hs-identifier hs-var hs-var hs-var">MatchFieldType_QUERY_STRING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-type">MatchFieldType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUERY_STRING&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_SINGLE_QUERY_ARG"><span class="hs-identifier hs-type">MatchFieldType_SINGLE_QUERY_ARG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-type">MatchFieldType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMatchFieldType_SINGLE_QUERY_ARG"><span id="%24mMatchFieldType_SINGLE_QUERY_ARG"><span id="MatchFieldType_SINGLE_QUERY_ARG"><span class="annot"><span class="annottext">$bMatchFieldType_SINGLE_QUERY_ARG :: MatchFieldType
+$mMatchFieldType_SINGLE_QUERY_ARG :: forall r. MatchFieldType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#%24bMatchFieldType_SINGLE_QUERY_ARG"><span class="hs-identifier hs-var hs-var hs-var">MatchFieldType_SINGLE_QUERY_ARG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-type">MatchFieldType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SINGLE_QUERY_ARG&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_URI"><span class="hs-identifier hs-type">MatchFieldType_URI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType"><span class="hs-identifier hs-type">MatchFieldType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMatchFieldType_URI"><span id="%24mMatchFieldType_URI"><span id="MatchFieldType_URI"><span class="annot"><span class="annottext">$bMatchFieldType_URI :: MatchFieldType
+$mMatchFieldType_URI :: forall r. MatchFieldType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#%24bMatchFieldType_URI"><span class="hs-identifier hs-var hs-var hs-var">MatchFieldType_URI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-identifier hs-type">MatchFieldType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;URI&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_ALL_QUERY_ARGS"><span class="hs-pragma hs-type">MatchFieldType_ALL_QUERY_ARGS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_BODY"><span class="hs-pragma hs-type">MatchFieldType_BODY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_HEADER"><span class="hs-pragma hs-type">MatchFieldType_HEADER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_METHOD"><span class="hs-pragma hs-type">MatchFieldType_METHOD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_QUERY_STRING"><span class="hs-pragma hs-type">MatchFieldType_QUERY_STRING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_SINGLE_QUERY_ARG"><span class="hs-pragma hs-type">MatchFieldType_SINGLE_QUERY_ARG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType_URI"><span class="hs-pragma hs-type">MatchFieldType_URI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.MatchFieldType.html#MatchFieldType%27"><span class="hs-pragma hs-type">MatchFieldType'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

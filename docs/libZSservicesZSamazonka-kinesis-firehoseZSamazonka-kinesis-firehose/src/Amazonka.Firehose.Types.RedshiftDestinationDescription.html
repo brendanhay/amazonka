@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Firehose.Types.RedshiftDestinationDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Firehose.Types.RedshiftDestinationDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html"><span class="hs-identifier">Amazonka.Firehose.Types.CloudWatchLoggingOptions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CopyCommand.html"><span class="hs-identifier">Amazonka.Firehose.Types.CopyCommand</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html"><span class="hs-identifier">Amazonka.Firehose.Types.ProcessingConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftRetryOptions.html"><span class="hs-identifier">Amazonka.Firehose.Types.RedshiftRetryOptions</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftS3BackupMode.html"><span class="hs-identifier">Amazonka.Firehose.Types.RedshiftS3BackupMode</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html"><span class="hs-identifier">Amazonka.Firehose.Types.S3DestinationDescription</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Describes a destination in Amazon Redshift.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRedshiftDestinationDescription' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679276521"><span id="local-6989586621679276522"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedshiftDestinationDescription"><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-var">RedshiftDestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftDestinationDescription%27"><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-var">RedshiftDestinationDescription'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 backup mode.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3As3BackupMode%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Maybe RedshiftS3BackupMode
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3BackupMode%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode"><span class="hs-identifier hs-type">RedshiftS3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The configuration for backup in Amazon S3.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3As3BackupDescription%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3BackupDescription%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">s3BackupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- documents to Amazon Redshift. Default value is 3600 (60 minutes).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AretryOptions%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Maybe RedshiftRetryOptions
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AretryOptions%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftRetryOptions.html#RedshiftRetryOptions"><span class="hs-identifier hs-type">RedshiftRetryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AprocessingConfiguration%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AroleARN%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AroleARN%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The database connection string.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AclusterJDBCURL%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AclusterJDBCURL%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">clusterJDBCURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The @COPY@ command.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcopyCommand%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; CopyCommand
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AcopyCommand%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">copyCommand</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the user.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Ausername%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; Sensitive Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3Ausername%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 destination.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3As3DestinationDescription%3ARedshiftDestinationDescription%27"><span class="annot"><span class="annottext">RedshiftDestinationDescription -&gt; S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3DestinationDescription%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var hs-var">s3DestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276506"><span id="local-6989586621679276508"><span class="annot"><span class="annottext">RedshiftDestinationDescription
+-&gt; RedshiftDestinationDescription -&gt; Bool
+(RedshiftDestinationDescription
+ -&gt; RedshiftDestinationDescription -&gt; Bool)
+-&gt; (RedshiftDestinationDescription
+    -&gt; RedshiftDestinationDescription -&gt; Bool)
+-&gt; Eq RedshiftDestinationDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RedshiftDestinationDescription
+-&gt; RedshiftDestinationDescription -&gt; Bool
+$c/= :: RedshiftDestinationDescription
+-&gt; RedshiftDestinationDescription -&gt; Bool
+== :: RedshiftDestinationDescription
+-&gt; RedshiftDestinationDescription -&gt; Bool
+$c== :: RedshiftDestinationDescription
+-&gt; RedshiftDestinationDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276499"><span id="local-6989586621679276501"><span id="local-6989586621679276503"><span class="annot"><span class="annottext">Int -&gt; RedshiftDestinationDescription -&gt; ShowS
+[RedshiftDestinationDescription] -&gt; ShowS
+RedshiftDestinationDescription -&gt; String
+(Int -&gt; RedshiftDestinationDescription -&gt; ShowS)
+-&gt; (RedshiftDestinationDescription -&gt; String)
+-&gt; ([RedshiftDestinationDescription] -&gt; ShowS)
+-&gt; Show RedshiftDestinationDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RedshiftDestinationDescription] -&gt; ShowS
+$cshowList :: [RedshiftDestinationDescription] -&gt; ShowS
+show :: RedshiftDestinationDescription -&gt; String
+$cshow :: RedshiftDestinationDescription -&gt; String
+showsPrec :: Int -&gt; RedshiftDestinationDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; RedshiftDestinationDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RedshiftDestinationDescription
+ -&gt; Rep RedshiftDestinationDescription x)
+-&gt; (forall x.
+    Rep RedshiftDestinationDescription x
+    -&gt; RedshiftDestinationDescription)
+-&gt; Generic RedshiftDestinationDescription
+forall x.
+Rep RedshiftDestinationDescription x
+-&gt; RedshiftDestinationDescription
+forall x.
+RedshiftDestinationDescription
+-&gt; Rep RedshiftDestinationDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RedshiftDestinationDescription x
+-&gt; RedshiftDestinationDescription
+$cfrom :: forall x.
+RedshiftDestinationDescription
+-&gt; Rep RedshiftDestinationDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'RedshiftDestinationDescription' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 's3BackupMode', 'redshiftDestinationDescription_s3BackupMode' - The Amazon S3 backup mode.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 's3BackupDescription', 'redshiftDestinationDescription_s3BackupDescription' - The configuration for backup in Amazon S3.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'redshiftDestinationDescription_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'retryOptions', 'redshiftDestinationDescription_retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- documents to Amazon Redshift. Default value is 3600 (60 minutes).</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'processingConfiguration', 'redshiftDestinationDescription_processingConfiguration' - The data processing configuration.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'roleARN', 'redshiftDestinationDescription_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'clusterJDBCURL', 'redshiftDestinationDescription_clusterJDBCURL' - The database connection string.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'copyCommand', 'redshiftDestinationDescription_copyCommand' - The @COPY@ command.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'username', 'redshiftDestinationDescription_username' - The name of the user.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 's3DestinationDescription', 'redshiftDestinationDescription_s3DestinationDescription' - The Amazon S3 destination.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#newRedshiftDestinationDescription"><span class="hs-identifier hs-type">newRedshiftDestinationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'roleARN'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'clusterJDBCURL'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'copyCommand'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'username'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 's3DestinationDescription'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span>
+</span><span id="line-104"></span><span id="newRedshiftDestinationDescription"><span class="annot"><span class="annottext">newRedshiftDestinationDescription :: Text
+-&gt; Text
+-&gt; CopyCommand
+-&gt; Text
+-&gt; S3DestinationDescription
+-&gt; RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#newRedshiftDestinationDescription"><span class="hs-identifier hs-var hs-var">newRedshiftDestinationDescription</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679276493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276493"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679276492"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276492"><span class="hs-identifier hs-var">pClusterJDBCURL_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679276491"><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679276491"><span class="hs-identifier hs-var">pCopyCommand_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679276490"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276490"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679276489"><span class="annot"><span class="annottext">S3DestinationDescription
+</span><a href="#local-6989586621679276489"><span class="hs-identifier hs-var">pS3DestinationDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">RedshiftDestinationDescription' :: Maybe RedshiftS3BackupMode
+-&gt; Maybe S3DestinationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe RedshiftRetryOptions
+-&gt; Maybe ProcessingConfiguration
+-&gt; Text
+-&gt; Text
+-&gt; CopyCommand
+-&gt; Sensitive Text
+-&gt; S3DestinationDescription
+-&gt; RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3BackupMode:RedshiftDestinationDescription' :: Maybe RedshiftS3BackupMode
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3BackupMode%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe RedshiftS3BackupMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3BackupDescription:RedshiftDestinationDescription' :: Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3BackupDescription%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:RedshiftDestinationDescription' :: Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:retryOptions:RedshiftDestinationDescription' :: Maybe RedshiftRetryOptions
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AretryOptions%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftRetryOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:processingConfiguration:RedshiftDestinationDescription' :: Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AprocessingConfiguration%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:RedshiftDestinationDescription' :: Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AroleARN%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276493"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterJDBCURL:RedshiftDestinationDescription' :: Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AclusterJDBCURL%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">clusterJDBCURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276492"><span class="hs-identifier hs-var">pClusterJDBCURL_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:copyCommand:RedshiftDestinationDescription' :: CopyCommand
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AcopyCommand%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">copyCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679276491"><span class="hs-identifier hs-var">pCopyCommand_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:username:RedshiftDestinationDescription' :: Sensitive Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3Ausername%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276490"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3DestinationDescription:RedshiftDestinationDescription' :: S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3DestinationDescription%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">S3DestinationDescription
+</span><a href="#local-6989586621679276489"><span class="hs-identifier hs-var">pS3DestinationDescription_</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The Amazon S3 backup mode.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_s3BackupMode"><span class="hs-identifier hs-type">redshiftDestinationDescription_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode"><span class="hs-identifier hs-type">RedshiftS3BackupMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="redshiftDestinationDescription_s3BackupMode"><span class="annot"><span class="annottext">redshiftDestinationDescription_s3BackupMode :: (Maybe RedshiftS3BackupMode -&gt; f (Maybe RedshiftS3BackupMode))
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_s3BackupMode"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Maybe RedshiftS3BackupMode)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Maybe RedshiftS3BackupMode -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     (Maybe RedshiftS3BackupMode)
+     (Maybe RedshiftS3BackupMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276483"><span class="annot"><span class="annottext">Maybe RedshiftS3BackupMode
+s3BackupMode :: Maybe RedshiftS3BackupMode
+$sel:s3BackupMode:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Maybe RedshiftS3BackupMode
+</span><a href="#local-6989586621679276483"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftS3BackupMode
+</span><a href="#local-6989586621679276483"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276482"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276481"><span class="annot"><span class="annottext">Maybe RedshiftS3BackupMode
+</span><a href="#local-6989586621679276481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:RedshiftDestinationDescription' :: Maybe RedshiftS3BackupMode
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3BackupMode%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftS3BackupMode
+</span><a href="#local-6989586621679276481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The configuration for backup in Amazon S3.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_s3BackupDescription"><span class="hs-identifier hs-type">redshiftDestinationDescription_s3BackupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="redshiftDestinationDescription_s3BackupDescription"><span class="annot"><span class="annottext">redshiftDestinationDescription_s3BackupDescription :: (Maybe S3DestinationDescription
+ -&gt; f (Maybe S3DestinationDescription))
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_s3BackupDescription"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_s3BackupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Maybe S3DestinationDescription)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Maybe S3DestinationDescription
+    -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     (Maybe S3DestinationDescription)
+     (Maybe S3DestinationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276479"><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+s3BackupDescription :: Maybe S3DestinationDescription
+$sel:s3BackupDescription:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Maybe S3DestinationDescription
+</span><a href="#local-6989586621679276479"><span class="hs-identifier hs-var hs-var">s3BackupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679276479"><span class="hs-identifier hs-var">s3BackupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276478"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276477"><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679276477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupDescription:RedshiftDestinationDescription' :: Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3BackupDescription%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679276477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">redshiftDestinationDescription_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="redshiftDestinationDescription_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">redshiftDestinationDescription_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+ -&gt; f (Maybe CloudWatchLoggingOptions))
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Maybe CloudWatchLoggingOptions)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Maybe CloudWatchLoggingOptions
+    -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     (Maybe CloudWatchLoggingOptions)
+     (Maybe CloudWatchLoggingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276475"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+$sel:cloudWatchLoggingOptions:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276475"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276475"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276474"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276473"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:RedshiftDestinationDescription' :: Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- documents to Amazon Redshift. Default value is 3600 (60 minutes).</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_retryOptions"><span class="hs-identifier hs-type">redshiftDestinationDescription_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftRetryOptions.html#RedshiftRetryOptions"><span class="hs-identifier hs-type">RedshiftRetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="redshiftDestinationDescription_retryOptions"><span class="annot"><span class="annottext">redshiftDestinationDescription_retryOptions :: (Maybe RedshiftRetryOptions -&gt; f (Maybe RedshiftRetryOptions))
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_retryOptions"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Maybe RedshiftRetryOptions)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Maybe RedshiftRetryOptions -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     (Maybe RedshiftRetryOptions)
+     (Maybe RedshiftRetryOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276471"><span class="annot"><span class="annottext">Maybe RedshiftRetryOptions
+retryOptions :: Maybe RedshiftRetryOptions
+$sel:retryOptions:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Maybe RedshiftRetryOptions
+</span><a href="#local-6989586621679276471"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftRetryOptions
+</span><a href="#local-6989586621679276471"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276470"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276469"><span class="annot"><span class="annottext">Maybe RedshiftRetryOptions
+</span><a href="#local-6989586621679276469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:RedshiftDestinationDescription' :: Maybe RedshiftRetryOptions
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AretryOptions%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftRetryOptions
+</span><a href="#local-6989586621679276469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_processingConfiguration"><span class="hs-identifier hs-type">redshiftDestinationDescription_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="redshiftDestinationDescription_processingConfiguration"><span class="annot"><span class="annottext">redshiftDestinationDescription_processingConfiguration :: (Maybe ProcessingConfiguration
+ -&gt; f (Maybe ProcessingConfiguration))
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_processingConfiguration"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Maybe ProcessingConfiguration)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Maybe ProcessingConfiguration -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     (Maybe ProcessingConfiguration)
+     (Maybe ProcessingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276467"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
+$sel:processingConfiguration:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276467"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276467"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276466"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276465"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:RedshiftDestinationDescription' :: Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AprocessingConfiguration%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_roleARN"><span class="hs-identifier hs-type">redshiftDestinationDescription_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="redshiftDestinationDescription_roleARN"><span class="annot"><span class="annottext">redshiftDestinationDescription_roleARN :: (Text -&gt; f Text)
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_roleARN"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Text)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Text -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276463"><span class="annot"><span class="annottext">Text
+roleARN :: Text
+$sel:roleARN:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Text
+</span><a href="#local-6989586621679276463"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276463"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276462"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:RedshiftDestinationDescription' :: Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AroleARN%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The database connection string.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_clusterJDBCURL"><span class="hs-identifier hs-type">redshiftDestinationDescription_clusterJDBCURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="redshiftDestinationDescription_clusterJDBCURL"><span class="annot"><span class="annottext">redshiftDestinationDescription_clusterJDBCURL :: (Text -&gt; f Text)
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_clusterJDBCURL"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_clusterJDBCURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Text)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Text -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276459"><span class="annot"><span class="annottext">Text
+clusterJDBCURL :: Text
+$sel:clusterJDBCURL:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Text
+</span><a href="#local-6989586621679276459"><span class="hs-identifier hs-var hs-var">clusterJDBCURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276459"><span class="hs-identifier hs-var">clusterJDBCURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276458"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterJDBCURL:RedshiftDestinationDescription' :: Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AclusterJDBCURL%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">clusterJDBCURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The @COPY@ command.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_copyCommand"><span class="hs-identifier hs-type">redshiftDestinationDescription_copyCommand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span>
+</span><span id="line-159"></span><span id="redshiftDestinationDescription_copyCommand"><span class="annot"><span class="annottext">redshiftDestinationDescription_copyCommand :: (CopyCommand -&gt; f CopyCommand)
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_copyCommand"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_copyCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; CopyCommand)
+-&gt; (RedshiftDestinationDescription
+    -&gt; CopyCommand -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     CopyCommand
+     CopyCommand
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276455"><span class="annot"><span class="annottext">CopyCommand
+copyCommand :: CopyCommand
+$sel:copyCommand:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; CopyCommand
+</span><a href="#local-6989586621679276455"><span class="hs-identifier hs-var hs-var">copyCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679276455"><span class="hs-identifier hs-var">copyCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276454"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276453"><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679276453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyCommand:RedshiftDestinationDescription' :: CopyCommand
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3AcopyCommand%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">copyCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679276453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The name of the user.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_username"><span class="hs-identifier hs-type">redshiftDestinationDescription_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span id="redshiftDestinationDescription_username"><span class="annot"><span class="annottext">redshiftDestinationDescription_username :: (Text -&gt; f Text)
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_username"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; Sensitive Text)
+-&gt; (RedshiftDestinationDescription
+    -&gt; Sensitive Text -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276451"><span class="annot"><span class="annottext">Sensitive Text
+username :: Sensitive Text
+$sel:username:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; Sensitive Text
+</span><a href="#local-6989586621679276451"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679276451"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276450"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276449"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679276449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:RedshiftDestinationDescription' :: Sensitive Text
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3Ausername%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679276449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; RedshiftDestinationDescription
+ -&gt; f RedshiftDestinationDescription)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The Amazon S3 destination.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_s3DestinationDescription"><span class="hs-identifier hs-type">redshiftDestinationDescription_s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span>
+</span><span id="line-167"></span><span id="redshiftDestinationDescription_s3DestinationDescription"><span class="annot"><span class="annottext">redshiftDestinationDescription_s3DestinationDescription :: (S3DestinationDescription -&gt; f S3DestinationDescription)
+-&gt; RedshiftDestinationDescription
+-&gt; f RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#redshiftDestinationDescription_s3DestinationDescription"><span class="hs-identifier hs-var hs-var">redshiftDestinationDescription_s3DestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDestinationDescription -&gt; S3DestinationDescription)
+-&gt; (RedshiftDestinationDescription
+    -&gt; S3DestinationDescription -&gt; RedshiftDestinationDescription)
+-&gt; Lens
+     RedshiftDestinationDescription
+     RedshiftDestinationDescription
+     S3DestinationDescription
+     S3DestinationDescription
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276446"><span class="annot"><span class="annottext">S3DestinationDescription
+s3DestinationDescription :: S3DestinationDescription
+$sel:s3DestinationDescription:RedshiftDestinationDescription' :: RedshiftDestinationDescription -&gt; S3DestinationDescription
+</span><a href="#local-6989586621679276446"><span class="hs-identifier hs-var hs-var">s3DestinationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationDescription
+</span><a href="#local-6989586621679276446"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276445"><span class="annot"><span class="annottext">s :: RedshiftDestinationDescription
+</span><a href="#local-6989586621679276445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-type">RedshiftDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276444"><span class="annot"><span class="annottext">S3DestinationDescription
+</span><a href="#local-6989586621679276444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDestinationDescription
+</span><a href="#local-6989586621679276445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DestinationDescription:RedshiftDestinationDescription' :: S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#%24sel%3As3DestinationDescription%3ARedshiftDestinationDescription%27"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DestinationDescription
+</span><a href="#local-6989586621679276444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276441"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679276439"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedshiftDestinationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RedshiftDestinationDescription)
+-&gt; Value
+-&gt; Parser RedshiftDestinationDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RedshiftDestinationDescription&quot;</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276436"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe RedshiftS3BackupMode
+-&gt; Maybe S3DestinationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe RedshiftRetryOptions
+-&gt; Maybe ProcessingConfiguration
+-&gt; Text
+-&gt; Text
+-&gt; CopyCommand
+-&gt; Sensitive Text
+-&gt; S3DestinationDescription
+-&gt; RedshiftDestinationDescription
+</span><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription%27"><span class="hs-identifier hs-var">RedshiftDestinationDescription'</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RedshiftS3BackupMode
+ -&gt; Maybe S3DestinationDescription
+ -&gt; Maybe CloudWatchLoggingOptions
+ -&gt; Maybe RedshiftRetryOptions
+ -&gt; Maybe ProcessingConfiguration
+ -&gt; Text
+ -&gt; Text
+ -&gt; CopyCommand
+ -&gt; Sensitive Text
+ -&gt; S3DestinationDescription
+ -&gt; RedshiftDestinationDescription)
+-&gt; Parser (Maybe RedshiftS3BackupMode)
+-&gt; Parser
+     (Maybe S3DestinationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe RedshiftRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Text
+      -&gt; Text
+      -&gt; CopyCommand
+      -&gt; Sensitive Text
+      -&gt; S3DestinationDescription
+      -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftS3BackupMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BackupMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3DestinationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe RedshiftRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Text
+   -&gt; Text
+   -&gt; CopyCommand
+   -&gt; Sensitive Text
+   -&gt; S3DestinationDescription
+   -&gt; RedshiftDestinationDescription)
+-&gt; Parser (Maybe S3DestinationDescription)
+-&gt; Parser
+     (Maybe CloudWatchLoggingOptions
+      -&gt; Maybe RedshiftRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Text
+      -&gt; Text
+      -&gt; CopyCommand
+      -&gt; Sensitive Text
+      -&gt; S3DestinationDescription
+      -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DestinationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BackupDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CloudWatchLoggingOptions
+   -&gt; Maybe RedshiftRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Text
+   -&gt; Text
+   -&gt; CopyCommand
+   -&gt; Sensitive Text
+   -&gt; S3DestinationDescription
+   -&gt; RedshiftDestinationDescription)
+-&gt; Parser (Maybe CloudWatchLoggingOptions)
+-&gt; Parser
+     (Maybe RedshiftRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Text
+      -&gt; Text
+      -&gt; CopyCommand
+      -&gt; Sensitive Text
+      -&gt; S3DestinationDescription
+      -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLoggingOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RedshiftRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Text
+   -&gt; Text
+   -&gt; CopyCommand
+   -&gt; Sensitive Text
+   -&gt; S3DestinationDescription
+   -&gt; RedshiftDestinationDescription)
+-&gt; Parser (Maybe RedshiftRetryOptions)
+-&gt; Parser
+     (Maybe ProcessingConfiguration
+      -&gt; Text
+      -&gt; Text
+      -&gt; CopyCommand
+      -&gt; Sensitive Text
+      -&gt; S3DestinationDescription
+      -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftRetryOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingConfiguration
+   -&gt; Text
+   -&gt; Text
+   -&gt; CopyCommand
+   -&gt; Sensitive Text
+   -&gt; S3DestinationDescription
+   -&gt; RedshiftDestinationDescription)
+-&gt; Parser (Maybe ProcessingConfiguration)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; CopyCommand
+      -&gt; Sensitive Text
+      -&gt; S3DestinationDescription
+      -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; CopyCommand
+   -&gt; Sensitive Text
+   -&gt; S3DestinationDescription
+   -&gt; RedshiftDestinationDescription)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; CopyCommand
+      -&gt; Sensitive Text
+      -&gt; S3DestinationDescription
+      -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; CopyCommand
+   -&gt; Sensitive Text
+   -&gt; S3DestinationDescription
+   -&gt; RedshiftDestinationDescription)
+-&gt; Parser Text
+-&gt; Parser
+     (CopyCommand
+      -&gt; Sensitive Text
+      -&gt; S3DestinationDescription
+      -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterJDBCURL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (CopyCommand
+   -&gt; Sensitive Text
+   -&gt; S3DestinationDescription
+   -&gt; RedshiftDestinationDescription)
+-&gt; Parser CopyCommand
+-&gt; Parser
+     (Sensitive Text
+      -&gt; S3DestinationDescription -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CopyCommand
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CopyCommand&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Sensitive Text
+   -&gt; S3DestinationDescription -&gt; RedshiftDestinationDescription)
+-&gt; Parser (Sensitive Text)
+-&gt; Parser
+     (S3DestinationDescription -&gt; RedshiftDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser (S3DestinationDescription -&gt; RedshiftDestinationDescription)
+-&gt; Parser S3DestinationDescription
+-&gt; Parser RedshiftDestinationDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3DestinationDescription
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DestinationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679276429"><span id="local-6989586621679276431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679276426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.RedshiftDestinationDescription.html#RedshiftDestinationDescription"><span class="hs-identifier hs-type">RedshiftDestinationDescription</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

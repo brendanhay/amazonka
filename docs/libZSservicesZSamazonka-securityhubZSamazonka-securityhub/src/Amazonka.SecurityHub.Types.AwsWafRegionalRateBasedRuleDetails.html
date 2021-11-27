@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleMatchPredicate.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleMatchPredicate</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | contains details about a rate-based rule for Regional resources. A</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- rate-based rule provides settings to indicate when to allow, block, or</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- count a request. Rate-based rules include the number of requests that</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- arrive over a specified period of time.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAwsWafRegionalRateBasedRuleDetails' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679975238"><span id="local-6989586621679975239"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsWafRegionalRateBasedRuleDetails"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-var">AwsWafRegionalRateBasedRuleDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsWafRegionalRateBasedRuleDetails%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">AwsWafRegionalRateBasedRuleDetails'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of requests that have an identical value for the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- field specified in @RateKey@ that are allowed within a five-minute</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- period. If the number of requests exceeds @RateLimit@ and the other</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- predicates specified in the rule are met, WAF triggers the action for</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the rule.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArateLimit%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Integer
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3ArateLimit%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var hs-var">rateLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The field that WAF uses to determine whether requests are likely</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- arriving from single source and are subject to rate monitoring.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArateKey%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3ArateKey%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var hs-var">rateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the metrics for the rate-based rule.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AmetricName%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AmetricName%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the rate-based rule.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AruleId%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AruleId%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the rate-based rule.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3Aname%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The predicates to include in the rate-based rule.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AmatchPredicates%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+-&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AmatchPredicates%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var hs-var">matchPredicates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleMatchPredicate.html#AwsWafRegionalRateBasedRuleMatchPredicate"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleMatchPredicate</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679975227"><span id="local-6989586621679975229"><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+-&gt; AwsWafRegionalRateBasedRuleDetails -&gt; Bool
+(AwsWafRegionalRateBasedRuleDetails
+ -&gt; AwsWafRegionalRateBasedRuleDetails -&gt; Bool)
+-&gt; (AwsWafRegionalRateBasedRuleDetails
+    -&gt; AwsWafRegionalRateBasedRuleDetails -&gt; Bool)
+-&gt; Eq AwsWafRegionalRateBasedRuleDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsWafRegionalRateBasedRuleDetails
+-&gt; AwsWafRegionalRateBasedRuleDetails -&gt; Bool
+$c/= :: AwsWafRegionalRateBasedRuleDetails
+-&gt; AwsWafRegionalRateBasedRuleDetails -&gt; Bool
+== :: AwsWafRegionalRateBasedRuleDetails
+-&gt; AwsWafRegionalRateBasedRuleDetails -&gt; Bool
+$c== :: AwsWafRegionalRateBasedRuleDetails
+-&gt; AwsWafRegionalRateBasedRuleDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679975218"><span id="local-6989586621679975220"><span id="local-6989586621679975222"><span id="local-6989586621679975224"><span class="annot"><span class="annottext">ReadPrec [AwsWafRegionalRateBasedRuleDetails]
+ReadPrec AwsWafRegionalRateBasedRuleDetails
+Int -&gt; ReadS AwsWafRegionalRateBasedRuleDetails
+ReadS [AwsWafRegionalRateBasedRuleDetails]
+(Int -&gt; ReadS AwsWafRegionalRateBasedRuleDetails)
+-&gt; ReadS [AwsWafRegionalRateBasedRuleDetails]
+-&gt; ReadPrec AwsWafRegionalRateBasedRuleDetails
+-&gt; ReadPrec [AwsWafRegionalRateBasedRuleDetails]
+-&gt; Read AwsWafRegionalRateBasedRuleDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsWafRegionalRateBasedRuleDetails]
+$creadListPrec :: ReadPrec [AwsWafRegionalRateBasedRuleDetails]
+readPrec :: ReadPrec AwsWafRegionalRateBasedRuleDetails
+$creadPrec :: ReadPrec AwsWafRegionalRateBasedRuleDetails
+readList :: ReadS [AwsWafRegionalRateBasedRuleDetails]
+$creadList :: ReadS [AwsWafRegionalRateBasedRuleDetails]
+readsPrec :: Int -&gt; ReadS AwsWafRegionalRateBasedRuleDetails
+$creadsPrec :: Int -&gt; ReadS AwsWafRegionalRateBasedRuleDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679975211"><span id="local-6989586621679975213"><span id="local-6989586621679975215"><span class="annot"><span class="annottext">Int -&gt; AwsWafRegionalRateBasedRuleDetails -&gt; ShowS
+[AwsWafRegionalRateBasedRuleDetails] -&gt; ShowS
+AwsWafRegionalRateBasedRuleDetails -&gt; String
+(Int -&gt; AwsWafRegionalRateBasedRuleDetails -&gt; ShowS)
+-&gt; (AwsWafRegionalRateBasedRuleDetails -&gt; String)
+-&gt; ([AwsWafRegionalRateBasedRuleDetails] -&gt; ShowS)
+-&gt; Show AwsWafRegionalRateBasedRuleDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsWafRegionalRateBasedRuleDetails] -&gt; ShowS
+$cshowList :: [AwsWafRegionalRateBasedRuleDetails] -&gt; ShowS
+show :: AwsWafRegionalRateBasedRuleDetails -&gt; String
+$cshow :: AwsWafRegionalRateBasedRuleDetails -&gt; String
+showsPrec :: Int -&gt; AwsWafRegionalRateBasedRuleDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsWafRegionalRateBasedRuleDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsWafRegionalRateBasedRuleDetails
+ -&gt; Rep AwsWafRegionalRateBasedRuleDetails x)
+-&gt; (forall x.
+    Rep AwsWafRegionalRateBasedRuleDetails x
+    -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Generic AwsWafRegionalRateBasedRuleDetails
+forall x.
+Rep AwsWafRegionalRateBasedRuleDetails x
+-&gt; AwsWafRegionalRateBasedRuleDetails
+forall x.
+AwsWafRegionalRateBasedRuleDetails
+-&gt; Rep AwsWafRegionalRateBasedRuleDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsWafRegionalRateBasedRuleDetails x
+-&gt; AwsWafRegionalRateBasedRuleDetails
+$cfrom :: forall x.
+AwsWafRegionalRateBasedRuleDetails
+-&gt; Rep AwsWafRegionalRateBasedRuleDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'AwsWafRegionalRateBasedRuleDetails' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'rateLimit', 'awsWafRegionalRateBasedRuleDetails_rateLimit' - The maximum number of requests that have an identical value for the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- field specified in @RateKey@ that are allowed within a five-minute</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- period. If the number of requests exceeds @RateLimit@ and the other</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- predicates specified in the rule are met, WAF triggers the action for</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- the rule.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'rateKey', 'awsWafRegionalRateBasedRuleDetails_rateKey' - The field that WAF uses to determine whether requests are likely</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- arriving from single source and are subject to rate monitoring.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'metricName', 'awsWafRegionalRateBasedRuleDetails_metricName' - The name of the metrics for the rate-based rule.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'ruleId', 'awsWafRegionalRateBasedRuleDetails_ruleId' - The unique identifier for the rate-based rule.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'name', 'awsWafRegionalRateBasedRuleDetails_name' - The name of the rate-based rule.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'matchPredicates', 'awsWafRegionalRateBasedRuleDetails_matchPredicates' - The predicates to include in the rate-based rule.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#newAwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">newAwsWafRegionalRateBasedRuleDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span>
+</span><span id="line-80"></span><span id="newAwsWafRegionalRateBasedRuleDetails"><span class="annot"><span class="annottext">newAwsWafRegionalRateBasedRuleDetails :: AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#newAwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-var hs-var">newAwsWafRegionalRateBasedRuleDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails' :: Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+-&gt; AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rateLimit:AwsWafRegionalRateBasedRuleDetails' :: Maybe Integer
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3ArateLimit%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">rateLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:rateKey:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3ArateKey%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">rateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AmetricName%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleId:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AruleId%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3Aname%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchPredicates:AwsWafRegionalRateBasedRuleDetails' :: Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AmatchPredicates%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The maximum number of requests that have an identical value for the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- field specified in @RateKey@ that are allowed within a five-minute</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- period. If the number of requests exceeds @RateLimit@ and the other</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- predicates specified in the rule are met, WAF triggers the action for</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the rule.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_rateLimit"><span class="hs-identifier hs-type">awsWafRegionalRateBasedRuleDetails_rateLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="awsWafRegionalRateBasedRuleDetails_rateLimit"><span class="annot"><span class="annottext">awsWafRegionalRateBasedRuleDetails_rateLimit :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; AwsWafRegionalRateBasedRuleDetails
+-&gt; f AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_rateLimit"><span class="hs-identifier hs-var hs-var">awsWafRegionalRateBasedRuleDetails_rateLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Integer)
+-&gt; (AwsWafRegionalRateBasedRuleDetails
+    -&gt; Maybe Integer -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Lens
+     AwsWafRegionalRateBasedRuleDetails
+     AwsWafRegionalRateBasedRuleDetails
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975202"><span class="annot"><span class="annottext">Maybe Integer
+rateLimit :: Maybe Integer
+$sel:rateLimit:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Integer
+</span><a href="#local-6989586621679975202"><span class="hs-identifier hs-var hs-var">rateLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679975202"><span class="hs-identifier hs-var">rateLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975201"><span class="annot"><span class="annottext">s :: AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975200"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679975200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateLimit:AwsWafRegionalRateBasedRuleDetails' :: Maybe Integer
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3ArateLimit%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">rateLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679975200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The field that WAF uses to determine whether requests are likely</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- arriving from single source and are subject to rate monitoring.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_rateKey"><span class="hs-identifier hs-type">awsWafRegionalRateBasedRuleDetails_rateKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="awsWafRegionalRateBasedRuleDetails_rateKey"><span class="annot"><span class="annottext">awsWafRegionalRateBasedRuleDetails_rateKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsWafRegionalRateBasedRuleDetails
+-&gt; f AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_rateKey"><span class="hs-identifier hs-var hs-var">awsWafRegionalRateBasedRuleDetails_rateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text)
+-&gt; (AwsWafRegionalRateBasedRuleDetails
+    -&gt; Maybe Text -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Lens
+     AwsWafRegionalRateBasedRuleDetails
+     AwsWafRegionalRateBasedRuleDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975198"><span class="annot"><span class="annottext">Maybe Text
+rateKey :: Maybe Text
+$sel:rateKey:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679975198"><span class="hs-identifier hs-var hs-var">rateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975198"><span class="hs-identifier hs-var">rateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975197"><span class="annot"><span class="annottext">s :: AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975196"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateKey:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3ArateKey%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">rateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the metrics for the rate-based rule.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_metricName"><span class="hs-identifier hs-type">awsWafRegionalRateBasedRuleDetails_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="awsWafRegionalRateBasedRuleDetails_metricName"><span class="annot"><span class="annottext">awsWafRegionalRateBasedRuleDetails_metricName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsWafRegionalRateBasedRuleDetails
+-&gt; f AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_metricName"><span class="hs-identifier hs-var hs-var">awsWafRegionalRateBasedRuleDetails_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text)
+-&gt; (AwsWafRegionalRateBasedRuleDetails
+    -&gt; Maybe Text -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Lens
+     AwsWafRegionalRateBasedRuleDetails
+     AwsWafRegionalRateBasedRuleDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975194"><span class="annot"><span class="annottext">Maybe Text
+metricName :: Maybe Text
+$sel:metricName:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679975194"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975194"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975193"><span class="annot"><span class="annottext">s :: AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975192"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AmetricName%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The unique identifier for the rate-based rule.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_ruleId"><span class="hs-identifier hs-type">awsWafRegionalRateBasedRuleDetails_ruleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="awsWafRegionalRateBasedRuleDetails_ruleId"><span class="annot"><span class="annottext">awsWafRegionalRateBasedRuleDetails_ruleId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsWafRegionalRateBasedRuleDetails
+-&gt; f AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_ruleId"><span class="hs-identifier hs-var hs-var">awsWafRegionalRateBasedRuleDetails_ruleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text)
+-&gt; (AwsWafRegionalRateBasedRuleDetails
+    -&gt; Maybe Text -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Lens
+     AwsWafRegionalRateBasedRuleDetails
+     AwsWafRegionalRateBasedRuleDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975190"><span class="annot"><span class="annottext">Maybe Text
+ruleId :: Maybe Text
+$sel:ruleId:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679975190"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975190"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975189"><span class="annot"><span class="annottext">s :: AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AruleId%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the rate-based rule.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_name"><span class="hs-identifier hs-type">awsWafRegionalRateBasedRuleDetails_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="awsWafRegionalRateBasedRuleDetails_name"><span class="annot"><span class="annottext">awsWafRegionalRateBasedRuleDetails_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsWafRegionalRateBasedRuleDetails
+-&gt; f AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_name"><span class="hs-identifier hs-var hs-var">awsWafRegionalRateBasedRuleDetails_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text)
+-&gt; (AwsWafRegionalRateBasedRuleDetails
+    -&gt; Maybe Text -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Lens
+     AwsWafRegionalRateBasedRuleDetails
+     AwsWafRegionalRateBasedRuleDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975186"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679975186"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975186"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975185"><span class="annot"><span class="annottext">s :: AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AwsWafRegionalRateBasedRuleDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3Aname%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The predicates to include in the rate-based rule.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_matchPredicates"><span class="hs-identifier hs-type">awsWafRegionalRateBasedRuleDetails_matchPredicates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleMatchPredicate.html#AwsWafRegionalRateBasedRuleMatchPredicate"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleMatchPredicate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="awsWafRegionalRateBasedRuleDetails_matchPredicates"><span class="annot"><span class="annottext">awsWafRegionalRateBasedRuleDetails_matchPredicates :: (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+ -&gt; f (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]))
+-&gt; AwsWafRegionalRateBasedRuleDetails
+-&gt; f AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#awsWafRegionalRateBasedRuleDetails_matchPredicates"><span class="hs-identifier hs-var hs-var">awsWafRegionalRateBasedRuleDetails_matchPredicates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsWafRegionalRateBasedRuleDetails
+ -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+-&gt; (AwsWafRegionalRateBasedRuleDetails
+    -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+    -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Lens
+     AwsWafRegionalRateBasedRuleDetails
+     AwsWafRegionalRateBasedRuleDetails
+     (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+     (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975182"><span class="annot"><span class="annottext">Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+matchPredicates :: Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+$sel:matchPredicates:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails
+-&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="#local-6989586621679975182"><span class="hs-identifier hs-var hs-var">matchPredicates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="#local-6989586621679975182"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975181"><span class="annot"><span class="annottext">s :: AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975180"><span class="annot"><span class="annottext">Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="#local-6989586621679975180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsWafRegionalRateBasedRuleDetails
+</span><a href="#local-6989586621679975181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchPredicates:AwsWafRegionalRateBasedRuleDetails' :: Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#%24sel%3AmatchPredicates%3AAwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="#local-6989586621679975180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+  -&gt; f (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]))
+ -&gt; AwsWafRegionalRateBasedRuleDetails
+ -&gt; f AwsWafRegionalRateBasedRuleDetails)
+-&gt; ((Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+     -&gt; f (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]))
+    -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+    -&gt; f (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]))
+-&gt; (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+    -&gt; f (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]))
+-&gt; AwsWafRegionalRateBasedRuleDetails
+-&gt; f AwsWafRegionalRateBasedRuleDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+-&gt; Iso
+     (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+     (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+     (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+     (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+  [AwsWafRegionalRateBasedRuleMatchPredicate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679975174"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679975172"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsWafRegionalRateBasedRuleDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsWafRegionalRateBasedRuleDetails)
+-&gt; Value
+-&gt; Parser AwsWafRegionalRateBasedRuleDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsWafRegionalRateBasedRuleDetails&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679975169"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+-&gt; AwsWafRegionalRateBasedRuleDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-var">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+ -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+      -&gt; AwsWafRegionalRateBasedRuleDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RateLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+   -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+      -&gt; AwsWafRegionalRateBasedRuleDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RateKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+   -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+      -&gt; AwsWafRegionalRateBasedRuleDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+   -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+      -&gt; AwsWafRegionalRateBasedRuleDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+   -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+      -&gt; AwsWafRegionalRateBasedRuleDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+   -&gt; AwsWafRegionalRateBasedRuleDetails)
+-&gt; Parser (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+-&gt; Parser AwsWafRegionalRateBasedRuleDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchPredicates&quot;</span></span><span>
+</span><span id="line-135"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]))
+-&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+-&gt; Parser (Maybe [AwsWafRegionalRateBasedRuleMatchPredicate])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679975162"><span id="local-6989586621679975164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679975159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679975151"><span id="local-6989586621679975153"><span id="local-6989586621679975155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails</span></a></span></span></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679975149"><span class="annot"><span class="annottext">toJSON :: AwsWafRegionalRateBasedRuleDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails.html#AwsWafRegionalRateBasedRuleDetails%27"><span class="hs-identifier hs-type">AwsWafRegionalRateBasedRuleDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975142"><span id="local-6989586621679975143"><span id="local-6989586621679975144"><span id="local-6989586621679975145"><span id="local-6989586621679975146"><span id="local-6989586621679975147"><span class="annot"><span class="annottext">Maybe Integer
+Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+Maybe Text
+matchPredicates :: Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+name :: Maybe Text
+ruleId :: Maybe Text
+metricName :: Maybe Text
+rateKey :: Maybe Text
+rateLimit :: Maybe Integer
+$sel:matchPredicates:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails
+-&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+$sel:name:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+$sel:ruleId:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+$sel:metricName:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+$sel:rateKey:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Text
+$sel:rateLimit:AwsWafRegionalRateBasedRuleDetails' :: AwsWafRegionalRateBasedRuleDetails -&gt; Maybe Integer
+</span><a href="#local-6989586621679975142"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RateLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679975147"><span class="hs-identifier hs-var">rateLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RateKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975146"><span class="hs-identifier hs-var">rateKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975145"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975144"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679975143"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchPredicates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsWafRegionalRateBasedRuleMatchPredicate] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">([AwsWafRegionalRateBasedRuleMatchPredicate] -&gt; Pair)
+-&gt; Maybe [AwsWafRegionalRateBasedRuleMatchPredicate] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsWafRegionalRateBasedRuleMatchPredicate]
+</span><a href="#local-6989586621679975142"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span></pre></body></html>

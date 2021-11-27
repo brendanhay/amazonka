@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.Types.PolicyToPath</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.Types.PolicyToPath</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyAttachment.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types.PolicyAttachment</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Used when a regular object exists in a Directory and you want to find</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- all of the policies that are associated with that object and the parent</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- to that object.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPolicyToPath' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679327034"><span id="local-6989586621679327035"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyToPath"><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-var">PolicyToPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyToPath%27"><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-var">PolicyToPath'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path that is referenced from the root.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Apath%3APolicyToPath%27"><span class="annot"><span class="annottext">PolicyToPath -&gt; Maybe Text
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | List of policy objects.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apolicies%3APolicyToPath%27"><span class="annot"><span class="annottext">PolicyToPath -&gt; Maybe [PolicyAttachment]
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyAttachment.html#PolicyAttachment"><span class="hs-identifier hs-type">PolicyAttachment</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327027"><span id="local-6989586621679327029"><span class="annot"><span class="annottext">PolicyToPath -&gt; PolicyToPath -&gt; Bool
+(PolicyToPath -&gt; PolicyToPath -&gt; Bool)
+-&gt; (PolicyToPath -&gt; PolicyToPath -&gt; Bool) -&gt; Eq PolicyToPath
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PolicyToPath -&gt; PolicyToPath -&gt; Bool
+$c/= :: PolicyToPath -&gt; PolicyToPath -&gt; Bool
+== :: PolicyToPath -&gt; PolicyToPath -&gt; Bool
+$c== :: PolicyToPath -&gt; PolicyToPath -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327018"><span id="local-6989586621679327020"><span id="local-6989586621679327022"><span id="local-6989586621679327024"><span class="annot"><span class="annottext">ReadPrec [PolicyToPath]
+ReadPrec PolicyToPath
+Int -&gt; ReadS PolicyToPath
+ReadS [PolicyToPath]
+(Int -&gt; ReadS PolicyToPath)
+-&gt; ReadS [PolicyToPath]
+-&gt; ReadPrec PolicyToPath
+-&gt; ReadPrec [PolicyToPath]
+-&gt; Read PolicyToPath
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PolicyToPath]
+$creadListPrec :: ReadPrec [PolicyToPath]
+readPrec :: ReadPrec PolicyToPath
+$creadPrec :: ReadPrec PolicyToPath
+readList :: ReadS [PolicyToPath]
+$creadList :: ReadS [PolicyToPath]
+readsPrec :: Int -&gt; ReadS PolicyToPath
+$creadsPrec :: Int -&gt; ReadS PolicyToPath
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327011"><span id="local-6989586621679327013"><span id="local-6989586621679327015"><span class="annot"><span class="annottext">Int -&gt; PolicyToPath -&gt; ShowS
+[PolicyToPath] -&gt; ShowS
+PolicyToPath -&gt; String
+(Int -&gt; PolicyToPath -&gt; ShowS)
+-&gt; (PolicyToPath -&gt; String)
+-&gt; ([PolicyToPath] -&gt; ShowS)
+-&gt; Show PolicyToPath
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PolicyToPath] -&gt; ShowS
+$cshowList :: [PolicyToPath] -&gt; ShowS
+show :: PolicyToPath -&gt; String
+$cshow :: PolicyToPath -&gt; String
+showsPrec :: Int -&gt; PolicyToPath -&gt; ShowS
+$cshowsPrec :: Int -&gt; PolicyToPath -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PolicyToPath -&gt; Rep PolicyToPath x)
+-&gt; (forall x. Rep PolicyToPath x -&gt; PolicyToPath)
+-&gt; Generic PolicyToPath
+forall x. Rep PolicyToPath x -&gt; PolicyToPath
+forall x. PolicyToPath -&gt; Rep PolicyToPath x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PolicyToPath x -&gt; PolicyToPath
+$cfrom :: forall x. PolicyToPath -&gt; Rep PolicyToPath x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'PolicyToPath' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'path', 'policyToPath_path' - The path that is referenced from the root.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'policies', 'policyToPath_policies' - List of policy objects.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#newPolicyToPath"><span class="hs-identifier hs-type">newPolicyToPath</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span>
+</span><span id="line-53"></span><span id="newPolicyToPath"><span class="annot"><span class="annottext">newPolicyToPath :: PolicyToPath
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#newPolicyToPath"><span class="hs-identifier hs-var hs-var">newPolicyToPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">PolicyToPath' :: Maybe Text -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:PolicyToPath' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:policies:PolicyToPath' :: Maybe [PolicyAttachment]
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The path that is referenced from the root.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#policyToPath_path"><span class="hs-identifier hs-type">policyToPath_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="policyToPath_path"><span class="annot"><span class="annottext">policyToPath_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PolicyToPath -&gt; f PolicyToPath
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#policyToPath_path"><span class="hs-identifier hs-var hs-var">policyToPath_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyToPath -&gt; Maybe Text)
+-&gt; (PolicyToPath -&gt; Maybe Text -&gt; PolicyToPath)
+-&gt; Lens PolicyToPath PolicyToPath (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327002"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:PolicyToPath' :: PolicyToPath -&gt; Maybe Text
+</span><a href="#local-6989586621679327002"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327002"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327001"><span class="annot"><span class="annottext">s :: PolicyToPath
+</span><a href="#local-6989586621679327001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyToPath
+</span><a href="#local-6989586621679327001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:PolicyToPath' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | List of policy objects.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#policyToPath_policies"><span class="hs-identifier hs-type">policyToPath_policies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyAttachment.html#PolicyAttachment"><span class="hs-identifier hs-type">PolicyAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="policyToPath_policies"><span class="annot"><span class="annottext">policyToPath_policies :: (Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
+-&gt; PolicyToPath -&gt; f PolicyToPath
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#policyToPath_policies"><span class="hs-identifier hs-var hs-var">policyToPath_policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyToPath -&gt; Maybe [PolicyAttachment])
+-&gt; (PolicyToPath -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath)
+-&gt; Lens
+     PolicyToPath
+     PolicyToPath
+     (Maybe [PolicyAttachment])
+     (Maybe [PolicyAttachment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326998"><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+policies :: Maybe [PolicyAttachment]
+$sel:policies:PolicyToPath' :: PolicyToPath -&gt; Maybe [PolicyAttachment]
+</span><a href="#local-6989586621679326998"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+</span><a href="#local-6989586621679326998"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326997"><span class="annot"><span class="annottext">s :: PolicyToPath
+</span><a href="#local-6989586621679326997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326996"><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+</span><a href="#local-6989586621679326996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyToPath
+</span><a href="#local-6989586621679326997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:PolicyToPath' :: Maybe [PolicyAttachment]
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+</span><a href="#local-6989586621679326996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
+ -&gt; PolicyToPath -&gt; f PolicyToPath)
+-&gt; ((Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
+    -&gt; Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
+-&gt; (Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
+-&gt; PolicyToPath
+-&gt; f PolicyToPath
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PolicyAttachment]
+  [PolicyAttachment]
+  [PolicyAttachment]
+  [PolicyAttachment]
+-&gt; Iso
+     (Maybe [PolicyAttachment])
+     (Maybe [PolicyAttachment])
+     (Maybe [PolicyAttachment])
+     (Maybe [PolicyAttachment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PolicyAttachment]
+  [PolicyAttachment]
+  [PolicyAttachment]
+  [PolicyAttachment]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326990"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679326988"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyToPath
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PolicyToPath) -&gt; Value -&gt; Parser PolicyToPath
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PolicyToPath&quot;</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326985"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326985"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath
+</span><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-var">PolicyToPath'</span></a></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [PolicyAttachment] -&gt; PolicyToPath)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326985"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [PolicyAttachment] -&gt; PolicyToPath)
+-&gt; Parser (Maybe [PolicyAttachment]) -&gt; Parser PolicyToPath
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326985"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyAttachment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PolicyAttachment]))
+-&gt; Maybe [PolicyAttachment] -&gt; Parser (Maybe [PolicyAttachment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326978"><span id="local-6989586621679326980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span><span>
+</span><span id="line-80"></span></pre></body></html>

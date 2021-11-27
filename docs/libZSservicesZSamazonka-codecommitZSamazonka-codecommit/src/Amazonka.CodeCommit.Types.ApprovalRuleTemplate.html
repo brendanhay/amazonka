@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeCommit.Types.ApprovalRuleTemplate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeCommit.Types.ApprovalRuleTemplate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Returns information about an approval rule template.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newApprovalRuleTemplate' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679346681"><span id="local-6989586621679346682"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApprovalRuleTemplate"><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-var">ApprovalRuleTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApprovalRuleTemplate%27"><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-var">ApprovalRuleTemplate'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SHA-256 hash signature for the content of the approval rule</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AruleContentSha256%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AruleContentSha256%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">ruleContentSha256</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The system-generated ID of the approval rule template.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AapprovalRuleTemplateId%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateId%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date the approval rule template was most recently changed, in</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AlastModifiedDate%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The description of the approval rule template.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AapprovalRuleTemplateDescription%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateDescription%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The content of the approval rule template.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AapprovalRuleTemplateContent%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateContent%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who made the most recent</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- changes to the approval rule template.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastModifiedUser%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AlastModifiedUser%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">lastModifiedUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date the approval rule template was created, in timestamp format.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreationDate%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AcreationDate%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the approval rule template.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AapprovalRuleTemplateName%3AApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateName%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346668"><span id="local-6989586621679346670"><span class="annot"><span class="annottext">ApprovalRuleTemplate -&gt; ApprovalRuleTemplate -&gt; Bool
+(ApprovalRuleTemplate -&gt; ApprovalRuleTemplate -&gt; Bool)
+-&gt; (ApprovalRuleTemplate -&gt; ApprovalRuleTemplate -&gt; Bool)
+-&gt; Eq ApprovalRuleTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApprovalRuleTemplate -&gt; ApprovalRuleTemplate -&gt; Bool
+$c/= :: ApprovalRuleTemplate -&gt; ApprovalRuleTemplate -&gt; Bool
+== :: ApprovalRuleTemplate -&gt; ApprovalRuleTemplate -&gt; Bool
+$c== :: ApprovalRuleTemplate -&gt; ApprovalRuleTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346659"><span id="local-6989586621679346661"><span id="local-6989586621679346663"><span id="local-6989586621679346665"><span class="annot"><span class="annottext">ReadPrec [ApprovalRuleTemplate]
+ReadPrec ApprovalRuleTemplate
+Int -&gt; ReadS ApprovalRuleTemplate
+ReadS [ApprovalRuleTemplate]
+(Int -&gt; ReadS ApprovalRuleTemplate)
+-&gt; ReadS [ApprovalRuleTemplate]
+-&gt; ReadPrec ApprovalRuleTemplate
+-&gt; ReadPrec [ApprovalRuleTemplate]
+-&gt; Read ApprovalRuleTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApprovalRuleTemplate]
+$creadListPrec :: ReadPrec [ApprovalRuleTemplate]
+readPrec :: ReadPrec ApprovalRuleTemplate
+$creadPrec :: ReadPrec ApprovalRuleTemplate
+readList :: ReadS [ApprovalRuleTemplate]
+$creadList :: ReadS [ApprovalRuleTemplate]
+readsPrec :: Int -&gt; ReadS ApprovalRuleTemplate
+$creadsPrec :: Int -&gt; ReadS ApprovalRuleTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346652"><span id="local-6989586621679346654"><span id="local-6989586621679346656"><span class="annot"><span class="annottext">Int -&gt; ApprovalRuleTemplate -&gt; ShowS
+[ApprovalRuleTemplate] -&gt; ShowS
+ApprovalRuleTemplate -&gt; String
+(Int -&gt; ApprovalRuleTemplate -&gt; ShowS)
+-&gt; (ApprovalRuleTemplate -&gt; String)
+-&gt; ([ApprovalRuleTemplate] -&gt; ShowS)
+-&gt; Show ApprovalRuleTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApprovalRuleTemplate] -&gt; ShowS
+$cshowList :: [ApprovalRuleTemplate] -&gt; ShowS
+show :: ApprovalRuleTemplate -&gt; String
+$cshow :: ApprovalRuleTemplate -&gt; String
+showsPrec :: Int -&gt; ApprovalRuleTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApprovalRuleTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApprovalRuleTemplate -&gt; Rep ApprovalRuleTemplate x)
+-&gt; (forall x. Rep ApprovalRuleTemplate x -&gt; ApprovalRuleTemplate)
+-&gt; Generic ApprovalRuleTemplate
+forall x. Rep ApprovalRuleTemplate x -&gt; ApprovalRuleTemplate
+forall x. ApprovalRuleTemplate -&gt; Rep ApprovalRuleTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApprovalRuleTemplate x -&gt; ApprovalRuleTemplate
+$cfrom :: forall x. ApprovalRuleTemplate -&gt; Rep ApprovalRuleTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ApprovalRuleTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'ruleContentSha256', 'approvalRuleTemplate_ruleContentSha256' - The SHA-256 hash signature for the content of the approval rule</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'approvalRuleTemplateId', 'approvalRuleTemplate_approvalRuleTemplateId' - The system-generated ID of the approval rule template.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastModifiedDate', 'approvalRuleTemplate_lastModifiedDate' - The date the approval rule template was most recently changed, in</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'approvalRuleTemplateDescription', 'approvalRuleTemplate_approvalRuleTemplateDescription' - The description of the approval rule template.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'approvalRuleTemplateContent', 'approvalRuleTemplate_approvalRuleTemplateContent' - The content of the approval rule template.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lastModifiedUser', 'approvalRuleTemplate_lastModifiedUser' - The Amazon Resource Name (ARN) of the user who made the most recent</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- changes to the approval rule template.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'creationDate', 'approvalRuleTemplate_creationDate' - The date the approval rule template was created, in timestamp format.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'approvalRuleTemplateName', 'approvalRuleTemplate_approvalRuleTemplateName' - The name of the approval rule template.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#newApprovalRuleTemplate"><span class="hs-identifier hs-type">newApprovalRuleTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span>
+</span><span id="line-80"></span><span id="newApprovalRuleTemplate"><span class="annot"><span class="annottext">newApprovalRuleTemplate :: ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#newApprovalRuleTemplate"><span class="hs-identifier hs-var hs-var">newApprovalRuleTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ApprovalRuleTemplate' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleContentSha256:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AruleContentSha256%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">ruleContentSha256</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateId:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateId%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ApprovalRuleTemplate' :: Maybe POSIX
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AlastModifiedDate%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateDescription:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateDescription%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateContent:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateContent%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedUser:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AlastModifiedUser%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">lastModifiedUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:ApprovalRuleTemplate' :: Maybe POSIX
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AcreationDate%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateName:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateName%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The SHA-256 hash signature for the content of the approval rule</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_ruleContentSha256"><span class="hs-identifier hs-type">approvalRuleTemplate_ruleContentSha256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="approvalRuleTemplate_ruleContentSha256"><span class="annot"><span class="annottext">approvalRuleTemplate_ruleContentSha256 :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_ruleContentSha256"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_ruleContentSha256</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe Text)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate ApprovalRuleTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346643"><span class="annot"><span class="annottext">Maybe Text
+ruleContentSha256 :: Maybe Text
+$sel:ruleContentSha256:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679346643"><span class="hs-identifier hs-var hs-var">ruleContentSha256</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346643"><span class="hs-identifier hs-var">ruleContentSha256</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346642"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346641"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleContentSha256:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AruleContentSha256%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">ruleContentSha256</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The system-generated ID of the approval rule template.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateId"><span class="hs-identifier hs-type">approvalRuleTemplate_approvalRuleTemplateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="approvalRuleTemplate_approvalRuleTemplateId"><span class="annot"><span class="annottext">approvalRuleTemplate_approvalRuleTemplateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateId"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_approvalRuleTemplateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe Text)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate ApprovalRuleTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346639"><span class="annot"><span class="annottext">Maybe Text
+approvalRuleTemplateId :: Maybe Text
+$sel:approvalRuleTemplateId:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679346639"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346639"><span class="hs-identifier hs-var">approvalRuleTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346638"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateId:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateId%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The date the approval rule template was most recently changed, in</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_lastModifiedDate"><span class="hs-identifier hs-type">approvalRuleTemplate_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="approvalRuleTemplate_lastModifiedDate"><span class="annot"><span class="annottext">approvalRuleTemplate_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_lastModifiedDate"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe POSIX)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe POSIX -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate
+     ApprovalRuleTemplate
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346635"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe POSIX
+</span><a href="#local-6989586621679346635"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679346635"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346634"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346633"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679346633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ApprovalRuleTemplate' :: Maybe POSIX
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AlastModifiedDate%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679346633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApprovalRuleTemplate
+-&gt; f ApprovalRuleTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The description of the approval rule template.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateDescription"><span class="hs-identifier hs-type">approvalRuleTemplate_approvalRuleTemplateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="approvalRuleTemplate_approvalRuleTemplateDescription"><span class="annot"><span class="annottext">approvalRuleTemplate_approvalRuleTemplateDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateDescription"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_approvalRuleTemplateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe Text)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate ApprovalRuleTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346628"><span class="annot"><span class="annottext">Maybe Text
+approvalRuleTemplateDescription :: Maybe Text
+$sel:approvalRuleTemplateDescription:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679346628"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346628"><span class="hs-identifier hs-var">approvalRuleTemplateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346627"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346626"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateDescription:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateDescription%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The content of the approval rule template.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateContent"><span class="hs-identifier hs-type">approvalRuleTemplate_approvalRuleTemplateContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="approvalRuleTemplate_approvalRuleTemplateContent"><span class="annot"><span class="annottext">approvalRuleTemplate_approvalRuleTemplateContent :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateContent"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_approvalRuleTemplateContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe Text)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate ApprovalRuleTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346624"><span class="annot"><span class="annottext">Maybe Text
+approvalRuleTemplateContent :: Maybe Text
+$sel:approvalRuleTemplateContent:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679346624"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346624"><span class="hs-identifier hs-var">approvalRuleTemplateContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346623"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateContent:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateContent%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who made the most recent</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- changes to the approval rule template.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_lastModifiedUser"><span class="hs-identifier hs-type">approvalRuleTemplate_lastModifiedUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="approvalRuleTemplate_lastModifiedUser"><span class="annot"><span class="annottext">approvalRuleTemplate_lastModifiedUser :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_lastModifiedUser"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_lastModifiedUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe Text)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate ApprovalRuleTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346620"><span class="annot"><span class="annottext">Maybe Text
+lastModifiedUser :: Maybe Text
+$sel:lastModifiedUser:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679346620"><span class="hs-identifier hs-var hs-var">lastModifiedUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346620"><span class="hs-identifier hs-var">lastModifiedUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346619"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346618"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedUser:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AlastModifiedUser%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">lastModifiedUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The date the approval rule template was created, in timestamp format.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_creationDate"><span class="hs-identifier hs-type">approvalRuleTemplate_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="approvalRuleTemplate_creationDate"><span class="annot"><span class="annottext">approvalRuleTemplate_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_creationDate"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe POSIX)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe POSIX -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate
+     ApprovalRuleTemplate
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346616"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe POSIX
+</span><a href="#local-6989586621679346616"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679346616"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346615"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346614"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679346614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ApprovalRuleTemplate' :: Maybe POSIX
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AcreationDate%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679346614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApprovalRuleTemplate
+-&gt; f ApprovalRuleTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The name of the approval rule template.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateName"><span class="hs-identifier hs-type">approvalRuleTemplate_approvalRuleTemplateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="approvalRuleTemplate_approvalRuleTemplateName"><span class="annot"><span class="annottext">approvalRuleTemplate_approvalRuleTemplateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApprovalRuleTemplate -&gt; f ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#approvalRuleTemplate_approvalRuleTemplateName"><span class="hs-identifier hs-var hs-var">approvalRuleTemplate_approvalRuleTemplateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalRuleTemplate -&gt; Maybe Text)
+-&gt; (ApprovalRuleTemplate -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Lens
+     ApprovalRuleTemplate ApprovalRuleTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346612"><span class="annot"><span class="annottext">Maybe Text
+approvalRuleTemplateName :: Maybe Text
+$sel:approvalRuleTemplateName:ApprovalRuleTemplate' :: ApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679346612"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346612"><span class="hs-identifier hs-var">approvalRuleTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346611"><span class="annot"><span class="annottext">s :: ApprovalRuleTemplate
+</span><a href="#local-6989586621679346611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346610"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalRuleTemplate
+</span><a href="#local-6989586621679346611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateName:ApprovalRuleTemplate' :: Maybe Text
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateName%3AApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346607"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679346605"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApprovalRuleTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApprovalRuleTemplate)
+-&gt; Value
+-&gt; Parser ApprovalRuleTemplate
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApprovalRuleTemplate&quot;</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346602"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; ApprovalRuleTemplate
+</span><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate%27"><span class="hs-identifier hs-var">ApprovalRuleTemplate'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; ApprovalRuleTemplate)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleContentSha256&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; ApprovalRuleTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;approvalRuleTemplateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; ApprovalRuleTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;approvalRuleTemplateDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;approvalRuleTemplateContent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedUser&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; ApprovalRuleTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ApprovalRuleTemplate)
+-&gt; Parser (Maybe Text) -&gt; Parser ApprovalRuleTemplate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;approvalRuleTemplateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346596"><span id="local-6989586621679346598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.ApprovalRuleTemplate.html#ApprovalRuleTemplate"><span class="hs-identifier hs-type">ApprovalRuleTemplate</span></a></span></span><span>
+</span><span id="line-147"></span></pre></body></html>

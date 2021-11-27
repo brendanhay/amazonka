@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Macie.Types.S3ResourceClassificationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Macie.Types.S3ResourceClassificationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationTypeUpdate.html"><span class="hs-identifier">Amazonka.Macie.Types.ClassificationTypeUpdate</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The S3 resources whose classification types you want to update. This</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- data type is used as a request parameter in the UpdateS3Resources</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newS3ResourceClassificationUpdate' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679149944"><span id="local-6989586621679149945"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ResourceClassificationUpdate"><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-var">S3ResourceClassificationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ResourceClassificationUpdate%27"><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var">S3ResourceClassificationUpdate'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix of the S3 bucket whose classification types you want to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprefix%3AS3ResourceClassificationUpdate%27"><span class="annot"><span class="annottext">S3ResourceClassificationUpdate -&gt; Maybe Text
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3Aprefix%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket whose classification types you want to update.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AbucketName%3AS3ResourceClassificationUpdate%27"><span class="annot"><span class="annottext">S3ResourceClassificationUpdate -&gt; Text
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3AbucketName%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The classification type that you want to update for the resource</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- associated with Amazon Macie Classic.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AclassificationTypeUpdate%3AS3ResourceClassificationUpdate%27"><span class="annot"><span class="annottext">S3ResourceClassificationUpdate -&gt; ClassificationTypeUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3AclassificationTypeUpdate%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var hs-var">classificationTypeUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationTypeUpdate.html#ClassificationTypeUpdate"><span class="hs-identifier hs-type">ClassificationTypeUpdate</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149936"><span id="local-6989586621679149938"><span class="annot"><span class="annottext">S3ResourceClassificationUpdate
+-&gt; S3ResourceClassificationUpdate -&gt; Bool
+(S3ResourceClassificationUpdate
+ -&gt; S3ResourceClassificationUpdate -&gt; Bool)
+-&gt; (S3ResourceClassificationUpdate
+    -&gt; S3ResourceClassificationUpdate -&gt; Bool)
+-&gt; Eq S3ResourceClassificationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3ResourceClassificationUpdate
+-&gt; S3ResourceClassificationUpdate -&gt; Bool
+$c/= :: S3ResourceClassificationUpdate
+-&gt; S3ResourceClassificationUpdate -&gt; Bool
+== :: S3ResourceClassificationUpdate
+-&gt; S3ResourceClassificationUpdate -&gt; Bool
+$c== :: S3ResourceClassificationUpdate
+-&gt; S3ResourceClassificationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149927"><span id="local-6989586621679149929"><span id="local-6989586621679149931"><span id="local-6989586621679149933"><span class="annot"><span class="annottext">ReadPrec [S3ResourceClassificationUpdate]
+ReadPrec S3ResourceClassificationUpdate
+Int -&gt; ReadS S3ResourceClassificationUpdate
+ReadS [S3ResourceClassificationUpdate]
+(Int -&gt; ReadS S3ResourceClassificationUpdate)
+-&gt; ReadS [S3ResourceClassificationUpdate]
+-&gt; ReadPrec S3ResourceClassificationUpdate
+-&gt; ReadPrec [S3ResourceClassificationUpdate]
+-&gt; Read S3ResourceClassificationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3ResourceClassificationUpdate]
+$creadListPrec :: ReadPrec [S3ResourceClassificationUpdate]
+readPrec :: ReadPrec S3ResourceClassificationUpdate
+$creadPrec :: ReadPrec S3ResourceClassificationUpdate
+readList :: ReadS [S3ResourceClassificationUpdate]
+$creadList :: ReadS [S3ResourceClassificationUpdate]
+readsPrec :: Int -&gt; ReadS S3ResourceClassificationUpdate
+$creadsPrec :: Int -&gt; ReadS S3ResourceClassificationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149920"><span id="local-6989586621679149922"><span id="local-6989586621679149924"><span class="annot"><span class="annottext">Int -&gt; S3ResourceClassificationUpdate -&gt; ShowS
+[S3ResourceClassificationUpdate] -&gt; ShowS
+S3ResourceClassificationUpdate -&gt; String
+(Int -&gt; S3ResourceClassificationUpdate -&gt; ShowS)
+-&gt; (S3ResourceClassificationUpdate -&gt; String)
+-&gt; ([S3ResourceClassificationUpdate] -&gt; ShowS)
+-&gt; Show S3ResourceClassificationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3ResourceClassificationUpdate] -&gt; ShowS
+$cshowList :: [S3ResourceClassificationUpdate] -&gt; ShowS
+show :: S3ResourceClassificationUpdate -&gt; String
+$cshow :: S3ResourceClassificationUpdate -&gt; String
+showsPrec :: Int -&gt; S3ResourceClassificationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3ResourceClassificationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ S3ResourceClassificationUpdate
+ -&gt; Rep S3ResourceClassificationUpdate x)
+-&gt; (forall x.
+    Rep S3ResourceClassificationUpdate x
+    -&gt; S3ResourceClassificationUpdate)
+-&gt; Generic S3ResourceClassificationUpdate
+forall x.
+Rep S3ResourceClassificationUpdate x
+-&gt; S3ResourceClassificationUpdate
+forall x.
+S3ResourceClassificationUpdate
+-&gt; Rep S3ResourceClassificationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep S3ResourceClassificationUpdate x
+-&gt; S3ResourceClassificationUpdate
+$cfrom :: forall x.
+S3ResourceClassificationUpdate
+-&gt; Rep S3ResourceClassificationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'S3ResourceClassificationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'prefix', 's3ResourceClassificationUpdate_prefix' - The prefix of the S3 bucket whose classification types you want to</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'bucketName', 's3ResourceClassificationUpdate_bucketName' - The name of the S3 bucket whose classification types you want to update.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'classificationTypeUpdate', 's3ResourceClassificationUpdate_classificationTypeUpdate' - The classification type that you want to update for the resource</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- associated with Amazon Macie Classic.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#newS3ResourceClassificationUpdate"><span class="hs-identifier hs-type">newS3ResourceClassificationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'bucketName'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'classificationTypeUpdate'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationTypeUpdate.html#ClassificationTypeUpdate"><span class="hs-identifier hs-type">ClassificationTypeUpdate</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span><span>
+</span><span id="line-65"></span><span id="newS3ResourceClassificationUpdate"><span class="annot"><span class="annottext">newS3ResourceClassificationUpdate :: Text -&gt; ClassificationTypeUpdate -&gt; S3ResourceClassificationUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#newS3ResourceClassificationUpdate"><span class="hs-identifier hs-var hs-var">newS3ResourceClassificationUpdate</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679149914"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149914"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679149913"><span class="annot"><span class="annottext">ClassificationTypeUpdate
+</span><a href="#local-6989586621679149913"><span class="hs-identifier hs-var">pClassificationTypeUpdate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">S3ResourceClassificationUpdate' :: Maybe Text
+-&gt; Text
+-&gt; ClassificationTypeUpdate
+-&gt; S3ResourceClassificationUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefix:S3ResourceClassificationUpdate' :: Maybe Text
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3Aprefix%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucketName:S3ResourceClassificationUpdate' :: Text
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3AbucketName%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149914"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:classificationTypeUpdate:S3ResourceClassificationUpdate' :: ClassificationTypeUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3AclassificationTypeUpdate%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var">classificationTypeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">ClassificationTypeUpdate
+</span><a href="#local-6989586621679149913"><span class="hs-identifier hs-var">pClassificationTypeUpdate_</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The prefix of the S3 bucket whose classification types you want to</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_prefix"><span class="hs-identifier hs-type">s3ResourceClassificationUpdate_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="s3ResourceClassificationUpdate_prefix"><span class="annot"><span class="annottext">s3ResourceClassificationUpdate_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; S3ResourceClassificationUpdate
+-&gt; f S3ResourceClassificationUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_prefix"><span class="hs-identifier hs-var hs-var">s3ResourceClassificationUpdate_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3ResourceClassificationUpdate -&gt; Maybe Text)
+-&gt; (S3ResourceClassificationUpdate
+    -&gt; Maybe Text -&gt; S3ResourceClassificationUpdate)
+-&gt; Lens
+     S3ResourceClassificationUpdate
+     S3ResourceClassificationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149909"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:S3ResourceClassificationUpdate' :: S3ResourceClassificationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679149909"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149909"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149908"><span class="annot"><span class="annottext">s :: S3ResourceClassificationUpdate
+</span><a href="#local-6989586621679149908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149907"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ResourceClassificationUpdate
+</span><a href="#local-6989586621679149908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:S3ResourceClassificationUpdate' :: Maybe Text
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3Aprefix%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the S3 bucket whose classification types you want to update.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_bucketName"><span class="hs-identifier hs-type">s3ResourceClassificationUpdate_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="s3ResourceClassificationUpdate_bucketName"><span class="annot"><span class="annottext">s3ResourceClassificationUpdate_bucketName :: (Text -&gt; f Text)
+-&gt; S3ResourceClassificationUpdate
+-&gt; f S3ResourceClassificationUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_bucketName"><span class="hs-identifier hs-var hs-var">s3ResourceClassificationUpdate_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3ResourceClassificationUpdate -&gt; Text)
+-&gt; (S3ResourceClassificationUpdate
+    -&gt; Text -&gt; S3ResourceClassificationUpdate)
+-&gt; Lens
+     S3ResourceClassificationUpdate
+     S3ResourceClassificationUpdate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149905"><span class="annot"><span class="annottext">Text
+bucketName :: Text
+$sel:bucketName:S3ResourceClassificationUpdate' :: S3ResourceClassificationUpdate -&gt; Text
+</span><a href="#local-6989586621679149905"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149905"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149904"><span class="annot"><span class="annottext">s :: S3ResourceClassificationUpdate
+</span><a href="#local-6989586621679149904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ResourceClassificationUpdate
+</span><a href="#local-6989586621679149904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3ResourceClassificationUpdate' :: Text
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3AbucketName%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The classification type that you want to update for the resource</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- associated with Amazon Macie Classic.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_classificationTypeUpdate"><span class="hs-identifier hs-type">s3ResourceClassificationUpdate_classificationTypeUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationTypeUpdate.html#ClassificationTypeUpdate"><span class="hs-identifier hs-type">ClassificationTypeUpdate</span></a></span><span>
+</span><span id="line-88"></span><span id="s3ResourceClassificationUpdate_classificationTypeUpdate"><span class="annot"><span class="annottext">s3ResourceClassificationUpdate_classificationTypeUpdate :: (ClassificationTypeUpdate -&gt; f ClassificationTypeUpdate)
+-&gt; S3ResourceClassificationUpdate
+-&gt; f S3ResourceClassificationUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_classificationTypeUpdate"><span class="hs-identifier hs-var hs-var">s3ResourceClassificationUpdate_classificationTypeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3ResourceClassificationUpdate -&gt; ClassificationTypeUpdate)
+-&gt; (S3ResourceClassificationUpdate
+    -&gt; ClassificationTypeUpdate -&gt; S3ResourceClassificationUpdate)
+-&gt; Lens
+     S3ResourceClassificationUpdate
+     S3ResourceClassificationUpdate
+     ClassificationTypeUpdate
+     ClassificationTypeUpdate
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149901"><span class="annot"><span class="annottext">ClassificationTypeUpdate
+classificationTypeUpdate :: ClassificationTypeUpdate
+$sel:classificationTypeUpdate:S3ResourceClassificationUpdate' :: S3ResourceClassificationUpdate -&gt; ClassificationTypeUpdate
+</span><a href="#local-6989586621679149901"><span class="hs-identifier hs-var hs-var">classificationTypeUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassificationTypeUpdate
+</span><a href="#local-6989586621679149901"><span class="hs-identifier hs-var">classificationTypeUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149900"><span class="annot"><span class="annottext">s :: S3ResourceClassificationUpdate
+</span><a href="#local-6989586621679149900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149899"><span class="annot"><span class="annottext">ClassificationTypeUpdate
+</span><a href="#local-6989586621679149899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ResourceClassificationUpdate
+</span><a href="#local-6989586621679149900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classificationTypeUpdate:S3ResourceClassificationUpdate' :: ClassificationTypeUpdate
+</span><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#%24sel%3AclassificationTypeUpdate%3AS3ResourceClassificationUpdate%27"><span class="hs-identifier hs-var">classificationTypeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ClassificationTypeUpdate
+</span><a href="#local-6989586621679149899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679149895"><span id="local-6989586621679149897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679149892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149884"><span id="local-6989586621679149886"><span id="local-6989586621679149888"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679149882"><span class="annot"><span class="annottext">toJSON :: S3ResourceClassificationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#S3ResourceClassificationUpdate%27"><span class="hs-identifier hs-type">S3ResourceClassificationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149878"><span id="local-6989586621679149879"><span id="local-6989586621679149880"><span class="annot"><span class="annottext">Maybe Text
+Text
+ClassificationTypeUpdate
+classificationTypeUpdate :: ClassificationTypeUpdate
+bucketName :: Text
+prefix :: Maybe Text
+$sel:classificationTypeUpdate:S3ResourceClassificationUpdate' :: S3ResourceClassificationUpdate -&gt; ClassificationTypeUpdate
+$sel:bucketName:S3ResourceClassificationUpdate' :: S3ResourceClassificationUpdate -&gt; Text
+$sel:prefix:S3ResourceClassificationUpdate' :: S3ResourceClassificationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679149878"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149880"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149879"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;classificationTypeUpdate&quot;</span></span><span>
+</span><span id="line-106"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ClassificationTypeUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ClassificationTypeUpdate
+</span><a href="#local-6989586621679149878"><span class="hs-identifier hs-var">classificationTypeUpdate</span></a></span><span>
+</span><span id="line-107"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType"><span class="hs-identifier">PhysicalConnectorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_QSFP"><span class="hs-identifier">PhysicalConnectorType_QSFP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_RJ45"><span class="hs-identifier">PhysicalConnectorType_RJ45</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_RJ45_2"><span class="hs-identifier">PhysicalConnectorType_RJ45_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_SFP_PLUS"><span class="hs-identifier">PhysicalConnectorType_SFP_PLUS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_WIFI"><span class="hs-identifier">PhysicalConnectorType_WIFI</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679182555"><span id="local-6989586621679182556"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PhysicalConnectorType"><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType"><span class="hs-identifier hs-var">PhysicalConnectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhysicalConnectorType%27"><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType%27"><span class="hs-identifier hs-var">PhysicalConnectorType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPhysicalConnectorType"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; Text
+</span><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#fromPhysicalConnectorType"><span class="hs-identifier hs-var hs-var">fromPhysicalConnectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182547"><span id="local-6989586621679182549"><span id="local-6989586621679182551"><span class="annot"><span class="annottext">Int -&gt; PhysicalConnectorType -&gt; ShowS
+[PhysicalConnectorType] -&gt; ShowS
+PhysicalConnectorType -&gt; String
+(Int -&gt; PhysicalConnectorType -&gt; ShowS)
+-&gt; (PhysicalConnectorType -&gt; String)
+-&gt; ([PhysicalConnectorType] -&gt; ShowS)
+-&gt; Show PhysicalConnectorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PhysicalConnectorType] -&gt; ShowS
+$cshowList :: [PhysicalConnectorType] -&gt; ShowS
+show :: PhysicalConnectorType -&gt; String
+$cshow :: PhysicalConnectorType -&gt; String
+showsPrec :: Int -&gt; PhysicalConnectorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PhysicalConnectorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679182538"><span id="local-6989586621679182540"><span id="local-6989586621679182542"><span id="local-6989586621679182544"><span class="annot"><span class="annottext">ReadPrec [PhysicalConnectorType]
+ReadPrec PhysicalConnectorType
+Int -&gt; ReadS PhysicalConnectorType
+ReadS [PhysicalConnectorType]
+(Int -&gt; ReadS PhysicalConnectorType)
+-&gt; ReadS [PhysicalConnectorType]
+-&gt; ReadPrec PhysicalConnectorType
+-&gt; ReadPrec [PhysicalConnectorType]
+-&gt; Read PhysicalConnectorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PhysicalConnectorType]
+$creadListPrec :: ReadPrec [PhysicalConnectorType]
+readPrec :: ReadPrec PhysicalConnectorType
+$creadPrec :: ReadPrec PhysicalConnectorType
+readList :: ReadS [PhysicalConnectorType]
+$creadList :: ReadS [PhysicalConnectorType]
+readsPrec :: Int -&gt; ReadS PhysicalConnectorType
+$creadsPrec :: Int -&gt; ReadS PhysicalConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679182533"><span id="local-6989586621679182535"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+(PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool)
+-&gt; (PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool)
+-&gt; Eq PhysicalConnectorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+$c/= :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+== :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+$c== :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679182517"><span id="local-6989586621679182519"><span id="local-6989586621679182521"><span id="local-6989586621679182523"><span id="local-6989586621679182525"><span id="local-6989586621679182527"><span id="local-6989586621679182529"><span class="annot"><span class="annottext">Eq PhysicalConnectorType
+Eq PhysicalConnectorType
+-&gt; (PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Ordering)
+-&gt; (PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool)
+-&gt; (PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool)
+-&gt; (PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool)
+-&gt; (PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool)
+-&gt; (PhysicalConnectorType
+    -&gt; PhysicalConnectorType -&gt; PhysicalConnectorType)
+-&gt; (PhysicalConnectorType
+    -&gt; PhysicalConnectorType -&gt; PhysicalConnectorType)
+-&gt; Ord PhysicalConnectorType
+PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Ordering
+PhysicalConnectorType
+-&gt; PhysicalConnectorType -&gt; PhysicalConnectorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PhysicalConnectorType
+-&gt; PhysicalConnectorType -&gt; PhysicalConnectorType
+$cmin :: PhysicalConnectorType
+-&gt; PhysicalConnectorType -&gt; PhysicalConnectorType
+max :: PhysicalConnectorType
+-&gt; PhysicalConnectorType -&gt; PhysicalConnectorType
+$cmax :: PhysicalConnectorType
+-&gt; PhysicalConnectorType -&gt; PhysicalConnectorType
+&gt;= :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+$c&gt;= :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+&gt; :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+$c&gt; :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+&lt;= :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+$c&lt;= :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+&lt; :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+$c&lt; :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Bool
+compare :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Ordering
+$ccompare :: PhysicalConnectorType -&gt; PhysicalConnectorType -&gt; Ordering
+$cp1Ord :: Eq PhysicalConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PhysicalConnectorType -&gt; Rep PhysicalConnectorType x)
+-&gt; (forall x. Rep PhysicalConnectorType x -&gt; PhysicalConnectorType)
+-&gt; Generic PhysicalConnectorType
+forall x. Rep PhysicalConnectorType x -&gt; PhysicalConnectorType
+forall x. PhysicalConnectorType -&gt; Rep PhysicalConnectorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PhysicalConnectorType x -&gt; PhysicalConnectorType
+$cfrom :: forall x. PhysicalConnectorType -&gt; Rep PhysicalConnectorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182509"><span id="local-6989586621679182511"><span class="annot"><span class="annottext">Int -&gt; PhysicalConnectorType -&gt; Int
+PhysicalConnectorType -&gt; Int
+(Int -&gt; PhysicalConnectorType -&gt; Int)
+-&gt; (PhysicalConnectorType -&gt; Int) -&gt; Hashable PhysicalConnectorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PhysicalConnectorType -&gt; Int
+$chash :: PhysicalConnectorType -&gt; Int
+hashWithSalt :: Int -&gt; PhysicalConnectorType -&gt; Int
+$chashWithSalt :: Int -&gt; PhysicalConnectorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182506"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; ()
+(PhysicalConnectorType -&gt; ()) -&gt; NFData PhysicalConnectorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PhysicalConnectorType -&gt; ()
+$crnf :: PhysicalConnectorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182503"><span class="annot"><span class="annottext">Text -&gt; Either String PhysicalConnectorType
+(Text -&gt; Either String PhysicalConnectorType)
+-&gt; FromText PhysicalConnectorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PhysicalConnectorType
+$cfromText :: Text -&gt; Either String PhysicalConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182500"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; Text
+(PhysicalConnectorType -&gt; Text) -&gt; ToText PhysicalConnectorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PhysicalConnectorType -&gt; Text
+$ctoText :: PhysicalConnectorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182497"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; ByteString
+(PhysicalConnectorType -&gt; ByteString)
+-&gt; ToByteString PhysicalConnectorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PhysicalConnectorType -&gt; ByteString
+$ctoBS :: PhysicalConnectorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182494"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; ByteStringBuilder
+(PhysicalConnectorType -&gt; ByteStringBuilder)
+-&gt; ToLog PhysicalConnectorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PhysicalConnectorType -&gt; ByteStringBuilder
+$cbuild :: PhysicalConnectorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182491"><span class="annot"><span class="annottext">HeaderName -&gt; PhysicalConnectorType -&gt; [Header]
+(HeaderName -&gt; PhysicalConnectorType -&gt; [Header])
+-&gt; ToHeader PhysicalConnectorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PhysicalConnectorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PhysicalConnectorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182488"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; QueryString
+(PhysicalConnectorType -&gt; QueryString)
+-&gt; ToQuery PhysicalConnectorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PhysicalConnectorType -&gt; QueryString
+$ctoQuery :: PhysicalConnectorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182483"><span id="local-6989586621679182485"><span class="annot"><span class="annottext">Value -&gt; Parser [PhysicalConnectorType]
+Value -&gt; Parser PhysicalConnectorType
+(Value -&gt; Parser PhysicalConnectorType)
+-&gt; (Value -&gt; Parser [PhysicalConnectorType])
+-&gt; FromJSON PhysicalConnectorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PhysicalConnectorType]
+$cparseJSONList :: Value -&gt; Parser [PhysicalConnectorType]
+parseJSON :: Value -&gt; Parser PhysicalConnectorType
+$cparseJSON :: Value -&gt; Parser PhysicalConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182478"><span id="local-6989586621679182480"><span class="annot"><span class="annottext">FromJSONKeyFunction [PhysicalConnectorType]
+FromJSONKeyFunction PhysicalConnectorType
+FromJSONKeyFunction PhysicalConnectorType
+-&gt; FromJSONKeyFunction [PhysicalConnectorType]
+-&gt; FromJSONKey PhysicalConnectorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PhysicalConnectorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PhysicalConnectorType]
+fromJSONKey :: FromJSONKeyFunction PhysicalConnectorType
+$cfromJSONKey :: FromJSONKeyFunction PhysicalConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182469"><span id="local-6989586621679182471"><span id="local-6989586621679182473"><span id="local-6989586621679182475"><span class="annot"><span class="annottext">[PhysicalConnectorType] -&gt; Encoding
+[PhysicalConnectorType] -&gt; Value
+PhysicalConnectorType -&gt; Encoding
+PhysicalConnectorType -&gt; Value
+(PhysicalConnectorType -&gt; Value)
+-&gt; (PhysicalConnectorType -&gt; Encoding)
+-&gt; ([PhysicalConnectorType] -&gt; Value)
+-&gt; ([PhysicalConnectorType] -&gt; Encoding)
+-&gt; ToJSON PhysicalConnectorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PhysicalConnectorType] -&gt; Encoding
+$ctoEncodingList :: [PhysicalConnectorType] -&gt; Encoding
+toJSONList :: [PhysicalConnectorType] -&gt; Value
+$ctoJSONList :: [PhysicalConnectorType] -&gt; Value
+toEncoding :: PhysicalConnectorType -&gt; Encoding
+$ctoEncoding :: PhysicalConnectorType -&gt; Encoding
+toJSON :: PhysicalConnectorType -&gt; Value
+$ctoJSON :: PhysicalConnectorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679182464"><span id="local-6989586621679182466"><span class="annot"><span class="annottext">ToJSONKeyFunction [PhysicalConnectorType]
+ToJSONKeyFunction PhysicalConnectorType
+ToJSONKeyFunction PhysicalConnectorType
+-&gt; ToJSONKeyFunction [PhysicalConnectorType]
+-&gt; ToJSONKey PhysicalConnectorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PhysicalConnectorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PhysicalConnectorType]
+toJSONKey :: ToJSONKeyFunction PhysicalConnectorType
+$ctoJSONKey :: ToJSONKeyFunction PhysicalConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679182461"><span class="annot"><span class="annottext">[Node] -&gt; Either String PhysicalConnectorType
+([Node] -&gt; Either String PhysicalConnectorType)
+-&gt; FromXML PhysicalConnectorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PhysicalConnectorType
+$cparseXML :: [Node] -&gt; Either String PhysicalConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679182458"><span class="annot"><span class="annottext">PhysicalConnectorType -&gt; XML
+(PhysicalConnectorType -&gt; XML) -&gt; ToXML PhysicalConnectorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PhysicalConnectorType -&gt; XML
+$ctoXML :: PhysicalConnectorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_QSFP"><span class="hs-identifier hs-type">PhysicalConnectorType_QSFP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType"><span class="hs-identifier hs-type">PhysicalConnectorType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhysicalConnectorType_QSFP"><span id="%24mPhysicalConnectorType_QSFP"><span id="PhysicalConnectorType_QSFP"><span class="annot"><span class="annottext">$bPhysicalConnectorType_QSFP :: PhysicalConnectorType
+$mPhysicalConnectorType_QSFP :: forall r.
+PhysicalConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#%24bPhysicalConnectorType_QSFP"><span class="hs-identifier hs-var hs-var hs-var">PhysicalConnectorType_QSFP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType%27"><span class="hs-identifier hs-type">PhysicalConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QSFP&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_RJ45"><span class="hs-identifier hs-type">PhysicalConnectorType_RJ45</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType"><span class="hs-identifier hs-type">PhysicalConnectorType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhysicalConnectorType_RJ45"><span id="%24mPhysicalConnectorType_RJ45"><span id="PhysicalConnectorType_RJ45"><span class="annot"><span class="annottext">$bPhysicalConnectorType_RJ45 :: PhysicalConnectorType
+$mPhysicalConnectorType_RJ45 :: forall r.
+PhysicalConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#%24bPhysicalConnectorType_RJ45"><span class="hs-identifier hs-var hs-var hs-var">PhysicalConnectorType_RJ45</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType%27"><span class="hs-identifier hs-type">PhysicalConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RJ45&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_RJ45_2"><span class="hs-identifier hs-type">PhysicalConnectorType_RJ45_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType"><span class="hs-identifier hs-type">PhysicalConnectorType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhysicalConnectorType_RJ45_2"><span id="%24mPhysicalConnectorType_RJ45_2"><span id="PhysicalConnectorType_RJ45_2"><span class="annot"><span class="annottext">$bPhysicalConnectorType_RJ45_2 :: PhysicalConnectorType
+$mPhysicalConnectorType_RJ45_2 :: forall r.
+PhysicalConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#%24bPhysicalConnectorType_RJ45_2"><span class="hs-identifier hs-var hs-var hs-var">PhysicalConnectorType_RJ45_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType%27"><span class="hs-identifier hs-type">PhysicalConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RJ45_2&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_SFP_PLUS"><span class="hs-identifier hs-type">PhysicalConnectorType_SFP_PLUS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType"><span class="hs-identifier hs-type">PhysicalConnectorType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhysicalConnectorType_SFP_PLUS"><span id="%24mPhysicalConnectorType_SFP_PLUS"><span id="PhysicalConnectorType_SFP_PLUS"><span class="annot"><span class="annottext">$bPhysicalConnectorType_SFP_PLUS :: PhysicalConnectorType
+$mPhysicalConnectorType_SFP_PLUS :: forall r.
+PhysicalConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#%24bPhysicalConnectorType_SFP_PLUS"><span class="hs-identifier hs-var hs-var hs-var">PhysicalConnectorType_SFP_PLUS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType%27"><span class="hs-identifier hs-type">PhysicalConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SFP_PLUS&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_WIFI"><span class="hs-identifier hs-type">PhysicalConnectorType_WIFI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType"><span class="hs-identifier hs-type">PhysicalConnectorType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhysicalConnectorType_WIFI"><span id="%24mPhysicalConnectorType_WIFI"><span id="PhysicalConnectorType_WIFI"><span class="annot"><span class="annottext">$bPhysicalConnectorType_WIFI :: PhysicalConnectorType
+$mPhysicalConnectorType_WIFI :: forall r.
+PhysicalConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#%24bPhysicalConnectorType_WIFI"><span class="hs-identifier hs-var hs-var hs-var">PhysicalConnectorType_WIFI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType%27"><span class="hs-identifier hs-type">PhysicalConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WIFI&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_QSFP"><span class="hs-pragma hs-type">PhysicalConnectorType_QSFP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_RJ45"><span class="hs-pragma hs-type">PhysicalConnectorType_RJ45</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_RJ45_2"><span class="hs-pragma hs-type">PhysicalConnectorType_RJ45_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_SFP_PLUS"><span class="hs-pragma hs-type">PhysicalConnectorType_SFP_PLUS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType_WIFI"><span class="hs-pragma hs-type">PhysicalConnectorType_WIFI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.html#PhysicalConnectorType%27"><span class="hs-pragma hs-type">PhysicalConnectorType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

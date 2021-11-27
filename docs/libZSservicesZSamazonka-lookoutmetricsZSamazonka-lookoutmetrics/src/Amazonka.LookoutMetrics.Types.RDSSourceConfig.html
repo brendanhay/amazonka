@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutMetrics.Types.RDSSourceConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutMetrics.Types.RDSSourceConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.VpcConfiguration.html"><span class="hs-identifier">Amazonka.LookoutMetrics.Types.VpcConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the Amazon Relational Database Service (RDS)</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRDSSourceConfig' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679225740"><span id="local-6989586621679225741"></span></span><span class="hs-keyword">data</span><span> </span><span id="RDSSourceConfig"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-var">RDSSourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RDSSourceConfig%27"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-var">RDSSourceConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string identifying the database instance.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdbInstanceIdentifier%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdbInstanceIdentifier%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The host name of the database.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdatabaseHost%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabaseHost%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">databaseHost</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The port number where the database can be accessed.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdatabasePort%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; Natural
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabasePort%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">databasePort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Secrets Manager role.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsecretManagerArn%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AsecretManagerArn%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">secretManagerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the RDS database.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdatabaseName%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabaseName%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the table in the database.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtableName%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AtableName%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AroleArn%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AroleArn%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | An object containing information about the Amazon Virtual Private Cloud</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- (VPC) configuration.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AvpcConfiguration%3ARDSSourceConfig%27"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; VpcConfiguration
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AvpcConfiguration%3ARDSSourceConfig%27"><span class="hs-identifier hs-var hs-var">vpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225727"><span id="local-6989586621679225729"><span class="annot"><span class="annottext">RDSSourceConfig -&gt; RDSSourceConfig -&gt; Bool
+(RDSSourceConfig -&gt; RDSSourceConfig -&gt; Bool)
+-&gt; (RDSSourceConfig -&gt; RDSSourceConfig -&gt; Bool)
+-&gt; Eq RDSSourceConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RDSSourceConfig -&gt; RDSSourceConfig -&gt; Bool
+$c/= :: RDSSourceConfig -&gt; RDSSourceConfig -&gt; Bool
+== :: RDSSourceConfig -&gt; RDSSourceConfig -&gt; Bool
+$c== :: RDSSourceConfig -&gt; RDSSourceConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225718"><span id="local-6989586621679225720"><span id="local-6989586621679225722"><span id="local-6989586621679225724"><span class="annot"><span class="annottext">ReadPrec [RDSSourceConfig]
+ReadPrec RDSSourceConfig
+Int -&gt; ReadS RDSSourceConfig
+ReadS [RDSSourceConfig]
+(Int -&gt; ReadS RDSSourceConfig)
+-&gt; ReadS [RDSSourceConfig]
+-&gt; ReadPrec RDSSourceConfig
+-&gt; ReadPrec [RDSSourceConfig]
+-&gt; Read RDSSourceConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RDSSourceConfig]
+$creadListPrec :: ReadPrec [RDSSourceConfig]
+readPrec :: ReadPrec RDSSourceConfig
+$creadPrec :: ReadPrec RDSSourceConfig
+readList :: ReadS [RDSSourceConfig]
+$creadList :: ReadS [RDSSourceConfig]
+readsPrec :: Int -&gt; ReadS RDSSourceConfig
+$creadsPrec :: Int -&gt; ReadS RDSSourceConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225711"><span id="local-6989586621679225713"><span id="local-6989586621679225715"><span class="annot"><span class="annottext">Int -&gt; RDSSourceConfig -&gt; ShowS
+[RDSSourceConfig] -&gt; ShowS
+RDSSourceConfig -&gt; String
+(Int -&gt; RDSSourceConfig -&gt; ShowS)
+-&gt; (RDSSourceConfig -&gt; String)
+-&gt; ([RDSSourceConfig] -&gt; ShowS)
+-&gt; Show RDSSourceConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RDSSourceConfig] -&gt; ShowS
+$cshowList :: [RDSSourceConfig] -&gt; ShowS
+show :: RDSSourceConfig -&gt; String
+$cshow :: RDSSourceConfig -&gt; String
+showsPrec :: Int -&gt; RDSSourceConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; RDSSourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RDSSourceConfig -&gt; Rep RDSSourceConfig x)
+-&gt; (forall x. Rep RDSSourceConfig x -&gt; RDSSourceConfig)
+-&gt; Generic RDSSourceConfig
+forall x. Rep RDSSourceConfig x -&gt; RDSSourceConfig
+forall x. RDSSourceConfig -&gt; Rep RDSSourceConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RDSSourceConfig x -&gt; RDSSourceConfig
+$cfrom :: forall x. RDSSourceConfig -&gt; Rep RDSSourceConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'RDSSourceConfig' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'dbInstanceIdentifier', 'rDSSourceConfig_dbInstanceIdentifier' - A string identifying the database instance.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'databaseHost', 'rDSSourceConfig_databaseHost' - The host name of the database.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'databasePort', 'rDSSourceConfig_databasePort' - The port number where the database can be accessed.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'secretManagerArn', 'rDSSourceConfig_secretManagerArn' - The Amazon Resource Name (ARN) of the AWS Secrets Manager role.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'databaseName', 'rDSSourceConfig_databaseName' - The name of the RDS database.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'tableName', 'rDSSourceConfig_tableName' - The name of the table in the database.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'roleArn', 'rDSSourceConfig_roleArn' - The Amazon Resource Name (ARN) of the role.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'vpcConfiguration', 'rDSSourceConfig_vpcConfiguration' - An object containing information about the Amazon Virtual Private Cloud</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- (VPC) configuration.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#newRDSSourceConfig"><span class="hs-identifier hs-type">newRDSSourceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'dbInstanceIdentifier'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'databaseHost'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'databasePort'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'secretManagerArn'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'databaseName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'vpcConfiguration'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span>
+</span><span id="line-94"></span><span id="newRDSSourceConfig"><span class="annot"><span class="annottext">newRDSSourceConfig :: Text
+-&gt; Text
+-&gt; Natural
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; VpcConfiguration
+-&gt; RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#newRDSSourceConfig"><span class="hs-identifier hs-var hs-var">newRDSSourceConfig</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679225705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225705"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679225704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225704"><span class="hs-identifier hs-var">pDatabaseHost_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679225703"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679225703"><span class="hs-identifier hs-var">pDatabasePort_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679225702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225702"><span class="hs-identifier hs-var">pSecretManagerArn_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679225701"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225701"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679225700"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225700"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679225699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225699"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679225698"><span class="annot"><span class="annottext">VpcConfiguration
+</span><a href="#local-6989586621679225698"><span class="hs-identifier hs-var">pVpcConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">RDSSourceConfig' :: Text
+-&gt; Text
+-&gt; Natural
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; VpcConfiguration
+-&gt; RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdbInstanceIdentifier%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225705"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseHost:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabaseHost%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">databaseHost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225704"><span class="hs-identifier hs-var">pDatabaseHost_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:databasePort:RDSSourceConfig' :: Natural
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabasePort%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">databasePort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679225703"><span class="hs-identifier hs-var">pDatabasePort_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:secretManagerArn:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AsecretManagerArn%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225702"><span class="hs-identifier hs-var">pSecretManagerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabaseName%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225701"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AtableName%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225700"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AroleArn%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225699"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcConfiguration:RDSSourceConfig' :: VpcConfiguration
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AvpcConfiguration%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VpcConfiguration
+</span><a href="#local-6989586621679225698"><span class="hs-identifier hs-var">pVpcConfiguration_</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A string identifying the database instance.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_dbInstanceIdentifier"><span class="hs-identifier hs-type">rDSSourceConfig_dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="rDSSourceConfig_dbInstanceIdentifier"><span class="annot"><span class="annottext">rDSSourceConfig_dbInstanceIdentifier :: (Text -&gt; f Text) -&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_dbInstanceIdentifier"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; Text)
+-&gt; (RDSSourceConfig -&gt; Text -&gt; RDSSourceConfig)
+-&gt; Lens RDSSourceConfig RDSSourceConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225694"><span class="annot"><span class="annottext">Text
+dbInstanceIdentifier :: Text
+$sel:dbInstanceIdentifier:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+</span><a href="#local-6989586621679225694"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225694"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225693"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdbInstanceIdentifier%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The host name of the database.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databaseHost"><span class="hs-identifier hs-type">rDSSourceConfig_databaseHost</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="rDSSourceConfig_databaseHost"><span class="annot"><span class="annottext">rDSSourceConfig_databaseHost :: (Text -&gt; f Text) -&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databaseHost"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_databaseHost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; Text)
+-&gt; (RDSSourceConfig -&gt; Text -&gt; RDSSourceConfig)
+-&gt; Lens RDSSourceConfig RDSSourceConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225690"><span class="annot"><span class="annottext">Text
+databaseHost :: Text
+$sel:databaseHost:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+</span><a href="#local-6989586621679225690"><span class="hs-identifier hs-var hs-var">databaseHost</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225690"><span class="hs-identifier hs-var">databaseHost</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225689"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseHost:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabaseHost%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">databaseHost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The port number where the database can be accessed.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databasePort"><span class="hs-identifier hs-type">rDSSourceConfig_databasePort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-125"></span><span id="rDSSourceConfig_databasePort"><span class="annot"><span class="annottext">rDSSourceConfig_databasePort :: (Natural -&gt; f Natural) -&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databasePort"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_databasePort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; Natural)
+-&gt; (RDSSourceConfig -&gt; Natural -&gt; RDSSourceConfig)
+-&gt; Lens RDSSourceConfig RDSSourceConfig Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225686"><span class="annot"><span class="annottext">Natural
+databasePort :: Natural
+$sel:databasePort:RDSSourceConfig' :: RDSSourceConfig -&gt; Natural
+</span><a href="#local-6989586621679225686"><span class="hs-identifier hs-var hs-var">databasePort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679225686"><span class="hs-identifier hs-var">databasePort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225685"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225684"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679225684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databasePort:RDSSourceConfig' :: Natural
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabasePort%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">databasePort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679225684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Secrets Manager role.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_secretManagerArn"><span class="hs-identifier hs-type">rDSSourceConfig_secretManagerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="rDSSourceConfig_secretManagerArn"><span class="annot"><span class="annottext">rDSSourceConfig_secretManagerArn :: (Text -&gt; f Text) -&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_secretManagerArn"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_secretManagerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; Text)
+-&gt; (RDSSourceConfig -&gt; Text -&gt; RDSSourceConfig)
+-&gt; Lens RDSSourceConfig RDSSourceConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225682"><span class="annot"><span class="annottext">Text
+secretManagerArn :: Text
+$sel:secretManagerArn:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+</span><a href="#local-6989586621679225682"><span class="hs-identifier hs-var hs-var">secretManagerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225682"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225681"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225680"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretManagerArn:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AsecretManagerArn%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The name of the RDS database.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databaseName"><span class="hs-identifier hs-type">rDSSourceConfig_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="rDSSourceConfig_databaseName"><span class="annot"><span class="annottext">rDSSourceConfig_databaseName :: (Text -&gt; f Text) -&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databaseName"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; Text)
+-&gt; (RDSSourceConfig -&gt; Text -&gt; RDSSourceConfig)
+-&gt; Lens RDSSourceConfig RDSSourceConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225678"><span class="annot"><span class="annottext">Text
+databaseName :: Text
+$sel:databaseName:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+</span><a href="#local-6989586621679225678"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225678"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225677"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AdatabaseName%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The name of the table in the database.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_tableName"><span class="hs-identifier hs-type">rDSSourceConfig_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="rDSSourceConfig_tableName"><span class="annot"><span class="annottext">rDSSourceConfig_tableName :: (Text -&gt; f Text) -&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_tableName"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; Text)
+-&gt; (RDSSourceConfig -&gt; Text -&gt; RDSSourceConfig)
+-&gt; Lens RDSSourceConfig RDSSourceConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225674"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+</span><a href="#local-6989586621679225674"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225674"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225673"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225672"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AtableName%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_roleArn"><span class="hs-identifier hs-type">rDSSourceConfig_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="rDSSourceConfig_roleArn"><span class="annot"><span class="annottext">rDSSourceConfig_roleArn :: (Text -&gt; f Text) -&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_roleArn"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; Text)
+-&gt; (RDSSourceConfig -&gt; Text -&gt; RDSSourceConfig)
+-&gt; Lens RDSSourceConfig RDSSourceConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225670"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+</span><a href="#local-6989586621679225670"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225670"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225669"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RDSSourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AroleArn%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | An object containing information about the Amazon Virtual Private Cloud</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- (VPC) configuration.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_vpcConfiguration"><span class="hs-identifier hs-type">rDSSourceConfig_vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span>
+</span><span id="line-146"></span><span id="rDSSourceConfig_vpcConfiguration"><span class="annot"><span class="annottext">rDSSourceConfig_vpcConfiguration :: (VpcConfiguration -&gt; f VpcConfiguration)
+-&gt; RDSSourceConfig -&gt; f RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_vpcConfiguration"><span class="hs-identifier hs-var hs-var">rDSSourceConfig_vpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSSourceConfig -&gt; VpcConfiguration)
+-&gt; (RDSSourceConfig -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+-&gt; Lens
+     RDSSourceConfig RDSSourceConfig VpcConfiguration VpcConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225666"><span class="annot"><span class="annottext">VpcConfiguration
+vpcConfiguration :: VpcConfiguration
+$sel:vpcConfiguration:RDSSourceConfig' :: RDSSourceConfig -&gt; VpcConfiguration
+</span><a href="#local-6989586621679225666"><span class="hs-identifier hs-var hs-var">vpcConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfiguration
+</span><a href="#local-6989586621679225666"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225665"><span class="annot"><span class="annottext">s :: RDSSourceConfig
+</span><a href="#local-6989586621679225665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225664"><span class="annot"><span class="annottext">VpcConfiguration
+</span><a href="#local-6989586621679225664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSSourceConfig
+</span><a href="#local-6989586621679225665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfiguration:RDSSourceConfig' :: VpcConfiguration
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#%24sel%3AvpcConfiguration%3ARDSSourceConfig%27"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VpcConfiguration
+</span><a href="#local-6989586621679225664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225661"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679225659"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RDSSourceConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RDSSourceConfig)
+-&gt; Value
+-&gt; Parser RDSSourceConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RDSSourceConfig&quot;</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225656"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; Text
+-&gt; Natural
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; VpcConfiguration
+-&gt; RDSSourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-var">RDSSourceConfig'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; Text
+ -&gt; Natural
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; VpcConfiguration
+ -&gt; RDSSourceConfig)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Natural
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; VpcConfiguration
+      -&gt; RDSSourceConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Natural
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; VpcConfiguration
+   -&gt; RDSSourceConfig)
+-&gt; Parser Text
+-&gt; Parser
+     (Natural
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; VpcConfiguration
+      -&gt; RDSSourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseHost&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Natural
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; VpcConfiguration
+   -&gt; RDSSourceConfig)
+-&gt; Parser Natural
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; Text -&gt; Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabasePort&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; Text -&gt; Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretManagerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; VpcConfiguration -&gt; RDSSourceConfig)
+-&gt; Parser Text -&gt; Parser (VpcConfiguration -&gt; RDSSourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (VpcConfiguration -&gt; RDSSourceConfig)
+-&gt; Parser VpcConfiguration -&gt; Parser RDSSourceConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VpcConfiguration
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225650"><span id="local-6989586621679225652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225639"><span id="local-6989586621679225641"><span id="local-6989586621679225643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier hs-type">RDSSourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679225637"><span class="annot"><span class="annottext">toJSON :: RDSSourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig%27"><span class="hs-identifier hs-type">RDSSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225628"><span id="local-6989586621679225629"><span id="local-6989586621679225630"><span id="local-6989586621679225631"><span id="local-6989586621679225632"><span id="local-6989586621679225633"><span id="local-6989586621679225634"><span id="local-6989586621679225635"><span class="annot"><span class="annottext">Natural
+Text
+VpcConfiguration
+vpcConfiguration :: VpcConfiguration
+roleArn :: Text
+tableName :: Text
+databaseName :: Text
+secretManagerArn :: Text
+databasePort :: Natural
+databaseHost :: Text
+dbInstanceIdentifier :: Text
+$sel:vpcConfiguration:RDSSourceConfig' :: RDSSourceConfig -&gt; VpcConfiguration
+$sel:roleArn:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+$sel:tableName:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+$sel:databaseName:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+$sel:secretManagerArn:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+$sel:databasePort:RDSSourceConfig' :: RDSSourceConfig -&gt; Natural
+$sel:databaseHost:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+$sel:dbInstanceIdentifier:RDSSourceConfig' :: RDSSourceConfig -&gt; Text
+</span><a href="#local-6989586621679225628"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span>
+</span><span id="line-174"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225635"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
+</span><span id="line-175"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseHost&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225634"><span class="hs-identifier hs-var">databaseHost</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabasePort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679225633"><span class="hs-identifier hs-var">databasePort</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-179"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretManagerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225632"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225631"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225630"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225629"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-184"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">VpcConfiguration
+</span><a href="#local-6989586621679225628"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span></pre></body></html>

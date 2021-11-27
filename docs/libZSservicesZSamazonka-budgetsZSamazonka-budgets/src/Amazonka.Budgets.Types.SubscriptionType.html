@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Budgets.Types.SubscriptionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Budgets.Types.SubscriptionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType"><span class="hs-identifier">SubscriptionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType_EMAIL"><span class="hs-identifier">SubscriptionType_EMAIL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType_SNS"><span class="hs-identifier">SubscriptionType_SNS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The subscription type of the subscriber. It can be SMS or EMAIL.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679207882"><span id="local-6989586621679207883"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubscriptionType"><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType"><span class="hs-identifier hs-var">SubscriptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriptionType%27"><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType%27"><span class="hs-identifier hs-var">SubscriptionType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubscriptionType"><span class="annot"><span class="annottext">SubscriptionType -&gt; Text
+</span><a href="Amazonka.Budgets.Types.SubscriptionType.html#fromSubscriptionType"><span class="hs-identifier hs-var hs-var">fromSubscriptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207874"><span id="local-6989586621679207876"><span id="local-6989586621679207878"><span class="annot"><span class="annottext">Int -&gt; SubscriptionType -&gt; ShowS
+[SubscriptionType] -&gt; ShowS
+SubscriptionType -&gt; String
+(Int -&gt; SubscriptionType -&gt; ShowS)
+-&gt; (SubscriptionType -&gt; String)
+-&gt; ([SubscriptionType] -&gt; ShowS)
+-&gt; Show SubscriptionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubscriptionType] -&gt; ShowS
+$cshowList :: [SubscriptionType] -&gt; ShowS
+show :: SubscriptionType -&gt; String
+$cshow :: SubscriptionType -&gt; String
+showsPrec :: Int -&gt; SubscriptionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubscriptionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679207865"><span id="local-6989586621679207867"><span id="local-6989586621679207869"><span id="local-6989586621679207871"><span class="annot"><span class="annottext">ReadPrec [SubscriptionType]
+ReadPrec SubscriptionType
+Int -&gt; ReadS SubscriptionType
+ReadS [SubscriptionType]
+(Int -&gt; ReadS SubscriptionType)
+-&gt; ReadS [SubscriptionType]
+-&gt; ReadPrec SubscriptionType
+-&gt; ReadPrec [SubscriptionType]
+-&gt; Read SubscriptionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubscriptionType]
+$creadListPrec :: ReadPrec [SubscriptionType]
+readPrec :: ReadPrec SubscriptionType
+$creadPrec :: ReadPrec SubscriptionType
+readList :: ReadS [SubscriptionType]
+$creadList :: ReadS [SubscriptionType]
+readsPrec :: Int -&gt; ReadS SubscriptionType
+$creadsPrec :: Int -&gt; ReadS SubscriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679207860"><span id="local-6989586621679207862"><span class="annot"><span class="annottext">SubscriptionType -&gt; SubscriptionType -&gt; Bool
+(SubscriptionType -&gt; SubscriptionType -&gt; Bool)
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; Bool)
+-&gt; Eq SubscriptionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+$c/= :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+== :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+$c== :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679207844"><span id="local-6989586621679207846"><span id="local-6989586621679207848"><span id="local-6989586621679207850"><span id="local-6989586621679207852"><span id="local-6989586621679207854"><span id="local-6989586621679207856"><span class="annot"><span class="annottext">Eq SubscriptionType
+Eq SubscriptionType
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; Ordering)
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; Bool)
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; Bool)
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; Bool)
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; Bool)
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; SubscriptionType)
+-&gt; (SubscriptionType -&gt; SubscriptionType -&gt; SubscriptionType)
+-&gt; Ord SubscriptionType
+SubscriptionType -&gt; SubscriptionType -&gt; Bool
+SubscriptionType -&gt; SubscriptionType -&gt; Ordering
+SubscriptionType -&gt; SubscriptionType -&gt; SubscriptionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SubscriptionType -&gt; SubscriptionType -&gt; SubscriptionType
+$cmin :: SubscriptionType -&gt; SubscriptionType -&gt; SubscriptionType
+max :: SubscriptionType -&gt; SubscriptionType -&gt; SubscriptionType
+$cmax :: SubscriptionType -&gt; SubscriptionType -&gt; SubscriptionType
+&gt;= :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+$c&gt;= :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+&gt; :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+$c&gt; :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+&lt;= :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+$c&lt;= :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+&lt; :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+$c&lt; :: SubscriptionType -&gt; SubscriptionType -&gt; Bool
+compare :: SubscriptionType -&gt; SubscriptionType -&gt; Ordering
+$ccompare :: SubscriptionType -&gt; SubscriptionType -&gt; Ordering
+$cp1Ord :: Eq SubscriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SubscriptionType -&gt; Rep SubscriptionType x)
+-&gt; (forall x. Rep SubscriptionType x -&gt; SubscriptionType)
+-&gt; Generic SubscriptionType
+forall x. Rep SubscriptionType x -&gt; SubscriptionType
+forall x. SubscriptionType -&gt; Rep SubscriptionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SubscriptionType x -&gt; SubscriptionType
+$cfrom :: forall x. SubscriptionType -&gt; Rep SubscriptionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207836"><span id="local-6989586621679207838"><span class="annot"><span class="annottext">Int -&gt; SubscriptionType -&gt; Int
+SubscriptionType -&gt; Int
+(Int -&gt; SubscriptionType -&gt; Int)
+-&gt; (SubscriptionType -&gt; Int) -&gt; Hashable SubscriptionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SubscriptionType -&gt; Int
+$chash :: SubscriptionType -&gt; Int
+hashWithSalt :: Int -&gt; SubscriptionType -&gt; Int
+$chashWithSalt :: Int -&gt; SubscriptionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679207833"><span class="annot"><span class="annottext">SubscriptionType -&gt; ()
+(SubscriptionType -&gt; ()) -&gt; NFData SubscriptionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SubscriptionType -&gt; ()
+$crnf :: SubscriptionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679207830"><span class="annot"><span class="annottext">Text -&gt; Either String SubscriptionType
+(Text -&gt; Either String SubscriptionType)
+-&gt; FromText SubscriptionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SubscriptionType
+$cfromText :: Text -&gt; Either String SubscriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679207827"><span class="annot"><span class="annottext">SubscriptionType -&gt; Text
+(SubscriptionType -&gt; Text) -&gt; ToText SubscriptionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SubscriptionType -&gt; Text
+$ctoText :: SubscriptionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679207824"><span class="annot"><span class="annottext">SubscriptionType -&gt; ByteString
+(SubscriptionType -&gt; ByteString) -&gt; ToByteString SubscriptionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SubscriptionType -&gt; ByteString
+$ctoBS :: SubscriptionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679207821"><span class="annot"><span class="annottext">SubscriptionType -&gt; ByteStringBuilder
+(SubscriptionType -&gt; ByteStringBuilder) -&gt; ToLog SubscriptionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SubscriptionType -&gt; ByteStringBuilder
+$cbuild :: SubscriptionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679207818"><span class="annot"><span class="annottext">HeaderName -&gt; SubscriptionType -&gt; [Header]
+(HeaderName -&gt; SubscriptionType -&gt; [Header])
+-&gt; ToHeader SubscriptionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SubscriptionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SubscriptionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679207815"><span class="annot"><span class="annottext">SubscriptionType -&gt; QueryString
+(SubscriptionType -&gt; QueryString) -&gt; ToQuery SubscriptionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SubscriptionType -&gt; QueryString
+$ctoQuery :: SubscriptionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679207810"><span id="local-6989586621679207812"><span class="annot"><span class="annottext">Value -&gt; Parser [SubscriptionType]
+Value -&gt; Parser SubscriptionType
+(Value -&gt; Parser SubscriptionType)
+-&gt; (Value -&gt; Parser [SubscriptionType])
+-&gt; FromJSON SubscriptionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SubscriptionType]
+$cparseJSONList :: Value -&gt; Parser [SubscriptionType]
+parseJSON :: Value -&gt; Parser SubscriptionType
+$cparseJSON :: Value -&gt; Parser SubscriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679207805"><span id="local-6989586621679207807"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubscriptionType]
+FromJSONKeyFunction SubscriptionType
+FromJSONKeyFunction SubscriptionType
+-&gt; FromJSONKeyFunction [SubscriptionType]
+-&gt; FromJSONKey SubscriptionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SubscriptionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SubscriptionType]
+fromJSONKey :: FromJSONKeyFunction SubscriptionType
+$cfromJSONKey :: FromJSONKeyFunction SubscriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679207796"><span id="local-6989586621679207798"><span id="local-6989586621679207800"><span id="local-6989586621679207802"><span class="annot"><span class="annottext">[SubscriptionType] -&gt; Encoding
+[SubscriptionType] -&gt; Value
+SubscriptionType -&gt; Encoding
+SubscriptionType -&gt; Value
+(SubscriptionType -&gt; Value)
+-&gt; (SubscriptionType -&gt; Encoding)
+-&gt; ([SubscriptionType] -&gt; Value)
+-&gt; ([SubscriptionType] -&gt; Encoding)
+-&gt; ToJSON SubscriptionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SubscriptionType] -&gt; Encoding
+$ctoEncodingList :: [SubscriptionType] -&gt; Encoding
+toJSONList :: [SubscriptionType] -&gt; Value
+$ctoJSONList :: [SubscriptionType] -&gt; Value
+toEncoding :: SubscriptionType -&gt; Encoding
+$ctoEncoding :: SubscriptionType -&gt; Encoding
+toJSON :: SubscriptionType -&gt; Value
+$ctoJSON :: SubscriptionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679207791"><span id="local-6989586621679207793"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubscriptionType]
+ToJSONKeyFunction SubscriptionType
+ToJSONKeyFunction SubscriptionType
+-&gt; ToJSONKeyFunction [SubscriptionType]
+-&gt; ToJSONKey SubscriptionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SubscriptionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SubscriptionType]
+toJSONKey :: ToJSONKeyFunction SubscriptionType
+$ctoJSONKey :: ToJSONKeyFunction SubscriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679207788"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubscriptionType
+([Node] -&gt; Either String SubscriptionType)
+-&gt; FromXML SubscriptionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SubscriptionType
+$cparseXML :: [Node] -&gt; Either String SubscriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679207785"><span class="annot"><span class="annottext">SubscriptionType -&gt; XML
+(SubscriptionType -&gt; XML) -&gt; ToXML SubscriptionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SubscriptionType -&gt; XML
+$ctoXML :: SubscriptionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType_EMAIL"><span class="hs-identifier hs-type">SubscriptionType_EMAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType"><span class="hs-identifier hs-type">SubscriptionType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubscriptionType_EMAIL"><span id="%24mSubscriptionType_EMAIL"><span id="SubscriptionType_EMAIL"><span class="annot"><span class="annottext">$bSubscriptionType_EMAIL :: SubscriptionType
+$mSubscriptionType_EMAIL :: forall r. SubscriptionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Budgets.Types.SubscriptionType.html#%24bSubscriptionType_EMAIL"><span class="hs-identifier hs-var hs-var hs-var">SubscriptionType_EMAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType%27"><span class="hs-identifier hs-type">SubscriptionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType_SNS"><span class="hs-identifier hs-type">SubscriptionType_SNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType"><span class="hs-identifier hs-type">SubscriptionType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubscriptionType_SNS"><span id="%24mSubscriptionType_SNS"><span id="SubscriptionType_SNS"><span class="annot"><span class="annottext">$bSubscriptionType_SNS :: SubscriptionType
+$mSubscriptionType_SNS :: forall r. SubscriptionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Budgets.Types.SubscriptionType.html#%24bSubscriptionType_SNS"><span class="hs-identifier hs-var hs-var hs-var">SubscriptionType_SNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType%27"><span class="hs-identifier hs-type">SubscriptionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType_EMAIL"><span class="hs-pragma hs-type">SubscriptionType_EMAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType_SNS"><span class="hs-pragma hs-type">SubscriptionType_SNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.Types.SubscriptionType.html#SubscriptionType%27"><span class="hs-pragma hs-type">SubscriptionType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

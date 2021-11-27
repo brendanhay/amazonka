@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.Types.ObjectType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.Types.ObjectType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier">ObjectType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_INDEX"><span class="hs-identifier">ObjectType_INDEX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_LEAF_NODE"><span class="hs-identifier">ObjectType_LEAF_NODE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_NODE"><span class="hs-identifier">ObjectType_NODE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_POLICY"><span class="hs-identifier">ObjectType_POLICY</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679326466"><span id="local-6989586621679326467"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectType"><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-var">ObjectType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectType%27"><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType%27"><span class="hs-identifier hs-var">ObjectType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectType"><span class="annot"><span class="annottext">ObjectType -&gt; Text
+</span><a href="Amazonka.CloudDirectory.Types.ObjectType.html#fromObjectType"><span class="hs-identifier hs-var hs-var">fromObjectType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326458"><span id="local-6989586621679326460"><span id="local-6989586621679326462"><span class="annot"><span class="annottext">Int -&gt; ObjectType -&gt; ShowS
+[ObjectType] -&gt; ShowS
+ObjectType -&gt; String
+(Int -&gt; ObjectType -&gt; ShowS)
+-&gt; (ObjectType -&gt; String)
+-&gt; ([ObjectType] -&gt; ShowS)
+-&gt; Show ObjectType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ObjectType] -&gt; ShowS
+$cshowList :: [ObjectType] -&gt; ShowS
+show :: ObjectType -&gt; String
+$cshow :: ObjectType -&gt; String
+showsPrec :: Int -&gt; ObjectType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ObjectType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679326449"><span id="local-6989586621679326451"><span id="local-6989586621679326453"><span id="local-6989586621679326455"><span class="annot"><span class="annottext">ReadPrec [ObjectType]
+ReadPrec ObjectType
+Int -&gt; ReadS ObjectType
+ReadS [ObjectType]
+(Int -&gt; ReadS ObjectType)
+-&gt; ReadS [ObjectType]
+-&gt; ReadPrec ObjectType
+-&gt; ReadPrec [ObjectType]
+-&gt; Read ObjectType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ObjectType]
+$creadListPrec :: ReadPrec [ObjectType]
+readPrec :: ReadPrec ObjectType
+$creadPrec :: ReadPrec ObjectType
+readList :: ReadS [ObjectType]
+$creadList :: ReadS [ObjectType]
+readsPrec :: Int -&gt; ReadS ObjectType
+$creadsPrec :: Int -&gt; ReadS ObjectType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679326444"><span id="local-6989586621679326446"><span class="annot"><span class="annottext">ObjectType -&gt; ObjectType -&gt; Bool
+(ObjectType -&gt; ObjectType -&gt; Bool)
+-&gt; (ObjectType -&gt; ObjectType -&gt; Bool) -&gt; Eq ObjectType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ObjectType -&gt; ObjectType -&gt; Bool
+$c/= :: ObjectType -&gt; ObjectType -&gt; Bool
+== :: ObjectType -&gt; ObjectType -&gt; Bool
+$c== :: ObjectType -&gt; ObjectType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679326428"><span id="local-6989586621679326430"><span id="local-6989586621679326432"><span id="local-6989586621679326434"><span id="local-6989586621679326436"><span id="local-6989586621679326438"><span id="local-6989586621679326440"><span class="annot"><span class="annottext">Eq ObjectType
+Eq ObjectType
+-&gt; (ObjectType -&gt; ObjectType -&gt; Ordering)
+-&gt; (ObjectType -&gt; ObjectType -&gt; Bool)
+-&gt; (ObjectType -&gt; ObjectType -&gt; Bool)
+-&gt; (ObjectType -&gt; ObjectType -&gt; Bool)
+-&gt; (ObjectType -&gt; ObjectType -&gt; Bool)
+-&gt; (ObjectType -&gt; ObjectType -&gt; ObjectType)
+-&gt; (ObjectType -&gt; ObjectType -&gt; ObjectType)
+-&gt; Ord ObjectType
+ObjectType -&gt; ObjectType -&gt; Bool
+ObjectType -&gt; ObjectType -&gt; Ordering
+ObjectType -&gt; ObjectType -&gt; ObjectType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ObjectType -&gt; ObjectType -&gt; ObjectType
+$cmin :: ObjectType -&gt; ObjectType -&gt; ObjectType
+max :: ObjectType -&gt; ObjectType -&gt; ObjectType
+$cmax :: ObjectType -&gt; ObjectType -&gt; ObjectType
+&gt;= :: ObjectType -&gt; ObjectType -&gt; Bool
+$c&gt;= :: ObjectType -&gt; ObjectType -&gt; Bool
+&gt; :: ObjectType -&gt; ObjectType -&gt; Bool
+$c&gt; :: ObjectType -&gt; ObjectType -&gt; Bool
+&lt;= :: ObjectType -&gt; ObjectType -&gt; Bool
+$c&lt;= :: ObjectType -&gt; ObjectType -&gt; Bool
+&lt; :: ObjectType -&gt; ObjectType -&gt; Bool
+$c&lt; :: ObjectType -&gt; ObjectType -&gt; Bool
+compare :: ObjectType -&gt; ObjectType -&gt; Ordering
+$ccompare :: ObjectType -&gt; ObjectType -&gt; Ordering
+$cp1Ord :: Eq ObjectType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ObjectType -&gt; Rep ObjectType x)
+-&gt; (forall x. Rep ObjectType x -&gt; ObjectType) -&gt; Generic ObjectType
+forall x. Rep ObjectType x -&gt; ObjectType
+forall x. ObjectType -&gt; Rep ObjectType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ObjectType x -&gt; ObjectType
+$cfrom :: forall x. ObjectType -&gt; Rep ObjectType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326420"><span id="local-6989586621679326422"><span class="annot"><span class="annottext">Int -&gt; ObjectType -&gt; Int
+ObjectType -&gt; Int
+(Int -&gt; ObjectType -&gt; Int)
+-&gt; (ObjectType -&gt; Int) -&gt; Hashable ObjectType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ObjectType -&gt; Int
+$chash :: ObjectType -&gt; Int
+hashWithSalt :: Int -&gt; ObjectType -&gt; Int
+$chashWithSalt :: Int -&gt; ObjectType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326417"><span class="annot"><span class="annottext">ObjectType -&gt; ()
+(ObjectType -&gt; ()) -&gt; NFData ObjectType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ObjectType -&gt; ()
+$crnf :: ObjectType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326414"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectType
+(Text -&gt; Either String ObjectType) -&gt; FromText ObjectType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ObjectType
+$cfromText :: Text -&gt; Either String ObjectType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326411"><span class="annot"><span class="annottext">ObjectType -&gt; Text
+(ObjectType -&gt; Text) -&gt; ToText ObjectType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ObjectType -&gt; Text
+$ctoText :: ObjectType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326408"><span class="annot"><span class="annottext">ObjectType -&gt; ByteString
+(ObjectType -&gt; ByteString) -&gt; ToByteString ObjectType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ObjectType -&gt; ByteString
+$ctoBS :: ObjectType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326405"><span class="annot"><span class="annottext">ObjectType -&gt; ByteStringBuilder
+(ObjectType -&gt; ByteStringBuilder) -&gt; ToLog ObjectType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ObjectType -&gt; ByteStringBuilder
+$cbuild :: ObjectType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326402"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectType -&gt; [Header]
+(HeaderName -&gt; ObjectType -&gt; [Header]) -&gt; ToHeader ObjectType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ObjectType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ObjectType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326399"><span class="annot"><span class="annottext">ObjectType -&gt; QueryString
+(ObjectType -&gt; QueryString) -&gt; ToQuery ObjectType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ObjectType -&gt; QueryString
+$ctoQuery :: ObjectType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326394"><span id="local-6989586621679326396"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectType]
+Value -&gt; Parser ObjectType
+(Value -&gt; Parser ObjectType)
+-&gt; (Value -&gt; Parser [ObjectType]) -&gt; FromJSON ObjectType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ObjectType]
+$cparseJSONList :: Value -&gt; Parser [ObjectType]
+parseJSON :: Value -&gt; Parser ObjectType
+$cparseJSON :: Value -&gt; Parser ObjectType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326389"><span id="local-6989586621679326391"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectType]
+FromJSONKeyFunction ObjectType
+FromJSONKeyFunction ObjectType
+-&gt; FromJSONKeyFunction [ObjectType] -&gt; FromJSONKey ObjectType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ObjectType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ObjectType]
+fromJSONKey :: FromJSONKeyFunction ObjectType
+$cfromJSONKey :: FromJSONKeyFunction ObjectType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326380"><span id="local-6989586621679326382"><span id="local-6989586621679326384"><span id="local-6989586621679326386"><span class="annot"><span class="annottext">[ObjectType] -&gt; Encoding
+[ObjectType] -&gt; Value
+ObjectType -&gt; Encoding
+ObjectType -&gt; Value
+(ObjectType -&gt; Value)
+-&gt; (ObjectType -&gt; Encoding)
+-&gt; ([ObjectType] -&gt; Value)
+-&gt; ([ObjectType] -&gt; Encoding)
+-&gt; ToJSON ObjectType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ObjectType] -&gt; Encoding
+$ctoEncodingList :: [ObjectType] -&gt; Encoding
+toJSONList :: [ObjectType] -&gt; Value
+$ctoJSONList :: [ObjectType] -&gt; Value
+toEncoding :: ObjectType -&gt; Encoding
+$ctoEncoding :: ObjectType -&gt; Encoding
+toJSON :: ObjectType -&gt; Value
+$ctoJSON :: ObjectType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326375"><span id="local-6989586621679326377"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectType]
+ToJSONKeyFunction ObjectType
+ToJSONKeyFunction ObjectType
+-&gt; ToJSONKeyFunction [ObjectType] -&gt; ToJSONKey ObjectType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ObjectType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ObjectType]
+toJSONKey :: ToJSONKeyFunction ObjectType
+$ctoJSONKey :: ToJSONKeyFunction ObjectType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326372"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectType
+([Node] -&gt; Either String ObjectType) -&gt; FromXML ObjectType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ObjectType
+$cparseXML :: [Node] -&gt; Either String ObjectType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326369"><span class="annot"><span class="annottext">ObjectType -&gt; XML
+(ObjectType -&gt; XML) -&gt; ToXML ObjectType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ObjectType -&gt; XML
+$ctoXML :: ObjectType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_INDEX"><span class="hs-identifier hs-type">ObjectType_INDEX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-type">ObjectType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectType_INDEX"><span id="%24mObjectType_INDEX"><span id="ObjectType_INDEX"><span class="annot"><span class="annottext">$bObjectType_INDEX :: ObjectType
+$mObjectType_INDEX :: forall r. ObjectType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudDirectory.Types.ObjectType.html#%24bObjectType_INDEX"><span class="hs-identifier hs-var hs-var hs-var">ObjectType_INDEX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType%27"><span class="hs-identifier hs-type">ObjectType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INDEX&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_LEAF_NODE"><span class="hs-identifier hs-type">ObjectType_LEAF_NODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-type">ObjectType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectType_LEAF_NODE"><span id="%24mObjectType_LEAF_NODE"><span id="ObjectType_LEAF_NODE"><span class="annot"><span class="annottext">$bObjectType_LEAF_NODE :: ObjectType
+$mObjectType_LEAF_NODE :: forall r. ObjectType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudDirectory.Types.ObjectType.html#%24bObjectType_LEAF_NODE"><span class="hs-identifier hs-var hs-var hs-var">ObjectType_LEAF_NODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType%27"><span class="hs-identifier hs-type">ObjectType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEAF_NODE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_NODE"><span class="hs-identifier hs-type">ObjectType_NODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-type">ObjectType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectType_NODE"><span id="%24mObjectType_NODE"><span id="ObjectType_NODE"><span class="annot"><span class="annottext">$bObjectType_NODE :: ObjectType
+$mObjectType_NODE :: forall r. ObjectType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudDirectory.Types.ObjectType.html#%24bObjectType_NODE"><span class="hs-identifier hs-var hs-var hs-var">ObjectType_NODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType%27"><span class="hs-identifier hs-type">ObjectType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NODE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_POLICY"><span class="hs-identifier hs-type">ObjectType_POLICY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-type">ObjectType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectType_POLICY"><span id="%24mObjectType_POLICY"><span id="ObjectType_POLICY"><span class="annot"><span class="annottext">$bObjectType_POLICY :: ObjectType
+$mObjectType_POLICY :: forall r. ObjectType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudDirectory.Types.ObjectType.html#%24bObjectType_POLICY"><span class="hs-identifier hs-var hs-var hs-var">ObjectType_POLICY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType%27"><span class="hs-identifier hs-type">ObjectType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;POLICY&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_INDEX"><span class="hs-pragma hs-type">ObjectType_INDEX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_LEAF_NODE"><span class="hs-pragma hs-type">ObjectType_LEAF_NODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_NODE"><span class="hs-pragma hs-type">ObjectType_NODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType_POLICY"><span class="hs-pragma hs-type">ObjectType_POLICY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectType.html#ObjectType%27"><span class="hs-pragma hs-type">ObjectType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

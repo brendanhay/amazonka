@@ -1,0 +1,741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.LinuxParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.LinuxParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Device.html"><span class="hs-identifier">Amazonka.ECS.Types.Device</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.KernelCapabilities.html"><span class="hs-identifier">Amazonka.ECS.Types.KernelCapabilities</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Tmpfs.html"><span class="hs-identifier">Amazonka.ECS.Types.Tmpfs</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Linux-specific options that are applied to the container, such as Linux</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- KernelCapabilities.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newLinuxParameters' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679464591"><span id="local-6989586621679464592"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinuxParameters"><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-var">LinuxParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinuxParameters%27"><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-var">LinuxParameters'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- parameter maps to the @--shm-size@ option to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @sharedMemorySize@ parameter is not supported.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsharedMemorySize%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AsharedMemorySize%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">sharedMemorySize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Run an @init@ process inside the container that forwards signals and</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- reaps processes. This parameter maps to the @--init@ option to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- This parameter requires version 1.25 of the Docker Remote API or greater</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- on your container instance. To check the Docker Remote API version on</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- your container instance, log in to your container instance and run the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- following command:</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @sudo docker version --format \'{{.Server.APIVersion}}\'@</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AinitProcessEnabled%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe Bool
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AinitProcessEnabled%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">initProcessEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The container path, mount options, and size (in MiB) of the tmpfs mount.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- This parameter maps to the @--tmpfs@ option to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @tmpfs@</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atmpfs%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe [Tmpfs]
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Atmpfs%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">tmpfs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.Tmpfs.html#Tmpfs"><span class="hs-identifier hs-type">Tmpfs</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | This allows you to tune a container\'s memory swappiness behavior. A</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @swappiness@ value of @0@ will cause swapping to not happen unless</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- absolutely necessary. A @swappiness@ value of @100@ will cause pages to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- be swapped very aggressively. Accepted values are whole numbers between</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @0@ and @100@. If the @swappiness@ parameter is not specified, a default</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- value of @60@ is used. If a value is not specified for @maxSwap@ then</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- this parameter is ignored. This parameter maps to the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @--memory-swappiness@ option to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @swappiness@ parameter is not supported.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aswappiness%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Aswappiness%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">swappiness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Any host devices to expose to the container. This parameter maps to</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @Devices@ in the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container&gt;</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- section of the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/api/v1.35/ Docker Remote API&gt; and the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @--device@ option to</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @devices@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Adevices%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe [Device]
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Adevices%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The Linux capabilities for the container that are added to or dropped</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- from the default configuration provided by Docker.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- For tasks that use the Fargate launch type, @capabilities@ is supported</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- for all platform versions but the @add@ parameter is only supported if</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- using platform version 1.4.0 or later.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Acapabilities%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe KernelCapabilities
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Acapabilities%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">capabilities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The total amount of swap memory (in MiB) a container can use. This</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- parameter will be translated to the @--memory-swap@ option to</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- where the value would be the sum of the container memory plus the</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- @maxSwap@ value.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- If a @maxSwap@ value of @0@ is specified, the container will not use</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- swap. Accepted values are @0@ or any positive integer. If the @maxSwap@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- parameter is omitted, the container will use the swap configuration for</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- the container instance it is running on. A @maxSwap@ value must be set</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- for the @swappiness@ parameter to be used.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @maxSwap@</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AmaxSwap%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AmaxSwap%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">maxSwap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464579"><span id="local-6989586621679464581"><span class="annot"><span class="annottext">LinuxParameters -&gt; LinuxParameters -&gt; Bool
+(LinuxParameters -&gt; LinuxParameters -&gt; Bool)
+-&gt; (LinuxParameters -&gt; LinuxParameters -&gt; Bool)
+-&gt; Eq LinuxParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LinuxParameters -&gt; LinuxParameters -&gt; Bool
+$c/= :: LinuxParameters -&gt; LinuxParameters -&gt; Bool
+== :: LinuxParameters -&gt; LinuxParameters -&gt; Bool
+$c== :: LinuxParameters -&gt; LinuxParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464570"><span id="local-6989586621679464572"><span id="local-6989586621679464574"><span id="local-6989586621679464576"><span class="annot"><span class="annottext">ReadPrec [LinuxParameters]
+ReadPrec LinuxParameters
+Int -&gt; ReadS LinuxParameters
+ReadS [LinuxParameters]
+(Int -&gt; ReadS LinuxParameters)
+-&gt; ReadS [LinuxParameters]
+-&gt; ReadPrec LinuxParameters
+-&gt; ReadPrec [LinuxParameters]
+-&gt; Read LinuxParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LinuxParameters]
+$creadListPrec :: ReadPrec [LinuxParameters]
+readPrec :: ReadPrec LinuxParameters
+$creadPrec :: ReadPrec LinuxParameters
+readList :: ReadS [LinuxParameters]
+$creadList :: ReadS [LinuxParameters]
+readsPrec :: Int -&gt; ReadS LinuxParameters
+$creadsPrec :: Int -&gt; ReadS LinuxParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464563"><span id="local-6989586621679464565"><span id="local-6989586621679464567"><span class="annot"><span class="annottext">Int -&gt; LinuxParameters -&gt; ShowS
+[LinuxParameters] -&gt; ShowS
+LinuxParameters -&gt; String
+(Int -&gt; LinuxParameters -&gt; ShowS)
+-&gt; (LinuxParameters -&gt; String)
+-&gt; ([LinuxParameters] -&gt; ShowS)
+-&gt; Show LinuxParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LinuxParameters] -&gt; ShowS
+$cshowList :: [LinuxParameters] -&gt; ShowS
+show :: LinuxParameters -&gt; String
+$cshow :: LinuxParameters -&gt; String
+showsPrec :: Int -&gt; LinuxParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; LinuxParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LinuxParameters -&gt; Rep LinuxParameters x)
+-&gt; (forall x. Rep LinuxParameters x -&gt; LinuxParameters)
+-&gt; Generic LinuxParameters
+forall x. Rep LinuxParameters x -&gt; LinuxParameters
+forall x. LinuxParameters -&gt; Rep LinuxParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LinuxParameters x -&gt; LinuxParameters
+$cfrom :: forall x. LinuxParameters -&gt; Rep LinuxParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'LinuxParameters' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'sharedMemorySize', 'linuxParameters_sharedMemorySize' - The value for the size (in MiB) of the @\/dev\/shm@ volume. This</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- parameter maps to the @--shm-size@ option to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @sharedMemorySize@ parameter is not supported.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'initProcessEnabled', 'linuxParameters_initProcessEnabled' - Run an @init@ process inside the container that forwards signals and</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- reaps processes. This parameter maps to the @--init@ option to</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- This parameter requires version 1.25 of the Docker Remote API or greater</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- on your container instance. To check the Docker Remote API version on</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- your container instance, log in to your container instance and run the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- following command:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @sudo docker version --format \'{{.Server.APIVersion}}\'@</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'tmpfs', 'linuxParameters_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- This parameter maps to the @--tmpfs@ option to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @tmpfs@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'swappiness', 'linuxParameters_swappiness' - This allows you to tune a container\'s memory swappiness behavior. A</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @swappiness@ value of @0@ will cause swapping to not happen unless</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- absolutely necessary. A @swappiness@ value of @100@ will cause pages to</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- be swapped very aggressively. Accepted values are whole numbers between</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @0@ and @100@. If the @swappiness@ parameter is not specified, a default</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- value of @60@ is used. If a value is not specified for @maxSwap@ then</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- this parameter is ignored. This parameter maps to the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @--memory-swappiness@ option to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @swappiness@ parameter is not supported.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'devices', 'linuxParameters_devices' - Any host devices to expose to the container. This parameter maps to</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @Devices@ in the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container&gt;</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- section of the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/api/v1.35/ Docker Remote API&gt; and the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @--device@ option to</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @devices@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'capabilities', 'linuxParameters_capabilities' - The Linux capabilities for the container that are added to or dropped</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- from the default configuration provided by Docker.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- For tasks that use the Fargate launch type, @capabilities@ is supported</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for all platform versions but the @add@ parameter is only supported if</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- using platform version 1.4.0 or later.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'maxSwap', 'linuxParameters_maxSwap' - The total amount of swap memory (in MiB) a container can use. This</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- parameter will be translated to the @--memory-swap@ option to</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- where the value would be the sum of the container memory plus the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @maxSwap@ value.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- If a @maxSwap@ value of @0@ is specified, the container will not use</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- swap. Accepted values are @0@ or any positive integer. If the @maxSwap@</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- parameter is omitted, the container will use the swap configuration for</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- the container instance it is running on. A @maxSwap@ value must be set</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- for the @swappiness@ parameter to be used.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @maxSwap@</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#newLinuxParameters"><span class="hs-identifier hs-type">newLinuxParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span>
+</span><span id="line-184"></span><span id="newLinuxParameters"><span class="annot"><span class="annottext">newLinuxParameters :: LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#newLinuxParameters"><span class="hs-identifier hs-var hs-var">newLinuxParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">LinuxParameters' :: Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe [Tmpfs]
+-&gt; Maybe Int
+-&gt; Maybe [Device]
+-&gt; Maybe KernelCapabilities
+-&gt; Maybe Int
+-&gt; LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedMemorySize:LinuxParameters' :: Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AsharedMemorySize%3ALinuxParameters%27"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:initProcessEnabled:LinuxParameters' :: Maybe Bool
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AinitProcessEnabled%3ALinuxParameters%27"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:tmpfs:LinuxParameters' :: Maybe [Tmpfs]
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Atmpfs%3ALinuxParameters%27"><span class="hs-identifier hs-var">tmpfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:swappiness:LinuxParameters' :: Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Aswappiness%3ALinuxParameters%27"><span class="hs-identifier hs-var">swappiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:devices:LinuxParameters' :: Maybe [Device]
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Adevices%3ALinuxParameters%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:capabilities:LinuxParameters' :: Maybe KernelCapabilities
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Acapabilities%3ALinuxParameters%27"><span class="hs-identifier hs-var">capabilities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KernelCapabilities
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSwap:LinuxParameters' :: Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AmaxSwap%3ALinuxParameters%27"><span class="hs-identifier hs-var">maxSwap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- parameter maps to the @--shm-size@ option to</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- @sharedMemorySize@ parameter is not supported.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_sharedMemorySize"><span class="hs-identifier hs-type">linuxParameters_sharedMemorySize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="linuxParameters_sharedMemorySize"><span class="annot"><span class="annottext">linuxParameters_sharedMemorySize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LinuxParameters -&gt; f LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_sharedMemorySize"><span class="hs-identifier hs-var hs-var">linuxParameters_sharedMemorySize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Maybe Int)
+-&gt; (LinuxParameters -&gt; Maybe Int -&gt; LinuxParameters)
+-&gt; Lens LinuxParameters LinuxParameters (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464554"><span class="annot"><span class="annottext">Maybe Int
+sharedMemorySize :: Maybe Int
+$sel:sharedMemorySize:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679464554"><span class="hs-identifier hs-var hs-var">sharedMemorySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464554"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464553"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679464553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464552"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679464553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedMemorySize:LinuxParameters' :: Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AsharedMemorySize%3ALinuxParameters%27"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Run an @init@ process inside the container that forwards signals and</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- reaps processes. This parameter maps to the @--init@ option to</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- This parameter requires version 1.25 of the Docker Remote API or greater</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- on your container instance. To check the Docker Remote API version on</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- your container instance, log in to your container instance and run the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- following command:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @sudo docker version --format \'{{.Server.APIVersion}}\'@</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_initProcessEnabled"><span class="hs-identifier hs-type">linuxParameters_initProcessEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="linuxParameters_initProcessEnabled"><span class="annot"><span class="annottext">linuxParameters_initProcessEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LinuxParameters -&gt; f LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_initProcessEnabled"><span class="hs-identifier hs-var hs-var">linuxParameters_initProcessEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Maybe Bool)
+-&gt; (LinuxParameters -&gt; Maybe Bool -&gt; LinuxParameters)
+-&gt; Lens LinuxParameters LinuxParameters (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464550"><span class="annot"><span class="annottext">Maybe Bool
+initProcessEnabled :: Maybe Bool
+$sel:initProcessEnabled:LinuxParameters' :: LinuxParameters -&gt; Maybe Bool
+</span><a href="#local-6989586621679464550"><span class="hs-identifier hs-var hs-var">initProcessEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679464550"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464549"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679464549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464548"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679464548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679464549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initProcessEnabled:LinuxParameters' :: Maybe Bool
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AinitProcessEnabled%3ALinuxParameters%27"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679464548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The container path, mount options, and size (in MiB) of the tmpfs mount.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- This parameter maps to the @--tmpfs@ option to</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @tmpfs@</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_tmpfs"><span class="hs-identifier hs-type">linuxParameters_tmpfs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.Tmpfs.html#Tmpfs"><span class="hs-identifier hs-type">Tmpfs</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="linuxParameters_tmpfs"><span class="annot"><span class="annottext">linuxParameters_tmpfs :: (Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
+-&gt; LinuxParameters -&gt; f LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_tmpfs"><span class="hs-identifier hs-var hs-var">linuxParameters_tmpfs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Maybe [Tmpfs])
+-&gt; (LinuxParameters -&gt; Maybe [Tmpfs] -&gt; LinuxParameters)
+-&gt; Lens
+     LinuxParameters LinuxParameters (Maybe [Tmpfs]) (Maybe [Tmpfs])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464546"><span class="annot"><span class="annottext">Maybe [Tmpfs]
+tmpfs :: Maybe [Tmpfs]
+$sel:tmpfs:LinuxParameters' :: LinuxParameters -&gt; Maybe [Tmpfs]
+</span><a href="#local-6989586621679464546"><span class="hs-identifier hs-var hs-var">tmpfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
+</span><a href="#local-6989586621679464546"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464545"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679464545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464544"><span class="annot"><span class="annottext">Maybe [Tmpfs]
+</span><a href="#local-6989586621679464544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679464545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tmpfs:LinuxParameters' :: Maybe [Tmpfs]
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Atmpfs%3ALinuxParameters%27"><span class="hs-identifier hs-var">tmpfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
+</span><a href="#local-6989586621679464544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
+ -&gt; LinuxParameters -&gt; f LinuxParameters)
+-&gt; ((Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
+    -&gt; Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
+-&gt; (Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
+-&gt; LinuxParameters
+-&gt; f LinuxParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tmpfs] [Tmpfs] [Tmpfs] [Tmpfs]
+-&gt; Iso
+     (Maybe [Tmpfs]) (Maybe [Tmpfs]) (Maybe [Tmpfs]) (Maybe [Tmpfs])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tmpfs] [Tmpfs] [Tmpfs] [Tmpfs]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | This allows you to tune a container\'s memory swappiness behavior. A</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- @swappiness@ value of @0@ will cause swapping to not happen unless</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- absolutely necessary. A @swappiness@ value of @100@ will cause pages to</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- be swapped very aggressively. Accepted values are whole numbers between</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @0@ and @100@. If the @swappiness@ parameter is not specified, a default</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- value of @60@ is used. If a value is not specified for @maxSwap@ then</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- this parameter is ignored. This parameter maps to the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @--memory-swappiness@ option to</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- @swappiness@ parameter is not supported.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_swappiness"><span class="hs-identifier hs-type">linuxParameters_swappiness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="linuxParameters_swappiness"><span class="annot"><span class="annottext">linuxParameters_swappiness :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LinuxParameters -&gt; f LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_swappiness"><span class="hs-identifier hs-var hs-var">linuxParameters_swappiness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Maybe Int)
+-&gt; (LinuxParameters -&gt; Maybe Int -&gt; LinuxParameters)
+-&gt; Lens LinuxParameters LinuxParameters (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464539"><span class="annot"><span class="annottext">Maybe Int
+swappiness :: Maybe Int
+$sel:swappiness:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679464539"><span class="hs-identifier hs-var hs-var">swappiness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464539"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464538"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679464538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464537"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679464538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:swappiness:LinuxParameters' :: Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Aswappiness%3ALinuxParameters%27"><span class="hs-identifier hs-var">swappiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Any host devices to expose to the container. This parameter maps to</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- @Devices@ in the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container&gt;</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- section of the</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/api/v1.35/ Docker Remote API&gt; and the</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- @--device@ option to</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @devices@</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_devices"><span class="hs-identifier hs-type">linuxParameters_devices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="linuxParameters_devices"><span class="annot"><span class="annottext">linuxParameters_devices :: (Maybe [Device] -&gt; f (Maybe [Device]))
+-&gt; LinuxParameters -&gt; f LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_devices"><span class="hs-identifier hs-var hs-var">linuxParameters_devices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Maybe [Device])
+-&gt; (LinuxParameters -&gt; Maybe [Device] -&gt; LinuxParameters)
+-&gt; Lens
+     LinuxParameters LinuxParameters (Maybe [Device]) (Maybe [Device])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464535"><span class="annot"><span class="annottext">Maybe [Device]
+devices :: Maybe [Device]
+$sel:devices:LinuxParameters' :: LinuxParameters -&gt; Maybe [Device]
+</span><a href="#local-6989586621679464535"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679464535"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464534"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679464534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464533"><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679464533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679464534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:LinuxParameters' :: Maybe [Device]
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Adevices%3ALinuxParameters%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679464533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Device] -&gt; f (Maybe [Device]))
+ -&gt; LinuxParameters -&gt; f LinuxParameters)
+-&gt; ((Maybe [Device] -&gt; f (Maybe [Device]))
+    -&gt; Maybe [Device] -&gt; f (Maybe [Device]))
+-&gt; (Maybe [Device] -&gt; f (Maybe [Device]))
+-&gt; LinuxParameters
+-&gt; f LinuxParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Device] [Device] [Device] [Device]
+-&gt; Iso
+     (Maybe [Device]) (Maybe [Device]) (Maybe [Device]) (Maybe [Device])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Device] [Device] [Device] [Device]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The Linux capabilities for the container that are added to or dropped</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- from the default configuration provided by Docker.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- For tasks that use the Fargate launch type, @capabilities@ is supported</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- for all platform versions but the @add@ parameter is only supported if</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- using platform version 1.4.0 or later.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_capabilities"><span class="hs-identifier hs-type">linuxParameters_capabilities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="linuxParameters_capabilities"><span class="annot"><span class="annottext">linuxParameters_capabilities :: (Maybe KernelCapabilities -&gt; f (Maybe KernelCapabilities))
+-&gt; LinuxParameters -&gt; f LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_capabilities"><span class="hs-identifier hs-var hs-var">linuxParameters_capabilities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Maybe KernelCapabilities)
+-&gt; (LinuxParameters -&gt; Maybe KernelCapabilities -&gt; LinuxParameters)
+-&gt; Lens
+     LinuxParameters
+     LinuxParameters
+     (Maybe KernelCapabilities)
+     (Maybe KernelCapabilities)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464531"><span class="annot"><span class="annottext">Maybe KernelCapabilities
+capabilities :: Maybe KernelCapabilities
+$sel:capabilities:LinuxParameters' :: LinuxParameters -&gt; Maybe KernelCapabilities
+</span><a href="#local-6989586621679464531"><span class="hs-identifier hs-var hs-var">capabilities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KernelCapabilities
+</span><a href="#local-6989586621679464531"><span class="hs-identifier hs-var">capabilities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464530"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679464530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464529"><span class="annot"><span class="annottext">Maybe KernelCapabilities
+</span><a href="#local-6989586621679464529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679464530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilities:LinuxParameters' :: Maybe KernelCapabilities
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3Acapabilities%3ALinuxParameters%27"><span class="hs-identifier hs-var">capabilities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KernelCapabilities
+</span><a href="#local-6989586621679464529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The total amount of swap memory (in MiB) a container can use. This</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- parameter will be translated to the @--memory-swap@ option to</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/#security-configuration docker run&gt;</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- where the value would be the sum of the container memory plus the</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- @maxSwap@ value.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- If a @maxSwap@ value of @0@ is specified, the container will not use</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- swap. Accepted values are @0@ or any positive integer. If the @maxSwap@</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- parameter is omitted, the container will use the swap configuration for</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- the container instance it is running on. A @maxSwap@ value must be set</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- for the @swappiness@ parameter to be used.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- If you are using tasks that use the Fargate launch type, the @maxSwap@</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- parameter is not supported.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_maxSwap"><span class="hs-identifier hs-type">linuxParameters_maxSwap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="linuxParameters_maxSwap"><span class="annot"><span class="annottext">linuxParameters_maxSwap :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LinuxParameters -&gt; f LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#linuxParameters_maxSwap"><span class="hs-identifier hs-var hs-var">linuxParameters_maxSwap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Maybe Int)
+-&gt; (LinuxParameters -&gt; Maybe Int -&gt; LinuxParameters)
+-&gt; Lens LinuxParameters LinuxParameters (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464527"><span class="annot"><span class="annottext">Maybe Int
+maxSwap :: Maybe Int
+$sel:maxSwap:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679464527"><span class="hs-identifier hs-var hs-var">maxSwap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464527"><span class="hs-identifier hs-var">maxSwap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464526"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679464526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464525"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679464526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSwap:LinuxParameters' :: Maybe Int
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#%24sel%3AmaxSwap%3ALinuxParameters%27"><span class="hs-identifier hs-var">maxSwap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464522"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679464520"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LinuxParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LinuxParameters)
+-&gt; Value
+-&gt; Parser LinuxParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LinuxParameters&quot;</span></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679464517"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe [Tmpfs]
+-&gt; Maybe Int
+-&gt; Maybe [Device]
+-&gt; Maybe KernelCapabilities
+-&gt; Maybe Int
+-&gt; LinuxParameters
+</span><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-var">LinuxParameters'</span></a></span><span>
+</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe [Tmpfs]
+ -&gt; Maybe Int
+ -&gt; Maybe [Device]
+ -&gt; Maybe KernelCapabilities
+ -&gt; Maybe Int
+ -&gt; LinuxParameters)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [Tmpfs]
+      -&gt; Maybe Int
+      -&gt; Maybe [Device]
+      -&gt; Maybe KernelCapabilities
+      -&gt; Maybe Int
+      -&gt; LinuxParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sharedMemorySize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [Tmpfs]
+   -&gt; Maybe Int
+   -&gt; Maybe [Device]
+   -&gt; Maybe KernelCapabilities
+   -&gt; Maybe Int
+   -&gt; LinuxParameters)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [Tmpfs]
+      -&gt; Maybe Int
+      -&gt; Maybe [Device]
+      -&gt; Maybe KernelCapabilities
+      -&gt; Maybe Int
+      -&gt; LinuxParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initProcessEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Tmpfs]
+   -&gt; Maybe Int
+   -&gt; Maybe [Device]
+   -&gt; Maybe KernelCapabilities
+   -&gt; Maybe Int
+   -&gt; LinuxParameters)
+-&gt; Parser (Maybe [Tmpfs])
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe [Device]
+      -&gt; Maybe KernelCapabilities
+      -&gt; Maybe Int
+      -&gt; LinuxParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tmpfs]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tmpfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tmpfs]))
+-&gt; Maybe [Tmpfs] -&gt; Parser (Maybe [Tmpfs])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe [Device]
+   -&gt; Maybe KernelCapabilities
+   -&gt; Maybe Int
+   -&gt; LinuxParameters)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [Device]
+      -&gt; Maybe KernelCapabilities -&gt; Maybe Int -&gt; LinuxParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;swappiness&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Device]
+   -&gt; Maybe KernelCapabilities -&gt; Maybe Int -&gt; LinuxParameters)
+-&gt; Parser (Maybe [Device])
+-&gt; Parser
+     (Maybe KernelCapabilities -&gt; Maybe Int -&gt; LinuxParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Device]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Device]))
+-&gt; Maybe [Device] -&gt; Parser (Maybe [Device])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe KernelCapabilities -&gt; Maybe Int -&gt; LinuxParameters)
+-&gt; Parser (Maybe KernelCapabilities)
+-&gt; Parser (Maybe Int -&gt; LinuxParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KernelCapabilities)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capabilities&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; LinuxParameters)
+-&gt; Parser (Maybe Int) -&gt; Parser LinuxParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxSwap&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464510"><span id="local-6989586621679464512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464499"><span id="local-6989586621679464501"><span id="local-6989586621679464503"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679464497"><span class="annot"><span class="annottext">toJSON :: LinuxParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464489"><span id="local-6989586621679464490"><span id="local-6989586621679464491"><span id="local-6989586621679464492"><span id="local-6989586621679464493"><span id="local-6989586621679464494"><span id="local-6989586621679464495"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Device]
+Maybe [Tmpfs]
+Maybe KernelCapabilities
+maxSwap :: Maybe Int
+capabilities :: Maybe KernelCapabilities
+devices :: Maybe [Device]
+swappiness :: Maybe Int
+tmpfs :: Maybe [Tmpfs]
+initProcessEnabled :: Maybe Bool
+sharedMemorySize :: Maybe Int
+$sel:maxSwap:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
+$sel:capabilities:LinuxParameters' :: LinuxParameters -&gt; Maybe KernelCapabilities
+$sel:devices:LinuxParameters' :: LinuxParameters -&gt; Maybe [Device]
+$sel:swappiness:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
+$sel:tmpfs:LinuxParameters' :: LinuxParameters -&gt; Maybe [Tmpfs]
+$sel:initProcessEnabled:LinuxParameters' :: LinuxParameters -&gt; Maybe Bool
+$sel:sharedMemorySize:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679464489"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-301"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-302"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sharedMemorySize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464495"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initProcessEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679464494"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tmpfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tmpfs] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tmpfs] -&gt; Pair) -&gt; Maybe [Tmpfs] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
+</span><a href="#local-6989586621679464493"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;swappiness&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464492"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Device] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Device] -&gt; Pair) -&gt; Maybe [Device] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679464491"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capabilities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KernelCapabilities -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KernelCapabilities -&gt; Pair)
+-&gt; Maybe KernelCapabilities -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KernelCapabilities
+</span><a href="#local-6989586621679464490"><span class="hs-identifier hs-var">capabilities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxSwap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679464489"><span class="hs-identifier hs-var">maxSwap</span></a></span><span>
+</span><span id="line-311"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span></pre></body></html>

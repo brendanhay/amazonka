@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.ExportJobRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.ExportJobRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Specifies the settings for a job that exports endpoint definitions to an</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon Simple Storage Service (Amazon S3) bucket.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExportJobRequest' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679598315"><span id="local-6989586621679598316"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportJobRequest"><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-var">ExportJobRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportJobRequest%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-var">ExportJobRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the segment to export endpoint definitions from. If</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- you don\'t specify this value, Amazon Pinpoint exports definitions for</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- all the endpoints that are associated with the application.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsegmentId%3AExportJobRequest%27"><span class="annot"><span class="annottext">ExportJobRequest -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AsegmentId%3AExportJobRequest%27"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The version of the segment to export endpoint definitions from, if</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsegmentVersion%3AExportJobRequest%27"><span class="annot"><span class="annottext">ExportJobRequest -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AsegmentVersion%3AExportJobRequest%27"><span class="hs-identifier hs-var hs-var">segmentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The URL of the location in an Amazon Simple Storage Service (Amazon S3)</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- bucket where you want to export endpoint definitions to. This location</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- is typically a folder that contains multiple files. The URL should be in</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the following format: s3:\/\/bucket-name\/folder-name\/.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3As3UrlPrefix%3AExportJobRequest%27"><span class="annot"><span class="annottext">ExportJobRequest -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3As3UrlPrefix%3AExportJobRequest%27"><span class="hs-identifier hs-var hs-var">s3UrlPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- location where you want to export endpoint definitions to.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AroleArn%3AExportJobRequest%27"><span class="annot"><span class="annottext">ExportJobRequest -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AroleArn%3AExportJobRequest%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679598306"><span id="local-6989586621679598308"><span class="annot"><span class="annottext">ExportJobRequest -&gt; ExportJobRequest -&gt; Bool
+(ExportJobRequest -&gt; ExportJobRequest -&gt; Bool)
+-&gt; (ExportJobRequest -&gt; ExportJobRequest -&gt; Bool)
+-&gt; Eq ExportJobRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportJobRequest -&gt; ExportJobRequest -&gt; Bool
+$c/= :: ExportJobRequest -&gt; ExportJobRequest -&gt; Bool
+== :: ExportJobRequest -&gt; ExportJobRequest -&gt; Bool
+$c== :: ExportJobRequest -&gt; ExportJobRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598297"><span id="local-6989586621679598299"><span id="local-6989586621679598301"><span id="local-6989586621679598303"><span class="annot"><span class="annottext">ReadPrec [ExportJobRequest]
+ReadPrec ExportJobRequest
+Int -&gt; ReadS ExportJobRequest
+ReadS [ExportJobRequest]
+(Int -&gt; ReadS ExportJobRequest)
+-&gt; ReadS [ExportJobRequest]
+-&gt; ReadPrec ExportJobRequest
+-&gt; ReadPrec [ExportJobRequest]
+-&gt; Read ExportJobRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportJobRequest]
+$creadListPrec :: ReadPrec [ExportJobRequest]
+readPrec :: ReadPrec ExportJobRequest
+$creadPrec :: ReadPrec ExportJobRequest
+readList :: ReadS [ExportJobRequest]
+$creadList :: ReadS [ExportJobRequest]
+readsPrec :: Int -&gt; ReadS ExportJobRequest
+$creadsPrec :: Int -&gt; ReadS ExportJobRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598290"><span id="local-6989586621679598292"><span id="local-6989586621679598294"><span class="annot"><span class="annottext">Int -&gt; ExportJobRequest -&gt; ShowS
+[ExportJobRequest] -&gt; ShowS
+ExportJobRequest -&gt; String
+(Int -&gt; ExportJobRequest -&gt; ShowS)
+-&gt; (ExportJobRequest -&gt; String)
+-&gt; ([ExportJobRequest] -&gt; ShowS)
+-&gt; Show ExportJobRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportJobRequest] -&gt; ShowS
+$cshowList :: [ExportJobRequest] -&gt; ShowS
+show :: ExportJobRequest -&gt; String
+$cshow :: ExportJobRequest -&gt; String
+showsPrec :: Int -&gt; ExportJobRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportJobRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExportJobRequest -&gt; Rep ExportJobRequest x)
+-&gt; (forall x. Rep ExportJobRequest x -&gt; ExportJobRequest)
+-&gt; Generic ExportJobRequest
+forall x. Rep ExportJobRequest x -&gt; ExportJobRequest
+forall x. ExportJobRequest -&gt; Rep ExportJobRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExportJobRequest x -&gt; ExportJobRequest
+$cfrom :: forall x. ExportJobRequest -&gt; Rep ExportJobRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'ExportJobRequest' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'segmentId', 'exportJobRequest_segmentId' - The identifier for the segment to export endpoint definitions from. If</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- you don\'t specify this value, Amazon Pinpoint exports definitions for</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- all the endpoints that are associated with the application.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'segmentVersion', 'exportJobRequest_segmentVersion' - The version of the segment to export endpoint definitions from, if</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 's3UrlPrefix', 'exportJobRequest_s3UrlPrefix' - The URL of the location in an Amazon Simple Storage Service (Amazon S3)</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- bucket where you want to export endpoint definitions to. This location</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- is typically a folder that contains multiple files. The URL should be in</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- the following format: s3:\/\/bucket-name\/folder-name\/.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'roleArn', 'exportJobRequest_roleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- location where you want to export endpoint definitions to.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#newExportJobRequest"><span class="hs-identifier hs-type">newExportJobRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 's3UrlPrefix'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span>
+</span><span id="line-79"></span><span id="newExportJobRequest"><span class="annot"><span class="annottext">newExportJobRequest :: Text -&gt; Text -&gt; ExportJobRequest
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#newExportJobRequest"><span class="hs-identifier hs-var hs-var">newExportJobRequest</span></a></span></span><span> </span><span id="local-6989586621679598284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598284"><span class="hs-identifier hs-var">pS3UrlPrefix_</span></a></span></span><span> </span><span id="local-6989586621679598283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598283"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ExportJobRequest' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ExportJobRequest
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:segmentId:ExportJobRequest' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AsegmentId%3AExportJobRequest%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentVersion:ExportJobRequest' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AsegmentVersion%3AExportJobRequest%27"><span class="hs-identifier hs-var">segmentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3UrlPrefix:ExportJobRequest' :: Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3As3UrlPrefix%3AExportJobRequest%27"><span class="hs-identifier hs-var">s3UrlPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598284"><span class="hs-identifier hs-var">pS3UrlPrefix_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:ExportJobRequest' :: Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AroleArn%3AExportJobRequest%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598283"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The identifier for the segment to export endpoint definitions from. If</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- you don\'t specify this value, Amazon Pinpoint exports definitions for</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- all the endpoints that are associated with the application.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_segmentId"><span class="hs-identifier hs-type">exportJobRequest_segmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="exportJobRequest_segmentId"><span class="annot"><span class="annottext">exportJobRequest_segmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportJobRequest -&gt; f ExportJobRequest
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_segmentId"><span class="hs-identifier hs-var hs-var">exportJobRequest_segmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportJobRequest -&gt; Maybe Text)
+-&gt; (ExportJobRequest -&gt; Maybe Text -&gt; ExportJobRequest)
+-&gt; Lens ExportJobRequest ExportJobRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598279"><span class="annot"><span class="annottext">Maybe Text
+segmentId :: Maybe Text
+$sel:segmentId:ExportJobRequest' :: ExportJobRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679598279"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598279"><span class="hs-identifier hs-var">segmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598278"><span class="annot"><span class="annottext">s :: ExportJobRequest
+</span><a href="#local-6989586621679598278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679598278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentId:ExportJobRequest' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AsegmentId%3AExportJobRequest%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The version of the segment to export endpoint definitions from, if</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_segmentVersion"><span class="hs-identifier hs-type">exportJobRequest_segmentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="exportJobRequest_segmentVersion"><span class="annot"><span class="annottext">exportJobRequest_segmentVersion :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ExportJobRequest -&gt; f ExportJobRequest
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_segmentVersion"><span class="hs-identifier hs-var hs-var">exportJobRequest_segmentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportJobRequest -&gt; Maybe Int)
+-&gt; (ExportJobRequest -&gt; Maybe Int -&gt; ExportJobRequest)
+-&gt; Lens ExportJobRequest ExportJobRequest (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598275"><span class="annot"><span class="annottext">Maybe Int
+segmentVersion :: Maybe Int
+$sel:segmentVersion:ExportJobRequest' :: ExportJobRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679598275"><span class="hs-identifier hs-var hs-var">segmentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679598275"><span class="hs-identifier hs-var">segmentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598274"><span class="annot"><span class="annottext">s :: ExportJobRequest
+</span><a href="#local-6989586621679598274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598273"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679598273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679598274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentVersion:ExportJobRequest' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AsegmentVersion%3AExportJobRequest%27"><span class="hs-identifier hs-var">segmentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679598273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The URL of the location in an Amazon Simple Storage Service (Amazon S3)</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- bucket where you want to export endpoint definitions to. This location</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- is typically a folder that contains multiple files. The URL should be in</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the following format: s3:\/\/bucket-name\/folder-name\/.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_s3UrlPrefix"><span class="hs-identifier hs-type">exportJobRequest_s3UrlPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="exportJobRequest_s3UrlPrefix"><span class="annot"><span class="annottext">exportJobRequest_s3UrlPrefix :: (Text -&gt; f Text) -&gt; ExportJobRequest -&gt; f ExportJobRequest
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_s3UrlPrefix"><span class="hs-identifier hs-var hs-var">exportJobRequest_s3UrlPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportJobRequest -&gt; Text)
+-&gt; (ExportJobRequest -&gt; Text -&gt; ExportJobRequest)
+-&gt; Lens ExportJobRequest ExportJobRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598271"><span class="annot"><span class="annottext">Text
+s3UrlPrefix :: Text
+$sel:s3UrlPrefix:ExportJobRequest' :: ExportJobRequest -&gt; Text
+</span><a href="#local-6989586621679598271"><span class="hs-identifier hs-var hs-var">s3UrlPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598271"><span class="hs-identifier hs-var">s3UrlPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598270"><span class="annot"><span class="annottext">s :: ExportJobRequest
+</span><a href="#local-6989586621679598270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598269"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679598270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3UrlPrefix:ExportJobRequest' :: Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3As3UrlPrefix%3AExportJobRequest%27"><span class="hs-identifier hs-var">s3UrlPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- location where you want to export endpoint definitions to.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_roleArn"><span class="hs-identifier hs-type">exportJobRequest_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="exportJobRequest_roleArn"><span class="annot"><span class="annottext">exportJobRequest_roleArn :: (Text -&gt; f Text) -&gt; ExportJobRequest -&gt; f ExportJobRequest
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#exportJobRequest_roleArn"><span class="hs-identifier hs-var hs-var">exportJobRequest_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportJobRequest -&gt; Text)
+-&gt; (ExportJobRequest -&gt; Text -&gt; ExportJobRequest)
+-&gt; Lens ExportJobRequest ExportJobRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598267"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:ExportJobRequest' :: ExportJobRequest -&gt; Text
+</span><a href="#local-6989586621679598267"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598267"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598266"><span class="annot"><span class="annottext">s :: ExportJobRequest
+</span><a href="#local-6989586621679598266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598265"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679598266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:ExportJobRequest' :: Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#%24sel%3AroleArn%3AExportJobRequest%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598261"><span id="local-6989586621679598263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598250"><span id="local-6989586621679598252"><span id="local-6989586621679598254"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679598248"><span class="annot"><span class="annottext">toJSON :: ExportJobRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest%27"><span class="hs-identifier hs-type">ExportJobRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598243"><span id="local-6989586621679598244"><span id="local-6989586621679598245"><span id="local-6989586621679598246"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+roleArn :: Text
+s3UrlPrefix :: Text
+segmentVersion :: Maybe Int
+segmentId :: Maybe Text
+$sel:roleArn:ExportJobRequest' :: ExportJobRequest -&gt; Text
+$sel:s3UrlPrefix:ExportJobRequest' :: ExportJobRequest -&gt; Text
+$sel:segmentVersion:ExportJobRequest' :: ExportJobRequest -&gt; Maybe Int
+$sel:segmentId:ExportJobRequest' :: ExportJobRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679598243"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SegmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598246"><span class="hs-identifier hs-var">segmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SegmentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679598245"><span class="hs-identifier hs-var">segmentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3UrlPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598244"><span class="hs-identifier hs-var">s3UrlPrefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598243"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span></pre></body></html>

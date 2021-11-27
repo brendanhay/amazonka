@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.MediaPipelineStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.MediaPipelineStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus"><span class="hs-identifier">MediaPipelineStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Failed"><span class="hs-identifier">MediaPipelineStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_InProgress"><span class="hs-identifier">MediaPipelineStatus_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Initializing"><span class="hs-identifier">MediaPipelineStatus_Initializing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Stopped"><span class="hs-identifier">MediaPipelineStatus_Stopped</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Stopping"><span class="hs-identifier">MediaPipelineStatus_Stopping</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679512042"><span id="local-6989586621679512043"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MediaPipelineStatus"><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus"><span class="hs-identifier hs-var">MediaPipelineStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaPipelineStatus%27"><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus%27"><span class="hs-identifier hs-var">MediaPipelineStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMediaPipelineStatus"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; Text
+</span><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#fromMediaPipelineStatus"><span class="hs-identifier hs-var hs-var">fromMediaPipelineStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679512034"><span id="local-6989586621679512036"><span id="local-6989586621679512038"><span class="annot"><span class="annottext">Int -&gt; MediaPipelineStatus -&gt; ShowS
+[MediaPipelineStatus] -&gt; ShowS
+MediaPipelineStatus -&gt; String
+(Int -&gt; MediaPipelineStatus -&gt; ShowS)
+-&gt; (MediaPipelineStatus -&gt; String)
+-&gt; ([MediaPipelineStatus] -&gt; ShowS)
+-&gt; Show MediaPipelineStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MediaPipelineStatus] -&gt; ShowS
+$cshowList :: [MediaPipelineStatus] -&gt; ShowS
+show :: MediaPipelineStatus -&gt; String
+$cshow :: MediaPipelineStatus -&gt; String
+showsPrec :: Int -&gt; MediaPipelineStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; MediaPipelineStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679512025"><span id="local-6989586621679512027"><span id="local-6989586621679512029"><span id="local-6989586621679512031"><span class="annot"><span class="annottext">ReadPrec [MediaPipelineStatus]
+ReadPrec MediaPipelineStatus
+Int -&gt; ReadS MediaPipelineStatus
+ReadS [MediaPipelineStatus]
+(Int -&gt; ReadS MediaPipelineStatus)
+-&gt; ReadS [MediaPipelineStatus]
+-&gt; ReadPrec MediaPipelineStatus
+-&gt; ReadPrec [MediaPipelineStatus]
+-&gt; Read MediaPipelineStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MediaPipelineStatus]
+$creadListPrec :: ReadPrec [MediaPipelineStatus]
+readPrec :: ReadPrec MediaPipelineStatus
+$creadPrec :: ReadPrec MediaPipelineStatus
+readList :: ReadS [MediaPipelineStatus]
+$creadList :: ReadS [MediaPipelineStatus]
+readsPrec :: Int -&gt; ReadS MediaPipelineStatus
+$creadsPrec :: Int -&gt; ReadS MediaPipelineStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679512020"><span id="local-6989586621679512022"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+(MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool)
+-&gt; (MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool)
+-&gt; Eq MediaPipelineStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+$c/= :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+== :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+$c== :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679512004"><span id="local-6989586621679512006"><span id="local-6989586621679512008"><span id="local-6989586621679512010"><span id="local-6989586621679512012"><span id="local-6989586621679512014"><span id="local-6989586621679512016"><span class="annot"><span class="annottext">Eq MediaPipelineStatus
+Eq MediaPipelineStatus
+-&gt; (MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Ordering)
+-&gt; (MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool)
+-&gt; (MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool)
+-&gt; (MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool)
+-&gt; (MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool)
+-&gt; (MediaPipelineStatus
+    -&gt; MediaPipelineStatus -&gt; MediaPipelineStatus)
+-&gt; (MediaPipelineStatus
+    -&gt; MediaPipelineStatus -&gt; MediaPipelineStatus)
+-&gt; Ord MediaPipelineStatus
+MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Ordering
+MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; MediaPipelineStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; MediaPipelineStatus
+$cmin :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; MediaPipelineStatus
+max :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; MediaPipelineStatus
+$cmax :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; MediaPipelineStatus
+&gt;= :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+$c&gt;= :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+&gt; :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+$c&gt; :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+&lt;= :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+$c&lt;= :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+&lt; :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+$c&lt; :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Bool
+compare :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Ordering
+$ccompare :: MediaPipelineStatus -&gt; MediaPipelineStatus -&gt; Ordering
+$cp1Ord :: Eq MediaPipelineStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MediaPipelineStatus -&gt; Rep MediaPipelineStatus x)
+-&gt; (forall x. Rep MediaPipelineStatus x -&gt; MediaPipelineStatus)
+-&gt; Generic MediaPipelineStatus
+forall x. Rep MediaPipelineStatus x -&gt; MediaPipelineStatus
+forall x. MediaPipelineStatus -&gt; Rep MediaPipelineStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MediaPipelineStatus x -&gt; MediaPipelineStatus
+$cfrom :: forall x. MediaPipelineStatus -&gt; Rep MediaPipelineStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679511996"><span id="local-6989586621679511998"><span class="annot"><span class="annottext">Int -&gt; MediaPipelineStatus -&gt; Int
+MediaPipelineStatus -&gt; Int
+(Int -&gt; MediaPipelineStatus -&gt; Int)
+-&gt; (MediaPipelineStatus -&gt; Int) -&gt; Hashable MediaPipelineStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MediaPipelineStatus -&gt; Int
+$chash :: MediaPipelineStatus -&gt; Int
+hashWithSalt :: Int -&gt; MediaPipelineStatus -&gt; Int
+$chashWithSalt :: Int -&gt; MediaPipelineStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679511993"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; ()
+(MediaPipelineStatus -&gt; ()) -&gt; NFData MediaPipelineStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MediaPipelineStatus -&gt; ()
+$crnf :: MediaPipelineStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679511990"><span class="annot"><span class="annottext">Text -&gt; Either String MediaPipelineStatus
+(Text -&gt; Either String MediaPipelineStatus)
+-&gt; FromText MediaPipelineStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MediaPipelineStatus
+$cfromText :: Text -&gt; Either String MediaPipelineStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679511987"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; Text
+(MediaPipelineStatus -&gt; Text) -&gt; ToText MediaPipelineStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MediaPipelineStatus -&gt; Text
+$ctoText :: MediaPipelineStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679511984"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; ByteString
+(MediaPipelineStatus -&gt; ByteString)
+-&gt; ToByteString MediaPipelineStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MediaPipelineStatus -&gt; ByteString
+$ctoBS :: MediaPipelineStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679511981"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; ByteStringBuilder
+(MediaPipelineStatus -&gt; ByteStringBuilder)
+-&gt; ToLog MediaPipelineStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MediaPipelineStatus -&gt; ByteStringBuilder
+$cbuild :: MediaPipelineStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679511978"><span class="annot"><span class="annottext">HeaderName -&gt; MediaPipelineStatus -&gt; [Header]
+(HeaderName -&gt; MediaPipelineStatus -&gt; [Header])
+-&gt; ToHeader MediaPipelineStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MediaPipelineStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MediaPipelineStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679511975"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; QueryString
+(MediaPipelineStatus -&gt; QueryString) -&gt; ToQuery MediaPipelineStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MediaPipelineStatus -&gt; QueryString
+$ctoQuery :: MediaPipelineStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679511970"><span id="local-6989586621679511972"><span class="annot"><span class="annottext">Value -&gt; Parser [MediaPipelineStatus]
+Value -&gt; Parser MediaPipelineStatus
+(Value -&gt; Parser MediaPipelineStatus)
+-&gt; (Value -&gt; Parser [MediaPipelineStatus])
+-&gt; FromJSON MediaPipelineStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MediaPipelineStatus]
+$cparseJSONList :: Value -&gt; Parser [MediaPipelineStatus]
+parseJSON :: Value -&gt; Parser MediaPipelineStatus
+$cparseJSON :: Value -&gt; Parser MediaPipelineStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679511965"><span id="local-6989586621679511967"><span class="annot"><span class="annottext">FromJSONKeyFunction [MediaPipelineStatus]
+FromJSONKeyFunction MediaPipelineStatus
+FromJSONKeyFunction MediaPipelineStatus
+-&gt; FromJSONKeyFunction [MediaPipelineStatus]
+-&gt; FromJSONKey MediaPipelineStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MediaPipelineStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [MediaPipelineStatus]
+fromJSONKey :: FromJSONKeyFunction MediaPipelineStatus
+$cfromJSONKey :: FromJSONKeyFunction MediaPipelineStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679511956"><span id="local-6989586621679511958"><span id="local-6989586621679511960"><span id="local-6989586621679511962"><span class="annot"><span class="annottext">[MediaPipelineStatus] -&gt; Encoding
+[MediaPipelineStatus] -&gt; Value
+MediaPipelineStatus -&gt; Encoding
+MediaPipelineStatus -&gt; Value
+(MediaPipelineStatus -&gt; Value)
+-&gt; (MediaPipelineStatus -&gt; Encoding)
+-&gt; ([MediaPipelineStatus] -&gt; Value)
+-&gt; ([MediaPipelineStatus] -&gt; Encoding)
+-&gt; ToJSON MediaPipelineStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MediaPipelineStatus] -&gt; Encoding
+$ctoEncodingList :: [MediaPipelineStatus] -&gt; Encoding
+toJSONList :: [MediaPipelineStatus] -&gt; Value
+$ctoJSONList :: [MediaPipelineStatus] -&gt; Value
+toEncoding :: MediaPipelineStatus -&gt; Encoding
+$ctoEncoding :: MediaPipelineStatus -&gt; Encoding
+toJSON :: MediaPipelineStatus -&gt; Value
+$ctoJSON :: MediaPipelineStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679511951"><span id="local-6989586621679511953"><span class="annot"><span class="annottext">ToJSONKeyFunction [MediaPipelineStatus]
+ToJSONKeyFunction MediaPipelineStatus
+ToJSONKeyFunction MediaPipelineStatus
+-&gt; ToJSONKeyFunction [MediaPipelineStatus]
+-&gt; ToJSONKey MediaPipelineStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MediaPipelineStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [MediaPipelineStatus]
+toJSONKey :: ToJSONKeyFunction MediaPipelineStatus
+$ctoJSONKey :: ToJSONKeyFunction MediaPipelineStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679511948"><span class="annot"><span class="annottext">[Node] -&gt; Either String MediaPipelineStatus
+([Node] -&gt; Either String MediaPipelineStatus)
+-&gt; FromXML MediaPipelineStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MediaPipelineStatus
+$cparseXML :: [Node] -&gt; Either String MediaPipelineStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679511945"><span class="annot"><span class="annottext">MediaPipelineStatus -&gt; XML
+(MediaPipelineStatus -&gt; XML) -&gt; ToXML MediaPipelineStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MediaPipelineStatus -&gt; XML
+$ctoXML :: MediaPipelineStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Failed"><span class="hs-identifier hs-type">MediaPipelineStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus"><span class="hs-identifier hs-type">MediaPipelineStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMediaPipelineStatus_Failed"><span id="%24mMediaPipelineStatus_Failed"><span id="MediaPipelineStatus_Failed"><span class="annot"><span class="annottext">$bMediaPipelineStatus_Failed :: MediaPipelineStatus
+$mMediaPipelineStatus_Failed :: forall r. MediaPipelineStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#%24bMediaPipelineStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">MediaPipelineStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus%27"><span class="hs-identifier hs-type">MediaPipelineStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_InProgress"><span class="hs-identifier hs-type">MediaPipelineStatus_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus"><span class="hs-identifier hs-type">MediaPipelineStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMediaPipelineStatus_InProgress"><span id="%24mMediaPipelineStatus_InProgress"><span id="MediaPipelineStatus_InProgress"><span class="annot"><span class="annottext">$bMediaPipelineStatus_InProgress :: MediaPipelineStatus
+$mMediaPipelineStatus_InProgress :: forall r. MediaPipelineStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#%24bMediaPipelineStatus_InProgress"><span class="hs-identifier hs-var hs-var hs-var">MediaPipelineStatus_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus%27"><span class="hs-identifier hs-type">MediaPipelineStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Initializing"><span class="hs-identifier hs-type">MediaPipelineStatus_Initializing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus"><span class="hs-identifier hs-type">MediaPipelineStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMediaPipelineStatus_Initializing"><span id="%24mMediaPipelineStatus_Initializing"><span id="MediaPipelineStatus_Initializing"><span class="annot"><span class="annottext">$bMediaPipelineStatus_Initializing :: MediaPipelineStatus
+$mMediaPipelineStatus_Initializing :: forall r. MediaPipelineStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#%24bMediaPipelineStatus_Initializing"><span class="hs-identifier hs-var hs-var hs-var">MediaPipelineStatus_Initializing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus%27"><span class="hs-identifier hs-type">MediaPipelineStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Initializing&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Stopped"><span class="hs-identifier hs-type">MediaPipelineStatus_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus"><span class="hs-identifier hs-type">MediaPipelineStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMediaPipelineStatus_Stopped"><span id="%24mMediaPipelineStatus_Stopped"><span id="MediaPipelineStatus_Stopped"><span class="annot"><span class="annottext">$bMediaPipelineStatus_Stopped :: MediaPipelineStatus
+$mMediaPipelineStatus_Stopped :: forall r. MediaPipelineStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#%24bMediaPipelineStatus_Stopped"><span class="hs-identifier hs-var hs-var hs-var">MediaPipelineStatus_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus%27"><span class="hs-identifier hs-type">MediaPipelineStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopped&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Stopping"><span class="hs-identifier hs-type">MediaPipelineStatus_Stopping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus"><span class="hs-identifier hs-type">MediaPipelineStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMediaPipelineStatus_Stopping"><span id="%24mMediaPipelineStatus_Stopping"><span id="MediaPipelineStatus_Stopping"><span class="annot"><span class="annottext">$bMediaPipelineStatus_Stopping :: MediaPipelineStatus
+$mMediaPipelineStatus_Stopping :: forall r. MediaPipelineStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#%24bMediaPipelineStatus_Stopping"><span class="hs-identifier hs-var hs-var hs-var">MediaPipelineStatus_Stopping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus%27"><span class="hs-identifier hs-type">MediaPipelineStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopping&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Failed"><span class="hs-pragma hs-type">MediaPipelineStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_InProgress"><span class="hs-pragma hs-type">MediaPipelineStatus_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Initializing"><span class="hs-pragma hs-type">MediaPipelineStatus_Initializing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Stopped"><span class="hs-pragma hs-type">MediaPipelineStatus_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus_Stopping"><span class="hs-pragma hs-type">MediaPipelineStatus_Stopping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.MediaPipelineStatus.html#MediaPipelineStatus%27"><span class="hs-pragma hs-type">MediaPipelineStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

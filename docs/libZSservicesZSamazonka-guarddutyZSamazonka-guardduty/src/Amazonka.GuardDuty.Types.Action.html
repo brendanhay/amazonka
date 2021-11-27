@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.Types.Action</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.Types.Action</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.AwsApiCallAction</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DnsRequestAction.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.DnsRequestAction</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkConnectionAction.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.NetworkConnectionAction</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.PortProbeAction.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.PortProbeAction</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Contains information about actions.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAction' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679299676"><span id="local-6989586621679299677"></span></span><span class="hs-keyword">data</span><span> </span><span id="Action"><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-var">Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Action%27"><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the NETWORK_CONNECTION action described in this</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnetworkConnectionAction%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe NetworkConnectionAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AnetworkConnectionAction%3AAction%27"><span class="hs-identifier hs-var hs-var">networkConnectionAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkConnectionAction.html#NetworkConnectionAction"><span class="hs-identifier hs-type">NetworkConnectionAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Information about the PORT_PROBE action described in this finding.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AportProbeAction%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe PortProbeAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AportProbeAction%3AAction%27"><span class="hs-identifier hs-var hs-var">portProbeAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.PortProbeAction.html#PortProbeAction"><span class="hs-identifier hs-type">PortProbeAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The GuardDuty finding activity type.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AactionType%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AactionType%3AAction%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Information about the DNS_REQUEST action described in this finding.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdnsRequestAction%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe DnsRequestAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AdnsRequestAction%3AAction%27"><span class="hs-identifier hs-var hs-var">dnsRequestAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Information about the AWS_API_CALL action described in this finding.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AawsApiCallAction%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AawsApiCallAction%3AAction%27"><span class="hs-identifier hs-var hs-var">awsApiCallAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299666"><span id="local-6989586621679299668"><span class="annot"><span class="annottext">Action -&gt; Action -&gt; Bool
+(Action -&gt; Action -&gt; Bool)
+-&gt; (Action -&gt; Action -&gt; Bool) -&gt; Eq Action
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Action -&gt; Action -&gt; Bool
+$c/= :: Action -&gt; Action -&gt; Bool
+== :: Action -&gt; Action -&gt; Bool
+$c== :: Action -&gt; Action -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299657"><span id="local-6989586621679299659"><span id="local-6989586621679299661"><span id="local-6989586621679299663"><span class="annot"><span class="annottext">ReadPrec [Action]
+ReadPrec Action
+Int -&gt; ReadS Action
+ReadS [Action]
+(Int -&gt; ReadS Action)
+-&gt; ReadS [Action]
+-&gt; ReadPrec Action
+-&gt; ReadPrec [Action]
+-&gt; Read Action
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Action]
+$creadListPrec :: ReadPrec [Action]
+readPrec :: ReadPrec Action
+$creadPrec :: ReadPrec Action
+readList :: ReadS [Action]
+$creadList :: ReadS [Action]
+readsPrec :: Int -&gt; ReadS Action
+$creadsPrec :: Int -&gt; ReadS Action
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299650"><span id="local-6989586621679299652"><span id="local-6989586621679299654"><span class="annot"><span class="annottext">Int -&gt; Action -&gt; ShowS
+[Action] -&gt; ShowS
+Action -&gt; String
+(Int -&gt; Action -&gt; ShowS)
+-&gt; (Action -&gt; String) -&gt; ([Action] -&gt; ShowS) -&gt; Show Action
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Action] -&gt; ShowS
+$cshowList :: [Action] -&gt; ShowS
+show :: Action -&gt; String
+$cshow :: Action -&gt; String
+showsPrec :: Int -&gt; Action -&gt; ShowS
+$cshowsPrec :: Int -&gt; Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Action -&gt; Rep Action x)
+-&gt; (forall x. Rep Action x -&gt; Action) -&gt; Generic Action
+forall x. Rep Action x -&gt; Action
+forall x. Action -&gt; Rep Action x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Action x -&gt; Action
+$cfrom :: forall x. Action -&gt; Rep Action x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'Action' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'networkConnectionAction', 'action_networkConnectionAction' - Information about the NETWORK_CONNECTION action described in this</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'portProbeAction', 'action_portProbeAction' - Information about the PORT_PROBE action described in this finding.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'actionType', 'action_actionType' - The GuardDuty finding activity type.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'dnsRequestAction', 'action_dnsRequestAction' - Information about the DNS_REQUEST action described in this finding.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'awsApiCallAction', 'action_awsApiCallAction' - Information about the AWS_API_CALL action described in this finding.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#newAction"><span class="hs-identifier hs-type">newAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span>
+</span><span id="line-68"></span><span id="newAction"><span class="annot"><span class="annottext">newAction :: Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#newAction"><span class="hs-identifier hs-var hs-var">newAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">Action' :: Maybe NetworkConnectionAction
+-&gt; Maybe PortProbeAction
+-&gt; Maybe Text
+-&gt; Maybe DnsRequestAction
+-&gt; Maybe AwsApiCallAction
+-&gt; Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkConnectionAction:Action' :: Maybe NetworkConnectionAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AnetworkConnectionAction%3AAction%27"><span class="hs-identifier hs-var">networkConnectionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConnectionAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:portProbeAction:Action' :: Maybe PortProbeAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AportProbeAction%3AAction%27"><span class="hs-identifier hs-var">portProbeAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortProbeAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionType:Action' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AactionType%3AAction%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsRequestAction:Action' :: Maybe DnsRequestAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AdnsRequestAction%3AAction%27"><span class="hs-identifier hs-var">dnsRequestAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRequestAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsApiCallAction:Action' :: Maybe AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AawsApiCallAction%3AAction%27"><span class="hs-identifier hs-var">awsApiCallAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsApiCallAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Information about the NETWORK_CONNECTION action described in this</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#action_networkConnectionAction"><span class="hs-identifier hs-type">action_networkConnectionAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkConnectionAction.html#NetworkConnectionAction"><span class="hs-identifier hs-type">NetworkConnectionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="action_networkConnectionAction"><span class="annot"><span class="annottext">action_networkConnectionAction :: (Maybe NetworkConnectionAction
+ -&gt; f (Maybe NetworkConnectionAction))
+-&gt; Action -&gt; f Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#action_networkConnectionAction"><span class="hs-identifier hs-var hs-var">action_networkConnectionAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe NetworkConnectionAction)
+-&gt; (Action -&gt; Maybe NetworkConnectionAction -&gt; Action)
+-&gt; Lens
+     Action
+     Action
+     (Maybe NetworkConnectionAction)
+     (Maybe NetworkConnectionAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299641"><span class="annot"><span class="annottext">Maybe NetworkConnectionAction
+networkConnectionAction :: Maybe NetworkConnectionAction
+$sel:networkConnectionAction:Action' :: Action -&gt; Maybe NetworkConnectionAction
+</span><a href="#local-6989586621679299641"><span class="hs-identifier hs-var hs-var">networkConnectionAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConnectionAction
+</span><a href="#local-6989586621679299641"><span class="hs-identifier hs-var">networkConnectionAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299640"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679299640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299639"><span class="annot"><span class="annottext">Maybe NetworkConnectionAction
+</span><a href="#local-6989586621679299639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679299640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConnectionAction:Action' :: Maybe NetworkConnectionAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AnetworkConnectionAction%3AAction%27"><span class="hs-identifier hs-var">networkConnectionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConnectionAction
+</span><a href="#local-6989586621679299639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Information about the PORT_PROBE action described in this finding.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#action_portProbeAction"><span class="hs-identifier hs-type">action_portProbeAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.PortProbeAction.html#PortProbeAction"><span class="hs-identifier hs-type">PortProbeAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="action_portProbeAction"><span class="annot"><span class="annottext">action_portProbeAction :: (Maybe PortProbeAction -&gt; f (Maybe PortProbeAction))
+-&gt; Action -&gt; f Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#action_portProbeAction"><span class="hs-identifier hs-var hs-var">action_portProbeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe PortProbeAction)
+-&gt; (Action -&gt; Maybe PortProbeAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe PortProbeAction) (Maybe PortProbeAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299637"><span class="annot"><span class="annottext">Maybe PortProbeAction
+portProbeAction :: Maybe PortProbeAction
+$sel:portProbeAction:Action' :: Action -&gt; Maybe PortProbeAction
+</span><a href="#local-6989586621679299637"><span class="hs-identifier hs-var hs-var">portProbeAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PortProbeAction
+</span><a href="#local-6989586621679299637"><span class="hs-identifier hs-var">portProbeAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299636"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679299636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299635"><span class="annot"><span class="annottext">Maybe PortProbeAction
+</span><a href="#local-6989586621679299635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679299636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portProbeAction:Action' :: Maybe PortProbeAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AportProbeAction%3AAction%27"><span class="hs-identifier hs-var">portProbeAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortProbeAction
+</span><a href="#local-6989586621679299635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The GuardDuty finding activity type.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#action_actionType"><span class="hs-identifier hs-type">action_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="action_actionType"><span class="annot"><span class="annottext">action_actionType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Action -&gt; f Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#action_actionType"><span class="hs-identifier hs-var hs-var">action_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe Text)
+-&gt; (Action -&gt; Maybe Text -&gt; Action)
+-&gt; Lens Action Action (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299633"><span class="annot"><span class="annottext">Maybe Text
+actionType :: Maybe Text
+$sel:actionType:Action' :: Action -&gt; Maybe Text
+</span><a href="#local-6989586621679299633"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299633"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299632"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679299632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679299632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:Action' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AactionType%3AAction%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Information about the DNS_REQUEST action described in this finding.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#action_dnsRequestAction"><span class="hs-identifier hs-type">action_dnsRequestAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="action_dnsRequestAction"><span class="annot"><span class="annottext">action_dnsRequestAction :: (Maybe DnsRequestAction -&gt; f (Maybe DnsRequestAction))
+-&gt; Action -&gt; f Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#action_dnsRequestAction"><span class="hs-identifier hs-var hs-var">action_dnsRequestAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe DnsRequestAction)
+-&gt; (Action -&gt; Maybe DnsRequestAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe DnsRequestAction) (Maybe DnsRequestAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299629"><span class="annot"><span class="annottext">Maybe DnsRequestAction
+dnsRequestAction :: Maybe DnsRequestAction
+$sel:dnsRequestAction:Action' :: Action -&gt; Maybe DnsRequestAction
+</span><a href="#local-6989586621679299629"><span class="hs-identifier hs-var hs-var">dnsRequestAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRequestAction
+</span><a href="#local-6989586621679299629"><span class="hs-identifier hs-var">dnsRequestAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299628"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679299628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299627"><span class="annot"><span class="annottext">Maybe DnsRequestAction
+</span><a href="#local-6989586621679299627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679299628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsRequestAction:Action' :: Maybe DnsRequestAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AdnsRequestAction%3AAction%27"><span class="hs-identifier hs-var">dnsRequestAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRequestAction
+</span><a href="#local-6989586621679299627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Information about the AWS_API_CALL action described in this finding.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#action_awsApiCallAction"><span class="hs-identifier hs-type">action_awsApiCallAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="action_awsApiCallAction"><span class="annot"><span class="annottext">action_awsApiCallAction :: (Maybe AwsApiCallAction -&gt; f (Maybe AwsApiCallAction))
+-&gt; Action -&gt; f Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#action_awsApiCallAction"><span class="hs-identifier hs-var hs-var">action_awsApiCallAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe AwsApiCallAction)
+-&gt; (Action -&gt; Maybe AwsApiCallAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe AwsApiCallAction) (Maybe AwsApiCallAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299625"><span class="annot"><span class="annottext">Maybe AwsApiCallAction
+awsApiCallAction :: Maybe AwsApiCallAction
+$sel:awsApiCallAction:Action' :: Action -&gt; Maybe AwsApiCallAction
+</span><a href="#local-6989586621679299625"><span class="hs-identifier hs-var hs-var">awsApiCallAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsApiCallAction
+</span><a href="#local-6989586621679299625"><span class="hs-identifier hs-var">awsApiCallAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299624"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679299624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299623"><span class="annot"><span class="annottext">Maybe AwsApiCallAction
+</span><a href="#local-6989586621679299623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679299624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsApiCallAction:Action' :: Maybe AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.Action.html#%24sel%3AawsApiCallAction%3AAction%27"><span class="hs-identifier hs-var">awsApiCallAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsApiCallAction
+</span><a href="#local-6989586621679299623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299620"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679299618"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Action
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Action) -&gt; Value -&gt; Parser Action
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299615"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe NetworkConnectionAction
+-&gt; Maybe PortProbeAction
+-&gt; Maybe Text
+-&gt; Maybe DnsRequestAction
+-&gt; Maybe AwsApiCallAction
+-&gt; Action
+</span><a href="Amazonka.GuardDuty.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NetworkConnectionAction
+ -&gt; Maybe PortProbeAction
+ -&gt; Maybe Text
+ -&gt; Maybe DnsRequestAction
+ -&gt; Maybe AwsApiCallAction
+ -&gt; Action)
+-&gt; Parser (Maybe NetworkConnectionAction)
+-&gt; Parser
+     (Maybe PortProbeAction
+      -&gt; Maybe Text
+      -&gt; Maybe DnsRequestAction
+      -&gt; Maybe AwsApiCallAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkConnectionAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkConnectionAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PortProbeAction
+   -&gt; Maybe Text
+   -&gt; Maybe DnsRequestAction
+   -&gt; Maybe AwsApiCallAction
+   -&gt; Action)
+-&gt; Parser (Maybe PortProbeAction)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DnsRequestAction -&gt; Maybe AwsApiCallAction -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PortProbeAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portProbeAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DnsRequestAction -&gt; Maybe AwsApiCallAction -&gt; Action)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DnsRequestAction -&gt; Maybe AwsApiCallAction -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DnsRequestAction -&gt; Maybe AwsApiCallAction -&gt; Action)
+-&gt; Parser (Maybe DnsRequestAction)
+-&gt; Parser (Maybe AwsApiCallAction -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DnsRequestAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dnsRequestAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AwsApiCallAction -&gt; Action)
+-&gt; Parser (Maybe AwsApiCallAction) -&gt; Parser Action
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsApiCallAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsApiCallAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299609"><span id="local-6989586621679299611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span>
+</span><span id="line-114"></span></pre></body></html>

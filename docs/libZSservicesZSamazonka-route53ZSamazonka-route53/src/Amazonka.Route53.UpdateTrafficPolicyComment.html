@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53.UpdateTrafficPolicyComment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the comment for a specified traffic policy version.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53.UpdateTrafficPolicyComment</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#newUpdateTrafficPolicyComment"><span class="hs-identifier">newUpdateTrafficPolicyComment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_id"><span class="hs-identifier">updateTrafficPolicyComment_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_version"><span class="hs-identifier">updateTrafficPolicyComment_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_comment"><span class="hs-identifier">updateTrafficPolicyComment_comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier">UpdateTrafficPolicyCommentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#newUpdateTrafficPolicyCommentResponse"><span class="hs-identifier">newUpdateTrafficPolicyCommentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyCommentResponse_httpStatus"><span class="hs-identifier">updateTrafficPolicyCommentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyCommentResponse_trafficPolicy"><span class="hs-identifier">updateTrafficPolicyCommentResponse_trafficPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.html"><span class="hs-identifier">Amazonka.Route53.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | A complex type that contains information about the traffic policy that</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- you want to update the comment for.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newUpdateTrafficPolicyComment' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679313593"><span id="local-6989586621679313594"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrafficPolicyComment"><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-var">UpdateTrafficPolicyComment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrafficPolicyComment%27"><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var">UpdateTrafficPolicyComment'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of @Id@ for the traffic policy that you want to update the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- comment for.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aid%3AUpdateTrafficPolicyComment%27"><span class="annot"><span class="annottext">UpdateTrafficPolicyComment -&gt; Text
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Aid%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The value of @Version@ for the traffic policy that you want to update</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the comment for.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aversion%3AUpdateTrafficPolicyComment%27"><span class="annot"><span class="annottext">UpdateTrafficPolicyComment -&gt; Natural
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Aversion%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The new comment for the specified traffic policy and version.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Acomment%3AUpdateTrafficPolicyComment%27"><span class="annot"><span class="annottext">UpdateTrafficPolicyComment -&gt; Text
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Acomment%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313585"><span id="local-6989586621679313587"><span class="annot"><span class="annottext">UpdateTrafficPolicyComment -&gt; UpdateTrafficPolicyComment -&gt; Bool
+(UpdateTrafficPolicyComment -&gt; UpdateTrafficPolicyComment -&gt; Bool)
+-&gt; (UpdateTrafficPolicyComment
+    -&gt; UpdateTrafficPolicyComment -&gt; Bool)
+-&gt; Eq UpdateTrafficPolicyComment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTrafficPolicyComment -&gt; UpdateTrafficPolicyComment -&gt; Bool
+$c/= :: UpdateTrafficPolicyComment -&gt; UpdateTrafficPolicyComment -&gt; Bool
+== :: UpdateTrafficPolicyComment -&gt; UpdateTrafficPolicyComment -&gt; Bool
+$c== :: UpdateTrafficPolicyComment -&gt; UpdateTrafficPolicyComment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313576"><span id="local-6989586621679313578"><span id="local-6989586621679313580"><span id="local-6989586621679313582"><span class="annot"><span class="annottext">ReadPrec [UpdateTrafficPolicyComment]
+ReadPrec UpdateTrafficPolicyComment
+Int -&gt; ReadS UpdateTrafficPolicyComment
+ReadS [UpdateTrafficPolicyComment]
+(Int -&gt; ReadS UpdateTrafficPolicyComment)
+-&gt; ReadS [UpdateTrafficPolicyComment]
+-&gt; ReadPrec UpdateTrafficPolicyComment
+-&gt; ReadPrec [UpdateTrafficPolicyComment]
+-&gt; Read UpdateTrafficPolicyComment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTrafficPolicyComment]
+$creadListPrec :: ReadPrec [UpdateTrafficPolicyComment]
+readPrec :: ReadPrec UpdateTrafficPolicyComment
+$creadPrec :: ReadPrec UpdateTrafficPolicyComment
+readList :: ReadS [UpdateTrafficPolicyComment]
+$creadList :: ReadS [UpdateTrafficPolicyComment]
+readsPrec :: Int -&gt; ReadS UpdateTrafficPolicyComment
+$creadsPrec :: Int -&gt; ReadS UpdateTrafficPolicyComment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313569"><span id="local-6989586621679313571"><span id="local-6989586621679313573"><span class="annot"><span class="annottext">Int -&gt; UpdateTrafficPolicyComment -&gt; ShowS
+[UpdateTrafficPolicyComment] -&gt; ShowS
+UpdateTrafficPolicyComment -&gt; String
+(Int -&gt; UpdateTrafficPolicyComment -&gt; ShowS)
+-&gt; (UpdateTrafficPolicyComment -&gt; String)
+-&gt; ([UpdateTrafficPolicyComment] -&gt; ShowS)
+-&gt; Show UpdateTrafficPolicyComment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTrafficPolicyComment] -&gt; ShowS
+$cshowList :: [UpdateTrafficPolicyComment] -&gt; ShowS
+show :: UpdateTrafficPolicyComment -&gt; String
+$cshow :: UpdateTrafficPolicyComment -&gt; String
+showsPrec :: Int -&gt; UpdateTrafficPolicyComment -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTrafficPolicyComment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateTrafficPolicyComment -&gt; Rep UpdateTrafficPolicyComment x)
+-&gt; (forall x.
+    Rep UpdateTrafficPolicyComment x -&gt; UpdateTrafficPolicyComment)
+-&gt; Generic UpdateTrafficPolicyComment
+forall x.
+Rep UpdateTrafficPolicyComment x -&gt; UpdateTrafficPolicyComment
+forall x.
+UpdateTrafficPolicyComment -&gt; Rep UpdateTrafficPolicyComment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateTrafficPolicyComment x -&gt; UpdateTrafficPolicyComment
+$cfrom :: forall x.
+UpdateTrafficPolicyComment -&gt; Rep UpdateTrafficPolicyComment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateTrafficPolicyComment' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'id', 'updateTrafficPolicyComment_id' - The value of @Id@ for the traffic policy that you want to update the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- comment for.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'version', 'updateTrafficPolicyComment_version' - The value of @Version@ for the traffic policy that you want to update</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the comment for.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'comment', 'updateTrafficPolicyComment_comment' - The new comment for the specified traffic policy and version.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#newUpdateTrafficPolicyComment"><span class="hs-identifier hs-type">newUpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'comment'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span>
+</span><span id="line-90"></span><span id="newUpdateTrafficPolicyComment"><span class="annot"><span class="annottext">newUpdateTrafficPolicyComment :: Text -&gt; Natural -&gt; Text -&gt; UpdateTrafficPolicyComment
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#newUpdateTrafficPolicyComment"><span class="hs-identifier hs-var hs-var">newUpdateTrafficPolicyComment</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679313564"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313564"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679313563"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679313563"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679313562"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313562"><span class="hs-identifier hs-var">pComment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">UpdateTrafficPolicyComment' :: Text -&gt; Natural -&gt; Text -&gt; UpdateTrafficPolicyComment
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:UpdateTrafficPolicyComment' :: Text
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Aid%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313564"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:UpdateTrafficPolicyComment' :: Natural
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Aversion%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679313563"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:comment:UpdateTrafficPolicyComment' :: Text
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Acomment%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313562"><span class="hs-identifier hs-var">pComment_</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The value of @Id@ for the traffic policy that you want to update the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- comment for.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_id"><span class="hs-identifier hs-type">updateTrafficPolicyComment_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="updateTrafficPolicyComment_id"><span class="annot"><span class="annottext">updateTrafficPolicyComment_id :: (Text -&gt; f Text)
+-&gt; UpdateTrafficPolicyComment -&gt; f UpdateTrafficPolicyComment
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_id"><span class="hs-identifier hs-var hs-var">updateTrafficPolicyComment_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrafficPolicyComment -&gt; Text)
+-&gt; (UpdateTrafficPolicyComment
+    -&gt; Text -&gt; UpdateTrafficPolicyComment)
+-&gt; Lens
+     UpdateTrafficPolicyComment UpdateTrafficPolicyComment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313559"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Text
+</span><a href="#local-6989586621679313559"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313559"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313558"><span class="annot"><span class="annottext">s :: UpdateTrafficPolicyComment
+</span><a href="#local-6989586621679313558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrafficPolicyComment
+</span><a href="#local-6989586621679313558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateTrafficPolicyComment' :: Text
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Aid%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The value of @Version@ for the traffic policy that you want to update</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the comment for.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_version"><span class="hs-identifier hs-type">updateTrafficPolicyComment_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-108"></span><span id="updateTrafficPolicyComment_version"><span class="annot"><span class="annottext">updateTrafficPolicyComment_version :: (Natural -&gt; f Natural)
+-&gt; UpdateTrafficPolicyComment -&gt; f UpdateTrafficPolicyComment
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_version"><span class="hs-identifier hs-var hs-var">updateTrafficPolicyComment_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrafficPolicyComment -&gt; Natural)
+-&gt; (UpdateTrafficPolicyComment
+    -&gt; Natural -&gt; UpdateTrafficPolicyComment)
+-&gt; Lens
+     UpdateTrafficPolicyComment
+     UpdateTrafficPolicyComment
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313556"><span class="annot"><span class="annottext">Natural
+version :: Natural
+$sel:version:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Natural
+</span><a href="#local-6989586621679313556"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679313556"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313555"><span class="annot"><span class="annottext">s :: UpdateTrafficPolicyComment
+</span><a href="#local-6989586621679313555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313554"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679313554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrafficPolicyComment
+</span><a href="#local-6989586621679313555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateTrafficPolicyComment' :: Natural
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Aversion%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679313554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The new comment for the specified traffic policy and version.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_comment"><span class="hs-identifier hs-type">updateTrafficPolicyComment_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="updateTrafficPolicyComment_comment"><span class="annot"><span class="annottext">updateTrafficPolicyComment_comment :: (Text -&gt; f Text)
+-&gt; UpdateTrafficPolicyComment -&gt; f UpdateTrafficPolicyComment
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyComment_comment"><span class="hs-identifier hs-var hs-var">updateTrafficPolicyComment_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrafficPolicyComment -&gt; Text)
+-&gt; (UpdateTrafficPolicyComment
+    -&gt; Text -&gt; UpdateTrafficPolicyComment)
+-&gt; Lens
+     UpdateTrafficPolicyComment UpdateTrafficPolicyComment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313553"><span class="annot"><span class="annottext">Text
+comment :: Text
+$sel:comment:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Text
+</span><a href="#local-6989586621679313553"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313553"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313552"><span class="annot"><span class="annottext">s :: UpdateTrafficPolicyComment
+</span><a href="#local-6989586621679313552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrafficPolicyComment
+</span><a href="#local-6989586621679313552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:UpdateTrafficPolicyComment' :: Text
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3Acomment%3AUpdateTrafficPolicyComment%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679313547"><span class="annot"><span class="annottext">request :: UpdateTrafficPolicyComment -&gt; Request UpdateTrafficPolicyComment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateTrafficPolicyComment -&gt; Request UpdateTrafficPolicyComment
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679313543"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateTrafficPolicyComment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateTrafficPolicyComment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse UpdateTrafficPolicyComment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateTrafficPolicyComment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateTrafficPolicyComment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313540"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313539"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313539"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313538"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313538"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; TrafficPolicy -&gt; UpdateTrafficPolicyCommentResponse
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var">UpdateTrafficPolicyCommentResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; TrafficPolicy -&gt; UpdateTrafficPolicyCommentResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (TrafficPolicy -&gt; UpdateTrafficPolicyCommentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313540"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (TrafficPolicy -&gt; UpdateTrafficPolicyCommentResponse)
+-&gt; Either String TrafficPolicy
+-&gt; Either String UpdateTrafficPolicyCommentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String TrafficPolicy
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrafficPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313530"><span id="local-6989586621679313532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679313523"><span class="annot"><span class="annottext">toElement :: UpdateTrafficPolicyComment -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; UpdateTrafficPolicyComment -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{https://route53.amazonaws.com/doc/2013-04-01/}UpdateTrafficPolicyCommentRequest&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679313518"><span class="annot"><span class="annottext">toHeaders :: UpdateTrafficPolicyComment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTrafficPolicyComment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679313513"><span class="annot"><span class="annottext">toPath :: UpdateTrafficPolicyComment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313509"><span id="local-6989586621679313510"><span id="local-6989586621679313511"><span class="annot"><span class="annottext">Natural
+Text
+comment :: Text
+version :: Natural
+id :: Text
+$sel:comment:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Text
+$sel:version:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Natural
+$sel:id:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Text
+</span><a href="#local-6989586621679313509"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/trafficpolicy/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313511"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Natural -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679313510"><span class="hs-identifier hs-var">version</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679313505"><span class="annot"><span class="annottext">toQuery :: UpdateTrafficPolicyComment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTrafficPolicyComment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679313501"><span class="annot"><span class="annottext">toXML :: UpdateTrafficPolicyComment -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyComment%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313497"><span id="local-6989586621679313498"><span id="local-6989586621679313499"><span class="annot"><span class="annottext">Natural
+Text
+comment :: Text
+version :: Natural
+id :: Text
+$sel:comment:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Text
+$sel:version:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Natural
+$sel:id:UpdateTrafficPolicyComment' :: UpdateTrafficPolicyComment -&gt; Text
+</span><a href="#local-6989586621679313497"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313497"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | A complex type that contains the response information for the traffic</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- policy.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- /See:/ 'newUpdateTrafficPolicyCommentResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679313494"><span id="local-6989586621679313495"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrafficPolicyCommentResponse"><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-var">UpdateTrafficPolicyCommentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrafficPolicyCommentResponse%27"><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var">UpdateTrafficPolicyCommentResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTrafficPolicyCommentResponse%27"><span class="annot"><span class="annottext">UpdateTrafficPolicyCommentResponse -&gt; Int
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3AhttpStatus%3AUpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | A complex type that contains settings for the specified traffic policy.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AtrafficPolicy%3AUpdateTrafficPolicyCommentResponse%27"><span class="annot"><span class="annottext">UpdateTrafficPolicyCommentResponse -&gt; TrafficPolicy
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3AtrafficPolicy%3AUpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var hs-var">trafficPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.TrafficPolicy.html#TrafficPolicy"><span class="hs-identifier hs-type">TrafficPolicy</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313488"><span id="local-6989586621679313490"><span class="annot"><span class="annottext">UpdateTrafficPolicyCommentResponse
+-&gt; UpdateTrafficPolicyCommentResponse -&gt; Bool
+(UpdateTrafficPolicyCommentResponse
+ -&gt; UpdateTrafficPolicyCommentResponse -&gt; Bool)
+-&gt; (UpdateTrafficPolicyCommentResponse
+    -&gt; UpdateTrafficPolicyCommentResponse -&gt; Bool)
+-&gt; Eq UpdateTrafficPolicyCommentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTrafficPolicyCommentResponse
+-&gt; UpdateTrafficPolicyCommentResponse -&gt; Bool
+$c/= :: UpdateTrafficPolicyCommentResponse
+-&gt; UpdateTrafficPolicyCommentResponse -&gt; Bool
+== :: UpdateTrafficPolicyCommentResponse
+-&gt; UpdateTrafficPolicyCommentResponse -&gt; Bool
+$c== :: UpdateTrafficPolicyCommentResponse
+-&gt; UpdateTrafficPolicyCommentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313480"><span id="local-6989586621679313482"><span id="local-6989586621679313484"><span id="local-6989586621679313486"><span class="annot"><span class="annottext">ReadPrec [UpdateTrafficPolicyCommentResponse]
+ReadPrec UpdateTrafficPolicyCommentResponse
+Int -&gt; ReadS UpdateTrafficPolicyCommentResponse
+ReadS [UpdateTrafficPolicyCommentResponse]
+(Int -&gt; ReadS UpdateTrafficPolicyCommentResponse)
+-&gt; ReadS [UpdateTrafficPolicyCommentResponse]
+-&gt; ReadPrec UpdateTrafficPolicyCommentResponse
+-&gt; ReadPrec [UpdateTrafficPolicyCommentResponse]
+-&gt; Read UpdateTrafficPolicyCommentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTrafficPolicyCommentResponse]
+$creadListPrec :: ReadPrec [UpdateTrafficPolicyCommentResponse]
+readPrec :: ReadPrec UpdateTrafficPolicyCommentResponse
+$creadPrec :: ReadPrec UpdateTrafficPolicyCommentResponse
+readList :: ReadS [UpdateTrafficPolicyCommentResponse]
+$creadList :: ReadS [UpdateTrafficPolicyCommentResponse]
+readsPrec :: Int -&gt; ReadS UpdateTrafficPolicyCommentResponse
+$creadsPrec :: Int -&gt; ReadS UpdateTrafficPolicyCommentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313474"><span id="local-6989586621679313476"><span id="local-6989586621679313478"><span class="annot"><span class="annottext">Int -&gt; UpdateTrafficPolicyCommentResponse -&gt; ShowS
+[UpdateTrafficPolicyCommentResponse] -&gt; ShowS
+UpdateTrafficPolicyCommentResponse -&gt; String
+(Int -&gt; UpdateTrafficPolicyCommentResponse -&gt; ShowS)
+-&gt; (UpdateTrafficPolicyCommentResponse -&gt; String)
+-&gt; ([UpdateTrafficPolicyCommentResponse] -&gt; ShowS)
+-&gt; Show UpdateTrafficPolicyCommentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTrafficPolicyCommentResponse] -&gt; ShowS
+$cshowList :: [UpdateTrafficPolicyCommentResponse] -&gt; ShowS
+show :: UpdateTrafficPolicyCommentResponse -&gt; String
+$cshow :: UpdateTrafficPolicyCommentResponse -&gt; String
+showsPrec :: Int -&gt; UpdateTrafficPolicyCommentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTrafficPolicyCommentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateTrafficPolicyCommentResponse
+ -&gt; Rep UpdateTrafficPolicyCommentResponse x)
+-&gt; (forall x.
+    Rep UpdateTrafficPolicyCommentResponse x
+    -&gt; UpdateTrafficPolicyCommentResponse)
+-&gt; Generic UpdateTrafficPolicyCommentResponse
+forall x.
+Rep UpdateTrafficPolicyCommentResponse x
+-&gt; UpdateTrafficPolicyCommentResponse
+forall x.
+UpdateTrafficPolicyCommentResponse
+-&gt; Rep UpdateTrafficPolicyCommentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateTrafficPolicyCommentResponse x
+-&gt; UpdateTrafficPolicyCommentResponse
+$cfrom :: forall x.
+UpdateTrafficPolicyCommentResponse
+-&gt; Rep UpdateTrafficPolicyCommentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'UpdateTrafficPolicyCommentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'updateTrafficPolicyCommentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'trafficPolicy', 'updateTrafficPolicyCommentResponse_trafficPolicy' - A complex type that contains settings for the specified traffic policy.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#newUpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">newUpdateTrafficPolicyCommentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-comment">-- | 'trafficPolicy'</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.TrafficPolicy.html#TrafficPolicy"><span class="hs-identifier hs-type">TrafficPolicy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse</span></a></span><span>
+</span><span id="line-184"></span><span id="newUpdateTrafficPolicyCommentResponse"><span class="annot"><span class="annottext">newUpdateTrafficPolicyCommentResponse :: Int -&gt; TrafficPolicy -&gt; UpdateTrafficPolicyCommentResponse
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#newUpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-var hs-var">newUpdateTrafficPolicyCommentResponse</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679313471"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313471"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679313470"><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679313470"><span class="hs-identifier hs-var">pTrafficPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">UpdateTrafficPolicyCommentResponse' :: Int -&gt; TrafficPolicy -&gt; UpdateTrafficPolicyCommentResponse
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTrafficPolicyCommentResponse' :: Int
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3AhttpStatus%3AUpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313471"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficPolicy:UpdateTrafficPolicyCommentResponse' :: TrafficPolicy
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3AtrafficPolicy%3AUpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var">trafficPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679313470"><span class="hs-identifier hs-var">pTrafficPolicy_</span></a></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyCommentResponse_httpStatus"><span class="hs-identifier hs-type">updateTrafficPolicyCommentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="updateTrafficPolicyCommentResponse_httpStatus"><span class="annot"><span class="annottext">updateTrafficPolicyCommentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateTrafficPolicyCommentResponse
+-&gt; f UpdateTrafficPolicyCommentResponse
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyCommentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateTrafficPolicyCommentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrafficPolicyCommentResponse -&gt; Int)
+-&gt; (UpdateTrafficPolicyCommentResponse
+    -&gt; Int -&gt; UpdateTrafficPolicyCommentResponse)
+-&gt; Lens
+     UpdateTrafficPolicyCommentResponse
+     UpdateTrafficPolicyCommentResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313469"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateTrafficPolicyCommentResponse' :: UpdateTrafficPolicyCommentResponse -&gt; Int
+</span><a href="#local-6989586621679313469"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313469"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313468"><span class="annot"><span class="annottext">s :: UpdateTrafficPolicyCommentResponse
+</span><a href="#local-6989586621679313468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrafficPolicyCommentResponse
+</span><a href="#local-6989586621679313468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTrafficPolicyCommentResponse' :: Int
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3AhttpStatus%3AUpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | A complex type that contains settings for the specified traffic policy.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyCommentResponse_trafficPolicy"><span class="hs-identifier hs-type">updateTrafficPolicyCommentResponse_trafficPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.TrafficPolicy.html#TrafficPolicy"><span class="hs-identifier hs-type">TrafficPolicy</span></a></span><span>
+</span><span id="line-199"></span><span id="updateTrafficPolicyCommentResponse_trafficPolicy"><span class="annot"><span class="annottext">updateTrafficPolicyCommentResponse_trafficPolicy :: (TrafficPolicy -&gt; f TrafficPolicy)
+-&gt; UpdateTrafficPolicyCommentResponse
+-&gt; f UpdateTrafficPolicyCommentResponse
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#updateTrafficPolicyCommentResponse_trafficPolicy"><span class="hs-identifier hs-var hs-var">updateTrafficPolicyCommentResponse_trafficPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrafficPolicyCommentResponse -&gt; TrafficPolicy)
+-&gt; (UpdateTrafficPolicyCommentResponse
+    -&gt; TrafficPolicy -&gt; UpdateTrafficPolicyCommentResponse)
+-&gt; Lens
+     UpdateTrafficPolicyCommentResponse
+     UpdateTrafficPolicyCommentResponse
+     TrafficPolicy
+     TrafficPolicy
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313466"><span class="annot"><span class="annottext">TrafficPolicy
+trafficPolicy :: TrafficPolicy
+$sel:trafficPolicy:UpdateTrafficPolicyCommentResponse' :: UpdateTrafficPolicyCommentResponse -&gt; TrafficPolicy
+</span><a href="#local-6989586621679313466"><span class="hs-identifier hs-var hs-var">trafficPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679313466"><span class="hs-identifier hs-var">trafficPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313465"><span class="annot"><span class="annottext">s :: UpdateTrafficPolicyCommentResponse
+</span><a href="#local-6989586621679313465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313464"><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679313464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrafficPolicyCommentResponse
+</span><a href="#local-6989586621679313465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicy:UpdateTrafficPolicyCommentResponse' :: TrafficPolicy
+</span><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#%24sel%3AtrafficPolicy%3AUpdateTrafficPolicyCommentResponse%27"><span class="hs-identifier hs-var">trafficPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679313464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679313462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.UpdateTrafficPolicyComment.html#UpdateTrafficPolicyCommentResponse"><span class="hs-identifier hs-type">UpdateTrafficPolicyCommentResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

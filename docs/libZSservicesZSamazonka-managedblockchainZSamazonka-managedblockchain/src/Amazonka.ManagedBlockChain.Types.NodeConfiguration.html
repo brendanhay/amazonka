@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ManagedBlockChain.Types.NodeConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.NodeConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration.html"><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html"><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.StateDBType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Configuration properties of a node.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNodeConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679219525"><span id="local-6989586621679219526"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeConfiguration"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-var">NodeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeConfiguration%27"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-var">NodeConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration properties for logging events associated with a peer node</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- on a Hyperledger Fabric network on Managed Blockchain.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlogPublishingConfiguration%3ANodeConfiguration%27"><span class="annot"><span class="annottext">NodeConfiguration -&gt; Maybe NodeLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AlogPublishingConfiguration%3ANodeConfiguration%27"><span class="hs-identifier hs-var hs-var">logPublishingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration.html#NodeLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeLogPublishingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The state database that the node uses. Values are @LevelDB@ or</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @CouchDB@. When using an Amazon Managed Blockchain network with</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Hyperledger Fabric version 1.4 or later, the default is @CouchDB@.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AstateDB%3ANodeConfiguration%27"><span class="annot"><span class="annottext">NodeConfiguration -&gt; Maybe StateDBType
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AstateDB%3ANodeConfiguration%27"><span class="hs-identifier hs-var hs-var">stateDB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType"><span class="hs-identifier hs-type">StateDBType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Availability Zone in which the node exists. Required for Ethereum</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AavailabilityZone%3ANodeConfiguration%27"><span class="annot"><span class="annottext">NodeConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AavailabilityZone%3ANodeConfiguration%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Managed Blockchain instance type for the node.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AinstanceType%3ANodeConfiguration%27"><span class="annot"><span class="annottext">NodeConfiguration -&gt; Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AinstanceType%3ANodeConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219516"><span id="local-6989586621679219518"><span class="annot"><span class="annottext">NodeConfiguration -&gt; NodeConfiguration -&gt; Bool
+(NodeConfiguration -&gt; NodeConfiguration -&gt; Bool)
+-&gt; (NodeConfiguration -&gt; NodeConfiguration -&gt; Bool)
+-&gt; Eq NodeConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeConfiguration -&gt; NodeConfiguration -&gt; Bool
+$c/= :: NodeConfiguration -&gt; NodeConfiguration -&gt; Bool
+== :: NodeConfiguration -&gt; NodeConfiguration -&gt; Bool
+$c== :: NodeConfiguration -&gt; NodeConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219507"><span id="local-6989586621679219509"><span id="local-6989586621679219511"><span id="local-6989586621679219513"><span class="annot"><span class="annottext">ReadPrec [NodeConfiguration]
+ReadPrec NodeConfiguration
+Int -&gt; ReadS NodeConfiguration
+ReadS [NodeConfiguration]
+(Int -&gt; ReadS NodeConfiguration)
+-&gt; ReadS [NodeConfiguration]
+-&gt; ReadPrec NodeConfiguration
+-&gt; ReadPrec [NodeConfiguration]
+-&gt; Read NodeConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeConfiguration]
+$creadListPrec :: ReadPrec [NodeConfiguration]
+readPrec :: ReadPrec NodeConfiguration
+$creadPrec :: ReadPrec NodeConfiguration
+readList :: ReadS [NodeConfiguration]
+$creadList :: ReadS [NodeConfiguration]
+readsPrec :: Int -&gt; ReadS NodeConfiguration
+$creadsPrec :: Int -&gt; ReadS NodeConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219500"><span id="local-6989586621679219502"><span id="local-6989586621679219504"><span class="annot"><span class="annottext">Int -&gt; NodeConfiguration -&gt; ShowS
+[NodeConfiguration] -&gt; ShowS
+NodeConfiguration -&gt; String
+(Int -&gt; NodeConfiguration -&gt; ShowS)
+-&gt; (NodeConfiguration -&gt; String)
+-&gt; ([NodeConfiguration] -&gt; ShowS)
+-&gt; Show NodeConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeConfiguration] -&gt; ShowS
+$cshowList :: [NodeConfiguration] -&gt; ShowS
+show :: NodeConfiguration -&gt; String
+$cshow :: NodeConfiguration -&gt; String
+showsPrec :: Int -&gt; NodeConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NodeConfiguration -&gt; Rep NodeConfiguration x)
+-&gt; (forall x. Rep NodeConfiguration x -&gt; NodeConfiguration)
+-&gt; Generic NodeConfiguration
+forall x. Rep NodeConfiguration x -&gt; NodeConfiguration
+forall x. NodeConfiguration -&gt; Rep NodeConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeConfiguration x -&gt; NodeConfiguration
+$cfrom :: forall x. NodeConfiguration -&gt; Rep NodeConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'NodeConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'logPublishingConfiguration', 'nodeConfiguration_logPublishingConfiguration' - Configuration properties for logging events associated with a peer node</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- on a Hyperledger Fabric network on Managed Blockchain.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'stateDB', 'nodeConfiguration_stateDB' - The state database that the node uses. Values are @LevelDB@ or</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- @CouchDB@. When using an Amazon Managed Blockchain network with</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Hyperledger Fabric version 1.4 or later, the default is @CouchDB@.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'availabilityZone', 'nodeConfiguration_availabilityZone' - The Availability Zone in which the node exists. Required for Ethereum</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'instanceType', 'nodeConfiguration_instanceType' - The Amazon Managed Blockchain instance type for the node.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#newNodeConfiguration"><span class="hs-identifier hs-type">newNodeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'instanceType'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span>
+</span><span id="line-74"></span><span id="newNodeConfiguration"><span class="annot"><span class="annottext">newNodeConfiguration :: Text -&gt; NodeConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#newNodeConfiguration"><span class="hs-identifier hs-var hs-var">newNodeConfiguration</span></a></span></span><span> </span><span id="local-6989586621679219494"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219494"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">NodeConfiguration' :: Maybe NodeLogPublishingConfiguration
+-&gt; Maybe StateDBType -&gt; Maybe Text -&gt; Text -&gt; NodeConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logPublishingConfiguration:NodeConfiguration' :: Maybe NodeLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AlogPublishingConfiguration%3ANodeConfiguration%27"><span class="hs-identifier hs-var">logPublishingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe NodeLogPublishingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateDB:NodeConfiguration' :: Maybe StateDBType
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AstateDB%3ANodeConfiguration%27"><span class="hs-identifier hs-var">stateDB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StateDBType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:NodeConfiguration' :: Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AavailabilityZone%3ANodeConfiguration%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:NodeConfiguration' :: Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AinstanceType%3ANodeConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219494"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Configuration properties for logging events associated with a peer node</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- on a Hyperledger Fabric network on Managed Blockchain.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_logPublishingConfiguration"><span class="hs-identifier hs-type">nodeConfiguration_logPublishingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration.html#NodeLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeLogPublishingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="nodeConfiguration_logPublishingConfiguration"><span class="annot"><span class="annottext">nodeConfiguration_logPublishingConfiguration :: (Maybe NodeLogPublishingConfiguration
+ -&gt; f (Maybe NodeLogPublishingConfiguration))
+-&gt; NodeConfiguration -&gt; f NodeConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_logPublishingConfiguration"><span class="hs-identifier hs-var hs-var">nodeConfiguration_logPublishingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeConfiguration -&gt; Maybe NodeLogPublishingConfiguration)
+-&gt; (NodeConfiguration
+    -&gt; Maybe NodeLogPublishingConfiguration -&gt; NodeConfiguration)
+-&gt; Lens
+     NodeConfiguration
+     NodeConfiguration
+     (Maybe NodeLogPublishingConfiguration)
+     (Maybe NodeLogPublishingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219490"><span class="annot"><span class="annottext">Maybe NodeLogPublishingConfiguration
+logPublishingConfiguration :: Maybe NodeLogPublishingConfiguration
+$sel:logPublishingConfiguration:NodeConfiguration' :: NodeConfiguration -&gt; Maybe NodeLogPublishingConfiguration
+</span><a href="#local-6989586621679219490"><span class="hs-identifier hs-var hs-var">logPublishingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeLogPublishingConfiguration
+</span><a href="#local-6989586621679219490"><span class="hs-identifier hs-var">logPublishingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219489"><span class="annot"><span class="annottext">s :: NodeConfiguration
+</span><a href="#local-6989586621679219489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219488"><span class="annot"><span class="annottext">Maybe NodeLogPublishingConfiguration
+</span><a href="#local-6989586621679219488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeConfiguration
+</span><a href="#local-6989586621679219489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logPublishingConfiguration:NodeConfiguration' :: Maybe NodeLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AlogPublishingConfiguration%3ANodeConfiguration%27"><span class="hs-identifier hs-var">logPublishingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeLogPublishingConfiguration
+</span><a href="#local-6989586621679219488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The state database that the node uses. Values are @LevelDB@ or</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @CouchDB@. When using an Amazon Managed Blockchain network with</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Hyperledger Fabric version 1.4 or later, the default is @CouchDB@.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_stateDB"><span class="hs-identifier hs-type">nodeConfiguration_stateDB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType"><span class="hs-identifier hs-type">StateDBType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="nodeConfiguration_stateDB"><span class="annot"><span class="annottext">nodeConfiguration_stateDB :: (Maybe StateDBType -&gt; f (Maybe StateDBType))
+-&gt; NodeConfiguration -&gt; f NodeConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_stateDB"><span class="hs-identifier hs-var hs-var">nodeConfiguration_stateDB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeConfiguration -&gt; Maybe StateDBType)
+-&gt; (NodeConfiguration -&gt; Maybe StateDBType -&gt; NodeConfiguration)
+-&gt; Lens
+     NodeConfiguration
+     NodeConfiguration
+     (Maybe StateDBType)
+     (Maybe StateDBType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219486"><span class="annot"><span class="annottext">Maybe StateDBType
+stateDB :: Maybe StateDBType
+$sel:stateDB:NodeConfiguration' :: NodeConfiguration -&gt; Maybe StateDBType
+</span><a href="#local-6989586621679219486"><span class="hs-identifier hs-var hs-var">stateDB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StateDBType
+</span><a href="#local-6989586621679219486"><span class="hs-identifier hs-var">stateDB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219485"><span class="annot"><span class="annottext">s :: NodeConfiguration
+</span><a href="#local-6989586621679219485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219484"><span class="annot"><span class="annottext">Maybe StateDBType
+</span><a href="#local-6989586621679219484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeConfiguration
+</span><a href="#local-6989586621679219485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateDB:NodeConfiguration' :: Maybe StateDBType
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AstateDB%3ANodeConfiguration%27"><span class="hs-identifier hs-var">stateDB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StateDBType
+</span><a href="#local-6989586621679219484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The Availability Zone in which the node exists. Required for Ethereum</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_availabilityZone"><span class="hs-identifier hs-type">nodeConfiguration_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="nodeConfiguration_availabilityZone"><span class="annot"><span class="annottext">nodeConfiguration_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NodeConfiguration -&gt; f NodeConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_availabilityZone"><span class="hs-identifier hs-var hs-var">nodeConfiguration_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeConfiguration -&gt; Maybe Text)
+-&gt; (NodeConfiguration -&gt; Maybe Text -&gt; NodeConfiguration)
+-&gt; Lens
+     NodeConfiguration NodeConfiguration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219482"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:NodeConfiguration' :: NodeConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679219482"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219482"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219481"><span class="annot"><span class="annottext">s :: NodeConfiguration
+</span><a href="#local-6989586621679219481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219480"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeConfiguration
+</span><a href="#local-6989586621679219481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:NodeConfiguration' :: Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AavailabilityZone%3ANodeConfiguration%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The Amazon Managed Blockchain instance type for the node.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_instanceType"><span class="hs-identifier hs-type">nodeConfiguration_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="nodeConfiguration_instanceType"><span class="annot"><span class="annottext">nodeConfiguration_instanceType :: (Text -&gt; f Text) -&gt; NodeConfiguration -&gt; f NodeConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#nodeConfiguration_instanceType"><span class="hs-identifier hs-var hs-var">nodeConfiguration_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeConfiguration -&gt; Text)
+-&gt; (NodeConfiguration -&gt; Text -&gt; NodeConfiguration)
+-&gt; Lens NodeConfiguration NodeConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219478"><span class="annot"><span class="annottext">Text
+instanceType :: Text
+$sel:instanceType:NodeConfiguration' :: NodeConfiguration -&gt; Text
+</span><a href="#local-6989586621679219478"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219478"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219477"><span class="annot"><span class="annottext">s :: NodeConfiguration
+</span><a href="#local-6989586621679219477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219476"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeConfiguration
+</span><a href="#local-6989586621679219477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:NodeConfiguration' :: Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#%24sel%3AinstanceType%3ANodeConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219472"><span id="local-6989586621679219474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219461"><span id="local-6989586621679219463"><span id="local-6989586621679219465"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration"><span class="hs-identifier hs-type">NodeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679219459"><span class="annot"><span class="annottext">toJSON :: NodeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeConfiguration.html#NodeConfiguration%27"><span class="hs-identifier hs-type">NodeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219454"><span id="local-6989586621679219455"><span id="local-6989586621679219456"><span id="local-6989586621679219457"><span class="annot"><span class="annottext">Maybe Text
+Maybe NodeLogPublishingConfiguration
+Maybe StateDBType
+Text
+instanceType :: Text
+availabilityZone :: Maybe Text
+stateDB :: Maybe StateDBType
+logPublishingConfiguration :: Maybe NodeLogPublishingConfiguration
+$sel:instanceType:NodeConfiguration' :: NodeConfiguration -&gt; Text
+$sel:availabilityZone:NodeConfiguration' :: NodeConfiguration -&gt; Maybe Text
+$sel:stateDB:NodeConfiguration' :: NodeConfiguration -&gt; Maybe StateDBType
+$sel:logPublishingConfiguration:NodeConfiguration' :: NodeConfiguration -&gt; Maybe NodeLogPublishingConfiguration
+</span><a href="#local-6989586621679219454"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogPublishingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NodeLogPublishingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(NodeLogPublishingConfiguration -&gt; Pair)
+-&gt; Maybe NodeLogPublishingConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NodeLogPublishingConfiguration
+</span><a href="#local-6989586621679219457"><span class="hs-identifier hs-var">logPublishingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StateDB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StateDBType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StateDBType -&gt; Pair) -&gt; Maybe StateDBType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StateDBType
+</span><a href="#local-6989586621679219456"><span class="hs-identifier hs-var">stateDB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219455"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219454"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span></pre></body></html>

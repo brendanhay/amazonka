@@ -1,0 +1,678 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.Types.VolumeRecommendation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.VolumeRecommendation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSFinding.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.EBSFinding</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeConfiguration.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.VolumeConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes an Amazon Elastic Block Store (Amazon EBS) volume</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- recommendation.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newVolumeRecommendation' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679244157"><span id="local-6989586621679244158"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeRecommendation"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-var">VolumeRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeRecommendation%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-var">VolumeRecommendation'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The finding classification of the volume.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Findings for volumes include:</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   __@NotOptimized@__ &#8212;A volume is considered not optimized when</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     Compute Optimizer identifies a recommendation that can provide</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     better performance for your workload.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   __@Optimized@__ &#8212;An volume is considered optimized when Compute</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     Optimizer determines that the volume is correctly provisioned to run</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     your workload based on the chosen volume type. For optimized</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     resources, Compute Optimizer might recommend a new generation volume</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     type.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Afinding%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe EBSFinding
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3Afinding%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSFinding.html#EBSFinding"><span class="hs-identifier hs-type">EBSFinding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the current volume.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AvolumeArn%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AvolumeArn%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">volumeArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The timestamp of when the volume recommendation was last refreshed.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlastRefreshTimestamp%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AlastRefreshTimestamp%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">lastRefreshTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the current configuration of the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcurrentConfiguration%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe VolumeConfiguration
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AcurrentConfiguration%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">currentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeConfiguration.html#VolumeConfiguration"><span class="hs-identifier hs-type">VolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID of the volume.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AaccountId%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AaccountId%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the utilization metrics of the volume.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AutilizationMetrics%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe [EBSUtilizationMetric]
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AutilizationMetrics%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">utilizationMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric.html#EBSUtilizationMetric"><span class="hs-identifier hs-type">EBSUtilizationMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the recommendation options for the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AvolumeRecommendationOptions%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe [VolumeRecommendationOption]
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AvolumeRecommendationOptions%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">volumeRecommendationOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption.html#VolumeRecommendationOption"><span class="hs-identifier hs-type">VolumeRecommendationOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The number of days for which utilization metrics were analyzed for the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AlookBackPeriodInDays%3AVolumeRecommendation%27"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; Maybe Double
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AlookBackPeriodInDays%3AVolumeRecommendation%27"><span class="hs-identifier hs-var hs-var">lookBackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244144"><span id="local-6989586621679244146"><span class="annot"><span class="annottext">VolumeRecommendation -&gt; VolumeRecommendation -&gt; Bool
+(VolumeRecommendation -&gt; VolumeRecommendation -&gt; Bool)
+-&gt; (VolumeRecommendation -&gt; VolumeRecommendation -&gt; Bool)
+-&gt; Eq VolumeRecommendation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VolumeRecommendation -&gt; VolumeRecommendation -&gt; Bool
+$c/= :: VolumeRecommendation -&gt; VolumeRecommendation -&gt; Bool
+== :: VolumeRecommendation -&gt; VolumeRecommendation -&gt; Bool
+$c== :: VolumeRecommendation -&gt; VolumeRecommendation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244135"><span id="local-6989586621679244137"><span id="local-6989586621679244139"><span id="local-6989586621679244141"><span class="annot"><span class="annottext">ReadPrec [VolumeRecommendation]
+ReadPrec VolumeRecommendation
+Int -&gt; ReadS VolumeRecommendation
+ReadS [VolumeRecommendation]
+(Int -&gt; ReadS VolumeRecommendation)
+-&gt; ReadS [VolumeRecommendation]
+-&gt; ReadPrec VolumeRecommendation
+-&gt; ReadPrec [VolumeRecommendation]
+-&gt; Read VolumeRecommendation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VolumeRecommendation]
+$creadListPrec :: ReadPrec [VolumeRecommendation]
+readPrec :: ReadPrec VolumeRecommendation
+$creadPrec :: ReadPrec VolumeRecommendation
+readList :: ReadS [VolumeRecommendation]
+$creadList :: ReadS [VolumeRecommendation]
+readsPrec :: Int -&gt; ReadS VolumeRecommendation
+$creadsPrec :: Int -&gt; ReadS VolumeRecommendation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244128"><span id="local-6989586621679244130"><span id="local-6989586621679244132"><span class="annot"><span class="annottext">Int -&gt; VolumeRecommendation -&gt; ShowS
+[VolumeRecommendation] -&gt; ShowS
+VolumeRecommendation -&gt; String
+(Int -&gt; VolumeRecommendation -&gt; ShowS)
+-&gt; (VolumeRecommendation -&gt; String)
+-&gt; ([VolumeRecommendation] -&gt; ShowS)
+-&gt; Show VolumeRecommendation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VolumeRecommendation] -&gt; ShowS
+$cshowList :: [VolumeRecommendation] -&gt; ShowS
+show :: VolumeRecommendation -&gt; String
+$cshow :: VolumeRecommendation -&gt; String
+showsPrec :: Int -&gt; VolumeRecommendation -&gt; ShowS
+$cshowsPrec :: Int -&gt; VolumeRecommendation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VolumeRecommendation -&gt; Rep VolumeRecommendation x)
+-&gt; (forall x. Rep VolumeRecommendation x -&gt; VolumeRecommendation)
+-&gt; Generic VolumeRecommendation
+forall x. Rep VolumeRecommendation x -&gt; VolumeRecommendation
+forall x. VolumeRecommendation -&gt; Rep VolumeRecommendation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VolumeRecommendation x -&gt; VolumeRecommendation
+$cfrom :: forall x. VolumeRecommendation -&gt; Rep VolumeRecommendation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'VolumeRecommendation' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'finding', 'volumeRecommendation_finding' - The finding classification of the volume.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Findings for volumes include:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   __@NotOptimized@__ &#8212;A volume is considered not optimized when</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     Compute Optimizer identifies a recommendation that can provide</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     better performance for your workload.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   __@Optimized@__ &#8212;An volume is considered optimized when Compute</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     Optimizer determines that the volume is correctly provisioned to run</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     your workload based on the chosen volume type. For optimized</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     resources, Compute Optimizer might recommend a new generation volume</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     type.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'volumeArn', 'volumeRecommendation_volumeArn' - The Amazon Resource Name (ARN) of the current volume.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'lastRefreshTimestamp', 'volumeRecommendation_lastRefreshTimestamp' - The timestamp of when the volume recommendation was last refreshed.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'currentConfiguration', 'volumeRecommendation_currentConfiguration' - An array of objects that describe the current configuration of the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'accountId', 'volumeRecommendation_accountId' - The Amazon Web Services account ID of the volume.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'utilizationMetrics', 'volumeRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the volume.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'volumeRecommendationOptions', 'volumeRecommendation_volumeRecommendationOptions' - An array of objects that describe the recommendation options for the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'lookBackPeriodInDays', 'volumeRecommendation_lookBackPeriodInDays' - The number of days for which utilization metrics were analyzed for the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#newVolumeRecommendation"><span class="hs-identifier hs-type">newVolumeRecommendation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span>
+</span><span id="line-109"></span><span id="newVolumeRecommendation"><span class="annot"><span class="annottext">newVolumeRecommendation :: VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#newVolumeRecommendation"><span class="hs-identifier hs-var hs-var">newVolumeRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">VolumeRecommendation' :: Maybe EBSFinding
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe VolumeConfiguration
+-&gt; Maybe Text
+-&gt; Maybe [EBSUtilizationMetric]
+-&gt; Maybe [VolumeRecommendationOption]
+-&gt; Maybe Double
+-&gt; VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:finding:VolumeRecommendation' :: Maybe EBSFinding
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3Afinding%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">finding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EBSFinding
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeArn:VolumeRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AvolumeArn%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">volumeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastRefreshTimestamp:VolumeRecommendation' :: Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AlastRefreshTimestamp%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">lastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentConfiguration:VolumeRecommendation' :: Maybe VolumeConfiguration
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AcurrentConfiguration%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">currentConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:VolumeRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AaccountId%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilizationMetrics:VolumeRecommendation' :: Maybe [EBSUtilizationMetric]
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AutilizationMetrics%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">utilizationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EBSUtilizationMetric]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeRecommendationOptions:VolumeRecommendation' :: Maybe [VolumeRecommendationOption]
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AvolumeRecommendationOptions%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">volumeRecommendationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeRecommendationOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:lookBackPeriodInDays:VolumeRecommendation' :: Maybe Double
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AlookBackPeriodInDays%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">lookBackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The finding classification of the volume.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Findings for volumes include:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   __@NotOptimized@__ &#8212;A volume is considered not optimized when</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     Compute Optimizer identifies a recommendation that can provide</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     better performance for your workload.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   __@Optimized@__ &#8212;An volume is considered optimized when Compute</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     Optimizer determines that the volume is correctly provisioned to run</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     your workload based on the chosen volume type. For optimized</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     resources, Compute Optimizer might recommend a new generation volume</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     type.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_finding"><span class="hs-identifier hs-type">volumeRecommendation_finding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSFinding.html#EBSFinding"><span class="hs-identifier hs-type">EBSFinding</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="volumeRecommendation_finding"><span class="annot"><span class="annottext">volumeRecommendation_finding :: (Maybe EBSFinding -&gt; f (Maybe EBSFinding))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_finding"><span class="hs-identifier hs-var hs-var">volumeRecommendation_finding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe EBSFinding)
+-&gt; (VolumeRecommendation
+    -&gt; Maybe EBSFinding -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation
+     VolumeRecommendation
+     (Maybe EBSFinding)
+     (Maybe EBSFinding)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244119"><span class="annot"><span class="annottext">Maybe EBSFinding
+finding :: Maybe EBSFinding
+$sel:finding:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe EBSFinding
+</span><a href="#local-6989586621679244119"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EBSFinding
+</span><a href="#local-6989586621679244119"><span class="hs-identifier hs-var">finding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244118"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244117"><span class="annot"><span class="annottext">Maybe EBSFinding
+</span><a href="#local-6989586621679244117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finding:VolumeRecommendation' :: Maybe EBSFinding
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3Afinding%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">finding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EBSFinding
+</span><a href="#local-6989586621679244117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the current volume.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_volumeArn"><span class="hs-identifier hs-type">volumeRecommendation_volumeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="volumeRecommendation_volumeArn"><span class="annot"><span class="annottext">volumeRecommendation_volumeArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_volumeArn"><span class="hs-identifier hs-var hs-var">volumeRecommendation_volumeArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe Text)
+-&gt; (VolumeRecommendation -&gt; Maybe Text -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation VolumeRecommendation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244115"><span class="annot"><span class="annottext">Maybe Text
+volumeArn :: Maybe Text
+$sel:volumeArn:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe Text
+</span><a href="#local-6989586621679244115"><span class="hs-identifier hs-var hs-var">volumeArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244115"><span class="hs-identifier hs-var">volumeArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244114"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244113"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeArn:VolumeRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AvolumeArn%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">volumeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The timestamp of when the volume recommendation was last refreshed.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_lastRefreshTimestamp"><span class="hs-identifier hs-type">volumeRecommendation_lastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="volumeRecommendation_lastRefreshTimestamp"><span class="annot"><span class="annottext">volumeRecommendation_lastRefreshTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_lastRefreshTimestamp"><span class="hs-identifier hs-var hs-var">volumeRecommendation_lastRefreshTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe POSIX)
+-&gt; (VolumeRecommendation -&gt; Maybe POSIX -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation
+     VolumeRecommendation
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244111"><span class="annot"><span class="annottext">Maybe POSIX
+lastRefreshTimestamp :: Maybe POSIX
+$sel:lastRefreshTimestamp:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679244111"><span class="hs-identifier hs-var hs-var">lastRefreshTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244111"><span class="hs-identifier hs-var">lastRefreshTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244110"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244109"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastRefreshTimestamp:VolumeRecommendation' :: Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AlastRefreshTimestamp%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">lastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; VolumeRecommendation -&gt; f VolumeRecommendation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; VolumeRecommendation
+-&gt; f VolumeRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | An array of objects that describe the current configuration of the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_currentConfiguration"><span class="hs-identifier hs-type">volumeRecommendation_currentConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeConfiguration.html#VolumeConfiguration"><span class="hs-identifier hs-type">VolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="volumeRecommendation_currentConfiguration"><span class="annot"><span class="annottext">volumeRecommendation_currentConfiguration :: (Maybe VolumeConfiguration -&gt; f (Maybe VolumeConfiguration))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_currentConfiguration"><span class="hs-identifier hs-var hs-var">volumeRecommendation_currentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe VolumeConfiguration)
+-&gt; (VolumeRecommendation
+    -&gt; Maybe VolumeConfiguration -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation
+     VolumeRecommendation
+     (Maybe VolumeConfiguration)
+     (Maybe VolumeConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244104"><span class="annot"><span class="annottext">Maybe VolumeConfiguration
+currentConfiguration :: Maybe VolumeConfiguration
+$sel:currentConfiguration:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe VolumeConfiguration
+</span><a href="#local-6989586621679244104"><span class="hs-identifier hs-var hs-var">currentConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeConfiguration
+</span><a href="#local-6989586621679244104"><span class="hs-identifier hs-var">currentConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244103"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244102"><span class="annot"><span class="annottext">Maybe VolumeConfiguration
+</span><a href="#local-6989586621679244102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentConfiguration:VolumeRecommendation' :: Maybe VolumeConfiguration
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AcurrentConfiguration%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">currentConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeConfiguration
+</span><a href="#local-6989586621679244102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The Amazon Web Services account ID of the volume.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_accountId"><span class="hs-identifier hs-type">volumeRecommendation_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="volumeRecommendation_accountId"><span class="annot"><span class="annottext">volumeRecommendation_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_accountId"><span class="hs-identifier hs-var hs-var">volumeRecommendation_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe Text)
+-&gt; (VolumeRecommendation -&gt; Maybe Text -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation VolumeRecommendation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244100"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe Text
+</span><a href="#local-6989586621679244100"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244100"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244099"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:VolumeRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AaccountId%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | An array of objects that describe the utilization metrics of the volume.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_utilizationMetrics"><span class="hs-identifier hs-type">volumeRecommendation_utilizationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric.html#EBSUtilizationMetric"><span class="hs-identifier hs-type">EBSUtilizationMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="volumeRecommendation_utilizationMetrics"><span class="annot"><span class="annottext">volumeRecommendation_utilizationMetrics :: (Maybe [EBSUtilizationMetric] -&gt; f (Maybe [EBSUtilizationMetric]))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_utilizationMetrics"><span class="hs-identifier hs-var hs-var">volumeRecommendation_utilizationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe [EBSUtilizationMetric])
+-&gt; (VolumeRecommendation
+    -&gt; Maybe [EBSUtilizationMetric] -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation
+     VolumeRecommendation
+     (Maybe [EBSUtilizationMetric])
+     (Maybe [EBSUtilizationMetric])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244096"><span class="annot"><span class="annottext">Maybe [EBSUtilizationMetric]
+utilizationMetrics :: Maybe [EBSUtilizationMetric]
+$sel:utilizationMetrics:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe [EBSUtilizationMetric]
+</span><a href="#local-6989586621679244096"><span class="hs-identifier hs-var hs-var">utilizationMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EBSUtilizationMetric]
+</span><a href="#local-6989586621679244096"><span class="hs-identifier hs-var">utilizationMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244095"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244094"><span class="annot"><span class="annottext">Maybe [EBSUtilizationMetric]
+</span><a href="#local-6989586621679244094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilizationMetrics:VolumeRecommendation' :: Maybe [EBSUtilizationMetric]
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AutilizationMetrics%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">utilizationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EBSUtilizationMetric]
+</span><a href="#local-6989586621679244094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EBSUtilizationMetric] -&gt; f (Maybe [EBSUtilizationMetric]))
+ -&gt; VolumeRecommendation -&gt; f VolumeRecommendation)
+-&gt; ((Maybe [EBSUtilizationMetric]
+     -&gt; f (Maybe [EBSUtilizationMetric]))
+    -&gt; Maybe [EBSUtilizationMetric]
+    -&gt; f (Maybe [EBSUtilizationMetric]))
+-&gt; (Maybe [EBSUtilizationMetric]
+    -&gt; f (Maybe [EBSUtilizationMetric]))
+-&gt; VolumeRecommendation
+-&gt; f VolumeRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EBSUtilizationMetric]
+  [EBSUtilizationMetric]
+  [EBSUtilizationMetric]
+  [EBSUtilizationMetric]
+-&gt; Iso
+     (Maybe [EBSUtilizationMetric])
+     (Maybe [EBSUtilizationMetric])
+     (Maybe [EBSUtilizationMetric])
+     (Maybe [EBSUtilizationMetric])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EBSUtilizationMetric]
+  [EBSUtilizationMetric]
+  [EBSUtilizationMetric]
+  [EBSUtilizationMetric]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | An array of objects that describe the recommendation options for the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_volumeRecommendationOptions"><span class="hs-identifier hs-type">volumeRecommendation_volumeRecommendationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption.html#VolumeRecommendationOption"><span class="hs-identifier hs-type">VolumeRecommendationOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="volumeRecommendation_volumeRecommendationOptions"><span class="annot"><span class="annottext">volumeRecommendation_volumeRecommendationOptions :: (Maybe [VolumeRecommendationOption]
+ -&gt; f (Maybe [VolumeRecommendationOption]))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_volumeRecommendationOptions"><span class="hs-identifier hs-var hs-var">volumeRecommendation_volumeRecommendationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe [VolumeRecommendationOption])
+-&gt; (VolumeRecommendation
+    -&gt; Maybe [VolumeRecommendationOption] -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation
+     VolumeRecommendation
+     (Maybe [VolumeRecommendationOption])
+     (Maybe [VolumeRecommendationOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244091"><span class="annot"><span class="annottext">Maybe [VolumeRecommendationOption]
+volumeRecommendationOptions :: Maybe [VolumeRecommendationOption]
+$sel:volumeRecommendationOptions:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe [VolumeRecommendationOption]
+</span><a href="#local-6989586621679244091"><span class="hs-identifier hs-var hs-var">volumeRecommendationOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeRecommendationOption]
+</span><a href="#local-6989586621679244091"><span class="hs-identifier hs-var">volumeRecommendationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244090"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244089"><span class="annot"><span class="annottext">Maybe [VolumeRecommendationOption]
+</span><a href="#local-6989586621679244089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeRecommendationOptions:VolumeRecommendation' :: Maybe [VolumeRecommendationOption]
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AvolumeRecommendationOptions%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">volumeRecommendationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeRecommendationOption]
+</span><a href="#local-6989586621679244089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VolumeRecommendationOption]
+  -&gt; f (Maybe [VolumeRecommendationOption]))
+ -&gt; VolumeRecommendation -&gt; f VolumeRecommendation)
+-&gt; ((Maybe [VolumeRecommendationOption]
+     -&gt; f (Maybe [VolumeRecommendationOption]))
+    -&gt; Maybe [VolumeRecommendationOption]
+    -&gt; f (Maybe [VolumeRecommendationOption]))
+-&gt; (Maybe [VolumeRecommendationOption]
+    -&gt; f (Maybe [VolumeRecommendationOption]))
+-&gt; VolumeRecommendation
+-&gt; f VolumeRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VolumeRecommendationOption]
+  [VolumeRecommendationOption]
+  [VolumeRecommendationOption]
+  [VolumeRecommendationOption]
+-&gt; Iso
+     (Maybe [VolumeRecommendationOption])
+     (Maybe [VolumeRecommendationOption])
+     (Maybe [VolumeRecommendationOption])
+     (Maybe [VolumeRecommendationOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VolumeRecommendationOption]
+  [VolumeRecommendationOption]
+  [VolumeRecommendationOption]
+  [VolumeRecommendationOption]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The number of days for which utilization metrics were analyzed for the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_lookBackPeriodInDays"><span class="hs-identifier hs-type">volumeRecommendation_lookBackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="volumeRecommendation_lookBackPeriodInDays"><span class="annot"><span class="annottext">volumeRecommendation_lookBackPeriodInDays :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; VolumeRecommendation -&gt; f VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#volumeRecommendation_lookBackPeriodInDays"><span class="hs-identifier hs-var hs-var">volumeRecommendation_lookBackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeRecommendation -&gt; Maybe Double)
+-&gt; (VolumeRecommendation -&gt; Maybe Double -&gt; VolumeRecommendation)
+-&gt; Lens
+     VolumeRecommendation
+     VolumeRecommendation
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244087"><span class="annot"><span class="annottext">Maybe Double
+lookBackPeriodInDays :: Maybe Double
+$sel:lookBackPeriodInDays:VolumeRecommendation' :: VolumeRecommendation -&gt; Maybe Double
+</span><a href="#local-6989586621679244087"><span class="hs-identifier hs-var hs-var">lookBackPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679244087"><span class="hs-identifier hs-var">lookBackPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244086"><span class="annot"><span class="annottext">s :: VolumeRecommendation
+</span><a href="#local-6989586621679244086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-type">VolumeRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244085"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679244085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeRecommendation
+</span><a href="#local-6989586621679244086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lookBackPeriodInDays:VolumeRecommendation' :: Maybe Double
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#%24sel%3AlookBackPeriodInDays%3AVolumeRecommendation%27"><span class="hs-identifier hs-var">lookBackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679244085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244082"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679244080"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VolumeRecommendation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VolumeRecommendation)
+-&gt; Value
+-&gt; Parser VolumeRecommendation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VolumeRecommendation&quot;</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244077"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe EBSFinding
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe VolumeConfiguration
+-&gt; Maybe Text
+-&gt; Maybe [EBSUtilizationMetric]
+-&gt; Maybe [VolumeRecommendationOption]
+-&gt; Maybe Double
+-&gt; VolumeRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation%27"><span class="hs-identifier hs-var">VolumeRecommendation'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EBSFinding
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe VolumeConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe [EBSUtilizationMetric]
+ -&gt; Maybe [VolumeRecommendationOption]
+ -&gt; Maybe Double
+ -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe EBSFinding)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe VolumeConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe [EBSUtilizationMetric]
+      -&gt; Maybe [VolumeRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; VolumeRecommendation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EBSFinding)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;finding&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe VolumeConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe [EBSUtilizationMetric]
+   -&gt; Maybe [VolumeRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe VolumeConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe [EBSUtilizationMetric]
+      -&gt; Maybe [VolumeRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; VolumeRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;volumeArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe VolumeConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe [EBSUtilizationMetric]
+   -&gt; Maybe [VolumeRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe VolumeConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe [EBSUtilizationMetric]
+      -&gt; Maybe [VolumeRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; VolumeRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastRefreshTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VolumeConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe [EBSUtilizationMetric]
+   -&gt; Maybe [VolumeRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe VolumeConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [EBSUtilizationMetric]
+      -&gt; Maybe [VolumeRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; VolumeRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VolumeConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currentConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [EBSUtilizationMetric]
+   -&gt; Maybe [VolumeRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [EBSUtilizationMetric]
+      -&gt; Maybe [VolumeRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; VolumeRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [EBSUtilizationMetric]
+   -&gt; Maybe [VolumeRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe [EBSUtilizationMetric])
+-&gt; Parser
+     (Maybe [VolumeRecommendationOption]
+      -&gt; Maybe Double -&gt; VolumeRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EBSUtilizationMetric]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;utilizationMetrics&quot;</span></span><span>
+</span><span id="line-180"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EBSUtilizationMetric]))
+-&gt; Maybe [EBSUtilizationMetric]
+-&gt; Parser (Maybe [EBSUtilizationMetric])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EBSUtilizationMetric]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-181"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [VolumeRecommendationOption]
+   -&gt; Maybe Double -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe [VolumeRecommendationOption])
+-&gt; Parser (Maybe Double -&gt; VolumeRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [VolumeRecommendationOption]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;volumeRecommendationOptions&quot;</span></span><span>
+</span><span id="line-183"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [VolumeRecommendationOption]))
+-&gt; Maybe [VolumeRecommendationOption]
+-&gt; Parser (Maybe [VolumeRecommendationOption])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeRecommendationOption]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; VolumeRecommendation)
+-&gt; Parser (Maybe Double) -&gt; Parser VolumeRecommendation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lookBackPeriodInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244070"><span id="local-6989586621679244072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.VolumeRecommendation.html#VolumeRecommendation"><span class="hs-identifier hs-type">VolumeRecommendation</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

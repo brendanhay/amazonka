@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationUpdate</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationUpdate</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes updates to the configuration parameters for a Flink-based</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Kinesis Data Analytics application.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFlinkApplicationConfigurationUpdate' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679291802"><span id="local-6989586621679291803"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlinkApplicationConfigurationUpdate"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-var">FlinkApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlinkApplicationConfigurationUpdate%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">FlinkApplicationConfigurationUpdate'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes updates to an application\'s checkpointing configuration.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Checkpointing is the process of persisting application state for fault</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- tolerance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcheckpointConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate
+-&gt; Maybe CheckpointConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AcheckpointConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">checkpointConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Describes updates to the parameters for how an application executes</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- multiple tasks simultaneously.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AparallelismConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate
+-&gt; Maybe ParallelismConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AparallelismConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">parallelismConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationUpdate.html#ParallelismConfigurationUpdate"><span class="hs-identifier hs-type">ParallelismConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Describes updates to the configuration parameters for Amazon CloudWatch</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- logging for an application.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmonitoringConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate
+-&gt; Maybe MonitoringConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AmonitoringConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">monitoringConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationUpdate.html#MonitoringConfigurationUpdate"><span class="hs-identifier hs-type">MonitoringConfigurationUpdate</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291794"><span id="local-6989586621679291796"><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate
+-&gt; FlinkApplicationConfigurationUpdate -&gt; Bool
+(FlinkApplicationConfigurationUpdate
+ -&gt; FlinkApplicationConfigurationUpdate -&gt; Bool)
+-&gt; (FlinkApplicationConfigurationUpdate
+    -&gt; FlinkApplicationConfigurationUpdate -&gt; Bool)
+-&gt; Eq FlinkApplicationConfigurationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FlinkApplicationConfigurationUpdate
+-&gt; FlinkApplicationConfigurationUpdate -&gt; Bool
+$c/= :: FlinkApplicationConfigurationUpdate
+-&gt; FlinkApplicationConfigurationUpdate -&gt; Bool
+== :: FlinkApplicationConfigurationUpdate
+-&gt; FlinkApplicationConfigurationUpdate -&gt; Bool
+$c== :: FlinkApplicationConfigurationUpdate
+-&gt; FlinkApplicationConfigurationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291785"><span id="local-6989586621679291787"><span id="local-6989586621679291789"><span id="local-6989586621679291791"><span class="annot"><span class="annottext">ReadPrec [FlinkApplicationConfigurationUpdate]
+ReadPrec FlinkApplicationConfigurationUpdate
+Int -&gt; ReadS FlinkApplicationConfigurationUpdate
+ReadS [FlinkApplicationConfigurationUpdate]
+(Int -&gt; ReadS FlinkApplicationConfigurationUpdate)
+-&gt; ReadS [FlinkApplicationConfigurationUpdate]
+-&gt; ReadPrec FlinkApplicationConfigurationUpdate
+-&gt; ReadPrec [FlinkApplicationConfigurationUpdate]
+-&gt; Read FlinkApplicationConfigurationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FlinkApplicationConfigurationUpdate]
+$creadListPrec :: ReadPrec [FlinkApplicationConfigurationUpdate]
+readPrec :: ReadPrec FlinkApplicationConfigurationUpdate
+$creadPrec :: ReadPrec FlinkApplicationConfigurationUpdate
+readList :: ReadS [FlinkApplicationConfigurationUpdate]
+$creadList :: ReadS [FlinkApplicationConfigurationUpdate]
+readsPrec :: Int -&gt; ReadS FlinkApplicationConfigurationUpdate
+$creadsPrec :: Int -&gt; ReadS FlinkApplicationConfigurationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291778"><span id="local-6989586621679291780"><span id="local-6989586621679291782"><span class="annot"><span class="annottext">Int -&gt; FlinkApplicationConfigurationUpdate -&gt; ShowS
+[FlinkApplicationConfigurationUpdate] -&gt; ShowS
+FlinkApplicationConfigurationUpdate -&gt; String
+(Int -&gt; FlinkApplicationConfigurationUpdate -&gt; ShowS)
+-&gt; (FlinkApplicationConfigurationUpdate -&gt; String)
+-&gt; ([FlinkApplicationConfigurationUpdate] -&gt; ShowS)
+-&gt; Show FlinkApplicationConfigurationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FlinkApplicationConfigurationUpdate] -&gt; ShowS
+$cshowList :: [FlinkApplicationConfigurationUpdate] -&gt; ShowS
+show :: FlinkApplicationConfigurationUpdate -&gt; String
+$cshow :: FlinkApplicationConfigurationUpdate -&gt; String
+showsPrec :: Int -&gt; FlinkApplicationConfigurationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; FlinkApplicationConfigurationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FlinkApplicationConfigurationUpdate
+ -&gt; Rep FlinkApplicationConfigurationUpdate x)
+-&gt; (forall x.
+    Rep FlinkApplicationConfigurationUpdate x
+    -&gt; FlinkApplicationConfigurationUpdate)
+-&gt; Generic FlinkApplicationConfigurationUpdate
+forall x.
+Rep FlinkApplicationConfigurationUpdate x
+-&gt; FlinkApplicationConfigurationUpdate
+forall x.
+FlinkApplicationConfigurationUpdate
+-&gt; Rep FlinkApplicationConfigurationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FlinkApplicationConfigurationUpdate x
+-&gt; FlinkApplicationConfigurationUpdate
+$cfrom :: forall x.
+FlinkApplicationConfigurationUpdate
+-&gt; Rep FlinkApplicationConfigurationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'FlinkApplicationConfigurationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'checkpointConfigurationUpdate', 'flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate' - Describes updates to an application\'s checkpointing configuration.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Checkpointing is the process of persisting application state for fault</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- tolerance.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'parallelismConfigurationUpdate', 'flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate' - Describes updates to the parameters for how an application executes</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- multiple tasks simultaneously.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'monitoringConfigurationUpdate', 'flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate' - Describes updates to the configuration parameters for Amazon CloudWatch</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- logging for an application.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#newFlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">newFlinkApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span>
+</span><span id="line-66"></span><span id="newFlinkApplicationConfigurationUpdate"><span class="annot"><span class="annottext">newFlinkApplicationConfigurationUpdate :: FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#newFlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-var hs-var">newFlinkApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate' :: Maybe CheckpointConfigurationUpdate
+-&gt; Maybe ParallelismConfigurationUpdate
+-&gt; Maybe MonitoringConfigurationUpdate
+-&gt; FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:checkpointConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: Maybe CheckpointConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AcheckpointConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">checkpointConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe CheckpointConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:parallelismConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: Maybe ParallelismConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AparallelismConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">parallelismConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe ParallelismConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: Maybe MonitoringConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AmonitoringConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe MonitoringConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Describes updates to an application\'s checkpointing configuration.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Checkpointing is the process of persisting application state for fault</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- tolerance.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate"><span class="hs-identifier hs-type">flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate"><span class="annot"><span class="annottext">flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate :: (Maybe CheckpointConfigurationUpdate
+ -&gt; f (Maybe CheckpointConfigurationUpdate))
+-&gt; FlinkApplicationConfigurationUpdate
+-&gt; f FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate"><span class="hs-identifier hs-var hs-var">flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlinkApplicationConfigurationUpdate
+ -&gt; Maybe CheckpointConfigurationUpdate)
+-&gt; (FlinkApplicationConfigurationUpdate
+    -&gt; Maybe CheckpointConfigurationUpdate
+    -&gt; FlinkApplicationConfigurationUpdate)
+-&gt; Lens
+     FlinkApplicationConfigurationUpdate
+     FlinkApplicationConfigurationUpdate
+     (Maybe CheckpointConfigurationUpdate)
+     (Maybe CheckpointConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291769"><span class="annot"><span class="annottext">Maybe CheckpointConfigurationUpdate
+checkpointConfigurationUpdate :: Maybe CheckpointConfigurationUpdate
+$sel:checkpointConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: FlinkApplicationConfigurationUpdate
+-&gt; Maybe CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679291769"><span class="hs-identifier hs-var hs-var">checkpointConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679291769"><span class="hs-identifier hs-var">checkpointConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291768"><span class="annot"><span class="annottext">s :: FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679291768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291767"><span class="annot"><span class="annottext">Maybe CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679291767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679291768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: Maybe CheckpointConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AcheckpointConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">checkpointConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679291767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Describes updates to the parameters for how an application executes</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- multiple tasks simultaneously.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate"><span class="hs-identifier hs-type">flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationUpdate.html#ParallelismConfigurationUpdate"><span class="hs-identifier hs-type">ParallelismConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate"><span class="annot"><span class="annottext">flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate :: (Maybe ParallelismConfigurationUpdate
+ -&gt; f (Maybe ParallelismConfigurationUpdate))
+-&gt; FlinkApplicationConfigurationUpdate
+-&gt; f FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate"><span class="hs-identifier hs-var hs-var">flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlinkApplicationConfigurationUpdate
+ -&gt; Maybe ParallelismConfigurationUpdate)
+-&gt; (FlinkApplicationConfigurationUpdate
+    -&gt; Maybe ParallelismConfigurationUpdate
+    -&gt; FlinkApplicationConfigurationUpdate)
+-&gt; Lens
+     FlinkApplicationConfigurationUpdate
+     FlinkApplicationConfigurationUpdate
+     (Maybe ParallelismConfigurationUpdate)
+     (Maybe ParallelismConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291765"><span class="annot"><span class="annottext">Maybe ParallelismConfigurationUpdate
+parallelismConfigurationUpdate :: Maybe ParallelismConfigurationUpdate
+$sel:parallelismConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: FlinkApplicationConfigurationUpdate
+-&gt; Maybe ParallelismConfigurationUpdate
+</span><a href="#local-6989586621679291765"><span class="hs-identifier hs-var hs-var">parallelismConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParallelismConfigurationUpdate
+</span><a href="#local-6989586621679291765"><span class="hs-identifier hs-var">parallelismConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291764"><span class="annot"><span class="annottext">s :: FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679291764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291763"><span class="annot"><span class="annottext">Maybe ParallelismConfigurationUpdate
+</span><a href="#local-6989586621679291763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679291764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parallelismConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: Maybe ParallelismConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AparallelismConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">parallelismConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParallelismConfigurationUpdate
+</span><a href="#local-6989586621679291763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Describes updates to the configuration parameters for Amazon CloudWatch</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- logging for an application.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate"><span class="hs-identifier hs-type">flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationUpdate.html#MonitoringConfigurationUpdate"><span class="hs-identifier hs-type">MonitoringConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate"><span class="annot"><span class="annottext">flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate :: (Maybe MonitoringConfigurationUpdate
+ -&gt; f (Maybe MonitoringConfigurationUpdate))
+-&gt; FlinkApplicationConfigurationUpdate
+-&gt; f FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate"><span class="hs-identifier hs-var hs-var">flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlinkApplicationConfigurationUpdate
+ -&gt; Maybe MonitoringConfigurationUpdate)
+-&gt; (FlinkApplicationConfigurationUpdate
+    -&gt; Maybe MonitoringConfigurationUpdate
+    -&gt; FlinkApplicationConfigurationUpdate)
+-&gt; Lens
+     FlinkApplicationConfigurationUpdate
+     FlinkApplicationConfigurationUpdate
+     (Maybe MonitoringConfigurationUpdate)
+     (Maybe MonitoringConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291761"><span class="annot"><span class="annottext">Maybe MonitoringConfigurationUpdate
+monitoringConfigurationUpdate :: Maybe MonitoringConfigurationUpdate
+$sel:monitoringConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: FlinkApplicationConfigurationUpdate
+-&gt; Maybe MonitoringConfigurationUpdate
+</span><a href="#local-6989586621679291761"><span class="hs-identifier hs-var hs-var">monitoringConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConfigurationUpdate
+</span><a href="#local-6989586621679291761"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291760"><span class="annot"><span class="annottext">s :: FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679291760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291759"><span class="annot"><span class="annottext">Maybe MonitoringConfigurationUpdate
+</span><a href="#local-6989586621679291759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679291760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: Maybe MonitoringConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#%24sel%3AmonitoringConfigurationUpdate%3AFlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConfigurationUpdate
+</span><a href="#local-6989586621679291759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679291755"><span id="local-6989586621679291757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679291752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679291744"><span id="local-6989586621679291746"><span id="local-6989586621679291748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span></span></span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679291742"><span class="annot"><span class="annottext">toJSON :: FlinkApplicationConfigurationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291738"><span id="local-6989586621679291739"><span id="local-6989586621679291740"><span class="annot"><span class="annottext">Maybe CheckpointConfigurationUpdate
+Maybe MonitoringConfigurationUpdate
+Maybe ParallelismConfigurationUpdate
+monitoringConfigurationUpdate :: Maybe MonitoringConfigurationUpdate
+parallelismConfigurationUpdate :: Maybe ParallelismConfigurationUpdate
+checkpointConfigurationUpdate :: Maybe CheckpointConfigurationUpdate
+$sel:monitoringConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: FlinkApplicationConfigurationUpdate
+-&gt; Maybe MonitoringConfigurationUpdate
+$sel:parallelismConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: FlinkApplicationConfigurationUpdate
+-&gt; Maybe ParallelismConfigurationUpdate
+$sel:checkpointConfigurationUpdate:FlinkApplicationConfigurationUpdate' :: FlinkApplicationConfigurationUpdate
+-&gt; Maybe CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679291738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CheckpointConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CheckpointConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(CheckpointConfigurationUpdate -&gt; Pair)
+-&gt; Maybe CheckpointConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679291740"><span class="hs-identifier hs-var">checkpointConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParallelismConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParallelismConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(ParallelismConfigurationUpdate -&gt; Pair)
+-&gt; Maybe ParallelismConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParallelismConfigurationUpdate
+</span><a href="#local-6989586621679291739"><span class="hs-identifier hs-var">parallelismConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringConfigurationUpdate -&gt; Pair)
+-&gt; Maybe MonitoringConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConfigurationUpdate
+</span><a href="#local-6989586621679291738"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span></pre></body></html>

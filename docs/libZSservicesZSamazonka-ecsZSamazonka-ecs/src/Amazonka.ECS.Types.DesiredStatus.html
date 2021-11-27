@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.DesiredStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.DesiredStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus"><span class="hs-identifier">DesiredStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_PENDING"><span class="hs-identifier">DesiredStatus_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_RUNNING"><span class="hs-identifier">DesiredStatus_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_STOPPED"><span class="hs-identifier">DesiredStatus_STOPPED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679450800"><span id="local-6989586621679450801"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DesiredStatus"><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus"><span class="hs-identifier hs-var">DesiredStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DesiredStatus%27"><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus%27"><span class="hs-identifier hs-var">DesiredStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDesiredStatus"><span class="annot"><span class="annottext">DesiredStatus -&gt; Text
+</span><a href="Amazonka.ECS.Types.DesiredStatus.html#fromDesiredStatus"><span class="hs-identifier hs-var hs-var">fromDesiredStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450792"><span id="local-6989586621679450794"><span id="local-6989586621679450796"><span class="annot"><span class="annottext">Int -&gt; DesiredStatus -&gt; ShowS
+[DesiredStatus] -&gt; ShowS
+DesiredStatus -&gt; String
+(Int -&gt; DesiredStatus -&gt; ShowS)
+-&gt; (DesiredStatus -&gt; String)
+-&gt; ([DesiredStatus] -&gt; ShowS)
+-&gt; Show DesiredStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DesiredStatus] -&gt; ShowS
+$cshowList :: [DesiredStatus] -&gt; ShowS
+show :: DesiredStatus -&gt; String
+$cshow :: DesiredStatus -&gt; String
+showsPrec :: Int -&gt; DesiredStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DesiredStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450783"><span id="local-6989586621679450785"><span id="local-6989586621679450787"><span id="local-6989586621679450789"><span class="annot"><span class="annottext">ReadPrec [DesiredStatus]
+ReadPrec DesiredStatus
+Int -&gt; ReadS DesiredStatus
+ReadS [DesiredStatus]
+(Int -&gt; ReadS DesiredStatus)
+-&gt; ReadS [DesiredStatus]
+-&gt; ReadPrec DesiredStatus
+-&gt; ReadPrec [DesiredStatus]
+-&gt; Read DesiredStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DesiredStatus]
+$creadListPrec :: ReadPrec [DesiredStatus]
+readPrec :: ReadPrec DesiredStatus
+$creadPrec :: ReadPrec DesiredStatus
+readList :: ReadS [DesiredStatus]
+$creadList :: ReadS [DesiredStatus]
+readsPrec :: Int -&gt; ReadS DesiredStatus
+$creadsPrec :: Int -&gt; ReadS DesiredStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679450778"><span id="local-6989586621679450780"><span class="annot"><span class="annottext">DesiredStatus -&gt; DesiredStatus -&gt; Bool
+(DesiredStatus -&gt; DesiredStatus -&gt; Bool)
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; Bool) -&gt; Eq DesiredStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+$c/= :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+== :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+$c== :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679450762"><span id="local-6989586621679450764"><span id="local-6989586621679450766"><span id="local-6989586621679450768"><span id="local-6989586621679450770"><span id="local-6989586621679450772"><span id="local-6989586621679450774"><span class="annot"><span class="annottext">Eq DesiredStatus
+Eq DesiredStatus
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; Ordering)
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; Bool)
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; Bool)
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; Bool)
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; Bool)
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; DesiredStatus)
+-&gt; (DesiredStatus -&gt; DesiredStatus -&gt; DesiredStatus)
+-&gt; Ord DesiredStatus
+DesiredStatus -&gt; DesiredStatus -&gt; Bool
+DesiredStatus -&gt; DesiredStatus -&gt; Ordering
+DesiredStatus -&gt; DesiredStatus -&gt; DesiredStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DesiredStatus -&gt; DesiredStatus -&gt; DesiredStatus
+$cmin :: DesiredStatus -&gt; DesiredStatus -&gt; DesiredStatus
+max :: DesiredStatus -&gt; DesiredStatus -&gt; DesiredStatus
+$cmax :: DesiredStatus -&gt; DesiredStatus -&gt; DesiredStatus
+&gt;= :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+$c&gt;= :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+&gt; :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+$c&gt; :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+&lt;= :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+$c&lt;= :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+&lt; :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+$c&lt; :: DesiredStatus -&gt; DesiredStatus -&gt; Bool
+compare :: DesiredStatus -&gt; DesiredStatus -&gt; Ordering
+$ccompare :: DesiredStatus -&gt; DesiredStatus -&gt; Ordering
+$cp1Ord :: Eq DesiredStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DesiredStatus -&gt; Rep DesiredStatus x)
+-&gt; (forall x. Rep DesiredStatus x -&gt; DesiredStatus)
+-&gt; Generic DesiredStatus
+forall x. Rep DesiredStatus x -&gt; DesiredStatus
+forall x. DesiredStatus -&gt; Rep DesiredStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DesiredStatus x -&gt; DesiredStatus
+$cfrom :: forall x. DesiredStatus -&gt; Rep DesiredStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450754"><span id="local-6989586621679450756"><span class="annot"><span class="annottext">Int -&gt; DesiredStatus -&gt; Int
+DesiredStatus -&gt; Int
+(Int -&gt; DesiredStatus -&gt; Int)
+-&gt; (DesiredStatus -&gt; Int) -&gt; Hashable DesiredStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DesiredStatus -&gt; Int
+$chash :: DesiredStatus -&gt; Int
+hashWithSalt :: Int -&gt; DesiredStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DesiredStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450751"><span class="annot"><span class="annottext">DesiredStatus -&gt; ()
+(DesiredStatus -&gt; ()) -&gt; NFData DesiredStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DesiredStatus -&gt; ()
+$crnf :: DesiredStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450748"><span class="annot"><span class="annottext">Text -&gt; Either String DesiredStatus
+(Text -&gt; Either String DesiredStatus) -&gt; FromText DesiredStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DesiredStatus
+$cfromText :: Text -&gt; Either String DesiredStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679450745"><span class="annot"><span class="annottext">DesiredStatus -&gt; Text
+(DesiredStatus -&gt; Text) -&gt; ToText DesiredStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DesiredStatus -&gt; Text
+$ctoText :: DesiredStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679450742"><span class="annot"><span class="annottext">DesiredStatus -&gt; ByteString
+(DesiredStatus -&gt; ByteString) -&gt; ToByteString DesiredStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DesiredStatus -&gt; ByteString
+$ctoBS :: DesiredStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679450739"><span class="annot"><span class="annottext">DesiredStatus -&gt; ByteStringBuilder
+(DesiredStatus -&gt; ByteStringBuilder) -&gt; ToLog DesiredStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DesiredStatus -&gt; ByteStringBuilder
+$cbuild :: DesiredStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679450736"><span class="annot"><span class="annottext">HeaderName -&gt; DesiredStatus -&gt; [Header]
+(HeaderName -&gt; DesiredStatus -&gt; [Header]) -&gt; ToHeader DesiredStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DesiredStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DesiredStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679450733"><span class="annot"><span class="annottext">DesiredStatus -&gt; QueryString
+(DesiredStatus -&gt; QueryString) -&gt; ToQuery DesiredStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DesiredStatus -&gt; QueryString
+$ctoQuery :: DesiredStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679450728"><span id="local-6989586621679450730"><span class="annot"><span class="annottext">Value -&gt; Parser [DesiredStatus]
+Value -&gt; Parser DesiredStatus
+(Value -&gt; Parser DesiredStatus)
+-&gt; (Value -&gt; Parser [DesiredStatus]) -&gt; FromJSON DesiredStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DesiredStatus]
+$cparseJSONList :: Value -&gt; Parser [DesiredStatus]
+parseJSON :: Value -&gt; Parser DesiredStatus
+$cparseJSON :: Value -&gt; Parser DesiredStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679450723"><span id="local-6989586621679450725"><span class="annot"><span class="annottext">FromJSONKeyFunction [DesiredStatus]
+FromJSONKeyFunction DesiredStatus
+FromJSONKeyFunction DesiredStatus
+-&gt; FromJSONKeyFunction [DesiredStatus] -&gt; FromJSONKey DesiredStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DesiredStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DesiredStatus]
+fromJSONKey :: FromJSONKeyFunction DesiredStatus
+$cfromJSONKey :: FromJSONKeyFunction DesiredStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679450714"><span id="local-6989586621679450716"><span id="local-6989586621679450718"><span id="local-6989586621679450720"><span class="annot"><span class="annottext">[DesiredStatus] -&gt; Encoding
+[DesiredStatus] -&gt; Value
+DesiredStatus -&gt; Encoding
+DesiredStatus -&gt; Value
+(DesiredStatus -&gt; Value)
+-&gt; (DesiredStatus -&gt; Encoding)
+-&gt; ([DesiredStatus] -&gt; Value)
+-&gt; ([DesiredStatus] -&gt; Encoding)
+-&gt; ToJSON DesiredStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DesiredStatus] -&gt; Encoding
+$ctoEncodingList :: [DesiredStatus] -&gt; Encoding
+toJSONList :: [DesiredStatus] -&gt; Value
+$ctoJSONList :: [DesiredStatus] -&gt; Value
+toEncoding :: DesiredStatus -&gt; Encoding
+$ctoEncoding :: DesiredStatus -&gt; Encoding
+toJSON :: DesiredStatus -&gt; Value
+$ctoJSON :: DesiredStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679450709"><span id="local-6989586621679450711"><span class="annot"><span class="annottext">ToJSONKeyFunction [DesiredStatus]
+ToJSONKeyFunction DesiredStatus
+ToJSONKeyFunction DesiredStatus
+-&gt; ToJSONKeyFunction [DesiredStatus] -&gt; ToJSONKey DesiredStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DesiredStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DesiredStatus]
+toJSONKey :: ToJSONKeyFunction DesiredStatus
+$ctoJSONKey :: ToJSONKeyFunction DesiredStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679450706"><span class="annot"><span class="annottext">[Node] -&gt; Either String DesiredStatus
+([Node] -&gt; Either String DesiredStatus) -&gt; FromXML DesiredStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DesiredStatus
+$cparseXML :: [Node] -&gt; Either String DesiredStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679450703"><span class="annot"><span class="annottext">DesiredStatus -&gt; XML
+(DesiredStatus -&gt; XML) -&gt; ToXML DesiredStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DesiredStatus -&gt; XML
+$ctoXML :: DesiredStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_PENDING"><span class="hs-identifier hs-type">DesiredStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus"><span class="hs-identifier hs-type">DesiredStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDesiredStatus_PENDING"><span id="%24mDesiredStatus_PENDING"><span id="DesiredStatus_PENDING"><span class="annot"><span class="annottext">$bDesiredStatus_PENDING :: DesiredStatus
+$mDesiredStatus_PENDING :: forall r. DesiredStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.DesiredStatus.html#%24bDesiredStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">DesiredStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus%27"><span class="hs-identifier hs-type">DesiredStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_RUNNING"><span class="hs-identifier hs-type">DesiredStatus_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus"><span class="hs-identifier hs-type">DesiredStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDesiredStatus_RUNNING"><span id="%24mDesiredStatus_RUNNING"><span id="DesiredStatus_RUNNING"><span class="annot"><span class="annottext">$bDesiredStatus_RUNNING :: DesiredStatus
+$mDesiredStatus_RUNNING :: forall r. DesiredStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.DesiredStatus.html#%24bDesiredStatus_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">DesiredStatus_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus%27"><span class="hs-identifier hs-type">DesiredStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_STOPPED"><span class="hs-identifier hs-type">DesiredStatus_STOPPED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus"><span class="hs-identifier hs-type">DesiredStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDesiredStatus_STOPPED"><span id="%24mDesiredStatus_STOPPED"><span id="DesiredStatus_STOPPED"><span class="annot"><span class="annottext">$bDesiredStatus_STOPPED :: DesiredStatus
+$mDesiredStatus_STOPPED :: forall r. DesiredStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.DesiredStatus.html#%24bDesiredStatus_STOPPED"><span class="hs-identifier hs-var hs-var hs-var">DesiredStatus_STOPPED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus%27"><span class="hs-identifier hs-type">DesiredStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_PENDING"><span class="hs-pragma hs-type">DesiredStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_RUNNING"><span class="hs-pragma hs-type">DesiredStatus_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus_STOPPED"><span class="hs-pragma hs-type">DesiredStatus_STOPPED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.DesiredStatus.html#DesiredStatus%27"><span class="hs-pragma hs-type">DesiredStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

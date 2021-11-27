@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ELB.SetLoadBalancerListenerSSLCertificate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the certificate that terminates the specified listener\'s SSL</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- connections. The specified certificate replaces any prior certificate</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- that was used on the same load balancer and port.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For more information about updating your SSL certificate, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html Replace the SSL Certificate for Your Load Balancer&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELB.SetLoadBalancerListenerSSLCertificate</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier">SetLoadBalancerListenerSSLCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#newSetLoadBalancerListenerSSLCertificate"><span class="hs-identifier">newSetLoadBalancerListenerSSLCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_loadBalancerName"><span class="hs-identifier">setLoadBalancerListenerSSLCertificate_loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_loadBalancerPort"><span class="hs-identifier">setLoadBalancerListenerSSLCertificate_loadBalancerPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_sSLCertificateId"><span class="hs-identifier">setLoadBalancerListenerSSLCertificate_sSLCertificateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier">SetLoadBalancerListenerSSLCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#newSetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier">newSetLoadBalancerListenerSSLCertificateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificateResponse_httpStatus"><span class="hs-identifier">setLoadBalancerListenerSSLCertificateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.html"><span class="hs-identifier">Amazonka.ELB.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Contains the parameters for SetLoadBalancerListenerSSLCertificate.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newSetLoadBalancerListenerSSLCertificate' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679198746"><span id="local-6989586621679198747"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoadBalancerListenerSSLCertificate"><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-var">SetLoadBalancerListenerSSLCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoadBalancerListenerSSLCertificate%27"><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var">SetLoadBalancerListenerSSLCertificate'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ASetLoadBalancerListenerSSLCertificate%27"><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate -&gt; Text
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AloadBalancerName%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The port that uses the specified SSL certificate.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AloadBalancerPort%3ASetLoadBalancerListenerSSLCertificate%27"><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate -&gt; Int
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AloadBalancerPort%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var hs-var">loadBalancerPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the SSL certificate.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsSLCertificateId%3ASetLoadBalancerListenerSSLCertificate%27"><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate -&gt; Text
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AsSLCertificateId%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var hs-var">sSLCertificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198738"><span id="local-6989586621679198740"><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate
+-&gt; SetLoadBalancerListenerSSLCertificate -&gt; Bool
+(SetLoadBalancerListenerSSLCertificate
+ -&gt; SetLoadBalancerListenerSSLCertificate -&gt; Bool)
+-&gt; (SetLoadBalancerListenerSSLCertificate
+    -&gt; SetLoadBalancerListenerSSLCertificate -&gt; Bool)
+-&gt; Eq SetLoadBalancerListenerSSLCertificate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetLoadBalancerListenerSSLCertificate
+-&gt; SetLoadBalancerListenerSSLCertificate -&gt; Bool
+$c/= :: SetLoadBalancerListenerSSLCertificate
+-&gt; SetLoadBalancerListenerSSLCertificate -&gt; Bool
+== :: SetLoadBalancerListenerSSLCertificate
+-&gt; SetLoadBalancerListenerSSLCertificate -&gt; Bool
+$c== :: SetLoadBalancerListenerSSLCertificate
+-&gt; SetLoadBalancerListenerSSLCertificate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198729"><span id="local-6989586621679198731"><span id="local-6989586621679198733"><span id="local-6989586621679198735"><span class="annot"><span class="annottext">ReadPrec [SetLoadBalancerListenerSSLCertificate]
+ReadPrec SetLoadBalancerListenerSSLCertificate
+Int -&gt; ReadS SetLoadBalancerListenerSSLCertificate
+ReadS [SetLoadBalancerListenerSSLCertificate]
+(Int -&gt; ReadS SetLoadBalancerListenerSSLCertificate)
+-&gt; ReadS [SetLoadBalancerListenerSSLCertificate]
+-&gt; ReadPrec SetLoadBalancerListenerSSLCertificate
+-&gt; ReadPrec [SetLoadBalancerListenerSSLCertificate]
+-&gt; Read SetLoadBalancerListenerSSLCertificate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetLoadBalancerListenerSSLCertificate]
+$creadListPrec :: ReadPrec [SetLoadBalancerListenerSSLCertificate]
+readPrec :: ReadPrec SetLoadBalancerListenerSSLCertificate
+$creadPrec :: ReadPrec SetLoadBalancerListenerSSLCertificate
+readList :: ReadS [SetLoadBalancerListenerSSLCertificate]
+$creadList :: ReadS [SetLoadBalancerListenerSSLCertificate]
+readsPrec :: Int -&gt; ReadS SetLoadBalancerListenerSSLCertificate
+$creadsPrec :: Int -&gt; ReadS SetLoadBalancerListenerSSLCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198722"><span id="local-6989586621679198724"><span id="local-6989586621679198726"><span class="annot"><span class="annottext">Int -&gt; SetLoadBalancerListenerSSLCertificate -&gt; ShowS
+[SetLoadBalancerListenerSSLCertificate] -&gt; ShowS
+SetLoadBalancerListenerSSLCertificate -&gt; String
+(Int -&gt; SetLoadBalancerListenerSSLCertificate -&gt; ShowS)
+-&gt; (SetLoadBalancerListenerSSLCertificate -&gt; String)
+-&gt; ([SetLoadBalancerListenerSSLCertificate] -&gt; ShowS)
+-&gt; Show SetLoadBalancerListenerSSLCertificate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetLoadBalancerListenerSSLCertificate] -&gt; ShowS
+$cshowList :: [SetLoadBalancerListenerSSLCertificate] -&gt; ShowS
+show :: SetLoadBalancerListenerSSLCertificate -&gt; String
+$cshow :: SetLoadBalancerListenerSSLCertificate -&gt; String
+showsPrec :: Int -&gt; SetLoadBalancerListenerSSLCertificate -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetLoadBalancerListenerSSLCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetLoadBalancerListenerSSLCertificate
+ -&gt; Rep SetLoadBalancerListenerSSLCertificate x)
+-&gt; (forall x.
+    Rep SetLoadBalancerListenerSSLCertificate x
+    -&gt; SetLoadBalancerListenerSSLCertificate)
+-&gt; Generic SetLoadBalancerListenerSSLCertificate
+forall x.
+Rep SetLoadBalancerListenerSSLCertificate x
+-&gt; SetLoadBalancerListenerSSLCertificate
+forall x.
+SetLoadBalancerListenerSSLCertificate
+-&gt; Rep SetLoadBalancerListenerSSLCertificate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetLoadBalancerListenerSSLCertificate x
+-&gt; SetLoadBalancerListenerSSLCertificate
+$cfrom :: forall x.
+SetLoadBalancerListenerSSLCertificate
+-&gt; Rep SetLoadBalancerListenerSSLCertificate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'SetLoadBalancerListenerSSLCertificate' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'loadBalancerName', 'setLoadBalancerListenerSSLCertificate_loadBalancerName' - The name of the load balancer.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'loadBalancerPort', 'setLoadBalancerListenerSSLCertificate_loadBalancerPort' - The port that uses the specified SSL certificate.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'sSLCertificateId', 'setLoadBalancerListenerSSLCertificate_sSLCertificateId' - The Amazon Resource Name (ARN) of the SSL certificate.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#newSetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">newSetLoadBalancerListenerSSLCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'loadBalancerName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'loadBalancerPort'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'sSLCertificateId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span>
+</span><span id="line-90"></span><span id="newSetLoadBalancerListenerSSLCertificate"><span class="annot"><span class="annottext">newSetLoadBalancerListenerSSLCertificate :: Text -&gt; Int -&gt; Text -&gt; SetLoadBalancerListenerSSLCertificate
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#newSetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-var hs-var">newSetLoadBalancerListenerSSLCertificate</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679198717"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198717"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679198716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198716"><span class="hs-identifier hs-var">pLoadBalancerPort_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679198715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198715"><span class="hs-identifier hs-var">pSSLCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate' :: Text -&gt; Int -&gt; Text -&gt; SetLoadBalancerListenerSSLCertificate
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:SetLoadBalancerListenerSSLCertificate' :: Text
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AloadBalancerName%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198717"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:loadBalancerPort:SetLoadBalancerListenerSSLCertificate' :: Int
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AloadBalancerPort%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var">loadBalancerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198716"><span class="hs-identifier hs-var">pLoadBalancerPort_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:sSLCertificateId:SetLoadBalancerListenerSSLCertificate' :: Text
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AsSLCertificateId%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var">sSLCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198715"><span class="hs-identifier hs-var">pSSLCertificateId_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_loadBalancerName"><span class="hs-identifier hs-type">setLoadBalancerListenerSSLCertificate_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="setLoadBalancerListenerSSLCertificate_loadBalancerName"><span class="annot"><span class="annottext">setLoadBalancerListenerSSLCertificate_loadBalancerName :: (Text -&gt; f Text)
+-&gt; SetLoadBalancerListenerSSLCertificate
+-&gt; f SetLoadBalancerListenerSSLCertificate
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_loadBalancerName"><span class="hs-identifier hs-var hs-var">setLoadBalancerListenerSSLCertificate_loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetLoadBalancerListenerSSLCertificate -&gt; Text)
+-&gt; (SetLoadBalancerListenerSSLCertificate
+    -&gt; Text -&gt; SetLoadBalancerListenerSSLCertificate)
+-&gt; Lens
+     SetLoadBalancerListenerSSLCertificate
+     SetLoadBalancerListenerSSLCertificate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198712"><span class="annot"><span class="annottext">Text
+loadBalancerName :: Text
+$sel:loadBalancerName:SetLoadBalancerListenerSSLCertificate' :: SetLoadBalancerListenerSSLCertificate -&gt; Text
+</span><a href="#local-6989586621679198712"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198712"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198711"><span class="annot"><span class="annottext">s :: SetLoadBalancerListenerSSLCertificate
+</span><a href="#local-6989586621679198711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate
+</span><a href="#local-6989586621679198711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:SetLoadBalancerListenerSSLCertificate' :: Text
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AloadBalancerName%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The port that uses the specified SSL certificate.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_loadBalancerPort"><span class="hs-identifier hs-type">setLoadBalancerListenerSSLCertificate_loadBalancerPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-109"></span><span id="setLoadBalancerListenerSSLCertificate_loadBalancerPort"><span class="annot"><span class="annottext">setLoadBalancerListenerSSLCertificate_loadBalancerPort :: (Int -&gt; f Int)
+-&gt; SetLoadBalancerListenerSSLCertificate
+-&gt; f SetLoadBalancerListenerSSLCertificate
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_loadBalancerPort"><span class="hs-identifier hs-var hs-var">setLoadBalancerListenerSSLCertificate_loadBalancerPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetLoadBalancerListenerSSLCertificate -&gt; Int)
+-&gt; (SetLoadBalancerListenerSSLCertificate
+    -&gt; Int -&gt; SetLoadBalancerListenerSSLCertificate)
+-&gt; Lens
+     SetLoadBalancerListenerSSLCertificate
+     SetLoadBalancerListenerSSLCertificate
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198709"><span class="annot"><span class="annottext">Int
+loadBalancerPort :: Int
+$sel:loadBalancerPort:SetLoadBalancerListenerSSLCertificate' :: SetLoadBalancerListenerSSLCertificate -&gt; Int
+</span><a href="#local-6989586621679198709"><span class="hs-identifier hs-var hs-var">loadBalancerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198709"><span class="hs-identifier hs-var">loadBalancerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198708"><span class="annot"><span class="annottext">s :: SetLoadBalancerListenerSSLCertificate
+</span><a href="#local-6989586621679198708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate
+</span><a href="#local-6989586621679198708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerPort:SetLoadBalancerListenerSSLCertificate' :: Int
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AloadBalancerPort%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var">loadBalancerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the SSL certificate.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_sSLCertificateId"><span class="hs-identifier hs-type">setLoadBalancerListenerSSLCertificate_sSLCertificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="setLoadBalancerListenerSSLCertificate_sSLCertificateId"><span class="annot"><span class="annottext">setLoadBalancerListenerSSLCertificate_sSLCertificateId :: (Text -&gt; f Text)
+-&gt; SetLoadBalancerListenerSSLCertificate
+-&gt; f SetLoadBalancerListenerSSLCertificate
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificate_sSLCertificateId"><span class="hs-identifier hs-var hs-var">setLoadBalancerListenerSSLCertificate_sSLCertificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetLoadBalancerListenerSSLCertificate -&gt; Text)
+-&gt; (SetLoadBalancerListenerSSLCertificate
+    -&gt; Text -&gt; SetLoadBalancerListenerSSLCertificate)
+-&gt; Lens
+     SetLoadBalancerListenerSSLCertificate
+     SetLoadBalancerListenerSSLCertificate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198706"><span class="annot"><span class="annottext">Text
+sSLCertificateId :: Text
+$sel:sSLCertificateId:SetLoadBalancerListenerSSLCertificate' :: SetLoadBalancerListenerSSLCertificate -&gt; Text
+</span><a href="#local-6989586621679198706"><span class="hs-identifier hs-var hs-var">sSLCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198706"><span class="hs-identifier hs-var">sSLCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198705"><span class="annot"><span class="annottext">s :: SetLoadBalancerListenerSSLCertificate
+</span><a href="#local-6989586621679198705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificate
+</span><a href="#local-6989586621679198705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSLCertificateId:SetLoadBalancerListenerSSLCertificate' :: Text
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AsSLCertificateId%3ASetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-var">sSLCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679198700"><span class="annot"><span class="annottext">request :: SetLoadBalancerListenerSSLCertificate
+-&gt; Request SetLoadBalancerListenerSSLCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; SetLoadBalancerListenerSSLCertificate
+-&gt; Request SetLoadBalancerListenerSSLCertificate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679198696"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetLoadBalancerListenerSSLCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse SetLoadBalancerListenerSSLCertificate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either
+         String (AWSResponse SetLoadBalancerListenerSSLCertificate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetLoadBalancerListenerSSLCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse SetLoadBalancerListenerSSLCertificate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SetLoadBalancerListenerSSLCertificateResult&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198693"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198692"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679198692"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198691"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679198691"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetLoadBalancerListenerSSLCertificateResponse
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-var">SetLoadBalancerListenerSSLCertificateResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetLoadBalancerListenerSSLCertificateResponse)
+-&gt; Either String Int
+-&gt; Either String SetLoadBalancerListenerSSLCertificateResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198693"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679198684"><span id="local-6989586621679198686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679198681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679198677"><span class="annot"><span class="annottext">toHeaders :: SetLoadBalancerListenerSSLCertificate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; SetLoadBalancerListenerSSLCertificate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679198672"><span class="annot"><span class="annottext">toPath :: SetLoadBalancerListenerSSLCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetLoadBalancerListenerSSLCertificate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679198668"><span class="annot"><span class="annottext">toQuery :: SetLoadBalancerListenerSSLCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificate%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198664"><span id="local-6989586621679198665"><span id="local-6989586621679198666"><span class="annot"><span class="annottext">Int
+Text
+sSLCertificateId :: Text
+loadBalancerPort :: Int
+loadBalancerName :: Text
+$sel:sSLCertificateId:SetLoadBalancerListenerSSLCertificate' :: SetLoadBalancerListenerSSLCertificate -&gt; Text
+$sel:loadBalancerPort:SetLoadBalancerListenerSSLCertificate' :: SetLoadBalancerListenerSSLCertificate -&gt; Int
+$sel:loadBalancerName:SetLoadBalancerListenerSSLCertificate' :: SetLoadBalancerListenerSSLCertificate -&gt; Text
+</span><a href="#local-6989586621679198664"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SetLoadBalancerListenerSSLCertificate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-06-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198666"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LoadBalancerPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198665"><span class="hs-identifier hs-var">loadBalancerPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SSLCertificateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198664"><span class="hs-identifier hs-var">sSLCertificateId</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Contains the output of SetLoadBalancerListenerSSLCertificate.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- /See:/ 'newSetLoadBalancerListenerSSLCertificateResponse' smart constructor.</span><span>
+</span><span id="line-172"></span><span id="local-6989586621679198661"><span id="local-6989586621679198662"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoadBalancerListenerSSLCertificateResponse"><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-var">SetLoadBalancerListenerSSLCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoadBalancerListenerSSLCertificateResponse%27"><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-var">SetLoadBalancerListenerSSLCertificateResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetLoadBalancerListenerSSLCertificateResponse%27"><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificateResponse -&gt; Int
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AhttpStatus%3ASetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198656"><span id="local-6989586621679198658"><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificateResponse
+-&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; Bool
+(SetLoadBalancerListenerSSLCertificateResponse
+ -&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; Bool)
+-&gt; (SetLoadBalancerListenerSSLCertificateResponse
+    -&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; Bool)
+-&gt; Eq SetLoadBalancerListenerSSLCertificateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetLoadBalancerListenerSSLCertificateResponse
+-&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; Bool
+$c/= :: SetLoadBalancerListenerSSLCertificateResponse
+-&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; Bool
+== :: SetLoadBalancerListenerSSLCertificateResponse
+-&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; Bool
+$c== :: SetLoadBalancerListenerSSLCertificateResponse
+-&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198648"><span id="local-6989586621679198650"><span id="local-6989586621679198652"><span id="local-6989586621679198654"><span class="annot"><span class="annottext">ReadPrec [SetLoadBalancerListenerSSLCertificateResponse]
+ReadPrec SetLoadBalancerListenerSSLCertificateResponse
+Int -&gt; ReadS SetLoadBalancerListenerSSLCertificateResponse
+ReadS [SetLoadBalancerListenerSSLCertificateResponse]
+(Int -&gt; ReadS SetLoadBalancerListenerSSLCertificateResponse)
+-&gt; ReadS [SetLoadBalancerListenerSSLCertificateResponse]
+-&gt; ReadPrec SetLoadBalancerListenerSSLCertificateResponse
+-&gt; ReadPrec [SetLoadBalancerListenerSSLCertificateResponse]
+-&gt; Read SetLoadBalancerListenerSSLCertificateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetLoadBalancerListenerSSLCertificateResponse]
+$creadListPrec :: ReadPrec [SetLoadBalancerListenerSSLCertificateResponse]
+readPrec :: ReadPrec SetLoadBalancerListenerSSLCertificateResponse
+$creadPrec :: ReadPrec SetLoadBalancerListenerSSLCertificateResponse
+readList :: ReadS [SetLoadBalancerListenerSSLCertificateResponse]
+$creadList :: ReadS [SetLoadBalancerListenerSSLCertificateResponse]
+readsPrec :: Int -&gt; ReadS SetLoadBalancerListenerSSLCertificateResponse
+$creadsPrec :: Int -&gt; ReadS SetLoadBalancerListenerSSLCertificateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198642"><span id="local-6989586621679198644"><span id="local-6989586621679198646"><span class="annot"><span class="annottext">Int -&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; ShowS
+[SetLoadBalancerListenerSSLCertificateResponse] -&gt; ShowS
+SetLoadBalancerListenerSSLCertificateResponse -&gt; String
+(Int -&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; ShowS)
+-&gt; (SetLoadBalancerListenerSSLCertificateResponse -&gt; String)
+-&gt; ([SetLoadBalancerListenerSSLCertificateResponse] -&gt; ShowS)
+-&gt; Show SetLoadBalancerListenerSSLCertificateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetLoadBalancerListenerSSLCertificateResponse] -&gt; ShowS
+$cshowList :: [SetLoadBalancerListenerSSLCertificateResponse] -&gt; ShowS
+show :: SetLoadBalancerListenerSSLCertificateResponse -&gt; String
+$cshow :: SetLoadBalancerListenerSSLCertificateResponse -&gt; String
+showsPrec :: Int -&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetLoadBalancerListenerSSLCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetLoadBalancerListenerSSLCertificateResponse
+ -&gt; Rep SetLoadBalancerListenerSSLCertificateResponse x)
+-&gt; (forall x.
+    Rep SetLoadBalancerListenerSSLCertificateResponse x
+    -&gt; SetLoadBalancerListenerSSLCertificateResponse)
+-&gt; Generic SetLoadBalancerListenerSSLCertificateResponse
+forall x.
+Rep SetLoadBalancerListenerSSLCertificateResponse x
+-&gt; SetLoadBalancerListenerSSLCertificateResponse
+forall x.
+SetLoadBalancerListenerSSLCertificateResponse
+-&gt; Rep SetLoadBalancerListenerSSLCertificateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetLoadBalancerListenerSSLCertificateResponse x
+-&gt; SetLoadBalancerListenerSSLCertificateResponse
+$cfrom :: forall x.
+SetLoadBalancerListenerSSLCertificateResponse
+-&gt; Rep SetLoadBalancerListenerSSLCertificateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'SetLoadBalancerListenerSSLCertificateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'httpStatus', 'setLoadBalancerListenerSSLCertificateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#newSetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-type">newSetLoadBalancerListenerSSLCertificateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse</span></a></span><span>
+</span><span id="line-191"></span><span id="newSetLoadBalancerListenerSSLCertificateResponse"><span class="annot"><span class="annottext">newSetLoadBalancerListenerSSLCertificateResponse :: Int -&gt; SetLoadBalancerListenerSSLCertificateResponse
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#newSetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-var hs-var">newSetLoadBalancerListenerSSLCertificateResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679198639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificateResponse' :: Int -&gt; SetLoadBalancerListenerSSLCertificateResponse
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetLoadBalancerListenerSSLCertificateResponse' :: Int
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AhttpStatus%3ASetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificateResponse_httpStatus"><span class="hs-identifier hs-type">setLoadBalancerListenerSSLCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span id="setLoadBalancerListenerSSLCertificateResponse_httpStatus"><span class="annot"><span class="annottext">setLoadBalancerListenerSSLCertificateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SetLoadBalancerListenerSSLCertificateResponse
+-&gt; f SetLoadBalancerListenerSSLCertificateResponse
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#setLoadBalancerListenerSSLCertificateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">setLoadBalancerListenerSSLCertificateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetLoadBalancerListenerSSLCertificateResponse -&gt; Int)
+-&gt; (SetLoadBalancerListenerSSLCertificateResponse
+    -&gt; Int -&gt; SetLoadBalancerListenerSSLCertificateResponse)
+-&gt; Lens
+     SetLoadBalancerListenerSSLCertificateResponse
+     SetLoadBalancerListenerSSLCertificateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198638"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SetLoadBalancerListenerSSLCertificateResponse' :: SetLoadBalancerListenerSSLCertificateResponse -&gt; Int
+</span><a href="#local-6989586621679198638"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198638"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198637"><span class="annot"><span class="annottext">s :: SetLoadBalancerListenerSSLCertificateResponse
+</span><a href="#local-6989586621679198637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198636"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBalancerListenerSSLCertificateResponse
+</span><a href="#local-6989586621679198637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetLoadBalancerListenerSSLCertificateResponse' :: Int
+</span><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#%24sel%3AhttpStatus%3ASetLoadBalancerListenerSSLCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679198634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.html#SetLoadBalancerListenerSSLCertificateResponse"><span class="hs-identifier hs-type">SetLoadBalancerListenerSSLCertificateResponse</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

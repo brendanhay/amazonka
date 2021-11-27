@@ -1,0 +1,1310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.APIGateway.TestInvokeAuthorizer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Simulate the execution of an Authorizer in your RestApi with headers,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- parameters, and an incoming request body.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html Use Lambda Function as Authorizer&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html Use Cognito User Pool as Authorizer&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.APIGateway.TestInvokeAuthorizer</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#newTestInvokeAuthorizer"><span class="hs-identifier">newTestInvokeAuthorizer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_pathWithQueryString"><span class="hs-identifier">testInvokeAuthorizer_pathWithQueryString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_body"><span class="hs-identifier">testInvokeAuthorizer_body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_additionalContext"><span class="hs-identifier">testInvokeAuthorizer_additionalContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_stageVariables"><span class="hs-identifier">testInvokeAuthorizer_stageVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_headers"><span class="hs-identifier">testInvokeAuthorizer_headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_multiValueHeaders"><span class="hs-identifier">testInvokeAuthorizer_multiValueHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_restApiId"><span class="hs-identifier">testInvokeAuthorizer_restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_authorizerId"><span class="hs-identifier">testInvokeAuthorizer_authorizerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#newTestInvokeAuthorizerResponse"><span class="hs-identifier">newTestInvokeAuthorizerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_log"><span class="hs-identifier">testInvokeAuthorizerResponse_log</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_principalId"><span class="hs-identifier">testInvokeAuthorizerResponse_principalId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_latency"><span class="hs-identifier">testInvokeAuthorizerResponse_latency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_authorization"><span class="hs-identifier">testInvokeAuthorizerResponse_authorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_claims"><span class="hs-identifier">testInvokeAuthorizerResponse_claims</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_clientStatus"><span class="hs-identifier">testInvokeAuthorizerResponse_clientStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_policy"><span class="hs-identifier">testInvokeAuthorizerResponse_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_httpStatus"><span class="hs-identifier">testInvokeAuthorizerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.html"><span class="hs-identifier">Amazonka.APIGateway.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Make a request to simulate the execution of an Authorizer.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newTestInvokeAuthorizer' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679373488"><span id="local-6989586621679373489"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestInvokeAuthorizer"><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-var">TestInvokeAuthorizer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestInvokeAuthorizer%27"><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-var">TestInvokeAuthorizer'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Optional] The URI path, including query string, of the simulated</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- invocation request. Use this to specify path parameters and query string</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- parameters.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3ApathWithQueryString%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3ApathWithQueryString%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">pathWithQueryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | [Optional] The simulated request body of an incoming invocation request.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Abody%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Abody%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | [Optional] A key-value map of additional context variables.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AadditionalContext%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AadditionalContext%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">additionalContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A key-value map of stage variables to simulate an invocation on a</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- deployed Stage.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AstageVariables%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AstageVariables%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">stageVariables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | [Required] A key-value map of headers to simulate an incoming invocation</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- request. This is where the incoming authorization token, or identity</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- source, should be specified.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aheaders%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aheaders%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | [Optional] The headers as a map from string to list of values to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- simulate an incoming invocation request. This is where the incoming</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- authorization token, or identity source, may be specified.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AmultiValueHeaders%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Maybe (HashMap Text [Text])
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AmultiValueHeaders%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">multiValueHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3ArestApiId%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3ArestApiId%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | [Required] Specifies a test invoke authorizer request\'s Authorizer ID.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AauthorizerId%3ATestInvokeAuthorizer%27"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AauthorizerId%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373475"><span id="local-6989586621679373477"><span class="annot"><span class="annottext">TestInvokeAuthorizer -&gt; TestInvokeAuthorizer -&gt; Bool
+(TestInvokeAuthorizer -&gt; TestInvokeAuthorizer -&gt; Bool)
+-&gt; (TestInvokeAuthorizer -&gt; TestInvokeAuthorizer -&gt; Bool)
+-&gt; Eq TestInvokeAuthorizer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestInvokeAuthorizer -&gt; TestInvokeAuthorizer -&gt; Bool
+$c/= :: TestInvokeAuthorizer -&gt; TestInvokeAuthorizer -&gt; Bool
+== :: TestInvokeAuthorizer -&gt; TestInvokeAuthorizer -&gt; Bool
+$c== :: TestInvokeAuthorizer -&gt; TestInvokeAuthorizer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373466"><span id="local-6989586621679373468"><span id="local-6989586621679373470"><span id="local-6989586621679373472"><span class="annot"><span class="annottext">ReadPrec [TestInvokeAuthorizer]
+ReadPrec TestInvokeAuthorizer
+Int -&gt; ReadS TestInvokeAuthorizer
+ReadS [TestInvokeAuthorizer]
+(Int -&gt; ReadS TestInvokeAuthorizer)
+-&gt; ReadS [TestInvokeAuthorizer]
+-&gt; ReadPrec TestInvokeAuthorizer
+-&gt; ReadPrec [TestInvokeAuthorizer]
+-&gt; Read TestInvokeAuthorizer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestInvokeAuthorizer]
+$creadListPrec :: ReadPrec [TestInvokeAuthorizer]
+readPrec :: ReadPrec TestInvokeAuthorizer
+$creadPrec :: ReadPrec TestInvokeAuthorizer
+readList :: ReadS [TestInvokeAuthorizer]
+$creadList :: ReadS [TestInvokeAuthorizer]
+readsPrec :: Int -&gt; ReadS TestInvokeAuthorizer
+$creadsPrec :: Int -&gt; ReadS TestInvokeAuthorizer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373459"><span id="local-6989586621679373461"><span id="local-6989586621679373463"><span class="annot"><span class="annottext">Int -&gt; TestInvokeAuthorizer -&gt; ShowS
+[TestInvokeAuthorizer] -&gt; ShowS
+TestInvokeAuthorizer -&gt; String
+(Int -&gt; TestInvokeAuthorizer -&gt; ShowS)
+-&gt; (TestInvokeAuthorizer -&gt; String)
+-&gt; ([TestInvokeAuthorizer] -&gt; ShowS)
+-&gt; Show TestInvokeAuthorizer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestInvokeAuthorizer] -&gt; ShowS
+$cshowList :: [TestInvokeAuthorizer] -&gt; ShowS
+show :: TestInvokeAuthorizer -&gt; String
+$cshow :: TestInvokeAuthorizer -&gt; String
+showsPrec :: Int -&gt; TestInvokeAuthorizer -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestInvokeAuthorizer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TestInvokeAuthorizer -&gt; Rep TestInvokeAuthorizer x)
+-&gt; (forall x. Rep TestInvokeAuthorizer x -&gt; TestInvokeAuthorizer)
+-&gt; Generic TestInvokeAuthorizer
+forall x. Rep TestInvokeAuthorizer x -&gt; TestInvokeAuthorizer
+forall x. TestInvokeAuthorizer -&gt; Rep TestInvokeAuthorizer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TestInvokeAuthorizer x -&gt; TestInvokeAuthorizer
+$cfrom :: forall x. TestInvokeAuthorizer -&gt; Rep TestInvokeAuthorizer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'TestInvokeAuthorizer' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'pathWithQueryString', 'testInvokeAuthorizer_pathWithQueryString' - [Optional] The URI path, including query string, of the simulated</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- invocation request. Use this to specify path parameters and query string</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- parameters.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'body', 'testInvokeAuthorizer_body' - [Optional] The simulated request body of an incoming invocation request.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'additionalContext', 'testInvokeAuthorizer_additionalContext' - [Optional] A key-value map of additional context variables.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'stageVariables', 'testInvokeAuthorizer_stageVariables' - A key-value map of stage variables to simulate an invocation on a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- deployed Stage.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'headers', 'testInvokeAuthorizer_headers' - [Required] A key-value map of headers to simulate an incoming invocation</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- request. This is where the incoming authorization token, or identity</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- source, should be specified.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'multiValueHeaders', 'testInvokeAuthorizer_multiValueHeaders' - [Optional] The headers as a map from string to list of values to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- simulate an incoming invocation request. This is where the incoming</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- authorization token, or identity source, may be specified.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'restApiId', 'testInvokeAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'authorizerId', 'testInvokeAuthorizer_authorizerId' - [Required] Specifies a test invoke authorizer request\'s Authorizer ID.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#newTestInvokeAuthorizer"><span class="hs-identifier hs-type">newTestInvokeAuthorizer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'restApiId'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'authorizerId'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span>
+</span><span id="line-132"></span><span id="newTestInvokeAuthorizer"><span class="annot"><span class="annottext">newTestInvokeAuthorizer :: Text -&gt; Text -&gt; TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#newTestInvokeAuthorizer"><span class="hs-identifier hs-var hs-var">newTestInvokeAuthorizer</span></a></span></span><span> </span><span id="local-6989586621679373454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373454"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679373453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373453"><span class="hs-identifier hs-var">pAuthorizerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">TestInvokeAuthorizer' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Text
+-&gt; Text
+-&gt; TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pathWithQueryString:TestInvokeAuthorizer' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3ApathWithQueryString%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">pathWithQueryString</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:TestInvokeAuthorizer' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Abody%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalContext:TestInvokeAuthorizer' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AadditionalContext%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">additionalContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageVariables:TestInvokeAuthorizer' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AstageVariables%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">stageVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:headers:TestInvokeAuthorizer' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aheaders%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:multiValueHeaders:TestInvokeAuthorizer' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AmultiValueHeaders%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">multiValueHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:TestInvokeAuthorizer' :: Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3ArestApiId%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373454"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerId:TestInvokeAuthorizer' :: Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AauthorizerId%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373453"><span class="hs-identifier hs-var">pAuthorizerId_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | [Optional] The URI path, including query string, of the simulated</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- invocation request. Use this to specify path parameters and query string</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- parameters.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_pathWithQueryString"><span class="hs-identifier hs-type">testInvokeAuthorizer_pathWithQueryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="testInvokeAuthorizer_pathWithQueryString"><span class="annot"><span class="annottext">testInvokeAuthorizer_pathWithQueryString :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_pathWithQueryString"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_pathWithQueryString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Maybe Text)
+-&gt; (TestInvokeAuthorizer -&gt; Maybe Text -&gt; TestInvokeAuthorizer)
+-&gt; Lens
+     TestInvokeAuthorizer TestInvokeAuthorizer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373450"><span class="annot"><span class="annottext">Maybe Text
+pathWithQueryString :: Maybe Text
+$sel:pathWithQueryString:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe Text
+</span><a href="#local-6989586621679373450"><span class="hs-identifier hs-var hs-var">pathWithQueryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373450"><span class="hs-identifier hs-var">pathWithQueryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373449"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathWithQueryString:TestInvokeAuthorizer' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3ApathWithQueryString%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">pathWithQueryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | [Optional] The simulated request body of an incoming invocation request.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_body"><span class="hs-identifier hs-type">testInvokeAuthorizer_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="testInvokeAuthorizer_body"><span class="annot"><span class="annottext">testInvokeAuthorizer_body :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_body"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Maybe Text)
+-&gt; (TestInvokeAuthorizer -&gt; Maybe Text -&gt; TestInvokeAuthorizer)
+-&gt; Lens
+     TestInvokeAuthorizer TestInvokeAuthorizer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373447"><span class="annot"><span class="annottext">Maybe Text
+body :: Maybe Text
+$sel:body:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe Text
+</span><a href="#local-6989586621679373447"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373447"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373446"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373445"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:TestInvokeAuthorizer' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Abody%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | [Optional] A key-value map of additional context variables.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_additionalContext"><span class="hs-identifier hs-type">testInvokeAuthorizer_additionalContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="testInvokeAuthorizer_additionalContext"><span class="annot"><span class="annottext">testInvokeAuthorizer_additionalContext :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_additionalContext"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_additionalContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text))
+-&gt; (TestInvokeAuthorizer
+    -&gt; Maybe (HashMap Text Text) -&gt; TestInvokeAuthorizer)
+-&gt; Lens
+     TestInvokeAuthorizer
+     TestInvokeAuthorizer
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373444"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+additionalContext :: Maybe (HashMap Text Text)
+$sel:additionalContext:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373444"><span class="hs-identifier hs-var hs-var">additionalContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373444"><span class="hs-identifier hs-var">additionalContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373443"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373442"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalContext:TestInvokeAuthorizer' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AadditionalContext%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">additionalContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizer
+-&gt; f TestInvokeAuthorizer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | A key-value map of stage variables to simulate an invocation on a</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- deployed Stage.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_stageVariables"><span class="hs-identifier hs-type">testInvokeAuthorizer_stageVariables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="testInvokeAuthorizer_stageVariables"><span class="annot"><span class="annottext">testInvokeAuthorizer_stageVariables :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_stageVariables"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_stageVariables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text))
+-&gt; (TestInvokeAuthorizer
+    -&gt; Maybe (HashMap Text Text) -&gt; TestInvokeAuthorizer)
+-&gt; Lens
+     TestInvokeAuthorizer
+     TestInvokeAuthorizer
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373438"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+stageVariables :: Maybe (HashMap Text Text)
+$sel:stageVariables:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373438"><span class="hs-identifier hs-var hs-var">stageVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373438"><span class="hs-identifier hs-var">stageVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373437"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373436"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageVariables:TestInvokeAuthorizer' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AstageVariables%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">stageVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizer
+-&gt; f TestInvokeAuthorizer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | [Required] A key-value map of headers to simulate an incoming invocation</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- request. This is where the incoming authorization token, or identity</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- source, should be specified.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_headers"><span class="hs-identifier hs-type">testInvokeAuthorizer_headers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="testInvokeAuthorizer_headers"><span class="annot"><span class="annottext">testInvokeAuthorizer_headers :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_headers"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text))
+-&gt; (TestInvokeAuthorizer
+    -&gt; Maybe (HashMap Text Text) -&gt; TestInvokeAuthorizer)
+-&gt; Lens
+     TestInvokeAuthorizer
+     TestInvokeAuthorizer
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373435"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+headers :: Maybe (HashMap Text Text)
+$sel:headers:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373435"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373435"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373434"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373433"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:TestInvokeAuthorizer' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aheaders%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizer
+-&gt; f TestInvokeAuthorizer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | [Optional] The headers as a map from string to list of values to</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- simulate an incoming invocation request. This is where the incoming</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- authorization token, or identity source, may be specified.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_multiValueHeaders"><span class="hs-identifier hs-type">testInvokeAuthorizer_multiValueHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="testInvokeAuthorizer_multiValueHeaders"><span class="annot"><span class="annottext">testInvokeAuthorizer_multiValueHeaders :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_multiValueHeaders"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_multiValueHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Maybe (HashMap Text [Text]))
+-&gt; (TestInvokeAuthorizer
+    -&gt; Maybe (HashMap Text [Text]) -&gt; TestInvokeAuthorizer)
+-&gt; Lens
+     TestInvokeAuthorizer
+     TestInvokeAuthorizer
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373432"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+multiValueHeaders :: Maybe (HashMap Text [Text])
+$sel:multiValueHeaders:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373432"><span class="hs-identifier hs-var hs-var">multiValueHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373432"><span class="hs-identifier hs-var">multiValueHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373431"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373430"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiValueHeaders:TestInvokeAuthorizer' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AmultiValueHeaders%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">multiValueHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+ -&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer)
+-&gt; ((Maybe (HashMap Text [Text])
+     -&gt; f (Maybe (HashMap Text [Text])))
+    -&gt; Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; TestInvokeAuthorizer
+-&gt; f TestInvokeAuthorizer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+-&gt; Iso
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_restApiId"><span class="hs-identifier hs-type">testInvokeAuthorizer_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-178"></span><span id="testInvokeAuthorizer_restApiId"><span class="annot"><span class="annottext">testInvokeAuthorizer_restApiId :: (Text -&gt; f Text) -&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_restApiId"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_restApiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Text)
+-&gt; (TestInvokeAuthorizer -&gt; Text -&gt; TestInvokeAuthorizer)
+-&gt; Lens TestInvokeAuthorizer TestInvokeAuthorizer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373429"><span class="annot"><span class="annottext">Text
+restApiId :: Text
+$sel:restApiId:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Text
+</span><a href="#local-6989586621679373429"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373429"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373428"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373427"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:TestInvokeAuthorizer' :: Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3ArestApiId%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | [Required] Specifies a test invoke authorizer request\'s Authorizer ID.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_authorizerId"><span class="hs-identifier hs-type">testInvokeAuthorizer_authorizerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-182"></span><span id="testInvokeAuthorizer_authorizerId"><span class="annot"><span class="annottext">testInvokeAuthorizer_authorizerId :: (Text -&gt; f Text) -&gt; TestInvokeAuthorizer -&gt; f TestInvokeAuthorizer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizer_authorizerId"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizer_authorizerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizer -&gt; Text)
+-&gt; (TestInvokeAuthorizer -&gt; Text -&gt; TestInvokeAuthorizer)
+-&gt; Lens TestInvokeAuthorizer TestInvokeAuthorizer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373426"><span class="annot"><span class="annottext">Text
+authorizerId :: Text
+$sel:authorizerId:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Text
+</span><a href="#local-6989586621679373426"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373426"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373425"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizer
+</span><a href="#local-6989586621679373425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373424"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizer
+</span><a href="#local-6989586621679373425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:TestInvokeAuthorizer' :: Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AauthorizerId%3ATestInvokeAuthorizer%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679373420"><span class="annot"><span class="annottext">request :: TestInvokeAuthorizer -&gt; Request TestInvokeAuthorizer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestInvokeAuthorizer -&gt; Request TestInvokeAuthorizer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679373416"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy TestInvokeAuthorizer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TestInvokeAuthorizer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse TestInvokeAuthorizer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy TestInvokeAuthorizer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TestInvokeAuthorizer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373413"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373413"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373412"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679373412"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373411"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Int
+-&gt; TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">TestInvokeAuthorizerResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe (HashMap Text [Text])
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text [Text])
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; TestInvokeAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;log&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text [Text])
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Integer
+      -&gt; Maybe (HashMap Text [Text])
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; TestInvokeAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;principalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe (HashMap Text [Text])
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe (HashMap Text [Text])
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; TestInvokeAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;latency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text [Text])
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String (Maybe (HashMap Text [Text]))
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Int -&gt; TestInvokeAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text [Text])))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text [Text])))
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Either String (Maybe (HashMap Text [Text]))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Int -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Maybe Int -&gt; Maybe Text -&gt; Int -&gt; TestInvokeAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;claims&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int -&gt; Maybe Text -&gt; Int -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; TestInvokeAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; TestInvokeAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; TestInvokeAuthorizerResponse)
+-&gt; Either String Int -&gt; Either String TestInvokeAuthorizerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373413"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373402"><span id="local-6989586621679373404"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679373395"><span class="annot"><span class="annottext">toHeaders :: TestInvokeAuthorizer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestInvokeAuthorizer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/json&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373385"><span id="local-6989586621679373387"><span id="local-6989586621679373389"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679373383"><span class="annot"><span class="annottext">toJSON :: TestInvokeAuthorizer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373374"><span id="local-6989586621679373375"><span id="local-6989586621679373376"><span id="local-6989586621679373377"><span id="local-6989586621679373378"><span id="local-6989586621679373379"><span id="local-6989586621679373380"><span id="local-6989586621679373381"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text [Text])
+Maybe (HashMap Text Text)
+Text
+authorizerId :: Text
+restApiId :: Text
+multiValueHeaders :: Maybe (HashMap Text [Text])
+headers :: Maybe (HashMap Text Text)
+stageVariables :: Maybe (HashMap Text Text)
+additionalContext :: Maybe (HashMap Text Text)
+body :: Maybe Text
+pathWithQueryString :: Maybe Text
+$sel:authorizerId:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Text
+$sel:restApiId:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Text
+$sel:multiValueHeaders:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text [Text])
+$sel:headers:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+$sel:stageVariables:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+$sel:additionalContext:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+$sel:body:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe Text
+$sel:pathWithQueryString:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe Text
+</span><a href="#local-6989586621679373374"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pathWithQueryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373381"><span class="hs-identifier hs-var">pathWithQueryString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373380"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;additionalContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373379"><span class="hs-identifier hs-var">additionalContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stageVariables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373378"><span class="hs-identifier hs-var">stageVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373377"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;multiValueHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text [Text] -&gt; Pair)
+-&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373376"><span class="hs-identifier hs-var">multiValueHeaders</span></a></span><span>
+</span><span id="line-230"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679373368"><span class="annot"><span class="annottext">toPath :: TestInvokeAuthorizer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer%27"><span class="hs-identifier hs-type">TestInvokeAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373359"><span id="local-6989586621679373360"><span id="local-6989586621679373361"><span id="local-6989586621679373362"><span id="local-6989586621679373363"><span id="local-6989586621679373364"><span id="local-6989586621679373365"><span id="local-6989586621679373366"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text [Text])
+Maybe (HashMap Text Text)
+Text
+authorizerId :: Text
+restApiId :: Text
+multiValueHeaders :: Maybe (HashMap Text [Text])
+headers :: Maybe (HashMap Text Text)
+stageVariables :: Maybe (HashMap Text Text)
+additionalContext :: Maybe (HashMap Text Text)
+body :: Maybe Text
+pathWithQueryString :: Maybe Text
+$sel:authorizerId:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Text
+$sel:restApiId:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Text
+$sel:multiValueHeaders:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text [Text])
+$sel:headers:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+$sel:stageVariables:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+$sel:additionalContext:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe (HashMap Text Text)
+$sel:body:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe Text
+$sel:pathWithQueryString:TestInvokeAuthorizer' :: TestInvokeAuthorizer -&gt; Maybe Text
+</span><a href="#local-6989586621679373359"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/restapis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373360"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/authorizers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373359"><span class="hs-identifier hs-var">authorizerId</span></a></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizer"><span class="hs-identifier hs-type">TestInvokeAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679373355"><span class="annot"><span class="annottext">toQuery :: TestInvokeAuthorizer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TestInvokeAuthorizer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | Represents the response of the test invoke request for a custom</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- Authorizer</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- /See:/ 'newTestInvokeAuthorizerResponse' smart constructor.</span><span>
+</span><span id="line-249"></span><span id="local-6989586621679373352"><span id="local-6989586621679373353"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestInvokeAuthorizerResponse"><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-var">TestInvokeAuthorizerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestInvokeAuthorizerResponse%27"><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">TestInvokeAuthorizerResponse'</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The API Gateway execution log for the test authorizer request.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3Alog%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Alog%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">log</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | The principal identity returned by the Authorizer</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AprincipalId%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AprincipalId%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The execution latency of the test authorizer request.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3Alatency%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Maybe Integer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Alatency%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">latency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3Aauthorization%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Maybe (HashMap Text [Text])
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aauthorization%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- &lt;https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims&gt;,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- with any supported custom attributes, returned from the Cognito Your</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- User Pool configured for the API.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3Aclaims%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aclaims%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">claims</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- | The HTTP status code that the client would have received. Value is 0 if</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- the authorizer succeeded.</span><span>
+</span><span id="line-264"></span><span>    </span><span id="%24sel%3AclientStatus%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Maybe Int
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AclientStatus%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">clientStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- | The JSON policy document returned by the Authorizer</span><span>
+</span><span id="line-266"></span><span>    </span><span id="%24sel%3Apolicy%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Apolicy%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-268"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestInvokeAuthorizerResponse%27"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse -&gt; Int
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AhttpStatus%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373340"><span id="local-6989586621679373342"><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+-&gt; TestInvokeAuthorizerResponse -&gt; Bool
+(TestInvokeAuthorizerResponse
+ -&gt; TestInvokeAuthorizerResponse -&gt; Bool)
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; TestInvokeAuthorizerResponse -&gt; Bool)
+-&gt; Eq TestInvokeAuthorizerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestInvokeAuthorizerResponse
+-&gt; TestInvokeAuthorizerResponse -&gt; Bool
+$c/= :: TestInvokeAuthorizerResponse
+-&gt; TestInvokeAuthorizerResponse -&gt; Bool
+== :: TestInvokeAuthorizerResponse
+-&gt; TestInvokeAuthorizerResponse -&gt; Bool
+$c== :: TestInvokeAuthorizerResponse
+-&gt; TestInvokeAuthorizerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373332"><span id="local-6989586621679373334"><span id="local-6989586621679373336"><span id="local-6989586621679373338"><span class="annot"><span class="annottext">ReadPrec [TestInvokeAuthorizerResponse]
+ReadPrec TestInvokeAuthorizerResponse
+Int -&gt; ReadS TestInvokeAuthorizerResponse
+ReadS [TestInvokeAuthorizerResponse]
+(Int -&gt; ReadS TestInvokeAuthorizerResponse)
+-&gt; ReadS [TestInvokeAuthorizerResponse]
+-&gt; ReadPrec TestInvokeAuthorizerResponse
+-&gt; ReadPrec [TestInvokeAuthorizerResponse]
+-&gt; Read TestInvokeAuthorizerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestInvokeAuthorizerResponse]
+$creadListPrec :: ReadPrec [TestInvokeAuthorizerResponse]
+readPrec :: ReadPrec TestInvokeAuthorizerResponse
+$creadPrec :: ReadPrec TestInvokeAuthorizerResponse
+readList :: ReadS [TestInvokeAuthorizerResponse]
+$creadList :: ReadS [TestInvokeAuthorizerResponse]
+readsPrec :: Int -&gt; ReadS TestInvokeAuthorizerResponse
+$creadsPrec :: Int -&gt; ReadS TestInvokeAuthorizerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373326"><span id="local-6989586621679373328"><span id="local-6989586621679373330"><span class="annot"><span class="annottext">Int -&gt; TestInvokeAuthorizerResponse -&gt; ShowS
+[TestInvokeAuthorizerResponse] -&gt; ShowS
+TestInvokeAuthorizerResponse -&gt; String
+(Int -&gt; TestInvokeAuthorizerResponse -&gt; ShowS)
+-&gt; (TestInvokeAuthorizerResponse -&gt; String)
+-&gt; ([TestInvokeAuthorizerResponse] -&gt; ShowS)
+-&gt; Show TestInvokeAuthorizerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestInvokeAuthorizerResponse] -&gt; ShowS
+$cshowList :: [TestInvokeAuthorizerResponse] -&gt; ShowS
+show :: TestInvokeAuthorizerResponse -&gt; String
+$cshow :: TestInvokeAuthorizerResponse -&gt; String
+showsPrec :: Int -&gt; TestInvokeAuthorizerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestInvokeAuthorizerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TestInvokeAuthorizerResponse -&gt; Rep TestInvokeAuthorizerResponse x)
+-&gt; (forall x.
+    Rep TestInvokeAuthorizerResponse x -&gt; TestInvokeAuthorizerResponse)
+-&gt; Generic TestInvokeAuthorizerResponse
+forall x.
+Rep TestInvokeAuthorizerResponse x -&gt; TestInvokeAuthorizerResponse
+forall x.
+TestInvokeAuthorizerResponse -&gt; Rep TestInvokeAuthorizerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TestInvokeAuthorizerResponse x -&gt; TestInvokeAuthorizerResponse
+$cfrom :: forall x.
+TestInvokeAuthorizerResponse -&gt; Rep TestInvokeAuthorizerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- Create a value of 'TestInvokeAuthorizerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'log', 'testInvokeAuthorizerResponse_log' - The API Gateway execution log for the test authorizer request.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- 'principalId', 'testInvokeAuthorizerResponse_principalId' - The principal identity returned by the Authorizer</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- 'latency', 'testInvokeAuthorizerResponse_latency' - The execution latency of the test authorizer request.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- 'authorization', 'testInvokeAuthorizerResponse_authorization' - Undocumented member.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'claims', 'testInvokeAuthorizerResponse_claims' - The</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- &lt;https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims&gt;,</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- with any supported custom attributes, returned from the Cognito Your</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- User Pool configured for the API.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- 'clientStatus', 'testInvokeAuthorizerResponse_clientStatus' - The HTTP status code that the client would have received. Value is 0 if</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- the authorizer succeeded.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- 'policy', 'testInvokeAuthorizerResponse_policy' - The JSON policy document returned by the Authorizer</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'httpStatus', 'testInvokeAuthorizerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#newTestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">newTestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-301"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-302"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span>
+</span><span id="line-303"></span><span id="newTestInvokeAuthorizerResponse"><span class="annot"><span class="annottext">newTestInvokeAuthorizerResponse :: Int -&gt; TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#newTestInvokeAuthorizerResponse"><span class="hs-identifier hs-var hs-var">newTestInvokeAuthorizerResponse</span></a></span></span><span> </span><span id="local-6989586621679373323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373323"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>  </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Int
+-&gt; TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:log:TestInvokeAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Alog%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">log</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalId:TestInvokeAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AprincipalId%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>      </span><span class="annot"><span class="annottext">$sel:latency:TestInvokeAuthorizerResponse' :: Maybe Integer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Alatency%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">latency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorization:TestInvokeAuthorizerResponse' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aauthorization%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">authorization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">$sel:claims:TestInvokeAuthorizerResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aclaims%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">claims</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientStatus:TestInvokeAuthorizerResponse' :: Maybe Int
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AclientStatus%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">clientStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:TestInvokeAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Apolicy%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestInvokeAuthorizerResponse' :: Int
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AhttpStatus%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373323"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | The API Gateway execution log for the test authorizer request.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_log"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_log</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="testInvokeAuthorizerResponse_log"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_log :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_log"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_log</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Maybe Text)
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Maybe Text -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse
+     TestInvokeAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373322"><span class="annot"><span class="annottext">Maybe Text
+log :: Maybe Text
+$sel:log:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679373322"><span class="hs-identifier hs-var hs-var">log</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373322"><span class="hs-identifier hs-var">log</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373321"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:log:TestInvokeAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Alog%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">log</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The principal identity returned by the Authorizer</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_principalId"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_principalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="testInvokeAuthorizerResponse_principalId"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_principalId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_principalId"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_principalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Maybe Text)
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Maybe Text -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse
+     TestInvokeAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373319"><span class="annot"><span class="annottext">Maybe Text
+principalId :: Maybe Text
+$sel:principalId:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679373319"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373319"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373318"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:TestInvokeAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AprincipalId%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The execution latency of the test authorizer request.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_latency"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_latency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="testInvokeAuthorizerResponse_latency"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_latency :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_latency"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_latency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Maybe Integer)
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Maybe Integer -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse
+     TestInvokeAuthorizerResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373316"><span class="annot"><span class="annottext">Maybe Integer
+latency :: Maybe Integer
+$sel:latency:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679373316"><span class="hs-identifier hs-var hs-var">latency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373316"><span class="hs-identifier hs-var">latency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373315"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373314"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latency:TestInvokeAuthorizerResponse' :: Maybe Integer
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Alatency%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">latency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_authorization"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_authorization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="testInvokeAuthorizerResponse_authorization"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_authorization :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_authorization"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_authorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Maybe (HashMap Text [Text]))
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Maybe (HashMap Text [Text]) -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse
+     TestInvokeAuthorizerResponse
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373313"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+authorization :: Maybe (HashMap Text [Text])
+$sel:authorization:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373313"><span class="hs-identifier hs-var hs-var">authorization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373313"><span class="hs-identifier hs-var">authorization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373312"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373311"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorization:TestInvokeAuthorizerResponse' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aauthorization%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">authorization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679373311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+ -&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse)
+-&gt; ((Maybe (HashMap Text [Text])
+     -&gt; f (Maybe (HashMap Text [Text])))
+    -&gt; Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; TestInvokeAuthorizerResponse
+-&gt; f TestInvokeAuthorizerResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+-&gt; Iso
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- &lt;https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims&gt;,</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- with any supported custom attributes, returned from the Cognito Your</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- User Pool configured for the API.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_claims"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_claims</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="testInvokeAuthorizerResponse_claims"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_claims :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_claims"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_claims</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse
+     TestInvokeAuthorizerResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373310"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+claims :: Maybe (HashMap Text Text)
+$sel:claims:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373310"><span class="hs-identifier hs-var hs-var">claims</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373310"><span class="hs-identifier hs-var">claims</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373309"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373308"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:claims:TestInvokeAuthorizerResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Aclaims%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">claims</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; TestInvokeAuthorizerResponse
+-&gt; f TestInvokeAuthorizerResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | The HTTP status code that the client would have received. Value is 0 if</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- the authorizer succeeded.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_clientStatus"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_clientStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span id="testInvokeAuthorizerResponse_clientStatus"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_clientStatus :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_clientStatus"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_clientStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Maybe Int)
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Maybe Int -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse
+     TestInvokeAuthorizerResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373307"><span class="annot"><span class="annottext">Maybe Int
+clientStatus :: Maybe Int
+$sel:clientStatus:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679373307"><span class="hs-identifier hs-var hs-var">clientStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373307"><span class="hs-identifier hs-var">clientStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373306"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373305"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientStatus:TestInvokeAuthorizerResponse' :: Maybe Int
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AclientStatus%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">clientStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | The JSON policy document returned by the Authorizer</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_policy"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span id="testInvokeAuthorizerResponse_policy"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_policy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_policy"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Maybe Text)
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Maybe Text -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse
+     TestInvokeAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373304"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679373304"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373304"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373303"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:TestInvokeAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3Apolicy%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-349"></span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_httpStatus"><span class="hs-identifier hs-type">testInvokeAuthorizerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-350"></span><span id="testInvokeAuthorizerResponse_httpStatus"><span class="annot"><span class="annottext">testInvokeAuthorizerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; TestInvokeAuthorizerResponse -&gt; f TestInvokeAuthorizerResponse
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#testInvokeAuthorizerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">testInvokeAuthorizerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestInvokeAuthorizerResponse -&gt; Int)
+-&gt; (TestInvokeAuthorizerResponse
+    -&gt; Int -&gt; TestInvokeAuthorizerResponse)
+-&gt; Lens
+     TestInvokeAuthorizerResponse TestInvokeAuthorizerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373301"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:TestInvokeAuthorizerResponse' :: TestInvokeAuthorizerResponse -&gt; Int
+</span><a href="#local-6989586621679373301"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373301"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373300"><span class="annot"><span class="annottext">s :: TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestInvokeAuthorizerResponse
+</span><a href="#local-6989586621679373300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestInvokeAuthorizerResponse' :: Int
+</span><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#%24sel%3AhttpStatus%3ATestInvokeAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.TestInvokeAuthorizer.html#TestInvokeAuthorizerResponse"><span class="hs-identifier hs-type">TestInvokeAuthorizerResponse</span></a></span></span><span>
+</span><span id="line-353"></span></pre></body></html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.Types.EventDataSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.Types.EventDataSource</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource"><span class="hs-identifier">EventDataSource</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource_AWS_CLOUD_TRAIL"><span class="hs-identifier">EventDataSource_AWS_CLOUD_TRAIL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource_AWS_CODE_DEPLOY"><span class="hs-identifier">EventDataSource_AWS_CODE_DEPLOY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679232048"><span id="local-6989586621679232049"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventDataSource"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource"><span class="hs-identifier hs-var">EventDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventDataSource%27"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource%27"><span class="hs-identifier hs-var">EventDataSource'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEventDataSource"><span class="annot"><span class="annottext">EventDataSource -&gt; Text
+</span><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#fromEventDataSource"><span class="hs-identifier hs-var hs-var">fromEventDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679232040"><span id="local-6989586621679232042"><span id="local-6989586621679232044"><span class="annot"><span class="annottext">Int -&gt; EventDataSource -&gt; ShowS
+[EventDataSource] -&gt; ShowS
+EventDataSource -&gt; String
+(Int -&gt; EventDataSource -&gt; ShowS)
+-&gt; (EventDataSource -&gt; String)
+-&gt; ([EventDataSource] -&gt; ShowS)
+-&gt; Show EventDataSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EventDataSource] -&gt; ShowS
+$cshowList :: [EventDataSource] -&gt; ShowS
+show :: EventDataSource -&gt; String
+$cshow :: EventDataSource -&gt; String
+showsPrec :: Int -&gt; EventDataSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; EventDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679232031"><span id="local-6989586621679232033"><span id="local-6989586621679232035"><span id="local-6989586621679232037"><span class="annot"><span class="annottext">ReadPrec [EventDataSource]
+ReadPrec EventDataSource
+Int -&gt; ReadS EventDataSource
+ReadS [EventDataSource]
+(Int -&gt; ReadS EventDataSource)
+-&gt; ReadS [EventDataSource]
+-&gt; ReadPrec EventDataSource
+-&gt; ReadPrec [EventDataSource]
+-&gt; Read EventDataSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EventDataSource]
+$creadListPrec :: ReadPrec [EventDataSource]
+readPrec :: ReadPrec EventDataSource
+$creadPrec :: ReadPrec EventDataSource
+readList :: ReadS [EventDataSource]
+$creadList :: ReadS [EventDataSource]
+readsPrec :: Int -&gt; ReadS EventDataSource
+$creadsPrec :: Int -&gt; ReadS EventDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679232026"><span id="local-6989586621679232028"><span class="annot"><span class="annottext">EventDataSource -&gt; EventDataSource -&gt; Bool
+(EventDataSource -&gt; EventDataSource -&gt; Bool)
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; Bool)
+-&gt; Eq EventDataSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EventDataSource -&gt; EventDataSource -&gt; Bool
+$c/= :: EventDataSource -&gt; EventDataSource -&gt; Bool
+== :: EventDataSource -&gt; EventDataSource -&gt; Bool
+$c== :: EventDataSource -&gt; EventDataSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679232010"><span id="local-6989586621679232012"><span id="local-6989586621679232014"><span id="local-6989586621679232016"><span id="local-6989586621679232018"><span id="local-6989586621679232020"><span id="local-6989586621679232022"><span class="annot"><span class="annottext">Eq EventDataSource
+Eq EventDataSource
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; Ordering)
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; Bool)
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; Bool)
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; Bool)
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; Bool)
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; EventDataSource)
+-&gt; (EventDataSource -&gt; EventDataSource -&gt; EventDataSource)
+-&gt; Ord EventDataSource
+EventDataSource -&gt; EventDataSource -&gt; Bool
+EventDataSource -&gt; EventDataSource -&gt; Ordering
+EventDataSource -&gt; EventDataSource -&gt; EventDataSource
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EventDataSource -&gt; EventDataSource -&gt; EventDataSource
+$cmin :: EventDataSource -&gt; EventDataSource -&gt; EventDataSource
+max :: EventDataSource -&gt; EventDataSource -&gt; EventDataSource
+$cmax :: EventDataSource -&gt; EventDataSource -&gt; EventDataSource
+&gt;= :: EventDataSource -&gt; EventDataSource -&gt; Bool
+$c&gt;= :: EventDataSource -&gt; EventDataSource -&gt; Bool
+&gt; :: EventDataSource -&gt; EventDataSource -&gt; Bool
+$c&gt; :: EventDataSource -&gt; EventDataSource -&gt; Bool
+&lt;= :: EventDataSource -&gt; EventDataSource -&gt; Bool
+$c&lt;= :: EventDataSource -&gt; EventDataSource -&gt; Bool
+&lt; :: EventDataSource -&gt; EventDataSource -&gt; Bool
+$c&lt; :: EventDataSource -&gt; EventDataSource -&gt; Bool
+compare :: EventDataSource -&gt; EventDataSource -&gt; Ordering
+$ccompare :: EventDataSource -&gt; EventDataSource -&gt; Ordering
+$cp1Ord :: Eq EventDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EventDataSource -&gt; Rep EventDataSource x)
+-&gt; (forall x. Rep EventDataSource x -&gt; EventDataSource)
+-&gt; Generic EventDataSource
+forall x. Rep EventDataSource x -&gt; EventDataSource
+forall x. EventDataSource -&gt; Rep EventDataSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EventDataSource x -&gt; EventDataSource
+$cfrom :: forall x. EventDataSource -&gt; Rep EventDataSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679232002"><span id="local-6989586621679232004"><span class="annot"><span class="annottext">Int -&gt; EventDataSource -&gt; Int
+EventDataSource -&gt; Int
+(Int -&gt; EventDataSource -&gt; Int)
+-&gt; (EventDataSource -&gt; Int) -&gt; Hashable EventDataSource
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EventDataSource -&gt; Int
+$chash :: EventDataSource -&gt; Int
+hashWithSalt :: Int -&gt; EventDataSource -&gt; Int
+$chashWithSalt :: Int -&gt; EventDataSource -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679231999"><span class="annot"><span class="annottext">EventDataSource -&gt; ()
+(EventDataSource -&gt; ()) -&gt; NFData EventDataSource
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EventDataSource -&gt; ()
+$crnf :: EventDataSource -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679231996"><span class="annot"><span class="annottext">Text -&gt; Either String EventDataSource
+(Text -&gt; Either String EventDataSource) -&gt; FromText EventDataSource
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EventDataSource
+$cfromText :: Text -&gt; Either String EventDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679231993"><span class="annot"><span class="annottext">EventDataSource -&gt; Text
+(EventDataSource -&gt; Text) -&gt; ToText EventDataSource
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EventDataSource -&gt; Text
+$ctoText :: EventDataSource -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679231990"><span class="annot"><span class="annottext">EventDataSource -&gt; ByteString
+(EventDataSource -&gt; ByteString) -&gt; ToByteString EventDataSource
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EventDataSource -&gt; ByteString
+$ctoBS :: EventDataSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679231987"><span class="annot"><span class="annottext">EventDataSource -&gt; ByteStringBuilder
+(EventDataSource -&gt; ByteStringBuilder) -&gt; ToLog EventDataSource
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EventDataSource -&gt; ByteStringBuilder
+$cbuild :: EventDataSource -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679231984"><span class="annot"><span class="annottext">HeaderName -&gt; EventDataSource -&gt; [Header]
+(HeaderName -&gt; EventDataSource -&gt; [Header])
+-&gt; ToHeader EventDataSource
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EventDataSource -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EventDataSource -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679231981"><span class="annot"><span class="annottext">EventDataSource -&gt; QueryString
+(EventDataSource -&gt; QueryString) -&gt; ToQuery EventDataSource
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EventDataSource -&gt; QueryString
+$ctoQuery :: EventDataSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679231976"><span id="local-6989586621679231978"><span class="annot"><span class="annottext">Value -&gt; Parser [EventDataSource]
+Value -&gt; Parser EventDataSource
+(Value -&gt; Parser EventDataSource)
+-&gt; (Value -&gt; Parser [EventDataSource]) -&gt; FromJSON EventDataSource
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EventDataSource]
+$cparseJSONList :: Value -&gt; Parser [EventDataSource]
+parseJSON :: Value -&gt; Parser EventDataSource
+$cparseJSON :: Value -&gt; Parser EventDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679231971"><span id="local-6989586621679231973"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventDataSource]
+FromJSONKeyFunction EventDataSource
+FromJSONKeyFunction EventDataSource
+-&gt; FromJSONKeyFunction [EventDataSource]
+-&gt; FromJSONKey EventDataSource
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EventDataSource]
+$cfromJSONKeyList :: FromJSONKeyFunction [EventDataSource]
+fromJSONKey :: FromJSONKeyFunction EventDataSource
+$cfromJSONKey :: FromJSONKeyFunction EventDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679231962"><span id="local-6989586621679231964"><span id="local-6989586621679231966"><span id="local-6989586621679231968"><span class="annot"><span class="annottext">[EventDataSource] -&gt; Encoding
+[EventDataSource] -&gt; Value
+EventDataSource -&gt; Encoding
+EventDataSource -&gt; Value
+(EventDataSource -&gt; Value)
+-&gt; (EventDataSource -&gt; Encoding)
+-&gt; ([EventDataSource] -&gt; Value)
+-&gt; ([EventDataSource] -&gt; Encoding)
+-&gt; ToJSON EventDataSource
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EventDataSource] -&gt; Encoding
+$ctoEncodingList :: [EventDataSource] -&gt; Encoding
+toJSONList :: [EventDataSource] -&gt; Value
+$ctoJSONList :: [EventDataSource] -&gt; Value
+toEncoding :: EventDataSource -&gt; Encoding
+$ctoEncoding :: EventDataSource -&gt; Encoding
+toJSON :: EventDataSource -&gt; Value
+$ctoJSON :: EventDataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679231957"><span id="local-6989586621679231959"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventDataSource]
+ToJSONKeyFunction EventDataSource
+ToJSONKeyFunction EventDataSource
+-&gt; ToJSONKeyFunction [EventDataSource] -&gt; ToJSONKey EventDataSource
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EventDataSource]
+$ctoJSONKeyList :: ToJSONKeyFunction [EventDataSource]
+toJSONKey :: ToJSONKeyFunction EventDataSource
+$ctoJSONKey :: ToJSONKeyFunction EventDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679231954"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventDataSource
+([Node] -&gt; Either String EventDataSource)
+-&gt; FromXML EventDataSource
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EventDataSource
+$cparseXML :: [Node] -&gt; Either String EventDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679231951"><span class="annot"><span class="annottext">EventDataSource -&gt; XML
+(EventDataSource -&gt; XML) -&gt; ToXML EventDataSource
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EventDataSource -&gt; XML
+$ctoXML :: EventDataSource -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource_AWS_CLOUD_TRAIL"><span class="hs-identifier hs-type">EventDataSource_AWS_CLOUD_TRAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource"><span class="hs-identifier hs-type">EventDataSource</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEventDataSource_AWS_CLOUD_TRAIL"><span id="%24mEventDataSource_AWS_CLOUD_TRAIL"><span id="EventDataSource_AWS_CLOUD_TRAIL"><span class="annot"><span class="annottext">$bEventDataSource_AWS_CLOUD_TRAIL :: EventDataSource
+$mEventDataSource_AWS_CLOUD_TRAIL :: forall r. EventDataSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#%24bEventDataSource_AWS_CLOUD_TRAIL"><span class="hs-identifier hs-var hs-var hs-var">EventDataSource_AWS_CLOUD_TRAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource%27"><span class="hs-identifier hs-type">EventDataSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_CLOUD_TRAIL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource_AWS_CODE_DEPLOY"><span class="hs-identifier hs-type">EventDataSource_AWS_CODE_DEPLOY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource"><span class="hs-identifier hs-type">EventDataSource</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEventDataSource_AWS_CODE_DEPLOY"><span id="%24mEventDataSource_AWS_CODE_DEPLOY"><span id="EventDataSource_AWS_CODE_DEPLOY"><span class="annot"><span class="annottext">$bEventDataSource_AWS_CODE_DEPLOY :: EventDataSource
+$mEventDataSource_AWS_CODE_DEPLOY :: forall r. EventDataSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#%24bEventDataSource_AWS_CODE_DEPLOY"><span class="hs-identifier hs-var hs-var hs-var">EventDataSource_AWS_CODE_DEPLOY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource%27"><span class="hs-identifier hs-type">EventDataSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_CODE_DEPLOY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource_AWS_CLOUD_TRAIL"><span class="hs-pragma hs-type">EventDataSource_AWS_CLOUD_TRAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource_AWS_CODE_DEPLOY"><span class="hs-pragma hs-type">EventDataSource_AWS_CODE_DEPLOY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.EventDataSource.html#EventDataSource%27"><span class="hs-pragma hs-type">EventDataSource'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

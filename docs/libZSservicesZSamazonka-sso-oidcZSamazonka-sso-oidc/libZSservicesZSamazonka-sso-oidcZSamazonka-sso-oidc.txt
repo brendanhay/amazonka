@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SSOOIDC.Types
+module Amazonka.SSOOIDC.Types
 
 -- | API version <tt>2019-06-10</tt> of the Amazon SSO OIDC SDK
 --   configuration.
@@ -62,7 +62,7 @@ _ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceErr
 
 -- | Initiates device authorization by requesting a pair of verification
 --   codes from the authorization service.
-module Network.AWS.SSOOIDC.StartDeviceAuthorization
+module Amazonka.SSOOIDC.StartDeviceAuthorization
 
 -- | <i>See:</i> <a>newStartDeviceAuthorization</a> smart constructor.
 data StartDeviceAuthorization
@@ -224,28 +224,28 @@ startDeviceAuthorizationResponse_verificationUriComplete :: Lens' StartDeviceAut
 
 -- | The response's http status code.
 startDeviceAuthorizationResponse_httpStatus :: Lens' StartDeviceAuthorizationResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance GHC.Show.Show Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance GHC.Read.Read Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance GHC.Classes.Eq Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance GHC.Generics.Generic Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
-instance GHC.Show.Show Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
-instance GHC.Read.Read Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
-instance GHC.Classes.Eq Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance Control.DeepSeq.NFData Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance Control.DeepSeq.NFData Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance GHC.Generics.Generic Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance GHC.Show.Show Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance GHC.Read.Read Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance GHC.Classes.Eq Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance GHC.Generics.Generic Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
+instance GHC.Show.Show Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
+instance GHC.Read.Read Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
+instance GHC.Classes.Eq Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance Control.DeepSeq.NFData Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance Control.DeepSeq.NFData Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance Amazonka.Data.Path.ToPath Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOOIDC.StartDeviceAuthorization.StartDeviceAuthorization
 
 
 -- | Registers a client with AWS SSO. This allows clients to initiate
 --   device authorization. The output should be persisted for reuse through
 --   many authentication requests.
-module Network.AWS.SSOOIDC.RegisterClient
+module Amazonka.SSOOIDC.RegisterClient
 
 -- | <i>See:</i> <a>newRegisterClient</a> smart constructor.
 data RegisterClient
@@ -394,28 +394,28 @@ registerClientResponse_authorizationEndpoint :: Lens' RegisterClientResponse (Ma
 
 -- | The response's http status code.
 registerClientResponse_httpStatus :: Lens' RegisterClientResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance GHC.Show.Show Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance GHC.Read.Read Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance GHC.Classes.Eq Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance GHC.Generics.Generic Network.AWS.SSOOIDC.RegisterClient.RegisterClientResponse
-instance GHC.Show.Show Network.AWS.SSOOIDC.RegisterClient.RegisterClientResponse
-instance GHC.Read.Read Network.AWS.SSOOIDC.RegisterClient.RegisterClientResponse
-instance GHC.Classes.Eq Network.AWS.SSOOIDC.RegisterClient.RegisterClientResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance Control.DeepSeq.NFData Network.AWS.SSOOIDC.RegisterClient.RegisterClientResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance Control.DeepSeq.NFData Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOOIDC.RegisterClient.RegisterClient
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOOIDC.RegisterClient.RegisterClient
+instance GHC.Generics.Generic Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance GHC.Show.Show Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance GHC.Read.Read Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance GHC.Classes.Eq Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance GHC.Generics.Generic Amazonka.SSOOIDC.RegisterClient.RegisterClientResponse
+instance GHC.Show.Show Amazonka.SSOOIDC.RegisterClient.RegisterClientResponse
+instance GHC.Read.Read Amazonka.SSOOIDC.RegisterClient.RegisterClientResponse
+instance GHC.Classes.Eq Amazonka.SSOOIDC.RegisterClient.RegisterClientResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance Control.DeepSeq.NFData Amazonka.SSOOIDC.RegisterClient.RegisterClientResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance Control.DeepSeq.NFData Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance Amazonka.Data.Path.ToPath Amazonka.SSOOIDC.RegisterClient.RegisterClient
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOOIDC.RegisterClient.RegisterClient
 
 
 -- | Creates and returns an access token for the authorized client. The
 --   access token issued will be used to fetch short-term credentials for
 --   the assigned roles in the AWS account.
-module Network.AWS.SSOOIDC.CreateToken
+module Amazonka.SSOOIDC.CreateToken
 
 -- | <i>See:</i> <a>newCreateToken</a> smart constructor.
 data CreateToken
@@ -622,25 +622,25 @@ createTokenResponse_idToken :: Lens' CreateTokenResponse (Maybe Text)
 
 -- | The response's http status code.
 createTokenResponse_httpStatus :: Lens' CreateTokenResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance GHC.Show.Show Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance GHC.Read.Read Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance GHC.Classes.Eq Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance GHC.Generics.Generic Network.AWS.SSOOIDC.CreateToken.CreateTokenResponse
-instance GHC.Show.Show Network.AWS.SSOOIDC.CreateToken.CreateTokenResponse
-instance GHC.Read.Read Network.AWS.SSOOIDC.CreateToken.CreateTokenResponse
-instance GHC.Classes.Eq Network.AWS.SSOOIDC.CreateToken.CreateTokenResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance Control.DeepSeq.NFData Network.AWS.SSOOIDC.CreateToken.CreateTokenResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance Control.DeepSeq.NFData Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOOIDC.CreateToken.CreateToken
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOOIDC.CreateToken.CreateToken
+instance GHC.Generics.Generic Amazonka.SSOOIDC.CreateToken.CreateToken
+instance GHC.Show.Show Amazonka.SSOOIDC.CreateToken.CreateToken
+instance GHC.Read.Read Amazonka.SSOOIDC.CreateToken.CreateToken
+instance GHC.Classes.Eq Amazonka.SSOOIDC.CreateToken.CreateToken
+instance GHC.Generics.Generic Amazonka.SSOOIDC.CreateToken.CreateTokenResponse
+instance GHC.Show.Show Amazonka.SSOOIDC.CreateToken.CreateTokenResponse
+instance GHC.Read.Read Amazonka.SSOOIDC.CreateToken.CreateTokenResponse
+instance GHC.Classes.Eq Amazonka.SSOOIDC.CreateToken.CreateTokenResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOOIDC.CreateToken.CreateToken
+instance Control.DeepSeq.NFData Amazonka.SSOOIDC.CreateToken.CreateTokenResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOOIDC.CreateToken.CreateToken
+instance Control.DeepSeq.NFData Amazonka.SSOOIDC.CreateToken.CreateToken
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOOIDC.CreateToken.CreateToken
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOOIDC.CreateToken.CreateToken
+instance Amazonka.Data.Path.ToPath Amazonka.SSOOIDC.CreateToken.CreateToken
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOOIDC.CreateToken.CreateToken
 
 
-module Network.AWS.SSOOIDC.Lens
+module Amazonka.SSOOIDC.Lens
 
 -- | The unique identifier string for the client that is registered with
 --   AWS SSO. This value should come from the persisted result of the
@@ -781,7 +781,7 @@ registerClientResponse_authorizationEndpoint :: Lens' RegisterClientResponse (Ma
 registerClientResponse_httpStatus :: Lens' RegisterClientResponse Int
 
 
-module Network.AWS.SSOOIDC.Waiters
+module Amazonka.SSOOIDC.Waiters
 
 
 -- | Derived from API version <tt>2019-06-10</tt> of the AWS service
@@ -808,7 +808,7 @@ module Network.AWS.SSOOIDC.Waiters
 --   programmatic access to AWS SSO and other AWS services. For more
 --   information about the AWS SDKs, including how to download and install
 --   them, see <a>Tools for Amazon Web Services</a>.
-module Network.AWS.SSOOIDC
+module Amazonka.SSOOIDC
 
 -- | API version <tt>2019-06-10</tt> of the Amazon SSO OIDC SDK
 --   configuration.

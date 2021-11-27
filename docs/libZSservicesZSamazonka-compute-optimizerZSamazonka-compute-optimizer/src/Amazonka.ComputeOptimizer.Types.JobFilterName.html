@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.Types.JobFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.JobFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName"><span class="hs-identifier">JobFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName_JobStatus"><span class="hs-identifier">JobFilterName_JobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName_ResourceType"><span class="hs-identifier">JobFilterName_ResourceType</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238434"><span id="local-6989586621679238435"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobFilterName"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName"><span class="hs-identifier hs-var">JobFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobFilterName%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName%27"><span class="hs-identifier hs-var">JobFilterName'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobFilterName"><span class="annot"><span class="annottext">JobFilterName -&gt; Text
+</span><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#fromJobFilterName"><span class="hs-identifier hs-var hs-var">fromJobFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238426"><span id="local-6989586621679238428"><span id="local-6989586621679238430"><span class="annot"><span class="annottext">Int -&gt; JobFilterName -&gt; ShowS
+[JobFilterName] -&gt; ShowS
+JobFilterName -&gt; String
+(Int -&gt; JobFilterName -&gt; ShowS)
+-&gt; (JobFilterName -&gt; String)
+-&gt; ([JobFilterName] -&gt; ShowS)
+-&gt; Show JobFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobFilterName] -&gt; ShowS
+$cshowList :: [JobFilterName] -&gt; ShowS
+show :: JobFilterName -&gt; String
+$cshow :: JobFilterName -&gt; String
+showsPrec :: Int -&gt; JobFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679238417"><span id="local-6989586621679238419"><span id="local-6989586621679238421"><span id="local-6989586621679238423"><span class="annot"><span class="annottext">ReadPrec [JobFilterName]
+ReadPrec JobFilterName
+Int -&gt; ReadS JobFilterName
+ReadS [JobFilterName]
+(Int -&gt; ReadS JobFilterName)
+-&gt; ReadS [JobFilterName]
+-&gt; ReadPrec JobFilterName
+-&gt; ReadPrec [JobFilterName]
+-&gt; Read JobFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobFilterName]
+$creadListPrec :: ReadPrec [JobFilterName]
+readPrec :: ReadPrec JobFilterName
+$creadPrec :: ReadPrec JobFilterName
+readList :: ReadS [JobFilterName]
+$creadList :: ReadS [JobFilterName]
+readsPrec :: Int -&gt; ReadS JobFilterName
+$creadsPrec :: Int -&gt; ReadS JobFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679238412"><span id="local-6989586621679238414"><span class="annot"><span class="annottext">JobFilterName -&gt; JobFilterName -&gt; Bool
+(JobFilterName -&gt; JobFilterName -&gt; Bool)
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; Bool) -&gt; Eq JobFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobFilterName -&gt; JobFilterName -&gt; Bool
+$c/= :: JobFilterName -&gt; JobFilterName -&gt; Bool
+== :: JobFilterName -&gt; JobFilterName -&gt; Bool
+$c== :: JobFilterName -&gt; JobFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679238396"><span id="local-6989586621679238398"><span id="local-6989586621679238400"><span id="local-6989586621679238402"><span id="local-6989586621679238404"><span id="local-6989586621679238406"><span id="local-6989586621679238408"><span class="annot"><span class="annottext">Eq JobFilterName
+Eq JobFilterName
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; Ordering)
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; Bool)
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; Bool)
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; Bool)
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; Bool)
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; JobFilterName)
+-&gt; (JobFilterName -&gt; JobFilterName -&gt; JobFilterName)
+-&gt; Ord JobFilterName
+JobFilterName -&gt; JobFilterName -&gt; Bool
+JobFilterName -&gt; JobFilterName -&gt; Ordering
+JobFilterName -&gt; JobFilterName -&gt; JobFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JobFilterName -&gt; JobFilterName -&gt; JobFilterName
+$cmin :: JobFilterName -&gt; JobFilterName -&gt; JobFilterName
+max :: JobFilterName -&gt; JobFilterName -&gt; JobFilterName
+$cmax :: JobFilterName -&gt; JobFilterName -&gt; JobFilterName
+&gt;= :: JobFilterName -&gt; JobFilterName -&gt; Bool
+$c&gt;= :: JobFilterName -&gt; JobFilterName -&gt; Bool
+&gt; :: JobFilterName -&gt; JobFilterName -&gt; Bool
+$c&gt; :: JobFilterName -&gt; JobFilterName -&gt; Bool
+&lt;= :: JobFilterName -&gt; JobFilterName -&gt; Bool
+$c&lt;= :: JobFilterName -&gt; JobFilterName -&gt; Bool
+&lt; :: JobFilterName -&gt; JobFilterName -&gt; Bool
+$c&lt; :: JobFilterName -&gt; JobFilterName -&gt; Bool
+compare :: JobFilterName -&gt; JobFilterName -&gt; Ordering
+$ccompare :: JobFilterName -&gt; JobFilterName -&gt; Ordering
+$cp1Ord :: Eq JobFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JobFilterName -&gt; Rep JobFilterName x)
+-&gt; (forall x. Rep JobFilterName x -&gt; JobFilterName)
+-&gt; Generic JobFilterName
+forall x. Rep JobFilterName x -&gt; JobFilterName
+forall x. JobFilterName -&gt; Rep JobFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobFilterName x -&gt; JobFilterName
+$cfrom :: forall x. JobFilterName -&gt; Rep JobFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238388"><span id="local-6989586621679238390"><span class="annot"><span class="annottext">Int -&gt; JobFilterName -&gt; Int
+JobFilterName -&gt; Int
+(Int -&gt; JobFilterName -&gt; Int)
+-&gt; (JobFilterName -&gt; Int) -&gt; Hashable JobFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JobFilterName -&gt; Int
+$chash :: JobFilterName -&gt; Int
+hashWithSalt :: Int -&gt; JobFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; JobFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679238385"><span class="annot"><span class="annottext">JobFilterName -&gt; ()
+(JobFilterName -&gt; ()) -&gt; NFData JobFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JobFilterName -&gt; ()
+$crnf :: JobFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679238382"><span class="annot"><span class="annottext">Text -&gt; Either String JobFilterName
+(Text -&gt; Either String JobFilterName) -&gt; FromText JobFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JobFilterName
+$cfromText :: Text -&gt; Either String JobFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679238379"><span class="annot"><span class="annottext">JobFilterName -&gt; Text
+(JobFilterName -&gt; Text) -&gt; ToText JobFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JobFilterName -&gt; Text
+$ctoText :: JobFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679238376"><span class="annot"><span class="annottext">JobFilterName -&gt; ByteString
+(JobFilterName -&gt; ByteString) -&gt; ToByteString JobFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JobFilterName -&gt; ByteString
+$ctoBS :: JobFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679238373"><span class="annot"><span class="annottext">JobFilterName -&gt; ByteStringBuilder
+(JobFilterName -&gt; ByteStringBuilder) -&gt; ToLog JobFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JobFilterName -&gt; ByteStringBuilder
+$cbuild :: JobFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679238370"><span class="annot"><span class="annottext">HeaderName -&gt; JobFilterName -&gt; [Header]
+(HeaderName -&gt; JobFilterName -&gt; [Header]) -&gt; ToHeader JobFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JobFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JobFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679238367"><span class="annot"><span class="annottext">JobFilterName -&gt; QueryString
+(JobFilterName -&gt; QueryString) -&gt; ToQuery JobFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JobFilterName -&gt; QueryString
+$ctoQuery :: JobFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679238362"><span id="local-6989586621679238364"><span class="annot"><span class="annottext">Value -&gt; Parser [JobFilterName]
+Value -&gt; Parser JobFilterName
+(Value -&gt; Parser JobFilterName)
+-&gt; (Value -&gt; Parser [JobFilterName]) -&gt; FromJSON JobFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JobFilterName]
+$cparseJSONList :: Value -&gt; Parser [JobFilterName]
+parseJSON :: Value -&gt; Parser JobFilterName
+$cparseJSON :: Value -&gt; Parser JobFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679238357"><span id="local-6989586621679238359"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobFilterName]
+FromJSONKeyFunction JobFilterName
+FromJSONKeyFunction JobFilterName
+-&gt; FromJSONKeyFunction [JobFilterName] -&gt; FromJSONKey JobFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JobFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [JobFilterName]
+fromJSONKey :: FromJSONKeyFunction JobFilterName
+$cfromJSONKey :: FromJSONKeyFunction JobFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679238348"><span id="local-6989586621679238350"><span id="local-6989586621679238352"><span id="local-6989586621679238354"><span class="annot"><span class="annottext">[JobFilterName] -&gt; Encoding
+[JobFilterName] -&gt; Value
+JobFilterName -&gt; Encoding
+JobFilterName -&gt; Value
+(JobFilterName -&gt; Value)
+-&gt; (JobFilterName -&gt; Encoding)
+-&gt; ([JobFilterName] -&gt; Value)
+-&gt; ([JobFilterName] -&gt; Encoding)
+-&gt; ToJSON JobFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JobFilterName] -&gt; Encoding
+$ctoEncodingList :: [JobFilterName] -&gt; Encoding
+toJSONList :: [JobFilterName] -&gt; Value
+$ctoJSONList :: [JobFilterName] -&gt; Value
+toEncoding :: JobFilterName -&gt; Encoding
+$ctoEncoding :: JobFilterName -&gt; Encoding
+toJSON :: JobFilterName -&gt; Value
+$ctoJSON :: JobFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679238343"><span id="local-6989586621679238345"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobFilterName]
+ToJSONKeyFunction JobFilterName
+ToJSONKeyFunction JobFilterName
+-&gt; ToJSONKeyFunction [JobFilterName] -&gt; ToJSONKey JobFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JobFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [JobFilterName]
+toJSONKey :: ToJSONKeyFunction JobFilterName
+$ctoJSONKey :: ToJSONKeyFunction JobFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679238340"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobFilterName
+([Node] -&gt; Either String JobFilterName) -&gt; FromXML JobFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JobFilterName
+$cparseXML :: [Node] -&gt; Either String JobFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679238337"><span class="annot"><span class="annottext">JobFilterName -&gt; XML
+(JobFilterName -&gt; XML) -&gt; ToXML JobFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JobFilterName -&gt; XML
+$ctoXML :: JobFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName_JobStatus"><span class="hs-identifier hs-type">JobFilterName_JobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName"><span class="hs-identifier hs-type">JobFilterName</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobFilterName_JobStatus"><span id="%24mJobFilterName_JobStatus"><span id="JobFilterName_JobStatus"><span class="annot"><span class="annottext">$bJobFilterName_JobStatus :: JobFilterName
+$mJobFilterName_JobStatus :: forall r. JobFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#%24bJobFilterName_JobStatus"><span class="hs-identifier hs-var hs-var hs-var">JobFilterName_JobStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName%27"><span class="hs-identifier hs-type">JobFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JobStatus&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName_ResourceType"><span class="hs-identifier hs-type">JobFilterName_ResourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName"><span class="hs-identifier hs-type">JobFilterName</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobFilterName_ResourceType"><span id="%24mJobFilterName_ResourceType"><span id="JobFilterName_ResourceType"><span class="annot"><span class="annottext">$bJobFilterName_ResourceType :: JobFilterName
+$mJobFilterName_ResourceType :: forall r. JobFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#%24bJobFilterName_ResourceType"><span class="hs-identifier hs-var hs-var hs-var">JobFilterName_ResourceType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName%27"><span class="hs-identifier hs-type">JobFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceType&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName_JobStatus"><span class="hs-pragma hs-type">JobFilterName_JobStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName_ResourceType"><span class="hs-pragma hs-type">JobFilterName_ResourceType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.JobFilterName.html#JobFilterName%27"><span class="hs-pragma hs-type">JobFilterName'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

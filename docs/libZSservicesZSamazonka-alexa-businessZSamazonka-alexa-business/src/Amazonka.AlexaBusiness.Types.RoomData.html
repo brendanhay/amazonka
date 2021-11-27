@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.Types.RoomData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.Types.RoomData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The data of a room.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRoomData' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679370933"><span id="local-6989586621679370934"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoomData"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-var">RoomData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoomData%27"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-var">RoomData'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The profile ARN of a room.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AprofileArn%3ARoomData%27"><span class="annot"><span class="annottext">RoomData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AprofileArn%3ARoomData%27"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The provider calendar ARN of a room.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AproviderCalendarId%3ARoomData%27"><span class="annot"><span class="annottext">RoomData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AproviderCalendarId%3ARoomData%27"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The profile name of a room.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprofileName%3ARoomData%27"><span class="annot"><span class="annottext">RoomData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AprofileName%3ARoomData%27"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ARN of a room.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AroomArn%3ARoomData%27"><span class="annot"><span class="annottext">RoomData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AroomArn%3ARoomData%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of a room.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AroomName%3ARoomData%27"><span class="annot"><span class="annottext">RoomData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AroomName%3ARoomData%27"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The description of a room.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adescription%3ARoomData%27"><span class="annot"><span class="annottext">RoomData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3Adescription%3ARoomData%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370922"><span id="local-6989586621679370924"><span class="annot"><span class="annottext">RoomData -&gt; RoomData -&gt; Bool
+(RoomData -&gt; RoomData -&gt; Bool)
+-&gt; (RoomData -&gt; RoomData -&gt; Bool) -&gt; Eq RoomData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RoomData -&gt; RoomData -&gt; Bool
+$c/= :: RoomData -&gt; RoomData -&gt; Bool
+== :: RoomData -&gt; RoomData -&gt; Bool
+$c== :: RoomData -&gt; RoomData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370913"><span id="local-6989586621679370915"><span id="local-6989586621679370917"><span id="local-6989586621679370919"><span class="annot"><span class="annottext">ReadPrec [RoomData]
+ReadPrec RoomData
+Int -&gt; ReadS RoomData
+ReadS [RoomData]
+(Int -&gt; ReadS RoomData)
+-&gt; ReadS [RoomData]
+-&gt; ReadPrec RoomData
+-&gt; ReadPrec [RoomData]
+-&gt; Read RoomData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RoomData]
+$creadListPrec :: ReadPrec [RoomData]
+readPrec :: ReadPrec RoomData
+$creadPrec :: ReadPrec RoomData
+readList :: ReadS [RoomData]
+$creadList :: ReadS [RoomData]
+readsPrec :: Int -&gt; ReadS RoomData
+$creadsPrec :: Int -&gt; ReadS RoomData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370906"><span id="local-6989586621679370908"><span id="local-6989586621679370910"><span class="annot"><span class="annottext">Int -&gt; RoomData -&gt; ShowS
+[RoomData] -&gt; ShowS
+RoomData -&gt; String
+(Int -&gt; RoomData -&gt; ShowS)
+-&gt; (RoomData -&gt; String) -&gt; ([RoomData] -&gt; ShowS) -&gt; Show RoomData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RoomData] -&gt; ShowS
+$cshowList :: [RoomData] -&gt; ShowS
+show :: RoomData -&gt; String
+$cshow :: RoomData -&gt; String
+showsPrec :: Int -&gt; RoomData -&gt; ShowS
+$cshowsPrec :: Int -&gt; RoomData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RoomData -&gt; Rep RoomData x)
+-&gt; (forall x. Rep RoomData x -&gt; RoomData) -&gt; Generic RoomData
+forall x. Rep RoomData x -&gt; RoomData
+forall x. RoomData -&gt; Rep RoomData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RoomData x -&gt; RoomData
+$cfrom :: forall x. RoomData -&gt; Rep RoomData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'RoomData' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'profileArn', 'roomData_profileArn' - The profile ARN of a room.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'providerCalendarId', 'roomData_providerCalendarId' - The provider calendar ARN of a room.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'profileName', 'roomData_profileName' - The profile name of a room.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'roomArn', 'roomData_roomArn' - The ARN of a room.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'roomName', 'roomData_roomName' - The name of a room.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'description', 'roomData_description' - The description of a room.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#newRoomData"><span class="hs-identifier hs-type">newRoomData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span>
+</span><span id="line-66"></span><span id="newRoomData"><span class="annot"><span class="annottext">newRoomData :: RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#newRoomData"><span class="hs-identifier hs-var hs-var">newRoomData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">RoomData' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileArn:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AprofileArn%3ARoomData%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerCalendarId:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AproviderCalendarId%3ARoomData%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileName:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AprofileName%3ARoomData%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomArn:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AroomArn%3ARoomData%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomName:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AroomName%3ARoomData%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3Adescription%3ARoomData%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The profile ARN of a room.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_profileArn"><span class="hs-identifier hs-type">roomData_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="roomData_profileArn"><span class="annot"><span class="annottext">roomData_profileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RoomData -&gt; f RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_profileArn"><span class="hs-identifier hs-var hs-var">roomData_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoomData -&gt; Maybe Text)
+-&gt; (RoomData -&gt; Maybe Text -&gt; RoomData)
+-&gt; Lens RoomData RoomData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370897"><span class="annot"><span class="annottext">Maybe Text
+profileArn :: Maybe Text
+$sel:profileArn:RoomData' :: RoomData -&gt; Maybe Text
+</span><a href="#local-6989586621679370897"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370897"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370896"><span class="annot"><span class="annottext">s :: RoomData
+</span><a href="#local-6989586621679370896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoomData
+</span><a href="#local-6989586621679370896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AprofileArn%3ARoomData%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The provider calendar ARN of a room.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_providerCalendarId"><span class="hs-identifier hs-type">roomData_providerCalendarId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="roomData_providerCalendarId"><span class="annot"><span class="annottext">roomData_providerCalendarId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RoomData -&gt; f RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_providerCalendarId"><span class="hs-identifier hs-var hs-var">roomData_providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoomData -&gt; Maybe Text)
+-&gt; (RoomData -&gt; Maybe Text -&gt; RoomData)
+-&gt; Lens RoomData RoomData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370893"><span class="annot"><span class="annottext">Maybe Text
+providerCalendarId :: Maybe Text
+$sel:providerCalendarId:RoomData' :: RoomData -&gt; Maybe Text
+</span><a href="#local-6989586621679370893"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370893"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370892"><span class="annot"><span class="annottext">s :: RoomData
+</span><a href="#local-6989586621679370892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoomData
+</span><a href="#local-6989586621679370892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerCalendarId:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AproviderCalendarId%3ARoomData%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The profile name of a room.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_profileName"><span class="hs-identifier hs-type">roomData_profileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="roomData_profileName"><span class="annot"><span class="annottext">roomData_profileName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RoomData -&gt; f RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_profileName"><span class="hs-identifier hs-var hs-var">roomData_profileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoomData -&gt; Maybe Text)
+-&gt; (RoomData -&gt; Maybe Text -&gt; RoomData)
+-&gt; Lens RoomData RoomData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370889"><span class="annot"><span class="annottext">Maybe Text
+profileName :: Maybe Text
+$sel:profileName:RoomData' :: RoomData -&gt; Maybe Text
+</span><a href="#local-6989586621679370889"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370889"><span class="hs-identifier hs-var">profileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370888"><span class="annot"><span class="annottext">s :: RoomData
+</span><a href="#local-6989586621679370888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoomData
+</span><a href="#local-6989586621679370888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileName:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AprofileName%3ARoomData%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ARN of a room.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_roomArn"><span class="hs-identifier hs-type">roomData_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="roomData_roomArn"><span class="annot"><span class="annottext">roomData_roomArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RoomData -&gt; f RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_roomArn"><span class="hs-identifier hs-var hs-var">roomData_roomArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoomData -&gt; Maybe Text)
+-&gt; (RoomData -&gt; Maybe Text -&gt; RoomData)
+-&gt; Lens RoomData RoomData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370885"><span class="annot"><span class="annottext">Maybe Text
+roomArn :: Maybe Text
+$sel:roomArn:RoomData' :: RoomData -&gt; Maybe Text
+</span><a href="#local-6989586621679370885"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370885"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370884"><span class="annot"><span class="annottext">s :: RoomData
+</span><a href="#local-6989586621679370884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoomData
+</span><a href="#local-6989586621679370884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AroomArn%3ARoomData%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of a room.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_roomName"><span class="hs-identifier hs-type">roomData_roomName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="roomData_roomName"><span class="annot"><span class="annottext">roomData_roomName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RoomData -&gt; f RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_roomName"><span class="hs-identifier hs-var hs-var">roomData_roomName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoomData -&gt; Maybe Text)
+-&gt; (RoomData -&gt; Maybe Text -&gt; RoomData)
+-&gt; Lens RoomData RoomData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370881"><span class="annot"><span class="annottext">Maybe Text
+roomName :: Maybe Text
+$sel:roomName:RoomData' :: RoomData -&gt; Maybe Text
+</span><a href="#local-6989586621679370881"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370881"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370880"><span class="annot"><span class="annottext">s :: RoomData
+</span><a href="#local-6989586621679370880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoomData
+</span><a href="#local-6989586621679370880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3AroomName%3ARoomData%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The description of a room.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_description"><span class="hs-identifier hs-type">roomData_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="roomData_description"><span class="annot"><span class="annottext">roomData_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RoomData -&gt; f RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#roomData_description"><span class="hs-identifier hs-var hs-var">roomData_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoomData -&gt; Maybe Text)
+-&gt; (RoomData -&gt; Maybe Text -&gt; RoomData)
+-&gt; Lens RoomData RoomData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370877"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RoomData' :: RoomData -&gt; Maybe Text
+</span><a href="#local-6989586621679370877"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370877"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370876"><span class="annot"><span class="annottext">s :: RoomData
+</span><a href="#local-6989586621679370876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-type">RoomData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370875"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoomData
+</span><a href="#local-6989586621679370876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RoomData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#%24sel%3Adescription%3ARoomData%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370872"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679370870"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RoomData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser RoomData) -&gt; Value -&gt; Parser RoomData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RoomData&quot;</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370867"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RoomData
+</span><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData%27"><span class="hs-identifier hs-var">RoomData'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; RoomData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RoomData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProfileArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RoomData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RoomData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderCalendarId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RoomData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RoomData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RoomData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RoomData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RoomData)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RoomData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RoomData)
+-&gt; Parser (Maybe Text) -&gt; Parser RoomData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370861"><span id="local-6989586621679370863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

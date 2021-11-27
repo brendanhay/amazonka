@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.GetEventSourceMapping</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns details about an event source mapping. You can get the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- identifier of a mapping from the output of ListEventSourceMappings.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.GetEventSourceMapping</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier">GetEventSourceMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#newGetEventSourceMapping"><span class="hs-identifier">newGetEventSourceMapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#getEventSourceMapping_uuid"><span class="hs-identifier">getEventSourceMapping_uuid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#EventSourceMappingConfiguration"><span class="hs-identifier">EventSourceMappingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#newEventSourceMappingConfiguration"><span class="hs-identifier">newEventSourceMappingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_eventSourceArn"><span class="hs-identifier">eventSourceMappingConfiguration_eventSourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_state"><span class="hs-identifier">eventSourceMappingConfiguration_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_startingPositionTimestamp"><span class="hs-identifier">eventSourceMappingConfiguration_startingPositionTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_functionArn"><span class="hs-identifier">eventSourceMappingConfiguration_functionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_topics"><span class="hs-identifier">eventSourceMappingConfiguration_topics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_queues"><span class="hs-identifier">eventSourceMappingConfiguration_queues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_bisectBatchOnFunctionError"><span class="hs-identifier">eventSourceMappingConfiguration_bisectBatchOnFunctionError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_uuid"><span class="hs-identifier">eventSourceMappingConfiguration_uuid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_parallelizationFactor"><span class="hs-identifier">eventSourceMappingConfiguration_parallelizationFactor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_lastProcessingResult"><span class="hs-identifier">eventSourceMappingConfiguration_lastProcessingResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_maximumRetryAttempts"><span class="hs-identifier">eventSourceMappingConfiguration_maximumRetryAttempts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_batchSize"><span class="hs-identifier">eventSourceMappingConfiguration_batchSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_stateTransitionReason"><span class="hs-identifier">eventSourceMappingConfiguration_stateTransitionReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_maximumBatchingWindowInSeconds"><span class="hs-identifier">eventSourceMappingConfiguration_maximumBatchingWindowInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_sourceAccessConfigurations"><span class="hs-identifier">eventSourceMappingConfiguration_sourceAccessConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_maximumRecordAgeInSeconds"><span class="hs-identifier">eventSourceMappingConfiguration_maximumRecordAgeInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_functionResponseTypes"><span class="hs-identifier">eventSourceMappingConfiguration_functionResponseTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_tumblingWindowInSeconds"><span class="hs-identifier">eventSourceMappingConfiguration_tumblingWindowInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_selfManagedEventSource"><span class="hs-identifier">eventSourceMappingConfiguration_selfManagedEventSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_lastModified"><span class="hs-identifier">eventSourceMappingConfiguration_lastModified</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_destinationConfig"><span class="hs-identifier">eventSourceMappingConfiguration_destinationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#eventSourceMappingConfiguration_startingPosition"><span class="hs-identifier">eventSourceMappingConfiguration_startingPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.html"><span class="hs-identifier">Amazonka.Lambda.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newGetEventSourceMapping' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679308304"><span id="local-6989586621679308305"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEventSourceMapping"><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-var">GetEventSourceMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEventSourceMapping%27"><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-var">GetEventSourceMapping'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the event source mapping.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="annot"><span class="annottext">GetEventSourceMapping -&gt; Text
+</span><a href="Amazonka.Lambda.GetEventSourceMapping.html#%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="hs-identifier hs-var hs-var">uuid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308298"><span id="local-6989586621679308300"><span class="annot"><span class="annottext">GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
+(GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool)
+-&gt; (GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool)
+-&gt; Eq GetEventSourceMapping
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
+$c/= :: GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
+== :: GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
+$c== :: GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308289"><span id="local-6989586621679308291"><span id="local-6989586621679308293"><span id="local-6989586621679308295"><span class="annot"><span class="annottext">ReadPrec [GetEventSourceMapping]
+ReadPrec GetEventSourceMapping
+Int -&gt; ReadS GetEventSourceMapping
+ReadS [GetEventSourceMapping]
+(Int -&gt; ReadS GetEventSourceMapping)
+-&gt; ReadS [GetEventSourceMapping]
+-&gt; ReadPrec GetEventSourceMapping
+-&gt; ReadPrec [GetEventSourceMapping]
+-&gt; Read GetEventSourceMapping
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEventSourceMapping]
+$creadListPrec :: ReadPrec [GetEventSourceMapping]
+readPrec :: ReadPrec GetEventSourceMapping
+$creadPrec :: ReadPrec GetEventSourceMapping
+readList :: ReadS [GetEventSourceMapping]
+$creadList :: ReadS [GetEventSourceMapping]
+readsPrec :: Int -&gt; ReadS GetEventSourceMapping
+$creadsPrec :: Int -&gt; ReadS GetEventSourceMapping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308282"><span id="local-6989586621679308284"><span id="local-6989586621679308286"><span class="annot"><span class="annottext">Int -&gt; GetEventSourceMapping -&gt; ShowS
+[GetEventSourceMapping] -&gt; ShowS
+GetEventSourceMapping -&gt; String
+(Int -&gt; GetEventSourceMapping -&gt; ShowS)
+-&gt; (GetEventSourceMapping -&gt; String)
+-&gt; ([GetEventSourceMapping] -&gt; ShowS)
+-&gt; Show GetEventSourceMapping
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEventSourceMapping] -&gt; ShowS
+$cshowList :: [GetEventSourceMapping] -&gt; ShowS
+show :: GetEventSourceMapping -&gt; String
+$cshow :: GetEventSourceMapping -&gt; String
+showsPrec :: Int -&gt; GetEventSourceMapping -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEventSourceMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEventSourceMapping -&gt; Rep GetEventSourceMapping x)
+-&gt; (forall x. Rep GetEventSourceMapping x -&gt; GetEventSourceMapping)
+-&gt; Generic GetEventSourceMapping
+forall x. Rep GetEventSourceMapping x -&gt; GetEventSourceMapping
+forall x. GetEventSourceMapping -&gt; Rep GetEventSourceMapping x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEventSourceMapping x -&gt; GetEventSourceMapping
+$cfrom :: forall x. GetEventSourceMapping -&gt; Rep GetEventSourceMapping x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'GetEventSourceMapping' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'uuid', 'getEventSourceMapping_uuid' - The identifier of the event source mapping.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#newGetEventSourceMapping"><span class="hs-identifier hs-type">newGetEventSourceMapping</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'uuid'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span>
+</span><span id="line-90"></span><span id="newGetEventSourceMapping"><span class="annot"><span class="annottext">newGetEventSourceMapping :: Text -&gt; GetEventSourceMapping
+</span><a href="Amazonka.Lambda.GetEventSourceMapping.html#newGetEventSourceMapping"><span class="hs-identifier hs-var hs-var">newGetEventSourceMapping</span></a></span></span><span> </span><span id="local-6989586621679308277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308277"><span class="hs-identifier hs-var">pUUID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">GetEventSourceMapping' :: Text -&gt; GetEventSourceMapping
+</span><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uuid:GetEventSourceMapping' :: Text
+</span><a href="Amazonka.Lambda.GetEventSourceMapping.html#%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="hs-identifier hs-var">uuid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308277"><span class="hs-identifier hs-var">pUUID_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The identifier of the event source mapping.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#getEventSourceMapping_uuid"><span class="hs-identifier hs-type">getEventSourceMapping_uuid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="getEventSourceMapping_uuid"><span class="annot"><span class="annottext">getEventSourceMapping_uuid :: (Text -&gt; f Text)
+-&gt; GetEventSourceMapping -&gt; f GetEventSourceMapping
+</span><a href="Amazonka.Lambda.GetEventSourceMapping.html#getEventSourceMapping_uuid"><span class="hs-identifier hs-var hs-var">getEventSourceMapping_uuid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEventSourceMapping -&gt; Text)
+-&gt; (GetEventSourceMapping -&gt; Text -&gt; GetEventSourceMapping)
+-&gt; Lens GetEventSourceMapping GetEventSourceMapping Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308274"><span class="annot"><span class="annottext">Text
+uuid :: Text
+$sel:uuid:GetEventSourceMapping' :: GetEventSourceMapping -&gt; Text
+</span><a href="#local-6989586621679308274"><span class="hs-identifier hs-var hs-var">uuid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308274"><span class="hs-identifier hs-var">uuid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308273"><span class="annot"><span class="annottext">s :: GetEventSourceMapping
+</span><a href="#local-6989586621679308273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEventSourceMapping
+</span><a href="#local-6989586621679308273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uuid:GetEventSourceMapping' :: Text
+</span><a href="Amazonka.Lambda.GetEventSourceMapping.html#%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="hs-identifier hs-var">uuid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.Lambda.Types.EventSourceMappingConfiguration.html#EventSourceMappingConfiguration"><span class="hs-identifier hs-type">EventSourceMappingConfiguration</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679308268"><span class="annot"><span class="annottext">request :: GetEventSourceMapping -&gt; Request GetEventSourceMapping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEventSourceMapping -&gt; Request GetEventSourceMapping
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679308264"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEventSourceMapping
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEventSourceMapping)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetEventSourceMapping))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEventSourceMapping
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEventSourceMapping)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308261"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308260"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679308260"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308259"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String EventSourceMappingConfiguration
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308259"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308254"><span id="local-6989586621679308256"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308247"><span class="annot"><span class="annottext">toHeaders :: GetEventSourceMapping -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEventSourceMapping -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679308242"><span class="annot"><span class="annottext">toPath :: GetEventSourceMapping -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308240"><span class="annot"><span class="annottext">Text
+uuid :: Text
+$sel:uuid:GetEventSourceMapping' :: GetEventSourceMapping -&gt; Text
+</span><a href="#local-6989586621679308240"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2015-03-31/event-source-mappings/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308240"><span class="hs-identifier hs-var">uuid</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679308236"><span class="annot"><span class="annottext">toQuery :: GetEventSourceMapping -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEventSourceMapping -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span></pre></body></html>

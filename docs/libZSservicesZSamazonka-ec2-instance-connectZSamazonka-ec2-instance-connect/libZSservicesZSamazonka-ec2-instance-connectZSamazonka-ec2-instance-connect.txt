@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.EC2InstanceConnect.Types
+module Amazonka.EC2InstanceConnect.Types
 
 -- | API version <tt>2018-04-02</tt> of the Amazon EC2 Instance Connect SDK
 --   configuration.
@@ -53,7 +53,7 @@ _EC2InstanceNotFoundException :: AsError a => Getting (First ServiceError) a Ser
 --   serial console connection to the instance using SSH. For more
 --   information, see <a>EC2 Serial Console</a> in the <i>Amazon EC2 User
 --   Guide</i>.
-module Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey
+module Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey
 
 -- | <i>See:</i> <a>newSendSerialConsoleSSHPublicKey</a> smart constructor.
 data SendSerialConsoleSSHPublicKey
@@ -162,29 +162,29 @@ sendSerialConsoleSSHPublicKeyResponse_success :: Lens' SendSerialConsoleSSHPubli
 
 -- | The response's http status code.
 sendSerialConsoleSSHPublicKeyResponse_httpStatus :: Lens' SendSerialConsoleSSHPublicKeyResponse Int
-instance GHC.Generics.Generic Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance GHC.Show.Show Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance GHC.Read.Read Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance GHC.Classes.Eq Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance GHC.Generics.Generic Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
-instance GHC.Show.Show Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
-instance GHC.Read.Read Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
-instance GHC.Classes.Eq Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance Control.DeepSeq.NFData Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance Control.DeepSeq.NFData Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance Network.AWS.Data.Path.ToPath Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance GHC.Generics.Generic Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance GHC.Show.Show Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance GHC.Read.Read Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance GHC.Classes.Eq Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance GHC.Generics.Generic Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
+instance GHC.Show.Show Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
+instance GHC.Read.Read Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
+instance GHC.Classes.Eq Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
+instance Amazonka.Types.AWSRequest Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance Control.DeepSeq.NFData Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKeyResponse
+instance Data.Hashable.Class.Hashable Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance Control.DeepSeq.NFData Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance Amazonka.Data.Path.ToPath Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
+instance Amazonka.Data.Query.ToQuery Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey.SendSerialConsoleSSHPublicKey
 
 
 -- | Pushes an SSH public key to the specified EC2 instance for use by the
 --   specified user. The key remains for 60 seconds. For more information,
 --   see <a>Connect to your Linux instance using EC2 Instance Connect</a>
 --   in the <i>Amazon EC2 User Guide</i>.
-module Network.AWS.EC2InstanceConnect.SendSSHPublicKey
+module Amazonka.EC2InstanceConnect.SendSSHPublicKey
 
 -- | <i>See:</i> <a>newSendSSHPublicKey</a> smart constructor.
 data SendSSHPublicKey
@@ -288,25 +288,25 @@ sendSSHPublicKeyResponse_success :: Lens' SendSSHPublicKeyResponse (Maybe Bool)
 
 -- | The response's http status code.
 sendSSHPublicKeyResponse_httpStatus :: Lens' SendSSHPublicKeyResponse Int
-instance GHC.Generics.Generic Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance GHC.Show.Show Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance GHC.Read.Read Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance GHC.Classes.Eq Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance GHC.Generics.Generic Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
-instance GHC.Show.Show Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
-instance GHC.Read.Read Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
-instance GHC.Classes.Eq Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance Control.DeepSeq.NFData Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance Control.DeepSeq.NFData Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance Network.AWS.Data.Path.ToPath Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance GHC.Generics.Generic Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance GHC.Show.Show Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance GHC.Read.Read Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance GHC.Classes.Eq Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance GHC.Generics.Generic Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
+instance GHC.Show.Show Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
+instance GHC.Read.Read Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
+instance GHC.Classes.Eq Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
+instance Amazonka.Types.AWSRequest Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance Control.DeepSeq.NFData Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKeyResponse
+instance Data.Hashable.Class.Hashable Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance Control.DeepSeq.NFData Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance Amazonka.Data.Path.ToPath Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
+instance Amazonka.Data.Query.ToQuery Amazonka.EC2InstanceConnect.SendSSHPublicKey.SendSSHPublicKey
 
 
-module Network.AWS.EC2InstanceConnect.Lens
+module Amazonka.EC2InstanceConnect.Lens
 
 -- | The ID of the EC2 instance.
 sendSSHPublicKey_instanceId :: Lens' SendSSHPublicKey Text
@@ -358,7 +358,7 @@ sendSerialConsoleSSHPublicKeyResponse_success :: Lens' SendSerialConsoleSSHPubli
 sendSerialConsoleSSHPublicKeyResponse_httpStatus :: Lens' SendSerialConsoleSSHPublicKeyResponse Int
 
 
-module Network.AWS.EC2InstanceConnect.Waiters
+module Amazonka.EC2InstanceConnect.Waiters
 
 
 -- | Derived from API version <tt>2018-04-02</tt> of the AWS service
@@ -367,7 +367,7 @@ module Network.AWS.EC2InstanceConnect.Waiters
 --   Amazon EC2 Instance Connect enables system administrators to publish
 --   one-time use SSH public keys to EC2, providing users a simple and
 --   secure way to connect to their instances.
-module Network.AWS.EC2InstanceConnect
+module Amazonka.EC2InstanceConnect
 
 -- | API version <tt>2018-04-02</tt> of the Amazon EC2 Instance Connect SDK
 --   configuration.

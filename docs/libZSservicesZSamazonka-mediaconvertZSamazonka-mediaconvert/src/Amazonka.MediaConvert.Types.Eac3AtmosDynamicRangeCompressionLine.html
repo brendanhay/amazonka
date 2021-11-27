@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier">Eac3AtmosDynamicRangeCompressionLine</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT"><span class="hs-identifier">Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD"><span class="hs-identifier">Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT"><span class="hs-identifier">Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD"><span class="hs-identifier">Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_NONE"><span class="hs-identifier">Eac3AtmosDynamicRangeCompressionLine_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_SPEECH"><span class="hs-identifier">Eac3AtmosDynamicRangeCompressionLine_SPEECH</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | Choose the Dolby dynamic range control (DRC) profile that MediaConvert</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- uses when encoding the metadata in the Dolby stream for the line</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- operating mode. Default value: Film light</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- (ATMOS_STORAGE_DDP_COMPR_FILM_LIGHT) Related setting: To have</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- MediaConvert use the value you specify here, keep the default value,</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Custom (SPECIFIED) for the setting Dynamic range control</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- (DynamicRangeControl). Otherwise, MediaConvert ignores Dynamic range</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- compression line (DynamicRangeCompressionLine). For information about</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- the Dolby DRC operating modes and profiles, see the Dynamic Range</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Control chapter of the Dolby Metadata Guide at</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679960103"><span id="local-6989586621679960104"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3AtmosDynamicRangeCompressionLine"><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-var">Eac3AtmosDynamicRangeCompressionLine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3AtmosDynamicRangeCompressionLine%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-identifier hs-var">Eac3AtmosDynamicRangeCompressionLine'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3AtmosDynamicRangeCompressionLine"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#fromEac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-var hs-var">fromEac3AtmosDynamicRangeCompressionLine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679960095"><span id="local-6989586621679960097"><span id="local-6989586621679960099"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; ShowS
+[Eac3AtmosDynamicRangeCompressionLine] -&gt; ShowS
+Eac3AtmosDynamicRangeCompressionLine -&gt; String
+(Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; ShowS)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine -&gt; String)
+-&gt; ([Eac3AtmosDynamicRangeCompressionLine] -&gt; ShowS)
+-&gt; Show Eac3AtmosDynamicRangeCompressionLine
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Eac3AtmosDynamicRangeCompressionLine] -&gt; ShowS
+$cshowList :: [Eac3AtmosDynamicRangeCompressionLine] -&gt; ShowS
+show :: Eac3AtmosDynamicRangeCompressionLine -&gt; String
+$cshow :: Eac3AtmosDynamicRangeCompressionLine -&gt; String
+showsPrec :: Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; ShowS
+$cshowsPrec :: Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679960086"><span id="local-6989586621679960088"><span id="local-6989586621679960090"><span id="local-6989586621679960092"><span class="annot"><span class="annottext">ReadPrec [Eac3AtmosDynamicRangeCompressionLine]
+ReadPrec Eac3AtmosDynamicRangeCompressionLine
+Int -&gt; ReadS Eac3AtmosDynamicRangeCompressionLine
+ReadS [Eac3AtmosDynamicRangeCompressionLine]
+(Int -&gt; ReadS Eac3AtmosDynamicRangeCompressionLine)
+-&gt; ReadS [Eac3AtmosDynamicRangeCompressionLine]
+-&gt; ReadPrec Eac3AtmosDynamicRangeCompressionLine
+-&gt; ReadPrec [Eac3AtmosDynamicRangeCompressionLine]
+-&gt; Read Eac3AtmosDynamicRangeCompressionLine
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Eac3AtmosDynamicRangeCompressionLine]
+$creadListPrec :: ReadPrec [Eac3AtmosDynamicRangeCompressionLine]
+readPrec :: ReadPrec Eac3AtmosDynamicRangeCompressionLine
+$creadPrec :: ReadPrec Eac3AtmosDynamicRangeCompressionLine
+readList :: ReadS [Eac3AtmosDynamicRangeCompressionLine]
+$creadList :: ReadS [Eac3AtmosDynamicRangeCompressionLine]
+readsPrec :: Int -&gt; ReadS Eac3AtmosDynamicRangeCompressionLine
+$creadsPrec :: Int -&gt; ReadS Eac3AtmosDynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679960081"><span id="local-6989586621679960083"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+(Eac3AtmosDynamicRangeCompressionLine
+ -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool)
+-&gt; Eq Eac3AtmosDynamicRangeCompressionLine
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+$c/= :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+== :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+$c== :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679960065"><span id="local-6989586621679960067"><span id="local-6989586621679960069"><span id="local-6989586621679960071"><span id="local-6989586621679960073"><span id="local-6989586621679960075"><span id="local-6989586621679960077"><span class="annot"><span class="annottext">Eq Eac3AtmosDynamicRangeCompressionLine
+Eq Eac3AtmosDynamicRangeCompressionLine
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Ordering)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine
+    -&gt; Eac3AtmosDynamicRangeCompressionLine)
+-&gt; Ord Eac3AtmosDynamicRangeCompressionLine
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Ordering
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+$cmin :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+max :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+$cmax :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+&gt;= :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+$c&gt;= :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+&gt; :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+$c&gt; :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+&lt;= :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+$c&lt;= :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+&lt; :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+$c&lt; :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Bool
+compare :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Ordering
+$ccompare :: Eac3AtmosDynamicRangeCompressionLine
+-&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Ordering
+$cp1Ord :: Eq Eac3AtmosDynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Eac3AtmosDynamicRangeCompressionLine
+ -&gt; Rep Eac3AtmosDynamicRangeCompressionLine x)
+-&gt; (forall x.
+    Rep Eac3AtmosDynamicRangeCompressionLine x
+    -&gt; Eac3AtmosDynamicRangeCompressionLine)
+-&gt; Generic Eac3AtmosDynamicRangeCompressionLine
+forall x.
+Rep Eac3AtmosDynamicRangeCompressionLine x
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+forall x.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; Rep Eac3AtmosDynamicRangeCompressionLine x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Eac3AtmosDynamicRangeCompressionLine x
+-&gt; Eac3AtmosDynamicRangeCompressionLine
+$cfrom :: forall x.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; Rep Eac3AtmosDynamicRangeCompressionLine x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679960057"><span id="local-6989586621679960059"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Int
+Eac3AtmosDynamicRangeCompressionLine -&gt; Int
+(Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Int)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine -&gt; Int)
+-&gt; Hashable Eac3AtmosDynamicRangeCompressionLine
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Eac3AtmosDynamicRangeCompressionLine -&gt; Int
+$chash :: Eac3AtmosDynamicRangeCompressionLine -&gt; Int
+hashWithSalt :: Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Int
+$chashWithSalt :: Int -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679960054"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine -&gt; ()
+(Eac3AtmosDynamicRangeCompressionLine -&gt; ())
+-&gt; NFData Eac3AtmosDynamicRangeCompressionLine
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Eac3AtmosDynamicRangeCompressionLine -&gt; ()
+$crnf :: Eac3AtmosDynamicRangeCompressionLine -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679960051"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3AtmosDynamicRangeCompressionLine
+(Text -&gt; Either String Eac3AtmosDynamicRangeCompressionLine)
+-&gt; FromText Eac3AtmosDynamicRangeCompressionLine
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Eac3AtmosDynamicRangeCompressionLine
+$cfromText :: Text -&gt; Either String Eac3AtmosDynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679960048"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine -&gt; Text
+(Eac3AtmosDynamicRangeCompressionLine -&gt; Text)
+-&gt; ToText Eac3AtmosDynamicRangeCompressionLine
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Eac3AtmosDynamicRangeCompressionLine -&gt; Text
+$ctoText :: Eac3AtmosDynamicRangeCompressionLine -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679960045"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine -&gt; ByteString
+(Eac3AtmosDynamicRangeCompressionLine -&gt; ByteString)
+-&gt; ToByteString Eac3AtmosDynamicRangeCompressionLine
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Eac3AtmosDynamicRangeCompressionLine -&gt; ByteString
+$ctoBS :: Eac3AtmosDynamicRangeCompressionLine -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679960042"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine -&gt; ByteStringBuilder
+(Eac3AtmosDynamicRangeCompressionLine -&gt; ByteStringBuilder)
+-&gt; ToLog Eac3AtmosDynamicRangeCompressionLine
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Eac3AtmosDynamicRangeCompressionLine -&gt; ByteStringBuilder
+$cbuild :: Eac3AtmosDynamicRangeCompressionLine -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679960039"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; [Header]
+(HeaderName -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; [Header])
+-&gt; ToHeader Eac3AtmosDynamicRangeCompressionLine
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Eac3AtmosDynamicRangeCompressionLine -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679960036"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine -&gt; QueryString
+(Eac3AtmosDynamicRangeCompressionLine -&gt; QueryString)
+-&gt; ToQuery Eac3AtmosDynamicRangeCompressionLine
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Eac3AtmosDynamicRangeCompressionLine -&gt; QueryString
+$ctoQuery :: Eac3AtmosDynamicRangeCompressionLine -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679960031"><span id="local-6989586621679960033"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3AtmosDynamicRangeCompressionLine]
+Value -&gt; Parser Eac3AtmosDynamicRangeCompressionLine
+(Value -&gt; Parser Eac3AtmosDynamicRangeCompressionLine)
+-&gt; (Value -&gt; Parser [Eac3AtmosDynamicRangeCompressionLine])
+-&gt; FromJSON Eac3AtmosDynamicRangeCompressionLine
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Eac3AtmosDynamicRangeCompressionLine]
+$cparseJSONList :: Value -&gt; Parser [Eac3AtmosDynamicRangeCompressionLine]
+parseJSON :: Value -&gt; Parser Eac3AtmosDynamicRangeCompressionLine
+$cparseJSON :: Value -&gt; Parser Eac3AtmosDynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679960026"><span id="local-6989586621679960028"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+FromJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+FromJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+-&gt; FromJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+-&gt; FromJSONKey Eac3AtmosDynamicRangeCompressionLine
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+$cfromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+fromJSONKey :: FromJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+$cfromJSONKey :: FromJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679960017"><span id="local-6989586621679960019"><span id="local-6989586621679960021"><span id="local-6989586621679960023"><span class="annot"><span class="annottext">[Eac3AtmosDynamicRangeCompressionLine] -&gt; Encoding
+[Eac3AtmosDynamicRangeCompressionLine] -&gt; Value
+Eac3AtmosDynamicRangeCompressionLine -&gt; Encoding
+Eac3AtmosDynamicRangeCompressionLine -&gt; Value
+(Eac3AtmosDynamicRangeCompressionLine -&gt; Value)
+-&gt; (Eac3AtmosDynamicRangeCompressionLine -&gt; Encoding)
+-&gt; ([Eac3AtmosDynamicRangeCompressionLine] -&gt; Value)
+-&gt; ([Eac3AtmosDynamicRangeCompressionLine] -&gt; Encoding)
+-&gt; ToJSON Eac3AtmosDynamicRangeCompressionLine
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Eac3AtmosDynamicRangeCompressionLine] -&gt; Encoding
+$ctoEncodingList :: [Eac3AtmosDynamicRangeCompressionLine] -&gt; Encoding
+toJSONList :: [Eac3AtmosDynamicRangeCompressionLine] -&gt; Value
+$ctoJSONList :: [Eac3AtmosDynamicRangeCompressionLine] -&gt; Value
+toEncoding :: Eac3AtmosDynamicRangeCompressionLine -&gt; Encoding
+$ctoEncoding :: Eac3AtmosDynamicRangeCompressionLine -&gt; Encoding
+toJSON :: Eac3AtmosDynamicRangeCompressionLine -&gt; Value
+$ctoJSON :: Eac3AtmosDynamicRangeCompressionLine -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679960012"><span id="local-6989586621679960014"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+ToJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+ToJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+-&gt; ToJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+-&gt; ToJSONKey Eac3AtmosDynamicRangeCompressionLine
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+$ctoJSONKeyList :: ToJSONKeyFunction [Eac3AtmosDynamicRangeCompressionLine]
+toJSONKey :: ToJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+$ctoJSONKey :: ToJSONKeyFunction Eac3AtmosDynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679960009"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3AtmosDynamicRangeCompressionLine
+([Node] -&gt; Either String Eac3AtmosDynamicRangeCompressionLine)
+-&gt; FromXML Eac3AtmosDynamicRangeCompressionLine
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Eac3AtmosDynamicRangeCompressionLine
+$cparseXML :: [Node] -&gt; Either String Eac3AtmosDynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679960006"><span class="annot"><span class="annottext">Eac3AtmosDynamicRangeCompressionLine -&gt; XML
+(Eac3AtmosDynamicRangeCompressionLine -&gt; XML)
+-&gt; ToXML Eac3AtmosDynamicRangeCompressionLine
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Eac3AtmosDynamicRangeCompressionLine -&gt; XML
+$ctoXML :: Eac3AtmosDynamicRangeCompressionLine -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDynamicRangeCompressionLine_FILM_LIGHT"><span id="%24mEac3AtmosDynamicRangeCompressionLine_FILM_LIGHT"><span id="Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT"><span class="annot"><span class="annottext">$bEac3AtmosDynamicRangeCompressionLine_FILM_LIGHT :: Eac3AtmosDynamicRangeCompressionLine
+$mEac3AtmosDynamicRangeCompressionLine_FILM_LIGHT :: forall r.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#%24bEac3AtmosDynamicRangeCompressionLine_FILM_LIGHT"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FILM_LIGHT&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDynamicRangeCompressionLine_FILM_STANDARD"><span id="%24mEac3AtmosDynamicRangeCompressionLine_FILM_STANDARD"><span id="Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD"><span class="annot"><span class="annottext">$bEac3AtmosDynamicRangeCompressionLine_FILM_STANDARD :: Eac3AtmosDynamicRangeCompressionLine
+$mEac3AtmosDynamicRangeCompressionLine_FILM_STANDARD :: forall r.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#%24bEac3AtmosDynamicRangeCompressionLine_FILM_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FILM_STANDARD&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT"><span id="%24mEac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT"><span id="Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT"><span class="annot"><span class="annottext">$bEac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT :: Eac3AtmosDynamicRangeCompressionLine
+$mEac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT :: forall r.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#%24bEac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUSIC_LIGHT&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD"><span id="%24mEac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD"><span id="Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD"><span class="annot"><span class="annottext">$bEac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD :: Eac3AtmosDynamicRangeCompressionLine
+$mEac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD :: forall r.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#%24bEac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUSIC_STANDARD&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_NONE"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDynamicRangeCompressionLine_NONE"><span id="%24mEac3AtmosDynamicRangeCompressionLine_NONE"><span id="Eac3AtmosDynamicRangeCompressionLine_NONE"><span class="annot"><span class="annottext">$bEac3AtmosDynamicRangeCompressionLine_NONE :: Eac3AtmosDynamicRangeCompressionLine
+$mEac3AtmosDynamicRangeCompressionLine_NONE :: forall r.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#%24bEac3AtmosDynamicRangeCompressionLine_NONE"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDynamicRangeCompressionLine_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_SPEECH"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine_SPEECH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDynamicRangeCompressionLine_SPEECH"><span id="%24mEac3AtmosDynamicRangeCompressionLine_SPEECH"><span id="Eac3AtmosDynamicRangeCompressionLine_SPEECH"><span class="annot"><span class="annottext">$bEac3AtmosDynamicRangeCompressionLine_SPEECH :: Eac3AtmosDynamicRangeCompressionLine
+$mEac3AtmosDynamicRangeCompressionLine_SPEECH :: forall r.
+Eac3AtmosDynamicRangeCompressionLine
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#%24bEac3AtmosDynamicRangeCompressionLine_SPEECH"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDynamicRangeCompressionLine_SPEECH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-identifier hs-type">Eac3AtmosDynamicRangeCompressionLine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEECH&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT"><span class="hs-pragma hs-type">Eac3AtmosDynamicRangeCompressionLine_FILM_LIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD"><span class="hs-pragma hs-type">Eac3AtmosDynamicRangeCompressionLine_FILM_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT"><span class="hs-pragma hs-type">Eac3AtmosDynamicRangeCompressionLine_MUSIC_LIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD"><span class="hs-pragma hs-type">Eac3AtmosDynamicRangeCompressionLine_MUSIC_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_NONE"><span class="hs-pragma hs-type">Eac3AtmosDynamicRangeCompressionLine_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine_SPEECH"><span class="hs-pragma hs-type">Eac3AtmosDynamicRangeCompressionLine_SPEECH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine.html#Eac3AtmosDynamicRangeCompressionLine%27"><span class="hs-pragma hs-type">Eac3AtmosDynamicRangeCompressionLine'</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-102"></span></pre></body></html>

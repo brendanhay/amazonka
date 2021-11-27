@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApiGatewayV2.Types.DeploymentStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.DeploymentStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier">DeploymentStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_DEPLOYED"><span class="hs-identifier">DeploymentStatus_DEPLOYED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_FAILED"><span class="hs-identifier">DeploymentStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_PENDING"><span class="hs-identifier">DeploymentStatus_PENDING</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Represents a deployment status.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679406366"><span id="local-6989586621679406367"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentStatus"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-var">DeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentStatus%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus%27"><span class="hs-identifier hs-var">DeploymentStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentStatus"><span class="annot"><span class="annottext">DeploymentStatus -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#fromDeploymentStatus"><span class="hs-identifier hs-var hs-var">fromDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406358"><span id="local-6989586621679406360"><span id="local-6989586621679406362"><span class="annot"><span class="annottext">Int -&gt; DeploymentStatus -&gt; ShowS
+[DeploymentStatus] -&gt; ShowS
+DeploymentStatus -&gt; String
+(Int -&gt; DeploymentStatus -&gt; ShowS)
+-&gt; (DeploymentStatus -&gt; String)
+-&gt; ([DeploymentStatus] -&gt; ShowS)
+-&gt; Show DeploymentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentStatus] -&gt; ShowS
+$cshowList :: [DeploymentStatus] -&gt; ShowS
+show :: DeploymentStatus -&gt; String
+$cshow :: DeploymentStatus -&gt; String
+showsPrec :: Int -&gt; DeploymentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679406349"><span id="local-6989586621679406351"><span id="local-6989586621679406353"><span id="local-6989586621679406355"><span class="annot"><span class="annottext">ReadPrec [DeploymentStatus]
+ReadPrec DeploymentStatus
+Int -&gt; ReadS DeploymentStatus
+ReadS [DeploymentStatus]
+(Int -&gt; ReadS DeploymentStatus)
+-&gt; ReadS [DeploymentStatus]
+-&gt; ReadPrec DeploymentStatus
+-&gt; ReadPrec [DeploymentStatus]
+-&gt; Read DeploymentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentStatus]
+$creadListPrec :: ReadPrec [DeploymentStatus]
+readPrec :: ReadPrec DeploymentStatus
+$creadPrec :: ReadPrec DeploymentStatus
+readList :: ReadS [DeploymentStatus]
+$creadList :: ReadS [DeploymentStatus]
+readsPrec :: Int -&gt; ReadS DeploymentStatus
+$creadsPrec :: Int -&gt; ReadS DeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679406344"><span id="local-6989586621679406346"><span class="annot"><span class="annottext">DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+(DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
+-&gt; Eq DeploymentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+$c/= :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+== :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+$c== :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679406328"><span id="local-6989586621679406330"><span id="local-6989586621679406332"><span id="local-6989586621679406334"><span id="local-6989586621679406336"><span id="local-6989586621679406338"><span id="local-6989586621679406340"><span class="annot"><span class="annottext">Eq DeploymentStatus
+Eq DeploymentStatus
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Ordering)
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; DeploymentStatus)
+-&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; DeploymentStatus)
+-&gt; Ord DeploymentStatus
+DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+DeploymentStatus -&gt; DeploymentStatus -&gt; Ordering
+DeploymentStatus -&gt; DeploymentStatus -&gt; DeploymentStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentStatus -&gt; DeploymentStatus -&gt; DeploymentStatus
+$cmin :: DeploymentStatus -&gt; DeploymentStatus -&gt; DeploymentStatus
+max :: DeploymentStatus -&gt; DeploymentStatus -&gt; DeploymentStatus
+$cmax :: DeploymentStatus -&gt; DeploymentStatus -&gt; DeploymentStatus
+&gt;= :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+$c&gt;= :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+&gt; :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+$c&gt; :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+&lt;= :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+$c&lt;= :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+&lt; :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+$c&lt; :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+compare :: DeploymentStatus -&gt; DeploymentStatus -&gt; Ordering
+$ccompare :: DeploymentStatus -&gt; DeploymentStatus -&gt; Ordering
+$cp1Ord :: Eq DeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeploymentStatus -&gt; Rep DeploymentStatus x)
+-&gt; (forall x. Rep DeploymentStatus x -&gt; DeploymentStatus)
+-&gt; Generic DeploymentStatus
+forall x. Rep DeploymentStatus x -&gt; DeploymentStatus
+forall x. DeploymentStatus -&gt; Rep DeploymentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentStatus x -&gt; DeploymentStatus
+$cfrom :: forall x. DeploymentStatus -&gt; Rep DeploymentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406320"><span id="local-6989586621679406322"><span class="annot"><span class="annottext">Int -&gt; DeploymentStatus -&gt; Int
+DeploymentStatus -&gt; Int
+(Int -&gt; DeploymentStatus -&gt; Int)
+-&gt; (DeploymentStatus -&gt; Int) -&gt; Hashable DeploymentStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentStatus -&gt; Int
+$chash :: DeploymentStatus -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679406317"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ()
+(DeploymentStatus -&gt; ()) -&gt; NFData DeploymentStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentStatus -&gt; ()
+$crnf :: DeploymentStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679406314"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentStatus
+(Text -&gt; Either String DeploymentStatus)
+-&gt; FromText DeploymentStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentStatus
+$cfromText :: Text -&gt; Either String DeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679406311"><span class="annot"><span class="annottext">DeploymentStatus -&gt; Text
+(DeploymentStatus -&gt; Text) -&gt; ToText DeploymentStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentStatus -&gt; Text
+$ctoText :: DeploymentStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679406308"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ByteString
+(DeploymentStatus -&gt; ByteString) -&gt; ToByteString DeploymentStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentStatus -&gt; ByteString
+$ctoBS :: DeploymentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679406305"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ByteStringBuilder
+(DeploymentStatus -&gt; ByteStringBuilder) -&gt; ToLog DeploymentStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentStatus -&gt; ByteStringBuilder
+$cbuild :: DeploymentStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679406302"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentStatus -&gt; [Header]
+(HeaderName -&gt; DeploymentStatus -&gt; [Header])
+-&gt; ToHeader DeploymentStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679406299"><span class="annot"><span class="annottext">DeploymentStatus -&gt; QueryString
+(DeploymentStatus -&gt; QueryString) -&gt; ToQuery DeploymentStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentStatus -&gt; QueryString
+$ctoQuery :: DeploymentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679406294"><span id="local-6989586621679406296"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentStatus]
+Value -&gt; Parser DeploymentStatus
+(Value -&gt; Parser DeploymentStatus)
+-&gt; (Value -&gt; Parser [DeploymentStatus])
+-&gt; FromJSON DeploymentStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentStatus]
+$cparseJSONList :: Value -&gt; Parser [DeploymentStatus]
+parseJSON :: Value -&gt; Parser DeploymentStatus
+$cparseJSON :: Value -&gt; Parser DeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679406289"><span id="local-6989586621679406291"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentStatus]
+FromJSONKeyFunction DeploymentStatus
+FromJSONKeyFunction DeploymentStatus
+-&gt; FromJSONKeyFunction [DeploymentStatus]
+-&gt; FromJSONKey DeploymentStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentStatus]
+fromJSONKey :: FromJSONKeyFunction DeploymentStatus
+$cfromJSONKey :: FromJSONKeyFunction DeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679406280"><span id="local-6989586621679406282"><span id="local-6989586621679406284"><span id="local-6989586621679406286"><span class="annot"><span class="annottext">[DeploymentStatus] -&gt; Encoding
+[DeploymentStatus] -&gt; Value
+DeploymentStatus -&gt; Encoding
+DeploymentStatus -&gt; Value
+(DeploymentStatus -&gt; Value)
+-&gt; (DeploymentStatus -&gt; Encoding)
+-&gt; ([DeploymentStatus] -&gt; Value)
+-&gt; ([DeploymentStatus] -&gt; Encoding)
+-&gt; ToJSON DeploymentStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentStatus] -&gt; Encoding
+$ctoEncodingList :: [DeploymentStatus] -&gt; Encoding
+toJSONList :: [DeploymentStatus] -&gt; Value
+$ctoJSONList :: [DeploymentStatus] -&gt; Value
+toEncoding :: DeploymentStatus -&gt; Encoding
+$ctoEncoding :: DeploymentStatus -&gt; Encoding
+toJSON :: DeploymentStatus -&gt; Value
+$ctoJSON :: DeploymentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679406275"><span id="local-6989586621679406277"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentStatus]
+ToJSONKeyFunction DeploymentStatus
+ToJSONKeyFunction DeploymentStatus
+-&gt; ToJSONKeyFunction [DeploymentStatus]
+-&gt; ToJSONKey DeploymentStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentStatus]
+toJSONKey :: ToJSONKeyFunction DeploymentStatus
+$ctoJSONKey :: ToJSONKeyFunction DeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679406272"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentStatus
+([Node] -&gt; Either String DeploymentStatus)
+-&gt; FromXML DeploymentStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentStatus
+$cparseXML :: [Node] -&gt; Either String DeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679406269"><span class="annot"><span class="annottext">DeploymentStatus -&gt; XML
+(DeploymentStatus -&gt; XML) -&gt; ToXML DeploymentStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentStatus -&gt; XML
+$ctoXML :: DeploymentStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_DEPLOYED"><span class="hs-identifier hs-type">DeploymentStatus_DEPLOYED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentStatus_DEPLOYED"><span id="%24mDeploymentStatus_DEPLOYED"><span id="DeploymentStatus_DEPLOYED"><span class="annot"><span class="annottext">$bDeploymentStatus_DEPLOYED :: DeploymentStatus
+$mDeploymentStatus_DEPLOYED :: forall r. DeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#%24bDeploymentStatus_DEPLOYED"><span class="hs-identifier hs-var hs-var hs-var">DeploymentStatus_DEPLOYED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus%27"><span class="hs-identifier hs-type">DeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEPLOYED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_FAILED"><span class="hs-identifier hs-type">DeploymentStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentStatus_FAILED"><span id="%24mDeploymentStatus_FAILED"><span id="DeploymentStatus_FAILED"><span class="annot"><span class="annottext">$bDeploymentStatus_FAILED :: DeploymentStatus
+$mDeploymentStatus_FAILED :: forall r. DeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#%24bDeploymentStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DeploymentStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus%27"><span class="hs-identifier hs-type">DeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_PENDING"><span class="hs-identifier hs-type">DeploymentStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentStatus_PENDING"><span id="%24mDeploymentStatus_PENDING"><span id="DeploymentStatus_PENDING"><span class="annot"><span class="annottext">$bDeploymentStatus_PENDING :: DeploymentStatus
+$mDeploymentStatus_PENDING :: forall r. DeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#%24bDeploymentStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">DeploymentStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus%27"><span class="hs-identifier hs-type">DeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_DEPLOYED"><span class="hs-pragma hs-type">DeploymentStatus_DEPLOYED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_FAILED"><span class="hs-pragma hs-type">DeploymentStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus_PENDING"><span class="hs-pragma hs-type">DeploymentStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus%27"><span class="hs-pragma hs-type">DeploymentStatus'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.AddFlowVpcInterfaces</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds VPC interfaces to flow</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.AddFlowVpcInterfaces</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier">AddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#newAddFlowVpcInterfaces"><span class="hs-identifier">newAddFlowVpcInterfaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfaces_flowArn"><span class="hs-identifier">addFlowVpcInterfaces_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfaces_vpcInterfaces"><span class="hs-identifier">addFlowVpcInterfaces_vpcInterfaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier">AddFlowVpcInterfacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#newAddFlowVpcInterfacesResponse"><span class="hs-identifier">newAddFlowVpcInterfacesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_flowArn"><span class="hs-identifier">addFlowVpcInterfacesResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_vpcInterfaces"><span class="hs-identifier">addFlowVpcInterfacesResponse_vpcInterfaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_httpStatus"><span class="hs-identifier">addFlowVpcInterfacesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.html"><span class="hs-identifier">Amazonka.MediaConnect.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | A request to add VPC interfaces to the flow.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newAddFlowVpcInterfaces' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679278581"><span id="local-6989586621679278582"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFlowVpcInterfaces"><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-var">AddFlowVpcInterfaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFlowVpcInterfaces%27"><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-var">AddFlowVpcInterfaces'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The flow that you want to mutate.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AflowArn%3AAddFlowVpcInterfaces%27"><span class="annot"><span class="annottext">AddFlowVpcInterfaces -&gt; Text
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AflowArn%3AAddFlowVpcInterfaces%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A list of VPC interfaces that you want to add.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AvpcInterfaces%3AAddFlowVpcInterfaces%27"><span class="annot"><span class="annottext">AddFlowVpcInterfaces -&gt; [VpcInterfaceRequest]
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AvpcInterfaces%3AAddFlowVpcInterfaces%27"><span class="hs-identifier hs-var hs-var">vpcInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278574"><span id="local-6989586621679278576"><span class="annot"><span class="annottext">AddFlowVpcInterfaces -&gt; AddFlowVpcInterfaces -&gt; Bool
+(AddFlowVpcInterfaces -&gt; AddFlowVpcInterfaces -&gt; Bool)
+-&gt; (AddFlowVpcInterfaces -&gt; AddFlowVpcInterfaces -&gt; Bool)
+-&gt; Eq AddFlowVpcInterfaces
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddFlowVpcInterfaces -&gt; AddFlowVpcInterfaces -&gt; Bool
+$c/= :: AddFlowVpcInterfaces -&gt; AddFlowVpcInterfaces -&gt; Bool
+== :: AddFlowVpcInterfaces -&gt; AddFlowVpcInterfaces -&gt; Bool
+$c== :: AddFlowVpcInterfaces -&gt; AddFlowVpcInterfaces -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278565"><span id="local-6989586621679278567"><span id="local-6989586621679278569"><span id="local-6989586621679278571"><span class="annot"><span class="annottext">ReadPrec [AddFlowVpcInterfaces]
+ReadPrec AddFlowVpcInterfaces
+Int -&gt; ReadS AddFlowVpcInterfaces
+ReadS [AddFlowVpcInterfaces]
+(Int -&gt; ReadS AddFlowVpcInterfaces)
+-&gt; ReadS [AddFlowVpcInterfaces]
+-&gt; ReadPrec AddFlowVpcInterfaces
+-&gt; ReadPrec [AddFlowVpcInterfaces]
+-&gt; Read AddFlowVpcInterfaces
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddFlowVpcInterfaces]
+$creadListPrec :: ReadPrec [AddFlowVpcInterfaces]
+readPrec :: ReadPrec AddFlowVpcInterfaces
+$creadPrec :: ReadPrec AddFlowVpcInterfaces
+readList :: ReadS [AddFlowVpcInterfaces]
+$creadList :: ReadS [AddFlowVpcInterfaces]
+readsPrec :: Int -&gt; ReadS AddFlowVpcInterfaces
+$creadsPrec :: Int -&gt; ReadS AddFlowVpcInterfaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278558"><span id="local-6989586621679278560"><span id="local-6989586621679278562"><span class="annot"><span class="annottext">Int -&gt; AddFlowVpcInterfaces -&gt; ShowS
+[AddFlowVpcInterfaces] -&gt; ShowS
+AddFlowVpcInterfaces -&gt; String
+(Int -&gt; AddFlowVpcInterfaces -&gt; ShowS)
+-&gt; (AddFlowVpcInterfaces -&gt; String)
+-&gt; ([AddFlowVpcInterfaces] -&gt; ShowS)
+-&gt; Show AddFlowVpcInterfaces
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddFlowVpcInterfaces] -&gt; ShowS
+$cshowList :: [AddFlowVpcInterfaces] -&gt; ShowS
+show :: AddFlowVpcInterfaces -&gt; String
+$cshow :: AddFlowVpcInterfaces -&gt; String
+showsPrec :: Int -&gt; AddFlowVpcInterfaces -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddFlowVpcInterfaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddFlowVpcInterfaces -&gt; Rep AddFlowVpcInterfaces x)
+-&gt; (forall x. Rep AddFlowVpcInterfaces x -&gt; AddFlowVpcInterfaces)
+-&gt; Generic AddFlowVpcInterfaces
+forall x. Rep AddFlowVpcInterfaces x -&gt; AddFlowVpcInterfaces
+forall x. AddFlowVpcInterfaces -&gt; Rep AddFlowVpcInterfaces x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddFlowVpcInterfaces x -&gt; AddFlowVpcInterfaces
+$cfrom :: forall x. AddFlowVpcInterfaces -&gt; Rep AddFlowVpcInterfaces x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'AddFlowVpcInterfaces' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'flowArn', 'addFlowVpcInterfaces_flowArn' - The flow that you want to mutate.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'vpcInterfaces', 'addFlowVpcInterfaces_vpcInterfaces' - A list of VPC interfaces that you want to add.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#newAddFlowVpcInterfaces"><span class="hs-identifier hs-type">newAddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span>
+</span><span id="line-77"></span><span id="newAddFlowVpcInterfaces"><span class="annot"><span class="annottext">newAddFlowVpcInterfaces :: Text -&gt; AddFlowVpcInterfaces
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#newAddFlowVpcInterfaces"><span class="hs-identifier hs-var hs-var">newAddFlowVpcInterfaces</span></a></span></span><span> </span><span id="local-6989586621679278553"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278553"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">AddFlowVpcInterfaces' :: Text -&gt; [VpcInterfaceRequest] -&gt; AddFlowVpcInterfaces
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-type">AddFlowVpcInterfaces'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowVpcInterfaces' :: Text
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AflowArn%3AAddFlowVpcInterfaces%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278553"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcInterfaces:AddFlowVpcInterfaces' :: [VpcInterfaceRequest]
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AvpcInterfaces%3AAddFlowVpcInterfaces%27"><span class="hs-identifier hs-var">vpcInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The flow that you want to mutate.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfaces_flowArn"><span class="hs-identifier hs-type">addFlowVpcInterfaces_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="addFlowVpcInterfaces_flowArn"><span class="annot"><span class="annottext">addFlowVpcInterfaces_flowArn :: (Text -&gt; f Text) -&gt; AddFlowVpcInterfaces -&gt; f AddFlowVpcInterfaces
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfaces_flowArn"><span class="hs-identifier hs-var hs-var">addFlowVpcInterfaces_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowVpcInterfaces -&gt; Text)
+-&gt; (AddFlowVpcInterfaces -&gt; Text -&gt; AddFlowVpcInterfaces)
+-&gt; Lens AddFlowVpcInterfaces AddFlowVpcInterfaces Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-type">AddFlowVpcInterfaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278550"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:AddFlowVpcInterfaces' :: AddFlowVpcInterfaces -&gt; Text
+</span><a href="#local-6989586621679278550"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278550"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278549"><span class="annot"><span class="annottext">s :: AddFlowVpcInterfaces
+</span><a href="#local-6989586621679278549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-type">AddFlowVpcInterfaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowVpcInterfaces
+</span><a href="#local-6989586621679278549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowVpcInterfaces' :: Text
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AflowArn%3AAddFlowVpcInterfaces%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A list of VPC interfaces that you want to add.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfaces_vpcInterfaces"><span class="hs-identifier hs-type">addFlowVpcInterfaces_vpcInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span id="addFlowVpcInterfaces_vpcInterfaces"><span class="annot"><span class="annottext">addFlowVpcInterfaces_vpcInterfaces :: ([VpcInterfaceRequest] -&gt; f [VpcInterfaceRequest])
+-&gt; AddFlowVpcInterfaces -&gt; f AddFlowVpcInterfaces
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfaces_vpcInterfaces"><span class="hs-identifier hs-var hs-var">addFlowVpcInterfaces_vpcInterfaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowVpcInterfaces -&gt; [VpcInterfaceRequest])
+-&gt; (AddFlowVpcInterfaces
+    -&gt; [VpcInterfaceRequest] -&gt; AddFlowVpcInterfaces)
+-&gt; Lens
+     AddFlowVpcInterfaces
+     AddFlowVpcInterfaces
+     [VpcInterfaceRequest]
+     [VpcInterfaceRequest]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-type">AddFlowVpcInterfaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278547"><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+vpcInterfaces :: [VpcInterfaceRequest]
+$sel:vpcInterfaces:AddFlowVpcInterfaces' :: AddFlowVpcInterfaces -&gt; [VpcInterfaceRequest]
+</span><a href="#local-6989586621679278547"><span class="hs-identifier hs-var hs-var">vpcInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+</span><a href="#local-6989586621679278547"><span class="hs-identifier hs-var">vpcInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278546"><span class="annot"><span class="annottext">s :: AddFlowVpcInterfaces
+</span><a href="#local-6989586621679278546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-type">AddFlowVpcInterfaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278545"><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+</span><a href="#local-6989586621679278545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowVpcInterfaces
+</span><a href="#local-6989586621679278546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcInterfaces:AddFlowVpcInterfaces' :: [VpcInterfaceRequest]
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AvpcInterfaces%3AAddFlowVpcInterfaces%27"><span class="hs-identifier hs-var">vpcInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+</span><a href="#local-6989586621679278545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([VpcInterfaceRequest] -&gt; f [VpcInterfaceRequest])
+ -&gt; AddFlowVpcInterfaces -&gt; f AddFlowVpcInterfaces)
+-&gt; (([VpcInterfaceRequest] -&gt; f [VpcInterfaceRequest])
+    -&gt; [VpcInterfaceRequest] -&gt; f [VpcInterfaceRequest])
+-&gt; ([VpcInterfaceRequest] -&gt; f [VpcInterfaceRequest])
+-&gt; AddFlowVpcInterfaces
+-&gt; f AddFlowVpcInterfaces
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([VpcInterfaceRequest] -&gt; f [VpcInterfaceRequest])
+-&gt; [VpcInterfaceRequest] -&gt; f [VpcInterfaceRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679278539"><span class="annot"><span class="annottext">request :: AddFlowVpcInterfaces -&gt; Request AddFlowVpcInterfaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddFlowVpcInterfaces -&gt; Request AddFlowVpcInterfaces
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679278535"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddFlowVpcInterfaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddFlowVpcInterfaces)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddFlowVpcInterfaces))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddFlowVpcInterfaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddFlowVpcInterfaces)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [VpcInterface] -&gt; Int -&gt; AddFlowVpcInterfacesResponse
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">AddFlowVpcInterfacesResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [VpcInterface] -&gt; Int -&gt; AddFlowVpcInterfacesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [VpcInterface] -&gt; Int -&gt; AddFlowVpcInterfacesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [VpcInterface] -&gt; Int -&gt; AddFlowVpcInterfacesResponse)
+-&gt; Either String (Maybe [VpcInterface])
+-&gt; Either String (Int -&gt; AddFlowVpcInterfacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VpcInterface]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcInterfaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [VpcInterface]))
+-&gt; Maybe [VpcInterface] -&gt; Either String (Maybe [VpcInterface])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VpcInterface]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddFlowVpcInterfacesResponse)
+-&gt; Either String Int -&gt; Either String AddFlowVpcInterfacesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278521"><span id="local-6989586621679278523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679278514"><span class="annot"><span class="annottext">toHeaders :: AddFlowVpcInterfaces -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddFlowVpcInterfaces -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278504"><span id="local-6989586621679278506"><span id="local-6989586621679278508"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679278502"><span class="annot"><span class="annottext">toJSON :: AddFlowVpcInterfaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-type">AddFlowVpcInterfaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278499"><span id="local-6989586621679278500"><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+Text
+vpcInterfaces :: [VpcInterfaceRequest]
+flowArn :: Text
+$sel:vpcInterfaces:AddFlowVpcInterfaces' :: AddFlowVpcInterfaces -&gt; [VpcInterfaceRequest]
+$sel:flowArn:AddFlowVpcInterfaces' :: AddFlowVpcInterfaces -&gt; Text
+</span><a href="#local-6989586621679278499"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcInterfaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [VpcInterfaceRequest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+</span><a href="#local-6989586621679278499"><span class="hs-identifier hs-var">vpcInterfaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679278493"><span class="annot"><span class="annottext">toPath :: AddFlowVpcInterfaces -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces%27"><span class="hs-identifier hs-type">AddFlowVpcInterfaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278490"><span id="local-6989586621679278491"><span class="annot"><span class="annottext">[VpcInterfaceRequest]
+Text
+vpcInterfaces :: [VpcInterfaceRequest]
+flowArn :: Text
+$sel:vpcInterfaces:AddFlowVpcInterfaces' :: AddFlowVpcInterfaces -&gt; [VpcInterfaceRequest]
+$sel:flowArn:AddFlowVpcInterfaces' :: AddFlowVpcInterfaces -&gt; Text
+</span><a href="#local-6989586621679278490"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278491"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vpcInterfaces&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfaces"><span class="hs-identifier hs-type">AddFlowVpcInterfaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679278486"><span class="annot"><span class="annottext">toQuery :: AddFlowVpcInterfaces -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddFlowVpcInterfaces -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newAddFlowVpcInterfacesResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679278483"><span id="local-6989586621679278484"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFlowVpcInterfacesResponse"><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-var">AddFlowVpcInterfacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFlowVpcInterfacesResponse%27"><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">AddFlowVpcInterfacesResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that these VPC interfaces were added to.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AflowArn%3AAddFlowVpcInterfacesResponse%27"><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AflowArn%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The details of the newly added VPC interfaces.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AvpcInterfaces%3AAddFlowVpcInterfacesResponse%27"><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse -&gt; Maybe [VpcInterface]
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AvpcInterfaces%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var hs-var">vpcInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaConnect.Types.VpcInterface.html#VpcInterface"><span class="hs-identifier hs-type">VpcInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddFlowVpcInterfacesResponse%27"><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse -&gt; Int
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AhttpStatus%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278476"><span id="local-6989586621679278478"><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse
+-&gt; AddFlowVpcInterfacesResponse -&gt; Bool
+(AddFlowVpcInterfacesResponse
+ -&gt; AddFlowVpcInterfacesResponse -&gt; Bool)
+-&gt; (AddFlowVpcInterfacesResponse
+    -&gt; AddFlowVpcInterfacesResponse -&gt; Bool)
+-&gt; Eq AddFlowVpcInterfacesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddFlowVpcInterfacesResponse
+-&gt; AddFlowVpcInterfacesResponse -&gt; Bool
+$c/= :: AddFlowVpcInterfacesResponse
+-&gt; AddFlowVpcInterfacesResponse -&gt; Bool
+== :: AddFlowVpcInterfacesResponse
+-&gt; AddFlowVpcInterfacesResponse -&gt; Bool
+$c== :: AddFlowVpcInterfacesResponse
+-&gt; AddFlowVpcInterfacesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278468"><span id="local-6989586621679278470"><span id="local-6989586621679278472"><span id="local-6989586621679278474"><span class="annot"><span class="annottext">ReadPrec [AddFlowVpcInterfacesResponse]
+ReadPrec AddFlowVpcInterfacesResponse
+Int -&gt; ReadS AddFlowVpcInterfacesResponse
+ReadS [AddFlowVpcInterfacesResponse]
+(Int -&gt; ReadS AddFlowVpcInterfacesResponse)
+-&gt; ReadS [AddFlowVpcInterfacesResponse]
+-&gt; ReadPrec AddFlowVpcInterfacesResponse
+-&gt; ReadPrec [AddFlowVpcInterfacesResponse]
+-&gt; Read AddFlowVpcInterfacesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddFlowVpcInterfacesResponse]
+$creadListPrec :: ReadPrec [AddFlowVpcInterfacesResponse]
+readPrec :: ReadPrec AddFlowVpcInterfacesResponse
+$creadPrec :: ReadPrec AddFlowVpcInterfacesResponse
+readList :: ReadS [AddFlowVpcInterfacesResponse]
+$creadList :: ReadS [AddFlowVpcInterfacesResponse]
+readsPrec :: Int -&gt; ReadS AddFlowVpcInterfacesResponse
+$creadsPrec :: Int -&gt; ReadS AddFlowVpcInterfacesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278462"><span id="local-6989586621679278464"><span id="local-6989586621679278466"><span class="annot"><span class="annottext">Int -&gt; AddFlowVpcInterfacesResponse -&gt; ShowS
+[AddFlowVpcInterfacesResponse] -&gt; ShowS
+AddFlowVpcInterfacesResponse -&gt; String
+(Int -&gt; AddFlowVpcInterfacesResponse -&gt; ShowS)
+-&gt; (AddFlowVpcInterfacesResponse -&gt; String)
+-&gt; ([AddFlowVpcInterfacesResponse] -&gt; ShowS)
+-&gt; Show AddFlowVpcInterfacesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddFlowVpcInterfacesResponse] -&gt; ShowS
+$cshowList :: [AddFlowVpcInterfacesResponse] -&gt; ShowS
+show :: AddFlowVpcInterfacesResponse -&gt; String
+$cshow :: AddFlowVpcInterfacesResponse -&gt; String
+showsPrec :: Int -&gt; AddFlowVpcInterfacesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddFlowVpcInterfacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AddFlowVpcInterfacesResponse -&gt; Rep AddFlowVpcInterfacesResponse x)
+-&gt; (forall x.
+    Rep AddFlowVpcInterfacesResponse x -&gt; AddFlowVpcInterfacesResponse)
+-&gt; Generic AddFlowVpcInterfacesResponse
+forall x.
+Rep AddFlowVpcInterfacesResponse x -&gt; AddFlowVpcInterfacesResponse
+forall x.
+AddFlowVpcInterfacesResponse -&gt; Rep AddFlowVpcInterfacesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AddFlowVpcInterfacesResponse x -&gt; AddFlowVpcInterfacesResponse
+$cfrom :: forall x.
+AddFlowVpcInterfacesResponse -&gt; Rep AddFlowVpcInterfacesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'AddFlowVpcInterfacesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'flowArn', 'addFlowVpcInterfacesResponse_flowArn' - The ARN of the flow that these VPC interfaces were added to.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'vpcInterfaces', 'addFlowVpcInterfacesResponse_vpcInterfaces' - The details of the newly added VPC interfaces.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'httpStatus', 'addFlowVpcInterfacesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#newAddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">newAddFlowVpcInterfacesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span>
+</span><span id="line-165"></span><span id="newAddFlowVpcInterfacesResponse"><span class="annot"><span class="annottext">newAddFlowVpcInterfacesResponse :: Int -&gt; AddFlowVpcInterfacesResponse
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#newAddFlowVpcInterfacesResponse"><span class="hs-identifier hs-var hs-var">newAddFlowVpcInterfacesResponse</span></a></span></span><span> </span><span id="local-6989586621679278459"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278459"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse' :: Maybe Text
+-&gt; Maybe [VpcInterface] -&gt; Int -&gt; AddFlowVpcInterfacesResponse
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse'</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowVpcInterfacesResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AflowArn%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcInterfaces:AddFlowVpcInterfacesResponse' :: Maybe [VpcInterface]
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AvpcInterfaces%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">vpcInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcInterface]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddFlowVpcInterfacesResponse' :: Int
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AhttpStatus%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278459"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The ARN of the flow that these VPC interfaces were added to.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_flowArn"><span class="hs-identifier hs-type">addFlowVpcInterfacesResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="addFlowVpcInterfacesResponse_flowArn"><span class="annot"><span class="annottext">addFlowVpcInterfacesResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddFlowVpcInterfacesResponse -&gt; f AddFlowVpcInterfacesResponse
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_flowArn"><span class="hs-identifier hs-var hs-var">addFlowVpcInterfacesResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowVpcInterfacesResponse -&gt; Maybe Text)
+-&gt; (AddFlowVpcInterfacesResponse
+    -&gt; Maybe Text -&gt; AddFlowVpcInterfacesResponse)
+-&gt; Lens
+     AddFlowVpcInterfacesResponse
+     AddFlowVpcInterfacesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278458"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:AddFlowVpcInterfacesResponse' :: AddFlowVpcInterfacesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679278458"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278458"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278457"><span class="annot"><span class="annottext">s :: AddFlowVpcInterfacesResponse
+</span><a href="#local-6989586621679278457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse
+</span><a href="#local-6989586621679278457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowVpcInterfacesResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AflowArn%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The details of the newly added VPC interfaces.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_vpcInterfaces"><span class="hs-identifier hs-type">addFlowVpcInterfacesResponse_vpcInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaConnect.Types.VpcInterface.html#VpcInterface"><span class="hs-identifier hs-type">VpcInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="addFlowVpcInterfacesResponse_vpcInterfaces"><span class="annot"><span class="annottext">addFlowVpcInterfacesResponse_vpcInterfaces :: (Maybe [VpcInterface] -&gt; f (Maybe [VpcInterface]))
+-&gt; AddFlowVpcInterfacesResponse -&gt; f AddFlowVpcInterfacesResponse
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_vpcInterfaces"><span class="hs-identifier hs-var hs-var">addFlowVpcInterfacesResponse_vpcInterfaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowVpcInterfacesResponse -&gt; Maybe [VpcInterface])
+-&gt; (AddFlowVpcInterfacesResponse
+    -&gt; Maybe [VpcInterface] -&gt; AddFlowVpcInterfacesResponse)
+-&gt; Lens
+     AddFlowVpcInterfacesResponse
+     AddFlowVpcInterfacesResponse
+     (Maybe [VpcInterface])
+     (Maybe [VpcInterface])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278455"><span class="annot"><span class="annottext">Maybe [VpcInterface]
+vpcInterfaces :: Maybe [VpcInterface]
+$sel:vpcInterfaces:AddFlowVpcInterfacesResponse' :: AddFlowVpcInterfacesResponse -&gt; Maybe [VpcInterface]
+</span><a href="#local-6989586621679278455"><span class="hs-identifier hs-var hs-var">vpcInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcInterface]
+</span><a href="#local-6989586621679278455"><span class="hs-identifier hs-var">vpcInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278454"><span class="annot"><span class="annottext">s :: AddFlowVpcInterfacesResponse
+</span><a href="#local-6989586621679278454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278453"><span class="annot"><span class="annottext">Maybe [VpcInterface]
+</span><a href="#local-6989586621679278453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse
+</span><a href="#local-6989586621679278454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcInterfaces:AddFlowVpcInterfacesResponse' :: Maybe [VpcInterface]
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AvpcInterfaces%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">vpcInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcInterface]
+</span><a href="#local-6989586621679278453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcInterface] -&gt; f (Maybe [VpcInterface]))
+ -&gt; AddFlowVpcInterfacesResponse -&gt; f AddFlowVpcInterfacesResponse)
+-&gt; ((Maybe [VpcInterface] -&gt; f (Maybe [VpcInterface]))
+    -&gt; Maybe [VpcInterface] -&gt; f (Maybe [VpcInterface]))
+-&gt; (Maybe [VpcInterface] -&gt; f (Maybe [VpcInterface]))
+-&gt; AddFlowVpcInterfacesResponse
+-&gt; f AddFlowVpcInterfacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [VpcInterface] [VpcInterface] [VpcInterface] [VpcInterface]
+-&gt; Iso
+     (Maybe [VpcInterface])
+     (Maybe [VpcInterface])
+     (Maybe [VpcInterface])
+     (Maybe [VpcInterface])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [VpcInterface] [VpcInterface] [VpcInterface] [VpcInterface]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_httpStatus"><span class="hs-identifier hs-type">addFlowVpcInterfacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="addFlowVpcInterfacesResponse_httpStatus"><span class="annot"><span class="annottext">addFlowVpcInterfacesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AddFlowVpcInterfacesResponse -&gt; f AddFlowVpcInterfacesResponse
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#addFlowVpcInterfacesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addFlowVpcInterfacesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowVpcInterfacesResponse -&gt; Int)
+-&gt; (AddFlowVpcInterfacesResponse
+    -&gt; Int -&gt; AddFlowVpcInterfacesResponse)
+-&gt; Lens
+     AddFlowVpcInterfacesResponse AddFlowVpcInterfacesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278451"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddFlowVpcInterfacesResponse' :: AddFlowVpcInterfacesResponse -&gt; Int
+</span><a href="#local-6989586621679278451"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278451"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278450"><span class="annot"><span class="annottext">s :: AddFlowVpcInterfacesResponse
+</span><a href="#local-6989586621679278450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowVpcInterfacesResponse
+</span><a href="#local-6989586621679278450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddFlowVpcInterfacesResponse' :: Int
+</span><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#%24sel%3AhttpStatus%3AAddFlowVpcInterfacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.AddFlowVpcInterfaces.html#AddFlowVpcInterfacesResponse"><span class="hs-identifier hs-type">AddFlowVpcInterfacesResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

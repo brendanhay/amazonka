@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType"><span class="hs-identifier">CustomSMSSenderLambdaVersionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType_V1_0"><span class="hs-identifier">CustomSMSSenderLambdaVersionType_V1_0</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679426278"><span id="local-6989586621679426279"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomSMSSenderLambdaVersionType"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType"><span class="hs-identifier hs-var">CustomSMSSenderLambdaVersionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomSMSSenderLambdaVersionType%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType%27"><span class="hs-identifier hs-var">CustomSMSSenderLambdaVersionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomSMSSenderLambdaVersionType"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#fromCustomSMSSenderLambdaVersionType"><span class="hs-identifier hs-var hs-var">fromCustomSMSSenderLambdaVersionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426270"><span id="local-6989586621679426272"><span id="local-6989586621679426274"><span class="annot"><span class="annottext">Int -&gt; CustomSMSSenderLambdaVersionType -&gt; ShowS
+[CustomSMSSenderLambdaVersionType] -&gt; ShowS
+CustomSMSSenderLambdaVersionType -&gt; String
+(Int -&gt; CustomSMSSenderLambdaVersionType -&gt; ShowS)
+-&gt; (CustomSMSSenderLambdaVersionType -&gt; String)
+-&gt; ([CustomSMSSenderLambdaVersionType] -&gt; ShowS)
+-&gt; Show CustomSMSSenderLambdaVersionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomSMSSenderLambdaVersionType] -&gt; ShowS
+$cshowList :: [CustomSMSSenderLambdaVersionType] -&gt; ShowS
+show :: CustomSMSSenderLambdaVersionType -&gt; String
+$cshow :: CustomSMSSenderLambdaVersionType -&gt; String
+showsPrec :: Int -&gt; CustomSMSSenderLambdaVersionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomSMSSenderLambdaVersionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679426261"><span id="local-6989586621679426263"><span id="local-6989586621679426265"><span id="local-6989586621679426267"><span class="annot"><span class="annottext">ReadPrec [CustomSMSSenderLambdaVersionType]
+ReadPrec CustomSMSSenderLambdaVersionType
+Int -&gt; ReadS CustomSMSSenderLambdaVersionType
+ReadS [CustomSMSSenderLambdaVersionType]
+(Int -&gt; ReadS CustomSMSSenderLambdaVersionType)
+-&gt; ReadS [CustomSMSSenderLambdaVersionType]
+-&gt; ReadPrec CustomSMSSenderLambdaVersionType
+-&gt; ReadPrec [CustomSMSSenderLambdaVersionType]
+-&gt; Read CustomSMSSenderLambdaVersionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomSMSSenderLambdaVersionType]
+$creadListPrec :: ReadPrec [CustomSMSSenderLambdaVersionType]
+readPrec :: ReadPrec CustomSMSSenderLambdaVersionType
+$creadPrec :: ReadPrec CustomSMSSenderLambdaVersionType
+readList :: ReadS [CustomSMSSenderLambdaVersionType]
+$creadList :: ReadS [CustomSMSSenderLambdaVersionType]
+readsPrec :: Int -&gt; ReadS CustomSMSSenderLambdaVersionType
+$creadsPrec :: Int -&gt; ReadS CustomSMSSenderLambdaVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679426256"><span id="local-6989586621679426258"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+(CustomSMSSenderLambdaVersionType
+ -&gt; CustomSMSSenderLambdaVersionType -&gt; Bool)
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType -&gt; Bool)
+-&gt; Eq CustomSMSSenderLambdaVersionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+$c/= :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+== :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+$c== :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679426240"><span id="local-6989586621679426242"><span id="local-6989586621679426244"><span id="local-6989586621679426246"><span id="local-6989586621679426248"><span id="local-6989586621679426250"><span id="local-6989586621679426252"><span class="annot"><span class="annottext">Eq CustomSMSSenderLambdaVersionType
+Eq CustomSMSSenderLambdaVersionType
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType -&gt; Ordering)
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType -&gt; Bool)
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType -&gt; Bool)
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType -&gt; Bool)
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType -&gt; Bool)
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType)
+-&gt; (CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType
+    -&gt; CustomSMSSenderLambdaVersionType)
+-&gt; Ord CustomSMSSenderLambdaVersionType
+CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Ordering
+CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+$cmin :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+max :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+$cmax :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType
+&gt;= :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+$c&gt;= :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+&gt; :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+$c&gt; :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+&lt;= :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+$c&lt;= :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+&lt; :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+$c&lt; :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Bool
+compare :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Ordering
+$ccompare :: CustomSMSSenderLambdaVersionType
+-&gt; CustomSMSSenderLambdaVersionType -&gt; Ordering
+$cp1Ord :: Eq CustomSMSSenderLambdaVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CustomSMSSenderLambdaVersionType
+ -&gt; Rep CustomSMSSenderLambdaVersionType x)
+-&gt; (forall x.
+    Rep CustomSMSSenderLambdaVersionType x
+    -&gt; CustomSMSSenderLambdaVersionType)
+-&gt; Generic CustomSMSSenderLambdaVersionType
+forall x.
+Rep CustomSMSSenderLambdaVersionType x
+-&gt; CustomSMSSenderLambdaVersionType
+forall x.
+CustomSMSSenderLambdaVersionType
+-&gt; Rep CustomSMSSenderLambdaVersionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CustomSMSSenderLambdaVersionType x
+-&gt; CustomSMSSenderLambdaVersionType
+$cfrom :: forall x.
+CustomSMSSenderLambdaVersionType
+-&gt; Rep CustomSMSSenderLambdaVersionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426232"><span id="local-6989586621679426234"><span class="annot"><span class="annottext">Int -&gt; CustomSMSSenderLambdaVersionType -&gt; Int
+CustomSMSSenderLambdaVersionType -&gt; Int
+(Int -&gt; CustomSMSSenderLambdaVersionType -&gt; Int)
+-&gt; (CustomSMSSenderLambdaVersionType -&gt; Int)
+-&gt; Hashable CustomSMSSenderLambdaVersionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CustomSMSSenderLambdaVersionType -&gt; Int
+$chash :: CustomSMSSenderLambdaVersionType -&gt; Int
+hashWithSalt :: Int -&gt; CustomSMSSenderLambdaVersionType -&gt; Int
+$chashWithSalt :: Int -&gt; CustomSMSSenderLambdaVersionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679426229"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType -&gt; ()
+(CustomSMSSenderLambdaVersionType -&gt; ())
+-&gt; NFData CustomSMSSenderLambdaVersionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CustomSMSSenderLambdaVersionType -&gt; ()
+$crnf :: CustomSMSSenderLambdaVersionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679426226"><span class="annot"><span class="annottext">Text -&gt; Either String CustomSMSSenderLambdaVersionType
+(Text -&gt; Either String CustomSMSSenderLambdaVersionType)
+-&gt; FromText CustomSMSSenderLambdaVersionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CustomSMSSenderLambdaVersionType
+$cfromText :: Text -&gt; Either String CustomSMSSenderLambdaVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679426223"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType -&gt; Text
+(CustomSMSSenderLambdaVersionType -&gt; Text)
+-&gt; ToText CustomSMSSenderLambdaVersionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CustomSMSSenderLambdaVersionType -&gt; Text
+$ctoText :: CustomSMSSenderLambdaVersionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679426220"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType -&gt; ByteString
+(CustomSMSSenderLambdaVersionType -&gt; ByteString)
+-&gt; ToByteString CustomSMSSenderLambdaVersionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CustomSMSSenderLambdaVersionType -&gt; ByteString
+$ctoBS :: CustomSMSSenderLambdaVersionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679426217"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType -&gt; ByteStringBuilder
+(CustomSMSSenderLambdaVersionType -&gt; ByteStringBuilder)
+-&gt; ToLog CustomSMSSenderLambdaVersionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CustomSMSSenderLambdaVersionType -&gt; ByteStringBuilder
+$cbuild :: CustomSMSSenderLambdaVersionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679426214"><span class="annot"><span class="annottext">HeaderName -&gt; CustomSMSSenderLambdaVersionType -&gt; [Header]
+(HeaderName -&gt; CustomSMSSenderLambdaVersionType -&gt; [Header])
+-&gt; ToHeader CustomSMSSenderLambdaVersionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CustomSMSSenderLambdaVersionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CustomSMSSenderLambdaVersionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679426211"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType -&gt; QueryString
+(CustomSMSSenderLambdaVersionType -&gt; QueryString)
+-&gt; ToQuery CustomSMSSenderLambdaVersionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CustomSMSSenderLambdaVersionType -&gt; QueryString
+$ctoQuery :: CustomSMSSenderLambdaVersionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679426206"><span id="local-6989586621679426208"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomSMSSenderLambdaVersionType]
+Value -&gt; Parser CustomSMSSenderLambdaVersionType
+(Value -&gt; Parser CustomSMSSenderLambdaVersionType)
+-&gt; (Value -&gt; Parser [CustomSMSSenderLambdaVersionType])
+-&gt; FromJSON CustomSMSSenderLambdaVersionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CustomSMSSenderLambdaVersionType]
+$cparseJSONList :: Value -&gt; Parser [CustomSMSSenderLambdaVersionType]
+parseJSON :: Value -&gt; Parser CustomSMSSenderLambdaVersionType
+$cparseJSON :: Value -&gt; Parser CustomSMSSenderLambdaVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679426201"><span id="local-6989586621679426203"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+FromJSONKeyFunction CustomSMSSenderLambdaVersionType
+FromJSONKeyFunction CustomSMSSenderLambdaVersionType
+-&gt; FromJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+-&gt; FromJSONKey CustomSMSSenderLambdaVersionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+fromJSONKey :: FromJSONKeyFunction CustomSMSSenderLambdaVersionType
+$cfromJSONKey :: FromJSONKeyFunction CustomSMSSenderLambdaVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679426192"><span id="local-6989586621679426194"><span id="local-6989586621679426196"><span id="local-6989586621679426198"><span class="annot"><span class="annottext">[CustomSMSSenderLambdaVersionType] -&gt; Encoding
+[CustomSMSSenderLambdaVersionType] -&gt; Value
+CustomSMSSenderLambdaVersionType -&gt; Encoding
+CustomSMSSenderLambdaVersionType -&gt; Value
+(CustomSMSSenderLambdaVersionType -&gt; Value)
+-&gt; (CustomSMSSenderLambdaVersionType -&gt; Encoding)
+-&gt; ([CustomSMSSenderLambdaVersionType] -&gt; Value)
+-&gt; ([CustomSMSSenderLambdaVersionType] -&gt; Encoding)
+-&gt; ToJSON CustomSMSSenderLambdaVersionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CustomSMSSenderLambdaVersionType] -&gt; Encoding
+$ctoEncodingList :: [CustomSMSSenderLambdaVersionType] -&gt; Encoding
+toJSONList :: [CustomSMSSenderLambdaVersionType] -&gt; Value
+$ctoJSONList :: [CustomSMSSenderLambdaVersionType] -&gt; Value
+toEncoding :: CustomSMSSenderLambdaVersionType -&gt; Encoding
+$ctoEncoding :: CustomSMSSenderLambdaVersionType -&gt; Encoding
+toJSON :: CustomSMSSenderLambdaVersionType -&gt; Value
+$ctoJSON :: CustomSMSSenderLambdaVersionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679426187"><span id="local-6989586621679426189"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+ToJSONKeyFunction CustomSMSSenderLambdaVersionType
+ToJSONKeyFunction CustomSMSSenderLambdaVersionType
+-&gt; ToJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+-&gt; ToJSONKey CustomSMSSenderLambdaVersionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CustomSMSSenderLambdaVersionType]
+toJSONKey :: ToJSONKeyFunction CustomSMSSenderLambdaVersionType
+$ctoJSONKey :: ToJSONKeyFunction CustomSMSSenderLambdaVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679426184"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomSMSSenderLambdaVersionType
+([Node] -&gt; Either String CustomSMSSenderLambdaVersionType)
+-&gt; FromXML CustomSMSSenderLambdaVersionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CustomSMSSenderLambdaVersionType
+$cparseXML :: [Node] -&gt; Either String CustomSMSSenderLambdaVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679426181"><span class="annot"><span class="annottext">CustomSMSSenderLambdaVersionType -&gt; XML
+(CustomSMSSenderLambdaVersionType -&gt; XML)
+-&gt; ToXML CustomSMSSenderLambdaVersionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CustomSMSSenderLambdaVersionType -&gt; XML
+$ctoXML :: CustomSMSSenderLambdaVersionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType_V1_0"><span class="hs-identifier hs-type">CustomSMSSenderLambdaVersionType_V1_0</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType"><span class="hs-identifier hs-type">CustomSMSSenderLambdaVersionType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomSMSSenderLambdaVersionType_V1_0"><span id="%24mCustomSMSSenderLambdaVersionType_V1_0"><span id="CustomSMSSenderLambdaVersionType_V1_0"><span class="annot"><span class="annottext">$bCustomSMSSenderLambdaVersionType_V1_0 :: CustomSMSSenderLambdaVersionType
+$mCustomSMSSenderLambdaVersionType_V1_0 :: forall r.
+CustomSMSSenderLambdaVersionType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#%24bCustomSMSSenderLambdaVersionType_V1_0"><span class="hs-identifier hs-var hs-var hs-var">CustomSMSSenderLambdaVersionType_V1_0</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType%27"><span class="hs-identifier hs-type">CustomSMSSenderLambdaVersionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;V1_0&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType_V1_0"><span class="hs-pragma hs-type">CustomSMSSenderLambdaVersionType_V1_0</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType.html#CustomSMSSenderLambdaVersionType%27"><span class="hs-pragma hs-type">CustomSMSSenderLambdaVersionType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

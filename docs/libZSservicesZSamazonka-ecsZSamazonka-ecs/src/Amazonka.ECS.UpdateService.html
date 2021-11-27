@@ -1,0 +1,1338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ECS.UpdateService</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updating the task placement strategies and constraints on an Amazon ECS</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- service remains in preview and is a Beta Service as defined by and</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- subject to the Beta Service Participation Service Terms located at</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/service-terms&gt; (\&quot;Beta Terms\&quot;). These Beta</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Terms apply to your participation in this preview.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Modifies the parameters of a service.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- For services using the rolling update (@ECS@) deployment controller, the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- desired count, deployment configuration, network configuration, task</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- placement constraints and strategies, or task definition used can be</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- For services using the blue\/green (@CODE_DEPLOY@) deployment</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- controller, only the desired count, deployment configuration, task</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- placement constraints and strategies, and health check grace period can</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- be updated using this API. If the network configuration, platform</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- version, or task definition need to be updated, a new CodeDeploy</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- deployment should be created. For more information, see</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html CreateDeployment&gt;</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- in the /CodeDeploy API Reference/.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- For services using an external deployment controller, you can update</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- only the desired count, task placement constraints and strategies, and</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- health check grace period using this API. If the launch type, load</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- balancer, network configuration, platform version, or task definition</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- need to be updated, you should create a new task set. For more</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- information, see CreateTaskSet.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- You can add to or subtract from the number of instantiations of a task</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- definition in a service by specifying the cluster that the service is</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- running in and a new @desiredCount@ parameter.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- If you have updated the Docker image of your application, you can create</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- a new task definition with that image and deploy it to your service. The</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- service scheduler uses the minimum healthy percent and maximum percent</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- parameters (in the service\'s deployment configuration) to determine the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- deployment strategy.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- If your updated Docker image uses the same tag as what is in the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- existing task definition for your service (for example,</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- @my_image:latest@), you do not need to create a new revision of your</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- task definition. You can update the service using the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @forceNewDeployment@ option. The new tasks launched by the deployment</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- pull the current image\/tag combination from your repository when they</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- start.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- You can also update the deployment configuration of a service. When a</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- deployment is triggered by updating the task definition of a service,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the service scheduler uses the deployment configuration parameters,</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- @minimumHealthyPercent@ and @maximumPercent@, to determine the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- deployment strategy.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -   If @minimumHealthyPercent@ is below 100%, the scheduler can ignore</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     @desiredCount@ temporarily during a deployment. For example, if</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--     @desiredCount@ is four tasks, a minimum of 50% allows the scheduler</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--     to stop two existing tasks before starting two new tasks. Tasks for</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--     services that do not use a load balancer are considered healthy if</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--     they are in the @RUNNING@ state. Tasks for services that use a load</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     balancer are considered healthy if they are in the @RUNNING@ state</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     and the container instance they are hosted on is reported as healthy</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     by the load balancer.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   The @maximumPercent@ parameter represents an upper limit on the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     number of running tasks during a deployment, which enables you to</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     define the deployment batch size. For example, if @desiredCount@ is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     four tasks, a maximum of 200% starts four new tasks before stopping</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     the four older tasks (provided that the cluster resources required</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     to do this are available).</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- When UpdateService stops a task during a deployment, the equivalent of</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @docker stop@ is issued to the containers running in the task. This</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- results in a @SIGTERM@ and a 30-second timeout, after which @SIGKILL@ is</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- sent and the containers are forcibly stopped. If the container handles</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the @SIGTERM@ gracefully and exits within 30 seconds from receiving it,</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- no @SIGKILL@ is sent.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- When the service scheduler launches new tasks, it determines task</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- placement in your cluster with the following logic:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   Determine which of the container instances in your cluster can</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     support your service\'s task definition (for example, they have the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--     required CPU, memory, ports, and container instance attributes).</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   By default, the service scheduler attempts to balance tasks across</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     Availability Zones in this manner (although you can choose a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     different placement strategy):</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     -   Sort the valid container instances by the fewest number of</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--         running tasks for this service in the same Availability Zone as</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--         the instance. For example, if zone A has one running service</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--         task and zones B and C each have zero, valid container instances</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--         in either zone B or C are considered optimal for placement.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     -   Place the new service task on a valid container instance in an</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--         optimal Availability Zone (based on the previous steps),</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--         favoring container instances with the fewest number of running</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--         tasks for this service.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- When the service scheduler stops running tasks, it attempts to maintain</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- balance across the Availability Zones in your cluster using the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- following logic:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   Sort the container instances by the largest number of running tasks</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     for this service in the same Availability Zone as the instance. For</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     example, if zone A has one running service task and zones B and C</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     each have two, container instances in either zone B or C are</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     considered optimal for termination.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   Stop the task on a container instance in an optimal Availability</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     Zone (based on the previous steps), favoring container instances</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     with the largest number of running tasks for this service.</span><span>
+</span><span id="line-135"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.UpdateService</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#newUpdateService"><span class="hs-identifier">newUpdateService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_cluster"><span class="hs-identifier">updateService_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_platformVersion"><span class="hs-identifier">updateService_platformVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_desiredCount"><span class="hs-identifier">updateService_desiredCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_placementConstraints"><span class="hs-identifier">updateService_placementConstraints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_placementStrategy"><span class="hs-identifier">updateService_placementStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_forceNewDeployment"><span class="hs-identifier">updateService_forceNewDeployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_taskDefinition"><span class="hs-identifier">updateService_taskDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_healthCheckGracePeriodSeconds"><span class="hs-identifier">updateService_healthCheckGracePeriodSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_networkConfiguration"><span class="hs-identifier">updateService_networkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_capacityProviderStrategy"><span class="hs-identifier">updateService_capacityProviderStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_enableExecuteCommand"><span class="hs-identifier">updateService_enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_deploymentConfiguration"><span class="hs-identifier">updateService_deploymentConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_service"><span class="hs-identifier">updateService_service</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier">UpdateServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#newUpdateServiceResponse"><span class="hs-identifier">newUpdateServiceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateServiceResponse_service"><span class="hs-identifier">updateServiceResponse_service</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateServiceResponse_httpStatus"><span class="hs-identifier">updateServiceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.html"><span class="hs-identifier">Amazonka.ECS.Types</span></a></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newUpdateService' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679481753"><span id="local-6989586621679481754"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateService"><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-var">UpdateService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateService%27"><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-var">UpdateService'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- your service is running on. If you do not specify a cluster, the default</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- cluster is assumed.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3Acluster%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Acluster%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The platform version on which your tasks in the service are running. A</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- platform version is only specified for tasks using the Fargate launch</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- type. If a platform version is not specified, the @LATEST@ platform</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- version is used by default. For more information, see</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions&gt;</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AplatformVersion%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplatformVersion%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The number of instantiations of the task to place and keep running in</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- your service.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AdesiredCount%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AdesiredCount%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">desiredCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | An array of task placement constraint objects to update the service to</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- use. If no value is specified, the existing placement constraints for</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- the service will remain unchanged. If this value is specified, it will</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- override any existing placement constraints defined for the service. To</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- remove all existing placement constraints, specify an empty array.</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- You can specify a maximum of 10 constraints per task (this limit</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- includes constraints in the task definition and those specified at</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- runtime).</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AplacementConstraints%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe [PlacementConstraint]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplacementConstraints%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraint.html#PlacementConstraint"><span class="hs-identifier hs-type">PlacementConstraint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The task placement strategy objects to update the service to use. If no</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- value is specified, the existing placement strategy for the service will</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- remain unchanged. If this value is specified, it will override the</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- existing placement strategy defined for the service. To remove an</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- existing placement strategy, specify an empty object.</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- You can specify a maximum of five strategy rules per service.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AplacementStrategy%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe [PlacementStrategy]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplacementStrategy%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | Whether to force a new deployment of the service. Deployments are not</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- forced by default. You can use this option to trigger a new deployment</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- with no service definition changes. For example, you can update a</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- service\'s tasks to use a newer Docker image with the same image\/tag</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- combination (@my_image:latest@) or to roll Fargate tasks onto a newer</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- platform version.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AforceNewDeployment%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe Bool
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AforceNewDeployment%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">forceNewDeployment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The @family@ and @revision@ (@family:revision@) or full ARN of the task</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- definition to run in your service. If a @revision@ is not specified, the</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- latest @ACTIVE@ revision is used. If you modify the task definition with</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- @UpdateService@, Amazon ECS spawns a task with the new version of the</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- task definition and then stops an old task after the new version is</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- running.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AtaskDefinition%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AtaskDefinition%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The period of time, in seconds, that the Amazon ECS service scheduler</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- should ignore unhealthy Elastic Load Balancing target health checks</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- after a task has first started. This is only valid if your service is</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- configured to use a load balancer. If your service\'s tasks take a while</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- to start and respond to Elastic Load Balancing health checks, you can</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- specify a health check grace period of up to 2,147,483,647 seconds.</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- During that time, the Amazon ECS service scheduler ignores the Elastic</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- Load Balancing health check status. This grace period can prevent the</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- ECS service scheduler from marking tasks as unhealthy and stopping them</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- before they have time to come up.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AhealthCheckGracePeriodSeconds%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AhealthCheckGracePeriodSeconds%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">healthCheckGracePeriodSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- | An object representing the network configuration for the service.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AnetworkConfiguration%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe NetworkConfiguration
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AnetworkConfiguration%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | The capacity provider strategy to update the service to use.</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- If the service is using the default capacity provider strategy for the</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- cluster, the service can be updated to use one or more capacity</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- providers as opposed to the default capacity provider strategy. However,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- when a service is using a capacity provider strategy that is not the</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- default capacity provider strategy, the service cannot be updated to use</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- the cluster\'s default capacity provider strategy.</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- A capacity provider strategy consists of one or more capacity providers</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- along with the @base@ and @weight@ to assign to them. A capacity</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- provider must be associated with the cluster to be used in a capacity</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- provider strategy. The PutClusterCapacityProviders API is used to</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- associate a capacity provider with a cluster. Only capacity providers</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- with an @ACTIVE@ or @UPDATING@ status can be used.</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- The PutClusterCapacityProviders API operation is used to update the list</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- of available capacity providers for a cluster after the cluster is</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3AcapacityProviderStrategy%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe [CapacityProviderStrategyItem]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AcapacityProviderStrategy%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">capacityProviderStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- | If @true@, this enables execute command functionality on all task</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- containers.</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- If you do not want to override the value that was set when the service</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- was created, you can set this to @null@ when performing this action.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3AenableExecuteCommand%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe Bool
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AenableExecuteCommand%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | Optional deployment parameters that control how many tasks run during</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- the deployment and the ordering of stopping and starting tasks.</span><span>
+</span><span id="line-270"></span><span>    </span><span id="%24sel%3AdeploymentConfiguration%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Maybe DeploymentConfiguration
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AdeploymentConfiguration%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">deploymentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- | The name of the service to update.</span><span>
+</span><span id="line-272"></span><span>    </span><span id="%24sel%3Aservice%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Aservice%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679481735"><span id="local-6989586621679481737"><span class="annot"><span class="annottext">UpdateService -&gt; UpdateService -&gt; Bool
+(UpdateService -&gt; UpdateService -&gt; Bool)
+-&gt; (UpdateService -&gt; UpdateService -&gt; Bool) -&gt; Eq UpdateService
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateService -&gt; UpdateService -&gt; Bool
+$c/= :: UpdateService -&gt; UpdateService -&gt; Bool
+== :: UpdateService -&gt; UpdateService -&gt; Bool
+$c== :: UpdateService -&gt; UpdateService -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481726"><span id="local-6989586621679481728"><span id="local-6989586621679481730"><span id="local-6989586621679481732"><span class="annot"><span class="annottext">ReadPrec [UpdateService]
+ReadPrec UpdateService
+Int -&gt; ReadS UpdateService
+ReadS [UpdateService]
+(Int -&gt; ReadS UpdateService)
+-&gt; ReadS [UpdateService]
+-&gt; ReadPrec UpdateService
+-&gt; ReadPrec [UpdateService]
+-&gt; Read UpdateService
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateService]
+$creadListPrec :: ReadPrec [UpdateService]
+readPrec :: ReadPrec UpdateService
+$creadPrec :: ReadPrec UpdateService
+readList :: ReadS [UpdateService]
+$creadList :: ReadS [UpdateService]
+readsPrec :: Int -&gt; ReadS UpdateService
+$creadsPrec :: Int -&gt; ReadS UpdateService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481719"><span id="local-6989586621679481721"><span id="local-6989586621679481723"><span class="annot"><span class="annottext">Int -&gt; UpdateService -&gt; ShowS
+[UpdateService] -&gt; ShowS
+UpdateService -&gt; String
+(Int -&gt; UpdateService -&gt; ShowS)
+-&gt; (UpdateService -&gt; String)
+-&gt; ([UpdateService] -&gt; ShowS)
+-&gt; Show UpdateService
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateService] -&gt; ShowS
+$cshowList :: [UpdateService] -&gt; ShowS
+show :: UpdateService -&gt; String
+$cshow :: UpdateService -&gt; String
+showsPrec :: Int -&gt; UpdateService -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateService -&gt; Rep UpdateService x)
+-&gt; (forall x. Rep UpdateService x -&gt; UpdateService)
+-&gt; Generic UpdateService
+forall x. Rep UpdateService x -&gt; UpdateService
+forall x. UpdateService -&gt; Rep UpdateService x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateService x -&gt; UpdateService
+$cfrom :: forall x. UpdateService -&gt; Rep UpdateService x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- Create a value of 'UpdateService' with all optional fields omitted.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- 'cluster', 'updateService_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- your service is running on. If you do not specify a cluster, the default</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- cluster is assumed.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'platformVersion', 'updateService_platformVersion' - The platform version on which your tasks in the service are running. A</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- platform version is only specified for tasks using the Fargate launch</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- type. If a platform version is not specified, the @LATEST@ platform</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- version is used by default. For more information, see</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions&gt;</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'desiredCount', 'updateService_desiredCount' - The number of instantiations of the task to place and keep running in</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- your service.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'placementConstraints', 'updateService_placementConstraints' - An array of task placement constraint objects to update the service to</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- use. If no value is specified, the existing placement constraints for</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- the service will remain unchanged. If this value is specified, it will</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- override any existing placement constraints defined for the service. To</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- remove all existing placement constraints, specify an empty array.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- You can specify a maximum of 10 constraints per task (this limit</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- includes constraints in the task definition and those specified at</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- runtime).</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- 'placementStrategy', 'updateService_placementStrategy' - The task placement strategy objects to update the service to use. If no</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- value is specified, the existing placement strategy for the service will</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- remain unchanged. If this value is specified, it will override the</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- existing placement strategy defined for the service. To remove an</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- existing placement strategy, specify an empty object.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- You can specify a maximum of five strategy rules per service.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- 'forceNewDeployment', 'updateService_forceNewDeployment' - Whether to force a new deployment of the service. Deployments are not</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- forced by default. You can use this option to trigger a new deployment</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- with no service definition changes. For example, you can update a</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- service\'s tasks to use a newer Docker image with the same image\/tag</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- combination (@my_image:latest@) or to roll Fargate tasks onto a newer</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- platform version.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- 'taskDefinition', 'updateService_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- definition to run in your service. If a @revision@ is not specified, the</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- latest @ACTIVE@ revision is used. If you modify the task definition with</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- @UpdateService@, Amazon ECS spawns a task with the new version of the</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- task definition and then stops an old task after the new version is</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- running.</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- 'healthCheckGracePeriodSeconds', 'updateService_healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- should ignore unhealthy Elastic Load Balancing target health checks</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- after a task has first started. This is only valid if your service is</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- configured to use a load balancer. If your service\'s tasks take a while</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- to start and respond to Elastic Load Balancing health checks, you can</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- specify a health check grace period of up to 2,147,483,647 seconds.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- During that time, the Amazon ECS service scheduler ignores the Elastic</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- Load Balancing health check status. This grace period can prevent the</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- ECS service scheduler from marking tasks as unhealthy and stopping them</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- before they have time to come up.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- 'networkConfiguration', 'updateService_networkConfiguration' - An object representing the network configuration for the service.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- 'capacityProviderStrategy', 'updateService_capacityProviderStrategy' - The capacity provider strategy to update the service to use.</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- If the service is using the default capacity provider strategy for the</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- cluster, the service can be updated to use one or more capacity</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- providers as opposed to the default capacity provider strategy. However,</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- when a service is using a capacity provider strategy that is not the</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- default capacity provider strategy, the service cannot be updated to use</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- the cluster\'s default capacity provider strategy.</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- A capacity provider strategy consists of one or more capacity providers</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- along with the @base@ and @weight@ to assign to them. A capacity</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- provider must be associated with the cluster to be used in a capacity</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- provider strategy. The PutClusterCapacityProviders API is used to</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- associate a capacity provider with a cluster. Only capacity providers</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- with an @ACTIVE@ or @UPDATING@ status can be used.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- The PutClusterCapacityProviders API operation is used to update the list</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- of available capacity providers for a cluster after the cluster is</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- 'enableExecuteCommand', 'updateService_enableExecuteCommand' - If @true@, this enables execute command functionality on all task</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- containers.</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- If you do not want to override the value that was set when the service</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- was created, you can set this to @null@ when performing this action.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- 'deploymentConfiguration', 'updateService_deploymentConfiguration' - Optional deployment parameters that control how many tasks run during</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- the deployment and the ordering of stopping and starting tasks.</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- 'service', 'updateService_service' - The name of the service to update.</span><span>
+</span><span id="line-382"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#newUpdateService"><span class="hs-identifier hs-type">newUpdateService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-383"></span><span>  </span><span class="hs-comment">-- | 'service'</span><span>
+</span><span id="line-384"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-385"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span>
+</span><span id="line-386"></span><span id="newUpdateService"><span class="annot"><span class="annottext">newUpdateService :: Text -&gt; UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#newUpdateService"><span class="hs-identifier hs-var hs-var">newUpdateService</span></a></span></span><span> </span><span id="local-6989586621679481714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481714"><span class="hs-identifier hs-var">pService_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-387"></span><span>  </span><span class="annot"><span class="annottext">UpdateService' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [PlacementConstraint]
+-&gt; Maybe [PlacementStrategy]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe NetworkConfiguration
+-&gt; Maybe [CapacityProviderStrategyItem]
+-&gt; Maybe Bool
+-&gt; Maybe DeploymentConfiguration
+-&gt; Text
+-&gt; UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span>
+</span><span id="line-388"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:UpdateService' :: Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Acluster%3AUpdateService%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformVersion:UpdateService' :: Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplatformVersion%3AUpdateService%27"><span class="hs-identifier hs-var">platformVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">$sel:desiredCount:UpdateService' :: Maybe Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AdesiredCount%3AUpdateService%27"><span class="hs-identifier hs-var">desiredCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">$sel:placementConstraints:UpdateService' :: Maybe [PlacementConstraint]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplacementConstraints%3AUpdateService%27"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>      </span><span class="annot"><span class="annottext">$sel:placementStrategy:UpdateService' :: Maybe [PlacementStrategy]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplacementStrategy%3AUpdateService%27"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>      </span><span class="annot"><span class="annottext">$sel:forceNewDeployment:UpdateService' :: Maybe Bool
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AforceNewDeployment%3AUpdateService%27"><span class="hs-identifier hs-var">forceNewDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskDefinition:UpdateService' :: Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AtaskDefinition%3AUpdateService%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthCheckGracePeriodSeconds:UpdateService' :: Maybe Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AhealthCheckGracePeriodSeconds%3AUpdateService%27"><span class="hs-identifier hs-var">healthCheckGracePeriodSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkConfiguration:UpdateService' :: Maybe NetworkConfiguration
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AnetworkConfiguration%3AUpdateService%27"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityProviderStrategy:UpdateService' :: Maybe [CapacityProviderStrategyItem]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AcapacityProviderStrategy%3AUpdateService%27"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:UpdateService' :: Maybe Bool
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AenableExecuteCommand%3AUpdateService%27"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentConfiguration:UpdateService' :: Maybe DeploymentConfiguration
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AdeploymentConfiguration%3AUpdateService%27"><span class="hs-identifier hs-var">deploymentConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>      </span><span class="annot"><span class="annottext">$sel:service:UpdateService' :: Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Aservice%3AUpdateService%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481714"><span class="hs-identifier hs-var">pService_</span></a></span><span>
+</span><span id="line-401"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-402"></span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- your service is running on. If you do not specify a cluster, the default</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- cluster is assumed.</span><span>
+</span><span id="line-406"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_cluster"><span class="hs-identifier hs-type">updateService_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span id="updateService_cluster"><span class="annot"><span class="annottext">updateService_cluster :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_cluster"><span class="hs-identifier hs-var hs-var">updateService_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe Text)
+-&gt; (UpdateService -&gt; Maybe Text -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481711"><span class="annot"><span class="annottext">Maybe Text
+cluster :: Maybe Text
+$sel:cluster:UpdateService' :: UpdateService -&gt; Maybe Text
+</span><a href="#local-6989586621679481711"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481711"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481710"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateService' :: Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Acluster%3AUpdateService%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- | The platform version on which your tasks in the service are running. A</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- platform version is only specified for tasks using the Fargate launch</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- type. If a platform version is not specified, the @LATEST@ platform</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- version is used by default. For more information, see</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions&gt;</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_platformVersion"><span class="hs-identifier hs-type">updateService_platformVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span id="updateService_platformVersion"><span class="annot"><span class="annottext">updateService_platformVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_platformVersion"><span class="hs-identifier hs-var hs-var">updateService_platformVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe Text)
+-&gt; (UpdateService -&gt; Maybe Text -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481708"><span class="annot"><span class="annottext">Maybe Text
+platformVersion :: Maybe Text
+$sel:platformVersion:UpdateService' :: UpdateService -&gt; Maybe Text
+</span><a href="#local-6989586621679481708"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481708"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481707"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481706"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformVersion:UpdateService' :: Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplatformVersion%3AUpdateService%27"><span class="hs-identifier hs-var">platformVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | The number of instantiations of the task to place and keep running in</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- your service.</span><span>
+</span><span id="line-420"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_desiredCount"><span class="hs-identifier hs-type">updateService_desiredCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span id="updateService_desiredCount"><span class="annot"><span class="annottext">updateService_desiredCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_desiredCount"><span class="hs-identifier hs-var hs-var">updateService_desiredCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe Int)
+-&gt; (UpdateService -&gt; Maybe Int -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481705"><span class="annot"><span class="annottext">Maybe Int
+desiredCount :: Maybe Int
+$sel:desiredCount:UpdateService' :: UpdateService -&gt; Maybe Int
+</span><a href="#local-6989586621679481705"><span class="hs-identifier hs-var hs-var">desiredCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481705"><span class="hs-identifier hs-var">desiredCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481704"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481703"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredCount:UpdateService' :: Maybe Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AdesiredCount%3AUpdateService%27"><span class="hs-identifier hs-var">desiredCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- | An array of task placement constraint objects to update the service to</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- use. If no value is specified, the existing placement constraints for</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- the service will remain unchanged. If this value is specified, it will</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- override any existing placement constraints defined for the service. To</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- remove all existing placement constraints, specify an empty array.</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- You can specify a maximum of 10 constraints per task (this limit</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- includes constraints in the task definition and those specified at</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- runtime).</span><span>
+</span><span id="line-432"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_placementConstraints"><span class="hs-identifier hs-type">updateService_placementConstraints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraint.html#PlacementConstraint"><span class="hs-identifier hs-type">PlacementConstraint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-433"></span><span id="updateService_placementConstraints"><span class="annot"><span class="annottext">updateService_placementConstraints :: (Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
+-&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_placementConstraints"><span class="hs-identifier hs-var hs-var">updateService_placementConstraints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe [PlacementConstraint])
+-&gt; (UpdateService -&gt; Maybe [PlacementConstraint] -&gt; UpdateService)
+-&gt; Lens
+     UpdateService
+     UpdateService
+     (Maybe [PlacementConstraint])
+     (Maybe [PlacementConstraint])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481702"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+placementConstraints :: Maybe [PlacementConstraint]
+$sel:placementConstraints:UpdateService' :: UpdateService -&gt; Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679481702"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679481702"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481701"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481700"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679481700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementConstraints:UpdateService' :: Maybe [PlacementConstraint]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplacementConstraints%3AUpdateService%27"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679481700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
+ -&gt; UpdateService -&gt; f UpdateService)
+-&gt; ((Maybe [PlacementConstraint]
+     -&gt; f (Maybe [PlacementConstraint]))
+    -&gt; Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
+-&gt; (Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
+-&gt; UpdateService
+-&gt; f UpdateService
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlacementConstraint]
+  [PlacementConstraint]
+  [PlacementConstraint]
+  [PlacementConstraint]
+-&gt; Iso
+     (Maybe [PlacementConstraint])
+     (Maybe [PlacementConstraint])
+     (Maybe [PlacementConstraint])
+     (Maybe [PlacementConstraint])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlacementConstraint]
+  [PlacementConstraint]
+  [PlacementConstraint]
+  [PlacementConstraint]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- | The task placement strategy objects to update the service to use. If no</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- value is specified, the existing placement strategy for the service will</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- remain unchanged. If this value is specified, it will override the</span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- existing placement strategy defined for the service. To remove an</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- existing placement strategy, specify an empty object.</span><span>
+</span><span id="line-440"></span><span class="hs-comment">--</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- You can specify a maximum of five strategy rules per service.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_placementStrategy"><span class="hs-identifier hs-type">updateService_placementStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span id="updateService_placementStrategy"><span class="annot"><span class="annottext">updateService_placementStrategy :: (Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
+-&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_placementStrategy"><span class="hs-identifier hs-var hs-var">updateService_placementStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe [PlacementStrategy])
+-&gt; (UpdateService -&gt; Maybe [PlacementStrategy] -&gt; UpdateService)
+-&gt; Lens
+     UpdateService
+     UpdateService
+     (Maybe [PlacementStrategy])
+     (Maybe [PlacementStrategy])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481696"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+placementStrategy :: Maybe [PlacementStrategy]
+$sel:placementStrategy:UpdateService' :: UpdateService -&gt; Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679481696"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679481696"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481695"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481694"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679481694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementStrategy:UpdateService' :: Maybe [PlacementStrategy]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AplacementStrategy%3AUpdateService%27"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679481694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
+ -&gt; UpdateService -&gt; f UpdateService)
+-&gt; ((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
+    -&gt; Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
+-&gt; (Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
+-&gt; UpdateService
+-&gt; f UpdateService
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlacementStrategy]
+  [PlacementStrategy]
+  [PlacementStrategy]
+  [PlacementStrategy]
+-&gt; Iso
+     (Maybe [PlacementStrategy])
+     (Maybe [PlacementStrategy])
+     (Maybe [PlacementStrategy])
+     (Maybe [PlacementStrategy])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlacementStrategy]
+  [PlacementStrategy]
+  [PlacementStrategy]
+  [PlacementStrategy]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- | Whether to force a new deployment of the service. Deployments are not</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- forced by default. You can use this option to trigger a new deployment</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- with no service definition changes. For example, you can update a</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- service\'s tasks to use a newer Docker image with the same image\/tag</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- combination (@my_image:latest@) or to roll Fargate tasks onto a newer</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- platform version.</span><span>
+</span><span id="line-451"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_forceNewDeployment"><span class="hs-identifier hs-type">updateService_forceNewDeployment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span id="updateService_forceNewDeployment"><span class="annot"><span class="annottext">updateService_forceNewDeployment :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_forceNewDeployment"><span class="hs-identifier hs-var hs-var">updateService_forceNewDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe Bool)
+-&gt; (UpdateService -&gt; Maybe Bool -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481693"><span class="annot"><span class="annottext">Maybe Bool
+forceNewDeployment :: Maybe Bool
+$sel:forceNewDeployment:UpdateService' :: UpdateService -&gt; Maybe Bool
+</span><a href="#local-6989586621679481693"><span class="hs-identifier hs-var hs-var">forceNewDeployment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481693"><span class="hs-identifier hs-var">forceNewDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481692"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481691"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceNewDeployment:UpdateService' :: Maybe Bool
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AforceNewDeployment%3AUpdateService%27"><span class="hs-identifier hs-var">forceNewDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- | The @family@ and @revision@ (@family:revision@) or full ARN of the task</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- definition to run in your service. If a @revision@ is not specified, the</span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- latest @ACTIVE@ revision is used. If you modify the task definition with</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- @UpdateService@, Amazon ECS spawns a task with the new version of the</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- task definition and then stops an old task after the new version is</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- running.</span><span>
+</span><span id="line-460"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_taskDefinition"><span class="hs-identifier hs-type">updateService_taskDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-461"></span><span id="updateService_taskDefinition"><span class="annot"><span class="annottext">updateService_taskDefinition :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_taskDefinition"><span class="hs-identifier hs-var hs-var">updateService_taskDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe Text)
+-&gt; (UpdateService -&gt; Maybe Text -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481690"><span class="annot"><span class="annottext">Maybe Text
+taskDefinition :: Maybe Text
+$sel:taskDefinition:UpdateService' :: UpdateService -&gt; Maybe Text
+</span><a href="#local-6989586621679481690"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481690"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481689"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:UpdateService' :: Maybe Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AtaskDefinition%3AUpdateService%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-462"></span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- | The period of time, in seconds, that the Amazon ECS service scheduler</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- should ignore unhealthy Elastic Load Balancing target health checks</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- after a task has first started. This is only valid if your service is</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- configured to use a load balancer. If your service\'s tasks take a while</span><span>
+</span><span id="line-467"></span><span class="hs-comment">-- to start and respond to Elastic Load Balancing health checks, you can</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- specify a health check grace period of up to 2,147,483,647 seconds.</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- During that time, the Amazon ECS service scheduler ignores the Elastic</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- Load Balancing health check status. This grace period can prevent the</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- ECS service scheduler from marking tasks as unhealthy and stopping them</span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- before they have time to come up.</span><span>
+</span><span id="line-473"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_healthCheckGracePeriodSeconds"><span class="hs-identifier hs-type">updateService_healthCheckGracePeriodSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-474"></span><span id="updateService_healthCheckGracePeriodSeconds"><span class="annot"><span class="annottext">updateService_healthCheckGracePeriodSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_healthCheckGracePeriodSeconds"><span class="hs-identifier hs-var hs-var">updateService_healthCheckGracePeriodSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe Int)
+-&gt; (UpdateService -&gt; Maybe Int -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481687"><span class="annot"><span class="annottext">Maybe Int
+healthCheckGracePeriodSeconds :: Maybe Int
+$sel:healthCheckGracePeriodSeconds:UpdateService' :: UpdateService -&gt; Maybe Int
+</span><a href="#local-6989586621679481687"><span class="hs-identifier hs-var hs-var">healthCheckGracePeriodSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481687"><span class="hs-identifier hs-var">healthCheckGracePeriodSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481686"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481685"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckGracePeriodSeconds:UpdateService' :: Maybe Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AhealthCheckGracePeriodSeconds%3AUpdateService%27"><span class="hs-identifier hs-var">healthCheckGracePeriodSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-475"></span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- | An object representing the network configuration for the service.</span><span>
+</span><span id="line-477"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_networkConfiguration"><span class="hs-identifier hs-type">updateService_networkConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-478"></span><span id="updateService_networkConfiguration"><span class="annot"><span class="annottext">updateService_networkConfiguration :: (Maybe NetworkConfiguration -&gt; f (Maybe NetworkConfiguration))
+-&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_networkConfiguration"><span class="hs-identifier hs-var hs-var">updateService_networkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe NetworkConfiguration)
+-&gt; (UpdateService -&gt; Maybe NetworkConfiguration -&gt; UpdateService)
+-&gt; Lens
+     UpdateService
+     UpdateService
+     (Maybe NetworkConfiguration)
+     (Maybe NetworkConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481684"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+networkConfiguration :: Maybe NetworkConfiguration
+$sel:networkConfiguration:UpdateService' :: UpdateService -&gt; Maybe NetworkConfiguration
+</span><a href="#local-6989586621679481684"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679481684"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481683"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481682"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679481682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:UpdateService' :: Maybe NetworkConfiguration
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AnetworkConfiguration%3AUpdateService%27"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679481682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-479"></span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- | The capacity provider strategy to update the service to use.</span><span>
+</span><span id="line-481"></span><span class="hs-comment">--</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- If the service is using the default capacity provider strategy for the</span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- cluster, the service can be updated to use one or more capacity</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- providers as opposed to the default capacity provider strategy. However,</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- when a service is using a capacity provider strategy that is not the</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- default capacity provider strategy, the service cannot be updated to use</span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- the cluster\'s default capacity provider strategy.</span><span>
+</span><span id="line-488"></span><span class="hs-comment">--</span><span>
+</span><span id="line-489"></span><span class="hs-comment">-- A capacity provider strategy consists of one or more capacity providers</span><span>
+</span><span id="line-490"></span><span class="hs-comment">-- along with the @base@ and @weight@ to assign to them. A capacity</span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- provider must be associated with the cluster to be used in a capacity</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- provider strategy. The PutClusterCapacityProviders API is used to</span><span>
+</span><span id="line-493"></span><span class="hs-comment">-- associate a capacity provider with a cluster. Only capacity providers</span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- with an @ACTIVE@ or @UPDATING@ status can be used.</span><span>
+</span><span id="line-495"></span><span class="hs-comment">--</span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-497"></span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-498"></span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-499"></span><span class="hs-comment">--</span><span>
+</span><span id="line-500"></span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-501"></span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-503"></span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-504"></span><span class="hs-comment">--</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- The PutClusterCapacityProviders API operation is used to update the list</span><span>
+</span><span id="line-506"></span><span class="hs-comment">-- of available capacity providers for a cluster after the cluster is</span><span>
+</span><span id="line-507"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-508"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_capacityProviderStrategy"><span class="hs-identifier hs-type">updateService_capacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-509"></span><span id="updateService_capacityProviderStrategy"><span class="annot"><span class="annottext">updateService_capacityProviderStrategy :: (Maybe [CapacityProviderStrategyItem]
+ -&gt; f (Maybe [CapacityProviderStrategyItem]))
+-&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_capacityProviderStrategy"><span class="hs-identifier hs-var hs-var">updateService_capacityProviderStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe [CapacityProviderStrategyItem])
+-&gt; (UpdateService
+    -&gt; Maybe [CapacityProviderStrategyItem] -&gt; UpdateService)
+-&gt; Lens
+     UpdateService
+     UpdateService
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481681"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+capacityProviderStrategy :: Maybe [CapacityProviderStrategyItem]
+$sel:capacityProviderStrategy:UpdateService' :: UpdateService -&gt; Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679481681"><span class="hs-identifier hs-var hs-var">capacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679481681"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481680"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481679"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679481679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviderStrategy:UpdateService' :: Maybe [CapacityProviderStrategyItem]
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AcapacityProviderStrategy%3AUpdateService%27"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679481679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityProviderStrategyItem]
+  -&gt; f (Maybe [CapacityProviderStrategyItem]))
+ -&gt; UpdateService -&gt; f UpdateService)
+-&gt; ((Maybe [CapacityProviderStrategyItem]
+     -&gt; f (Maybe [CapacityProviderStrategyItem]))
+    -&gt; Maybe [CapacityProviderStrategyItem]
+    -&gt; f (Maybe [CapacityProviderStrategyItem]))
+-&gt; (Maybe [CapacityProviderStrategyItem]
+    -&gt; f (Maybe [CapacityProviderStrategyItem]))
+-&gt; UpdateService
+-&gt; f UpdateService
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+-&gt; Iso
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-510"></span><span>
+</span><span id="line-511"></span><span class="hs-comment">-- | If @true@, this enables execute command functionality on all task</span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- containers.</span><span>
+</span><span id="line-513"></span><span class="hs-comment">--</span><span>
+</span><span id="line-514"></span><span class="hs-comment">-- If you do not want to override the value that was set when the service</span><span>
+</span><span id="line-515"></span><span class="hs-comment">-- was created, you can set this to @null@ when performing this action.</span><span>
+</span><span id="line-516"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_enableExecuteCommand"><span class="hs-identifier hs-type">updateService_enableExecuteCommand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-517"></span><span id="updateService_enableExecuteCommand"><span class="annot"><span class="annottext">updateService_enableExecuteCommand :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_enableExecuteCommand"><span class="hs-identifier hs-var hs-var">updateService_enableExecuteCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe Bool)
+-&gt; (UpdateService -&gt; Maybe Bool -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481678"><span class="annot"><span class="annottext">Maybe Bool
+enableExecuteCommand :: Maybe Bool
+$sel:enableExecuteCommand:UpdateService' :: UpdateService -&gt; Maybe Bool
+</span><a href="#local-6989586621679481678"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481678"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481677"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481676"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:UpdateService' :: Maybe Bool
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AenableExecuteCommand%3AUpdateService%27"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-518"></span><span>
+</span><span id="line-519"></span><span class="hs-comment">-- | Optional deployment parameters that control how many tasks run during</span><span>
+</span><span id="line-520"></span><span class="hs-comment">-- the deployment and the ordering of stopping and starting tasks.</span><span>
+</span><span id="line-521"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_deploymentConfiguration"><span class="hs-identifier hs-type">updateService_deploymentConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-522"></span><span id="updateService_deploymentConfiguration"><span class="annot"><span class="annottext">updateService_deploymentConfiguration :: (Maybe DeploymentConfiguration
+ -&gt; f (Maybe DeploymentConfiguration))
+-&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_deploymentConfiguration"><span class="hs-identifier hs-var hs-var">updateService_deploymentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Maybe DeploymentConfiguration)
+-&gt; (UpdateService
+    -&gt; Maybe DeploymentConfiguration -&gt; UpdateService)
+-&gt; Lens
+     UpdateService
+     UpdateService
+     (Maybe DeploymentConfiguration)
+     (Maybe DeploymentConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481675"><span class="annot"><span class="annottext">Maybe DeploymentConfiguration
+deploymentConfiguration :: Maybe DeploymentConfiguration
+$sel:deploymentConfiguration:UpdateService' :: UpdateService -&gt; Maybe DeploymentConfiguration
+</span><a href="#local-6989586621679481675"><span class="hs-identifier hs-var hs-var">deploymentConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfiguration
+</span><a href="#local-6989586621679481675"><span class="hs-identifier hs-var">deploymentConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481674"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481673"><span class="annot"><span class="annottext">Maybe DeploymentConfiguration
+</span><a href="#local-6989586621679481673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentConfiguration:UpdateService' :: Maybe DeploymentConfiguration
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AdeploymentConfiguration%3AUpdateService%27"><span class="hs-identifier hs-var">deploymentConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfiguration
+</span><a href="#local-6989586621679481673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-523"></span><span>
+</span><span id="line-524"></span><span class="hs-comment">-- | The name of the service to update.</span><span>
+</span><span id="line-525"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateService_service"><span class="hs-identifier hs-type">updateService_service</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-526"></span><span id="updateService_service"><span class="annot"><span class="annottext">updateService_service :: (Text -&gt; f Text) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.ECS.UpdateService.html#updateService_service"><span class="hs-identifier hs-var hs-var">updateService_service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Text)
+-&gt; (UpdateService -&gt; Text -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481672"><span class="annot"><span class="annottext">Text
+service :: Text
+$sel:service:UpdateService' :: UpdateService -&gt; Text
+</span><a href="#local-6989586621679481672"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481672"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481671"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679481671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679481671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:UpdateService' :: Text
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Aservice%3AUpdateService%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-527"></span><span>
+</span><span id="line-528"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-529"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-530"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-531"></span><span>      </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span>
+</span><span id="line-532"></span><span>  </span><span id="local-6989586621679481666"><span class="annot"><span class="annottext">request :: UpdateService -&gt; Request UpdateService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateService -&gt; Request UpdateService
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-533"></span><span>  </span><span id="local-6989586621679481662"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateService)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-534"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateService))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateService)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-535"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679481659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481659"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679481658"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679481658"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679481657"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679481657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-536"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerService -&gt; Int -&gt; UpdateServiceResponse
+</span><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-var">UpdateServiceResponse'</span></a></span><span>
+</span><span id="line-537"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerService -&gt; Int -&gt; UpdateServiceResponse)
+-&gt; Either String (Maybe ContainerService)
+-&gt; Either String (Int -&gt; UpdateServiceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679481657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ContainerService)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;service&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-538"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateServiceResponse)
+-&gt; Either String Int -&gt; Either String UpdateServiceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481659"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-539"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-540"></span><span>
+</span><span id="line-541"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679481649"><span id="local-6989586621679481651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span></span></span><span>
+</span><span id="line-542"></span><span>
+</span><span id="line-543"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679481646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span></span><span>
+</span><span id="line-544"></span><span>
+</span><span id="line-545"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-546"></span><span>  </span><span id="local-6989586621679481642"><span class="annot"><span class="annottext">toHeaders :: UpdateService -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-547"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateService -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-548"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-549"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-550"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerServiceV20141113.UpdateService&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-551"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-552"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-553"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-554"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-555"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-556"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-557"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-558"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-559"></span><span>
+</span><span id="line-560"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679481632"><span id="local-6989586621679481634"><span id="local-6989586621679481636"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-561"></span><span>  </span><span id="local-6989586621679481630"><span class="annot"><span class="annottext">toJSON :: UpdateService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481616"><span id="local-6989586621679481617"><span id="local-6989586621679481618"><span id="local-6989586621679481619"><span id="local-6989586621679481620"><span id="local-6989586621679481621"><span id="local-6989586621679481622"><span id="local-6989586621679481623"><span id="local-6989586621679481624"><span id="local-6989586621679481625"><span id="local-6989586621679481626"><span id="local-6989586621679481627"><span id="local-6989586621679481628"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [CapacityProviderStrategyItem]
+Maybe [PlacementConstraint]
+Maybe [PlacementStrategy]
+Maybe Text
+Maybe DeploymentConfiguration
+Maybe NetworkConfiguration
+Text
+service :: Text
+deploymentConfiguration :: Maybe DeploymentConfiguration
+enableExecuteCommand :: Maybe Bool
+capacityProviderStrategy :: Maybe [CapacityProviderStrategyItem]
+networkConfiguration :: Maybe NetworkConfiguration
+healthCheckGracePeriodSeconds :: Maybe Int
+taskDefinition :: Maybe Text
+forceNewDeployment :: Maybe Bool
+placementStrategy :: Maybe [PlacementStrategy]
+placementConstraints :: Maybe [PlacementConstraint]
+desiredCount :: Maybe Int
+platformVersion :: Maybe Text
+cluster :: Maybe Text
+$sel:service:UpdateService' :: UpdateService -&gt; Text
+$sel:deploymentConfiguration:UpdateService' :: UpdateService -&gt; Maybe DeploymentConfiguration
+$sel:enableExecuteCommand:UpdateService' :: UpdateService -&gt; Maybe Bool
+$sel:capacityProviderStrategy:UpdateService' :: UpdateService -&gt; Maybe [CapacityProviderStrategyItem]
+$sel:networkConfiguration:UpdateService' :: UpdateService -&gt; Maybe NetworkConfiguration
+$sel:healthCheckGracePeriodSeconds:UpdateService' :: UpdateService -&gt; Maybe Int
+$sel:taskDefinition:UpdateService' :: UpdateService -&gt; Maybe Text
+$sel:forceNewDeployment:UpdateService' :: UpdateService -&gt; Maybe Bool
+$sel:placementStrategy:UpdateService' :: UpdateService -&gt; Maybe [PlacementStrategy]
+$sel:placementConstraints:UpdateService' :: UpdateService -&gt; Maybe [PlacementConstraint]
+$sel:desiredCount:UpdateService' :: UpdateService -&gt; Maybe Int
+$sel:platformVersion:UpdateService' :: UpdateService -&gt; Maybe Text
+$sel:cluster:UpdateService' :: UpdateService -&gt; Maybe Text
+</span><a href="#local-6989586621679481616"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-562"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-563"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-564"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481628"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-565"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platformVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-566"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481627"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-567"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;desiredCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481626"><span class="hs-identifier hs-var">desiredCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-568"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;placementConstraints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlacementConstraint] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-569"></span><span>              </span><span class="annot"><span class="annottext">([PlacementConstraint] -&gt; Pair)
+-&gt; Maybe [PlacementConstraint] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679481625"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-570"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;placementStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlacementStrategy] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-571"></span><span>              </span><span class="annot"><span class="annottext">([PlacementStrategy] -&gt; Pair)
+-&gt; Maybe [PlacementStrategy] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679481624"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-572"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;forceNewDeployment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-573"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481623"><span class="hs-identifier hs-var">forceNewDeployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-574"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-575"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679481622"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-576"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;healthCheckGracePeriodSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-577"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679481621"><span class="hs-identifier hs-var">healthCheckGracePeriodSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-578"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-579"></span><span>              </span><span class="annot"><span class="annottext">(NetworkConfiguration -&gt; Pair)
+-&gt; Maybe NetworkConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679481620"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-580"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacityProviderStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CapacityProviderStrategyItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-581"></span><span>              </span><span class="annot"><span class="annottext">([CapacityProviderStrategyItem] -&gt; Pair)
+-&gt; Maybe [CapacityProviderStrategyItem] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679481619"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-582"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableExecuteCommand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-583"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679481618"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-584"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-585"></span><span>              </span><span class="annot"><span class="annottext">(DeploymentConfiguration -&gt; Pair)
+-&gt; Maybe DeploymentConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfiguration
+</span><a href="#local-6989586621679481617"><span class="hs-identifier hs-var">deploymentConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-586"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;service&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481616"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-587"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-588"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-589"></span><span>
+</span><span id="line-590"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-591"></span><span>  </span><span id="local-6989586621679481610"><span class="annot"><span class="annottext">toPath :: UpdateService -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateService -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-592"></span><span>
+</span><span id="line-593"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-594"></span><span>  </span><span id="local-6989586621679481606"><span class="annot"><span class="annottext">toQuery :: UpdateService -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateService -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-595"></span><span>
+</span><span id="line-596"></span><span class="hs-comment">-- | /See:/ 'newUpdateServiceResponse' smart constructor.</span><span>
+</span><span id="line-597"></span><span id="local-6989586621679481603"><span id="local-6989586621679481604"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServiceResponse"><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-var">UpdateServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServiceResponse%27"><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-var">UpdateServiceResponse'</span></a></span></span><span>
+</span><span id="line-598"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full description of your service following the update call.</span><span>
+</span><span id="line-599"></span><span>    </span><span id="%24sel%3Aservice%3AUpdateServiceResponse%27"><span class="annot"><span class="annottext">UpdateServiceResponse -&gt; Maybe ContainerService
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Aservice%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ContainerService.html#ContainerService"><span class="hs-identifier hs-type">ContainerService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-600"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-601"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="annot"><span class="annottext">UpdateServiceResponse -&gt; Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-602"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-603"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679481597"><span id="local-6989586621679481599"><span class="annot"><span class="annottext">UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+(UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool)
+-&gt; (UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool)
+-&gt; Eq UpdateServiceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+$c/= :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+== :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+$c== :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481589"><span id="local-6989586621679481591"><span id="local-6989586621679481593"><span id="local-6989586621679481595"><span class="annot"><span class="annottext">ReadPrec [UpdateServiceResponse]
+ReadPrec UpdateServiceResponse
+Int -&gt; ReadS UpdateServiceResponse
+ReadS [UpdateServiceResponse]
+(Int -&gt; ReadS UpdateServiceResponse)
+-&gt; ReadS [UpdateServiceResponse]
+-&gt; ReadPrec UpdateServiceResponse
+-&gt; ReadPrec [UpdateServiceResponse]
+-&gt; Read UpdateServiceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateServiceResponse]
+$creadListPrec :: ReadPrec [UpdateServiceResponse]
+readPrec :: ReadPrec UpdateServiceResponse
+$creadPrec :: ReadPrec UpdateServiceResponse
+readList :: ReadS [UpdateServiceResponse]
+$creadList :: ReadS [UpdateServiceResponse]
+readsPrec :: Int -&gt; ReadS UpdateServiceResponse
+$creadsPrec :: Int -&gt; ReadS UpdateServiceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481583"><span id="local-6989586621679481585"><span id="local-6989586621679481587"><span class="annot"><span class="annottext">Int -&gt; UpdateServiceResponse -&gt; ShowS
+[UpdateServiceResponse] -&gt; ShowS
+UpdateServiceResponse -&gt; String
+(Int -&gt; UpdateServiceResponse -&gt; ShowS)
+-&gt; (UpdateServiceResponse -&gt; String)
+-&gt; ([UpdateServiceResponse] -&gt; ShowS)
+-&gt; Show UpdateServiceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateServiceResponse] -&gt; ShowS
+$cshowList :: [UpdateServiceResponse] -&gt; ShowS
+show :: UpdateServiceResponse -&gt; String
+$cshow :: UpdateServiceResponse -&gt; String
+showsPrec :: Int -&gt; UpdateServiceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateServiceResponse -&gt; Rep UpdateServiceResponse x)
+-&gt; (forall x. Rep UpdateServiceResponse x -&gt; UpdateServiceResponse)
+-&gt; Generic UpdateServiceResponse
+forall x. Rep UpdateServiceResponse x -&gt; UpdateServiceResponse
+forall x. UpdateServiceResponse -&gt; Rep UpdateServiceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateServiceResponse x -&gt; UpdateServiceResponse
+$cfrom :: forall x. UpdateServiceResponse -&gt; Rep UpdateServiceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-604"></span><span>
+</span><span id="line-605"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-606"></span><span class="hs-comment">-- Create a value of 'UpdateServiceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-607"></span><span class="hs-comment">--</span><span>
+</span><span id="line-608"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-609"></span><span class="hs-comment">--</span><span>
+</span><span id="line-610"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-611"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-612"></span><span class="hs-comment">--</span><span>
+</span><span id="line-613"></span><span class="hs-comment">-- 'service', 'updateServiceResponse_service' - The full description of your service following the update call.</span><span>
+</span><span id="line-614"></span><span class="hs-comment">--</span><span>
+</span><span id="line-615"></span><span class="hs-comment">-- 'httpStatus', 'updateServiceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-616"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#newUpdateServiceResponse"><span class="hs-identifier hs-type">newUpdateServiceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-617"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-618"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-619"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span>
+</span><span id="line-620"></span><span id="newUpdateServiceResponse"><span class="annot"><span class="annottext">newUpdateServiceResponse :: Int -&gt; UpdateServiceResponse
+</span><a href="Amazonka.ECS.UpdateService.html#newUpdateServiceResponse"><span class="hs-identifier hs-var hs-var">newUpdateServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679481580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-621"></span><span>  </span><span class="annot"><span class="annottext">UpdateServiceResponse' :: Maybe ContainerService -&gt; Int -&gt; UpdateServiceResponse
+</span><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span>
+</span><span id="line-622"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:service:UpdateServiceResponse' :: Maybe ContainerService
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Aservice%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-623"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateServiceResponse' :: Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-624"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-625"></span><span>
+</span><span id="line-626"></span><span class="hs-comment">-- | The full description of your service following the update call.</span><span>
+</span><span id="line-627"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateServiceResponse_service"><span class="hs-identifier hs-type">updateServiceResponse_service</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ContainerService.html#ContainerService"><span class="hs-identifier hs-type">ContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-628"></span><span id="updateServiceResponse_service"><span class="annot"><span class="annottext">updateServiceResponse_service :: (Maybe ContainerService -&gt; f (Maybe ContainerService))
+-&gt; UpdateServiceResponse -&gt; f UpdateServiceResponse
+</span><a href="Amazonka.ECS.UpdateService.html#updateServiceResponse_service"><span class="hs-identifier hs-var hs-var">updateServiceResponse_service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateServiceResponse -&gt; Maybe ContainerService)
+-&gt; (UpdateServiceResponse
+    -&gt; Maybe ContainerService -&gt; UpdateServiceResponse)
+-&gt; Lens
+     UpdateServiceResponse
+     UpdateServiceResponse
+     (Maybe ContainerService)
+     (Maybe ContainerService)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481579"><span class="annot"><span class="annottext">Maybe ContainerService
+service :: Maybe ContainerService
+$sel:service:UpdateServiceResponse' :: UpdateServiceResponse -&gt; Maybe ContainerService
+</span><a href="#local-6989586621679481579"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679481579"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481578"><span class="annot"><span class="annottext">s :: UpdateServiceResponse
+</span><a href="#local-6989586621679481578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481577"><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679481577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceResponse
+</span><a href="#local-6989586621679481578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:UpdateServiceResponse' :: Maybe ContainerService
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3Aservice%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679481577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-629"></span><span>
+</span><span id="line-630"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-631"></span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#updateServiceResponse_httpStatus"><span class="hs-identifier hs-type">updateServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-632"></span><span id="updateServiceResponse_httpStatus"><span class="annot"><span class="annottext">updateServiceResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateServiceResponse -&gt; f UpdateServiceResponse
+</span><a href="Amazonka.ECS.UpdateService.html#updateServiceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateServiceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateServiceResponse -&gt; Int)
+-&gt; (UpdateServiceResponse -&gt; Int -&gt; UpdateServiceResponse)
+-&gt; Lens UpdateServiceResponse UpdateServiceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481576"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateServiceResponse' :: UpdateServiceResponse -&gt; Int
+</span><a href="#local-6989586621679481576"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481576"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481575"><span class="annot"><span class="annottext">s :: UpdateServiceResponse
+</span><a href="#local-6989586621679481575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceResponse
+</span><a href="#local-6989586621679481575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateServiceResponse' :: Int
+</span><a href="Amazonka.ECS.UpdateService.html#%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-633"></span><span>
+</span><span id="line-634"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679481572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span></span><span>
+</span><span id="line-635"></span></pre></body></html>

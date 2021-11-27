@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.BatchEnableStandards</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables the standards specified by the provided @StandardsArn@. To</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- obtain the ARN for a standard, use the @DescribeStandards@ operation.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html Security Standards&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- section of the /Security Hub User Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.BatchEnableStandards</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier">BatchEnableStandards</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#newBatchEnableStandards"><span class="hs-identifier">newBatchEnableStandards</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandards_standardsSubscriptionRequests"><span class="hs-identifier">batchEnableStandards_standardsSubscriptionRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier">BatchEnableStandardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#newBatchEnableStandardsResponse"><span class="hs-identifier">newBatchEnableStandardsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandardsResponse_standardsSubscriptions"><span class="hs-identifier">batchEnableStandardsResponse_standardsSubscriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandardsResponse_httpStatus"><span class="hs-identifier">batchEnableStandardsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.html"><span class="hs-identifier">Amazonka.SecurityHub.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newBatchEnableStandards' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621680007465"><span id="local-6989586621680007466"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchEnableStandards"><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-var">BatchEnableStandards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchEnableStandards%27"><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards%27"><span class="hs-identifier hs-var">BatchEnableStandards'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of standards checks to enable.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AstandardsSubscriptionRequests%3ABatchEnableStandards%27"><span class="annot"><span class="annottext">BatchEnableStandards -&gt; NonEmpty StandardsSubscriptionRequest
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AstandardsSubscriptionRequests%3ABatchEnableStandards%27"><span class="hs-identifier hs-var hs-var">standardsSubscriptionRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.StandardsSubscriptionRequest.html#StandardsSubscriptionRequest"><span class="hs-identifier hs-type">StandardsSubscriptionRequest</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680007459"><span id="local-6989586621680007461"><span class="annot"><span class="annottext">BatchEnableStandards -&gt; BatchEnableStandards -&gt; Bool
+(BatchEnableStandards -&gt; BatchEnableStandards -&gt; Bool)
+-&gt; (BatchEnableStandards -&gt; BatchEnableStandards -&gt; Bool)
+-&gt; Eq BatchEnableStandards
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchEnableStandards -&gt; BatchEnableStandards -&gt; Bool
+$c/= :: BatchEnableStandards -&gt; BatchEnableStandards -&gt; Bool
+== :: BatchEnableStandards -&gt; BatchEnableStandards -&gt; Bool
+$c== :: BatchEnableStandards -&gt; BatchEnableStandards -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007450"><span id="local-6989586621680007452"><span id="local-6989586621680007454"><span id="local-6989586621680007456"><span class="annot"><span class="annottext">ReadPrec [BatchEnableStandards]
+ReadPrec BatchEnableStandards
+Int -&gt; ReadS BatchEnableStandards
+ReadS [BatchEnableStandards]
+(Int -&gt; ReadS BatchEnableStandards)
+-&gt; ReadS [BatchEnableStandards]
+-&gt; ReadPrec BatchEnableStandards
+-&gt; ReadPrec [BatchEnableStandards]
+-&gt; Read BatchEnableStandards
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchEnableStandards]
+$creadListPrec :: ReadPrec [BatchEnableStandards]
+readPrec :: ReadPrec BatchEnableStandards
+$creadPrec :: ReadPrec BatchEnableStandards
+readList :: ReadS [BatchEnableStandards]
+$creadList :: ReadS [BatchEnableStandards]
+readsPrec :: Int -&gt; ReadS BatchEnableStandards
+$creadsPrec :: Int -&gt; ReadS BatchEnableStandards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007443"><span id="local-6989586621680007445"><span id="local-6989586621680007447"><span class="annot"><span class="annottext">Int -&gt; BatchEnableStandards -&gt; ShowS
+[BatchEnableStandards] -&gt; ShowS
+BatchEnableStandards -&gt; String
+(Int -&gt; BatchEnableStandards -&gt; ShowS)
+-&gt; (BatchEnableStandards -&gt; String)
+-&gt; ([BatchEnableStandards] -&gt; ShowS)
+-&gt; Show BatchEnableStandards
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchEnableStandards] -&gt; ShowS
+$cshowList :: [BatchEnableStandards] -&gt; ShowS
+show :: BatchEnableStandards -&gt; String
+$cshow :: BatchEnableStandards -&gt; String
+showsPrec :: Int -&gt; BatchEnableStandards -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchEnableStandards -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchEnableStandards -&gt; Rep BatchEnableStandards x)
+-&gt; (forall x. Rep BatchEnableStandards x -&gt; BatchEnableStandards)
+-&gt; Generic BatchEnableStandards
+forall x. Rep BatchEnableStandards x -&gt; BatchEnableStandards
+forall x. BatchEnableStandards -&gt; Rep BatchEnableStandards x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchEnableStandards x -&gt; BatchEnableStandards
+$cfrom :: forall x. BatchEnableStandards -&gt; Rep BatchEnableStandards x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'BatchEnableStandards' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'standardsSubscriptionRequests', 'batchEnableStandards_standardsSubscriptionRequests' - The list of standards checks to enable.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#newBatchEnableStandards"><span class="hs-identifier hs-type">newBatchEnableStandards</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'standardsSubscriptionRequests'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.StandardsSubscriptionRequest.html#StandardsSubscriptionRequest"><span class="hs-identifier hs-type">StandardsSubscriptionRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span>
+</span><span id="line-74"></span><span id="newBatchEnableStandards"><span class="annot"><span class="annottext">newBatchEnableStandards :: NonEmpty StandardsSubscriptionRequest -&gt; BatchEnableStandards
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#newBatchEnableStandards"><span class="hs-identifier hs-var hs-var">newBatchEnableStandards</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680007438"><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007438"><span class="hs-identifier hs-var">pStandardsSubscriptionRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">BatchEnableStandards' :: NonEmpty StandardsSubscriptionRequest -&gt; BatchEnableStandards
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards%27"><span class="hs-identifier hs-type">BatchEnableStandards'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:standardsSubscriptionRequests:BatchEnableStandards' :: NonEmpty StandardsSubscriptionRequest
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AstandardsSubscriptionRequests%3ABatchEnableStandards%27"><span class="hs-identifier hs-var">standardsSubscriptionRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty StandardsSubscriptionRequest)
+  (Identity (NonEmpty StandardsSubscriptionRequest))
+-&gt; Tagged
+     (NonEmpty StandardsSubscriptionRequest)
+     (Identity (NonEmpty StandardsSubscriptionRequest))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty StandardsSubscriptionRequest)
+   (Identity (NonEmpty StandardsSubscriptionRequest))
+ -&gt; Tagged
+      (NonEmpty StandardsSubscriptionRequest)
+      (Identity (NonEmpty StandardsSubscriptionRequest)))
+-&gt; NonEmpty StandardsSubscriptionRequest
+-&gt; NonEmpty StandardsSubscriptionRequest
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007438"><span class="hs-identifier hs-var">pStandardsSubscriptionRequests_</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The list of standards checks to enable.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandards_standardsSubscriptionRequests"><span class="hs-identifier hs-type">batchEnableStandards_standardsSubscriptionRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.StandardsSubscriptionRequest.html#StandardsSubscriptionRequest"><span class="hs-identifier hs-type">StandardsSubscriptionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="batchEnableStandards_standardsSubscriptionRequests"><span class="annot"><span class="annottext">batchEnableStandards_standardsSubscriptionRequests :: (NonEmpty StandardsSubscriptionRequest
+ -&gt; f (NonEmpty StandardsSubscriptionRequest))
+-&gt; BatchEnableStandards -&gt; f BatchEnableStandards
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandards_standardsSubscriptionRequests"><span class="hs-identifier hs-var hs-var">batchEnableStandards_standardsSubscriptionRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchEnableStandards -&gt; NonEmpty StandardsSubscriptionRequest)
+-&gt; (BatchEnableStandards
+    -&gt; NonEmpty StandardsSubscriptionRequest -&gt; BatchEnableStandards)
+-&gt; Lens
+     BatchEnableStandards
+     BatchEnableStandards
+     (NonEmpty StandardsSubscriptionRequest)
+     (NonEmpty StandardsSubscriptionRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards%27"><span class="hs-identifier hs-type">BatchEnableStandards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007433"><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+standardsSubscriptionRequests :: NonEmpty StandardsSubscriptionRequest
+$sel:standardsSubscriptionRequests:BatchEnableStandards' :: BatchEnableStandards -&gt; NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007433"><span class="hs-identifier hs-var hs-var">standardsSubscriptionRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007433"><span class="hs-identifier hs-var">standardsSubscriptionRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007432"><span class="annot"><span class="annottext">s :: BatchEnableStandards
+</span><a href="#local-6989586621680007432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards%27"><span class="hs-identifier hs-type">BatchEnableStandards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007431"><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchEnableStandards
+</span><a href="#local-6989586621680007432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:standardsSubscriptionRequests:BatchEnableStandards' :: NonEmpty StandardsSubscriptionRequest
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AstandardsSubscriptionRequests%3ABatchEnableStandards%27"><span class="hs-identifier hs-var">standardsSubscriptionRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty StandardsSubscriptionRequest
+  -&gt; f (NonEmpty StandardsSubscriptionRequest))
+ -&gt; BatchEnableStandards -&gt; f BatchEnableStandards)
+-&gt; ((NonEmpty StandardsSubscriptionRequest
+     -&gt; f (NonEmpty StandardsSubscriptionRequest))
+    -&gt; NonEmpty StandardsSubscriptionRequest
+    -&gt; f (NonEmpty StandardsSubscriptionRequest))
+-&gt; (NonEmpty StandardsSubscriptionRequest
+    -&gt; f (NonEmpty StandardsSubscriptionRequest))
+-&gt; BatchEnableStandards
+-&gt; f BatchEnableStandards
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty StandardsSubscriptionRequest
+ -&gt; f (NonEmpty StandardsSubscriptionRequest))
+-&gt; NonEmpty StandardsSubscriptionRequest
+-&gt; f (NonEmpty StandardsSubscriptionRequest)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-type">BatchEnableStandardsResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680007426"><span class="annot"><span class="annottext">request :: BatchEnableStandards -&gt; Request BatchEnableStandards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchEnableStandards -&gt; Request BatchEnableStandards
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SecurityHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680007422"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchEnableStandards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchEnableStandards)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchEnableStandards))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchEnableStandards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchEnableStandards)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680007419"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007419"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680007418"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680007418"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680007417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe [StandardsSubscription]
+-&gt; Int -&gt; BatchEnableStandardsResponse
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse%27"><span class="hs-identifier hs-var">BatchEnableStandardsResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [StandardsSubscription]
+ -&gt; Int -&gt; BatchEnableStandardsResponse)
+-&gt; Either String (Maybe [StandardsSubscription])
+-&gt; Either String (Int -&gt; BatchEnableStandardsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key -&gt; Either String (Maybe (Maybe [StandardsSubscription]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;StandardsSubscriptions&quot;</span></span><span>
+</span><span id="line-95"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [StandardsSubscription]))
+-&gt; Maybe [StandardsSubscription]
+-&gt; Either String (Maybe [StandardsSubscription])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StandardsSubscription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-96"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchEnableStandardsResponse)
+-&gt; Either String Int -&gt; Either String BatchEnableStandardsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007419"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007408"><span id="local-6989586621680007410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680007401"><span class="annot"><span class="annottext">toHeaders :: BatchEnableStandards -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchEnableStandards -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007391"><span id="local-6989586621680007393"><span id="local-6989586621680007395"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621680007389"><span class="annot"><span class="annottext">toJSON :: BatchEnableStandards -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards%27"><span class="hs-identifier hs-type">BatchEnableStandards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007387"><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+standardsSubscriptionRequests :: NonEmpty StandardsSubscriptionRequest
+$sel:standardsSubscriptionRequests:BatchEnableStandards' :: BatchEnableStandards -&gt; NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007387"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;StandardsSubscriptionRequests&quot;</span></span><span>
+</span><span id="line-121"></span><span>                  </span><span class="annot"><span class="annottext">Key -&gt; NonEmpty StandardsSubscriptionRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty StandardsSubscriptionRequest
+</span><a href="#local-6989586621680007387"><span class="hs-identifier hs-var">standardsSubscriptionRequests</span></a></span><span>
+</span><span id="line-122"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621680007381"><span class="annot"><span class="annottext">toPath :: BatchEnableStandards -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchEnableStandards -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/standards/register&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandards"><span class="hs-identifier hs-type">BatchEnableStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621680007377"><span class="annot"><span class="annottext">toQuery :: BatchEnableStandards -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchEnableStandards -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newBatchEnableStandardsResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621680007374"><span id="local-6989586621680007375"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchEnableStandardsResponse"><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-var">BatchEnableStandardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchEnableStandardsResponse%27"><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse%27"><span class="hs-identifier hs-var">BatchEnableStandardsResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the standards subscriptions that were enabled.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AstandardsSubscriptions%3ABatchEnableStandardsResponse%27"><span class="annot"><span class="annottext">BatchEnableStandardsResponse -&gt; Maybe [StandardsSubscription]
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AstandardsSubscriptions%3ABatchEnableStandardsResponse%27"><span class="hs-identifier hs-var hs-var">standardsSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.StandardsSubscription.html#StandardsSubscription"><span class="hs-identifier hs-type">StandardsSubscription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchEnableStandardsResponse%27"><span class="annot"><span class="annottext">BatchEnableStandardsResponse -&gt; Int
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AhttpStatus%3ABatchEnableStandardsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680007368"><span id="local-6989586621680007370"><span class="annot"><span class="annottext">BatchEnableStandardsResponse
+-&gt; BatchEnableStandardsResponse -&gt; Bool
+(BatchEnableStandardsResponse
+ -&gt; BatchEnableStandardsResponse -&gt; Bool)
+-&gt; (BatchEnableStandardsResponse
+    -&gt; BatchEnableStandardsResponse -&gt; Bool)
+-&gt; Eq BatchEnableStandardsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchEnableStandardsResponse
+-&gt; BatchEnableStandardsResponse -&gt; Bool
+$c/= :: BatchEnableStandardsResponse
+-&gt; BatchEnableStandardsResponse -&gt; Bool
+== :: BatchEnableStandardsResponse
+-&gt; BatchEnableStandardsResponse -&gt; Bool
+$c== :: BatchEnableStandardsResponse
+-&gt; BatchEnableStandardsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007360"><span id="local-6989586621680007362"><span id="local-6989586621680007364"><span id="local-6989586621680007366"><span class="annot"><span class="annottext">ReadPrec [BatchEnableStandardsResponse]
+ReadPrec BatchEnableStandardsResponse
+Int -&gt; ReadS BatchEnableStandardsResponse
+ReadS [BatchEnableStandardsResponse]
+(Int -&gt; ReadS BatchEnableStandardsResponse)
+-&gt; ReadS [BatchEnableStandardsResponse]
+-&gt; ReadPrec BatchEnableStandardsResponse
+-&gt; ReadPrec [BatchEnableStandardsResponse]
+-&gt; Read BatchEnableStandardsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchEnableStandardsResponse]
+$creadListPrec :: ReadPrec [BatchEnableStandardsResponse]
+readPrec :: ReadPrec BatchEnableStandardsResponse
+$creadPrec :: ReadPrec BatchEnableStandardsResponse
+readList :: ReadS [BatchEnableStandardsResponse]
+$creadList :: ReadS [BatchEnableStandardsResponse]
+readsPrec :: Int -&gt; ReadS BatchEnableStandardsResponse
+$creadsPrec :: Int -&gt; ReadS BatchEnableStandardsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007354"><span id="local-6989586621680007356"><span id="local-6989586621680007358"><span class="annot"><span class="annottext">Int -&gt; BatchEnableStandardsResponse -&gt; ShowS
+[BatchEnableStandardsResponse] -&gt; ShowS
+BatchEnableStandardsResponse -&gt; String
+(Int -&gt; BatchEnableStandardsResponse -&gt; ShowS)
+-&gt; (BatchEnableStandardsResponse -&gt; String)
+-&gt; ([BatchEnableStandardsResponse] -&gt; ShowS)
+-&gt; Show BatchEnableStandardsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchEnableStandardsResponse] -&gt; ShowS
+$cshowList :: [BatchEnableStandardsResponse] -&gt; ShowS
+show :: BatchEnableStandardsResponse -&gt; String
+$cshow :: BatchEnableStandardsResponse -&gt; String
+showsPrec :: Int -&gt; BatchEnableStandardsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchEnableStandardsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchEnableStandardsResponse -&gt; Rep BatchEnableStandardsResponse x)
+-&gt; (forall x.
+    Rep BatchEnableStandardsResponse x -&gt; BatchEnableStandardsResponse)
+-&gt; Generic BatchEnableStandardsResponse
+forall x.
+Rep BatchEnableStandardsResponse x -&gt; BatchEnableStandardsResponse
+forall x.
+BatchEnableStandardsResponse -&gt; Rep BatchEnableStandardsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchEnableStandardsResponse x -&gt; BatchEnableStandardsResponse
+$cfrom :: forall x.
+BatchEnableStandardsResponse -&gt; Rep BatchEnableStandardsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'BatchEnableStandardsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'standardsSubscriptions', 'batchEnableStandardsResponse_standardsSubscriptions' - The details of the standards subscriptions that were enabled.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'batchEnableStandardsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#newBatchEnableStandardsResponse"><span class="hs-identifier hs-type">newBatchEnableStandardsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-type">BatchEnableStandardsResponse</span></a></span><span>
+</span><span id="line-156"></span><span id="newBatchEnableStandardsResponse"><span class="annot"><span class="annottext">newBatchEnableStandardsResponse :: Int -&gt; BatchEnableStandardsResponse
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#newBatchEnableStandardsResponse"><span class="hs-identifier hs-var hs-var">newBatchEnableStandardsResponse</span></a></span></span><span> </span><span id="local-6989586621680007351"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007351"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">BatchEnableStandardsResponse' :: Maybe [StandardsSubscription]
+-&gt; Int -&gt; BatchEnableStandardsResponse
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse%27"><span class="hs-identifier hs-type">BatchEnableStandardsResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:standardsSubscriptions:BatchEnableStandardsResponse' :: Maybe [StandardsSubscription]
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AstandardsSubscriptions%3ABatchEnableStandardsResponse%27"><span class="hs-identifier hs-var">standardsSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe [StandardsSubscription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchEnableStandardsResponse' :: Int
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AhttpStatus%3ABatchEnableStandardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007351"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The details of the standards subscriptions that were enabled.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandardsResponse_standardsSubscriptions"><span class="hs-identifier hs-type">batchEnableStandardsResponse_standardsSubscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-type">BatchEnableStandardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.StandardsSubscription.html#StandardsSubscription"><span class="hs-identifier hs-type">StandardsSubscription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="batchEnableStandardsResponse_standardsSubscriptions"><span class="annot"><span class="annottext">batchEnableStandardsResponse_standardsSubscriptions :: (Maybe [StandardsSubscription]
+ -&gt; f (Maybe [StandardsSubscription]))
+-&gt; BatchEnableStandardsResponse -&gt; f BatchEnableStandardsResponse
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandardsResponse_standardsSubscriptions"><span class="hs-identifier hs-var hs-var">batchEnableStandardsResponse_standardsSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchEnableStandardsResponse -&gt; Maybe [StandardsSubscription])
+-&gt; (BatchEnableStandardsResponse
+    -&gt; Maybe [StandardsSubscription] -&gt; BatchEnableStandardsResponse)
+-&gt; Lens
+     BatchEnableStandardsResponse
+     BatchEnableStandardsResponse
+     (Maybe [StandardsSubscription])
+     (Maybe [StandardsSubscription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse%27"><span class="hs-identifier hs-type">BatchEnableStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007350"><span class="annot"><span class="annottext">Maybe [StandardsSubscription]
+standardsSubscriptions :: Maybe [StandardsSubscription]
+$sel:standardsSubscriptions:BatchEnableStandardsResponse' :: BatchEnableStandardsResponse -&gt; Maybe [StandardsSubscription]
+</span><a href="#local-6989586621680007350"><span class="hs-identifier hs-var hs-var">standardsSubscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StandardsSubscription]
+</span><a href="#local-6989586621680007350"><span class="hs-identifier hs-var">standardsSubscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007349"><span class="annot"><span class="annottext">s :: BatchEnableStandardsResponse
+</span><a href="#local-6989586621680007349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse%27"><span class="hs-identifier hs-type">BatchEnableStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007348"><span class="annot"><span class="annottext">Maybe [StandardsSubscription]
+</span><a href="#local-6989586621680007348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchEnableStandardsResponse
+</span><a href="#local-6989586621680007349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:standardsSubscriptions:BatchEnableStandardsResponse' :: Maybe [StandardsSubscription]
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AstandardsSubscriptions%3ABatchEnableStandardsResponse%27"><span class="hs-identifier hs-var">standardsSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StandardsSubscription]
+</span><a href="#local-6989586621680007348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-type">BatchEnableStandardsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StandardsSubscription]
+  -&gt; f (Maybe [StandardsSubscription]))
+ -&gt; BatchEnableStandardsResponse -&gt; f BatchEnableStandardsResponse)
+-&gt; ((Maybe [StandardsSubscription]
+     -&gt; f (Maybe [StandardsSubscription]))
+    -&gt; Maybe [StandardsSubscription]
+    -&gt; f (Maybe [StandardsSubscription]))
+-&gt; (Maybe [StandardsSubscription]
+    -&gt; f (Maybe [StandardsSubscription]))
+-&gt; BatchEnableStandardsResponse
+-&gt; f BatchEnableStandardsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StandardsSubscription]
+  [StandardsSubscription]
+  [StandardsSubscription]
+  [StandardsSubscription]
+-&gt; Iso
+     (Maybe [StandardsSubscription])
+     (Maybe [StandardsSubscription])
+     (Maybe [StandardsSubscription])
+     (Maybe [StandardsSubscription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StandardsSubscription]
+  [StandardsSubscription]
+  [StandardsSubscription]
+  [StandardsSubscription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandardsResponse_httpStatus"><span class="hs-identifier hs-type">batchEnableStandardsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-type">BatchEnableStandardsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="batchEnableStandardsResponse_httpStatus"><span class="annot"><span class="annottext">batchEnableStandardsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchEnableStandardsResponse -&gt; f BatchEnableStandardsResponse
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#batchEnableStandardsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchEnableStandardsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchEnableStandardsResponse -&gt; Int)
+-&gt; (BatchEnableStandardsResponse
+    -&gt; Int -&gt; BatchEnableStandardsResponse)
+-&gt; Lens
+     BatchEnableStandardsResponse BatchEnableStandardsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse%27"><span class="hs-identifier hs-type">BatchEnableStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007346"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchEnableStandardsResponse' :: BatchEnableStandardsResponse -&gt; Int
+</span><a href="#local-6989586621680007346"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007346"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007345"><span class="annot"><span class="annottext">s :: BatchEnableStandardsResponse
+</span><a href="#local-6989586621680007345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse%27"><span class="hs-identifier hs-type">BatchEnableStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007344"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchEnableStandardsResponse
+</span><a href="#local-6989586621680007345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchEnableStandardsResponse' :: Int
+</span><a href="Amazonka.SecurityHub.BatchEnableStandards.html#%24sel%3AhttpStatus%3ABatchEnableStandardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-type">BatchEnableStandardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.BatchEnableStandards.html#BatchEnableStandardsResponse"><span class="hs-identifier hs-type">BatchEnableStandardsResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

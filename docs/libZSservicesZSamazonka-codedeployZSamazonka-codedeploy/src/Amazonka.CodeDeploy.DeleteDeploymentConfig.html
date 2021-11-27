@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeDeploy.DeleteDeploymentConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a deployment configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- A deployment configuration cannot be deleted if it is currently in use.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Predefined configurations cannot be deleted.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeDeploy.DeleteDeploymentConfig</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfig"><span class="hs-identifier">newDeleteDeploymentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#deleteDeploymentConfig_deploymentConfigName"><span class="hs-identifier">deleteDeploymentConfig_deploymentConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier">DeleteDeploymentConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfigResponse"><span class="hs-identifier">newDeleteDeploymentConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.html"><span class="hs-identifier">Amazonka.CodeDeploy.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | Represents the input of a @DeleteDeploymentConfig@ operation.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newDeleteDeploymentConfig' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679324028"><span id="local-6989586621679324029"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentConfig"><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-var">DeleteDeploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentConfig%27"><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-var">DeleteDeploymentConfig'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a deployment configuration associated with the IAM user or</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="annot"><span class="annottext">DeleteDeploymentConfig -&gt; Text
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="hs-identifier hs-var hs-var">deploymentConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324022"><span id="local-6989586621679324024"><span class="annot"><span class="annottext">DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
+(DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool)
+-&gt; (DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool)
+-&gt; Eq DeleteDeploymentConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
+$c/= :: DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
+== :: DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
+$c== :: DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324013"><span id="local-6989586621679324015"><span id="local-6989586621679324017"><span id="local-6989586621679324019"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentConfig]
+ReadPrec DeleteDeploymentConfig
+Int -&gt; ReadS DeleteDeploymentConfig
+ReadS [DeleteDeploymentConfig]
+(Int -&gt; ReadS DeleteDeploymentConfig)
+-&gt; ReadS [DeleteDeploymentConfig]
+-&gt; ReadPrec DeleteDeploymentConfig
+-&gt; ReadPrec [DeleteDeploymentConfig]
+-&gt; Read DeleteDeploymentConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDeploymentConfig]
+$creadListPrec :: ReadPrec [DeleteDeploymentConfig]
+readPrec :: ReadPrec DeleteDeploymentConfig
+$creadPrec :: ReadPrec DeleteDeploymentConfig
+readList :: ReadS [DeleteDeploymentConfig]
+$creadList :: ReadS [DeleteDeploymentConfig]
+readsPrec :: Int -&gt; ReadS DeleteDeploymentConfig
+$creadsPrec :: Int -&gt; ReadS DeleteDeploymentConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324006"><span id="local-6989586621679324008"><span id="local-6989586621679324010"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentConfig -&gt; ShowS
+[DeleteDeploymentConfig] -&gt; ShowS
+DeleteDeploymentConfig -&gt; String
+(Int -&gt; DeleteDeploymentConfig -&gt; ShowS)
+-&gt; (DeleteDeploymentConfig -&gt; String)
+-&gt; ([DeleteDeploymentConfig] -&gt; ShowS)
+-&gt; Show DeleteDeploymentConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDeploymentConfig] -&gt; ShowS
+$cshowList :: [DeleteDeploymentConfig] -&gt; ShowS
+show :: DeleteDeploymentConfig -&gt; String
+$cshow :: DeleteDeploymentConfig -&gt; String
+showsPrec :: Int -&gt; DeleteDeploymentConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDeploymentConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteDeploymentConfig -&gt; Rep DeleteDeploymentConfig x)
+-&gt; (forall x.
+    Rep DeleteDeploymentConfig x -&gt; DeleteDeploymentConfig)
+-&gt; Generic DeleteDeploymentConfig
+forall x. Rep DeleteDeploymentConfig x -&gt; DeleteDeploymentConfig
+forall x. DeleteDeploymentConfig -&gt; Rep DeleteDeploymentConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteDeploymentConfig x -&gt; DeleteDeploymentConfig
+$cfrom :: forall x. DeleteDeploymentConfig -&gt; Rep DeleteDeploymentConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DeleteDeploymentConfig' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'deploymentConfigName', 'deleteDeploymentConfig_deploymentConfigName' - The name of a deployment configuration associated with the IAM user or</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfig"><span class="hs-identifier hs-type">newDeleteDeploymentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'deploymentConfigName'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteDeploymentConfig"><span class="annot"><span class="annottext">newDeleteDeploymentConfig :: Text -&gt; DeleteDeploymentConfig
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfig"><span class="hs-identifier hs-var hs-var">newDeleteDeploymentConfig</span></a></span></span><span> </span><span id="local-6989586621679324001"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324001"><span class="hs-identifier hs-var">pDeploymentConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeploymentConfig' :: Text -&gt; DeleteDeploymentConfig
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentConfigName:DeleteDeploymentConfig' :: Text
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324001"><span class="hs-identifier hs-var">pDeploymentConfigName_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The name of a deployment configuration associated with the IAM user or</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#deleteDeploymentConfig_deploymentConfigName"><span class="hs-identifier hs-type">deleteDeploymentConfig_deploymentConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="deleteDeploymentConfig_deploymentConfigName"><span class="annot"><span class="annottext">deleteDeploymentConfig_deploymentConfigName :: (Text -&gt; f Text)
+-&gt; DeleteDeploymentConfig -&gt; f DeleteDeploymentConfig
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#deleteDeploymentConfig_deploymentConfigName"><span class="hs-identifier hs-var hs-var">deleteDeploymentConfig_deploymentConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDeploymentConfig -&gt; Text)
+-&gt; (DeleteDeploymentConfig -&gt; Text -&gt; DeleteDeploymentConfig)
+-&gt; Lens DeleteDeploymentConfig DeleteDeploymentConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323998"><span class="annot"><span class="annottext">Text
+deploymentConfigName :: Text
+$sel:deploymentConfigName:DeleteDeploymentConfig' :: DeleteDeploymentConfig -&gt; Text
+</span><a href="#local-6989586621679323998"><span class="hs-identifier hs-var hs-var">deploymentConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323998"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323997"><span class="annot"><span class="annottext">s :: DeleteDeploymentConfig
+</span><a href="#local-6989586621679323997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeploymentConfig
+</span><a href="#local-6989586621679323997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentConfigName:DeleteDeploymentConfig' :: Text
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-type">DeleteDeploymentConfigResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679323992"><span class="annot"><span class="annottext">request :: DeleteDeploymentConfig -&gt; Request DeleteDeploymentConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDeploymentConfig -&gt; Request DeleteDeploymentConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679323988"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteDeploymentConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDeploymentConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteDeploymentConfig
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteDeploymentConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDeploymentConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteDeploymentConfig
+DeleteDeploymentConfigResponse
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323981"><span id="local-6989586621679323983"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679323974"><span class="annot"><span class="annottext">toHeaders :: DeleteDeploymentConfig -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteDeploymentConfig -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeDeploy_20141006.DeleteDeploymentConfig&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323964"><span id="local-6989586621679323966"><span id="local-6989586621679323968"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679323962"><span class="annot"><span class="annottext">toJSON :: DeleteDeploymentConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323960"><span class="annot"><span class="annottext">Text
+deploymentConfigName :: Text
+$sel:deploymentConfigName:DeleteDeploymentConfig' :: DeleteDeploymentConfig -&gt; Text
+</span><a href="#local-6989586621679323960"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentConfigName&quot;</span></span><span>
+</span><span id="line-117"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323960"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span>
+</span><span id="line-118"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679323954"><span class="annot"><span class="annottext">toPath :: DeleteDeploymentConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDeploymentConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679323950"><span class="annot"><span class="annottext">toQuery :: DeleteDeploymentConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDeploymentConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeploymentConfigResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679323947"><span id="local-6989586621679323948"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentConfigResponse"><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentConfigResponse%27"><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323943"><span id="local-6989586621679323945"><span class="annot"><span class="annottext">DeleteDeploymentConfigResponse
+-&gt; DeleteDeploymentConfigResponse -&gt; Bool
+(DeleteDeploymentConfigResponse
+ -&gt; DeleteDeploymentConfigResponse -&gt; Bool)
+-&gt; (DeleteDeploymentConfigResponse
+    -&gt; DeleteDeploymentConfigResponse -&gt; Bool)
+-&gt; Eq DeleteDeploymentConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDeploymentConfigResponse
+-&gt; DeleteDeploymentConfigResponse -&gt; Bool
+$c/= :: DeleteDeploymentConfigResponse
+-&gt; DeleteDeploymentConfigResponse -&gt; Bool
+== :: DeleteDeploymentConfigResponse
+-&gt; DeleteDeploymentConfigResponse -&gt; Bool
+$c== :: DeleteDeploymentConfigResponse
+-&gt; DeleteDeploymentConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323935"><span id="local-6989586621679323937"><span id="local-6989586621679323939"><span id="local-6989586621679323941"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentConfigResponse]
+ReadPrec DeleteDeploymentConfigResponse
+Int -&gt; ReadS DeleteDeploymentConfigResponse
+ReadS [DeleteDeploymentConfigResponse]
+(Int -&gt; ReadS DeleteDeploymentConfigResponse)
+-&gt; ReadS [DeleteDeploymentConfigResponse]
+-&gt; ReadPrec DeleteDeploymentConfigResponse
+-&gt; ReadPrec [DeleteDeploymentConfigResponse]
+-&gt; Read DeleteDeploymentConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDeploymentConfigResponse]
+$creadListPrec :: ReadPrec [DeleteDeploymentConfigResponse]
+readPrec :: ReadPrec DeleteDeploymentConfigResponse
+$creadPrec :: ReadPrec DeleteDeploymentConfigResponse
+readList :: ReadS [DeleteDeploymentConfigResponse]
+$creadList :: ReadS [DeleteDeploymentConfigResponse]
+readsPrec :: Int -&gt; ReadS DeleteDeploymentConfigResponse
+$creadsPrec :: Int -&gt; ReadS DeleteDeploymentConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323929"><span id="local-6989586621679323931"><span id="local-6989586621679323933"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentConfigResponse -&gt; ShowS
+[DeleteDeploymentConfigResponse] -&gt; ShowS
+DeleteDeploymentConfigResponse -&gt; String
+(Int -&gt; DeleteDeploymentConfigResponse -&gt; ShowS)
+-&gt; (DeleteDeploymentConfigResponse -&gt; String)
+-&gt; ([DeleteDeploymentConfigResponse] -&gt; ShowS)
+-&gt; Show DeleteDeploymentConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDeploymentConfigResponse] -&gt; ShowS
+$cshowList :: [DeleteDeploymentConfigResponse] -&gt; ShowS
+show :: DeleteDeploymentConfigResponse -&gt; String
+$cshow :: DeleteDeploymentConfigResponse -&gt; String
+showsPrec :: Int -&gt; DeleteDeploymentConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDeploymentConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteDeploymentConfigResponse
+ -&gt; Rep DeleteDeploymentConfigResponse x)
+-&gt; (forall x.
+    Rep DeleteDeploymentConfigResponse x
+    -&gt; DeleteDeploymentConfigResponse)
+-&gt; Generic DeleteDeploymentConfigResponse
+forall x.
+Rep DeleteDeploymentConfigResponse x
+-&gt; DeleteDeploymentConfigResponse
+forall x.
+DeleteDeploymentConfigResponse
+-&gt; Rep DeleteDeploymentConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteDeploymentConfigResponse x
+-&gt; DeleteDeploymentConfigResponse
+$cfrom :: forall x.
+DeleteDeploymentConfigResponse
+-&gt; Rep DeleteDeploymentConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'DeleteDeploymentConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfigResponse"><span class="hs-identifier hs-type">newDeleteDeploymentConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-type">DeleteDeploymentConfigResponse</span></a></span><span>
+</span><span id="line-140"></span><span id="newDeleteDeploymentConfigResponse"><span class="annot"><span class="annottext">newDeleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfigResponse"><span class="hs-identifier hs-var hs-var">newDeleteDeploymentConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeploymentConfigResponse
+</span><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679323925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-type">DeleteDeploymentConfigResponse</span></a></span></span><span>
+</span><span id="line-146"></span></pre></body></html>

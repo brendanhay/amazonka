@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.AcceptInputDeviceTransfer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Accept an incoming input device transfer. The ownership of the device</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- will transfer to your AWS account.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.AcceptInputDeviceTransfer</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier">AcceptInputDeviceTransfer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#newAcceptInputDeviceTransfer"><span class="hs-identifier">newAcceptInputDeviceTransfer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#acceptInputDeviceTransfer_inputDeviceId"><span class="hs-identifier">acceptInputDeviceTransfer_inputDeviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse"><span class="hs-identifier">AcceptInputDeviceTransferResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#newAcceptInputDeviceTransferResponse"><span class="hs-identifier">newAcceptInputDeviceTransferResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#acceptInputDeviceTransferResponse_httpStatus"><span class="hs-identifier">acceptInputDeviceTransferResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.html"><span class="hs-identifier">Amazonka.MediaLive.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | Placeholder documentation for AcceptInputDeviceTransferRequest</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newAcceptInputDeviceTransfer' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679949869"><span id="local-6989586621679949870"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptInputDeviceTransfer"><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-var">AcceptInputDeviceTransfer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptInputDeviceTransfer%27"><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer%27"><span class="hs-identifier hs-var">AcceptInputDeviceTransfer'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the input device to accept. For example,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- hd-123456789abcdef.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinputDeviceId%3AAcceptInputDeviceTransfer%27"><span class="annot"><span class="annottext">AcceptInputDeviceTransfer -&gt; Text
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#%24sel%3AinputDeviceId%3AAcceptInputDeviceTransfer%27"><span class="hs-identifier hs-var hs-var">inputDeviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679949863"><span id="local-6989586621679949865"><span class="annot"><span class="annottext">AcceptInputDeviceTransfer -&gt; AcceptInputDeviceTransfer -&gt; Bool
+(AcceptInputDeviceTransfer -&gt; AcceptInputDeviceTransfer -&gt; Bool)
+-&gt; (AcceptInputDeviceTransfer -&gt; AcceptInputDeviceTransfer -&gt; Bool)
+-&gt; Eq AcceptInputDeviceTransfer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptInputDeviceTransfer -&gt; AcceptInputDeviceTransfer -&gt; Bool
+$c/= :: AcceptInputDeviceTransfer -&gt; AcceptInputDeviceTransfer -&gt; Bool
+== :: AcceptInputDeviceTransfer -&gt; AcceptInputDeviceTransfer -&gt; Bool
+$c== :: AcceptInputDeviceTransfer -&gt; AcceptInputDeviceTransfer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949854"><span id="local-6989586621679949856"><span id="local-6989586621679949858"><span id="local-6989586621679949860"><span class="annot"><span class="annottext">ReadPrec [AcceptInputDeviceTransfer]
+ReadPrec AcceptInputDeviceTransfer
+Int -&gt; ReadS AcceptInputDeviceTransfer
+ReadS [AcceptInputDeviceTransfer]
+(Int -&gt; ReadS AcceptInputDeviceTransfer)
+-&gt; ReadS [AcceptInputDeviceTransfer]
+-&gt; ReadPrec AcceptInputDeviceTransfer
+-&gt; ReadPrec [AcceptInputDeviceTransfer]
+-&gt; Read AcceptInputDeviceTransfer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptInputDeviceTransfer]
+$creadListPrec :: ReadPrec [AcceptInputDeviceTransfer]
+readPrec :: ReadPrec AcceptInputDeviceTransfer
+$creadPrec :: ReadPrec AcceptInputDeviceTransfer
+readList :: ReadS [AcceptInputDeviceTransfer]
+$creadList :: ReadS [AcceptInputDeviceTransfer]
+readsPrec :: Int -&gt; ReadS AcceptInputDeviceTransfer
+$creadsPrec :: Int -&gt; ReadS AcceptInputDeviceTransfer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949847"><span id="local-6989586621679949849"><span id="local-6989586621679949851"><span class="annot"><span class="annottext">Int -&gt; AcceptInputDeviceTransfer -&gt; ShowS
+[AcceptInputDeviceTransfer] -&gt; ShowS
+AcceptInputDeviceTransfer -&gt; String
+(Int -&gt; AcceptInputDeviceTransfer -&gt; ShowS)
+-&gt; (AcceptInputDeviceTransfer -&gt; String)
+-&gt; ([AcceptInputDeviceTransfer] -&gt; ShowS)
+-&gt; Show AcceptInputDeviceTransfer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptInputDeviceTransfer] -&gt; ShowS
+$cshowList :: [AcceptInputDeviceTransfer] -&gt; ShowS
+show :: AcceptInputDeviceTransfer -&gt; String
+$cshow :: AcceptInputDeviceTransfer -&gt; String
+showsPrec :: Int -&gt; AcceptInputDeviceTransfer -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptInputDeviceTransfer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AcceptInputDeviceTransfer -&gt; Rep AcceptInputDeviceTransfer x)
+-&gt; (forall x.
+    Rep AcceptInputDeviceTransfer x -&gt; AcceptInputDeviceTransfer)
+-&gt; Generic AcceptInputDeviceTransfer
+forall x.
+Rep AcceptInputDeviceTransfer x -&gt; AcceptInputDeviceTransfer
+forall x.
+AcceptInputDeviceTransfer -&gt; Rep AcceptInputDeviceTransfer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AcceptInputDeviceTransfer x -&gt; AcceptInputDeviceTransfer
+$cfrom :: forall x.
+AcceptInputDeviceTransfer -&gt; Rep AcceptInputDeviceTransfer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'AcceptInputDeviceTransfer' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'inputDeviceId', 'acceptInputDeviceTransfer_inputDeviceId' - The unique ID of the input device to accept. For example,</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- hd-123456789abcdef.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#newAcceptInputDeviceTransfer"><span class="hs-identifier hs-type">newAcceptInputDeviceTransfer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'inputDeviceId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span>
+</span><span id="line-73"></span><span id="newAcceptInputDeviceTransfer"><span class="annot"><span class="annottext">newAcceptInputDeviceTransfer :: Text -&gt; AcceptInputDeviceTransfer
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#newAcceptInputDeviceTransfer"><span class="hs-identifier hs-var hs-var">newAcceptInputDeviceTransfer</span></a></span></span><span> </span><span id="local-6989586621679949842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679949842"><span class="hs-identifier hs-var">pInputDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">AcceptInputDeviceTransfer' :: Text -&gt; AcceptInputDeviceTransfer
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer%27"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputDeviceId:AcceptInputDeviceTransfer' :: Text
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#%24sel%3AinputDeviceId%3AAcceptInputDeviceTransfer%27"><span class="hs-identifier hs-var">inputDeviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679949842"><span class="hs-identifier hs-var">pInputDeviceId_</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The unique ID of the input device to accept. For example,</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- hd-123456789abcdef.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#acceptInputDeviceTransfer_inputDeviceId"><span class="hs-identifier hs-type">acceptInputDeviceTransfer_inputDeviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="acceptInputDeviceTransfer_inputDeviceId"><span class="annot"><span class="annottext">acceptInputDeviceTransfer_inputDeviceId :: (Text -&gt; f Text)
+-&gt; AcceptInputDeviceTransfer -&gt; f AcceptInputDeviceTransfer
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#acceptInputDeviceTransfer_inputDeviceId"><span class="hs-identifier hs-var hs-var">acceptInputDeviceTransfer_inputDeviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptInputDeviceTransfer -&gt; Text)
+-&gt; (AcceptInputDeviceTransfer -&gt; Text -&gt; AcceptInputDeviceTransfer)
+-&gt; Lens
+     AcceptInputDeviceTransfer AcceptInputDeviceTransfer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer%27"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949839"><span class="annot"><span class="annottext">Text
+inputDeviceId :: Text
+$sel:inputDeviceId:AcceptInputDeviceTransfer' :: AcceptInputDeviceTransfer -&gt; Text
+</span><a href="#local-6989586621679949839"><span class="hs-identifier hs-var hs-var">inputDeviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679949839"><span class="hs-identifier hs-var">inputDeviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949838"><span class="annot"><span class="annottext">s :: AcceptInputDeviceTransfer
+</span><a href="#local-6989586621679949838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer%27"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949837"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679949837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptInputDeviceTransfer
+</span><a href="#local-6989586621679949838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDeviceId:AcceptInputDeviceTransfer' :: Text
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#%24sel%3AinputDeviceId%3AAcceptInputDeviceTransfer%27"><span class="hs-identifier hs-var">inputDeviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679949837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679949833"><span class="annot"><span class="annottext">request :: AcceptInputDeviceTransfer -&gt; Request AcceptInputDeviceTransfer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AcceptInputDeviceTransfer -&gt; Request AcceptInputDeviceTransfer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679949829"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AcceptInputDeviceTransfer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AcceptInputDeviceTransfer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AcceptInputDeviceTransfer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AcceptInputDeviceTransfer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AcceptInputDeviceTransfer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679949826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679949825"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679949825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679949824"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679949824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AcceptInputDeviceTransferResponse
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-var">AcceptInputDeviceTransferResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AcceptInputDeviceTransferResponse)
+-&gt; Either String Int
+-&gt; Either String AcceptInputDeviceTransferResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949817"><span id="local-6989586621679949819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679949810"><span class="annot"><span class="annottext">toHeaders :: AcceptInputDeviceTransfer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AcceptInputDeviceTransfer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949800"><span id="local-6989586621679949802"><span id="local-6989586621679949804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679949798"><span class="annot"><span class="annottext">toJSON :: AcceptInputDeviceTransfer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; AcceptInputDeviceTransfer -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679949793"><span class="annot"><span class="annottext">toPath :: AcceptInputDeviceTransfer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer%27"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949791"><span class="annot"><span class="annottext">Text
+inputDeviceId :: Text
+$sel:inputDeviceId:AcceptInputDeviceTransfer' :: AcceptInputDeviceTransfer -&gt; Text
+</span><a href="#local-6989586621679949791"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/prod/inputDevices/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679949791"><span class="hs-identifier hs-var">inputDeviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accept&quot;</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransfer"><span class="hs-identifier hs-type">AcceptInputDeviceTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679949787"><span class="annot"><span class="annottext">toQuery :: AcceptInputDeviceTransfer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AcceptInputDeviceTransfer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Placeholder documentation for AcceptInputDeviceTransferResponse</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newAcceptInputDeviceTransferResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679949784"><span id="local-6989586621679949785"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptInputDeviceTransferResponse"><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse"><span class="hs-identifier hs-var">AcceptInputDeviceTransferResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptInputDeviceTransferResponse%27"><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-var">AcceptInputDeviceTransferResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAcceptInputDeviceTransferResponse%27"><span class="annot"><span class="annottext">AcceptInputDeviceTransferResponse -&gt; Int
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#%24sel%3AhttpStatus%3AAcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679949779"><span id="local-6989586621679949781"><span class="annot"><span class="annottext">AcceptInputDeviceTransferResponse
+-&gt; AcceptInputDeviceTransferResponse -&gt; Bool
+(AcceptInputDeviceTransferResponse
+ -&gt; AcceptInputDeviceTransferResponse -&gt; Bool)
+-&gt; (AcceptInputDeviceTransferResponse
+    -&gt; AcceptInputDeviceTransferResponse -&gt; Bool)
+-&gt; Eq AcceptInputDeviceTransferResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptInputDeviceTransferResponse
+-&gt; AcceptInputDeviceTransferResponse -&gt; Bool
+$c/= :: AcceptInputDeviceTransferResponse
+-&gt; AcceptInputDeviceTransferResponse -&gt; Bool
+== :: AcceptInputDeviceTransferResponse
+-&gt; AcceptInputDeviceTransferResponse -&gt; Bool
+$c== :: AcceptInputDeviceTransferResponse
+-&gt; AcceptInputDeviceTransferResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949771"><span id="local-6989586621679949773"><span id="local-6989586621679949775"><span id="local-6989586621679949777"><span class="annot"><span class="annottext">ReadPrec [AcceptInputDeviceTransferResponse]
+ReadPrec AcceptInputDeviceTransferResponse
+Int -&gt; ReadS AcceptInputDeviceTransferResponse
+ReadS [AcceptInputDeviceTransferResponse]
+(Int -&gt; ReadS AcceptInputDeviceTransferResponse)
+-&gt; ReadS [AcceptInputDeviceTransferResponse]
+-&gt; ReadPrec AcceptInputDeviceTransferResponse
+-&gt; ReadPrec [AcceptInputDeviceTransferResponse]
+-&gt; Read AcceptInputDeviceTransferResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptInputDeviceTransferResponse]
+$creadListPrec :: ReadPrec [AcceptInputDeviceTransferResponse]
+readPrec :: ReadPrec AcceptInputDeviceTransferResponse
+$creadPrec :: ReadPrec AcceptInputDeviceTransferResponse
+readList :: ReadS [AcceptInputDeviceTransferResponse]
+$creadList :: ReadS [AcceptInputDeviceTransferResponse]
+readsPrec :: Int -&gt; ReadS AcceptInputDeviceTransferResponse
+$creadsPrec :: Int -&gt; ReadS AcceptInputDeviceTransferResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949765"><span id="local-6989586621679949767"><span id="local-6989586621679949769"><span class="annot"><span class="annottext">Int -&gt; AcceptInputDeviceTransferResponse -&gt; ShowS
+[AcceptInputDeviceTransferResponse] -&gt; ShowS
+AcceptInputDeviceTransferResponse -&gt; String
+(Int -&gt; AcceptInputDeviceTransferResponse -&gt; ShowS)
+-&gt; (AcceptInputDeviceTransferResponse -&gt; String)
+-&gt; ([AcceptInputDeviceTransferResponse] -&gt; ShowS)
+-&gt; Show AcceptInputDeviceTransferResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptInputDeviceTransferResponse] -&gt; ShowS
+$cshowList :: [AcceptInputDeviceTransferResponse] -&gt; ShowS
+show :: AcceptInputDeviceTransferResponse -&gt; String
+$cshow :: AcceptInputDeviceTransferResponse -&gt; String
+showsPrec :: Int -&gt; AcceptInputDeviceTransferResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptInputDeviceTransferResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AcceptInputDeviceTransferResponse
+ -&gt; Rep AcceptInputDeviceTransferResponse x)
+-&gt; (forall x.
+    Rep AcceptInputDeviceTransferResponse x
+    -&gt; AcceptInputDeviceTransferResponse)
+-&gt; Generic AcceptInputDeviceTransferResponse
+forall x.
+Rep AcceptInputDeviceTransferResponse x
+-&gt; AcceptInputDeviceTransferResponse
+forall x.
+AcceptInputDeviceTransferResponse
+-&gt; Rep AcceptInputDeviceTransferResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AcceptInputDeviceTransferResponse x
+-&gt; AcceptInputDeviceTransferResponse
+$cfrom :: forall x.
+AcceptInputDeviceTransferResponse
+-&gt; Rep AcceptInputDeviceTransferResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'AcceptInputDeviceTransferResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'acceptInputDeviceTransferResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#newAcceptInputDeviceTransferResponse"><span class="hs-identifier hs-type">newAcceptInputDeviceTransferResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newAcceptInputDeviceTransferResponse"><span class="annot"><span class="annottext">newAcceptInputDeviceTransferResponse :: Int -&gt; AcceptInputDeviceTransferResponse
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#newAcceptInputDeviceTransferResponse"><span class="hs-identifier hs-var hs-var">newAcceptInputDeviceTransferResponse</span></a></span></span><span> </span><span id="local-6989586621679949762"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">AcceptInputDeviceTransferResponse' :: Int -&gt; AcceptInputDeviceTransferResponse
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptInputDeviceTransferResponse' :: Int
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#%24sel%3AhttpStatus%3AAcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#acceptInputDeviceTransferResponse_httpStatus"><span class="hs-identifier hs-type">acceptInputDeviceTransferResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span id="acceptInputDeviceTransferResponse_httpStatus"><span class="annot"><span class="annottext">acceptInputDeviceTransferResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AcceptInputDeviceTransferResponse
+-&gt; f AcceptInputDeviceTransferResponse
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#acceptInputDeviceTransferResponse_httpStatus"><span class="hs-identifier hs-var hs-var">acceptInputDeviceTransferResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptInputDeviceTransferResponse -&gt; Int)
+-&gt; (AcceptInputDeviceTransferResponse
+    -&gt; Int -&gt; AcceptInputDeviceTransferResponse)
+-&gt; Lens
+     AcceptInputDeviceTransferResponse
+     AcceptInputDeviceTransferResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949761"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AcceptInputDeviceTransferResponse' :: AcceptInputDeviceTransferResponse -&gt; Int
+</span><a href="#local-6989586621679949761"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949761"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949760"><span class="annot"><span class="annottext">s :: AcceptInputDeviceTransferResponse
+</span><a href="#local-6989586621679949760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptInputDeviceTransferResponse
+</span><a href="#local-6989586621679949760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptInputDeviceTransferResponse' :: Int
+</span><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#%24sel%3AhttpStatus%3AAcceptInputDeviceTransferResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679949757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.AcceptInputDeviceTransfer.html#AcceptInputDeviceTransferResponse"><span class="hs-identifier hs-type">AcceptInputDeviceTransferResponse</span></a></span></span><span>
+</span><span id="line-160"></span></pre></body></html>

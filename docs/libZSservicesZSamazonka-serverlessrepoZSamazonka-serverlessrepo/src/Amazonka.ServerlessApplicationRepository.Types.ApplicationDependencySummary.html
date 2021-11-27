@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A nested application summary.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newApplicationDependencySummary' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679188358"><span id="local-6989586621679188359"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationDependencySummary"><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-var">ApplicationDependencySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationDependencySummary%27"><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary%27"><span class="hs-identifier hs-var">ApplicationDependencySummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the nested application.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AapplicationId%3AApplicationDependencySummary%27"><span class="annot"><span class="annottext">ApplicationDependencySummary -&gt; Text
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#%24sel%3AapplicationId%3AApplicationDependencySummary%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The semantic version of the nested application.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsemanticVersion%3AApplicationDependencySummary%27"><span class="annot"><span class="annottext">ApplicationDependencySummary -&gt; Text
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#%24sel%3AsemanticVersion%3AApplicationDependencySummary%27"><span class="hs-identifier hs-var hs-var">semanticVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188351"><span id="local-6989586621679188353"><span class="annot"><span class="annottext">ApplicationDependencySummary
+-&gt; ApplicationDependencySummary -&gt; Bool
+(ApplicationDependencySummary
+ -&gt; ApplicationDependencySummary -&gt; Bool)
+-&gt; (ApplicationDependencySummary
+    -&gt; ApplicationDependencySummary -&gt; Bool)
+-&gt; Eq ApplicationDependencySummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationDependencySummary
+-&gt; ApplicationDependencySummary -&gt; Bool
+$c/= :: ApplicationDependencySummary
+-&gt; ApplicationDependencySummary -&gt; Bool
+== :: ApplicationDependencySummary
+-&gt; ApplicationDependencySummary -&gt; Bool
+$c== :: ApplicationDependencySummary
+-&gt; ApplicationDependencySummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188342"><span id="local-6989586621679188344"><span id="local-6989586621679188346"><span id="local-6989586621679188348"><span class="annot"><span class="annottext">ReadPrec [ApplicationDependencySummary]
+ReadPrec ApplicationDependencySummary
+Int -&gt; ReadS ApplicationDependencySummary
+ReadS [ApplicationDependencySummary]
+(Int -&gt; ReadS ApplicationDependencySummary)
+-&gt; ReadS [ApplicationDependencySummary]
+-&gt; ReadPrec ApplicationDependencySummary
+-&gt; ReadPrec [ApplicationDependencySummary]
+-&gt; Read ApplicationDependencySummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationDependencySummary]
+$creadListPrec :: ReadPrec [ApplicationDependencySummary]
+readPrec :: ReadPrec ApplicationDependencySummary
+$creadPrec :: ReadPrec ApplicationDependencySummary
+readList :: ReadS [ApplicationDependencySummary]
+$creadList :: ReadS [ApplicationDependencySummary]
+readsPrec :: Int -&gt; ReadS ApplicationDependencySummary
+$creadsPrec :: Int -&gt; ReadS ApplicationDependencySummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188335"><span id="local-6989586621679188337"><span id="local-6989586621679188339"><span class="annot"><span class="annottext">Int -&gt; ApplicationDependencySummary -&gt; ShowS
+[ApplicationDependencySummary] -&gt; ShowS
+ApplicationDependencySummary -&gt; String
+(Int -&gt; ApplicationDependencySummary -&gt; ShowS)
+-&gt; (ApplicationDependencySummary -&gt; String)
+-&gt; ([ApplicationDependencySummary] -&gt; ShowS)
+-&gt; Show ApplicationDependencySummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationDependencySummary] -&gt; ShowS
+$cshowList :: [ApplicationDependencySummary] -&gt; ShowS
+show :: ApplicationDependencySummary -&gt; String
+$cshow :: ApplicationDependencySummary -&gt; String
+showsPrec :: Int -&gt; ApplicationDependencySummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationDependencySummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplicationDependencySummary -&gt; Rep ApplicationDependencySummary x)
+-&gt; (forall x.
+    Rep ApplicationDependencySummary x -&gt; ApplicationDependencySummary)
+-&gt; Generic ApplicationDependencySummary
+forall x.
+Rep ApplicationDependencySummary x -&gt; ApplicationDependencySummary
+forall x.
+ApplicationDependencySummary -&gt; Rep ApplicationDependencySummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplicationDependencySummary x -&gt; ApplicationDependencySummary
+$cfrom :: forall x.
+ApplicationDependencySummary -&gt; Rep ApplicationDependencySummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'ApplicationDependencySummary' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'applicationId', 'applicationDependencySummary_applicationId' - The Amazon Resource Name (ARN) of the nested application.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'semanticVersion', 'applicationDependencySummary_semanticVersion' - The semantic version of the nested application.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#newApplicationDependencySummary"><span class="hs-identifier hs-type">newApplicationDependencySummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-comment">-- | 'semanticVersion'</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span><span>
+</span><span id="line-54"></span><span id="newApplicationDependencySummary"><span class="annot"><span class="annottext">newApplicationDependencySummary :: Text -&gt; Text -&gt; ApplicationDependencySummary
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#newApplicationDependencySummary"><span class="hs-identifier hs-var hs-var">newApplicationDependencySummary</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679188329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188329"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679188328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188328"><span class="hs-identifier hs-var">pSemanticVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">ApplicationDependencySummary' :: Text -&gt; Text -&gt; ApplicationDependencySummary
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary%27"><span class="hs-identifier hs-type">ApplicationDependencySummary'</span></a></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:ApplicationDependencySummary' :: Text
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#%24sel%3AapplicationId%3AApplicationDependencySummary%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188329"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">$sel:semanticVersion:ApplicationDependencySummary' :: Text
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#%24sel%3AsemanticVersion%3AApplicationDependencySummary%27"><span class="hs-identifier hs-var">semanticVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188328"><span class="hs-identifier hs-var">pSemanticVersion_</span></a></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the nested application.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#applicationDependencySummary_applicationId"><span class="hs-identifier hs-type">applicationDependencySummary_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span id="applicationDependencySummary_applicationId"><span class="annot"><span class="annottext">applicationDependencySummary_applicationId :: (Text -&gt; f Text)
+-&gt; ApplicationDependencySummary -&gt; f ApplicationDependencySummary
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#applicationDependencySummary_applicationId"><span class="hs-identifier hs-var hs-var">applicationDependencySummary_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationDependencySummary -&gt; Text)
+-&gt; (ApplicationDependencySummary
+    -&gt; Text -&gt; ApplicationDependencySummary)
+-&gt; Lens
+     ApplicationDependencySummary ApplicationDependencySummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary%27"><span class="hs-identifier hs-type">ApplicationDependencySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188324"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:ApplicationDependencySummary' :: ApplicationDependencySummary -&gt; Text
+</span><a href="#local-6989586621679188324"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188324"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188323"><span class="annot"><span class="annottext">s :: ApplicationDependencySummary
+</span><a href="#local-6989586621679188323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary%27"><span class="hs-identifier hs-type">ApplicationDependencySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationDependencySummary
+</span><a href="#local-6989586621679188323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ApplicationDependencySummary' :: Text
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#%24sel%3AapplicationId%3AApplicationDependencySummary%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The semantic version of the nested application.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#applicationDependencySummary_semanticVersion"><span class="hs-identifier hs-type">applicationDependencySummary_semanticVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span id="applicationDependencySummary_semanticVersion"><span class="annot"><span class="annottext">applicationDependencySummary_semanticVersion :: (Text -&gt; f Text)
+-&gt; ApplicationDependencySummary -&gt; f ApplicationDependencySummary
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#applicationDependencySummary_semanticVersion"><span class="hs-identifier hs-var hs-var">applicationDependencySummary_semanticVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationDependencySummary -&gt; Text)
+-&gt; (ApplicationDependencySummary
+    -&gt; Text -&gt; ApplicationDependencySummary)
+-&gt; Lens
+     ApplicationDependencySummary ApplicationDependencySummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary%27"><span class="hs-identifier hs-type">ApplicationDependencySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188320"><span class="annot"><span class="annottext">Text
+semanticVersion :: Text
+$sel:semanticVersion:ApplicationDependencySummary' :: ApplicationDependencySummary -&gt; Text
+</span><a href="#local-6989586621679188320"><span class="hs-identifier hs-var hs-var">semanticVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188320"><span class="hs-identifier hs-var">semanticVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188319"><span class="annot"><span class="annottext">s :: ApplicationDependencySummary
+</span><a href="#local-6989586621679188319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary%27"><span class="hs-identifier hs-type">ApplicationDependencySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188318"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationDependencySummary
+</span><a href="#local-6989586621679188319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:semanticVersion:ApplicationDependencySummary' :: Text
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#%24sel%3AsemanticVersion%3AApplicationDependencySummary%27"><span class="hs-identifier hs-var">semanticVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188315"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679188313"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationDependencySummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApplicationDependencySummary)
+-&gt; Value
+-&gt; Parser ApplicationDependencySummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApplicationDependencySummary&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188310"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ApplicationDependencySummary
+</span><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary%27"><span class="hs-identifier hs-var">ApplicationDependencySummary'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ApplicationDependencySummary)
+-&gt; Parser Text -&gt; Parser (Text -&gt; ApplicationDependencySummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ApplicationDependencySummary)
+-&gt; Parser Text -&gt; Parser ApplicationDependencySummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;semanticVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679188304"><span id="local-6989586621679188306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.html#ApplicationDependencySummary"><span class="hs-identifier hs-type">ApplicationDependencySummary</span></a></span></span><span>
+</span><span id="line-86"></span></pre></body></html>

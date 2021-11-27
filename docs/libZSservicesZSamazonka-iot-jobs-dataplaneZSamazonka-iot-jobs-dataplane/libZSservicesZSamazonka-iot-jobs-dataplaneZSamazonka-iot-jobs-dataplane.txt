@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IoTJobsData.Types.JobExecutionStatus
+module Amazonka.IoTJobsData.Types.JobExecutionStatus
 newtype JobExecutionStatus
 JobExecutionStatus' :: Text -> JobExecutionStatus
 [fromJobExecutionStatus] :: JobExecutionStatus -> Text
@@ -17,28 +17,28 @@ pattern JobExecutionStatus_REJECTED :: JobExecutionStatus
 pattern JobExecutionStatus_REMOVED :: JobExecutionStatus
 pattern JobExecutionStatus_SUCCEEDED :: JobExecutionStatus
 pattern JobExecutionStatus_TIMED_OUT :: JobExecutionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance GHC.Classes.Ord Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance GHC.Read.Read Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
-instance GHC.Show.Show Network.AWS.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.Text.ToText Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Amazonka.Data.Text.FromText Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance GHC.Generics.Generic Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance GHC.Classes.Ord Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance GHC.Classes.Eq Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance GHC.Read.Read Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
+instance GHC.Show.Show Amazonka.IoTJobsData.Types.JobExecutionStatus.JobExecutionStatus
 
 
-module Network.AWS.IoTJobsData.Types.JobExecutionState
+module Amazonka.IoTJobsData.Types.JobExecutionState
 
 -- | Contains data about the state of a job execution.
 --   
@@ -95,16 +95,16 @@ jobExecutionState_statusDetails :: Lens' JobExecutionState (Maybe (HashMap Text 
 -- | The version of the job execution. Job execution versions are
 --   incremented each time they are updated by a device.
 jobExecutionState_versionNumber :: Lens' JobExecutionState (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.Types.JobExecutionState.JobExecutionState
-instance GHC.Show.Show Network.AWS.IoTJobsData.Types.JobExecutionState.JobExecutionState
-instance GHC.Read.Read Network.AWS.IoTJobsData.Types.JobExecutionState.JobExecutionState
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.Types.JobExecutionState.JobExecutionState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTJobsData.Types.JobExecutionState.JobExecutionState
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.Types.JobExecutionState.JobExecutionState
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.Types.JobExecutionState.JobExecutionState
+instance GHC.Generics.Generic Amazonka.IoTJobsData.Types.JobExecutionState.JobExecutionState
+instance GHC.Show.Show Amazonka.IoTJobsData.Types.JobExecutionState.JobExecutionState
+instance GHC.Read.Read Amazonka.IoTJobsData.Types.JobExecutionState.JobExecutionState
+instance GHC.Classes.Eq Amazonka.IoTJobsData.Types.JobExecutionState.JobExecutionState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTJobsData.Types.JobExecutionState.JobExecutionState
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.Types.JobExecutionState.JobExecutionState
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.Types.JobExecutionState.JobExecutionState
 
 
-module Network.AWS.IoTJobsData.Types.JobExecution
+module Amazonka.IoTJobsData.Types.JobExecution
 
 -- | Contains data about a job execution.
 --   
@@ -251,16 +251,16 @@ jobExecution_startedAt :: Lens' JobExecution (Maybe Integer)
 
 -- | The name of the thing that is executing the job.
 jobExecution_thingName :: Lens' JobExecution (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
-instance GHC.Show.Show Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
-instance GHC.Read.Read Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
+instance GHC.Generics.Generic Amazonka.IoTJobsData.Types.JobExecution.JobExecution
+instance GHC.Show.Show Amazonka.IoTJobsData.Types.JobExecution.JobExecution
+instance GHC.Read.Read Amazonka.IoTJobsData.Types.JobExecution.JobExecution
+instance GHC.Classes.Eq Amazonka.IoTJobsData.Types.JobExecution.JobExecution
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTJobsData.Types.JobExecution.JobExecution
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.Types.JobExecution.JobExecution
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.Types.JobExecution.JobExecution
 
 
-module Network.AWS.IoTJobsData.Types.JobExecutionSummary
+module Amazonka.IoTJobsData.Types.JobExecutionSummary
 
 -- | Contains a subset of information about a job execution.
 --   
@@ -348,16 +348,16 @@ jobExecutionSummary_versionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 -- | The time, in milliseconds since the epoch, when the job execution
 --   started.
 jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
-instance GHC.Show.Show Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
-instance GHC.Read.Read Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
+instance GHC.Generics.Generic Amazonka.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
+instance GHC.Show.Show Amazonka.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
+instance GHC.Read.Read Amazonka.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
+instance GHC.Classes.Eq Amazonka.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
 
 
-module Network.AWS.IoTJobsData.Types
+module Amazonka.IoTJobsData.Types
 
 -- | API version <tt>2017-09-29</tt> of the Amazon IoT Jobs Data Plane SDK
 --   configuration.
@@ -693,7 +693,7 @@ jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
 
 -- | Gets and starts the next pending (status IN_PROGRESS or QUEUED) job
 --   execution for a thing.
-module Network.AWS.IoTJobsData.StartNextPendingJobExecution
+module Amazonka.IoTJobsData.StartNextPendingJobExecution
 
 -- | <i>See:</i> <a>newStartNextPendingJobExecution</a> smart constructor.
 data StartNextPendingJobExecution
@@ -803,27 +803,27 @@ startNextPendingJobExecutionResponse_execution :: Lens' StartNextPendingJobExecu
 
 -- | The response's http status code.
 startNextPendingJobExecutionResponse_httpStatus :: Lens' StartNextPendingJobExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance GHC.Show.Show Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance GHC.Read.Read Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
-instance GHC.Show.Show Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
-instance GHC.Read.Read Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance GHC.Generics.Generic Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance GHC.Show.Show Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance GHC.Read.Read Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance GHC.Classes.Eq Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance GHC.Generics.Generic Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
+instance GHC.Show.Show Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
+instance GHC.Read.Read Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
+instance GHC.Classes.Eq Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance Amazonka.Data.Path.ToPath Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTJobsData.StartNextPendingJobExecution.StartNextPendingJobExecution
 
 
 -- | Gets the list of all jobs for a thing that are not in a terminal
 --   status.
-module Network.AWS.IoTJobsData.GetPendingJobExecutions
+module Amazonka.IoTJobsData.GetPendingJobExecutions
 
 -- | <i>See:</i> <a>newGetPendingJobExecutions</a> smart constructor.
 data GetPendingJobExecutions
@@ -893,25 +893,25 @@ getPendingJobExecutionsResponse_queuedJobs :: Lens' GetPendingJobExecutionsRespo
 
 -- | The response's http status code.
 getPendingJobExecutionsResponse_httpStatus :: Lens' GetPendingJobExecutionsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance GHC.Show.Show Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance GHC.Read.Read Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
-instance GHC.Show.Show Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
-instance GHC.Read.Read Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance GHC.Generics.Generic Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance GHC.Show.Show Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance GHC.Read.Read Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance GHC.Classes.Eq Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance GHC.Generics.Generic Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
+instance GHC.Show.Show Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
+instance GHC.Read.Read Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
+instance GHC.Classes.Eq Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance Amazonka.Data.Path.ToPath Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTJobsData.GetPendingJobExecutions.GetPendingJobExecutions
 
 
 -- | Gets details of a job execution.
-module Network.AWS.IoTJobsData.DescribeJobExecution
+module Amazonka.IoTJobsData.DescribeJobExecution
 
 -- | <i>See:</i> <a>newDescribeJobExecution</a> smart constructor.
 data DescribeJobExecution
@@ -1009,25 +1009,25 @@ describeJobExecutionResponse_execution :: Lens' DescribeJobExecutionResponse (Ma
 
 -- | The response's http status code.
 describeJobExecutionResponse_httpStatus :: Lens' DescribeJobExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance GHC.Show.Show Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance GHC.Read.Read Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
-instance GHC.Show.Show Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
-instance GHC.Read.Read Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance GHC.Generics.Generic Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance GHC.Show.Show Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance GHC.Read.Read Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance GHC.Classes.Eq Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance GHC.Generics.Generic Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
+instance GHC.Show.Show Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
+instance GHC.Read.Read Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
+instance GHC.Classes.Eq Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance Amazonka.Data.Path.ToPath Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTJobsData.DescribeJobExecution.DescribeJobExecution
 
 
 -- | Updates the status of a job execution.
-module Network.AWS.IoTJobsData.UpdateJobExecution
+module Amazonka.IoTJobsData.UpdateJobExecution
 
 -- | <i>See:</i> <a>newUpdateJobExecution</a> smart constructor.
 data UpdateJobExecution
@@ -1233,25 +1233,25 @@ updateJobExecutionResponse_executionState :: Lens' UpdateJobExecutionResponse (M
 
 -- | The response's http status code.
 updateJobExecutionResponse_httpStatus :: Lens' UpdateJobExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance GHC.Show.Show Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance GHC.Read.Read Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance GHC.Generics.Generic Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
-instance GHC.Show.Show Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
-instance GHC.Read.Read Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
-instance GHC.Classes.Eq Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance Control.DeepSeq.NFData Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance GHC.Generics.Generic Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance GHC.Show.Show Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance GHC.Read.Read Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance GHC.Classes.Eq Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance GHC.Generics.Generic Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
+instance GHC.Show.Show Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
+instance GHC.Read.Read Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
+instance GHC.Classes.Eq Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance Control.DeepSeq.NFData Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance Amazonka.Data.Path.ToPath Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTJobsData.UpdateJobExecution.UpdateJobExecution
 
 
-module Network.AWS.IoTJobsData.Lens
+module Amazonka.IoTJobsData.Lens
 
 -- | Optional. When set to true, the response contains the job document.
 --   The default is false.
@@ -1448,7 +1448,7 @@ jobExecutionSummary_versionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
 
 
-module Network.AWS.IoTJobsData.Waiters
+module Amazonka.IoTJobsData.Waiters
 
 
 -- | Derived from API version <tt>2017-09-29</tt> of the AWS service
@@ -1472,7 +1472,7 @@ module Network.AWS.IoTJobsData.Waiters
 --   reporting its progress to AWS IoT. The Jobs service provides commands
 --   to track the progress of a job on a specific target and for all the
 --   targets of the job
-module Network.AWS.IoTJobsData
+module Amazonka.IoTJobsData
 
 -- | API version <tt>2017-09-29</tt> of the Amazon IoT Jobs Data Plane SDK
 --   configuration.

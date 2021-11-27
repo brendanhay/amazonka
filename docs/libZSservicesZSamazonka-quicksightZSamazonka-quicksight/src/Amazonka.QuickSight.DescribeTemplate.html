@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.DescribeTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes a template\'s metadata.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.DescribeTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier">DescribeTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#newDescribeTemplate"><span class="hs-identifier">newDescribeTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_aliasName"><span class="hs-identifier">describeTemplate_aliasName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_versionNumber"><span class="hs-identifier">describeTemplate_versionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_awsAccountId"><span class="hs-identifier">describeTemplate_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_templateId"><span class="hs-identifier">describeTemplate_templateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier">DescribeTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#newDescribeTemplateResponse"><span class="hs-identifier">newDescribeTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_requestId"><span class="hs-identifier">describeTemplateResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_template"><span class="hs-identifier">describeTemplateResponse_template</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_status"><span class="hs-identifier">describeTemplateResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeTemplate' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679584593"><span id="local-6989586621679584594"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTemplate"><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-var">DescribeTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTemplate%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-var">DescribeTemplate'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The alias of the template that you want to describe. If you name a</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- specific alias, you describe the version that the alias points to. You</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- can specify the latest version of the template by providing the keyword</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- doesn\'t apply to templates.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AaliasName%3ADescribeTemplate%27"><span class="annot"><span class="annottext">DescribeTemplate -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AaliasName%3ADescribeTemplate%27"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | (Optional) The number for the version to describe. If a @VersionNumber@</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- parameter value isn\'t provided, the latest version of the template is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- described.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AversionNumber%3ADescribeTemplate%27"><span class="annot"><span class="annottext">DescribeTemplate -&gt; Maybe Natural
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AversionNumber%3ADescribeTemplate%27"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the template</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- that you\'re describing.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeTemplate%27"><span class="annot"><span class="annottext">DescribeTemplate -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AawsAccountId%3ADescribeTemplate%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ID for the template.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtemplateId%3ADescribeTemplate%27"><span class="annot"><span class="annottext">DescribeTemplate -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AtemplateId%3ADescribeTemplate%27"><span class="hs-identifier hs-var hs-var">templateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679584584"><span id="local-6989586621679584586"><span class="annot"><span class="annottext">DescribeTemplate -&gt; DescribeTemplate -&gt; Bool
+(DescribeTemplate -&gt; DescribeTemplate -&gt; Bool)
+-&gt; (DescribeTemplate -&gt; DescribeTemplate -&gt; Bool)
+-&gt; Eq DescribeTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTemplate -&gt; DescribeTemplate -&gt; Bool
+$c/= :: DescribeTemplate -&gt; DescribeTemplate -&gt; Bool
+== :: DescribeTemplate -&gt; DescribeTemplate -&gt; Bool
+$c== :: DescribeTemplate -&gt; DescribeTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584575"><span id="local-6989586621679584577"><span id="local-6989586621679584579"><span id="local-6989586621679584581"><span class="annot"><span class="annottext">ReadPrec [DescribeTemplate]
+ReadPrec DescribeTemplate
+Int -&gt; ReadS DescribeTemplate
+ReadS [DescribeTemplate]
+(Int -&gt; ReadS DescribeTemplate)
+-&gt; ReadS [DescribeTemplate]
+-&gt; ReadPrec DescribeTemplate
+-&gt; ReadPrec [DescribeTemplate]
+-&gt; Read DescribeTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTemplate]
+$creadListPrec :: ReadPrec [DescribeTemplate]
+readPrec :: ReadPrec DescribeTemplate
+$creadPrec :: ReadPrec DescribeTemplate
+readList :: ReadS [DescribeTemplate]
+$creadList :: ReadS [DescribeTemplate]
+readsPrec :: Int -&gt; ReadS DescribeTemplate
+$creadsPrec :: Int -&gt; ReadS DescribeTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584568"><span id="local-6989586621679584570"><span id="local-6989586621679584572"><span class="annot"><span class="annottext">Int -&gt; DescribeTemplate -&gt; ShowS
+[DescribeTemplate] -&gt; ShowS
+DescribeTemplate -&gt; String
+(Int -&gt; DescribeTemplate -&gt; ShowS)
+-&gt; (DescribeTemplate -&gt; String)
+-&gt; ([DescribeTemplate] -&gt; ShowS)
+-&gt; Show DescribeTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTemplate] -&gt; ShowS
+$cshowList :: [DescribeTemplate] -&gt; ShowS
+show :: DescribeTemplate -&gt; String
+$cshow :: DescribeTemplate -&gt; String
+showsPrec :: Int -&gt; DescribeTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeTemplate -&gt; Rep DescribeTemplate x)
+-&gt; (forall x. Rep DescribeTemplate x -&gt; DescribeTemplate)
+-&gt; Generic DescribeTemplate
+forall x. Rep DescribeTemplate x -&gt; DescribeTemplate
+forall x. DescribeTemplate -&gt; Rep DescribeTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeTemplate x -&gt; DescribeTemplate
+$cfrom :: forall x. DescribeTemplate -&gt; Rep DescribeTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'DescribeTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'aliasName', 'describeTemplate_aliasName' - The alias of the template that you want to describe. If you name a</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- specific alias, you describe the version that the alias points to. You</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- can specify the latest version of the template by providing the keyword</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- doesn\'t apply to templates.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'versionNumber', 'describeTemplate_versionNumber' - (Optional) The number for the version to describe. If a @VersionNumber@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- parameter value isn\'t provided, the latest version of the template is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- described.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'awsAccountId', 'describeTemplate_awsAccountId' - The ID of the Amazon Web Services account that contains the template</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- that you\'re describing.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'templateId', 'describeTemplate_templateId' - The ID for the template.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#newDescribeTemplate"><span class="hs-identifier hs-type">newDescribeTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'templateId'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span>
+</span><span id="line-101"></span><span id="newDescribeTemplate"><span class="annot"><span class="annottext">newDescribeTemplate :: Text -&gt; Text -&gt; DescribeTemplate
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#newDescribeTemplate"><span class="hs-identifier hs-var hs-var">newDescribeTemplate</span></a></span></span><span> </span><span id="local-6989586621679584563"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584563"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679584562"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584562"><span class="hs-identifier hs-var">pTemplateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">DescribeTemplate' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; DescribeTemplate
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aliasName:DescribeTemplate' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AaliasName%3ADescribeTemplate%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionNumber:DescribeTemplate' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AversionNumber%3ADescribeTemplate%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeTemplate' :: Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AawsAccountId%3ADescribeTemplate%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584563"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateId:DescribeTemplate' :: Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AtemplateId%3ADescribeTemplate%27"><span class="hs-identifier hs-var">templateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584562"><span class="hs-identifier hs-var">pTemplateId_</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The alias of the template that you want to describe. If you name a</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- specific alias, you describe the version that the alias points to. You</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- can specify the latest version of the template by providing the keyword</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- doesn\'t apply to templates.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_aliasName"><span class="hs-identifier hs-type">describeTemplate_aliasName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="describeTemplate_aliasName"><span class="annot"><span class="annottext">describeTemplate_aliasName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTemplate -&gt; f DescribeTemplate
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_aliasName"><span class="hs-identifier hs-var hs-var">describeTemplate_aliasName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplate -&gt; Maybe Text)
+-&gt; (DescribeTemplate -&gt; Maybe Text -&gt; DescribeTemplate)
+-&gt; Lens DescribeTemplate DescribeTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584559"><span class="annot"><span class="annottext">Maybe Text
+aliasName :: Maybe Text
+$sel:aliasName:DescribeTemplate' :: DescribeTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679584559"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584559"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584558"><span class="annot"><span class="annottext">s :: DescribeTemplate
+</span><a href="#local-6989586621679584558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584557"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplate
+</span><a href="#local-6989586621679584558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:DescribeTemplate' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AaliasName%3ADescribeTemplate%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | (Optional) The number for the version to describe. If a @VersionNumber@</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- parameter value isn\'t provided, the latest version of the template is</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- described.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_versionNumber"><span class="hs-identifier hs-type">describeTemplate_versionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="describeTemplate_versionNumber"><span class="annot"><span class="annottext">describeTemplate_versionNumber :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeTemplate -&gt; f DescribeTemplate
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_versionNumber"><span class="hs-identifier hs-var hs-var">describeTemplate_versionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplate -&gt; Maybe Natural)
+-&gt; (DescribeTemplate -&gt; Maybe Natural -&gt; DescribeTemplate)
+-&gt; Lens
+     DescribeTemplate DescribeTemplate (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584556"><span class="annot"><span class="annottext">Maybe Natural
+versionNumber :: Maybe Natural
+$sel:versionNumber:DescribeTemplate' :: DescribeTemplate -&gt; Maybe Natural
+</span><a href="#local-6989586621679584556"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679584556"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584555"><span class="annot"><span class="annottext">s :: DescribeTemplate
+</span><a href="#local-6989586621679584555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584554"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679584554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplate
+</span><a href="#local-6989586621679584555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:DescribeTemplate' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AversionNumber%3ADescribeTemplate%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679584554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the template</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- that you\'re describing.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_awsAccountId"><span class="hs-identifier hs-type">describeTemplate_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="describeTemplate_awsAccountId"><span class="annot"><span class="annottext">describeTemplate_awsAccountId :: (Text -&gt; f Text) -&gt; DescribeTemplate -&gt; f DescribeTemplate
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_awsAccountId"><span class="hs-identifier hs-var hs-var">describeTemplate_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplate -&gt; Text)
+-&gt; (DescribeTemplate -&gt; Text -&gt; DescribeTemplate)
+-&gt; Lens DescribeTemplate DescribeTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584553"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeTemplate' :: DescribeTemplate -&gt; Text
+</span><a href="#local-6989586621679584553"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584553"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584552"><span class="annot"><span class="annottext">s :: DescribeTemplate
+</span><a href="#local-6989586621679584552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplate
+</span><a href="#local-6989586621679584552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeTemplate' :: Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AawsAccountId%3ADescribeTemplate%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The ID for the template.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_templateId"><span class="hs-identifier hs-type">describeTemplate_templateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="describeTemplate_templateId"><span class="annot"><span class="annottext">describeTemplate_templateId :: (Text -&gt; f Text) -&gt; DescribeTemplate -&gt; f DescribeTemplate
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplate_templateId"><span class="hs-identifier hs-var hs-var">describeTemplate_templateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplate -&gt; Text)
+-&gt; (DescribeTemplate -&gt; Text -&gt; DescribeTemplate)
+-&gt; Lens DescribeTemplate DescribeTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584550"><span class="annot"><span class="annottext">Text
+templateId :: Text
+$sel:templateId:DescribeTemplate' :: DescribeTemplate -&gt; Text
+</span><a href="#local-6989586621679584550"><span class="hs-identifier hs-var hs-var">templateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584550"><span class="hs-identifier hs-var">templateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584549"><span class="annot"><span class="annottext">s :: DescribeTemplate
+</span><a href="#local-6989586621679584549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplate
+</span><a href="#local-6989586621679584549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateId:DescribeTemplate' :: Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3AtemplateId%3ADescribeTemplate%27"><span class="hs-identifier hs-var">templateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679584544"><span class="annot"><span class="annottext">request :: DescribeTemplate -&gt; Request DescribeTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTemplate -&gt; Request DescribeTemplate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679584540"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679584537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584537"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679584536"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679584536"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679584535"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679584535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Template -&gt; Int -&gt; DescribeTemplateResponse
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-var">DescribeTemplateResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Template -&gt; Int -&gt; DescribeTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Template -&gt; Int -&gt; DescribeTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679584535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Template -&gt; Int -&gt; DescribeTemplateResponse)
+-&gt; Either String (Maybe Template)
+-&gt; Either String (Int -&gt; DescribeTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679584535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Template)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Template&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeTemplateResponse)
+-&gt; Either String Int -&gt; Either String DescribeTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584537"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679584527"><span id="local-6989586621679584529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679584524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679584520"><span class="annot"><span class="annottext">toHeaders :: DescribeTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679584514"><span class="annot"><span class="annottext">toPath :: DescribeTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584509"><span id="local-6989586621679584510"><span id="local-6989586621679584511"><span id="local-6989586621679584512"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+templateId :: Text
+awsAccountId :: Text
+versionNumber :: Maybe Natural
+aliasName :: Maybe Text
+$sel:templateId:DescribeTemplate' :: DescribeTemplate -&gt; Text
+$sel:awsAccountId:DescribeTemplate' :: DescribeTemplate -&gt; Text
+$sel:versionNumber:DescribeTemplate' :: DescribeTemplate -&gt; Maybe Natural
+$sel:aliasName:DescribeTemplate' :: DescribeTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679584509"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584510"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/templates/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584509"><span class="hs-identifier hs-var">templateId</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate"><span class="hs-identifier hs-type">DescribeTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679584505"><span class="annot"><span class="annottext">toQuery :: DescribeTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplate%27"><span class="hs-identifier hs-type">DescribeTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584500"><span id="local-6989586621679584501"><span id="local-6989586621679584502"><span id="local-6989586621679584503"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+templateId :: Text
+awsAccountId :: Text
+versionNumber :: Maybe Natural
+aliasName :: Maybe Text
+$sel:templateId:DescribeTemplate' :: DescribeTemplate -&gt; Text
+$sel:awsAccountId:DescribeTemplate' :: DescribeTemplate -&gt; Text
+$sel:versionNumber:DescribeTemplate' :: DescribeTemplate -&gt; Maybe Natural
+$sel:aliasName:DescribeTemplate' :: DescribeTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679584500"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;alias-name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584503"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;version-number&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679584502"><span class="hs-identifier hs-var">versionNumber</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newDescribeTemplateResponse' smart constructor.</span><span>
+</span><span id="line-178"></span><span id="local-6989586621679584497"><span id="local-6989586621679584498"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTemplateResponse"><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-var">DescribeTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTemplateResponse%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-var">DescribeTemplateResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeTemplateResponse%27"><span class="annot"><span class="annottext">DescribeTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3ArequestId%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The template structure for the object you want to describe.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3Atemplate%3ADescribeTemplateResponse%27"><span class="annot"><span class="annottext">DescribeTemplateResponse -&gt; Maybe Template
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3Atemplate%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeTemplateResponse%27"><span class="annot"><span class="annottext">DescribeTemplateResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3Astatus%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679584490"><span id="local-6989586621679584492"><span class="annot"><span class="annottext">DescribeTemplateResponse -&gt; DescribeTemplateResponse -&gt; Bool
+(DescribeTemplateResponse -&gt; DescribeTemplateResponse -&gt; Bool)
+-&gt; (DescribeTemplateResponse -&gt; DescribeTemplateResponse -&gt; Bool)
+-&gt; Eq DescribeTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTemplateResponse -&gt; DescribeTemplateResponse -&gt; Bool
+$c/= :: DescribeTemplateResponse -&gt; DescribeTemplateResponse -&gt; Bool
+== :: DescribeTemplateResponse -&gt; DescribeTemplateResponse -&gt; Bool
+$c== :: DescribeTemplateResponse -&gt; DescribeTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584482"><span id="local-6989586621679584484"><span id="local-6989586621679584486"><span id="local-6989586621679584488"><span class="annot"><span class="annottext">ReadPrec [DescribeTemplateResponse]
+ReadPrec DescribeTemplateResponse
+Int -&gt; ReadS DescribeTemplateResponse
+ReadS [DescribeTemplateResponse]
+(Int -&gt; ReadS DescribeTemplateResponse)
+-&gt; ReadS [DescribeTemplateResponse]
+-&gt; ReadPrec DescribeTemplateResponse
+-&gt; ReadPrec [DescribeTemplateResponse]
+-&gt; Read DescribeTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTemplateResponse]
+$creadListPrec :: ReadPrec [DescribeTemplateResponse]
+readPrec :: ReadPrec DescribeTemplateResponse
+$creadPrec :: ReadPrec DescribeTemplateResponse
+readList :: ReadS [DescribeTemplateResponse]
+$creadList :: ReadS [DescribeTemplateResponse]
+readsPrec :: Int -&gt; ReadS DescribeTemplateResponse
+$creadsPrec :: Int -&gt; ReadS DescribeTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584476"><span id="local-6989586621679584478"><span id="local-6989586621679584480"><span class="annot"><span class="annottext">Int -&gt; DescribeTemplateResponse -&gt; ShowS
+[DescribeTemplateResponse] -&gt; ShowS
+DescribeTemplateResponse -&gt; String
+(Int -&gt; DescribeTemplateResponse -&gt; ShowS)
+-&gt; (DescribeTemplateResponse -&gt; String)
+-&gt; ([DescribeTemplateResponse] -&gt; ShowS)
+-&gt; Show DescribeTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTemplateResponse] -&gt; ShowS
+$cshowList :: [DescribeTemplateResponse] -&gt; ShowS
+show :: DescribeTemplateResponse -&gt; String
+$cshow :: DescribeTemplateResponse -&gt; String
+showsPrec :: Int -&gt; DescribeTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeTemplateResponse -&gt; Rep DescribeTemplateResponse x)
+-&gt; (forall x.
+    Rep DescribeTemplateResponse x -&gt; DescribeTemplateResponse)
+-&gt; Generic DescribeTemplateResponse
+forall x.
+Rep DescribeTemplateResponse x -&gt; DescribeTemplateResponse
+forall x.
+DescribeTemplateResponse -&gt; Rep DescribeTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeTemplateResponse x -&gt; DescribeTemplateResponse
+$cfrom :: forall x.
+DescribeTemplateResponse -&gt; Rep DescribeTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Create a value of 'DescribeTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'requestId', 'describeTemplateResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'template', 'describeTemplateResponse_template' - The template structure for the object you want to describe.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'status', 'describeTemplateResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#newDescribeTemplateResponse"><span class="hs-identifier hs-type">newDescribeTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newDescribeTemplateResponse"><span class="annot"><span class="annottext">newDescribeTemplateResponse :: Int -&gt; DescribeTemplateResponse
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#newDescribeTemplateResponse"><span class="hs-identifier hs-var hs-var">newDescribeTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679584473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584473"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">DescribeTemplateResponse' :: Maybe Text -&gt; Maybe Template -&gt; Int -&gt; DescribeTemplateResponse
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-type">DescribeTemplateResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3ArequestId%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:template:DescribeTemplateResponse' :: Maybe Template
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3Atemplate%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeTemplateResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3Astatus%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584473"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_requestId"><span class="hs-identifier hs-type">describeTemplateResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeTemplateResponse_requestId"><span class="annot"><span class="annottext">describeTemplateResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTemplateResponse -&gt; f DescribeTemplateResponse
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_requestId"><span class="hs-identifier hs-var hs-var">describeTemplateResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateResponse -&gt; Maybe Text)
+-&gt; (DescribeTemplateResponse
+    -&gt; Maybe Text -&gt; DescribeTemplateResponse)
+-&gt; Lens
+     DescribeTemplateResponse
+     DescribeTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-type">DescribeTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584472"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeTemplateResponse' :: DescribeTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679584472"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584472"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584471"><span class="annot"><span class="annottext">s :: DescribeTemplateResponse
+</span><a href="#local-6989586621679584471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-type">DescribeTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateResponse
+</span><a href="#local-6989586621679584471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3ArequestId%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The template structure for the object you want to describe.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_template"><span class="hs-identifier hs-type">describeTemplateResponse_template</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="describeTemplateResponse_template"><span class="annot"><span class="annottext">describeTemplateResponse_template :: (Maybe Template -&gt; f (Maybe Template))
+-&gt; DescribeTemplateResponse -&gt; f DescribeTemplateResponse
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_template"><span class="hs-identifier hs-var hs-var">describeTemplateResponse_template</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateResponse -&gt; Maybe Template)
+-&gt; (DescribeTemplateResponse
+    -&gt; Maybe Template -&gt; DescribeTemplateResponse)
+-&gt; Lens
+     DescribeTemplateResponse
+     DescribeTemplateResponse
+     (Maybe Template)
+     (Maybe Template)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-type">DescribeTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584469"><span class="annot"><span class="annottext">Maybe Template
+template :: Maybe Template
+$sel:template:DescribeTemplateResponse' :: DescribeTemplateResponse -&gt; Maybe Template
+</span><a href="#local-6989586621679584469"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679584469"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584468"><span class="annot"><span class="annottext">s :: DescribeTemplateResponse
+</span><a href="#local-6989586621679584468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-type">DescribeTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584467"><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679584467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateResponse
+</span><a href="#local-6989586621679584468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:DescribeTemplateResponse' :: Maybe Template
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3Atemplate%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679584467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_status"><span class="hs-identifier hs-type">describeTemplateResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="describeTemplateResponse_status"><span class="annot"><span class="annottext">describeTemplateResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeTemplateResponse -&gt; f DescribeTemplateResponse
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#describeTemplateResponse_status"><span class="hs-identifier hs-var hs-var">describeTemplateResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateResponse -&gt; Int)
+-&gt; (DescribeTemplateResponse -&gt; Int -&gt; DescribeTemplateResponse)
+-&gt; Lens DescribeTemplateResponse DescribeTemplateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-type">DescribeTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584466"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeTemplateResponse' :: DescribeTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679584466"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584466"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584465"><span class="annot"><span class="annottext">s :: DescribeTemplateResponse
+</span><a href="#local-6989586621679584465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse%27"><span class="hs-identifier hs-type">DescribeTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584464"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateResponse
+</span><a href="#local-6989586621679584465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeTemplateResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeTemplate.html#%24sel%3Astatus%3ADescribeTemplateResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679584462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeTemplate.html#DescribeTemplateResponse"><span class="hs-identifier hs-type">DescribeTemplateResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

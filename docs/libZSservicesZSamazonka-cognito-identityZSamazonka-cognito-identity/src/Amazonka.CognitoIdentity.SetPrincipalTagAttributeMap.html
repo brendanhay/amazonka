@@ -1,0 +1,841 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- You can use this operation to use default (username and clientID)</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attribute or custom attribute mappings.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#newSetPrincipalTagAttributeMap"><span class="hs-identifier">newSetPrincipalTagAttributeMap</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_principalTags"><span class="hs-identifier">setPrincipalTagAttributeMap_principalTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_useDefaults"><span class="hs-identifier">setPrincipalTagAttributeMap_useDefaults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_identityPoolId"><span class="hs-identifier">setPrincipalTagAttributeMap_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_identityProviderName"><span class="hs-identifier">setPrincipalTagAttributeMap_identityProviderName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier">SetPrincipalTagAttributeMapResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#newSetPrincipalTagAttributeMapResponse"><span class="hs-identifier">newSetPrincipalTagAttributeMapResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_identityPoolId"><span class="hs-identifier">setPrincipalTagAttributeMapResponse_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_identityProviderName"><span class="hs-identifier">setPrincipalTagAttributeMapResponse_identityProviderName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_principalTags"><span class="hs-identifier">setPrincipalTagAttributeMapResponse_principalTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_useDefaults"><span class="hs-identifier">setPrincipalTagAttributeMapResponse_useDefaults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_httpStatus"><span class="hs-identifier">setPrincipalTagAttributeMapResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.html"><span class="hs-identifier">Amazonka.CognitoIdentity.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newSetPrincipalTagAttributeMap' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679184506"><span id="local-6989586621679184507"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPrincipalTagAttributeMap"><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-var">SetPrincipalTagAttributeMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPrincipalTagAttributeMap%27"><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">SetPrincipalTagAttributeMap'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use this operation to add principal tags.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMap%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var hs-var">principalTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | You can use this operation to use default (username and clientID)</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- attribute mappings.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMap%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap -&gt; Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var hs-var">useDefaults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the Identity Pool you want to set attribute mappings for.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMap%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap -&gt; Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The provider name you want to use for attribute mappings.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMap%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap -&gt; Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var hs-var">identityProviderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184497"><span id="local-6989586621679184499"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap -&gt; SetPrincipalTagAttributeMap -&gt; Bool
+(SetPrincipalTagAttributeMap
+ -&gt; SetPrincipalTagAttributeMap -&gt; Bool)
+-&gt; (SetPrincipalTagAttributeMap
+    -&gt; SetPrincipalTagAttributeMap -&gt; Bool)
+-&gt; Eq SetPrincipalTagAttributeMap
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetPrincipalTagAttributeMap -&gt; SetPrincipalTagAttributeMap -&gt; Bool
+$c/= :: SetPrincipalTagAttributeMap -&gt; SetPrincipalTagAttributeMap -&gt; Bool
+== :: SetPrincipalTagAttributeMap -&gt; SetPrincipalTagAttributeMap -&gt; Bool
+$c== :: SetPrincipalTagAttributeMap -&gt; SetPrincipalTagAttributeMap -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184488"><span id="local-6989586621679184490"><span id="local-6989586621679184492"><span id="local-6989586621679184494"><span class="annot"><span class="annottext">ReadPrec [SetPrincipalTagAttributeMap]
+ReadPrec SetPrincipalTagAttributeMap
+Int -&gt; ReadS SetPrincipalTagAttributeMap
+ReadS [SetPrincipalTagAttributeMap]
+(Int -&gt; ReadS SetPrincipalTagAttributeMap)
+-&gt; ReadS [SetPrincipalTagAttributeMap]
+-&gt; ReadPrec SetPrincipalTagAttributeMap
+-&gt; ReadPrec [SetPrincipalTagAttributeMap]
+-&gt; Read SetPrincipalTagAttributeMap
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetPrincipalTagAttributeMap]
+$creadListPrec :: ReadPrec [SetPrincipalTagAttributeMap]
+readPrec :: ReadPrec SetPrincipalTagAttributeMap
+$creadPrec :: ReadPrec SetPrincipalTagAttributeMap
+readList :: ReadS [SetPrincipalTagAttributeMap]
+$creadList :: ReadS [SetPrincipalTagAttributeMap]
+readsPrec :: Int -&gt; ReadS SetPrincipalTagAttributeMap
+$creadsPrec :: Int -&gt; ReadS SetPrincipalTagAttributeMap
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184481"><span id="local-6989586621679184483"><span id="local-6989586621679184485"><span class="annot"><span class="annottext">Int -&gt; SetPrincipalTagAttributeMap -&gt; ShowS
+[SetPrincipalTagAttributeMap] -&gt; ShowS
+SetPrincipalTagAttributeMap -&gt; String
+(Int -&gt; SetPrincipalTagAttributeMap -&gt; ShowS)
+-&gt; (SetPrincipalTagAttributeMap -&gt; String)
+-&gt; ([SetPrincipalTagAttributeMap] -&gt; ShowS)
+-&gt; Show SetPrincipalTagAttributeMap
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetPrincipalTagAttributeMap] -&gt; ShowS
+$cshowList :: [SetPrincipalTagAttributeMap] -&gt; ShowS
+show :: SetPrincipalTagAttributeMap -&gt; String
+$cshow :: SetPrincipalTagAttributeMap -&gt; String
+showsPrec :: Int -&gt; SetPrincipalTagAttributeMap -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetPrincipalTagAttributeMap -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetPrincipalTagAttributeMap -&gt; Rep SetPrincipalTagAttributeMap x)
+-&gt; (forall x.
+    Rep SetPrincipalTagAttributeMap x -&gt; SetPrincipalTagAttributeMap)
+-&gt; Generic SetPrincipalTagAttributeMap
+forall x.
+Rep SetPrincipalTagAttributeMap x -&gt; SetPrincipalTagAttributeMap
+forall x.
+SetPrincipalTagAttributeMap -&gt; Rep SetPrincipalTagAttributeMap x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetPrincipalTagAttributeMap x -&gt; SetPrincipalTagAttributeMap
+$cfrom :: forall x.
+SetPrincipalTagAttributeMap -&gt; Rep SetPrincipalTagAttributeMap x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'SetPrincipalTagAttributeMap' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'principalTags', 'setPrincipalTagAttributeMap_principalTags' - You can use this operation to add principal tags.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'useDefaults', 'setPrincipalTagAttributeMap_useDefaults' - You can use this operation to use default (username and clientID)</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- attribute mappings.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'identityPoolId', 'setPrincipalTagAttributeMap_identityPoolId' - The ID of the Identity Pool you want to set attribute mappings for.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'identityProviderName', 'setPrincipalTagAttributeMap_identityProviderName' - The provider name you want to use for attribute mappings.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#newSetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">newSetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'identityPoolId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'identityProviderName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span>
+</span><span id="line-92"></span><span id="newSetPrincipalTagAttributeMap"><span class="annot"><span class="annottext">newSetPrincipalTagAttributeMap :: Text -&gt; Text -&gt; SetPrincipalTagAttributeMap
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#newSetPrincipalTagAttributeMap"><span class="hs-identifier hs-var hs-var">newSetPrincipalTagAttributeMap</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679184476"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184476"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679184475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184475"><span class="hs-identifier hs-var">pIdentityProviderName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap' :: Maybe (HashMap Text Text)
+-&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; SetPrincipalTagAttributeMap
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principalTags:SetPrincipalTagAttributeMap' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">principalTags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:useDefaults:SetPrincipalTagAttributeMap' :: Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">useDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityPoolId:SetPrincipalTagAttributeMap' :: Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184476"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityProviderName:SetPrincipalTagAttributeMap' :: Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">identityProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184475"><span class="hs-identifier hs-var">pIdentityProviderName_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | You can use this operation to add principal tags.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_principalTags"><span class="hs-identifier hs-type">setPrincipalTagAttributeMap_principalTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="setPrincipalTagAttributeMap_principalTags"><span class="annot"><span class="annottext">setPrincipalTagAttributeMap_principalTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SetPrincipalTagAttributeMap -&gt; f SetPrincipalTagAttributeMap
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_principalTags"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMap_principalTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMap -&gt; Maybe (HashMap Text Text))
+-&gt; (SetPrincipalTagAttributeMap
+    -&gt; Maybe (HashMap Text Text) -&gt; SetPrincipalTagAttributeMap)
+-&gt; Lens
+     SetPrincipalTagAttributeMap
+     SetPrincipalTagAttributeMap
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184472"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+principalTags :: Maybe (HashMap Text Text)
+$sel:principalTags:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184472"><span class="hs-identifier hs-var hs-var">principalTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184472"><span class="hs-identifier hs-var">principalTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184471"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184470"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalTags:SetPrincipalTagAttributeMap' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">principalTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; SetPrincipalTagAttributeMap -&gt; f SetPrincipalTagAttributeMap)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SetPrincipalTagAttributeMap
+-&gt; f SetPrincipalTagAttributeMap
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | You can use this operation to use default (username and clientID)</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- attribute mappings.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_useDefaults"><span class="hs-identifier hs-type">setPrincipalTagAttributeMap_useDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="setPrincipalTagAttributeMap_useDefaults"><span class="annot"><span class="annottext">setPrincipalTagAttributeMap_useDefaults :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; SetPrincipalTagAttributeMap -&gt; f SetPrincipalTagAttributeMap
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_useDefaults"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMap_useDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMap -&gt; Maybe Bool)
+-&gt; (SetPrincipalTagAttributeMap
+    -&gt; Maybe Bool -&gt; SetPrincipalTagAttributeMap)
+-&gt; Lens
+     SetPrincipalTagAttributeMap
+     SetPrincipalTagAttributeMap
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184466"><span class="annot"><span class="annottext">Maybe Bool
+useDefaults :: Maybe Bool
+$sel:useDefaults:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Maybe Bool
+</span><a href="#local-6989586621679184466"><span class="hs-identifier hs-var hs-var">useDefaults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679184466"><span class="hs-identifier hs-var">useDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184465"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184464"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679184464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDefaults:SetPrincipalTagAttributeMap' :: Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">useDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679184464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the Identity Pool you want to set attribute mappings for.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_identityPoolId"><span class="hs-identifier hs-type">setPrincipalTagAttributeMap_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="setPrincipalTagAttributeMap_identityPoolId"><span class="annot"><span class="annottext">setPrincipalTagAttributeMap_identityPoolId :: (Text -&gt; f Text)
+-&gt; SetPrincipalTagAttributeMap -&gt; f SetPrincipalTagAttributeMap
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_identityPoolId"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMap_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMap -&gt; Text)
+-&gt; (SetPrincipalTagAttributeMap
+    -&gt; Text -&gt; SetPrincipalTagAttributeMap)
+-&gt; Lens
+     SetPrincipalTagAttributeMap SetPrincipalTagAttributeMap Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184463"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Text
+</span><a href="#local-6989586621679184463"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184463"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184462"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:SetPrincipalTagAttributeMap' :: Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The provider name you want to use for attribute mappings.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_identityProviderName"><span class="hs-identifier hs-type">setPrincipalTagAttributeMap_identityProviderName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="setPrincipalTagAttributeMap_identityProviderName"><span class="annot"><span class="annottext">setPrincipalTagAttributeMap_identityProviderName :: (Text -&gt; f Text)
+-&gt; SetPrincipalTagAttributeMap -&gt; f SetPrincipalTagAttributeMap
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMap_identityProviderName"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMap_identityProviderName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMap -&gt; Text)
+-&gt; (SetPrincipalTagAttributeMap
+    -&gt; Text -&gt; SetPrincipalTagAttributeMap)
+-&gt; Lens
+     SetPrincipalTagAttributeMap SetPrincipalTagAttributeMap Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184460"><span class="annot"><span class="annottext">Text
+identityProviderName :: Text
+$sel:identityProviderName:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Text
+</span><a href="#local-6989586621679184460"><span class="hs-identifier hs-var hs-var">identityProviderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184460"><span class="hs-identifier hs-var">identityProviderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184459"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMap
+</span><a href="#local-6989586621679184459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProviderName:SetPrincipalTagAttributeMap' :: Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-var">identityProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679184454"><span class="annot"><span class="annottext">request :: SetPrincipalTagAttributeMap -&gt; Request SetPrincipalTagAttributeMap
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; SetPrincipalTagAttributeMap
+-&gt; Request SetPrincipalTagAttributeMap
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679184450"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetPrincipalTagAttributeMap
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetPrincipalTagAttributeMap)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SetPrincipalTagAttributeMap))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetPrincipalTagAttributeMap
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetPrincipalTagAttributeMap)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184447"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184446"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679184446"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184445"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">SetPrincipalTagAttributeMapResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Bool
+ -&gt; Int
+ -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; SetPrincipalTagAttributeMapResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Bool -&gt; Int -&gt; SetPrincipalTagAttributeMapResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityProviderName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Bool -&gt; Int -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String (Maybe Bool -&gt; Int -&gt; SetPrincipalTagAttributeMapResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrincipalTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Bool -&gt; Int -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; SetPrincipalTagAttributeMapResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UseDefaults&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Either String Int
+-&gt; Either String SetPrincipalTagAttributeMapResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184447"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184436"><span id="local-6989586621679184438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679184429"><span class="annot"><span class="annottext">toHeaders :: SetPrincipalTagAttributeMap -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetPrincipalTagAttributeMap -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityService.SetPrincipalTagAttributeMap&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184419"><span id="local-6989586621679184421"><span id="local-6989586621679184423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679184417"><span class="annot"><span class="annottext">toJSON :: SetPrincipalTagAttributeMap -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184412"><span id="local-6989586621679184413"><span id="local-6989586621679184414"><span id="local-6989586621679184415"><span class="annot"><span class="annottext">Maybe Bool
+Maybe (HashMap Text Text)
+Text
+identityProviderName :: Text
+identityPoolId :: Text
+useDefaults :: Maybe Bool
+principalTags :: Maybe (HashMap Text Text)
+$sel:identityProviderName:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Text
+$sel:identityPoolId:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Text
+$sel:useDefaults:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Maybe Bool
+$sel:principalTags:SetPrincipalTagAttributeMap' :: SetPrincipalTagAttributeMap -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184412"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrincipalTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184415"><span class="hs-identifier hs-var">principalTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UseDefaults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679184414"><span class="hs-identifier hs-var">useDefaults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184413"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityProviderName&quot;</span></span><span>
+</span><span id="line-165"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184412"><span class="hs-identifier hs-var">identityProviderName</span></a></span><span>
+</span><span id="line-166"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679184406"><span class="annot"><span class="annottext">toPath :: SetPrincipalTagAttributeMap -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetPrincipalTagAttributeMap -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMap"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMap</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679184402"><span class="annot"><span class="annottext">toQuery :: SetPrincipalTagAttributeMap -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetPrincipalTagAttributeMap -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newSetPrincipalTagAttributeMapResponse' smart constructor.</span><span>
+</span><span id="line-177"></span><span id="local-6989586621679184399"><span id="local-6989586621679184400"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPrincipalTagAttributeMapResponse"><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-var">SetPrincipalTagAttributeMapResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPrincipalTagAttributeMapResponse%27"><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">SetPrincipalTagAttributeMapResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Identity Pool you want to set attribute mappings for.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMapResponse%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The provider name you want to use for attribute mappings.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMapResponse%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var hs-var">identityProviderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | You can use this operation to add principal tags. The</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- @PrincipalTags@operation enables you to reference user attributes in</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- your IAM permissions policy.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMapResponse%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var hs-var">principalTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | You can use this operation to select default (username and clientID)</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- attribute mappings.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMapResponse%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse -&gt; Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var hs-var">useDefaults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetPrincipalTagAttributeMapResponse%27"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse -&gt; Int
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AhttpStatus%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184390"><span id="local-6989586621679184392"><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse
+-&gt; SetPrincipalTagAttributeMapResponse -&gt; Bool
+(SetPrincipalTagAttributeMapResponse
+ -&gt; SetPrincipalTagAttributeMapResponse -&gt; Bool)
+-&gt; (SetPrincipalTagAttributeMapResponse
+    -&gt; SetPrincipalTagAttributeMapResponse -&gt; Bool)
+-&gt; Eq SetPrincipalTagAttributeMapResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetPrincipalTagAttributeMapResponse
+-&gt; SetPrincipalTagAttributeMapResponse -&gt; Bool
+$c/= :: SetPrincipalTagAttributeMapResponse
+-&gt; SetPrincipalTagAttributeMapResponse -&gt; Bool
+== :: SetPrincipalTagAttributeMapResponse
+-&gt; SetPrincipalTagAttributeMapResponse -&gt; Bool
+$c== :: SetPrincipalTagAttributeMapResponse
+-&gt; SetPrincipalTagAttributeMapResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184382"><span id="local-6989586621679184384"><span id="local-6989586621679184386"><span id="local-6989586621679184388"><span class="annot"><span class="annottext">ReadPrec [SetPrincipalTagAttributeMapResponse]
+ReadPrec SetPrincipalTagAttributeMapResponse
+Int -&gt; ReadS SetPrincipalTagAttributeMapResponse
+ReadS [SetPrincipalTagAttributeMapResponse]
+(Int -&gt; ReadS SetPrincipalTagAttributeMapResponse)
+-&gt; ReadS [SetPrincipalTagAttributeMapResponse]
+-&gt; ReadPrec SetPrincipalTagAttributeMapResponse
+-&gt; ReadPrec [SetPrincipalTagAttributeMapResponse]
+-&gt; Read SetPrincipalTagAttributeMapResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetPrincipalTagAttributeMapResponse]
+$creadListPrec :: ReadPrec [SetPrincipalTagAttributeMapResponse]
+readPrec :: ReadPrec SetPrincipalTagAttributeMapResponse
+$creadPrec :: ReadPrec SetPrincipalTagAttributeMapResponse
+readList :: ReadS [SetPrincipalTagAttributeMapResponse]
+$creadList :: ReadS [SetPrincipalTagAttributeMapResponse]
+readsPrec :: Int -&gt; ReadS SetPrincipalTagAttributeMapResponse
+$creadsPrec :: Int -&gt; ReadS SetPrincipalTagAttributeMapResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184376"><span id="local-6989586621679184378"><span id="local-6989586621679184380"><span class="annot"><span class="annottext">Int -&gt; SetPrincipalTagAttributeMapResponse -&gt; ShowS
+[SetPrincipalTagAttributeMapResponse] -&gt; ShowS
+SetPrincipalTagAttributeMapResponse -&gt; String
+(Int -&gt; SetPrincipalTagAttributeMapResponse -&gt; ShowS)
+-&gt; (SetPrincipalTagAttributeMapResponse -&gt; String)
+-&gt; ([SetPrincipalTagAttributeMapResponse] -&gt; ShowS)
+-&gt; Show SetPrincipalTagAttributeMapResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetPrincipalTagAttributeMapResponse] -&gt; ShowS
+$cshowList :: [SetPrincipalTagAttributeMapResponse] -&gt; ShowS
+show :: SetPrincipalTagAttributeMapResponse -&gt; String
+$cshow :: SetPrincipalTagAttributeMapResponse -&gt; String
+showsPrec :: Int -&gt; SetPrincipalTagAttributeMapResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetPrincipalTagAttributeMapResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetPrincipalTagAttributeMapResponse
+ -&gt; Rep SetPrincipalTagAttributeMapResponse x)
+-&gt; (forall x.
+    Rep SetPrincipalTagAttributeMapResponse x
+    -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Generic SetPrincipalTagAttributeMapResponse
+forall x.
+Rep SetPrincipalTagAttributeMapResponse x
+-&gt; SetPrincipalTagAttributeMapResponse
+forall x.
+SetPrincipalTagAttributeMapResponse
+-&gt; Rep SetPrincipalTagAttributeMapResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetPrincipalTagAttributeMapResponse x
+-&gt; SetPrincipalTagAttributeMapResponse
+$cfrom :: forall x.
+SetPrincipalTagAttributeMapResponse
+-&gt; Rep SetPrincipalTagAttributeMapResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Create a value of 'SetPrincipalTagAttributeMapResponse' with all optional fields omitted.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'identityPoolId', 'setPrincipalTagAttributeMapResponse_identityPoolId' - The ID of the Identity Pool you want to set attribute mappings for.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'identityProviderName', 'setPrincipalTagAttributeMapResponse_identityProviderName' - The provider name you want to use for attribute mappings.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'principalTags', 'setPrincipalTagAttributeMapResponse_principalTags' - You can use this operation to add principal tags. The</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @PrincipalTags@operation enables you to reference user attributes in</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- your IAM permissions policy.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'useDefaults', 'setPrincipalTagAttributeMapResponse_useDefaults' - You can use this operation to select default (username and clientID)</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- attribute mappings.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'setPrincipalTagAttributeMapResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#newSetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">newSetPrincipalTagAttributeMapResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span>
+</span><span id="line-218"></span><span id="newSetPrincipalTagAttributeMapResponse"><span class="annot"><span class="annottext">newSetPrincipalTagAttributeMapResponse :: Int -&gt; SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#newSetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-var hs-var">newSetPrincipalTagAttributeMapResponse</span></a></span></span><span> </span><span id="local-6989586621679184373"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:SetPrincipalTagAttributeMapResponse' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityProviderName:SetPrincipalTagAttributeMapResponse' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">identityProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalTags:SetPrincipalTagAttributeMapResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">principalTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:useDefaults:SetPrincipalTagAttributeMapResponse' :: Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">useDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SetPrincipalTagAttributeMapResponse' :: Int
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AhttpStatus%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The ID of the Identity Pool you want to set attribute mappings for.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_identityPoolId"><span class="hs-identifier hs-type">setPrincipalTagAttributeMapResponse_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="setPrincipalTagAttributeMapResponse_identityPoolId"><span class="annot"><span class="annottext">setPrincipalTagAttributeMapResponse_identityPoolId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetPrincipalTagAttributeMapResponse
+-&gt; f SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_identityPoolId"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMapResponse_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMapResponse -&gt; Maybe Text)
+-&gt; (SetPrincipalTagAttributeMapResponse
+    -&gt; Maybe Text -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Lens
+     SetPrincipalTagAttributeMapResponse
+     SetPrincipalTagAttributeMapResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184372"><span class="annot"><span class="annottext">Maybe Text
+identityPoolId :: Maybe Text
+$sel:identityPoolId:SetPrincipalTagAttributeMapResponse' :: SetPrincipalTagAttributeMapResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679184372"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184372"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184371"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:SetPrincipalTagAttributeMapResponse' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityPoolId%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The provider name you want to use for attribute mappings.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_identityProviderName"><span class="hs-identifier hs-type">setPrincipalTagAttributeMapResponse_identityProviderName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="setPrincipalTagAttributeMapResponse_identityProviderName"><span class="annot"><span class="annottext">setPrincipalTagAttributeMapResponse_identityProviderName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetPrincipalTagAttributeMapResponse
+-&gt; f SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_identityProviderName"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMapResponse_identityProviderName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMapResponse -&gt; Maybe Text)
+-&gt; (SetPrincipalTagAttributeMapResponse
+    -&gt; Maybe Text -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Lens
+     SetPrincipalTagAttributeMapResponse
+     SetPrincipalTagAttributeMapResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184369"><span class="annot"><span class="annottext">Maybe Text
+identityProviderName :: Maybe Text
+$sel:identityProviderName:SetPrincipalTagAttributeMapResponse' :: SetPrincipalTagAttributeMapResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679184369"><span class="hs-identifier hs-var hs-var">identityProviderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184369"><span class="hs-identifier hs-var">identityProviderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184368"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProviderName:SetPrincipalTagAttributeMapResponse' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AidentityProviderName%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">identityProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | You can use this operation to add principal tags. The</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- @PrincipalTags@operation enables you to reference user attributes in</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- your IAM permissions policy.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_principalTags"><span class="hs-identifier hs-type">setPrincipalTagAttributeMapResponse_principalTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="setPrincipalTagAttributeMapResponse_principalTags"><span class="annot"><span class="annottext">setPrincipalTagAttributeMapResponse_principalTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SetPrincipalTagAttributeMapResponse
+-&gt; f SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_principalTags"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMapResponse_principalTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMapResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (SetPrincipalTagAttributeMapResponse
+    -&gt; Maybe (HashMap Text Text)
+    -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Lens
+     SetPrincipalTagAttributeMapResponse
+     SetPrincipalTagAttributeMapResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184366"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+principalTags :: Maybe (HashMap Text Text)
+$sel:principalTags:SetPrincipalTagAttributeMapResponse' :: SetPrincipalTagAttributeMapResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184366"><span class="hs-identifier hs-var hs-var">principalTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184366"><span class="hs-identifier hs-var">principalTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184365"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184364"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalTags:SetPrincipalTagAttributeMapResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AprincipalTags%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">principalTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; SetPrincipalTagAttributeMapResponse
+ -&gt; f SetPrincipalTagAttributeMapResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SetPrincipalTagAttributeMapResponse
+-&gt; f SetPrincipalTagAttributeMapResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | You can use this operation to select default (username and clientID)</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- attribute mappings.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_useDefaults"><span class="hs-identifier hs-type">setPrincipalTagAttributeMapResponse_useDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="setPrincipalTagAttributeMapResponse_useDefaults"><span class="annot"><span class="annottext">setPrincipalTagAttributeMapResponse_useDefaults :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; SetPrincipalTagAttributeMapResponse
+-&gt; f SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_useDefaults"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMapResponse_useDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMapResponse -&gt; Maybe Bool)
+-&gt; (SetPrincipalTagAttributeMapResponse
+    -&gt; Maybe Bool -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Lens
+     SetPrincipalTagAttributeMapResponse
+     SetPrincipalTagAttributeMapResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184363"><span class="annot"><span class="annottext">Maybe Bool
+useDefaults :: Maybe Bool
+$sel:useDefaults:SetPrincipalTagAttributeMapResponse' :: SetPrincipalTagAttributeMapResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679184363"><span class="hs-identifier hs-var hs-var">useDefaults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679184363"><span class="hs-identifier hs-var">useDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184362"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184361"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679184361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDefaults:SetPrincipalTagAttributeMapResponse' :: Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AuseDefaults%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">useDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679184361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_httpStatus"><span class="hs-identifier hs-type">setPrincipalTagAttributeMapResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-249"></span><span id="setPrincipalTagAttributeMapResponse_httpStatus"><span class="annot"><span class="annottext">setPrincipalTagAttributeMapResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SetPrincipalTagAttributeMapResponse
+-&gt; f SetPrincipalTagAttributeMapResponse
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#setPrincipalTagAttributeMapResponse_httpStatus"><span class="hs-identifier hs-var hs-var">setPrincipalTagAttributeMapResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPrincipalTagAttributeMapResponse -&gt; Int)
+-&gt; (SetPrincipalTagAttributeMapResponse
+    -&gt; Int -&gt; SetPrincipalTagAttributeMapResponse)
+-&gt; Lens
+     SetPrincipalTagAttributeMapResponse
+     SetPrincipalTagAttributeMapResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184360"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SetPrincipalTagAttributeMapResponse' :: SetPrincipalTagAttributeMapResponse -&gt; Int
+</span><a href="#local-6989586621679184360"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184360"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184359"><span class="annot"><span class="annottext">s :: SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPrincipalTagAttributeMapResponse
+</span><a href="#local-6989586621679184359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetPrincipalTagAttributeMapResponse' :: Int
+</span><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#%24sel%3AhttpStatus%3ASetPrincipalTagAttributeMapResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679184356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.html#SetPrincipalTagAttributeMapResponse"><span class="hs-identifier hs-type">SetPrincipalTagAttributeMapResponse</span></a></span></span><span>
+</span><span id="line-254"></span></pre></body></html>

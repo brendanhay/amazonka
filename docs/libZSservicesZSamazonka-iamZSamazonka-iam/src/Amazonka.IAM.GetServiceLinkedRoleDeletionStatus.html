@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.GetServiceLinkedRoleDeletionStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the status of your service-linked role deletion. After you use</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- DeleteServiceLinkedRole to submit a service-linked role for deletion,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- you can use the @DeletionTaskId@ parameter in</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @GetServiceLinkedRoleDeletionStatus@ to check the status of the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- deletion. If the deletion fails, this operation returns the reason that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- it failed, if that information is returned by the service.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.GetServiceLinkedRoleDeletionStatus</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier">GetServiceLinkedRoleDeletionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#newGetServiceLinkedRoleDeletionStatus"><span class="hs-identifier">newGetServiceLinkedRoleDeletionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatus_deletionTaskId"><span class="hs-identifier">getServiceLinkedRoleDeletionStatus_deletionTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#newGetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier">newGetServiceLinkedRoleDeletionStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_reason"><span class="hs-identifier">getServiceLinkedRoleDeletionStatusResponse_reason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_httpStatus"><span class="hs-identifier">getServiceLinkedRoleDeletionStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_status"><span class="hs-identifier">getServiceLinkedRoleDeletionStatusResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetServiceLinkedRoleDeletionStatus' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679447640"><span id="local-6989586621679447641"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceLinkedRoleDeletionStatus"><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-var">GetServiceLinkedRoleDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceLinkedRoleDeletionStatus%27"><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-var">GetServiceLinkedRoleDeletionStatus'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The deletion task identifier. This identifier is returned by the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- DeleteServiceLinkedRole operation in the format</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @task\/aws-service-role\/\&lt;service-principal-name&gt;\/\&lt;role-name&gt;\/\&lt;task-uuid&gt;@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdeletionTaskId%3AGetServiceLinkedRoleDeletionStatus%27"><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatus -&gt; Text
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3AdeletionTaskId%3AGetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-var hs-var">deletionTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447634"><span id="local-6989586621679447636"><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatus
+-&gt; GetServiceLinkedRoleDeletionStatus -&gt; Bool
+(GetServiceLinkedRoleDeletionStatus
+ -&gt; GetServiceLinkedRoleDeletionStatus -&gt; Bool)
+-&gt; (GetServiceLinkedRoleDeletionStatus
+    -&gt; GetServiceLinkedRoleDeletionStatus -&gt; Bool)
+-&gt; Eq GetServiceLinkedRoleDeletionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceLinkedRoleDeletionStatus
+-&gt; GetServiceLinkedRoleDeletionStatus -&gt; Bool
+$c/= :: GetServiceLinkedRoleDeletionStatus
+-&gt; GetServiceLinkedRoleDeletionStatus -&gt; Bool
+== :: GetServiceLinkedRoleDeletionStatus
+-&gt; GetServiceLinkedRoleDeletionStatus -&gt; Bool
+$c== :: GetServiceLinkedRoleDeletionStatus
+-&gt; GetServiceLinkedRoleDeletionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447625"><span id="local-6989586621679447627"><span id="local-6989586621679447629"><span id="local-6989586621679447631"><span class="annot"><span class="annottext">ReadPrec [GetServiceLinkedRoleDeletionStatus]
+ReadPrec GetServiceLinkedRoleDeletionStatus
+Int -&gt; ReadS GetServiceLinkedRoleDeletionStatus
+ReadS [GetServiceLinkedRoleDeletionStatus]
+(Int -&gt; ReadS GetServiceLinkedRoleDeletionStatus)
+-&gt; ReadS [GetServiceLinkedRoleDeletionStatus]
+-&gt; ReadPrec GetServiceLinkedRoleDeletionStatus
+-&gt; ReadPrec [GetServiceLinkedRoleDeletionStatus]
+-&gt; Read GetServiceLinkedRoleDeletionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetServiceLinkedRoleDeletionStatus]
+$creadListPrec :: ReadPrec [GetServiceLinkedRoleDeletionStatus]
+readPrec :: ReadPrec GetServiceLinkedRoleDeletionStatus
+$creadPrec :: ReadPrec GetServiceLinkedRoleDeletionStatus
+readList :: ReadS [GetServiceLinkedRoleDeletionStatus]
+$creadList :: ReadS [GetServiceLinkedRoleDeletionStatus]
+readsPrec :: Int -&gt; ReadS GetServiceLinkedRoleDeletionStatus
+$creadsPrec :: Int -&gt; ReadS GetServiceLinkedRoleDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447618"><span id="local-6989586621679447620"><span id="local-6989586621679447622"><span class="annot"><span class="annottext">Int -&gt; GetServiceLinkedRoleDeletionStatus -&gt; ShowS
+[GetServiceLinkedRoleDeletionStatus] -&gt; ShowS
+GetServiceLinkedRoleDeletionStatus -&gt; String
+(Int -&gt; GetServiceLinkedRoleDeletionStatus -&gt; ShowS)
+-&gt; (GetServiceLinkedRoleDeletionStatus -&gt; String)
+-&gt; ([GetServiceLinkedRoleDeletionStatus] -&gt; ShowS)
+-&gt; Show GetServiceLinkedRoleDeletionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceLinkedRoleDeletionStatus] -&gt; ShowS
+$cshowList :: [GetServiceLinkedRoleDeletionStatus] -&gt; ShowS
+show :: GetServiceLinkedRoleDeletionStatus -&gt; String
+$cshow :: GetServiceLinkedRoleDeletionStatus -&gt; String
+showsPrec :: Int -&gt; GetServiceLinkedRoleDeletionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceLinkedRoleDeletionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetServiceLinkedRoleDeletionStatus
+ -&gt; Rep GetServiceLinkedRoleDeletionStatus x)
+-&gt; (forall x.
+    Rep GetServiceLinkedRoleDeletionStatus x
+    -&gt; GetServiceLinkedRoleDeletionStatus)
+-&gt; Generic GetServiceLinkedRoleDeletionStatus
+forall x.
+Rep GetServiceLinkedRoleDeletionStatus x
+-&gt; GetServiceLinkedRoleDeletionStatus
+forall x.
+GetServiceLinkedRoleDeletionStatus
+-&gt; Rep GetServiceLinkedRoleDeletionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetServiceLinkedRoleDeletionStatus x
+-&gt; GetServiceLinkedRoleDeletionStatus
+$cfrom :: forall x.
+GetServiceLinkedRoleDeletionStatus
+-&gt; Rep GetServiceLinkedRoleDeletionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'GetServiceLinkedRoleDeletionStatus' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'deletionTaskId', 'getServiceLinkedRoleDeletionStatus_deletionTaskId' - The deletion task identifier. This identifier is returned by the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- DeleteServiceLinkedRole operation in the format</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @task\/aws-service-role\/\&lt;service-principal-name&gt;\/\&lt;role-name&gt;\/\&lt;task-uuid&gt;@.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#newGetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">newGetServiceLinkedRoleDeletionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'deletionTaskId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span>
+</span><span id="line-79"></span><span id="newGetServiceLinkedRoleDeletionStatus"><span class="annot"><span class="annottext">newGetServiceLinkedRoleDeletionStatus :: Text -&gt; GetServiceLinkedRoleDeletionStatus
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#newGetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-var hs-var">newGetServiceLinkedRoleDeletionStatus</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679447613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447613"><span class="hs-identifier hs-var">pDeletionTaskId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatus' :: Text -&gt; GetServiceLinkedRoleDeletionStatus
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deletionTaskId:GetServiceLinkedRoleDeletionStatus' :: Text
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3AdeletionTaskId%3AGetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-var">deletionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447613"><span class="hs-identifier hs-var">pDeletionTaskId_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The deletion task identifier. This identifier is returned by the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- DeleteServiceLinkedRole operation in the format</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @task\/aws-service-role\/\&lt;service-principal-name&gt;\/\&lt;role-name&gt;\/\&lt;task-uuid&gt;@.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatus_deletionTaskId"><span class="hs-identifier hs-type">getServiceLinkedRoleDeletionStatus_deletionTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="getServiceLinkedRoleDeletionStatus_deletionTaskId"><span class="annot"><span class="annottext">getServiceLinkedRoleDeletionStatus_deletionTaskId :: (Text -&gt; f Text)
+-&gt; GetServiceLinkedRoleDeletionStatus
+-&gt; f GetServiceLinkedRoleDeletionStatus
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatus_deletionTaskId"><span class="hs-identifier hs-var hs-var">getServiceLinkedRoleDeletionStatus_deletionTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceLinkedRoleDeletionStatus -&gt; Text)
+-&gt; (GetServiceLinkedRoleDeletionStatus
+    -&gt; Text -&gt; GetServiceLinkedRoleDeletionStatus)
+-&gt; Lens
+     GetServiceLinkedRoleDeletionStatus
+     GetServiceLinkedRoleDeletionStatus
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447610"><span class="annot"><span class="annottext">Text
+deletionTaskId :: Text
+$sel:deletionTaskId:GetServiceLinkedRoleDeletionStatus' :: GetServiceLinkedRoleDeletionStatus -&gt; Text
+</span><a href="#local-6989586621679447610"><span class="hs-identifier hs-var hs-var">deletionTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447610"><span class="hs-identifier hs-var">deletionTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447609"><span class="annot"><span class="annottext">s :: GetServiceLinkedRoleDeletionStatus
+</span><a href="#local-6989586621679447609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatus
+</span><a href="#local-6989586621679447609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionTaskId:GetServiceLinkedRoleDeletionStatus' :: Text
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3AdeletionTaskId%3AGetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-var">deletionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679447604"><span class="annot"><span class="annottext">request :: GetServiceLinkedRoleDeletionStatus
+-&gt; Request GetServiceLinkedRoleDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetServiceLinkedRoleDeletionStatus
+-&gt; Request GetServiceLinkedRoleDeletionStatus
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679447600"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetServiceLinkedRoleDeletionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetServiceLinkedRoleDeletionStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetServiceLinkedRoleDeletionStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetServiceLinkedRoleDeletionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetServiceLinkedRoleDeletionStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetServiceLinkedRoleDeletionStatusResult&quot;</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447597"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447596"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679447596"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447595"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679447595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeletionTaskFailureReasonType
+-&gt; Int
+-&gt; DeletionTaskStatusType
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeletionTaskFailureReasonType
+ -&gt; Int
+ -&gt; DeletionTaskStatusType
+ -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; Either String (Maybe DeletionTaskFailureReasonType)
+-&gt; Either
+     String
+     (Int
+      -&gt; DeletionTaskStatusType
+      -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679447595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe DeletionTaskFailureReasonType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; DeletionTaskStatusType
+   -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (DeletionTaskStatusType
+      -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447597"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (DeletionTaskStatusType
+   -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; Either String DeletionTaskStatusType
+-&gt; Either String GetServiceLinkedRoleDeletionStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679447595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String DeletionTaskStatusType
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679447586"><span id="local-6989586621679447588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679447583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679447579"><span class="annot"><span class="annottext">toHeaders :: GetServiceLinkedRoleDeletionStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetServiceLinkedRoleDeletionStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679447574"><span class="annot"><span class="annottext">toPath :: GetServiceLinkedRoleDeletionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetServiceLinkedRoleDeletionStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679447570"><span class="annot"><span class="annottext">toQuery :: GetServiceLinkedRoleDeletionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatus%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447568"><span class="annot"><span class="annottext">Text
+deletionTaskId :: Text
+$sel:deletionTaskId:GetServiceLinkedRoleDeletionStatus' :: GetServiceLinkedRoleDeletionStatus -&gt; Text
+</span><a href="#local-6989586621679447568"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetServiceLinkedRoleDeletionStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeletionTaskId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447568"><span class="hs-identifier hs-var">deletionTaskId</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newGetServiceLinkedRoleDeletionStatusResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679447565"><span id="local-6989586621679447566"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceLinkedRoleDeletionStatusResponse"><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-var">GetServiceLinkedRoleDeletionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceLinkedRoleDeletionStatusResponse%27"><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains details about the reason the deletion failed.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Areason%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse
+-&gt; Maybe DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3Areason%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse -&gt; Int
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3AhttpStatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The status of the deletion.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Astatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse
+-&gt; DeletionTaskStatusType
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3Astatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskStatusType.html#DeletionTaskStatusType"><span class="hs-identifier hs-type">DeletionTaskStatusType</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447558"><span id="local-6989586621679447560"><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse
+-&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; Bool
+(GetServiceLinkedRoleDeletionStatusResponse
+ -&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; Bool)
+-&gt; (GetServiceLinkedRoleDeletionStatusResponse
+    -&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; Bool)
+-&gt; Eq GetServiceLinkedRoleDeletionStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceLinkedRoleDeletionStatusResponse
+-&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; Bool
+$c/= :: GetServiceLinkedRoleDeletionStatusResponse
+-&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; Bool
+== :: GetServiceLinkedRoleDeletionStatusResponse
+-&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; Bool
+$c== :: GetServiceLinkedRoleDeletionStatusResponse
+-&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447550"><span id="local-6989586621679447552"><span id="local-6989586621679447554"><span id="local-6989586621679447556"><span class="annot"><span class="annottext">ReadPrec [GetServiceLinkedRoleDeletionStatusResponse]
+ReadPrec GetServiceLinkedRoleDeletionStatusResponse
+Int -&gt; ReadS GetServiceLinkedRoleDeletionStatusResponse
+ReadS [GetServiceLinkedRoleDeletionStatusResponse]
+(Int -&gt; ReadS GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; ReadS [GetServiceLinkedRoleDeletionStatusResponse]
+-&gt; ReadPrec GetServiceLinkedRoleDeletionStatusResponse
+-&gt; ReadPrec [GetServiceLinkedRoleDeletionStatusResponse]
+-&gt; Read GetServiceLinkedRoleDeletionStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetServiceLinkedRoleDeletionStatusResponse]
+$creadListPrec :: ReadPrec [GetServiceLinkedRoleDeletionStatusResponse]
+readPrec :: ReadPrec GetServiceLinkedRoleDeletionStatusResponse
+$creadPrec :: ReadPrec GetServiceLinkedRoleDeletionStatusResponse
+readList :: ReadS [GetServiceLinkedRoleDeletionStatusResponse]
+$creadList :: ReadS [GetServiceLinkedRoleDeletionStatusResponse]
+readsPrec :: Int -&gt; ReadS GetServiceLinkedRoleDeletionStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetServiceLinkedRoleDeletionStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447544"><span id="local-6989586621679447546"><span id="local-6989586621679447548"><span class="annot"><span class="annottext">Int -&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; ShowS
+[GetServiceLinkedRoleDeletionStatusResponse] -&gt; ShowS
+GetServiceLinkedRoleDeletionStatusResponse -&gt; String
+(Int -&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; ShowS)
+-&gt; (GetServiceLinkedRoleDeletionStatusResponse -&gt; String)
+-&gt; ([GetServiceLinkedRoleDeletionStatusResponse] -&gt; ShowS)
+-&gt; Show GetServiceLinkedRoleDeletionStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceLinkedRoleDeletionStatusResponse] -&gt; ShowS
+$cshowList :: [GetServiceLinkedRoleDeletionStatusResponse] -&gt; ShowS
+show :: GetServiceLinkedRoleDeletionStatusResponse -&gt; String
+$cshow :: GetServiceLinkedRoleDeletionStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceLinkedRoleDeletionStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetServiceLinkedRoleDeletionStatusResponse
+ -&gt; Rep GetServiceLinkedRoleDeletionStatusResponse x)
+-&gt; (forall x.
+    Rep GetServiceLinkedRoleDeletionStatusResponse x
+    -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; Generic GetServiceLinkedRoleDeletionStatusResponse
+forall x.
+Rep GetServiceLinkedRoleDeletionStatusResponse x
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+forall x.
+GetServiceLinkedRoleDeletionStatusResponse
+-&gt; Rep GetServiceLinkedRoleDeletionStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetServiceLinkedRoleDeletionStatusResponse x
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+$cfrom :: forall x.
+GetServiceLinkedRoleDeletionStatusResponse
+-&gt; Rep GetServiceLinkedRoleDeletionStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'GetServiceLinkedRoleDeletionStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'reason', 'getServiceLinkedRoleDeletionStatusResponse_reason' - An object that contains details about the reason the deletion failed.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'getServiceLinkedRoleDeletionStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'status', 'getServiceLinkedRoleDeletionStatusResponse_status' - The status of the deletion.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#newGetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">newGetServiceLinkedRoleDeletionStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskStatusType.html#DeletionTaskStatusType"><span class="hs-identifier hs-type">DeletionTaskStatusType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newGetServiceLinkedRoleDeletionStatusResponse"><span class="annot"><span class="annottext">newGetServiceLinkedRoleDeletionStatusResponse :: Int
+-&gt; DeletionTaskStatusType
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#newGetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-var hs-var">newGetServiceLinkedRoleDeletionStatusResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679447541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447541"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679447540"><span class="annot"><span class="annottext">DeletionTaskStatusType
+</span><a href="#local-6989586621679447540"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse' :: Maybe DeletionTaskFailureReasonType
+-&gt; Int
+-&gt; DeletionTaskStatusType
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reason:GetServiceLinkedRoleDeletionStatusResponse' :: Maybe DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3Areason%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeletionTaskFailureReasonType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceLinkedRoleDeletionStatusResponse' :: Int
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3AhttpStatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447541"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:GetServiceLinkedRoleDeletionStatusResponse' :: DeletionTaskStatusType
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3Astatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletionTaskStatusType
+</span><a href="#local-6989586621679447540"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | An object that contains details about the reason the deletion failed.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_reason"><span class="hs-identifier hs-type">getServiceLinkedRoleDeletionStatusResponse_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="getServiceLinkedRoleDeletionStatusResponse_reason"><span class="annot"><span class="annottext">getServiceLinkedRoleDeletionStatusResponse_reason :: (Maybe DeletionTaskFailureReasonType
+ -&gt; f (Maybe DeletionTaskFailureReasonType))
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+-&gt; f GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_reason"><span class="hs-identifier hs-var hs-var">getServiceLinkedRoleDeletionStatusResponse_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceLinkedRoleDeletionStatusResponse
+ -&gt; Maybe DeletionTaskFailureReasonType)
+-&gt; (GetServiceLinkedRoleDeletionStatusResponse
+    -&gt; Maybe DeletionTaskFailureReasonType
+    -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; Lens
+     GetServiceLinkedRoleDeletionStatusResponse
+     GetServiceLinkedRoleDeletionStatusResponse
+     (Maybe DeletionTaskFailureReasonType)
+     (Maybe DeletionTaskFailureReasonType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447539"><span class="annot"><span class="annottext">Maybe DeletionTaskFailureReasonType
+reason :: Maybe DeletionTaskFailureReasonType
+$sel:reason:GetServiceLinkedRoleDeletionStatusResponse' :: GetServiceLinkedRoleDeletionStatusResponse
+-&gt; Maybe DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679447539"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679447539"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447538"><span class="annot"><span class="annottext">s :: GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="#local-6989586621679447538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447537"><span class="annot"><span class="annottext">Maybe DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679447537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="#local-6989586621679447538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:GetServiceLinkedRoleDeletionStatusResponse' :: Maybe DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3Areason%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679447537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_httpStatus"><span class="hs-identifier hs-type">getServiceLinkedRoleDeletionStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span id="getServiceLinkedRoleDeletionStatusResponse_httpStatus"><span class="annot"><span class="annottext">getServiceLinkedRoleDeletionStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+-&gt; f GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getServiceLinkedRoleDeletionStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceLinkedRoleDeletionStatusResponse -&gt; Int)
+-&gt; (GetServiceLinkedRoleDeletionStatusResponse
+    -&gt; Int -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; Lens
+     GetServiceLinkedRoleDeletionStatusResponse
+     GetServiceLinkedRoleDeletionStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447536"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetServiceLinkedRoleDeletionStatusResponse' :: GetServiceLinkedRoleDeletionStatusResponse -&gt; Int
+</span><a href="#local-6989586621679447536"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447536"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447535"><span class="annot"><span class="annottext">s :: GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="#local-6989586621679447535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447534"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="#local-6989586621679447535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceLinkedRoleDeletionStatusResponse' :: Int
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3AhttpStatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The status of the deletion.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_status"><span class="hs-identifier hs-type">getServiceLinkedRoleDeletionStatusResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskStatusType.html#DeletionTaskStatusType"><span class="hs-identifier hs-type">DeletionTaskStatusType</span></a></span><span>
+</span><span id="line-195"></span><span id="getServiceLinkedRoleDeletionStatusResponse_status"><span class="annot"><span class="annottext">getServiceLinkedRoleDeletionStatusResponse_status :: (DeletionTaskStatusType -&gt; f DeletionTaskStatusType)
+-&gt; GetServiceLinkedRoleDeletionStatusResponse
+-&gt; f GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#getServiceLinkedRoleDeletionStatusResponse_status"><span class="hs-identifier hs-var hs-var">getServiceLinkedRoleDeletionStatusResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceLinkedRoleDeletionStatusResponse
+ -&gt; DeletionTaskStatusType)
+-&gt; (GetServiceLinkedRoleDeletionStatusResponse
+    -&gt; DeletionTaskStatusType
+    -&gt; GetServiceLinkedRoleDeletionStatusResponse)
+-&gt; Lens
+     GetServiceLinkedRoleDeletionStatusResponse
+     GetServiceLinkedRoleDeletionStatusResponse
+     DeletionTaskStatusType
+     DeletionTaskStatusType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447533"><span class="annot"><span class="annottext">DeletionTaskStatusType
+status :: DeletionTaskStatusType
+$sel:status:GetServiceLinkedRoleDeletionStatusResponse' :: GetServiceLinkedRoleDeletionStatusResponse
+-&gt; DeletionTaskStatusType
+</span><a href="#local-6989586621679447533"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletionTaskStatusType
+</span><a href="#local-6989586621679447533"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447532"><span class="annot"><span class="annottext">s :: GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="#local-6989586621679447532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447531"><span class="annot"><span class="annottext">DeletionTaskStatusType
+</span><a href="#local-6989586621679447531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceLinkedRoleDeletionStatusResponse
+</span><a href="#local-6989586621679447532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetServiceLinkedRoleDeletionStatusResponse' :: DeletionTaskStatusType
+</span><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#%24sel%3Astatus%3AGetServiceLinkedRoleDeletionStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletionTaskStatusType
+</span><a href="#local-6989586621679447531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679447529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetServiceLinkedRoleDeletionStatus.html#GetServiceLinkedRoleDeletionStatusResponse"><span class="hs-identifier hs-type">GetServiceLinkedRoleDeletionStatusResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

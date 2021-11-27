@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.DeleteFilter</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the filter specified by the filter name.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.DeleteFilter</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier">DeleteFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#newDeleteFilter"><span class="hs-identifier">newDeleteFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilter_detectorId"><span class="hs-identifier">deleteFilter_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilter_filterName"><span class="hs-identifier">deleteFilter_filterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier">DeleteFilterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#newDeleteFilterResponse"><span class="hs-identifier">newDeleteFilterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilterResponse_httpStatus"><span class="hs-identifier">deleteFilterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.html"><span class="hs-identifier">Amazonka.GuardDuty.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteFilter' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679312333"><span id="local-6989586621679312334"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFilter"><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-var">DeleteFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFilter%27"><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-var">DeleteFilter'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector that the filter is associated with.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdetectorId%3ADeleteFilter%27"><span class="annot"><span class="annottext">DeleteFilter -&gt; Text
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AdetectorId%3ADeleteFilter%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name of the filter that you want to delete.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AfilterName%3ADeleteFilter%27"><span class="annot"><span class="annottext">DeleteFilter -&gt; Text
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AfilterName%3ADeleteFilter%27"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312326"><span id="local-6989586621679312328"><span class="annot"><span class="annottext">DeleteFilter -&gt; DeleteFilter -&gt; Bool
+(DeleteFilter -&gt; DeleteFilter -&gt; Bool)
+-&gt; (DeleteFilter -&gt; DeleteFilter -&gt; Bool) -&gt; Eq DeleteFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFilter -&gt; DeleteFilter -&gt; Bool
+$c/= :: DeleteFilter -&gt; DeleteFilter -&gt; Bool
+== :: DeleteFilter -&gt; DeleteFilter -&gt; Bool
+$c== :: DeleteFilter -&gt; DeleteFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312317"><span id="local-6989586621679312319"><span id="local-6989586621679312321"><span id="local-6989586621679312323"><span class="annot"><span class="annottext">ReadPrec [DeleteFilter]
+ReadPrec DeleteFilter
+Int -&gt; ReadS DeleteFilter
+ReadS [DeleteFilter]
+(Int -&gt; ReadS DeleteFilter)
+-&gt; ReadS [DeleteFilter]
+-&gt; ReadPrec DeleteFilter
+-&gt; ReadPrec [DeleteFilter]
+-&gt; Read DeleteFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFilter]
+$creadListPrec :: ReadPrec [DeleteFilter]
+readPrec :: ReadPrec DeleteFilter
+$creadPrec :: ReadPrec DeleteFilter
+readList :: ReadS [DeleteFilter]
+$creadList :: ReadS [DeleteFilter]
+readsPrec :: Int -&gt; ReadS DeleteFilter
+$creadsPrec :: Int -&gt; ReadS DeleteFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312310"><span id="local-6989586621679312312"><span id="local-6989586621679312314"><span class="annot"><span class="annottext">Int -&gt; DeleteFilter -&gt; ShowS
+[DeleteFilter] -&gt; ShowS
+DeleteFilter -&gt; String
+(Int -&gt; DeleteFilter -&gt; ShowS)
+-&gt; (DeleteFilter -&gt; String)
+-&gt; ([DeleteFilter] -&gt; ShowS)
+-&gt; Show DeleteFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFilter] -&gt; ShowS
+$cshowList :: [DeleteFilter] -&gt; ShowS
+show :: DeleteFilter -&gt; String
+$cshow :: DeleteFilter -&gt; String
+showsPrec :: Int -&gt; DeleteFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteFilter -&gt; Rep DeleteFilter x)
+-&gt; (forall x. Rep DeleteFilter x -&gt; DeleteFilter)
+-&gt; Generic DeleteFilter
+forall x. Rep DeleteFilter x -&gt; DeleteFilter
+forall x. DeleteFilter -&gt; Rep DeleteFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteFilter x -&gt; DeleteFilter
+$cfrom :: forall x. DeleteFilter -&gt; Rep DeleteFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DeleteFilter' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'detectorId', 'deleteFilter_detectorId' - The unique ID of the detector that the filter is associated with.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'filterName', 'deleteFilter_filterName' - The name of the filter that you want to delete.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#newDeleteFilter"><span class="hs-identifier hs-type">newDeleteFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'filterName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span>
+</span><span id="line-75"></span><span id="newDeleteFilter"><span class="annot"><span class="annottext">newDeleteFilter :: Text -&gt; Text -&gt; DeleteFilter
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#newDeleteFilter"><span class="hs-identifier hs-var hs-var">newDeleteFilter</span></a></span></span><span> </span><span id="local-6989586621679312305"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312305"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679312304"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312304"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteFilter' :: Text -&gt; Text -&gt; DeleteFilter
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:DeleteFilter' :: Text
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AdetectorId%3ADeleteFilter%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312305"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterName:DeleteFilter' :: Text
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AfilterName%3ADeleteFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312304"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The unique ID of the detector that the filter is associated with.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilter_detectorId"><span class="hs-identifier hs-type">deleteFilter_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="deleteFilter_detectorId"><span class="annot"><span class="annottext">deleteFilter_detectorId :: (Text -&gt; f Text) -&gt; DeleteFilter -&gt; f DeleteFilter
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilter_detectorId"><span class="hs-identifier hs-var hs-var">deleteFilter_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFilter -&gt; Text)
+-&gt; (DeleteFilter -&gt; Text -&gt; DeleteFilter)
+-&gt; Lens DeleteFilter DeleteFilter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312301"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:DeleteFilter' :: DeleteFilter -&gt; Text
+</span><a href="#local-6989586621679312301"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312301"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312300"><span class="annot"><span class="annottext">s :: DeleteFilter
+</span><a href="#local-6989586621679312300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilter
+</span><a href="#local-6989586621679312300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteFilter' :: Text
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AdetectorId%3ADeleteFilter%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the filter that you want to delete.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilter_filterName"><span class="hs-identifier hs-type">deleteFilter_filterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteFilter_filterName"><span class="annot"><span class="annottext">deleteFilter_filterName :: (Text -&gt; f Text) -&gt; DeleteFilter -&gt; f DeleteFilter
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilter_filterName"><span class="hs-identifier hs-var hs-var">deleteFilter_filterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFilter -&gt; Text)
+-&gt; (DeleteFilter -&gt; Text -&gt; DeleteFilter)
+-&gt; Lens DeleteFilter DeleteFilter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312298"><span class="annot"><span class="annottext">Text
+filterName :: Text
+$sel:filterName:DeleteFilter' :: DeleteFilter -&gt; Text
+</span><a href="#local-6989586621679312298"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312298"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312297"><span class="annot"><span class="annottext">s :: DeleteFilter
+</span><a href="#local-6989586621679312297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312296"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilter
+</span><a href="#local-6989586621679312297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:DeleteFilter' :: Text
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AfilterName%3ADeleteFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679312292"><span class="annot"><span class="annottext">request :: DeleteFilter -&gt; Request DeleteFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteFilter -&gt; Request DeleteFilter
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679312288"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteFilter
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteFilter)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteFilter))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteFilter
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteFilter)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312285"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312284"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312284"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312283"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679312283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteFilterResponse
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-var">DeleteFilterResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteFilterResponse)
+-&gt; Either String Int -&gt; Either String DeleteFilterResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312285"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312276"><span id="local-6989586621679312278"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679312269"><span class="annot"><span class="annottext">toHeaders :: DeleteFilter -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteFilter -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679312263"><span class="annot"><span class="annottext">toPath :: DeleteFilter -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312260"><span id="local-6989586621679312261"><span class="annot"><span class="annottext">Text
+filterName :: Text
+detectorId :: Text
+$sel:filterName:DeleteFilter' :: DeleteFilter -&gt; Text
+$sel:detectorId:DeleteFilter' :: DeleteFilter -&gt; Text
+</span><a href="#local-6989586621679312260"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312261"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/filter/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312260"><span class="hs-identifier hs-var">filterName</span></a></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312256"><span class="annot"><span class="annottext">toQuery :: DeleteFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFilter -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteFilterResponse' smart constructor.</span><span>
+</span><span id="line-127"></span><span id="local-6989586621679312253"><span id="local-6989586621679312254"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFilterResponse"><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-var">DeleteFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFilterResponse%27"><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-var">DeleteFilterResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="annot"><span class="annottext">DeleteFilterResponse -&gt; Int
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312248"><span id="local-6989586621679312250"><span class="annot"><span class="annottext">DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
+(DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool)
+-&gt; (DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool)
+-&gt; Eq DeleteFilterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
+$c/= :: DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
+== :: DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
+$c== :: DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312240"><span id="local-6989586621679312242"><span id="local-6989586621679312244"><span id="local-6989586621679312246"><span class="annot"><span class="annottext">ReadPrec [DeleteFilterResponse]
+ReadPrec DeleteFilterResponse
+Int -&gt; ReadS DeleteFilterResponse
+ReadS [DeleteFilterResponse]
+(Int -&gt; ReadS DeleteFilterResponse)
+-&gt; ReadS [DeleteFilterResponse]
+-&gt; ReadPrec DeleteFilterResponse
+-&gt; ReadPrec [DeleteFilterResponse]
+-&gt; Read DeleteFilterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFilterResponse]
+$creadListPrec :: ReadPrec [DeleteFilterResponse]
+readPrec :: ReadPrec DeleteFilterResponse
+$creadPrec :: ReadPrec DeleteFilterResponse
+readList :: ReadS [DeleteFilterResponse]
+$creadList :: ReadS [DeleteFilterResponse]
+readsPrec :: Int -&gt; ReadS DeleteFilterResponse
+$creadsPrec :: Int -&gt; ReadS DeleteFilterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312234"><span id="local-6989586621679312236"><span id="local-6989586621679312238"><span class="annot"><span class="annottext">Int -&gt; DeleteFilterResponse -&gt; ShowS
+[DeleteFilterResponse] -&gt; ShowS
+DeleteFilterResponse -&gt; String
+(Int -&gt; DeleteFilterResponse -&gt; ShowS)
+-&gt; (DeleteFilterResponse -&gt; String)
+-&gt; ([DeleteFilterResponse] -&gt; ShowS)
+-&gt; Show DeleteFilterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFilterResponse] -&gt; ShowS
+$cshowList :: [DeleteFilterResponse] -&gt; ShowS
+show :: DeleteFilterResponse -&gt; String
+$cshow :: DeleteFilterResponse -&gt; String
+showsPrec :: Int -&gt; DeleteFilterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFilterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteFilterResponse -&gt; Rep DeleteFilterResponse x)
+-&gt; (forall x. Rep DeleteFilterResponse x -&gt; DeleteFilterResponse)
+-&gt; Generic DeleteFilterResponse
+forall x. Rep DeleteFilterResponse x -&gt; DeleteFilterResponse
+forall x. DeleteFilterResponse -&gt; Rep DeleteFilterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteFilterResponse x -&gt; DeleteFilterResponse
+$cfrom :: forall x. DeleteFilterResponse -&gt; Rep DeleteFilterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Create a value of 'DeleteFilterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'deleteFilterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#newDeleteFilterResponse"><span class="hs-identifier hs-type">newDeleteFilterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newDeleteFilterResponse"><span class="annot"><span class="annottext">newDeleteFilterResponse :: Int -&gt; DeleteFilterResponse
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#newDeleteFilterResponse"><span class="hs-identifier hs-var hs-var">newDeleteFilterResponse</span></a></span></span><span> </span><span id="local-6989586621679312231"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DeleteFilterResponse' :: Int -&gt; DeleteFilterResponse
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFilterResponse' :: Int
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilterResponse_httpStatus"><span class="hs-identifier hs-type">deleteFilterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span id="deleteFilterResponse_httpStatus"><span class="annot"><span class="annottext">deleteFilterResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteFilterResponse -&gt; f DeleteFilterResponse
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#deleteFilterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteFilterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFilterResponse -&gt; Int)
+-&gt; (DeleteFilterResponse -&gt; Int -&gt; DeleteFilterResponse)
+-&gt; Lens DeleteFilterResponse DeleteFilterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312230"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteFilterResponse' :: DeleteFilterResponse -&gt; Int
+</span><a href="#local-6989586621679312230"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312230"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312229"><span class="annot"><span class="annottext">s :: DeleteFilterResponse
+</span><a href="#local-6989586621679312229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilterResponse
+</span><a href="#local-6989586621679312229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFilterResponse' :: Int
+</span><a href="Amazonka.GuardDuty.DeleteFilter.html#%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

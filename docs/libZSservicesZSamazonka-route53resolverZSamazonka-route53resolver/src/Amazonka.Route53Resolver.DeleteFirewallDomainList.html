@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.DeleteFirewallDomainList</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified domain list.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.DeleteFirewallDomainList</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier">DeleteFirewallDomainList</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#newDeleteFirewallDomainList"><span class="hs-identifier">newDeleteFirewallDomainList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainList_firewallDomainListId"><span class="hs-identifier">deleteFirewallDomainList_firewallDomainListId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier">DeleteFirewallDomainListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#newDeleteFirewallDomainListResponse"><span class="hs-identifier">newDeleteFirewallDomainListResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainListResponse_firewallDomainList"><span class="hs-identifier">deleteFirewallDomainListResponse_firewallDomainList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainListResponse_httpStatus"><span class="hs-identifier">deleteFirewallDomainListResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.html"><span class="hs-identifier">Amazonka.Route53Resolver.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteFirewallDomainList' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679298112"><span id="local-6989586621679298113"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFirewallDomainList"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-var">DeleteFirewallDomainList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFirewallDomainList%27"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList%27"><span class="hs-identifier hs-var">DeleteFirewallDomainList'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the domain list that you want to delete.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AfirewallDomainListId%3ADeleteFirewallDomainList%27"><span class="annot"><span class="annottext">DeleteFirewallDomainList -&gt; Text
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AfirewallDomainListId%3ADeleteFirewallDomainList%27"><span class="hs-identifier hs-var hs-var">firewallDomainListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298106"><span id="local-6989586621679298108"><span class="annot"><span class="annottext">DeleteFirewallDomainList -&gt; DeleteFirewallDomainList -&gt; Bool
+(DeleteFirewallDomainList -&gt; DeleteFirewallDomainList -&gt; Bool)
+-&gt; (DeleteFirewallDomainList -&gt; DeleteFirewallDomainList -&gt; Bool)
+-&gt; Eq DeleteFirewallDomainList
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFirewallDomainList -&gt; DeleteFirewallDomainList -&gt; Bool
+$c/= :: DeleteFirewallDomainList -&gt; DeleteFirewallDomainList -&gt; Bool
+== :: DeleteFirewallDomainList -&gt; DeleteFirewallDomainList -&gt; Bool
+$c== :: DeleteFirewallDomainList -&gt; DeleteFirewallDomainList -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298097"><span id="local-6989586621679298099"><span id="local-6989586621679298101"><span id="local-6989586621679298103"><span class="annot"><span class="annottext">ReadPrec [DeleteFirewallDomainList]
+ReadPrec DeleteFirewallDomainList
+Int -&gt; ReadS DeleteFirewallDomainList
+ReadS [DeleteFirewallDomainList]
+(Int -&gt; ReadS DeleteFirewallDomainList)
+-&gt; ReadS [DeleteFirewallDomainList]
+-&gt; ReadPrec DeleteFirewallDomainList
+-&gt; ReadPrec [DeleteFirewallDomainList]
+-&gt; Read DeleteFirewallDomainList
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFirewallDomainList]
+$creadListPrec :: ReadPrec [DeleteFirewallDomainList]
+readPrec :: ReadPrec DeleteFirewallDomainList
+$creadPrec :: ReadPrec DeleteFirewallDomainList
+readList :: ReadS [DeleteFirewallDomainList]
+$creadList :: ReadS [DeleteFirewallDomainList]
+readsPrec :: Int -&gt; ReadS DeleteFirewallDomainList
+$creadsPrec :: Int -&gt; ReadS DeleteFirewallDomainList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298090"><span id="local-6989586621679298092"><span id="local-6989586621679298094"><span class="annot"><span class="annottext">Int -&gt; DeleteFirewallDomainList -&gt; ShowS
+[DeleteFirewallDomainList] -&gt; ShowS
+DeleteFirewallDomainList -&gt; String
+(Int -&gt; DeleteFirewallDomainList -&gt; ShowS)
+-&gt; (DeleteFirewallDomainList -&gt; String)
+-&gt; ([DeleteFirewallDomainList] -&gt; ShowS)
+-&gt; Show DeleteFirewallDomainList
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFirewallDomainList] -&gt; ShowS
+$cshowList :: [DeleteFirewallDomainList] -&gt; ShowS
+show :: DeleteFirewallDomainList -&gt; String
+$cshow :: DeleteFirewallDomainList -&gt; String
+showsPrec :: Int -&gt; DeleteFirewallDomainList -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFirewallDomainList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteFirewallDomainList -&gt; Rep DeleteFirewallDomainList x)
+-&gt; (forall x.
+    Rep DeleteFirewallDomainList x -&gt; DeleteFirewallDomainList)
+-&gt; Generic DeleteFirewallDomainList
+forall x.
+Rep DeleteFirewallDomainList x -&gt; DeleteFirewallDomainList
+forall x.
+DeleteFirewallDomainList -&gt; Rep DeleteFirewallDomainList x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteFirewallDomainList x -&gt; DeleteFirewallDomainList
+$cfrom :: forall x.
+DeleteFirewallDomainList -&gt; Rep DeleteFirewallDomainList x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DeleteFirewallDomainList' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'firewallDomainListId', 'deleteFirewallDomainList_firewallDomainListId' - The ID of the domain list that you want to delete.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#newDeleteFirewallDomainList"><span class="hs-identifier hs-type">newDeleteFirewallDomainList</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'firewallDomainListId'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span>
+</span><span id="line-69"></span><span id="newDeleteFirewallDomainList"><span class="annot"><span class="annottext">newDeleteFirewallDomainList :: Text -&gt; DeleteFirewallDomainList
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#newDeleteFirewallDomainList"><span class="hs-identifier hs-var hs-var">newDeleteFirewallDomainList</span></a></span></span><span> </span><span id="local-6989586621679298085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298085"><span class="hs-identifier hs-var">pFirewallDomainListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteFirewallDomainList' :: Text -&gt; DeleteFirewallDomainList
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList%27"><span class="hs-identifier hs-type">DeleteFirewallDomainList'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:firewallDomainListId:DeleteFirewallDomainList' :: Text
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AfirewallDomainListId%3ADeleteFirewallDomainList%27"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298085"><span class="hs-identifier hs-var">pFirewallDomainListId_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ID of the domain list that you want to delete.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainList_firewallDomainListId"><span class="hs-identifier hs-type">deleteFirewallDomainList_firewallDomainListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="deleteFirewallDomainList_firewallDomainListId"><span class="annot"><span class="annottext">deleteFirewallDomainList_firewallDomainListId :: (Text -&gt; f Text)
+-&gt; DeleteFirewallDomainList -&gt; f DeleteFirewallDomainList
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainList_firewallDomainListId"><span class="hs-identifier hs-var hs-var">deleteFirewallDomainList_firewallDomainListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFirewallDomainList -&gt; Text)
+-&gt; (DeleteFirewallDomainList -&gt; Text -&gt; DeleteFirewallDomainList)
+-&gt; Lens DeleteFirewallDomainList DeleteFirewallDomainList Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList%27"><span class="hs-identifier hs-type">DeleteFirewallDomainList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298082"><span class="annot"><span class="annottext">Text
+firewallDomainListId :: Text
+$sel:firewallDomainListId:DeleteFirewallDomainList' :: DeleteFirewallDomainList -&gt; Text
+</span><a href="#local-6989586621679298082"><span class="hs-identifier hs-var hs-var">firewallDomainListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298082"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298081"><span class="annot"><span class="annottext">s :: DeleteFirewallDomainList
+</span><a href="#local-6989586621679298081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList%27"><span class="hs-identifier hs-type">DeleteFirewallDomainList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFirewallDomainList
+</span><a href="#local-6989586621679298081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallDomainListId:DeleteFirewallDomainList' :: Text
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AfirewallDomainListId%3ADeleteFirewallDomainList%27"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679298076"><span class="annot"><span class="annottext">request :: DeleteFirewallDomainList -&gt; Request DeleteFirewallDomainList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteFirewallDomainList -&gt; Request DeleteFirewallDomainList
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53Resolver.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679298072"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteFirewallDomainList
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFirewallDomainList)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteFirewallDomainList))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteFirewallDomainList
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFirewallDomainList)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298069"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679298068"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679298068"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679298067"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe FirewallDomainList -&gt; Int -&gt; DeleteFirewallDomainListResponse
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var">DeleteFirewallDomainListResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FirewallDomainList
+ -&gt; Int -&gt; DeleteFirewallDomainListResponse)
+-&gt; Either String (Maybe FirewallDomainList)
+-&gt; Either String (Int -&gt; DeleteFirewallDomainListResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FirewallDomainList)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallDomainList&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteFirewallDomainListResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteFirewallDomainListResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298069"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298059"><span id="local-6989586621679298061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679298052"><span class="annot"><span class="annottext">toHeaders :: DeleteFirewallDomainList -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteFirewallDomainList -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Resolver.DeleteFirewallDomainList&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298042"><span id="local-6989586621679298044"><span id="local-6989586621679298046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679298040"><span class="annot"><span class="annottext">toJSON :: DeleteFirewallDomainList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList%27"><span class="hs-identifier hs-type">DeleteFirewallDomainList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298038"><span class="annot"><span class="annottext">Text
+firewallDomainListId :: Text
+$sel:firewallDomainListId:DeleteFirewallDomainList' :: DeleteFirewallDomainList -&gt; Text
+</span><a href="#local-6989586621679298038"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallDomainListId&quot;</span></span><span>
+</span><span id="line-117"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298038"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span>
+</span><span id="line-118"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679298032"><span class="annot"><span class="annottext">toPath :: DeleteFirewallDomainList -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteFirewallDomainList -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainList"><span class="hs-identifier hs-type">DeleteFirewallDomainList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679298028"><span class="annot"><span class="annottext">toQuery :: DeleteFirewallDomainList -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFirewallDomainList -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDeleteFirewallDomainListResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679298025"><span id="local-6989586621679298026"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFirewallDomainListResponse"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-var">DeleteFirewallDomainListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFirewallDomainListResponse%27"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var">DeleteFirewallDomainListResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain list that you just deleted.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AfirewallDomainList%3ADeleteFirewallDomainListResponse%27"><span class="annot"><span class="annottext">DeleteFirewallDomainListResponse -&gt; Maybe FirewallDomainList
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AfirewallDomainList%3ADeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var hs-var">firewallDomainList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallDomainList.html#FirewallDomainList"><span class="hs-identifier hs-type">FirewallDomainList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteFirewallDomainListResponse%27"><span class="annot"><span class="annottext">DeleteFirewallDomainListResponse -&gt; Int
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AhttpStatus%3ADeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298019"><span id="local-6989586621679298021"><span class="annot"><span class="annottext">DeleteFirewallDomainListResponse
+-&gt; DeleteFirewallDomainListResponse -&gt; Bool
+(DeleteFirewallDomainListResponse
+ -&gt; DeleteFirewallDomainListResponse -&gt; Bool)
+-&gt; (DeleteFirewallDomainListResponse
+    -&gt; DeleteFirewallDomainListResponse -&gt; Bool)
+-&gt; Eq DeleteFirewallDomainListResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFirewallDomainListResponse
+-&gt; DeleteFirewallDomainListResponse -&gt; Bool
+$c/= :: DeleteFirewallDomainListResponse
+-&gt; DeleteFirewallDomainListResponse -&gt; Bool
+== :: DeleteFirewallDomainListResponse
+-&gt; DeleteFirewallDomainListResponse -&gt; Bool
+$c== :: DeleteFirewallDomainListResponse
+-&gt; DeleteFirewallDomainListResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298011"><span id="local-6989586621679298013"><span id="local-6989586621679298015"><span id="local-6989586621679298017"><span class="annot"><span class="annottext">ReadPrec [DeleteFirewallDomainListResponse]
+ReadPrec DeleteFirewallDomainListResponse
+Int -&gt; ReadS DeleteFirewallDomainListResponse
+ReadS [DeleteFirewallDomainListResponse]
+(Int -&gt; ReadS DeleteFirewallDomainListResponse)
+-&gt; ReadS [DeleteFirewallDomainListResponse]
+-&gt; ReadPrec DeleteFirewallDomainListResponse
+-&gt; ReadPrec [DeleteFirewallDomainListResponse]
+-&gt; Read DeleteFirewallDomainListResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFirewallDomainListResponse]
+$creadListPrec :: ReadPrec [DeleteFirewallDomainListResponse]
+readPrec :: ReadPrec DeleteFirewallDomainListResponse
+$creadPrec :: ReadPrec DeleteFirewallDomainListResponse
+readList :: ReadS [DeleteFirewallDomainListResponse]
+$creadList :: ReadS [DeleteFirewallDomainListResponse]
+readsPrec :: Int -&gt; ReadS DeleteFirewallDomainListResponse
+$creadsPrec :: Int -&gt; ReadS DeleteFirewallDomainListResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298005"><span id="local-6989586621679298007"><span id="local-6989586621679298009"><span class="annot"><span class="annottext">Int -&gt; DeleteFirewallDomainListResponse -&gt; ShowS
+[DeleteFirewallDomainListResponse] -&gt; ShowS
+DeleteFirewallDomainListResponse -&gt; String
+(Int -&gt; DeleteFirewallDomainListResponse -&gt; ShowS)
+-&gt; (DeleteFirewallDomainListResponse -&gt; String)
+-&gt; ([DeleteFirewallDomainListResponse] -&gt; ShowS)
+-&gt; Show DeleteFirewallDomainListResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFirewallDomainListResponse] -&gt; ShowS
+$cshowList :: [DeleteFirewallDomainListResponse] -&gt; ShowS
+show :: DeleteFirewallDomainListResponse -&gt; String
+$cshow :: DeleteFirewallDomainListResponse -&gt; String
+showsPrec :: Int -&gt; DeleteFirewallDomainListResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFirewallDomainListResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteFirewallDomainListResponse
+ -&gt; Rep DeleteFirewallDomainListResponse x)
+-&gt; (forall x.
+    Rep DeleteFirewallDomainListResponse x
+    -&gt; DeleteFirewallDomainListResponse)
+-&gt; Generic DeleteFirewallDomainListResponse
+forall x.
+Rep DeleteFirewallDomainListResponse x
+-&gt; DeleteFirewallDomainListResponse
+forall x.
+DeleteFirewallDomainListResponse
+-&gt; Rep DeleteFirewallDomainListResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteFirewallDomainListResponse x
+-&gt; DeleteFirewallDomainListResponse
+$cfrom :: forall x.
+DeleteFirewallDomainListResponse
+-&gt; Rep DeleteFirewallDomainListResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'DeleteFirewallDomainListResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'firewallDomainList', 'deleteFirewallDomainListResponse_firewallDomainList' - The domain list that you just deleted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'deleteFirewallDomainListResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#newDeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">newDeleteFirewallDomainListResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newDeleteFirewallDomainListResponse"><span class="annot"><span class="annottext">newDeleteFirewallDomainListResponse :: Int -&gt; DeleteFirewallDomainListResponse
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#newDeleteFirewallDomainListResponse"><span class="hs-identifier hs-var hs-var">newDeleteFirewallDomainListResponse</span></a></span></span><span> </span><span id="local-6989586621679298002"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DeleteFirewallDomainListResponse' :: Maybe FirewallDomainList -&gt; Int -&gt; DeleteFirewallDomainListResponse
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:firewallDomainList:DeleteFirewallDomainListResponse' :: Maybe FirewallDomainList
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AfirewallDomainList%3ADeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var">firewallDomainList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe FirewallDomainList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFirewallDomainListResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AhttpStatus%3ADeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The domain list that you just deleted.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainListResponse_firewallDomainList"><span class="hs-identifier hs-type">deleteFirewallDomainListResponse_firewallDomainList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallDomainList.html#FirewallDomainList"><span class="hs-identifier hs-type">FirewallDomainList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="deleteFirewallDomainListResponse_firewallDomainList"><span class="annot"><span class="annottext">deleteFirewallDomainListResponse_firewallDomainList :: (Maybe FirewallDomainList -&gt; f (Maybe FirewallDomainList))
+-&gt; DeleteFirewallDomainListResponse
+-&gt; f DeleteFirewallDomainListResponse
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainListResponse_firewallDomainList"><span class="hs-identifier hs-var hs-var">deleteFirewallDomainListResponse_firewallDomainList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFirewallDomainListResponse -&gt; Maybe FirewallDomainList)
+-&gt; (DeleteFirewallDomainListResponse
+    -&gt; Maybe FirewallDomainList -&gt; DeleteFirewallDomainListResponse)
+-&gt; Lens
+     DeleteFirewallDomainListResponse
+     DeleteFirewallDomainListResponse
+     (Maybe FirewallDomainList)
+     (Maybe FirewallDomainList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298001"><span class="annot"><span class="annottext">Maybe FirewallDomainList
+firewallDomainList :: Maybe FirewallDomainList
+$sel:firewallDomainList:DeleteFirewallDomainListResponse' :: DeleteFirewallDomainListResponse -&gt; Maybe FirewallDomainList
+</span><a href="#local-6989586621679298001"><span class="hs-identifier hs-var hs-var">firewallDomainList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FirewallDomainList
+</span><a href="#local-6989586621679298001"><span class="hs-identifier hs-var">firewallDomainList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298000"><span class="annot"><span class="annottext">s :: DeleteFirewallDomainListResponse
+</span><a href="#local-6989586621679298000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297999"><span class="annot"><span class="annottext">Maybe FirewallDomainList
+</span><a href="#local-6989586621679297999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFirewallDomainListResponse
+</span><a href="#local-6989586621679298000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallDomainList:DeleteFirewallDomainListResponse' :: Maybe FirewallDomainList
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AfirewallDomainList%3ADeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var">firewallDomainList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirewallDomainList
+</span><a href="#local-6989586621679297999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainListResponse_httpStatus"><span class="hs-identifier hs-type">deleteFirewallDomainListResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="deleteFirewallDomainListResponse_httpStatus"><span class="annot"><span class="annottext">deleteFirewallDomainListResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteFirewallDomainListResponse
+-&gt; f DeleteFirewallDomainListResponse
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#deleteFirewallDomainListResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteFirewallDomainListResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFirewallDomainListResponse -&gt; Int)
+-&gt; (DeleteFirewallDomainListResponse
+    -&gt; Int -&gt; DeleteFirewallDomainListResponse)
+-&gt; Lens
+     DeleteFirewallDomainListResponse
+     DeleteFirewallDomainListResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297998"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteFirewallDomainListResponse' :: DeleteFirewallDomainListResponse -&gt; Int
+</span><a href="#local-6989586621679297998"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297998"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297997"><span class="annot"><span class="annottext">s :: DeleteFirewallDomainListResponse
+</span><a href="#local-6989586621679297997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297996"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFirewallDomainListResponse
+</span><a href="#local-6989586621679297997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFirewallDomainListResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#%24sel%3AhttpStatus%3ADeleteFirewallDomainListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679297994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteFirewallDomainList.html#DeleteFirewallDomainListResponse"><span class="hs-identifier hs-type">DeleteFirewallDomainListResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

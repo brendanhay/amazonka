@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.WirelessDeviceLogOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.WirelessDeviceLogOption</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LogLevel.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.LogLevel</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceType.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.WirelessDeviceType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The log options for wireless devices and can be used to set log levels</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- for a specific type of wireless device.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newWirelessDeviceLogOption' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679279416"><span id="local-6989586621679279417"></span></span><span class="hs-keyword">data</span><span> </span><span id="WirelessDeviceLogOption"><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-var">WirelessDeviceLogOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WirelessDeviceLogOption%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-var">WirelessDeviceLogOption'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aevents%3AWirelessDeviceLogOption%27"><span class="annot"><span class="annottext">WirelessDeviceLogOption -&gt; Maybe [WirelessDeviceEventLogOption]
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3Aevents%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption.html#WirelessDeviceEventLogOption"><span class="hs-identifier hs-type">WirelessDeviceEventLogOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The wireless device type.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3AWirelessDeviceLogOption%27"><span class="annot"><span class="annottext">WirelessDeviceLogOption -&gt; WirelessDeviceType
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3Atype%27%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceType.html#WirelessDeviceType"><span class="hs-identifier hs-type">WirelessDeviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlogLevel%3AWirelessDeviceLogOption%27"><span class="annot"><span class="annottext">WirelessDeviceLogOption -&gt; LogLevel
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3AlogLevel%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279408"><span id="local-6989586621679279410"><span class="annot"><span class="annottext">WirelessDeviceLogOption -&gt; WirelessDeviceLogOption -&gt; Bool
+(WirelessDeviceLogOption -&gt; WirelessDeviceLogOption -&gt; Bool)
+-&gt; (WirelessDeviceLogOption -&gt; WirelessDeviceLogOption -&gt; Bool)
+-&gt; Eq WirelessDeviceLogOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WirelessDeviceLogOption -&gt; WirelessDeviceLogOption -&gt; Bool
+$c/= :: WirelessDeviceLogOption -&gt; WirelessDeviceLogOption -&gt; Bool
+== :: WirelessDeviceLogOption -&gt; WirelessDeviceLogOption -&gt; Bool
+$c== :: WirelessDeviceLogOption -&gt; WirelessDeviceLogOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279399"><span id="local-6989586621679279401"><span id="local-6989586621679279403"><span id="local-6989586621679279405"><span class="annot"><span class="annottext">ReadPrec [WirelessDeviceLogOption]
+ReadPrec WirelessDeviceLogOption
+Int -&gt; ReadS WirelessDeviceLogOption
+ReadS [WirelessDeviceLogOption]
+(Int -&gt; ReadS WirelessDeviceLogOption)
+-&gt; ReadS [WirelessDeviceLogOption]
+-&gt; ReadPrec WirelessDeviceLogOption
+-&gt; ReadPrec [WirelessDeviceLogOption]
+-&gt; Read WirelessDeviceLogOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WirelessDeviceLogOption]
+$creadListPrec :: ReadPrec [WirelessDeviceLogOption]
+readPrec :: ReadPrec WirelessDeviceLogOption
+$creadPrec :: ReadPrec WirelessDeviceLogOption
+readList :: ReadS [WirelessDeviceLogOption]
+$creadList :: ReadS [WirelessDeviceLogOption]
+readsPrec :: Int -&gt; ReadS WirelessDeviceLogOption
+$creadsPrec :: Int -&gt; ReadS WirelessDeviceLogOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279392"><span id="local-6989586621679279394"><span id="local-6989586621679279396"><span class="annot"><span class="annottext">Int -&gt; WirelessDeviceLogOption -&gt; ShowS
+[WirelessDeviceLogOption] -&gt; ShowS
+WirelessDeviceLogOption -&gt; String
+(Int -&gt; WirelessDeviceLogOption -&gt; ShowS)
+-&gt; (WirelessDeviceLogOption -&gt; String)
+-&gt; ([WirelessDeviceLogOption] -&gt; ShowS)
+-&gt; Show WirelessDeviceLogOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WirelessDeviceLogOption] -&gt; ShowS
+$cshowList :: [WirelessDeviceLogOption] -&gt; ShowS
+show :: WirelessDeviceLogOption -&gt; String
+$cshow :: WirelessDeviceLogOption -&gt; String
+showsPrec :: Int -&gt; WirelessDeviceLogOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; WirelessDeviceLogOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ WirelessDeviceLogOption -&gt; Rep WirelessDeviceLogOption x)
+-&gt; (forall x.
+    Rep WirelessDeviceLogOption x -&gt; WirelessDeviceLogOption)
+-&gt; Generic WirelessDeviceLogOption
+forall x. Rep WirelessDeviceLogOption x -&gt; WirelessDeviceLogOption
+forall x. WirelessDeviceLogOption -&gt; Rep WirelessDeviceLogOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WirelessDeviceLogOption x -&gt; WirelessDeviceLogOption
+$cfrom :: forall x. WirelessDeviceLogOption -&gt; Rep WirelessDeviceLogOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'WirelessDeviceLogOption' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'events', 'wirelessDeviceLogOption_events' - Undocumented member.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'type'', 'wirelessDeviceLogOption_type' - The wireless device type.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'logLevel', 'wirelessDeviceLogOption_logLevel' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#newWirelessDeviceLogOption"><span class="hs-identifier hs-type">newWirelessDeviceLogOption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceType.html#WirelessDeviceType"><span class="hs-identifier hs-type">WirelessDeviceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'logLevel'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span><span>
+</span><span id="line-60"></span><span id="newWirelessDeviceLogOption"><span class="annot"><span class="annottext">newWirelessDeviceLogOption :: WirelessDeviceType -&gt; LogLevel -&gt; WirelessDeviceLogOption
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#newWirelessDeviceLogOption"><span class="hs-identifier hs-var hs-var">newWirelessDeviceLogOption</span></a></span></span><span> </span><span id="local-6989586621679279386"><span class="annot"><span class="annottext">WirelessDeviceType
+</span><a href="#local-6989586621679279386"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679279385"><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679279385"><span class="hs-identifier hs-var">pLogLevel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">WirelessDeviceLogOption' :: Maybe [WirelessDeviceEventLogOption]
+-&gt; WirelessDeviceType -&gt; LogLevel -&gt; WirelessDeviceLogOption
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:events:WirelessDeviceLogOption' :: Maybe [WirelessDeviceEventLogOption]
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3Aevents%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':WirelessDeviceLogOption' :: WirelessDeviceType
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3Atype%27%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceType
+</span><a href="#local-6989586621679279386"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:logLevel:WirelessDeviceLogOption' :: LogLevel
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3AlogLevel%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679279385"><span class="hs-identifier hs-var">pLogLevel_</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_events"><span class="hs-identifier hs-type">wirelessDeviceLogOption_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption.html#WirelessDeviceEventLogOption"><span class="hs-identifier hs-type">WirelessDeviceEventLogOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="wirelessDeviceLogOption_events"><span class="annot"><span class="annottext">wirelessDeviceLogOption_events :: (Maybe [WirelessDeviceEventLogOption]
+ -&gt; f (Maybe [WirelessDeviceEventLogOption]))
+-&gt; WirelessDeviceLogOption -&gt; f WirelessDeviceLogOption
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_events"><span class="hs-identifier hs-var hs-var">wirelessDeviceLogOption_events</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceLogOption -&gt; Maybe [WirelessDeviceEventLogOption])
+-&gt; (WirelessDeviceLogOption
+    -&gt; Maybe [WirelessDeviceEventLogOption] -&gt; WirelessDeviceLogOption)
+-&gt; Lens
+     WirelessDeviceLogOption
+     WirelessDeviceLogOption
+     (Maybe [WirelessDeviceEventLogOption])
+     (Maybe [WirelessDeviceEventLogOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279381"><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+events :: Maybe [WirelessDeviceEventLogOption]
+$sel:events:WirelessDeviceLogOption' :: WirelessDeviceLogOption -&gt; Maybe [WirelessDeviceEventLogOption]
+</span><a href="#local-6989586621679279381"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+</span><a href="#local-6989586621679279381"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279380"><span class="annot"><span class="annottext">s :: WirelessDeviceLogOption
+</span><a href="#local-6989586621679279380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279379"><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+</span><a href="#local-6989586621679279379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceLogOption
+</span><a href="#local-6989586621679279380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:WirelessDeviceLogOption' :: Maybe [WirelessDeviceEventLogOption]
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3Aevents%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+</span><a href="#local-6989586621679279379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [WirelessDeviceEventLogOption]
+  -&gt; f (Maybe [WirelessDeviceEventLogOption]))
+ -&gt; WirelessDeviceLogOption -&gt; f WirelessDeviceLogOption)
+-&gt; ((Maybe [WirelessDeviceEventLogOption]
+     -&gt; f (Maybe [WirelessDeviceEventLogOption]))
+    -&gt; Maybe [WirelessDeviceEventLogOption]
+    -&gt; f (Maybe [WirelessDeviceEventLogOption]))
+-&gt; (Maybe [WirelessDeviceEventLogOption]
+    -&gt; f (Maybe [WirelessDeviceEventLogOption]))
+-&gt; WirelessDeviceLogOption
+-&gt; f WirelessDeviceLogOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [WirelessDeviceEventLogOption]
+  [WirelessDeviceEventLogOption]
+  [WirelessDeviceEventLogOption]
+  [WirelessDeviceEventLogOption]
+-&gt; Iso
+     (Maybe [WirelessDeviceEventLogOption])
+     (Maybe [WirelessDeviceEventLogOption])
+     (Maybe [WirelessDeviceEventLogOption])
+     (Maybe [WirelessDeviceEventLogOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [WirelessDeviceEventLogOption]
+  [WirelessDeviceEventLogOption]
+  [WirelessDeviceEventLogOption]
+  [WirelessDeviceEventLogOption]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The wireless device type.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_type"><span class="hs-identifier hs-type">wirelessDeviceLogOption_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceType.html#WirelessDeviceType"><span class="hs-identifier hs-type">WirelessDeviceType</span></a></span><span>
+</span><span id="line-73"></span><span id="wirelessDeviceLogOption_type"><span class="annot"><span class="annottext">wirelessDeviceLogOption_type :: (WirelessDeviceType -&gt; f WirelessDeviceType)
+-&gt; WirelessDeviceLogOption -&gt; f WirelessDeviceLogOption
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_type"><span class="hs-identifier hs-var hs-var">wirelessDeviceLogOption_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceLogOption -&gt; WirelessDeviceType)
+-&gt; (WirelessDeviceLogOption
+    -&gt; WirelessDeviceType -&gt; WirelessDeviceLogOption)
+-&gt; Lens
+     WirelessDeviceLogOption
+     WirelessDeviceLogOption
+     WirelessDeviceType
+     WirelessDeviceType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279374"><span class="annot"><span class="annottext">WirelessDeviceType
+type' :: WirelessDeviceType
+$sel:type':WirelessDeviceLogOption' :: WirelessDeviceLogOption -&gt; WirelessDeviceType
+</span><a href="#local-6989586621679279374"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceType
+</span><a href="#local-6989586621679279374"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279373"><span class="annot"><span class="annottext">s :: WirelessDeviceLogOption
+</span><a href="#local-6989586621679279373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279372"><span class="annot"><span class="annottext">WirelessDeviceType
+</span><a href="#local-6989586621679279372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceLogOption
+</span><a href="#local-6989586621679279373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':WirelessDeviceLogOption' :: WirelessDeviceType
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3Atype%27%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceType
+</span><a href="#local-6989586621679279372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_logLevel"><span class="hs-identifier hs-type">wirelessDeviceLogOption_logLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span>
+</span><span id="line-77"></span><span id="wirelessDeviceLogOption_logLevel"><span class="annot"><span class="annottext">wirelessDeviceLogOption_logLevel :: (LogLevel -&gt; f LogLevel)
+-&gt; WirelessDeviceLogOption -&gt; f WirelessDeviceLogOption
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_logLevel"><span class="hs-identifier hs-var hs-var">wirelessDeviceLogOption_logLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceLogOption -&gt; LogLevel)
+-&gt; (WirelessDeviceLogOption -&gt; LogLevel -&gt; WirelessDeviceLogOption)
+-&gt; Lens
+     WirelessDeviceLogOption WirelessDeviceLogOption LogLevel LogLevel
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279370"><span class="annot"><span class="annottext">LogLevel
+logLevel :: LogLevel
+$sel:logLevel:WirelessDeviceLogOption' :: WirelessDeviceLogOption -&gt; LogLevel
+</span><a href="#local-6989586621679279370"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679279370"><span class="hs-identifier hs-var">logLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279369"><span class="annot"><span class="annottext">s :: WirelessDeviceLogOption
+</span><a href="#local-6989586621679279369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279368"><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679279368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceLogOption
+</span><a href="#local-6989586621679279369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logLevel:WirelessDeviceLogOption' :: LogLevel
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#%24sel%3AlogLevel%3AWirelessDeviceLogOption%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679279368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279365"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679279363"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WirelessDeviceLogOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WirelessDeviceLogOption)
+-&gt; Value
+-&gt; Parser WirelessDeviceLogOption
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WirelessDeviceLogOption&quot;</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279360"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279360"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+-&gt; WirelessDeviceType -&gt; LogLevel -&gt; WirelessDeviceLogOption
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-var">WirelessDeviceLogOption'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [WirelessDeviceEventLogOption]
+ -&gt; WirelessDeviceType -&gt; LogLevel -&gt; WirelessDeviceLogOption)
+-&gt; Parser (Maybe [WirelessDeviceEventLogOption])
+-&gt; Parser
+     (WirelessDeviceType -&gt; LogLevel -&gt; WirelessDeviceLogOption)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [WirelessDeviceEventLogOption]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [WirelessDeviceEventLogOption]))
+-&gt; Maybe [WirelessDeviceEventLogOption]
+-&gt; Parser (Maybe [WirelessDeviceEventLogOption])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (WirelessDeviceType -&gt; LogLevel -&gt; WirelessDeviceLogOption)
+-&gt; Parser WirelessDeviceType
+-&gt; Parser (LogLevel -&gt; WirelessDeviceLogOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WirelessDeviceType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (LogLevel -&gt; WirelessDeviceLogOption)
+-&gt; Parser LogLevel -&gt; Parser WirelessDeviceLogOption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LogLevel
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279352"><span id="local-6989586621679279354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279341"><span id="local-6989586621679279343"><span id="local-6989586621679279345"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier hs-type">WirelessDeviceLogOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679279339"><span class="annot"><span class="annottext">toJSON :: WirelessDeviceLogOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption%27"><span class="hs-identifier hs-type">WirelessDeviceLogOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279335"><span id="local-6989586621679279336"><span id="local-6989586621679279337"><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+LogLevel
+WirelessDeviceType
+logLevel :: LogLevel
+type' :: WirelessDeviceType
+events :: Maybe [WirelessDeviceEventLogOption]
+$sel:logLevel:WirelessDeviceLogOption' :: WirelessDeviceLogOption -&gt; LogLevel
+$sel:type':WirelessDeviceLogOption' :: WirelessDeviceLogOption -&gt; WirelessDeviceType
+$sel:events:WirelessDeviceLogOption' :: WirelessDeviceLogOption -&gt; Maybe [WirelessDeviceEventLogOption]
+</span><a href="#local-6989586621679279335"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [WirelessDeviceEventLogOption] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([WirelessDeviceEventLogOption] -&gt; Pair)
+-&gt; Maybe [WirelessDeviceEventLogOption] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [WirelessDeviceEventLogOption]
+</span><a href="#local-6989586621679279337"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WirelessDeviceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WirelessDeviceType
+</span><a href="#local-6989586621679279336"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogLevel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679279335"><span class="hs-identifier hs-var">logLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span></pre></body></html>

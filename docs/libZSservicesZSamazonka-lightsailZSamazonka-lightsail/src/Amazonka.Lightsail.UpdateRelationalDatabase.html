@@ -1,0 +1,1091 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.UpdateRelationalDatabase</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Allows the update of one or more attributes of a database in Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Lightsail.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Updates are applied immediately, or in cases where the updates could</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- result in an outage, are applied during the database\'s predefined</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- maintenance window.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- The @update relational database@ operation supports tag-based access</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- control via resource tags applied to the resource identified by</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- relationalDatabaseName. For more information, see the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.UpdateRelationalDatabase</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#newUpdateRelationalDatabase"><span class="hs-identifier">newUpdateRelationalDatabase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_masterUserPassword"><span class="hs-identifier">updateRelationalDatabase_masterUserPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_publiclyAccessible"><span class="hs-identifier">updateRelationalDatabase_publiclyAccessible</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_enableBackupRetention"><span class="hs-identifier">updateRelationalDatabase_enableBackupRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_preferredMaintenanceWindow"><span class="hs-identifier">updateRelationalDatabase_preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_caCertificateIdentifier"><span class="hs-identifier">updateRelationalDatabase_caCertificateIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_preferredBackupWindow"><span class="hs-identifier">updateRelationalDatabase_preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_applyImmediately"><span class="hs-identifier">updateRelationalDatabase_applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_rotateMasterUserPassword"><span class="hs-identifier">updateRelationalDatabase_rotateMasterUserPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_disableBackupRetention"><span class="hs-identifier">updateRelationalDatabase_disableBackupRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_relationalDatabaseName"><span class="hs-identifier">updateRelationalDatabase_relationalDatabaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier">UpdateRelationalDatabaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#newUpdateRelationalDatabaseResponse"><span class="hs-identifier">newUpdateRelationalDatabaseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabaseResponse_operations"><span class="hs-identifier">updateRelationalDatabaseResponse_operations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabaseResponse_httpStatus"><span class="hs-identifier">updateRelationalDatabaseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newUpdateRelationalDatabase' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679666135"><span id="local-6989586621679666136"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRelationalDatabase"><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-var">UpdateRelationalDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRelationalDatabase%27"><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-var">UpdateRelationalDatabase'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The password for the master user. The password can include any printable</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- ASCII character except \&quot;\/\&quot;, \&quot;\&quot;\&quot;, or \&quot;\@\&quot;.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- My__SQL__</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Constraints: Must contain from 8 to 41 characters.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- __PostgreSQL__</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Constraints: Must contain from 8 to 128 characters.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmasterUserPassword%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AmasterUserPassword%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Specifies the accessibility options for your database. A value of @true@</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- specifies a database that is available to resources outside of your</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Lightsail account. A value of @false@ specifies a database that is</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- available only to your Lightsail resources in the same region as your</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3ApubliclyAccessible%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApubliclyAccessible%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">publiclyAccessible</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | When @true@, enables automated backup retention for your database.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Updates are applied during the next maintenance window because this can</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- result in an outage.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AenableBackupRetention%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AenableBackupRetention%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">enableBackupRetention</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The weekly time range during which system maintenance can occur on your</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- block of time for each AWS Region, occurring on a random day of the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- week.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   Specified in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   Example: @Tue:17:00-Tue:17:30@</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3ApreferredMaintenanceWindow%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApreferredMaintenanceWindow%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | Indicates the certificate that needs to be associated with the database.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AcaCertificateIdentifier%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AcaCertificateIdentifier%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">caCertificateIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The daily time range during which automated backups are created for your</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- database if automated backups are enabled.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- -   Must be in the @hh24:mi-hh24:mi@ format.</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     Example: @16:00-16:30@</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- -   Specified in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   Must not conflict with the preferred maintenance window.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3ApreferredBackupWindow%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApreferredBackupWindow%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">preferredBackupWindow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | When @true@, applies changes immediately. When @false@, applies changes</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- during the preferred maintenance window. Some changes may cause an</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- outage.</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AapplyImmediately%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AapplyImmediately%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | When @true@, the master user password is changed to a new strong</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- password generated by Lightsail.</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- Use the @get relational database master user password@ operation to get</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- the new password.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3ArotateMasterUserPassword%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ArotateMasterUserPassword%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">rotateMasterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | When @true@, disables automated backup retention for your database.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- Disabling backup retention deletes all automated database backups.</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- Before disabling this, you may want to create a snapshot of your</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- database using the @create relational database snapshot@ operation.</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- Updates are applied during the next maintenance window because this can</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- result in an outage.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AdisableBackupRetention%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AdisableBackupRetention%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">disableBackupRetention</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The name of your Lightsail database resource to update.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3ArelationalDatabaseName%3AUpdateRelationalDatabase%27"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679666120"><span id="local-6989586621679666122"><span class="annot"><span class="annottext">UpdateRelationalDatabase -&gt; UpdateRelationalDatabase -&gt; Bool
+(UpdateRelationalDatabase -&gt; UpdateRelationalDatabase -&gt; Bool)
+-&gt; (UpdateRelationalDatabase -&gt; UpdateRelationalDatabase -&gt; Bool)
+-&gt; Eq UpdateRelationalDatabase
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRelationalDatabase -&gt; UpdateRelationalDatabase -&gt; Bool
+$c/= :: UpdateRelationalDatabase -&gt; UpdateRelationalDatabase -&gt; Bool
+== :: UpdateRelationalDatabase -&gt; UpdateRelationalDatabase -&gt; Bool
+$c== :: UpdateRelationalDatabase -&gt; UpdateRelationalDatabase -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679666113"><span id="local-6989586621679666115"><span id="local-6989586621679666117"><span class="annot"><span class="annottext">Int -&gt; UpdateRelationalDatabase -&gt; ShowS
+[UpdateRelationalDatabase] -&gt; ShowS
+UpdateRelationalDatabase -&gt; String
+(Int -&gt; UpdateRelationalDatabase -&gt; ShowS)
+-&gt; (UpdateRelationalDatabase -&gt; String)
+-&gt; ([UpdateRelationalDatabase] -&gt; ShowS)
+-&gt; Show UpdateRelationalDatabase
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRelationalDatabase] -&gt; ShowS
+$cshowList :: [UpdateRelationalDatabase] -&gt; ShowS
+show :: UpdateRelationalDatabase -&gt; String
+$cshow :: UpdateRelationalDatabase -&gt; String
+showsPrec :: Int -&gt; UpdateRelationalDatabase -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRelationalDatabase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRelationalDatabase -&gt; Rep UpdateRelationalDatabase x)
+-&gt; (forall x.
+    Rep UpdateRelationalDatabase x -&gt; UpdateRelationalDatabase)
+-&gt; Generic UpdateRelationalDatabase
+forall x.
+Rep UpdateRelationalDatabase x -&gt; UpdateRelationalDatabase
+forall x.
+UpdateRelationalDatabase -&gt; Rep UpdateRelationalDatabase x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRelationalDatabase x -&gt; UpdateRelationalDatabase
+$cfrom :: forall x.
+UpdateRelationalDatabase -&gt; Rep UpdateRelationalDatabase x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'UpdateRelationalDatabase' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'masterUserPassword', 'updateRelationalDatabase_masterUserPassword' - The password for the master user. The password can include any printable</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- ASCII character except \&quot;\/\&quot;, \&quot;\&quot;\&quot;, or \&quot;\@\&quot;.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- My__SQL__</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Constraints: Must contain from 8 to 41 characters.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- __PostgreSQL__</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Constraints: Must contain from 8 to 128 characters.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'publiclyAccessible', 'updateRelationalDatabase_publiclyAccessible' - Specifies the accessibility options for your database. A value of @true@</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- specifies a database that is available to resources outside of your</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Lightsail account. A value of @false@ specifies a database that is</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- available only to your Lightsail resources in the same region as your</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'enableBackupRetention', 'updateRelationalDatabase_enableBackupRetention' - When @true@, enables automated backup retention for your database.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Updates are applied during the next maintenance window because this can</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- result in an outage.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'preferredMaintenanceWindow', 'updateRelationalDatabase_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on your</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- block of time for each AWS Region, occurring on a random day of the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- week.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   Specified in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   Example: @Tue:17:00-Tue:17:30@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'caCertificateIdentifier', 'updateRelationalDatabase_caCertificateIdentifier' - Indicates the certificate that needs to be associated with the database.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'preferredBackupWindow', 'updateRelationalDatabase_preferredBackupWindow' - The daily time range during which automated backups are created for your</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- database if automated backups are enabled.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   Must be in the @hh24:mi-hh24:mi@ format.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     Example: @16:00-16:30@</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   Specified in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   Must not conflict with the preferred maintenance window.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'applyImmediately', 'updateRelationalDatabase_applyImmediately' - When @true@, applies changes immediately. When @false@, applies changes</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- during the preferred maintenance window. Some changes may cause an</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- outage.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'rotateMasterUserPassword', 'updateRelationalDatabase_rotateMasterUserPassword' - When @true@, the master user password is changed to a new strong</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- password generated by Lightsail.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Use the @get relational database master user password@ operation to get</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- the new password.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'disableBackupRetention', 'updateRelationalDatabase_disableBackupRetention' - When @true@, disables automated backup retention for your database.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Disabling backup retention deletes all automated database backups.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Before disabling this, you may want to create a snapshot of your</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- database using the @create relational database snapshot@ operation.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Updates are applied during the next maintenance window because this can</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- result in an outage.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'relationalDatabaseName', 'updateRelationalDatabase_relationalDatabaseName' - The name of your Lightsail database resource to update.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#newUpdateRelationalDatabase"><span class="hs-identifier hs-type">newUpdateRelationalDatabase</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'relationalDatabaseName'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span>
+</span><span id="line-246"></span><span id="newUpdateRelationalDatabase"><span class="annot"><span class="annottext">newUpdateRelationalDatabase :: Text -&gt; UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#newUpdateRelationalDatabase"><span class="hs-identifier hs-var hs-var">newUpdateRelationalDatabase</span></a></span></span><span> </span><span id="local-6989586621679666108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679666108"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">UpdateRelationalDatabase' :: Maybe (Sensitive Text)
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:masterUserPassword:UpdateRelationalDatabase' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AmasterUserPassword%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:publiclyAccessible:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApubliclyAccessible%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableBackupRetention:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AenableBackupRetention%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">enableBackupRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:UpdateRelationalDatabase' :: Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApreferredMaintenanceWindow%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:caCertificateIdentifier:UpdateRelationalDatabase' :: Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AcaCertificateIdentifier%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">caCertificateIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:preferredBackupWindow:UpdateRelationalDatabase' :: Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApreferredBackupWindow%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:applyImmediately:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AapplyImmediately%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:rotateMasterUserPassword:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ArotateMasterUserPassword%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">rotateMasterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:disableBackupRetention:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AdisableBackupRetention%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">disableBackupRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:UpdateRelationalDatabase' :: Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679666108"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The password for the master user. The password can include any printable</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- ASCII character except \&quot;\/\&quot;, \&quot;\&quot;\&quot;, or \&quot;\@\&quot;.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- My__SQL__</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Constraints: Must contain from 8 to 41 characters.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- __PostgreSQL__</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- Constraints: Must contain from 8 to 128 characters.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_masterUserPassword"><span class="hs-identifier hs-type">updateRelationalDatabase_masterUserPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="updateRelationalDatabase_masterUserPassword"><span class="annot"><span class="annottext">updateRelationalDatabase_masterUserPassword :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_masterUserPassword"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe (Sensitive Text))
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe (Sensitive Text) -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666105"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+masterUserPassword :: Maybe (Sensitive Text)
+$sel:masterUserPassword:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679666105"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679666105"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666104"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666103"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679666103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterUserPassword:UpdateRelationalDatabase' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AmasterUserPassword%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679666103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRelationalDatabase
+-&gt; f UpdateRelationalDatabase
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | Specifies the accessibility options for your database. A value of @true@</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- specifies a database that is available to resources outside of your</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Lightsail account. A value of @false@ specifies a database that is</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- available only to your Lightsail resources in the same region as your</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_publiclyAccessible"><span class="hs-identifier hs-type">updateRelationalDatabase_publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="updateRelationalDatabase_publiclyAccessible"><span class="annot"><span class="annottext">updateRelationalDatabase_publiclyAccessible :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_publiclyAccessible"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_publiclyAccessible</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Bool)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Bool -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666099"><span class="annot"><span class="annottext">Maybe Bool
+publiclyAccessible :: Maybe Bool
+$sel:publiclyAccessible:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="#local-6989586621679666099"><span class="hs-identifier hs-var hs-var">publiclyAccessible</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666099"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666098"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666097"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publiclyAccessible:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApubliclyAccessible%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | When @true@, enables automated backup retention for your database.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- Updates are applied during the next maintenance window because this can</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- result in an outage.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_enableBackupRetention"><span class="hs-identifier hs-type">updateRelationalDatabase_enableBackupRetention</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="updateRelationalDatabase_enableBackupRetention"><span class="annot"><span class="annottext">updateRelationalDatabase_enableBackupRetention :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_enableBackupRetention"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_enableBackupRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Bool)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Bool -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666096"><span class="annot"><span class="annottext">Maybe Bool
+enableBackupRetention :: Maybe Bool
+$sel:enableBackupRetention:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="#local-6989586621679666096"><span class="hs-identifier hs-var hs-var">enableBackupRetention</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666096"><span class="hs-identifier hs-var">enableBackupRetention</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666095"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666094"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableBackupRetention:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AenableBackupRetention%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">enableBackupRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The weekly time range during which system maintenance can occur on your</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- block of time for each AWS Region, occurring on a random day of the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- week.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- -   Specified in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- -   Example: @Tue:17:00-Tue:17:30@</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_preferredMaintenanceWindow"><span class="hs-identifier hs-type">updateRelationalDatabase_preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="updateRelationalDatabase_preferredMaintenanceWindow"><span class="annot"><span class="annottext">updateRelationalDatabase_preferredMaintenanceWindow :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_preferredMaintenanceWindow"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_preferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Text)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Text -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666093"><span class="annot"><span class="annottext">Maybe Text
+preferredMaintenanceWindow :: Maybe Text
+$sel:preferredMaintenanceWindow:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Text
+</span><a href="#local-6989586621679666093"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666093"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666092"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:UpdateRelationalDatabase' :: Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApreferredMaintenanceWindow%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | Indicates the certificate that needs to be associated with the database.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_caCertificateIdentifier"><span class="hs-identifier hs-type">updateRelationalDatabase_caCertificateIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="updateRelationalDatabase_caCertificateIdentifier"><span class="annot"><span class="annottext">updateRelationalDatabase_caCertificateIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_caCertificateIdentifier"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_caCertificateIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Text)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Text -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666090"><span class="annot"><span class="annottext">Maybe Text
+caCertificateIdentifier :: Maybe Text
+$sel:caCertificateIdentifier:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Text
+</span><a href="#local-6989586621679666090"><span class="hs-identifier hs-var hs-var">caCertificateIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666090"><span class="hs-identifier hs-var">caCertificateIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666089"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caCertificateIdentifier:UpdateRelationalDatabase' :: Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AcaCertificateIdentifier%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">caCertificateIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The daily time range during which automated backups are created for your</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- database if automated backups are enabled.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- -   Must be in the @hh24:mi-hh24:mi@ format.</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     Example: @16:00-16:30@</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- -   Specified in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- -   Must not conflict with the preferred maintenance window.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-328"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_preferredBackupWindow"><span class="hs-identifier hs-type">updateRelationalDatabase_preferredBackupWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span id="updateRelationalDatabase_preferredBackupWindow"><span class="annot"><span class="annottext">updateRelationalDatabase_preferredBackupWindow :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_preferredBackupWindow"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_preferredBackupWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Text)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Text -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666087"><span class="annot"><span class="annottext">Maybe Text
+preferredBackupWindow :: Maybe Text
+$sel:preferredBackupWindow:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Text
+</span><a href="#local-6989586621679666087"><span class="hs-identifier hs-var hs-var">preferredBackupWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666087"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666086"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666085"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredBackupWindow:UpdateRelationalDatabase' :: Maybe Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ApreferredBackupWindow%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- | When @true@, applies changes immediately. When @false@, applies changes</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- during the preferred maintenance window. Some changes may cause an</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- outage.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_applyImmediately"><span class="hs-identifier hs-type">updateRelationalDatabase_applyImmediately</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="updateRelationalDatabase_applyImmediately"><span class="annot"><span class="annottext">updateRelationalDatabase_applyImmediately :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_applyImmediately"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Bool)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Bool -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666084"><span class="annot"><span class="annottext">Maybe Bool
+applyImmediately :: Maybe Bool
+$sel:applyImmediately:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="#local-6989586621679666084"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666084"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666083"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666082"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AapplyImmediately%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | When @true@, the master user password is changed to a new strong</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- password generated by Lightsail.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- Use the @get relational database master user password@ operation to get</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- the new password.</span><span>
+</span><span id="line-344"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_rotateMasterUserPassword"><span class="hs-identifier hs-type">updateRelationalDatabase_rotateMasterUserPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span id="updateRelationalDatabase_rotateMasterUserPassword"><span class="annot"><span class="annottext">updateRelationalDatabase_rotateMasterUserPassword :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_rotateMasterUserPassword"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_rotateMasterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Bool)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Bool -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666081"><span class="annot"><span class="annottext">Maybe Bool
+rotateMasterUserPassword :: Maybe Bool
+$sel:rotateMasterUserPassword:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="#local-6989586621679666081"><span class="hs-identifier hs-var hs-var">rotateMasterUserPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666081"><span class="hs-identifier hs-var">rotateMasterUserPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666080"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666079"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rotateMasterUserPassword:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ArotateMasterUserPassword%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">rotateMasterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- | When @true@, disables automated backup retention for your database.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- Disabling backup retention deletes all automated database backups.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- Before disabling this, you may want to create a snapshot of your</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- database using the @create relational database snapshot@ operation.</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- Updates are applied during the next maintenance window because this can</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- result in an outage.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_disableBackupRetention"><span class="hs-identifier hs-type">updateRelationalDatabase_disableBackupRetention</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span id="updateRelationalDatabase_disableBackupRetention"><span class="annot"><span class="annottext">updateRelationalDatabase_disableBackupRetention :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_disableBackupRetention"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_disableBackupRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Maybe Bool)
+-&gt; (UpdateRelationalDatabase
+    -&gt; Maybe Bool -&gt; UpdateRelationalDatabase)
+-&gt; Lens
+     UpdateRelationalDatabase
+     UpdateRelationalDatabase
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666078"><span class="annot"><span class="annottext">Maybe Bool
+disableBackupRetention :: Maybe Bool
+$sel:disableBackupRetention:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+</span><a href="#local-6989586621679666078"><span class="hs-identifier hs-var hs-var">disableBackupRetention</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666078"><span class="hs-identifier hs-var">disableBackupRetention</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666077"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666076"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableBackupRetention:UpdateRelationalDatabase' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AdisableBackupRetention%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">disableBackupRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | The name of your Lightsail database resource to update.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_relationalDatabaseName"><span class="hs-identifier hs-type">updateRelationalDatabase_relationalDatabaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-360"></span><span id="updateRelationalDatabase_relationalDatabaseName"><span class="annot"><span class="annottext">updateRelationalDatabase_relationalDatabaseName :: (Text -&gt; f Text)
+-&gt; UpdateRelationalDatabase -&gt; f UpdateRelationalDatabase
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabase_relationalDatabaseName"><span class="hs-identifier hs-var hs-var">updateRelationalDatabase_relationalDatabaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabase -&gt; Text)
+-&gt; (UpdateRelationalDatabase -&gt; Text -&gt; UpdateRelationalDatabase)
+-&gt; Lens UpdateRelationalDatabase UpdateRelationalDatabase Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666075"><span class="annot"><span class="annottext">Text
+relationalDatabaseName :: Text
+$sel:relationalDatabaseName:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Text
+</span><a href="#local-6989586621679666075"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679666075"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679666074"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabase
+</span><a href="#local-6989586621679666074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679666073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679666073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabase
+</span><a href="#local-6989586621679666074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:UpdateRelationalDatabase' :: Text
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3AUpdateRelationalDatabase%27"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679666073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-363"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-364"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-365"></span><span>      </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse</span></a></span><span>
+</span><span id="line-366"></span><span>  </span><span id="local-6989586621679666069"><span class="annot"><span class="annottext">request :: UpdateRelationalDatabase -&gt; Request UpdateRelationalDatabase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateRelationalDatabase -&gt; Request UpdateRelationalDatabase
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-367"></span><span>  </span><span id="local-6989586621679666065"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRelationalDatabase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRelationalDatabase)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-368"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateRelationalDatabase))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRelationalDatabase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRelationalDatabase)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-369"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679666062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679666062"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679666061"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679666061"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679666060"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679666060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-370"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; UpdateRelationalDatabaseResponse
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">UpdateRelationalDatabaseResponse'</span></a></span><span>
+</span><span id="line-371"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; UpdateRelationalDatabaseResponse)
+-&gt; Either String (Maybe [Operation])
+-&gt; Either String (Int -&gt; UpdateRelationalDatabaseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679666060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
+-&gt; Maybe [Operation] -&gt; Either String (Maybe [Operation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRelationalDatabaseResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateRelationalDatabaseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679666062"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679666051"><span id="local-6989586621679666053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span></span></span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679666048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span></span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-380"></span><span>  </span><span id="local-6989586621679666044"><span class="annot"><span class="annottext">toHeaders :: UpdateRelationalDatabase -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRelationalDatabase -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-382"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-383"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-384"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.UpdateRelationalDatabase&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-385"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-386"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-388"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-389"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-390"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-392"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679666034"><span id="local-6989586621679666036"><span id="local-6989586621679666038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-395"></span><span>  </span><span id="local-6989586621679666032"><span class="annot"><span class="annottext">toJSON :: UpdateRelationalDatabase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase%27"><span class="hs-identifier hs-type">UpdateRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679666021"><span id="local-6989586621679666022"><span id="local-6989586621679666023"><span id="local-6989586621679666024"><span id="local-6989586621679666025"><span id="local-6989586621679666026"><span id="local-6989586621679666027"><span id="local-6989586621679666028"><span id="local-6989586621679666029"><span id="local-6989586621679666030"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe (Sensitive Text)
+Text
+relationalDatabaseName :: Text
+disableBackupRetention :: Maybe Bool
+rotateMasterUserPassword :: Maybe Bool
+applyImmediately :: Maybe Bool
+preferredBackupWindow :: Maybe Text
+caCertificateIdentifier :: Maybe Text
+preferredMaintenanceWindow :: Maybe Text
+enableBackupRetention :: Maybe Bool
+publiclyAccessible :: Maybe Bool
+masterUserPassword :: Maybe (Sensitive Text)
+$sel:relationalDatabaseName:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Text
+$sel:disableBackupRetention:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+$sel:rotateMasterUserPassword:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+$sel:applyImmediately:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+$sel:preferredBackupWindow:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Text
+$sel:caCertificateIdentifier:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Text
+$sel:preferredMaintenanceWindow:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Text
+$sel:enableBackupRetention:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+$sel:publiclyAccessible:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe Bool
+$sel:masterUserPassword:UpdateRelationalDatabase' :: UpdateRelationalDatabase -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679666021"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-396"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-397"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-398"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;masterUserPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679666030"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publiclyAccessible&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666029"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableBackupRetention&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-403"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666028"><span class="hs-identifier hs-var">enableBackupRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;preferredMaintenanceWindow&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666027"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;caCertificateIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666026"><span class="hs-identifier hs-var">caCertificateIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;preferredBackupWindow&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679666025"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applyImmediately&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666024"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-412"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rotateMasterUserPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666023"><span class="hs-identifier hs-var">rotateMasterUserPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;disableBackupRetention&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679666022"><span class="hs-identifier hs-var">disableBackupRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-417"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;relationalDatabaseName&quot;</span></span><span>
+</span><span id="line-418"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679666021"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span>
+</span><span id="line-419"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-421"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span>
+</span><span id="line-423"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-424"></span><span>  </span><span id="local-6989586621679666015"><span class="annot"><span class="annottext">toPath :: UpdateRelationalDatabase -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRelationalDatabase -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabase"><span class="hs-identifier hs-type">UpdateRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-427"></span><span>  </span><span id="local-6989586621679666011"><span class="annot"><span class="annottext">toQuery :: UpdateRelationalDatabase -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRelationalDatabase -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- | /See:/ 'newUpdateRelationalDatabaseResponse' smart constructor.</span><span>
+</span><span id="line-430"></span><span id="local-6989586621679666008"><span id="local-6989586621679666009"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRelationalDatabaseResponse"><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-var">UpdateRelationalDatabaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRelationalDatabaseResponse%27"><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">UpdateRelationalDatabaseResponse'</span></a></span></span><span>
+</span><span id="line-431"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-432"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-433"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-434"></span><span>    </span><span id="%24sel%3Aoperations%3AUpdateRelationalDatabaseResponse%27"><span class="annot"><span class="annottext">UpdateRelationalDatabaseResponse -&gt; Maybe [Operation]
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3Aoperations%3AUpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-436"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRelationalDatabaseResponse%27"><span class="annot"><span class="annottext">UpdateRelationalDatabaseResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AhttpStatus%3AUpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-437"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-438"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679666002"><span id="local-6989586621679666004"><span class="annot"><span class="annottext">UpdateRelationalDatabaseResponse
+-&gt; UpdateRelationalDatabaseResponse -&gt; Bool
+(UpdateRelationalDatabaseResponse
+ -&gt; UpdateRelationalDatabaseResponse -&gt; Bool)
+-&gt; (UpdateRelationalDatabaseResponse
+    -&gt; UpdateRelationalDatabaseResponse -&gt; Bool)
+-&gt; Eq UpdateRelationalDatabaseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRelationalDatabaseResponse
+-&gt; UpdateRelationalDatabaseResponse -&gt; Bool
+$c/= :: UpdateRelationalDatabaseResponse
+-&gt; UpdateRelationalDatabaseResponse -&gt; Bool
+== :: UpdateRelationalDatabaseResponse
+-&gt; UpdateRelationalDatabaseResponse -&gt; Bool
+$c== :: UpdateRelationalDatabaseResponse
+-&gt; UpdateRelationalDatabaseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679665994"><span id="local-6989586621679665996"><span id="local-6989586621679665998"><span id="local-6989586621679666000"><span class="annot"><span class="annottext">ReadPrec [UpdateRelationalDatabaseResponse]
+ReadPrec UpdateRelationalDatabaseResponse
+Int -&gt; ReadS UpdateRelationalDatabaseResponse
+ReadS [UpdateRelationalDatabaseResponse]
+(Int -&gt; ReadS UpdateRelationalDatabaseResponse)
+-&gt; ReadS [UpdateRelationalDatabaseResponse]
+-&gt; ReadPrec UpdateRelationalDatabaseResponse
+-&gt; ReadPrec [UpdateRelationalDatabaseResponse]
+-&gt; Read UpdateRelationalDatabaseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRelationalDatabaseResponse]
+$creadListPrec :: ReadPrec [UpdateRelationalDatabaseResponse]
+readPrec :: ReadPrec UpdateRelationalDatabaseResponse
+$creadPrec :: ReadPrec UpdateRelationalDatabaseResponse
+readList :: ReadS [UpdateRelationalDatabaseResponse]
+$creadList :: ReadS [UpdateRelationalDatabaseResponse]
+readsPrec :: Int -&gt; ReadS UpdateRelationalDatabaseResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRelationalDatabaseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679665987"><span id="local-6989586621679665989"><span id="local-6989586621679665991"><span class="annot"><span class="annottext">Int -&gt; UpdateRelationalDatabaseResponse -&gt; ShowS
+[UpdateRelationalDatabaseResponse] -&gt; ShowS
+UpdateRelationalDatabaseResponse -&gt; String
+(Int -&gt; UpdateRelationalDatabaseResponse -&gt; ShowS)
+-&gt; (UpdateRelationalDatabaseResponse -&gt; String)
+-&gt; ([UpdateRelationalDatabaseResponse] -&gt; ShowS)
+-&gt; Show UpdateRelationalDatabaseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRelationalDatabaseResponse] -&gt; ShowS
+$cshowList :: [UpdateRelationalDatabaseResponse] -&gt; ShowS
+show :: UpdateRelationalDatabaseResponse -&gt; String
+$cshow :: UpdateRelationalDatabaseResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRelationalDatabaseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRelationalDatabaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRelationalDatabaseResponse
+ -&gt; Rep UpdateRelationalDatabaseResponse x)
+-&gt; (forall x.
+    Rep UpdateRelationalDatabaseResponse x
+    -&gt; UpdateRelationalDatabaseResponse)
+-&gt; Generic UpdateRelationalDatabaseResponse
+forall x.
+Rep UpdateRelationalDatabaseResponse x
+-&gt; UpdateRelationalDatabaseResponse
+forall x.
+UpdateRelationalDatabaseResponse
+-&gt; Rep UpdateRelationalDatabaseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRelationalDatabaseResponse x
+-&gt; UpdateRelationalDatabaseResponse
+$cfrom :: forall x.
+UpdateRelationalDatabaseResponse
+-&gt; Rep UpdateRelationalDatabaseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- Create a value of 'UpdateRelationalDatabaseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-442"></span><span class="hs-comment">--</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-444"></span><span class="hs-comment">--</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- 'operations', 'updateRelationalDatabaseResponse_operations' - An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-451"></span><span class="hs-comment">--</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- 'httpStatus', 'updateRelationalDatabaseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-453"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#newUpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">newUpdateRelationalDatabaseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-454"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-455"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-456"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse</span></a></span><span>
+</span><span id="line-457"></span><span id="newUpdateRelationalDatabaseResponse"><span class="annot"><span class="annottext">newUpdateRelationalDatabaseResponse :: Int -&gt; UpdateRelationalDatabaseResponse
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#newUpdateRelationalDatabaseResponse"><span class="hs-identifier hs-var hs-var">newUpdateRelationalDatabaseResponse</span></a></span></span><span> </span><span id="local-6989586621679665984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-458"></span><span>  </span><span class="annot"><span class="annottext">UpdateRelationalDatabaseResponse' :: Maybe [Operation] -&gt; Int -&gt; UpdateRelationalDatabaseResponse
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse'</span></a></span><span>
+</span><span id="line-459"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:UpdateRelationalDatabaseResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3Aoperations%3AUpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-460"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-461"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRelationalDatabaseResponse' :: Int
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AhttpStatus%3AUpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-462"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-463"></span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabaseResponse_operations"><span class="hs-identifier hs-type">updateRelationalDatabaseResponse_operations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span id="updateRelationalDatabaseResponse_operations"><span class="annot"><span class="annottext">updateRelationalDatabaseResponse_operations :: (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; UpdateRelationalDatabaseResponse
+-&gt; f UpdateRelationalDatabaseResponse
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabaseResponse_operations"><span class="hs-identifier hs-var hs-var">updateRelationalDatabaseResponse_operations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabaseResponse -&gt; Maybe [Operation])
+-&gt; (UpdateRelationalDatabaseResponse
+    -&gt; Maybe [Operation] -&gt; UpdateRelationalDatabaseResponse)
+-&gt; Lens
+     UpdateRelationalDatabaseResponse
+     UpdateRelationalDatabaseResponse
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679665983"><span class="annot"><span class="annottext">Maybe [Operation]
+operations :: Maybe [Operation]
+$sel:operations:UpdateRelationalDatabaseResponse' :: UpdateRelationalDatabaseResponse -&gt; Maybe [Operation]
+</span><a href="#local-6989586621679665983"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679665983"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679665982"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabaseResponse
+</span><a href="#local-6989586621679665982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679665981"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679665981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabaseResponse
+</span><a href="#local-6989586621679665982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:UpdateRelationalDatabaseResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3Aoperations%3AUpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679665981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+ -&gt; UpdateRelationalDatabaseResponse
+ -&gt; f UpdateRelationalDatabaseResponse)
+-&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
+    -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; UpdateRelationalDatabaseResponse
+-&gt; f UpdateRelationalDatabaseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+-&gt; Iso
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-471"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabaseResponse_httpStatus"><span class="hs-identifier hs-type">updateRelationalDatabaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-472"></span><span id="updateRelationalDatabaseResponse_httpStatus"><span class="annot"><span class="annottext">updateRelationalDatabaseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRelationalDatabaseResponse
+-&gt; f UpdateRelationalDatabaseResponse
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#updateRelationalDatabaseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRelationalDatabaseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRelationalDatabaseResponse -&gt; Int)
+-&gt; (UpdateRelationalDatabaseResponse
+    -&gt; Int -&gt; UpdateRelationalDatabaseResponse)
+-&gt; Lens
+     UpdateRelationalDatabaseResponse
+     UpdateRelationalDatabaseResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679665979"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRelationalDatabaseResponse' :: UpdateRelationalDatabaseResponse -&gt; Int
+</span><a href="#local-6989586621679665979"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665979"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679665978"><span class="annot"><span class="annottext">s :: UpdateRelationalDatabaseResponse
+</span><a href="#local-6989586621679665978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679665977"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRelationalDatabaseResponse
+</span><a href="#local-6989586621679665978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRelationalDatabaseResponse' :: Int
+</span><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#%24sel%3AhttpStatus%3AUpdateRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-475"></span><span>  </span><span id="local-6989586621679665975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-476"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateRelationalDatabase.html#UpdateRelationalDatabaseResponse"><span class="hs-identifier hs-type">UpdateRelationalDatabaseResponse</span></a></span></span><span>
+</span><span id="line-477"></span></pre></body></html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkMail.PutAccessControlRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a new access control rule for the specified organization. The rule</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- allows or denies access to the organization for the specified IPv4</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- addresses, access protocol actions, and user IDs. Adding a new rule with</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the same name as an existing rule replaces the older rule.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkMail.PutAccessControlRule</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier">PutAccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#newPutAccessControlRule"><span class="hs-identifier">newPutAccessControlRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_userIds"><span class="hs-identifier">putAccessControlRule_userIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_actions"><span class="hs-identifier">putAccessControlRule_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notUserIds"><span class="hs-identifier">putAccessControlRule_notUserIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_ipRanges"><span class="hs-identifier">putAccessControlRule_ipRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notIpRanges"><span class="hs-identifier">putAccessControlRule_notIpRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notActions"><span class="hs-identifier">putAccessControlRule_notActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_name"><span class="hs-identifier">putAccessControlRule_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_effect"><span class="hs-identifier">putAccessControlRule_effect</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_description"><span class="hs-identifier">putAccessControlRule_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_organizationId"><span class="hs-identifier">putAccessControlRule_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse"><span class="hs-identifier">PutAccessControlRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#newPutAccessControlRuleResponse"><span class="hs-identifier">newPutAccessControlRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRuleResponse_httpStatus"><span class="hs-identifier">putAccessControlRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.html"><span class="hs-identifier">Amazonka.WorkMail.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newPutAccessControlRule' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679284815"><span id="local-6989586621679284816"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccessControlRule"><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-var">PutAccessControlRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccessControlRule%27"><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-var">PutAccessControlRule'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | User IDs to include in the rule.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AuserIds%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AuserIds%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Access protocol actions to include in the rule. Valid values include</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aactions%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aactions%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | User IDs to exclude from the rule.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnotUserIds%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotUserIds%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notUserIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | IPv4 CIDR ranges to include in the rule.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AipRanges%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AipRanges%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | IPv4 CIDR ranges to exclude from the rule.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnotIpRanges%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotIpRanges%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notIpRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Access protocol actions to exclude from the rule. Valid values include</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AnotActions%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotActions%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The rule name.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aname%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aname%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The rule effect.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aeffect%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; AccessControlRuleEffect
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aeffect%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.AccessControlRuleEffect.html#AccessControlRuleEffect"><span class="hs-identifier hs-type">AccessControlRuleEffect</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The rule description.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adescription%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Adescription%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The identifier of the organization.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AorganizationId%3APutAccessControlRule%27"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AorganizationId%3APutAccessControlRule%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284800"><span id="local-6989586621679284802"><span class="annot"><span class="annottext">PutAccessControlRule -&gt; PutAccessControlRule -&gt; Bool
+(PutAccessControlRule -&gt; PutAccessControlRule -&gt; Bool)
+-&gt; (PutAccessControlRule -&gt; PutAccessControlRule -&gt; Bool)
+-&gt; Eq PutAccessControlRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutAccessControlRule -&gt; PutAccessControlRule -&gt; Bool
+$c/= :: PutAccessControlRule -&gt; PutAccessControlRule -&gt; Bool
+== :: PutAccessControlRule -&gt; PutAccessControlRule -&gt; Bool
+$c== :: PutAccessControlRule -&gt; PutAccessControlRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284791"><span id="local-6989586621679284793"><span id="local-6989586621679284795"><span id="local-6989586621679284797"><span class="annot"><span class="annottext">ReadPrec [PutAccessControlRule]
+ReadPrec PutAccessControlRule
+Int -&gt; ReadS PutAccessControlRule
+ReadS [PutAccessControlRule]
+(Int -&gt; ReadS PutAccessControlRule)
+-&gt; ReadS [PutAccessControlRule]
+-&gt; ReadPrec PutAccessControlRule
+-&gt; ReadPrec [PutAccessControlRule]
+-&gt; Read PutAccessControlRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutAccessControlRule]
+$creadListPrec :: ReadPrec [PutAccessControlRule]
+readPrec :: ReadPrec PutAccessControlRule
+$creadPrec :: ReadPrec PutAccessControlRule
+readList :: ReadS [PutAccessControlRule]
+$creadList :: ReadS [PutAccessControlRule]
+readsPrec :: Int -&gt; ReadS PutAccessControlRule
+$creadsPrec :: Int -&gt; ReadS PutAccessControlRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284784"><span id="local-6989586621679284786"><span id="local-6989586621679284788"><span class="annot"><span class="annottext">Int -&gt; PutAccessControlRule -&gt; ShowS
+[PutAccessControlRule] -&gt; ShowS
+PutAccessControlRule -&gt; String
+(Int -&gt; PutAccessControlRule -&gt; ShowS)
+-&gt; (PutAccessControlRule -&gt; String)
+-&gt; ([PutAccessControlRule] -&gt; ShowS)
+-&gt; Show PutAccessControlRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutAccessControlRule] -&gt; ShowS
+$cshowList :: [PutAccessControlRule] -&gt; ShowS
+show :: PutAccessControlRule -&gt; String
+$cshow :: PutAccessControlRule -&gt; String
+showsPrec :: Int -&gt; PutAccessControlRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutAccessControlRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutAccessControlRule -&gt; Rep PutAccessControlRule x)
+-&gt; (forall x. Rep PutAccessControlRule x -&gt; PutAccessControlRule)
+-&gt; Generic PutAccessControlRule
+forall x. Rep PutAccessControlRule x -&gt; PutAccessControlRule
+forall x. PutAccessControlRule -&gt; Rep PutAccessControlRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutAccessControlRule x -&gt; PutAccessControlRule
+$cfrom :: forall x. PutAccessControlRule -&gt; Rep PutAccessControlRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Create a value of 'PutAccessControlRule' with all optional fields omitted.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'userIds', 'putAccessControlRule_userIds' - User IDs to include in the rule.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'actions', 'putAccessControlRule_actions' - Access protocol actions to include in the rule. Valid values include</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'notUserIds', 'putAccessControlRule_notUserIds' - User IDs to exclude from the rule.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'ipRanges', 'putAccessControlRule_ipRanges' - IPv4 CIDR ranges to include in the rule.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'notIpRanges', 'putAccessControlRule_notIpRanges' - IPv4 CIDR ranges to exclude from the rule.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'notActions', 'putAccessControlRule_notActions' - Access protocol actions to exclude from the rule. Valid values include</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'name', 'putAccessControlRule_name' - The rule name.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'effect', 'putAccessControlRule_effect' - The rule effect.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'description', 'putAccessControlRule_description' - The rule description.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'organizationId', 'putAccessControlRule_organizationId' - The identifier of the organization.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#newPutAccessControlRule"><span class="hs-identifier hs-type">newPutAccessControlRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'effect'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.Types.AccessControlRuleEffect.html#AccessControlRuleEffect"><span class="hs-identifier hs-type">AccessControlRuleEffect</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span>
+</span><span id="line-130"></span><span id="newPutAccessControlRule"><span class="annot"><span class="annottext">newPutAccessControlRule :: Text
+-&gt; AccessControlRuleEffect -&gt; Text -&gt; Text -&gt; PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#newPutAccessControlRule"><span class="hs-identifier hs-var hs-var">newPutAccessControlRule</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679284779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284779"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679284778"><span class="annot"><span class="annottext">AccessControlRuleEffect
+</span><a href="#local-6989586621679284778"><span class="hs-identifier hs-var">pEffect_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679284777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284777"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679284776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284776"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">PutAccessControlRule' :: Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; AccessControlRuleEffect
+-&gt; Text
+-&gt; Text
+-&gt; PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userIds:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AuserIds%3APutAccessControlRule%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:actions:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aactions%3APutAccessControlRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:notUserIds:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotUserIds%3APutAccessControlRule%27"><span class="hs-identifier hs-var">notUserIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:ipRanges:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AipRanges%3APutAccessControlRule%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:notIpRanges:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotIpRanges%3APutAccessControlRule%27"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:notActions:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotActions%3APutAccessControlRule%27"><span class="hs-identifier hs-var">notActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:PutAccessControlRule' :: Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aname%3APutAccessControlRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284779"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:effect:PutAccessControlRule' :: AccessControlRuleEffect
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aeffect%3APutAccessControlRule%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessControlRuleEffect
+</span><a href="#local-6989586621679284778"><span class="hs-identifier hs-var">pEffect_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:PutAccessControlRule' :: Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Adescription%3APutAccessControlRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284777"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationId:PutAccessControlRule' :: Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AorganizationId%3APutAccessControlRule%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284776"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | User IDs to include in the rule.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_userIds"><span class="hs-identifier hs-type">putAccessControlRule_userIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="putAccessControlRule_userIds"><span class="annot"><span class="annottext">putAccessControlRule_userIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_userIds"><span class="hs-identifier hs-var hs-var">putAccessControlRule_userIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Maybe [Text])
+-&gt; (PutAccessControlRule -&gt; Maybe [Text] -&gt; PutAccessControlRule)
+-&gt; Lens
+     PutAccessControlRule
+     PutAccessControlRule
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284773"><span class="annot"><span class="annottext">Maybe [Text]
+userIds :: Maybe [Text]
+$sel:userIds:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284773"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284773"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284772"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284771"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIds:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AuserIds%3APutAccessControlRule%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PutAccessControlRule -&gt; f PutAccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule
+-&gt; f PutAccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Access protocol actions to include in the rule. Valid values include</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_actions"><span class="hs-identifier hs-type">putAccessControlRule_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="putAccessControlRule_actions"><span class="annot"><span class="annottext">putAccessControlRule_actions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_actions"><span class="hs-identifier hs-var hs-var">putAccessControlRule_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Maybe [Text])
+-&gt; (PutAccessControlRule -&gt; Maybe [Text] -&gt; PutAccessControlRule)
+-&gt; Lens
+     PutAccessControlRule
+     PutAccessControlRule
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284767"><span class="annot"><span class="annottext">Maybe [Text]
+actions :: Maybe [Text]
+$sel:actions:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284767"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284767"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284766"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284765"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aactions%3APutAccessControlRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PutAccessControlRule -&gt; f PutAccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule
+-&gt; f PutAccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | User IDs to exclude from the rule.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notUserIds"><span class="hs-identifier hs-type">putAccessControlRule_notUserIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="putAccessControlRule_notUserIds"><span class="annot"><span class="annottext">putAccessControlRule_notUserIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notUserIds"><span class="hs-identifier hs-var hs-var">putAccessControlRule_notUserIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Maybe [Text])
+-&gt; (PutAccessControlRule -&gt; Maybe [Text] -&gt; PutAccessControlRule)
+-&gt; Lens
+     PutAccessControlRule
+     PutAccessControlRule
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284764"><span class="annot"><span class="annottext">Maybe [Text]
+notUserIds :: Maybe [Text]
+$sel:notUserIds:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284764"><span class="hs-identifier hs-var hs-var">notUserIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284764"><span class="hs-identifier hs-var">notUserIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284763"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284762"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notUserIds:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotUserIds%3APutAccessControlRule%27"><span class="hs-identifier hs-var">notUserIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PutAccessControlRule -&gt; f PutAccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule
+-&gt; f PutAccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | IPv4 CIDR ranges to include in the rule.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_ipRanges"><span class="hs-identifier hs-type">putAccessControlRule_ipRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="putAccessControlRule_ipRanges"><span class="annot"><span class="annottext">putAccessControlRule_ipRanges :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_ipRanges"><span class="hs-identifier hs-var hs-var">putAccessControlRule_ipRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Maybe [Text])
+-&gt; (PutAccessControlRule -&gt; Maybe [Text] -&gt; PutAccessControlRule)
+-&gt; Lens
+     PutAccessControlRule
+     PutAccessControlRule
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284761"><span class="annot"><span class="annottext">Maybe [Text]
+ipRanges :: Maybe [Text]
+$sel:ipRanges:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284761"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284761"><span class="hs-identifier hs-var">ipRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284760"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284759"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRanges:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AipRanges%3APutAccessControlRule%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PutAccessControlRule -&gt; f PutAccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule
+-&gt; f PutAccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | IPv4 CIDR ranges to exclude from the rule.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notIpRanges"><span class="hs-identifier hs-type">putAccessControlRule_notIpRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="putAccessControlRule_notIpRanges"><span class="annot"><span class="annottext">putAccessControlRule_notIpRanges :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notIpRanges"><span class="hs-identifier hs-var hs-var">putAccessControlRule_notIpRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Maybe [Text])
+-&gt; (PutAccessControlRule -&gt; Maybe [Text] -&gt; PutAccessControlRule)
+-&gt; Lens
+     PutAccessControlRule
+     PutAccessControlRule
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284758"><span class="annot"><span class="annottext">Maybe [Text]
+notIpRanges :: Maybe [Text]
+$sel:notIpRanges:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284758"><span class="hs-identifier hs-var hs-var">notIpRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284758"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284757"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284756"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notIpRanges:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotIpRanges%3APutAccessControlRule%27"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PutAccessControlRule -&gt; f PutAccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule
+-&gt; f PutAccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Access protocol actions to exclude from the rule. Valid values include</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notActions"><span class="hs-identifier hs-type">putAccessControlRule_notActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="putAccessControlRule_notActions"><span class="annot"><span class="annottext">putAccessControlRule_notActions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_notActions"><span class="hs-identifier hs-var hs-var">putAccessControlRule_notActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Maybe [Text])
+-&gt; (PutAccessControlRule -&gt; Maybe [Text] -&gt; PutAccessControlRule)
+-&gt; Lens
+     PutAccessControlRule
+     PutAccessControlRule
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284755"><span class="annot"><span class="annottext">Maybe [Text]
+notActions :: Maybe [Text]
+$sel:notActions:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284755"><span class="hs-identifier hs-var hs-var">notActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284755"><span class="hs-identifier hs-var">notActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284754"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284753"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notActions:PutAccessControlRule' :: Maybe [Text]
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AnotActions%3APutAccessControlRule%27"><span class="hs-identifier hs-var">notActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PutAccessControlRule -&gt; f PutAccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PutAccessControlRule
+-&gt; f PutAccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The rule name.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_name"><span class="hs-identifier hs-type">putAccessControlRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-178"></span><span id="putAccessControlRule_name"><span class="annot"><span class="annottext">putAccessControlRule_name :: (Text -&gt; f Text) -&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_name"><span class="hs-identifier hs-var hs-var">putAccessControlRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Text)
+-&gt; (PutAccessControlRule -&gt; Text -&gt; PutAccessControlRule)
+-&gt; Lens PutAccessControlRule PutAccessControlRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284752"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PutAccessControlRule' :: PutAccessControlRule -&gt; Text
+</span><a href="#local-6989586621679284752"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284752"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284751"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutAccessControlRule' :: Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aname%3APutAccessControlRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The rule effect.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_effect"><span class="hs-identifier hs-type">putAccessControlRule_effect</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.AccessControlRuleEffect.html#AccessControlRuleEffect"><span class="hs-identifier hs-type">AccessControlRuleEffect</span></a></span><span>
+</span><span id="line-182"></span><span id="putAccessControlRule_effect"><span class="annot"><span class="annottext">putAccessControlRule_effect :: (AccessControlRuleEffect -&gt; f AccessControlRuleEffect)
+-&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_effect"><span class="hs-identifier hs-var hs-var">putAccessControlRule_effect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; AccessControlRuleEffect)
+-&gt; (PutAccessControlRule
+    -&gt; AccessControlRuleEffect -&gt; PutAccessControlRule)
+-&gt; Lens
+     PutAccessControlRule
+     PutAccessControlRule
+     AccessControlRuleEffect
+     AccessControlRuleEffect
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284749"><span class="annot"><span class="annottext">AccessControlRuleEffect
+effect :: AccessControlRuleEffect
+$sel:effect:PutAccessControlRule' :: PutAccessControlRule -&gt; AccessControlRuleEffect
+</span><a href="#local-6989586621679284749"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRuleEffect
+</span><a href="#local-6989586621679284749"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284748"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284747"><span class="annot"><span class="annottext">AccessControlRuleEffect
+</span><a href="#local-6989586621679284747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:PutAccessControlRule' :: AccessControlRuleEffect
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Aeffect%3APutAccessControlRule%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessControlRuleEffect
+</span><a href="#local-6989586621679284747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The rule description.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_description"><span class="hs-identifier hs-type">putAccessControlRule_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-186"></span><span id="putAccessControlRule_description"><span class="annot"><span class="annottext">putAccessControlRule_description :: (Text -&gt; f Text) -&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_description"><span class="hs-identifier hs-var hs-var">putAccessControlRule_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Text)
+-&gt; (PutAccessControlRule -&gt; Text -&gt; PutAccessControlRule)
+-&gt; Lens PutAccessControlRule PutAccessControlRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284746"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:PutAccessControlRule' :: PutAccessControlRule -&gt; Text
+</span><a href="#local-6989586621679284746"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284746"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284745"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PutAccessControlRule' :: Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3Adescription%3APutAccessControlRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The identifier of the organization.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_organizationId"><span class="hs-identifier hs-type">putAccessControlRule_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-190"></span><span id="putAccessControlRule_organizationId"><span class="annot"><span class="annottext">putAccessControlRule_organizationId :: (Text -&gt; f Text) -&gt; PutAccessControlRule -&gt; f PutAccessControlRule
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRule_organizationId"><span class="hs-identifier hs-var hs-var">putAccessControlRule_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRule -&gt; Text)
+-&gt; (PutAccessControlRule -&gt; Text -&gt; PutAccessControlRule)
+-&gt; Lens PutAccessControlRule PutAccessControlRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284743"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:PutAccessControlRule' :: PutAccessControlRule -&gt; Text
+</span><a href="#local-6989586621679284743"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284743"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284742"><span class="annot"><span class="annottext">s :: PutAccessControlRule
+</span><a href="#local-6989586621679284742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284741"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRule
+</span><a href="#local-6989586621679284742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:PutAccessControlRule' :: Text
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AorganizationId%3APutAccessControlRule%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-194"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse"><span class="hs-identifier hs-type">PutAccessControlRuleResponse</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679284737"><span class="annot"><span class="annottext">request :: PutAccessControlRule -&gt; Request PutAccessControlRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutAccessControlRule -&gt; Request PutAccessControlRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679284733"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutAccessControlRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutAccessControlRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutAccessControlRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutAccessControlRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutAccessControlRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284730"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284730"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284729"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284729"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284728"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679284728"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutAccessControlRuleResponse
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse%27"><span class="hs-identifier hs-var">PutAccessControlRuleResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutAccessControlRuleResponse)
+-&gt; Either String Int -&gt; Either String PutAccessControlRuleResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284730"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284721"><span id="local-6989586621679284723"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679284714"><span class="annot"><span class="annottext">toHeaders :: PutAccessControlRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutAccessControlRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.PutAccessControlRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-215"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-219"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284704"><span id="local-6989586621679284706"><span id="local-6989586621679284708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679284702"><span class="annot"><span class="annottext">toJSON :: PutAccessControlRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule%27"><span class="hs-identifier hs-type">PutAccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284691"><span id="local-6989586621679284692"><span id="local-6989586621679284693"><span id="local-6989586621679284694"><span id="local-6989586621679284695"><span id="local-6989586621679284696"><span id="local-6989586621679284697"><span id="local-6989586621679284698"><span id="local-6989586621679284699"><span id="local-6989586621679284700"><span class="annot"><span class="annottext">Maybe [Text]
+Text
+AccessControlRuleEffect
+organizationId :: Text
+description :: Text
+effect :: AccessControlRuleEffect
+name :: Text
+notActions :: Maybe [Text]
+notIpRanges :: Maybe [Text]
+ipRanges :: Maybe [Text]
+notUserIds :: Maybe [Text]
+actions :: Maybe [Text]
+userIds :: Maybe [Text]
+$sel:organizationId:PutAccessControlRule' :: PutAccessControlRule -&gt; Text
+$sel:description:PutAccessControlRule' :: PutAccessControlRule -&gt; Text
+$sel:effect:PutAccessControlRule' :: PutAccessControlRule -&gt; AccessControlRuleEffect
+$sel:name:PutAccessControlRule' :: PutAccessControlRule -&gt; Text
+$sel:notActions:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+$sel:notIpRanges:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+$sel:ipRanges:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+$sel:notUserIds:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+$sel:actions:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+$sel:userIds:PutAccessControlRule' :: PutAccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284691"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284700"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284699"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotUserIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284698"><span class="hs-identifier hs-var">notUserIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284697"><span class="hs-identifier hs-var">ipRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotIpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284696"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284695"><span class="hs-identifier hs-var">notActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284694"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Effect&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessControlRuleEffect -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AccessControlRuleEffect
+</span><a href="#local-6989586621679284693"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284692"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-237"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284691"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679284685"><span class="annot"><span class="annottext">toPath :: PutAccessControlRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutAccessControlRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRule"><span class="hs-identifier hs-type">PutAccessControlRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679284681"><span class="annot"><span class="annottext">toQuery :: PutAccessControlRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutAccessControlRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | /See:/ 'newPutAccessControlRuleResponse' smart constructor.</span><span>
+</span><span id="line-248"></span><span id="local-6989586621679284678"><span id="local-6989586621679284679"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccessControlRuleResponse"><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse"><span class="hs-identifier hs-var">PutAccessControlRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccessControlRuleResponse%27"><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse%27"><span class="hs-identifier hs-var">PutAccessControlRuleResponse'</span></a></span></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutAccessControlRuleResponse%27"><span class="annot"><span class="annottext">PutAccessControlRuleResponse -&gt; Int
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AhttpStatus%3APutAccessControlRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284673"><span id="local-6989586621679284675"><span class="annot"><span class="annottext">PutAccessControlRuleResponse
+-&gt; PutAccessControlRuleResponse -&gt; Bool
+(PutAccessControlRuleResponse
+ -&gt; PutAccessControlRuleResponse -&gt; Bool)
+-&gt; (PutAccessControlRuleResponse
+    -&gt; PutAccessControlRuleResponse -&gt; Bool)
+-&gt; Eq PutAccessControlRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutAccessControlRuleResponse
+-&gt; PutAccessControlRuleResponse -&gt; Bool
+$c/= :: PutAccessControlRuleResponse
+-&gt; PutAccessControlRuleResponse -&gt; Bool
+== :: PutAccessControlRuleResponse
+-&gt; PutAccessControlRuleResponse -&gt; Bool
+$c== :: PutAccessControlRuleResponse
+-&gt; PutAccessControlRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284665"><span id="local-6989586621679284667"><span id="local-6989586621679284669"><span id="local-6989586621679284671"><span class="annot"><span class="annottext">ReadPrec [PutAccessControlRuleResponse]
+ReadPrec PutAccessControlRuleResponse
+Int -&gt; ReadS PutAccessControlRuleResponse
+ReadS [PutAccessControlRuleResponse]
+(Int -&gt; ReadS PutAccessControlRuleResponse)
+-&gt; ReadS [PutAccessControlRuleResponse]
+-&gt; ReadPrec PutAccessControlRuleResponse
+-&gt; ReadPrec [PutAccessControlRuleResponse]
+-&gt; Read PutAccessControlRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutAccessControlRuleResponse]
+$creadListPrec :: ReadPrec [PutAccessControlRuleResponse]
+readPrec :: ReadPrec PutAccessControlRuleResponse
+$creadPrec :: ReadPrec PutAccessControlRuleResponse
+readList :: ReadS [PutAccessControlRuleResponse]
+$creadList :: ReadS [PutAccessControlRuleResponse]
+readsPrec :: Int -&gt; ReadS PutAccessControlRuleResponse
+$creadsPrec :: Int -&gt; ReadS PutAccessControlRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284659"><span id="local-6989586621679284661"><span id="local-6989586621679284663"><span class="annot"><span class="annottext">Int -&gt; PutAccessControlRuleResponse -&gt; ShowS
+[PutAccessControlRuleResponse] -&gt; ShowS
+PutAccessControlRuleResponse -&gt; String
+(Int -&gt; PutAccessControlRuleResponse -&gt; ShowS)
+-&gt; (PutAccessControlRuleResponse -&gt; String)
+-&gt; ([PutAccessControlRuleResponse] -&gt; ShowS)
+-&gt; Show PutAccessControlRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutAccessControlRuleResponse] -&gt; ShowS
+$cshowList :: [PutAccessControlRuleResponse] -&gt; ShowS
+show :: PutAccessControlRuleResponse -&gt; String
+$cshow :: PutAccessControlRuleResponse -&gt; String
+showsPrec :: Int -&gt; PutAccessControlRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutAccessControlRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutAccessControlRuleResponse -&gt; Rep PutAccessControlRuleResponse x)
+-&gt; (forall x.
+    Rep PutAccessControlRuleResponse x -&gt; PutAccessControlRuleResponse)
+-&gt; Generic PutAccessControlRuleResponse
+forall x.
+Rep PutAccessControlRuleResponse x -&gt; PutAccessControlRuleResponse
+forall x.
+PutAccessControlRuleResponse -&gt; Rep PutAccessControlRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutAccessControlRuleResponse x -&gt; PutAccessControlRuleResponse
+$cfrom :: forall x.
+PutAccessControlRuleResponse -&gt; Rep PutAccessControlRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Create a value of 'PutAccessControlRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'httpStatus', 'putAccessControlRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#newPutAccessControlRuleResponse"><span class="hs-identifier hs-type">newPutAccessControlRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse"><span class="hs-identifier hs-type">PutAccessControlRuleResponse</span></a></span><span>
+</span><span id="line-267"></span><span id="newPutAccessControlRuleResponse"><span class="annot"><span class="annottext">newPutAccessControlRuleResponse :: Int -&gt; PutAccessControlRuleResponse
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#newPutAccessControlRuleResponse"><span class="hs-identifier hs-var hs-var">newPutAccessControlRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679284656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284656"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><span class="annottext">PutAccessControlRuleResponse' :: Int -&gt; PutAccessControlRuleResponse
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse%27"><span class="hs-identifier hs-type">PutAccessControlRuleResponse'</span></a></span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccessControlRuleResponse' :: Int
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AhttpStatus%3APutAccessControlRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284656"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRuleResponse_httpStatus"><span class="hs-identifier hs-type">putAccessControlRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse"><span class="hs-identifier hs-type">PutAccessControlRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-275"></span><span id="putAccessControlRuleResponse_httpStatus"><span class="annot"><span class="annottext">putAccessControlRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutAccessControlRuleResponse -&gt; f PutAccessControlRuleResponse
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#putAccessControlRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putAccessControlRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccessControlRuleResponse -&gt; Int)
+-&gt; (PutAccessControlRuleResponse
+    -&gt; Int -&gt; PutAccessControlRuleResponse)
+-&gt; Lens
+     PutAccessControlRuleResponse PutAccessControlRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse%27"><span class="hs-identifier hs-type">PutAccessControlRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284655"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutAccessControlRuleResponse' :: PutAccessControlRuleResponse -&gt; Int
+</span><a href="#local-6989586621679284655"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284655"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284654"><span class="annot"><span class="annottext">s :: PutAccessControlRuleResponse
+</span><a href="#local-6989586621679284654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse%27"><span class="hs-identifier hs-type">PutAccessControlRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284653"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccessControlRuleResponse
+</span><a href="#local-6989586621679284654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccessControlRuleResponse' :: Int
+</span><a href="Amazonka.WorkMail.PutAccessControlRule.html#%24sel%3AhttpStatus%3APutAccessControlRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse"><span class="hs-identifier hs-type">PutAccessControlRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.PutAccessControlRule.html#PutAccessControlRuleResponse"><span class="hs-identifier hs-type">PutAccessControlRuleResponse</span></a></span></span><span>
+</span><span id="line-278"></span></pre></body></html>

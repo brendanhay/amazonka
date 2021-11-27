@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration
+module Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration
 
 -- | Contains the configuration information of an acknowledge action.
 --   
@@ -33,16 +33,16 @@ newAcknowledgeActionConfiguration :: AcknowledgeActionConfiguration
 
 -- | The note that you can leave when you acknowledge the alarm.
 acknowledgeActionConfiguration_note :: Lens' AcknowledgeActionConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.AcknowledgeActionConfiguration
 
 
-module Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest
+module Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest
 
 -- | Information needed to acknowledge the alarm.
 --   
@@ -102,16 +102,16 @@ acknowledgeAlarmActionRequest_requestId :: Lens' AcknowledgeAlarmActionRequest T
 
 -- | The name of the alarm model.
 acknowledgeAlarmActionRequest_alarmModelName :: Lens' AcknowledgeAlarmActionRequest Text
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.AcknowledgeAlarmActionRequest
 
 
-module Network.AWS.IoTEventsData.Types.AlarmStateName
+module Amazonka.IoTEventsData.Types.AlarmStateName
 newtype AlarmStateName
 AlarmStateName' :: Text -> AlarmStateName
 [fromAlarmStateName] :: AlarmStateName -> Text
@@ -121,28 +121,28 @@ pattern AlarmStateName_DISABLED :: AlarmStateName
 pattern AlarmStateName_LATCHED :: AlarmStateName
 pattern AlarmStateName_NORMAL :: AlarmStateName
 pattern AlarmStateName_SNOOZE_DISABLED :: AlarmStateName
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance GHC.Classes.Ord Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.XML.ToXML Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.XML.FromXML Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.Log.ToLog Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.Text.ToText Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Amazonka.Data.Text.FromText Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance GHC.Classes.Ord Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.AlarmStateName.AlarmStateName
 
 
-module Network.AWS.IoTEventsData.Types.AlarmSummary
+module Amazonka.IoTEventsData.Types.AlarmSummary
 
 -- | Contains a summary of an alarm.
 --   
@@ -288,16 +288,16 @@ alarmSummary_lastUpdateTime :: Lens' AlarmSummary (Maybe UTCTime)
 
 -- | The version of the alarm model.
 alarmSummary_alarmModelVersion :: Lens' AlarmSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.AlarmSummary.AlarmSummary
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.AlarmSummary.AlarmSummary
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.AlarmSummary.AlarmSummary
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.AlarmSummary.AlarmSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.AlarmSummary.AlarmSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.AlarmSummary.AlarmSummary
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.AlarmSummary.AlarmSummary
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.AlarmSummary.AlarmSummary
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.AlarmSummary.AlarmSummary
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.AlarmSummary.AlarmSummary
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.AlarmSummary.AlarmSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.AlarmSummary.AlarmSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.AlarmSummary.AlarmSummary
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.AlarmSummary.AlarmSummary
 
 
-module Network.AWS.IoTEventsData.Types.ComparisonOperator
+module Amazonka.IoTEventsData.Types.ComparisonOperator
 newtype ComparisonOperator
 ComparisonOperator' :: Text -> ComparisonOperator
 [fromComparisonOperator] :: ComparisonOperator -> Text
@@ -307,28 +307,28 @@ pattern ComparisonOperator_GREATER_OR_EQUAL :: ComparisonOperator
 pattern ComparisonOperator_LESS :: ComparisonOperator
 pattern ComparisonOperator_LESS_OR_EQUAL :: ComparisonOperator
 pattern ComparisonOperator_NOT_EQUAL :: ComparisonOperator
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Classes.Ord Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.XML.ToXML Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.XML.FromXML Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Log.ToLog Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Text.ToText Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Text.FromText Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Classes.Ord Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.ComparisonOperator.ComparisonOperator
 
 
-module Network.AWS.IoTEventsData.Types.CustomerActionName
+module Amazonka.IoTEventsData.Types.CustomerActionName
 newtype CustomerActionName
 CustomerActionName' :: Text -> CustomerActionName
 [fromCustomerActionName] :: CustomerActionName -> Text
@@ -337,28 +337,28 @@ pattern CustomerActionName_DISABLE :: CustomerActionName
 pattern CustomerActionName_ENABLE :: CustomerActionName
 pattern CustomerActionName_RESET :: CustomerActionName
 pattern CustomerActionName_SNOOZE :: CustomerActionName
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance GHC.Classes.Ord Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.XML.ToXML Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.XML.FromXML Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.Log.ToLog Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.Text.ToText Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Amazonka.Data.Text.FromText Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance GHC.Classes.Ord Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.CustomerActionName.CustomerActionName
 
 
-module Network.AWS.IoTEventsData.Types.DetectorStateSummary
+module Amazonka.IoTEventsData.Types.DetectorStateSummary
 
 -- | Information about the detector state.
 --   
@@ -384,16 +384,16 @@ newDetectorStateSummary :: DetectorStateSummary
 
 -- | The name of the state.
 detectorStateSummary_stateName :: Lens' DetectorStateSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.DetectorStateSummary.DetectorStateSummary
 
 
-module Network.AWS.IoTEventsData.Types.DetectorSummary
+module Amazonka.IoTEventsData.Types.DetectorSummary
 
 -- | Information about the detector (instance).
 --   
@@ -473,16 +473,16 @@ detectorSummary_detectorModelVersion :: Lens' DetectorSummary (Maybe Text)
 
 -- | The time the detector (instance) was last updated.
 detectorSummary_lastUpdateTime :: Lens' DetectorSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.DetectorSummary.DetectorSummary
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.DetectorSummary.DetectorSummary
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.DetectorSummary.DetectorSummary
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.DetectorSummary.DetectorSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.DetectorSummary.DetectorSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.DetectorSummary.DetectorSummary
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.DetectorSummary.DetectorSummary
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.DetectorSummary.DetectorSummary
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.DetectorSummary.DetectorSummary
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.DetectorSummary.DetectorSummary
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.DetectorSummary.DetectorSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.DetectorSummary.DetectorSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.DetectorSummary.DetectorSummary
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.DetectorSummary.DetectorSummary
 
 
-module Network.AWS.IoTEventsData.Types.DisableActionConfiguration
+module Amazonka.IoTEventsData.Types.DisableActionConfiguration
 
 -- | Contains the configuration information of a disable action.
 --   
@@ -509,16 +509,16 @@ newDisableActionConfiguration :: DisableActionConfiguration
 
 -- | The note that you can leave when you disable the alarm.
 disableActionConfiguration_note :: Lens' DisableActionConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.DisableActionConfiguration.DisableActionConfiguration
 
 
-module Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest
+module Amazonka.IoTEventsData.Types.DisableAlarmActionRequest
 
 -- | Information used to disable the alarm.
 --   
@@ -577,16 +577,16 @@ disableAlarmActionRequest_requestId :: Lens' DisableAlarmActionRequest Text
 
 -- | The name of the alarm model.
 disableAlarmActionRequest_alarmModelName :: Lens' DisableAlarmActionRequest Text
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.DisableAlarmActionRequest
 
 
-module Network.AWS.IoTEventsData.Types.EnableActionConfiguration
+module Amazonka.IoTEventsData.Types.EnableActionConfiguration
 
 -- | Contains the configuration information of an enable action.
 --   
@@ -613,16 +613,16 @@ newEnableActionConfiguration :: EnableActionConfiguration
 
 -- | The note that you can leave when you enable the alarm.
 enableActionConfiguration_note :: Lens' EnableActionConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.EnableActionConfiguration.EnableActionConfiguration
 
 
-module Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest
+module Amazonka.IoTEventsData.Types.EnableAlarmActionRequest
 
 -- | Information needed to enable the alarm.
 --   
@@ -681,16 +681,16 @@ enableAlarmActionRequest_requestId :: Lens' EnableAlarmActionRequest Text
 
 -- | The name of the alarm model.
 enableAlarmActionRequest_alarmModelName :: Lens' EnableAlarmActionRequest Text
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.EnableAlarmActionRequest
 
 
-module Network.AWS.IoTEventsData.Types.ErrorCode
+module Amazonka.IoTEventsData.Types.ErrorCode
 newtype ErrorCode
 ErrorCode' :: Text -> ErrorCode
 [fromErrorCode] :: ErrorCode -> Text
@@ -699,28 +699,28 @@ pattern ErrorCode_InvalidRequestException :: ErrorCode
 pattern ErrorCode_ResourceNotFoundException :: ErrorCode
 pattern ErrorCode_ServiceUnavailableException :: ErrorCode
 pattern ErrorCode_ThrottlingException :: ErrorCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance GHC.Classes.Ord Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.XML.ToXML Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.XML.FromXML Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Log.ToLog Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Text.ToText Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Text.FromText Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance GHC.Classes.Ord Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.ErrorCode.ErrorCode
 
 
-module Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
+module Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
 
 -- | Information about the error that occurred when attempting to update a
 --   detector.
@@ -773,16 +773,16 @@ batchUpdateDetectorErrorEntry_errorMessage :: Lens' BatchUpdateDetectorErrorEntr
 --   (The value of the <tt>"messageId"</tt> in the update request
 --   <tt>"Detector"</tt> object.)
 batchUpdateDetectorErrorEntry_messageId :: Lens' BatchUpdateDetectorErrorEntry (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.BatchUpdateDetectorErrorEntry
 
 
-module Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry
+module Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry
 
 -- | Contains information about the errors encountered.
 --   
@@ -833,16 +833,16 @@ batchPutMessageErrorEntry_errorMessage :: Lens' BatchPutMessageErrorEntry (Maybe
 --   corresponding to the <tt>"messageId"</tt> key in the
 --   <tt>"message"</tt> object.)
 batchPutMessageErrorEntry_messageId :: Lens' BatchPutMessageErrorEntry (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.BatchPutMessageErrorEntry
 
 
-module Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry
+module Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry
 
 -- | Contains error messages associated with one of the following requests:
 --   
@@ -896,42 +896,42 @@ batchAlarmActionErrorEntry_errorCode :: Lens' BatchAlarmActionErrorEntry (Maybe 
 
 -- | A message that describes the error.
 batchAlarmActionErrorEntry_errorMessage :: Lens' BatchAlarmActionErrorEntry (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.BatchAlarmActionErrorEntry
 
 
-module Network.AWS.IoTEventsData.Types.EventType
+module Amazonka.IoTEventsData.Types.EventType
 newtype EventType
 EventType' :: Text -> EventType
 [fromEventType] :: EventType -> Text
 pattern EventType_STATE_CHANGE :: EventType
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.EventType.EventType
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.EventType.EventType
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.EventType.EventType
-instance GHC.Classes.Ord Network.AWS.IoTEventsData.Types.EventType.EventType
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.EventType.EventType
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.EventType.EventType
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.XML.ToXML Amazonka.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.XML.FromXML Amazonka.IoTEventsData.Types.EventType.EventType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTEventsData.Types.EventType.EventType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.EventType.EventType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTEventsData.Types.EventType.EventType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.Log.ToLog Amazonka.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.Text.ToText Amazonka.IoTEventsData.Types.EventType.EventType
+instance Amazonka.Data.Text.FromText Amazonka.IoTEventsData.Types.EventType.EventType
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.EventType.EventType
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.EventType.EventType
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.EventType.EventType
+instance GHC.Classes.Ord Amazonka.IoTEventsData.Types.EventType.EventType
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.EventType.EventType
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.EventType.EventType
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.EventType.EventType
 
 
-module Network.AWS.IoTEventsData.Types.ResetActionConfiguration
+module Amazonka.IoTEventsData.Types.ResetActionConfiguration
 
 -- | Contains the configuration information of a reset action.
 --   
@@ -958,16 +958,16 @@ newResetActionConfiguration :: ResetActionConfiguration
 
 -- | The note that you can leave when you reset the alarm.
 resetActionConfiguration_note :: Lens' ResetActionConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.ResetActionConfiguration.ResetActionConfiguration
 
 
-module Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest
+module Amazonka.IoTEventsData.Types.ResetAlarmActionRequest
 
 -- | Information needed to reset the alarm.
 --   
@@ -1026,16 +1026,16 @@ resetAlarmActionRequest_requestId :: Lens' ResetAlarmActionRequest Text
 
 -- | The name of the alarm model.
 resetAlarmActionRequest_alarmModelName :: Lens' ResetAlarmActionRequest Text
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.ResetAlarmActionRequest
 
 
-module Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation
+module Amazonka.IoTEventsData.Types.SimpleRuleEvaluation
 
 -- | Information needed to compare two values with a comparison operator.
 --   
@@ -1083,16 +1083,16 @@ simpleRuleEvaluation_inputPropertyValue :: Lens' SimpleRuleEvaluation (Maybe Tex
 
 -- | The comparison operator.
 simpleRuleEvaluation_operator :: Lens' SimpleRuleEvaluation (Maybe ComparisonOperator)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.SimpleRuleEvaluation
 
 
-module Network.AWS.IoTEventsData.Types.RuleEvaluation
+module Amazonka.IoTEventsData.Types.RuleEvaluation
 
 -- | Information needed to evaluate data.
 --   
@@ -1119,16 +1119,16 @@ newRuleEvaluation :: RuleEvaluation
 
 -- | Information needed to compare two values with a comparison operator.
 ruleEvaluation_simpleRuleEvaluation :: Lens' RuleEvaluation (Maybe SimpleRuleEvaluation)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.RuleEvaluation.RuleEvaluation
 
 
-module Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration
+module Amazonka.IoTEventsData.Types.SnoozeActionConfiguration
 
 -- | Contains the configuration information of a snooze action.
 --   
@@ -1168,16 +1168,16 @@ snoozeActionConfiguration_note :: Lens' SnoozeActionConfiguration (Maybe Text)
 -- | The snooze time in seconds. The alarm automatically changes to the
 --   <tt>NORMAL</tt> state after this duration.
 snoozeActionConfiguration_snoozeDuration :: Lens' SnoozeActionConfiguration (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.SnoozeActionConfiguration
 
 
-module Network.AWS.IoTEventsData.Types.CustomerAction
+module Amazonka.IoTEventsData.Types.CustomerAction
 
 -- | Contains information about the action that you can take to respond to
 --   the alarm.
@@ -1302,16 +1302,16 @@ customerAction_disableActionConfiguration :: Lens' CustomerAction (Maybe Disable
 
 -- | Contains the configuration information of an acknowledge action.
 customerAction_acknowledgeActionConfiguration :: Lens' CustomerAction (Maybe AcknowledgeActionConfiguration)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.CustomerAction.CustomerAction
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.CustomerAction.CustomerAction
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.CustomerAction.CustomerAction
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.CustomerAction.CustomerAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.CustomerAction.CustomerAction
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.CustomerAction.CustomerAction
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.CustomerAction.CustomerAction
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.CustomerAction.CustomerAction
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.CustomerAction.CustomerAction
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.CustomerAction.CustomerAction
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.CustomerAction.CustomerAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.CustomerAction.CustomerAction
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.CustomerAction.CustomerAction
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.CustomerAction.CustomerAction
 
 
-module Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest
+module Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest
 
 -- | Information needed to snooze the alarm.
 --   
@@ -1383,16 +1383,16 @@ snoozeAlarmActionRequest_alarmModelName :: Lens' SnoozeAlarmActionRequest Text
 -- | The snooze time in seconds. The alarm automatically changes to the
 --   <tt>NORMAL</tt> state after this duration.
 snoozeAlarmActionRequest_snoozeDuration :: Lens' SnoozeAlarmActionRequest Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.SnoozeAlarmActionRequest
 
 
-module Network.AWS.IoTEventsData.Types.Timer
+module Amazonka.IoTEventsData.Types.Timer
 
 -- | The current state of a timer.
 --   
@@ -1425,16 +1425,16 @@ timer_name :: Lens' Timer Text
 
 -- | The number of seconds which have elapsed on the timer.
 timer_timestamp :: Lens' Timer UTCTime
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.Timer.Timer
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.Timer.Timer
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.Timer.Timer
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.Timer.Timer
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.Timer.Timer
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.Timer.Timer
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.Timer.Timer
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.Timer.Timer
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.Timer.Timer
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.Timer.Timer
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.Timer.Timer
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.Timer.Timer
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.Timer.Timer
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.Timer.Timer
 
 
-module Network.AWS.IoTEventsData.Types.TimerDefinition
+module Amazonka.IoTEventsData.Types.TimerDefinition
 
 -- | The new setting of a timer.
 --   
@@ -1472,16 +1472,16 @@ timerDefinition_name :: Lens' TimerDefinition Text
 -- | The new setting of the timer (the number of seconds before the timer
 --   elapses).
 timerDefinition_seconds :: Lens' TimerDefinition Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.TimerDefinition.TimerDefinition
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.TimerDefinition.TimerDefinition
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.TimerDefinition.TimerDefinition
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.TimerDefinition.TimerDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.TimerDefinition.TimerDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.TimerDefinition.TimerDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.TimerDefinition.TimerDefinition
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.TimerDefinition.TimerDefinition
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.TimerDefinition.TimerDefinition
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.TimerDefinition.TimerDefinition
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.TimerDefinition.TimerDefinition
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.TimerDefinition.TimerDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.TimerDefinition.TimerDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.TimerDefinition.TimerDefinition
 
 
-module Network.AWS.IoTEventsData.Types.TimestampValue
+module Amazonka.IoTEventsData.Types.TimestampValue
 
 -- | Contains information about a timestamp.
 --   
@@ -1508,16 +1508,16 @@ newTimestampValue :: TimestampValue
 
 -- | The value of the timestamp, in the Unix epoch format.
 timestampValue_timeInMillis :: Lens' TimestampValue (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.TimestampValue.TimestampValue
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.TimestampValue.TimestampValue
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.TimestampValue.TimestampValue
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.TimestampValue.TimestampValue
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.TimestampValue.TimestampValue
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.TimestampValue.TimestampValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.TimestampValue.TimestampValue
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.TimestampValue.TimestampValue
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.TimestampValue.TimestampValue
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.TimestampValue.TimestampValue
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.TimestampValue.TimestampValue
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.TimestampValue.TimestampValue
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.TimestampValue.TimestampValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.TimestampValue.TimestampValue
 
 
-module Network.AWS.IoTEventsData.Types.Message
+module Amazonka.IoTEventsData.Types.Message
 
 -- | Information about a message.
 --   
@@ -1586,42 +1586,42 @@ message_inputName :: Lens' Message Text
 --   from Base64 representation during deserialisation. -- This
 --   <tt>Lens</tt> accepts and returns only raw unencoded data.
 message_payload :: Lens' Message ByteString
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.Message.Message
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.Message.Message
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.Message.Message
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.Message.Message
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.Message.Message
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.Message.Message
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.Message.Message
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.Message.Message
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.Message.Message
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.Message.Message
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.Message.Message
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.Message.Message
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.Message.Message
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.Message.Message
 
 
-module Network.AWS.IoTEventsData.Types.TriggerType
+module Amazonka.IoTEventsData.Types.TriggerType
 newtype TriggerType
 TriggerType' :: Text -> TriggerType
 [fromTriggerType] :: TriggerType -> Text
 pattern TriggerType_SNOOZE_TIMEOUT :: TriggerType
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance GHC.Classes.Ord Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.XML.ToXML Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.XML.FromXML Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.Log.ToLog Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.Text.ToText Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Amazonka.Data.Text.FromText Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance GHC.Classes.Ord Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.TriggerType.TriggerType
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.TriggerType.TriggerType
 
 
-module Network.AWS.IoTEventsData.Types.StateChangeConfiguration
+module Amazonka.IoTEventsData.Types.StateChangeConfiguration
 
 -- | Contains the configuration information of alarm state changes.
 --   
@@ -1653,16 +1653,16 @@ newStateChangeConfiguration :: StateChangeConfiguration
 --   duration ends and the alarm automatically changes to the
 --   <tt>NORMAL</tt> state.
 stateChangeConfiguration_triggerType :: Lens' StateChangeConfiguration (Maybe TriggerType)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.StateChangeConfiguration.StateChangeConfiguration
 
 
-module Network.AWS.IoTEventsData.Types.SystemEvent
+module Amazonka.IoTEventsData.Types.SystemEvent
 
 -- | Contains information about alarm state changes.
 --   
@@ -1700,16 +1700,16 @@ systemEvent_eventType :: Lens' SystemEvent (Maybe EventType)
 
 -- | Contains the configuration information of alarm state changes.
 systemEvent_stateChangeConfiguration :: Lens' SystemEvent (Maybe StateChangeConfiguration)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.SystemEvent.SystemEvent
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.SystemEvent.SystemEvent
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.SystemEvent.SystemEvent
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.SystemEvent.SystemEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.SystemEvent.SystemEvent
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.SystemEvent.SystemEvent
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.SystemEvent.SystemEvent
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.SystemEvent.SystemEvent
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.SystemEvent.SystemEvent
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.SystemEvent.SystemEvent
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.SystemEvent.SystemEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.SystemEvent.SystemEvent
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.SystemEvent.SystemEvent
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.SystemEvent.SystemEvent
 
 
-module Network.AWS.IoTEventsData.Types.AlarmState
+module Amazonka.IoTEventsData.Types.AlarmState
 
 -- | Contains information about the current state of the alarm.
 --   
@@ -1834,16 +1834,16 @@ alarmState_ruleEvaluation :: Lens' AlarmState (Maybe RuleEvaluation)
 
 -- | Contains information about alarm state changes.
 alarmState_systemEvent :: Lens' AlarmState (Maybe SystemEvent)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.AlarmState.AlarmState
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.AlarmState.AlarmState
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.AlarmState.AlarmState
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.AlarmState.AlarmState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.AlarmState.AlarmState
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.AlarmState.AlarmState
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.AlarmState.AlarmState
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.AlarmState.AlarmState
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.AlarmState.AlarmState
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.AlarmState.AlarmState
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.AlarmState.AlarmState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.AlarmState.AlarmState
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.AlarmState.AlarmState
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.AlarmState.AlarmState
 
 
-module Network.AWS.IoTEventsData.Types.Alarm
+module Amazonka.IoTEventsData.Types.Alarm
 
 -- | Contains information about an alarm.
 --   
@@ -1925,16 +1925,16 @@ alarm_lastUpdateTime :: Lens' Alarm (Maybe UTCTime)
 
 -- | The version of the alarm model.
 alarm_alarmModelVersion :: Lens' Alarm (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.Alarm.Alarm
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.Alarm.Alarm
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.Alarm.Alarm
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.Alarm.Alarm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.Alarm.Alarm
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.Alarm.Alarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.Alarm.Alarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.Alarm.Alarm
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.Alarm.Alarm
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.Alarm.Alarm
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.Alarm.Alarm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.Alarm.Alarm
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.Alarm.Alarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.Alarm.Alarm
 
 
-module Network.AWS.IoTEventsData.Types.Variable
+module Amazonka.IoTEventsData.Types.Variable
 
 -- | The current state of the variable.
 --   
@@ -1968,16 +1968,16 @@ variable_name :: Lens' Variable Text
 
 -- | The current value of the variable.
 variable_value :: Lens' Variable Text
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.Variable.Variable
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.Variable.Variable
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.Variable.Variable
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.Variable.Variable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.Variable.Variable
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.Variable.Variable
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.Variable.Variable
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.Variable.Variable
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.Variable.Variable
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.Variable.Variable
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.Variable.Variable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.Variable.Variable
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.Variable.Variable
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.Variable.Variable
 
 
-module Network.AWS.IoTEventsData.Types.DetectorState
+module Amazonka.IoTEventsData.Types.DetectorState
 
 -- | Information about the current state of the detector instance.
 --   
@@ -2021,16 +2021,16 @@ detectorState_variables :: Lens' DetectorState [Variable]
 
 -- | The current state of the detector's timers.
 detectorState_timers :: Lens' DetectorState [Timer]
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.DetectorState.DetectorState
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.DetectorState.DetectorState
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.DetectorState.DetectorState
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.DetectorState.DetectorState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.DetectorState.DetectorState
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.DetectorState.DetectorState
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.DetectorState.DetectorState
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.DetectorState.DetectorState
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.DetectorState.DetectorState
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.DetectorState.DetectorState
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.DetectorState.DetectorState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.DetectorState.DetectorState
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.DetectorState.DetectorState
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.DetectorState.DetectorState
 
 
-module Network.AWS.IoTEventsData.Types.Detector
+module Amazonka.IoTEventsData.Types.Detector
 
 -- | Information about the detector (instance).
 --   
@@ -2107,16 +2107,16 @@ detector_detectorModelVersion :: Lens' Detector (Maybe Text)
 
 -- | The time the detector (instance) was last updated.
 detector_lastUpdateTime :: Lens' Detector (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.Detector.Detector
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.Detector.Detector
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.Detector.Detector
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.Detector.Detector
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTEventsData.Types.Detector.Detector
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.Detector.Detector
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.Detector.Detector
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.Detector.Detector
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.Detector.Detector
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.Detector.Detector
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.Detector.Detector
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTEventsData.Types.Detector.Detector
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.Detector.Detector
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.Detector.Detector
 
 
-module Network.AWS.IoTEventsData.Types.VariableDefinition
+module Amazonka.IoTEventsData.Types.VariableDefinition
 
 -- | The new value of the variable.
 --   
@@ -2151,16 +2151,16 @@ variableDefinition_name :: Lens' VariableDefinition Text
 
 -- | The new value of the variable.
 variableDefinition_value :: Lens' VariableDefinition Text
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.VariableDefinition.VariableDefinition
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.VariableDefinition.VariableDefinition
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.VariableDefinition.VariableDefinition
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.VariableDefinition.VariableDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.VariableDefinition.VariableDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.VariableDefinition.VariableDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.VariableDefinition.VariableDefinition
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.VariableDefinition.VariableDefinition
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.VariableDefinition.VariableDefinition
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.VariableDefinition.VariableDefinition
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.VariableDefinition.VariableDefinition
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.VariableDefinition.VariableDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.VariableDefinition.VariableDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.VariableDefinition.VariableDefinition
 
 
-module Network.AWS.IoTEventsData.Types.DetectorStateDefinition
+module Amazonka.IoTEventsData.Types.DetectorStateDefinition
 
 -- | The new state, variable values, and timer settings of the detector
 --   (instance).
@@ -2214,16 +2214,16 @@ detectorStateDefinition_variables :: Lens' DetectorStateDefinition [VariableDefi
 -- | The new values of the detector's timers. Any timer whose value isn't
 --   specified is cleared, and its timeout event won't occur.
 detectorStateDefinition_timers :: Lens' DetectorStateDefinition [TimerDefinition]
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.DetectorStateDefinition.DetectorStateDefinition
 
 
-module Network.AWS.IoTEventsData.Types.UpdateDetectorRequest
+module Amazonka.IoTEventsData.Types.UpdateDetectorRequest
 
 -- | Information used to update the detector (instance).
 --   
@@ -2288,16 +2288,16 @@ updateDetectorRequest_detectorModelName :: Lens' UpdateDetectorRequest Text
 -- | The new state, variable values, and timer settings of the detector
 --   (instance).
 updateDetectorRequest_state :: Lens' UpdateDetectorRequest DetectorStateDefinition
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
-instance GHC.Show.Show Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
-instance GHC.Read.Read Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
+instance GHC.Generics.Generic Amazonka.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
+instance GHC.Show.Show Amazonka.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
+instance GHC.Read.Read Amazonka.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
+instance GHC.Classes.Eq Amazonka.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.Types.UpdateDetectorRequest.UpdateDetectorRequest
 
 
-module Network.AWS.IoTEventsData.Types
+module Amazonka.IoTEventsData.Types
 
 -- | API version <tt>2018-10-23</tt> of the Amazon IoT Events Data SDK
 --   configuration.
@@ -4150,7 +4150,7 @@ variableDefinition_value :: Lens' VariableDefinition Text
 
 
 -- | Lists detectors (the instances of a detector model).
-module Network.AWS.IoTEventsData.ListDetectors
+module Amazonka.IoTEventsData.ListDetectors
 
 -- | <i>See:</i> <a>newListDetectors</a> smart constructor.
 data ListDetectors
@@ -4252,26 +4252,26 @@ listDetectorsResponse_detectorSummaries :: Lens' ListDetectorsResponse (Maybe [D
 
 -- | The response's http status code.
 listDetectorsResponse_httpStatus :: Lens' ListDetectorsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance GHC.Show.Show Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance GHC.Read.Read Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.ListDetectors.ListDetectorsResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.ListDetectors.ListDetectorsResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.ListDetectors.ListDetectorsResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.ListDetectors.ListDetectorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.ListDetectors.ListDetectorsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.ListDetectors.ListDetectors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.ListDetectors.ListDetectors
+instance GHC.Generics.Generic Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance GHC.Show.Show Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance GHC.Read.Read Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance GHC.Classes.Eq Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance GHC.Generics.Generic Amazonka.IoTEventsData.ListDetectors.ListDetectorsResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.ListDetectors.ListDetectorsResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.ListDetectors.ListDetectorsResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.ListDetectors.ListDetectorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.ListDetectors.ListDetectorsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.ListDetectors.ListDetectors
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.ListDetectors.ListDetectors
 
 
 -- | Lists one or more alarms. The operation returns only the metadata
 --   associated with each alarm.
-module Network.AWS.IoTEventsData.ListAlarms
+module Amazonka.IoTEventsData.ListAlarms
 
 -- | <i>See:</i> <a>newListAlarms</a> smart constructor.
 data ListAlarms
@@ -4358,25 +4358,25 @@ listAlarmsResponse_alarmSummaries :: Lens' ListAlarmsResponse (Maybe [AlarmSumma
 
 -- | The response's http status code.
 listAlarmsResponse_httpStatus :: Lens' ListAlarmsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance GHC.Show.Show Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance GHC.Read.Read Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.ListAlarms.ListAlarmsResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.ListAlarms.ListAlarmsResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.ListAlarms.ListAlarmsResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.ListAlarms.ListAlarmsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.ListAlarms.ListAlarmsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.ListAlarms.ListAlarms
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.ListAlarms.ListAlarms
+instance GHC.Generics.Generic Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance GHC.Show.Show Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance GHC.Read.Read Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance GHC.Classes.Eq Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance GHC.Generics.Generic Amazonka.IoTEventsData.ListAlarms.ListAlarmsResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.ListAlarms.ListAlarmsResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.ListAlarms.ListAlarmsResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.ListAlarms.ListAlarmsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.ListAlarms.ListAlarmsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.ListAlarms.ListAlarms
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.ListAlarms.ListAlarms
 
 
 -- | Returns information about the specified detector (instance).
-module Network.AWS.IoTEventsData.DescribeDetector
+module Amazonka.IoTEventsData.DescribeDetector
 
 -- | <i>See:</i> <a>newDescribeDetector</a> smart constructor.
 data DescribeDetector
@@ -4449,25 +4449,25 @@ describeDetectorResponse_detector :: Lens' DescribeDetectorResponse (Maybe Detec
 
 -- | The response's http status code.
 describeDetectorResponse_httpStatus :: Lens' DescribeDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance GHC.Show.Show Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance GHC.Read.Read Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.DescribeDetector.DescribeDetectorResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.DescribeDetector.DescribeDetectorResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.DescribeDetector.DescribeDetectorResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.DescribeDetector.DescribeDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.DescribeDetector.DescribeDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.DescribeDetector.DescribeDetector
+instance GHC.Generics.Generic Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance GHC.Show.Show Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance GHC.Read.Read Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance GHC.Classes.Eq Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance GHC.Generics.Generic Amazonka.IoTEventsData.DescribeDetector.DescribeDetectorResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.DescribeDetector.DescribeDetectorResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.DescribeDetector.DescribeDetectorResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.DescribeDetector.DescribeDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.DescribeDetector.DescribeDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.DescribeDetector.DescribeDetector
 
 
 -- | Retrieves information about an alarm.
-module Network.AWS.IoTEventsData.DescribeAlarm
+module Amazonka.IoTEventsData.DescribeAlarm
 
 -- | <i>See:</i> <a>newDescribeAlarm</a> smart constructor.
 data DescribeAlarm
@@ -4537,26 +4537,26 @@ describeAlarmResponse_alarm :: Lens' DescribeAlarmResponse (Maybe Alarm)
 
 -- | The response's http status code.
 describeAlarmResponse_httpStatus :: Lens' DescribeAlarmResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance GHC.Show.Show Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance GHC.Read.Read Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance GHC.Show.Show Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance GHC.Read.Read Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance GHC.Classes.Eq Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarmResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.DescribeAlarm.DescribeAlarm
 
 
 -- | Updates the state, variable values, and timer settings of one or more
 --   detectors (instances) of a specified detector model.
-module Network.AWS.IoTEventsData.BatchUpdateDetector
+module Amazonka.IoTEventsData.BatchUpdateDetector
 
 -- | <i>See:</i> <a>newBatchUpdateDetector</a> smart constructor.
 data BatchUpdateDetector
@@ -4621,28 +4621,28 @@ batchUpdateDetectorResponse_batchUpdateDetectorErrorEntries :: Lens' BatchUpdate
 
 -- | The response's http status code.
 batchUpdateDetectorResponse_httpStatus :: Lens' BatchUpdateDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.BatchUpdateDetector.BatchUpdateDetector
 
 
 -- | Changes one or more alarms to the snooze mode. The alarms change to
 --   the <tt>SNOOZE_DISABLED</tt> state after you set them to the snooze
 --   mode.
-module Network.AWS.IoTEventsData.BatchSnoozeAlarm
+module Amazonka.IoTEventsData.BatchSnoozeAlarm
 
 -- | <i>See:</i> <a>newBatchSnoozeAlarm</a> smart constructor.
 data BatchSnoozeAlarm
@@ -4709,27 +4709,27 @@ batchSnoozeAlarmResponse_errorEntries :: Lens' BatchSnoozeAlarmResponse (Maybe [
 
 -- | The response's http status code.
 batchSnoozeAlarmResponse_httpStatus :: Lens' BatchSnoozeAlarmResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarmResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.BatchSnoozeAlarm.BatchSnoozeAlarm
 
 
 -- | Resets one or more alarms. The alarms return to the <tt>NORMAL</tt>
 --   state after you reset them.
-module Network.AWS.IoTEventsData.BatchResetAlarm
+module Amazonka.IoTEventsData.BatchResetAlarm
 
 -- | <i>See:</i> <a>newBatchResetAlarm</a> smart constructor.
 data BatchResetAlarm
@@ -4796,22 +4796,22 @@ batchResetAlarmResponse_errorEntries :: Lens' BatchResetAlarmResponse (Maybe [Ba
 
 -- | The response's http status code.
 batchResetAlarmResponse_httpStatus :: Lens' BatchResetAlarmResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarmResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.BatchResetAlarm.BatchResetAlarm
 
 
 -- | Sends a set of messages to the AWS IoT Events system. Each message
@@ -4820,7 +4820,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchResetAlar
 --   that input. If multiple messages are sent, the order in which the
 --   messages are processed isn't guaranteed. To guarantee ordering, you
 --   must send messages one at a time and wait for a successful response.
-module Network.AWS.IoTEventsData.BatchPutMessage
+module Amazonka.IoTEventsData.BatchPutMessage
 
 -- | <i>See:</i> <a>newBatchPutMessage</a> smart constructor.
 data BatchPutMessage
@@ -4884,27 +4884,27 @@ batchPutMessageResponse_batchPutMessageErrorEntries :: Lens' BatchPutMessageResp
 
 -- | The response's http status code.
 batchPutMessageResponse_httpStatus :: Lens' BatchPutMessageResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.BatchPutMessage.BatchPutMessage
 
 
 -- | Enables one or more alarms. The alarms change to the <tt>NORMAL</tt>
 --   state after you enable them.
-module Network.AWS.IoTEventsData.BatchEnableAlarm
+module Amazonka.IoTEventsData.BatchEnableAlarm
 
 -- | <i>See:</i> <a>newBatchEnableAlarm</a> smart constructor.
 data BatchEnableAlarm
@@ -4971,27 +4971,27 @@ batchEnableAlarmResponse_errorEntries :: Lens' BatchEnableAlarmResponse (Maybe [
 
 -- | The response's http status code.
 batchEnableAlarmResponse_httpStatus :: Lens' BatchEnableAlarmResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarmResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.BatchEnableAlarm.BatchEnableAlarm
 
 
 -- | Disables one or more alarms. The alarms change to the
 --   <tt>DISABLED</tt> state after you disable them.
-module Network.AWS.IoTEventsData.BatchDisableAlarm
+module Amazonka.IoTEventsData.BatchDisableAlarm
 
 -- | <i>See:</i> <a>newBatchDisableAlarm</a> smart constructor.
 data BatchDisableAlarm
@@ -5058,27 +5058,27 @@ batchDisableAlarmResponse_errorEntries :: Lens' BatchDisableAlarmResponse (Maybe
 
 -- | The response's http status code.
 batchDisableAlarmResponse_httpStatus :: Lens' BatchDisableAlarmResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarmResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.BatchDisableAlarm.BatchDisableAlarm
 
 
 -- | Acknowledges one or more alarms. The alarms change to the
 --   <tt>ACKNOWLEDGED</tt> state after you acknowledge them.
-module Network.AWS.IoTEventsData.BatchAcknowledgeAlarm
+module Amazonka.IoTEventsData.BatchAcknowledgeAlarm
 
 -- | <i>See:</i> <a>newBatchAcknowledgeAlarm</a> smart constructor.
 data BatchAcknowledgeAlarm
@@ -5146,25 +5146,25 @@ batchAcknowledgeAlarmResponse_errorEntries :: Lens' BatchAcknowledgeAlarmRespons
 
 -- | The response's http status code.
 batchAcknowledgeAlarmResponse_httpStatus :: Lens' BatchAcknowledgeAlarmResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance GHC.Generics.Generic Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
-instance GHC.Show.Show Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
-instance GHC.Read.Read Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
-instance GHC.Classes.Eq Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance Control.DeepSeq.NFData Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance GHC.Generics.Generic Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
+instance GHC.Show.Show Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
+instance GHC.Read.Read Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
+instance GHC.Classes.Eq Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarmResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance Control.DeepSeq.NFData Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance Amazonka.Data.Path.ToPath Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTEventsData.BatchAcknowledgeAlarm.BatchAcknowledgeAlarm
 
 
-module Network.AWS.IoTEventsData.Lens
+module Amazonka.IoTEventsData.Lens
 
 -- | The list of snooze action requests. You can specify up to 10 requests
 --   per operation.
@@ -5721,7 +5721,7 @@ variableDefinition_name :: Lens' VariableDefinition Text
 variableDefinition_value :: Lens' VariableDefinition Text
 
 
-module Network.AWS.IoTEventsData.Waiters
+module Amazonka.IoTEventsData.Waiters
 
 
 -- | Derived from API version <tt>2018-10-23</tt> of the AWS service
@@ -5734,7 +5734,7 @@ module Network.AWS.IoTEventsData.Waiters
 --   
 --   For more information, see <a>What is AWS IoT Events?</a> in the <i>AWS
 --   IoT Events Developer Guide</i>.
-module Network.AWS.IoTEventsData
+module Amazonka.IoTEventsData
 
 -- | API version <tt>2018-10-23</tt> of the Amazon IoT Events Data SDK
 --   configuration.

@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MachineLearning.CreateDataSourceFromS3</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a @DataSource@ object. A @DataSource@ references data that can</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- be used to perform @CreateMLModel@, @CreateEvaluation@, or</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @CreateBatchPrediction@ operations.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @CreateDataSourceFromS3@ is an asynchronous operation. In response to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @CreateDataSourceFromS3@, Amazon Machine Learning (Amazon ML)</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- immediately returns and sets the @DataSource@ status to @PENDING@. After</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the @DataSource@ has been created and is ready for use, Amazon ML sets</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- the @Status@ parameter to @COMPLETED@. @DataSource@ in the @COMPLETED@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- or @PENDING@ state can be used to perform only @CreateMLModel@,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @CreateEvaluation@ or @CreateBatchPrediction@ operations.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- If Amazon ML can\'t accept the input source, it sets the @Status@</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- parameter to @FAILED@ and includes an error message in the @Message@</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- attribute of the @GetDataSource@ operation response.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- The observation data used in a @DataSource@ should be ready to use; that</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- is, it should have a consistent structure, and missing data values</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- should be kept to a minimum. The observation data must reside in one or</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- more .csv files in an Amazon Simple Storage Service (Amazon S3)</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- location, along with a schema that describes the data items by name and</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- type. The same schema must be used for all of the data files referenced</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- by the @DataSource@.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- After the @DataSource@ has been created, it\'s ready to use in</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- evaluations and batch predictions. If you plan to use the @DataSource@</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- to train an @MLModel@, the @DataSource@ also needs a recipe. A recipe</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- describes how each input variable will be used in training an @MLModel@.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Will the variable be included or excluded from training? Will the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- variable be manipulated; for example, will it be combined with another</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- variable or will it be split apart into word combinations? The recipe</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- provides answers to these questions.</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MachineLearning.CreateDataSourceFromS3</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#newCreateDataSourceFromS3"><span class="hs-identifier">newCreateDataSourceFromS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSourceName"><span class="hs-identifier">createDataSourceFromS3_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_computeStatistics"><span class="hs-identifier">createDataSourceFromS3_computeStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSourceId"><span class="hs-identifier">createDataSourceFromS3_dataSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSpec"><span class="hs-identifier">createDataSourceFromS3_dataSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier">CreateDataSourceFromS3Response</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#newCreateDataSourceFromS3Response"><span class="hs-identifier">newCreateDataSourceFromS3Response</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3Response_dataSourceId"><span class="hs-identifier">createDataSourceFromS3Response_dataSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3Response_httpStatus"><span class="hs-identifier">createDataSourceFromS3Response_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.html"><span class="hs-identifier">Amazonka.MachineLearning.Types</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newCreateDataSourceFromS3' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679259328"><span id="local-6989586621679259329"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromS3"><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-var">CreateDataSourceFromS3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromS3%27"><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-var">CreateDataSourceFromS3'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateDataSourceFromS3%27"><span class="annot"><span class="annottext">CreateDataSourceFromS3 -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceName%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AcomputeStatistics%3ACreateDataSourceFromS3%27"><span class="annot"><span class="annottext">CreateDataSourceFromS3 -&gt; Maybe Bool
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | A user-supplied identifier that uniquely identifies the @DataSource@.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromS3%27"><span class="annot"><span class="annottext">CreateDataSourceFromS3 -&gt; Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The data specification of a @DataSource@:</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   DataLocationS3 - The Amazon S3 location of the observation data.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   DataSchema - A JSON string representing the schema. This is not</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     required if @DataSchemaUri@ is specified.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   DataRearrangement - A JSON string that represents the splitting and</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     rearrangement requirements for the @Datasource@.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     Sample -</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     @ \&quot;{\\\&quot;splitting\\\&quot;:{\\\&quot;percentBegin\\\&quot;:10,\\\&quot;percentEnd\\\&quot;:60}}\&quot;@</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AdataSpec%3ACreateDataSourceFromS3%27"><span class="annot"><span class="annottext">CreateDataSourceFromS3 -&gt; S3DataSpec
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSpec%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var hs-var">dataSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259319"><span id="local-6989586621679259321"><span class="annot"><span class="annottext">CreateDataSourceFromS3 -&gt; CreateDataSourceFromS3 -&gt; Bool
+(CreateDataSourceFromS3 -&gt; CreateDataSourceFromS3 -&gt; Bool)
+-&gt; (CreateDataSourceFromS3 -&gt; CreateDataSourceFromS3 -&gt; Bool)
+-&gt; Eq CreateDataSourceFromS3
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDataSourceFromS3 -&gt; CreateDataSourceFromS3 -&gt; Bool
+$c/= :: CreateDataSourceFromS3 -&gt; CreateDataSourceFromS3 -&gt; Bool
+== :: CreateDataSourceFromS3 -&gt; CreateDataSourceFromS3 -&gt; Bool
+$c== :: CreateDataSourceFromS3 -&gt; CreateDataSourceFromS3 -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259310"><span id="local-6989586621679259312"><span id="local-6989586621679259314"><span id="local-6989586621679259316"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromS3]
+ReadPrec CreateDataSourceFromS3
+Int -&gt; ReadS CreateDataSourceFromS3
+ReadS [CreateDataSourceFromS3]
+(Int -&gt; ReadS CreateDataSourceFromS3)
+-&gt; ReadS [CreateDataSourceFromS3]
+-&gt; ReadPrec CreateDataSourceFromS3
+-&gt; ReadPrec [CreateDataSourceFromS3]
+-&gt; Read CreateDataSourceFromS3
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDataSourceFromS3]
+$creadListPrec :: ReadPrec [CreateDataSourceFromS3]
+readPrec :: ReadPrec CreateDataSourceFromS3
+$creadPrec :: ReadPrec CreateDataSourceFromS3
+readList :: ReadS [CreateDataSourceFromS3]
+$creadList :: ReadS [CreateDataSourceFromS3]
+readsPrec :: Int -&gt; ReadS CreateDataSourceFromS3
+$creadsPrec :: Int -&gt; ReadS CreateDataSourceFromS3
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259303"><span id="local-6989586621679259305"><span id="local-6989586621679259307"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromS3 -&gt; ShowS
+[CreateDataSourceFromS3] -&gt; ShowS
+CreateDataSourceFromS3 -&gt; String
+(Int -&gt; CreateDataSourceFromS3 -&gt; ShowS)
+-&gt; (CreateDataSourceFromS3 -&gt; String)
+-&gt; ([CreateDataSourceFromS3] -&gt; ShowS)
+-&gt; Show CreateDataSourceFromS3
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDataSourceFromS3] -&gt; ShowS
+$cshowList :: [CreateDataSourceFromS3] -&gt; ShowS
+show :: CreateDataSourceFromS3 -&gt; String
+$cshow :: CreateDataSourceFromS3 -&gt; String
+showsPrec :: Int -&gt; CreateDataSourceFromS3 -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDataSourceFromS3 -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDataSourceFromS3 -&gt; Rep CreateDataSourceFromS3 x)
+-&gt; (forall x.
+    Rep CreateDataSourceFromS3 x -&gt; CreateDataSourceFromS3)
+-&gt; Generic CreateDataSourceFromS3
+forall x. Rep CreateDataSourceFromS3 x -&gt; CreateDataSourceFromS3
+forall x. CreateDataSourceFromS3 -&gt; Rep CreateDataSourceFromS3 x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDataSourceFromS3 x -&gt; CreateDataSourceFromS3
+$cfrom :: forall x. CreateDataSourceFromS3 -&gt; Rep CreateDataSourceFromS3 x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'CreateDataSourceFromS3' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'dataSourceName', 'createDataSourceFromS3_dataSourceName' - A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'computeStatistics', 'createDataSourceFromS3_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'dataSourceId', 'createDataSourceFromS3_dataSourceId' - A user-supplied identifier that uniquely identifies the @DataSource@.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'dataSpec', 'createDataSourceFromS3_dataSpec' - The data specification of a @DataSource@:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   DataLocationS3 - The Amazon S3 location of the observation data.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   DataSchema - A JSON string representing the schema. This is not</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     required if @DataSchemaUri@ is specified.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   DataRearrangement - A JSON string that represents the splitting and</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     rearrangement requirements for the @Datasource@.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     Sample -</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     @ \&quot;{\\\&quot;splitting\\\&quot;:{\\\&quot;percentBegin\\\&quot;:10,\\\&quot;percentEnd\\\&quot;:60}}\&quot;@</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#newCreateDataSourceFromS3"><span class="hs-identifier hs-type">newCreateDataSourceFromS3</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'dataSourceId'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'dataSpec'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span>
+</span><span id="line-151"></span><span id="newCreateDataSourceFromS3"><span class="annot"><span class="annottext">newCreateDataSourceFromS3 :: Text -&gt; S3DataSpec -&gt; CreateDataSourceFromS3
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#newCreateDataSourceFromS3"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromS3</span></a></span></span><span> </span><span id="local-6989586621679259298"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259298"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span> </span><span id="local-6989586621679259297"><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259297"><span class="hs-identifier hs-var">pDataSpec_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">CreateDataSourceFromS3' :: Maybe Text
+-&gt; Maybe Bool -&gt; Text -&gt; S3DataSpec -&gt; CreateDataSourceFromS3
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromS3' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceName%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromS3' :: Maybe Bool
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromS3' :: Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259298"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromS3' :: S3DataSpec
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSpec%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">dataSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259297"><span class="hs-identifier hs-var">pDataSpec_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSourceName"><span class="hs-identifier hs-type">createDataSourceFromS3_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="createDataSourceFromS3_dataSourceName"><span class="annot"><span class="annottext">createDataSourceFromS3_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDataSourceFromS3 -&gt; f CreateDataSourceFromS3
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSourceName"><span class="hs-identifier hs-var hs-var">createDataSourceFromS3_dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS3 -&gt; Maybe Text)
+-&gt; (CreateDataSourceFromS3 -&gt; Maybe Text -&gt; CreateDataSourceFromS3)
+-&gt; Lens
+     CreateDataSourceFromS3
+     CreateDataSourceFromS3
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259294"><span class="annot"><span class="annottext">Maybe Text
+dataSourceName :: Maybe Text
+$sel:dataSourceName:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; Maybe Text
+</span><a href="#local-6989586621679259294"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259294"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259293"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS3
+</span><a href="#local-6989586621679259293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259292"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS3
+</span><a href="#local-6989586621679259293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromS3' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceName%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_computeStatistics"><span class="hs-identifier hs-type">createDataSourceFromS3_computeStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="createDataSourceFromS3_computeStatistics"><span class="annot"><span class="annottext">createDataSourceFromS3_computeStatistics :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateDataSourceFromS3 -&gt; f CreateDataSourceFromS3
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_computeStatistics"><span class="hs-identifier hs-var hs-var">createDataSourceFromS3_computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS3 -&gt; Maybe Bool)
+-&gt; (CreateDataSourceFromS3 -&gt; Maybe Bool -&gt; CreateDataSourceFromS3)
+-&gt; Lens
+     CreateDataSourceFromS3
+     CreateDataSourceFromS3
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259291"><span class="annot"><span class="annottext">Maybe Bool
+computeStatistics :: Maybe Bool
+$sel:computeStatistics:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; Maybe Bool
+</span><a href="#local-6989586621679259291"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259291"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259290"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS3
+</span><a href="#local-6989586621679259290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259289"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS3
+</span><a href="#local-6989586621679259290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromS3' :: Maybe Bool
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | A user-supplied identifier that uniquely identifies the @DataSource@.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSourceId"><span class="hs-identifier hs-type">createDataSourceFromS3_dataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-174"></span><span id="createDataSourceFromS3_dataSourceId"><span class="annot"><span class="annottext">createDataSourceFromS3_dataSourceId :: (Text -&gt; f Text)
+-&gt; CreateDataSourceFromS3 -&gt; f CreateDataSourceFromS3
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSourceId"><span class="hs-identifier hs-var hs-var">createDataSourceFromS3_dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS3 -&gt; Text)
+-&gt; (CreateDataSourceFromS3 -&gt; Text -&gt; CreateDataSourceFromS3)
+-&gt; Lens CreateDataSourceFromS3 CreateDataSourceFromS3 Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259288"><span class="annot"><span class="annottext">Text
+dataSourceId :: Text
+$sel:dataSourceId:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; Text
+</span><a href="#local-6989586621679259288"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259288"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259287"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS3
+</span><a href="#local-6989586621679259287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS3
+</span><a href="#local-6989586621679259287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromS3' :: Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The data specification of a @DataSource@:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   DataLocationS3 - The Amazon S3 location of the observation data.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   DataSchema - A JSON string representing the schema. This is not</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     required if @DataSchemaUri@ is specified.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   DataRearrangement - A JSON string that represents the splitting and</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     rearrangement requirements for the @Datasource@.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     Sample -</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     @ \&quot;{\\\&quot;splitting\\\&quot;:{\\\&quot;percentBegin\\\&quot;:10,\\\&quot;percentEnd\\\&quot;:60}}\&quot;@</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSpec"><span class="hs-identifier hs-type">createDataSourceFromS3_dataSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span>
+</span><span id="line-191"></span><span id="createDataSourceFromS3_dataSpec"><span class="annot"><span class="annottext">createDataSourceFromS3_dataSpec :: (S3DataSpec -&gt; f S3DataSpec)
+-&gt; CreateDataSourceFromS3 -&gt; f CreateDataSourceFromS3
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3_dataSpec"><span class="hs-identifier hs-var hs-var">createDataSourceFromS3_dataSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS3 -&gt; S3DataSpec)
+-&gt; (CreateDataSourceFromS3 -&gt; S3DataSpec -&gt; CreateDataSourceFromS3)
+-&gt; Lens
+     CreateDataSourceFromS3 CreateDataSourceFromS3 S3DataSpec S3DataSpec
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259285"><span class="annot"><span class="annottext">S3DataSpec
+dataSpec :: S3DataSpec
+$sel:dataSpec:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; S3DataSpec
+</span><a href="#local-6989586621679259285"><span class="hs-identifier hs-var hs-var">dataSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259285"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259284"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS3
+</span><a href="#local-6989586621679259284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259283"><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS3
+</span><a href="#local-6989586621679259284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromS3' :: S3DataSpec
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSpec%3ACreateDataSourceFromS3%27"><span class="hs-identifier hs-var">dataSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-195"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response</span></a></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679259279"><span class="annot"><span class="annottext">request :: CreateDataSourceFromS3 -&gt; Request CreateDataSourceFromS3
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDataSourceFromS3 -&gt; Request CreateDataSourceFromS3
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679259275"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDataSourceFromS3
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDataSourceFromS3)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDataSourceFromS3))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDataSourceFromS3
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDataSourceFromS3)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259272"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259272"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259271"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259271"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259270"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateDataSourceFromS3Response
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var">CreateDataSourceFromS3Response'</span></a></span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateDataSourceFromS3Response)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateDataSourceFromS3Response)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDataSourceFromS3Response)
+-&gt; Either String Int
+-&gt; Either String CreateDataSourceFromS3Response
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259272"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259262"><span id="local-6989586621679259264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679259255"><span class="annot"><span class="annottext">toHeaders :: CreateDataSourceFromS3 -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDataSourceFromS3 -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonML_20141212.CreateDataSourceFromS3&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-217"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-220"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-221"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259245"><span id="local-6989586621679259247"><span id="local-6989586621679259249"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679259243"><span class="annot"><span class="annottext">toJSON :: CreateDataSourceFromS3 -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259238"><span id="local-6989586621679259239"><span id="local-6989586621679259240"><span id="local-6989586621679259241"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+S3DataSpec
+dataSpec :: S3DataSpec
+dataSourceId :: Text
+computeStatistics :: Maybe Bool
+dataSourceName :: Maybe Text
+$sel:dataSpec:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; S3DataSpec
+$sel:dataSourceId:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; Text
+$sel:computeStatistics:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; Maybe Bool
+$sel:dataSourceName:CreateDataSourceFromS3' :: CreateDataSourceFromS3 -&gt; Maybe Text
+</span><a href="#local-6989586621679259238"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259241"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259240"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259239"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DataSpec -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259238"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679259232"><span class="annot"><span class="annottext">toPath :: CreateDataSourceFromS3 -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDataSourceFromS3 -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3"><span class="hs-identifier hs-type">CreateDataSourceFromS3</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679259228"><span class="annot"><span class="annottext">toQuery :: CreateDataSourceFromS3 -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDataSourceFromS3 -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Represents the output of a @CreateDataSourceFromS3@ operation, and is an</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- acknowledgement that Amazon ML received the request.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- The @CreateDataSourceFromS3@ operation is asynchronous. You can poll for</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- updates by using the @GetBatchPrediction@ operation and checking the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- @Status@ parameter.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- /See:/ 'newCreateDataSourceFromS3Response' smart constructor.</span><span>
+</span><span id="line-252"></span><span id="local-6989586621679259225"><span id="local-6989586621679259226"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromS3Response"><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-var">CreateDataSourceFromS3Response</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromS3Response%27"><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var">CreateDataSourceFromS3Response'</span></a></span></span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@. This value</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- should be identical to the value of the @DataSourceID@ in the request.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromS3Response%27"><span class="annot"><span class="annottext">CreateDataSourceFromS3Response -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDataSourceFromS3Response%27"><span class="annot"><span class="annottext">CreateDataSourceFromS3Response -&gt; Int
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AhttpStatus%3ACreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259219"><span id="local-6989586621679259221"><span class="annot"><span class="annottext">CreateDataSourceFromS3Response
+-&gt; CreateDataSourceFromS3Response -&gt; Bool
+(CreateDataSourceFromS3Response
+ -&gt; CreateDataSourceFromS3Response -&gt; Bool)
+-&gt; (CreateDataSourceFromS3Response
+    -&gt; CreateDataSourceFromS3Response -&gt; Bool)
+-&gt; Eq CreateDataSourceFromS3Response
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDataSourceFromS3Response
+-&gt; CreateDataSourceFromS3Response -&gt; Bool
+$c/= :: CreateDataSourceFromS3Response
+-&gt; CreateDataSourceFromS3Response -&gt; Bool
+== :: CreateDataSourceFromS3Response
+-&gt; CreateDataSourceFromS3Response -&gt; Bool
+$c== :: CreateDataSourceFromS3Response
+-&gt; CreateDataSourceFromS3Response -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259211"><span id="local-6989586621679259213"><span id="local-6989586621679259215"><span id="local-6989586621679259217"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromS3Response]
+ReadPrec CreateDataSourceFromS3Response
+Int -&gt; ReadS CreateDataSourceFromS3Response
+ReadS [CreateDataSourceFromS3Response]
+(Int -&gt; ReadS CreateDataSourceFromS3Response)
+-&gt; ReadS [CreateDataSourceFromS3Response]
+-&gt; ReadPrec CreateDataSourceFromS3Response
+-&gt; ReadPrec [CreateDataSourceFromS3Response]
+-&gt; Read CreateDataSourceFromS3Response
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDataSourceFromS3Response]
+$creadListPrec :: ReadPrec [CreateDataSourceFromS3Response]
+readPrec :: ReadPrec CreateDataSourceFromS3Response
+$creadPrec :: ReadPrec CreateDataSourceFromS3Response
+readList :: ReadS [CreateDataSourceFromS3Response]
+$creadList :: ReadS [CreateDataSourceFromS3Response]
+readsPrec :: Int -&gt; ReadS CreateDataSourceFromS3Response
+$creadsPrec :: Int -&gt; ReadS CreateDataSourceFromS3Response
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259205"><span id="local-6989586621679259207"><span id="local-6989586621679259209"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromS3Response -&gt; ShowS
+[CreateDataSourceFromS3Response] -&gt; ShowS
+CreateDataSourceFromS3Response -&gt; String
+(Int -&gt; CreateDataSourceFromS3Response -&gt; ShowS)
+-&gt; (CreateDataSourceFromS3Response -&gt; String)
+-&gt; ([CreateDataSourceFromS3Response] -&gt; ShowS)
+-&gt; Show CreateDataSourceFromS3Response
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDataSourceFromS3Response] -&gt; ShowS
+$cshowList :: [CreateDataSourceFromS3Response] -&gt; ShowS
+show :: CreateDataSourceFromS3Response -&gt; String
+$cshow :: CreateDataSourceFromS3Response -&gt; String
+showsPrec :: Int -&gt; CreateDataSourceFromS3Response -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDataSourceFromS3Response -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDataSourceFromS3Response
+ -&gt; Rep CreateDataSourceFromS3Response x)
+-&gt; (forall x.
+    Rep CreateDataSourceFromS3Response x
+    -&gt; CreateDataSourceFromS3Response)
+-&gt; Generic CreateDataSourceFromS3Response
+forall x.
+Rep CreateDataSourceFromS3Response x
+-&gt; CreateDataSourceFromS3Response
+forall x.
+CreateDataSourceFromS3Response
+-&gt; Rep CreateDataSourceFromS3Response x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDataSourceFromS3Response x
+-&gt; CreateDataSourceFromS3Response
+$cfrom :: forall x.
+CreateDataSourceFromS3Response
+-&gt; Rep CreateDataSourceFromS3Response x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Create a value of 'CreateDataSourceFromS3Response' with all optional fields omitted.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'dataSourceId', 'createDataSourceFromS3Response_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@. This value</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- should be identical to the value of the @DataSourceID@ in the request.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'httpStatus', 'createDataSourceFromS3Response_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#newCreateDataSourceFromS3Response"><span class="hs-identifier hs-type">newCreateDataSourceFromS3Response</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-275"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response</span></a></span><span>
+</span><span id="line-277"></span><span id="newCreateDataSourceFromS3Response"><span class="annot"><span class="annottext">newCreateDataSourceFromS3Response :: Int -&gt; CreateDataSourceFromS3Response
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#newCreateDataSourceFromS3Response"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromS3Response</span></a></span></span><span> </span><span id="local-6989586621679259202"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>  </span><span class="annot"><span class="annottext">CreateDataSourceFromS3Response' :: Maybe Text -&gt; Int -&gt; CreateDataSourceFromS3Response
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response'</span></a></span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromS3Response' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromS3Response' :: Int
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AhttpStatus%3ACreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@. This value</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- should be identical to the value of the @DataSourceID@ in the request.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3Response_dataSourceId"><span class="hs-identifier hs-type">createDataSourceFromS3Response_dataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="createDataSourceFromS3Response_dataSourceId"><span class="annot"><span class="annottext">createDataSourceFromS3Response_dataSourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDataSourceFromS3Response
+-&gt; f CreateDataSourceFromS3Response
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3Response_dataSourceId"><span class="hs-identifier hs-var hs-var">createDataSourceFromS3Response_dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS3Response -&gt; Maybe Text)
+-&gt; (CreateDataSourceFromS3Response
+    -&gt; Maybe Text -&gt; CreateDataSourceFromS3Response)
+-&gt; Lens
+     CreateDataSourceFromS3Response
+     CreateDataSourceFromS3Response
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259201"><span class="annot"><span class="annottext">Maybe Text
+dataSourceId :: Maybe Text
+$sel:dataSourceId:CreateDataSourceFromS3Response' :: CreateDataSourceFromS3Response -&gt; Maybe Text
+</span><a href="#local-6989586621679259201"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259201"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259200"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS3Response
+</span><a href="#local-6989586621679259200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS3Response
+</span><a href="#local-6989586621679259200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromS3Response' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3Response_httpStatus"><span class="hs-identifier hs-type">createDataSourceFromS3Response_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-291"></span><span id="createDataSourceFromS3Response_httpStatus"><span class="annot"><span class="annottext">createDataSourceFromS3Response_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDataSourceFromS3Response
+-&gt; f CreateDataSourceFromS3Response
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#createDataSourceFromS3Response_httpStatus"><span class="hs-identifier hs-var hs-var">createDataSourceFromS3Response_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS3Response -&gt; Int)
+-&gt; (CreateDataSourceFromS3Response
+    -&gt; Int -&gt; CreateDataSourceFromS3Response)
+-&gt; Lens
+     CreateDataSourceFromS3Response
+     CreateDataSourceFromS3Response
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259198"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDataSourceFromS3Response' :: CreateDataSourceFromS3Response -&gt; Int
+</span><a href="#local-6989586621679259198"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259198"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259197"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS3Response
+</span><a href="#local-6989586621679259197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response%27"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259196"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS3Response
+</span><a href="#local-6989586621679259197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromS3Response' :: Int
+</span><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#%24sel%3AhttpStatus%3ACreateDataSourceFromS3Response%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679259194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.CreateDataSourceFromS3.html#CreateDataSourceFromS3Response"><span class="hs-identifier hs-type">CreateDataSourceFromS3Response</span></a></span></span><span>
+</span><span id="line-296"></span></pre></body></html>

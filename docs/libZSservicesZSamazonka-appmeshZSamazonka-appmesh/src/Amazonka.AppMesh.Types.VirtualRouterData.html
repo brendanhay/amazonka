@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.VirtualRouterData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualRouterData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ResourceMetadata.html"><span class="hs-identifier">Amazonka.AppMesh.Types.ResourceMetadata</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterSpec.html"><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualRouterSpec</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterStatus.html"><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualRouterStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | An object that represents a virtual router returned by a describe</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newVirtualRouterData' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679340624"><span id="local-6989586621679340625"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualRouterData"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-var">VirtualRouterData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualRouterData%27"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-var">VirtualRouterData'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the service mesh that the virtual router resides in.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmeshName%3AVirtualRouterData%27"><span class="annot"><span class="annottext">VirtualRouterData -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3AmeshName%3AVirtualRouterData%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The associated metadata for the virtual router.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Ametadata%3AVirtualRouterData%27"><span class="annot"><span class="annottext">VirtualRouterData -&gt; ResourceMetadata
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Ametadata%3AVirtualRouterData%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ResourceMetadata.html#ResourceMetadata"><span class="hs-identifier hs-type">ResourceMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The specifications of the virtual router.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aspec%3AVirtualRouterData%27"><span class="annot"><span class="annottext">VirtualRouterData -&gt; VirtualRouterSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Aspec%3AVirtualRouterData%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterSpec.html#VirtualRouterSpec"><span class="hs-identifier hs-type">VirtualRouterSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The current status of the virtual router.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astatus%3AVirtualRouterData%27"><span class="annot"><span class="annottext">VirtualRouterData -&gt; VirtualRouterStatus
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Astatus%3AVirtualRouterData%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterStatus.html#VirtualRouterStatus"><span class="hs-identifier hs-type">VirtualRouterStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the virtual router.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvirtualRouterName%3AVirtualRouterData%27"><span class="annot"><span class="annottext">VirtualRouterData -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3AvirtualRouterName%3AVirtualRouterData%27"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340614"><span id="local-6989586621679340616"><span class="annot"><span class="annottext">VirtualRouterData -&gt; VirtualRouterData -&gt; Bool
+(VirtualRouterData -&gt; VirtualRouterData -&gt; Bool)
+-&gt; (VirtualRouterData -&gt; VirtualRouterData -&gt; Bool)
+-&gt; Eq VirtualRouterData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualRouterData -&gt; VirtualRouterData -&gt; Bool
+$c/= :: VirtualRouterData -&gt; VirtualRouterData -&gt; Bool
+== :: VirtualRouterData -&gt; VirtualRouterData -&gt; Bool
+$c== :: VirtualRouterData -&gt; VirtualRouterData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340605"><span id="local-6989586621679340607"><span id="local-6989586621679340609"><span id="local-6989586621679340611"><span class="annot"><span class="annottext">ReadPrec [VirtualRouterData]
+ReadPrec VirtualRouterData
+Int -&gt; ReadS VirtualRouterData
+ReadS [VirtualRouterData]
+(Int -&gt; ReadS VirtualRouterData)
+-&gt; ReadS [VirtualRouterData]
+-&gt; ReadPrec VirtualRouterData
+-&gt; ReadPrec [VirtualRouterData]
+-&gt; Read VirtualRouterData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualRouterData]
+$creadListPrec :: ReadPrec [VirtualRouterData]
+readPrec :: ReadPrec VirtualRouterData
+$creadPrec :: ReadPrec VirtualRouterData
+readList :: ReadS [VirtualRouterData]
+$creadList :: ReadS [VirtualRouterData]
+readsPrec :: Int -&gt; ReadS VirtualRouterData
+$creadsPrec :: Int -&gt; ReadS VirtualRouterData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340598"><span id="local-6989586621679340600"><span id="local-6989586621679340602"><span class="annot"><span class="annottext">Int -&gt; VirtualRouterData -&gt; ShowS
+[VirtualRouterData] -&gt; ShowS
+VirtualRouterData -&gt; String
+(Int -&gt; VirtualRouterData -&gt; ShowS)
+-&gt; (VirtualRouterData -&gt; String)
+-&gt; ([VirtualRouterData] -&gt; ShowS)
+-&gt; Show VirtualRouterData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualRouterData] -&gt; ShowS
+$cshowList :: [VirtualRouterData] -&gt; ShowS
+show :: VirtualRouterData -&gt; String
+$cshow :: VirtualRouterData -&gt; String
+showsPrec :: Int -&gt; VirtualRouterData -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualRouterData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VirtualRouterData -&gt; Rep VirtualRouterData x)
+-&gt; (forall x. Rep VirtualRouterData x -&gt; VirtualRouterData)
+-&gt; Generic VirtualRouterData
+forall x. Rep VirtualRouterData x -&gt; VirtualRouterData
+forall x. VirtualRouterData -&gt; Rep VirtualRouterData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VirtualRouterData x -&gt; VirtualRouterData
+$cfrom :: forall x. VirtualRouterData -&gt; Rep VirtualRouterData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'VirtualRouterData' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'meshName', 'virtualRouterData_meshName' - The name of the service mesh that the virtual router resides in.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'metadata', 'virtualRouterData_metadata' - The associated metadata for the virtual router.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'spec', 'virtualRouterData_spec' - The specifications of the virtual router.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'status', 'virtualRouterData_status' - The current status of the virtual router.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'virtualRouterName', 'virtualRouterData_virtualRouterName' - The name of the virtual router.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#newVirtualRouterData"><span class="hs-identifier hs-type">newVirtualRouterData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'metadata'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.ResourceMetadata.html#ResourceMetadata"><span class="hs-identifier hs-type">ResourceMetadata</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'spec'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterSpec.html#VirtualRouterSpec"><span class="hs-identifier hs-type">VirtualRouterSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterStatus.html#VirtualRouterStatus"><span class="hs-identifier hs-type">VirtualRouterStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'virtualRouterName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span>
+</span><span id="line-76"></span><span id="newVirtualRouterData"><span class="annot"><span class="annottext">newVirtualRouterData :: Text
+-&gt; ResourceMetadata
+-&gt; VirtualRouterSpec
+-&gt; VirtualRouterStatus
+-&gt; Text
+-&gt; VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#newVirtualRouterData"><span class="hs-identifier hs-var hs-var">newVirtualRouterData</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679340592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340592"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679340591"><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679340591"><span class="hs-identifier hs-var">pMetadata_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679340590"><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679340590"><span class="hs-identifier hs-var">pSpec_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679340589"><span class="annot"><span class="annottext">VirtualRouterStatus
+</span><a href="#local-6989586621679340589"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679340588"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340588"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">VirtualRouterData' :: Text
+-&gt; ResourceMetadata
+-&gt; VirtualRouterSpec
+-&gt; VirtualRouterStatus
+-&gt; Text
+-&gt; VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meshName:VirtualRouterData' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3AmeshName%3AVirtualRouterData%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340592"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:metadata:VirtualRouterData' :: ResourceMetadata
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Ametadata%3AVirtualRouterData%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679340591"><span class="hs-identifier hs-var">pMetadata_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:spec:VirtualRouterData' :: VirtualRouterSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Aspec%3AVirtualRouterData%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679340590"><span class="hs-identifier hs-var">pSpec_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:VirtualRouterData' :: VirtualRouterStatus
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Astatus%3AVirtualRouterData%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterStatus
+</span><a href="#local-6989586621679340589"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualRouterName:VirtualRouterData' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3AvirtualRouterName%3AVirtualRouterData%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340588"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the service mesh that the virtual router resides in.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_meshName"><span class="hs-identifier hs-type">virtualRouterData_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="virtualRouterData_meshName"><span class="annot"><span class="annottext">virtualRouterData_meshName :: (Text -&gt; f Text) -&gt; VirtualRouterData -&gt; f VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_meshName"><span class="hs-identifier hs-var hs-var">virtualRouterData_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualRouterData -&gt; Text)
+-&gt; (VirtualRouterData -&gt; Text -&gt; VirtualRouterData)
+-&gt; Lens VirtualRouterData VirtualRouterData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340584"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:VirtualRouterData' :: VirtualRouterData -&gt; Text
+</span><a href="#local-6989586621679340584"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340584"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340583"><span class="annot"><span class="annottext">s :: VirtualRouterData
+</span><a href="#local-6989586621679340583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679340583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:VirtualRouterData' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3AmeshName%3AVirtualRouterData%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The associated metadata for the virtual router.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_metadata"><span class="hs-identifier hs-type">virtualRouterData_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ResourceMetadata.html#ResourceMetadata"><span class="hs-identifier hs-type">ResourceMetadata</span></a></span><span>
+</span><span id="line-96"></span><span id="virtualRouterData_metadata"><span class="annot"><span class="annottext">virtualRouterData_metadata :: (ResourceMetadata -&gt; f ResourceMetadata)
+-&gt; VirtualRouterData -&gt; f VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_metadata"><span class="hs-identifier hs-var hs-var">virtualRouterData_metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualRouterData -&gt; ResourceMetadata)
+-&gt; (VirtualRouterData -&gt; ResourceMetadata -&gt; VirtualRouterData)
+-&gt; Lens
+     VirtualRouterData
+     VirtualRouterData
+     ResourceMetadata
+     ResourceMetadata
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340580"><span class="annot"><span class="annottext">ResourceMetadata
+metadata :: ResourceMetadata
+$sel:metadata:VirtualRouterData' :: VirtualRouterData -&gt; ResourceMetadata
+</span><a href="#local-6989586621679340580"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679340580"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340579"><span class="annot"><span class="annottext">s :: VirtualRouterData
+</span><a href="#local-6989586621679340579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340578"><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679340578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679340579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:VirtualRouterData' :: ResourceMetadata
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Ametadata%3AVirtualRouterData%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679340578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The specifications of the virtual router.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_spec"><span class="hs-identifier hs-type">virtualRouterData_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterSpec.html#VirtualRouterSpec"><span class="hs-identifier hs-type">VirtualRouterSpec</span></a></span><span>
+</span><span id="line-100"></span><span id="virtualRouterData_spec"><span class="annot"><span class="annottext">virtualRouterData_spec :: (VirtualRouterSpec -&gt; f VirtualRouterSpec)
+-&gt; VirtualRouterData -&gt; f VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_spec"><span class="hs-identifier hs-var hs-var">virtualRouterData_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualRouterData -&gt; VirtualRouterSpec)
+-&gt; (VirtualRouterData -&gt; VirtualRouterSpec -&gt; VirtualRouterData)
+-&gt; Lens
+     VirtualRouterData
+     VirtualRouterData
+     VirtualRouterSpec
+     VirtualRouterSpec
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340576"><span class="annot"><span class="annottext">VirtualRouterSpec
+spec :: VirtualRouterSpec
+$sel:spec:VirtualRouterData' :: VirtualRouterData -&gt; VirtualRouterSpec
+</span><a href="#local-6989586621679340576"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679340576"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340575"><span class="annot"><span class="annottext">s :: VirtualRouterData
+</span><a href="#local-6989586621679340575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340574"><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679340574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679340575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:VirtualRouterData' :: VirtualRouterSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Aspec%3AVirtualRouterData%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679340574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The current status of the virtual router.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_status"><span class="hs-identifier hs-type">virtualRouterData_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterStatus.html#VirtualRouterStatus"><span class="hs-identifier hs-type">VirtualRouterStatus</span></a></span><span>
+</span><span id="line-104"></span><span id="virtualRouterData_status"><span class="annot"><span class="annottext">virtualRouterData_status :: (VirtualRouterStatus -&gt; f VirtualRouterStatus)
+-&gt; VirtualRouterData -&gt; f VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_status"><span class="hs-identifier hs-var hs-var">virtualRouterData_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualRouterData -&gt; VirtualRouterStatus)
+-&gt; (VirtualRouterData -&gt; VirtualRouterStatus -&gt; VirtualRouterData)
+-&gt; Lens
+     VirtualRouterData
+     VirtualRouterData
+     VirtualRouterStatus
+     VirtualRouterStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340572"><span class="annot"><span class="annottext">VirtualRouterStatus
+status :: VirtualRouterStatus
+$sel:status:VirtualRouterData' :: VirtualRouterData -&gt; VirtualRouterStatus
+</span><a href="#local-6989586621679340572"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterStatus
+</span><a href="#local-6989586621679340572"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340571"><span class="annot"><span class="annottext">s :: VirtualRouterData
+</span><a href="#local-6989586621679340571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340570"><span class="annot"><span class="annottext">VirtualRouterStatus
+</span><a href="#local-6989586621679340570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679340571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VirtualRouterData' :: VirtualRouterStatus
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3Astatus%3AVirtualRouterData%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterStatus
+</span><a href="#local-6989586621679340570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the virtual router.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_virtualRouterName"><span class="hs-identifier hs-type">virtualRouterData_virtualRouterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="virtualRouterData_virtualRouterName"><span class="annot"><span class="annottext">virtualRouterData_virtualRouterName :: (Text -&gt; f Text) -&gt; VirtualRouterData -&gt; f VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#virtualRouterData_virtualRouterName"><span class="hs-identifier hs-var hs-var">virtualRouterData_virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualRouterData -&gt; Text)
+-&gt; (VirtualRouterData -&gt; Text -&gt; VirtualRouterData)
+-&gt; Lens VirtualRouterData VirtualRouterData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340568"><span class="annot"><span class="annottext">Text
+virtualRouterName :: Text
+$sel:virtualRouterName:VirtualRouterData' :: VirtualRouterData -&gt; Text
+</span><a href="#local-6989586621679340568"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340568"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340567"><span class="annot"><span class="annottext">s :: VirtualRouterData
+</span><a href="#local-6989586621679340567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-type">VirtualRouterData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340566"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679340567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualRouterName:VirtualRouterData' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#%24sel%3AvirtualRouterName%3AVirtualRouterData%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340563"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679340561"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualRouterData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VirtualRouterData)
+-&gt; Value
+-&gt; Parser VirtualRouterData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualRouterData&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340558"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; ResourceMetadata
+-&gt; VirtualRouterSpec
+-&gt; VirtualRouterStatus
+-&gt; Text
+-&gt; VirtualRouterData
+</span><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData%27"><span class="hs-identifier hs-var">VirtualRouterData'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; ResourceMetadata
+ -&gt; VirtualRouterSpec
+ -&gt; VirtualRouterStatus
+ -&gt; Text
+ -&gt; VirtualRouterData)
+-&gt; Parser Text
+-&gt; Parser
+     (ResourceMetadata
+      -&gt; VirtualRouterSpec
+      -&gt; VirtualRouterStatus
+      -&gt; Text
+      -&gt; VirtualRouterData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;meshName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ResourceMetadata
+   -&gt; VirtualRouterSpec
+   -&gt; VirtualRouterStatus
+   -&gt; Text
+   -&gt; VirtualRouterData)
+-&gt; Parser ResourceMetadata
+-&gt; Parser
+     (VirtualRouterSpec
+      -&gt; VirtualRouterStatus -&gt; Text -&gt; VirtualRouterData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceMetadata
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (VirtualRouterSpec
+   -&gt; VirtualRouterStatus -&gt; Text -&gt; VirtualRouterData)
+-&gt; Parser VirtualRouterSpec
+-&gt; Parser (VirtualRouterStatus -&gt; Text -&gt; VirtualRouterData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VirtualRouterSpec
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (VirtualRouterStatus -&gt; Text -&gt; VirtualRouterData)
+-&gt; Parser VirtualRouterStatus -&gt; Parser (Text -&gt; VirtualRouterData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VirtualRouterStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; VirtualRouterData)
+-&gt; Parser Text -&gt; Parser VirtualRouterData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualRouterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340552"><span id="local-6989586621679340554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span></span><span>
+</span><span id="line-126"></span></pre></body></html>

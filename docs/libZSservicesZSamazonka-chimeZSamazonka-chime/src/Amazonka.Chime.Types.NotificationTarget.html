@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.NotificationTarget</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.NotificationTarget</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget"><span class="hs-identifier">NotificationTarget</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_EventBridge"><span class="hs-identifier">NotificationTarget_EventBridge</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_SNS"><span class="hs-identifier">NotificationTarget_SNS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_SQS"><span class="hs-identifier">NotificationTarget_SQS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679513044"><span id="local-6989586621679513045"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotificationTarget"><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget"><span class="hs-identifier hs-var">NotificationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationTarget%27"><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget%27"><span class="hs-identifier hs-var">NotificationTarget'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotificationTarget"><span class="annot"><span class="annottext">NotificationTarget -&gt; Text
+</span><a href="Amazonka.Chime.Types.NotificationTarget.html#fromNotificationTarget"><span class="hs-identifier hs-var hs-var">fromNotificationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679513036"><span id="local-6989586621679513038"><span id="local-6989586621679513040"><span class="annot"><span class="annottext">Int -&gt; NotificationTarget -&gt; ShowS
+[NotificationTarget] -&gt; ShowS
+NotificationTarget -&gt; String
+(Int -&gt; NotificationTarget -&gt; ShowS)
+-&gt; (NotificationTarget -&gt; String)
+-&gt; ([NotificationTarget] -&gt; ShowS)
+-&gt; Show NotificationTarget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotificationTarget] -&gt; ShowS
+$cshowList :: [NotificationTarget] -&gt; ShowS
+show :: NotificationTarget -&gt; String
+$cshow :: NotificationTarget -&gt; String
+showsPrec :: Int -&gt; NotificationTarget -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotificationTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679513027"><span id="local-6989586621679513029"><span id="local-6989586621679513031"><span id="local-6989586621679513033"><span class="annot"><span class="annottext">ReadPrec [NotificationTarget]
+ReadPrec NotificationTarget
+Int -&gt; ReadS NotificationTarget
+ReadS [NotificationTarget]
+(Int -&gt; ReadS NotificationTarget)
+-&gt; ReadS [NotificationTarget]
+-&gt; ReadPrec NotificationTarget
+-&gt; ReadPrec [NotificationTarget]
+-&gt; Read NotificationTarget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotificationTarget]
+$creadListPrec :: ReadPrec [NotificationTarget]
+readPrec :: ReadPrec NotificationTarget
+$creadPrec :: ReadPrec NotificationTarget
+readList :: ReadS [NotificationTarget]
+$creadList :: ReadS [NotificationTarget]
+readsPrec :: Int -&gt; ReadS NotificationTarget
+$creadsPrec :: Int -&gt; ReadS NotificationTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679513022"><span id="local-6989586621679513024"><span class="annot"><span class="annottext">NotificationTarget -&gt; NotificationTarget -&gt; Bool
+(NotificationTarget -&gt; NotificationTarget -&gt; Bool)
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; Bool)
+-&gt; Eq NotificationTarget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+$c/= :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+== :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+$c== :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679513006"><span id="local-6989586621679513008"><span id="local-6989586621679513010"><span id="local-6989586621679513012"><span id="local-6989586621679513014"><span id="local-6989586621679513016"><span id="local-6989586621679513018"><span class="annot"><span class="annottext">Eq NotificationTarget
+Eq NotificationTarget
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; Ordering)
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; Bool)
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; Bool)
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; Bool)
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; Bool)
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; NotificationTarget)
+-&gt; (NotificationTarget -&gt; NotificationTarget -&gt; NotificationTarget)
+-&gt; Ord NotificationTarget
+NotificationTarget -&gt; NotificationTarget -&gt; Bool
+NotificationTarget -&gt; NotificationTarget -&gt; Ordering
+NotificationTarget -&gt; NotificationTarget -&gt; NotificationTarget
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NotificationTarget -&gt; NotificationTarget -&gt; NotificationTarget
+$cmin :: NotificationTarget -&gt; NotificationTarget -&gt; NotificationTarget
+max :: NotificationTarget -&gt; NotificationTarget -&gt; NotificationTarget
+$cmax :: NotificationTarget -&gt; NotificationTarget -&gt; NotificationTarget
+&gt;= :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+$c&gt;= :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+&gt; :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+$c&gt; :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+&lt;= :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+$c&lt;= :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+&lt; :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+$c&lt; :: NotificationTarget -&gt; NotificationTarget -&gt; Bool
+compare :: NotificationTarget -&gt; NotificationTarget -&gt; Ordering
+$ccompare :: NotificationTarget -&gt; NotificationTarget -&gt; Ordering
+$cp1Ord :: Eq NotificationTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NotificationTarget -&gt; Rep NotificationTarget x)
+-&gt; (forall x. Rep NotificationTarget x -&gt; NotificationTarget)
+-&gt; Generic NotificationTarget
+forall x. Rep NotificationTarget x -&gt; NotificationTarget
+forall x. NotificationTarget -&gt; Rep NotificationTarget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NotificationTarget x -&gt; NotificationTarget
+$cfrom :: forall x. NotificationTarget -&gt; Rep NotificationTarget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679512998"><span id="local-6989586621679513000"><span class="annot"><span class="annottext">Int -&gt; NotificationTarget -&gt; Int
+NotificationTarget -&gt; Int
+(Int -&gt; NotificationTarget -&gt; Int)
+-&gt; (NotificationTarget -&gt; Int) -&gt; Hashable NotificationTarget
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NotificationTarget -&gt; Int
+$chash :: NotificationTarget -&gt; Int
+hashWithSalt :: Int -&gt; NotificationTarget -&gt; Int
+$chashWithSalt :: Int -&gt; NotificationTarget -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679512995"><span class="annot"><span class="annottext">NotificationTarget -&gt; ()
+(NotificationTarget -&gt; ()) -&gt; NFData NotificationTarget
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NotificationTarget -&gt; ()
+$crnf :: NotificationTarget -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679512992"><span class="annot"><span class="annottext">Text -&gt; Either String NotificationTarget
+(Text -&gt; Either String NotificationTarget)
+-&gt; FromText NotificationTarget
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NotificationTarget
+$cfromText :: Text -&gt; Either String NotificationTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679512989"><span class="annot"><span class="annottext">NotificationTarget -&gt; Text
+(NotificationTarget -&gt; Text) -&gt; ToText NotificationTarget
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NotificationTarget -&gt; Text
+$ctoText :: NotificationTarget -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679512986"><span class="annot"><span class="annottext">NotificationTarget -&gt; ByteString
+(NotificationTarget -&gt; ByteString)
+-&gt; ToByteString NotificationTarget
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NotificationTarget -&gt; ByteString
+$ctoBS :: NotificationTarget -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679512983"><span class="annot"><span class="annottext">NotificationTarget -&gt; ByteStringBuilder
+(NotificationTarget -&gt; ByteStringBuilder)
+-&gt; ToLog NotificationTarget
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NotificationTarget -&gt; ByteStringBuilder
+$cbuild :: NotificationTarget -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679512980"><span class="annot"><span class="annottext">HeaderName -&gt; NotificationTarget -&gt; [Header]
+(HeaderName -&gt; NotificationTarget -&gt; [Header])
+-&gt; ToHeader NotificationTarget
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NotificationTarget -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NotificationTarget -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679512977"><span class="annot"><span class="annottext">NotificationTarget -&gt; QueryString
+(NotificationTarget -&gt; QueryString) -&gt; ToQuery NotificationTarget
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NotificationTarget -&gt; QueryString
+$ctoQuery :: NotificationTarget -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679512972"><span id="local-6989586621679512974"><span class="annot"><span class="annottext">Value -&gt; Parser [NotificationTarget]
+Value -&gt; Parser NotificationTarget
+(Value -&gt; Parser NotificationTarget)
+-&gt; (Value -&gt; Parser [NotificationTarget])
+-&gt; FromJSON NotificationTarget
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NotificationTarget]
+$cparseJSONList :: Value -&gt; Parser [NotificationTarget]
+parseJSON :: Value -&gt; Parser NotificationTarget
+$cparseJSON :: Value -&gt; Parser NotificationTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679512967"><span id="local-6989586621679512969"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotificationTarget]
+FromJSONKeyFunction NotificationTarget
+FromJSONKeyFunction NotificationTarget
+-&gt; FromJSONKeyFunction [NotificationTarget]
+-&gt; FromJSONKey NotificationTarget
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NotificationTarget]
+$cfromJSONKeyList :: FromJSONKeyFunction [NotificationTarget]
+fromJSONKey :: FromJSONKeyFunction NotificationTarget
+$cfromJSONKey :: FromJSONKeyFunction NotificationTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679512958"><span id="local-6989586621679512960"><span id="local-6989586621679512962"><span id="local-6989586621679512964"><span class="annot"><span class="annottext">[NotificationTarget] -&gt; Encoding
+[NotificationTarget] -&gt; Value
+NotificationTarget -&gt; Encoding
+NotificationTarget -&gt; Value
+(NotificationTarget -&gt; Value)
+-&gt; (NotificationTarget -&gt; Encoding)
+-&gt; ([NotificationTarget] -&gt; Value)
+-&gt; ([NotificationTarget] -&gt; Encoding)
+-&gt; ToJSON NotificationTarget
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NotificationTarget] -&gt; Encoding
+$ctoEncodingList :: [NotificationTarget] -&gt; Encoding
+toJSONList :: [NotificationTarget] -&gt; Value
+$ctoJSONList :: [NotificationTarget] -&gt; Value
+toEncoding :: NotificationTarget -&gt; Encoding
+$ctoEncoding :: NotificationTarget -&gt; Encoding
+toJSON :: NotificationTarget -&gt; Value
+$ctoJSON :: NotificationTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679512953"><span id="local-6989586621679512955"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotificationTarget]
+ToJSONKeyFunction NotificationTarget
+ToJSONKeyFunction NotificationTarget
+-&gt; ToJSONKeyFunction [NotificationTarget]
+-&gt; ToJSONKey NotificationTarget
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NotificationTarget]
+$ctoJSONKeyList :: ToJSONKeyFunction [NotificationTarget]
+toJSONKey :: ToJSONKeyFunction NotificationTarget
+$ctoJSONKey :: ToJSONKeyFunction NotificationTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679512950"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotificationTarget
+([Node] -&gt; Either String NotificationTarget)
+-&gt; FromXML NotificationTarget
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NotificationTarget
+$cparseXML :: [Node] -&gt; Either String NotificationTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679512947"><span class="annot"><span class="annottext">NotificationTarget -&gt; XML
+(NotificationTarget -&gt; XML) -&gt; ToXML NotificationTarget
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NotificationTarget -&gt; XML
+$ctoXML :: NotificationTarget -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_EventBridge"><span class="hs-identifier hs-type">NotificationTarget_EventBridge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget"><span class="hs-identifier hs-type">NotificationTarget</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationTarget_EventBridge"><span id="%24mNotificationTarget_EventBridge"><span id="NotificationTarget_EventBridge"><span class="annot"><span class="annottext">$bNotificationTarget_EventBridge :: NotificationTarget
+$mNotificationTarget_EventBridge :: forall r. NotificationTarget -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.NotificationTarget.html#%24bNotificationTarget_EventBridge"><span class="hs-identifier hs-var hs-var hs-var">NotificationTarget_EventBridge</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget%27"><span class="hs-identifier hs-type">NotificationTarget'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EventBridge&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_SNS"><span class="hs-identifier hs-type">NotificationTarget_SNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget"><span class="hs-identifier hs-type">NotificationTarget</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationTarget_SNS"><span id="%24mNotificationTarget_SNS"><span id="NotificationTarget_SNS"><span class="annot"><span class="annottext">$bNotificationTarget_SNS :: NotificationTarget
+$mNotificationTarget_SNS :: forall r. NotificationTarget -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.NotificationTarget.html#%24bNotificationTarget_SNS"><span class="hs-identifier hs-var hs-var hs-var">NotificationTarget_SNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget%27"><span class="hs-identifier hs-type">NotificationTarget'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_SQS"><span class="hs-identifier hs-type">NotificationTarget_SQS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget"><span class="hs-identifier hs-type">NotificationTarget</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationTarget_SQS"><span id="%24mNotificationTarget_SQS"><span id="NotificationTarget_SQS"><span class="annot"><span class="annottext">$bNotificationTarget_SQS :: NotificationTarget
+$mNotificationTarget_SQS :: forall r. NotificationTarget -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.NotificationTarget.html#%24bNotificationTarget_SQS"><span class="hs-identifier hs-var hs-var hs-var">NotificationTarget_SQS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget%27"><span class="hs-identifier hs-type">NotificationTarget'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SQS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_EventBridge"><span class="hs-pragma hs-type">NotificationTarget_EventBridge</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_SNS"><span class="hs-pragma hs-type">NotificationTarget_SNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget_SQS"><span class="hs-pragma hs-type">NotificationTarget_SQS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.NotificationTarget.html#NotificationTarget%27"><span class="hs-pragma hs-type">NotificationTarget'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

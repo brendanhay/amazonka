@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WorkDocs.Types.RoleType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkDocs.Types.RoleType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier">RoleType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_CONTRIBUTOR"><span class="hs-identifier">RoleType_CONTRIBUTOR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_COOWNER"><span class="hs-identifier">RoleType_COOWNER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_OWNER"><span class="hs-identifier">RoleType_OWNER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_VIEWER"><span class="hs-identifier">RoleType_VIEWER</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679262927"><span id="local-6989586621679262928"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RoleType"><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-var">RoleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoleType%27"><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-identifier hs-var">RoleType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRoleType"><span class="annot"><span class="annottext">RoleType -&gt; Text
+</span><a href="Amazonka.WorkDocs.Types.RoleType.html#fromRoleType"><span class="hs-identifier hs-var hs-var">fromRoleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262919"><span id="local-6989586621679262921"><span id="local-6989586621679262923"><span class="annot"><span class="annottext">Int -&gt; RoleType -&gt; ShowS
+[RoleType] -&gt; ShowS
+RoleType -&gt; String
+(Int -&gt; RoleType -&gt; ShowS)
+-&gt; (RoleType -&gt; String) -&gt; ([RoleType] -&gt; ShowS) -&gt; Show RoleType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RoleType] -&gt; ShowS
+$cshowList :: [RoleType] -&gt; ShowS
+show :: RoleType -&gt; String
+$cshow :: RoleType -&gt; String
+showsPrec :: Int -&gt; RoleType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RoleType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679262910"><span id="local-6989586621679262912"><span id="local-6989586621679262914"><span id="local-6989586621679262916"><span class="annot"><span class="annottext">ReadPrec [RoleType]
+ReadPrec RoleType
+Int -&gt; ReadS RoleType
+ReadS [RoleType]
+(Int -&gt; ReadS RoleType)
+-&gt; ReadS [RoleType]
+-&gt; ReadPrec RoleType
+-&gt; ReadPrec [RoleType]
+-&gt; Read RoleType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RoleType]
+$creadListPrec :: ReadPrec [RoleType]
+readPrec :: ReadPrec RoleType
+$creadPrec :: ReadPrec RoleType
+readList :: ReadS [RoleType]
+$creadList :: ReadS [RoleType]
+readsPrec :: Int -&gt; ReadS RoleType
+$creadsPrec :: Int -&gt; ReadS RoleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679262905"><span id="local-6989586621679262907"><span class="annot"><span class="annottext">RoleType -&gt; RoleType -&gt; Bool
+(RoleType -&gt; RoleType -&gt; Bool)
+-&gt; (RoleType -&gt; RoleType -&gt; Bool) -&gt; Eq RoleType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RoleType -&gt; RoleType -&gt; Bool
+$c/= :: RoleType -&gt; RoleType -&gt; Bool
+== :: RoleType -&gt; RoleType -&gt; Bool
+$c== :: RoleType -&gt; RoleType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679262889"><span id="local-6989586621679262891"><span id="local-6989586621679262893"><span id="local-6989586621679262895"><span id="local-6989586621679262897"><span id="local-6989586621679262899"><span id="local-6989586621679262901"><span class="annot"><span class="annottext">Eq RoleType
+Eq RoleType
+-&gt; (RoleType -&gt; RoleType -&gt; Ordering)
+-&gt; (RoleType -&gt; RoleType -&gt; Bool)
+-&gt; (RoleType -&gt; RoleType -&gt; Bool)
+-&gt; (RoleType -&gt; RoleType -&gt; Bool)
+-&gt; (RoleType -&gt; RoleType -&gt; Bool)
+-&gt; (RoleType -&gt; RoleType -&gt; RoleType)
+-&gt; (RoleType -&gt; RoleType -&gt; RoleType)
+-&gt; Ord RoleType
+RoleType -&gt; RoleType -&gt; Bool
+RoleType -&gt; RoleType -&gt; Ordering
+RoleType -&gt; RoleType -&gt; RoleType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RoleType -&gt; RoleType -&gt; RoleType
+$cmin :: RoleType -&gt; RoleType -&gt; RoleType
+max :: RoleType -&gt; RoleType -&gt; RoleType
+$cmax :: RoleType -&gt; RoleType -&gt; RoleType
+&gt;= :: RoleType -&gt; RoleType -&gt; Bool
+$c&gt;= :: RoleType -&gt; RoleType -&gt; Bool
+&gt; :: RoleType -&gt; RoleType -&gt; Bool
+$c&gt; :: RoleType -&gt; RoleType -&gt; Bool
+&lt;= :: RoleType -&gt; RoleType -&gt; Bool
+$c&lt;= :: RoleType -&gt; RoleType -&gt; Bool
+&lt; :: RoleType -&gt; RoleType -&gt; Bool
+$c&lt; :: RoleType -&gt; RoleType -&gt; Bool
+compare :: RoleType -&gt; RoleType -&gt; Ordering
+$ccompare :: RoleType -&gt; RoleType -&gt; Ordering
+$cp1Ord :: Eq RoleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RoleType -&gt; Rep RoleType x)
+-&gt; (forall x. Rep RoleType x -&gt; RoleType) -&gt; Generic RoleType
+forall x. Rep RoleType x -&gt; RoleType
+forall x. RoleType -&gt; Rep RoleType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RoleType x -&gt; RoleType
+$cfrom :: forall x. RoleType -&gt; Rep RoleType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262881"><span id="local-6989586621679262883"><span class="annot"><span class="annottext">Int -&gt; RoleType -&gt; Int
+RoleType -&gt; Int
+(Int -&gt; RoleType -&gt; Int) -&gt; (RoleType -&gt; Int) -&gt; Hashable RoleType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RoleType -&gt; Int
+$chash :: RoleType -&gt; Int
+hashWithSalt :: Int -&gt; RoleType -&gt; Int
+$chashWithSalt :: Int -&gt; RoleType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679262878"><span class="annot"><span class="annottext">RoleType -&gt; ()
+(RoleType -&gt; ()) -&gt; NFData RoleType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RoleType -&gt; ()
+$crnf :: RoleType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679262875"><span class="annot"><span class="annottext">Text -&gt; Either String RoleType
+(Text -&gt; Either String RoleType) -&gt; FromText RoleType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RoleType
+$cfromText :: Text -&gt; Either String RoleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679262872"><span class="annot"><span class="annottext">RoleType -&gt; Text
+(RoleType -&gt; Text) -&gt; ToText RoleType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RoleType -&gt; Text
+$ctoText :: RoleType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262869"><span class="annot"><span class="annottext">RoleType -&gt; ByteString
+(RoleType -&gt; ByteString) -&gt; ToByteString RoleType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RoleType -&gt; ByteString
+$ctoBS :: RoleType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262866"><span class="annot"><span class="annottext">RoleType -&gt; ByteStringBuilder
+(RoleType -&gt; ByteStringBuilder) -&gt; ToLog RoleType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RoleType -&gt; ByteStringBuilder
+$cbuild :: RoleType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262863"><span class="annot"><span class="annottext">HeaderName -&gt; RoleType -&gt; [Header]
+(HeaderName -&gt; RoleType -&gt; [Header]) -&gt; ToHeader RoleType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RoleType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RoleType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262860"><span class="annot"><span class="annottext">RoleType -&gt; QueryString
+(RoleType -&gt; QueryString) -&gt; ToQuery RoleType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RoleType -&gt; QueryString
+$ctoQuery :: RoleType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262855"><span id="local-6989586621679262857"><span class="annot"><span class="annottext">Value -&gt; Parser [RoleType]
+Value -&gt; Parser RoleType
+(Value -&gt; Parser RoleType)
+-&gt; (Value -&gt; Parser [RoleType]) -&gt; FromJSON RoleType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RoleType]
+$cparseJSONList :: Value -&gt; Parser [RoleType]
+parseJSON :: Value -&gt; Parser RoleType
+$cparseJSON :: Value -&gt; Parser RoleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262850"><span id="local-6989586621679262852"><span class="annot"><span class="annottext">FromJSONKeyFunction [RoleType]
+FromJSONKeyFunction RoleType
+FromJSONKeyFunction RoleType
+-&gt; FromJSONKeyFunction [RoleType] -&gt; FromJSONKey RoleType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RoleType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RoleType]
+fromJSONKey :: FromJSONKeyFunction RoleType
+$cfromJSONKey :: FromJSONKeyFunction RoleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262841"><span id="local-6989586621679262843"><span id="local-6989586621679262845"><span id="local-6989586621679262847"><span class="annot"><span class="annottext">[RoleType] -&gt; Encoding
+[RoleType] -&gt; Value
+RoleType -&gt; Encoding
+RoleType -&gt; Value
+(RoleType -&gt; Value)
+-&gt; (RoleType -&gt; Encoding)
+-&gt; ([RoleType] -&gt; Value)
+-&gt; ([RoleType] -&gt; Encoding)
+-&gt; ToJSON RoleType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RoleType] -&gt; Encoding
+$ctoEncodingList :: [RoleType] -&gt; Encoding
+toJSONList :: [RoleType] -&gt; Value
+$ctoJSONList :: [RoleType] -&gt; Value
+toEncoding :: RoleType -&gt; Encoding
+$ctoEncoding :: RoleType -&gt; Encoding
+toJSON :: RoleType -&gt; Value
+$ctoJSON :: RoleType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262836"><span id="local-6989586621679262838"><span class="annot"><span class="annottext">ToJSONKeyFunction [RoleType]
+ToJSONKeyFunction RoleType
+ToJSONKeyFunction RoleType
+-&gt; ToJSONKeyFunction [RoleType] -&gt; ToJSONKey RoleType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RoleType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RoleType]
+toJSONKey :: ToJSONKeyFunction RoleType
+$ctoJSONKey :: ToJSONKeyFunction RoleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679262833"><span class="annot"><span class="annottext">[Node] -&gt; Either String RoleType
+([Node] -&gt; Either String RoleType) -&gt; FromXML RoleType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RoleType
+$cparseXML :: [Node] -&gt; Either String RoleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679262830"><span class="annot"><span class="annottext">RoleType -&gt; XML
+(RoleType -&gt; XML) -&gt; ToXML RoleType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RoleType -&gt; XML
+$ctoXML :: RoleType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_CONTRIBUTOR"><span class="hs-identifier hs-type">RoleType_CONTRIBUTOR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoleType_CONTRIBUTOR"><span id="%24mRoleType_CONTRIBUTOR"><span id="RoleType_CONTRIBUTOR"><span class="annot"><span class="annottext">$bRoleType_CONTRIBUTOR :: RoleType
+$mRoleType_CONTRIBUTOR :: forall r. RoleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkDocs.Types.RoleType.html#%24bRoleType_CONTRIBUTOR"><span class="hs-identifier hs-var hs-var hs-var">RoleType_CONTRIBUTOR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-identifier hs-type">RoleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTRIBUTOR&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_COOWNER"><span class="hs-identifier hs-type">RoleType_COOWNER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoleType_COOWNER"><span id="%24mRoleType_COOWNER"><span id="RoleType_COOWNER"><span class="annot"><span class="annottext">$bRoleType_COOWNER :: RoleType
+$mRoleType_COOWNER :: forall r. RoleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkDocs.Types.RoleType.html#%24bRoleType_COOWNER"><span class="hs-identifier hs-var hs-var hs-var">RoleType_COOWNER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-identifier hs-type">RoleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COOWNER&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_OWNER"><span class="hs-identifier hs-type">RoleType_OWNER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoleType_OWNER"><span id="%24mRoleType_OWNER"><span id="RoleType_OWNER"><span class="annot"><span class="annottext">$bRoleType_OWNER :: RoleType
+$mRoleType_OWNER :: forall r. RoleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkDocs.Types.RoleType.html#%24bRoleType_OWNER"><span class="hs-identifier hs-var hs-var hs-var">RoleType_OWNER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-identifier hs-type">RoleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OWNER&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_VIEWER"><span class="hs-identifier hs-type">RoleType_VIEWER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoleType_VIEWER"><span id="%24mRoleType_VIEWER"><span id="RoleType_VIEWER"><span class="annot"><span class="annottext">$bRoleType_VIEWER :: RoleType
+$mRoleType_VIEWER :: forall r. RoleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkDocs.Types.RoleType.html#%24bRoleType_VIEWER"><span class="hs-identifier hs-var hs-var hs-var">RoleType_VIEWER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-identifier hs-type">RoleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VIEWER&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_CONTRIBUTOR"><span class="hs-pragma hs-type">RoleType_CONTRIBUTOR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_COOWNER"><span class="hs-pragma hs-type">RoleType_COOWNER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_OWNER"><span class="hs-pragma hs-type">RoleType_OWNER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType_VIEWER"><span class="hs-pragma hs-type">RoleType_VIEWER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-pragma hs-type">RoleType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

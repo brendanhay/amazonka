@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.PinpointEmail.Types.DeliveryOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.PinpointEmail.Types.DeliveryOptions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.TlsPolicy.html"><span class="hs-identifier">Amazonka.PinpointEmail.Types.TlsPolicy</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Used to associate a configuration set with a dedicated IP pool.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeliveryOptions' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679235316"><span id="local-6989586621679235317"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryOptions"><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-var">DeliveryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryOptions%27"><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-var">DeliveryOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dedicated IP pool that you want to associate with the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsendingPoolName%3ADeliveryOptions%27"><span class="annot"><span class="annottext">DeliveryOptions -&gt; Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#%24sel%3AsendingPoolName%3ADeliveryOptions%27"><span class="hs-identifier hs-var hs-var">sendingPoolName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies whether messages that use the configuration set are required</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- messages are only delivered if a TLS connection can be established. If</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the value is @Optional@, messages can be delivered in plain text if a</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- TLS connection can\'t be established.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtlsPolicy%3ADeliveryOptions%27"><span class="annot"><span class="annottext">DeliveryOptions -&gt; Maybe TlsPolicy
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#%24sel%3AtlsPolicy%3ADeliveryOptions%27"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.TlsPolicy.html#TlsPolicy"><span class="hs-identifier hs-type">TlsPolicy</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235309"><span id="local-6989586621679235311"><span class="annot"><span class="annottext">DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
+(DeliveryOptions -&gt; DeliveryOptions -&gt; Bool)
+-&gt; (DeliveryOptions -&gt; DeliveryOptions -&gt; Bool)
+-&gt; Eq DeliveryOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
+$c/= :: DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
+== :: DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
+$c== :: DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235300"><span id="local-6989586621679235302"><span id="local-6989586621679235304"><span id="local-6989586621679235306"><span class="annot"><span class="annottext">ReadPrec [DeliveryOptions]
+ReadPrec DeliveryOptions
+Int -&gt; ReadS DeliveryOptions
+ReadS [DeliveryOptions]
+(Int -&gt; ReadS DeliveryOptions)
+-&gt; ReadS [DeliveryOptions]
+-&gt; ReadPrec DeliveryOptions
+-&gt; ReadPrec [DeliveryOptions]
+-&gt; Read DeliveryOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeliveryOptions]
+$creadListPrec :: ReadPrec [DeliveryOptions]
+readPrec :: ReadPrec DeliveryOptions
+$creadPrec :: ReadPrec DeliveryOptions
+readList :: ReadS [DeliveryOptions]
+$creadList :: ReadS [DeliveryOptions]
+readsPrec :: Int -&gt; ReadS DeliveryOptions
+$creadsPrec :: Int -&gt; ReadS DeliveryOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235293"><span id="local-6989586621679235295"><span id="local-6989586621679235297"><span class="annot"><span class="annottext">Int -&gt; DeliveryOptions -&gt; ShowS
+[DeliveryOptions] -&gt; ShowS
+DeliveryOptions -&gt; String
+(Int -&gt; DeliveryOptions -&gt; ShowS)
+-&gt; (DeliveryOptions -&gt; String)
+-&gt; ([DeliveryOptions] -&gt; ShowS)
+-&gt; Show DeliveryOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeliveryOptions] -&gt; ShowS
+$cshowList :: [DeliveryOptions] -&gt; ShowS
+show :: DeliveryOptions -&gt; String
+$cshow :: DeliveryOptions -&gt; String
+showsPrec :: Int -&gt; DeliveryOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeliveryOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeliveryOptions -&gt; Rep DeliveryOptions x)
+-&gt; (forall x. Rep DeliveryOptions x -&gt; DeliveryOptions)
+-&gt; Generic DeliveryOptions
+forall x. Rep DeliveryOptions x -&gt; DeliveryOptions
+forall x. DeliveryOptions -&gt; Rep DeliveryOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeliveryOptions x -&gt; DeliveryOptions
+$cfrom :: forall x. DeliveryOptions -&gt; Rep DeliveryOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'DeliveryOptions' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'sendingPoolName', 'deliveryOptions_sendingPoolName' - The name of the dedicated IP pool that you want to associate with the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'tlsPolicy', 'deliveryOptions_tlsPolicy' - Specifies whether messages that use the configuration set are required</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- messages are only delivered if a TLS connection can be established. If</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- the value is @Optional@, messages can be delivered in plain text if a</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- TLS connection can\'t be established.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#newDeliveryOptions"><span class="hs-identifier hs-type">newDeliveryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span>
+</span><span id="line-61"></span><span id="newDeliveryOptions"><span class="annot"><span class="annottext">newDeliveryOptions :: DeliveryOptions
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#newDeliveryOptions"><span class="hs-identifier hs-var hs-var">newDeliveryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">DeliveryOptions' :: Maybe Text -&gt; Maybe TlsPolicy -&gt; DeliveryOptions
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sendingPoolName:DeliveryOptions' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#%24sel%3AsendingPoolName%3ADeliveryOptions%27"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:tlsPolicy:DeliveryOptions' :: Maybe TlsPolicy
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#%24sel%3AtlsPolicy%3ADeliveryOptions%27"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The name of the dedicated IP pool that you want to associate with the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#deliveryOptions_sendingPoolName"><span class="hs-identifier hs-type">deliveryOptions_sendingPoolName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="deliveryOptions_sendingPoolName"><span class="annot"><span class="annottext">deliveryOptions_sendingPoolName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeliveryOptions -&gt; f DeliveryOptions
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#deliveryOptions_sendingPoolName"><span class="hs-identifier hs-var hs-var">deliveryOptions_sendingPoolName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryOptions -&gt; Maybe Text)
+-&gt; (DeliveryOptions -&gt; Maybe Text -&gt; DeliveryOptions)
+-&gt; Lens DeliveryOptions DeliveryOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235284"><span class="annot"><span class="annottext">Maybe Text
+sendingPoolName :: Maybe Text
+$sel:sendingPoolName:DeliveryOptions' :: DeliveryOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679235284"><span class="hs-identifier hs-var hs-var">sendingPoolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235284"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235283"><span class="annot"><span class="annottext">s :: DeliveryOptions
+</span><a href="#local-6989586621679235283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryOptions
+</span><a href="#local-6989586621679235283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendingPoolName:DeliveryOptions' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#%24sel%3AsendingPoolName%3ADeliveryOptions%27"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Specifies whether messages that use the configuration set are required</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- messages are only delivered if a TLS connection can be established. If</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- the value is @Optional@, messages can be delivered in plain text if a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- TLS connection can\'t be established.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#deliveryOptions_tlsPolicy"><span class="hs-identifier hs-type">deliveryOptions_tlsPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.TlsPolicy.html#TlsPolicy"><span class="hs-identifier hs-type">TlsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="deliveryOptions_tlsPolicy"><span class="annot"><span class="annottext">deliveryOptions_tlsPolicy :: (Maybe TlsPolicy -&gt; f (Maybe TlsPolicy))
+-&gt; DeliveryOptions -&gt; f DeliveryOptions
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#deliveryOptions_tlsPolicy"><span class="hs-identifier hs-var hs-var">deliveryOptions_tlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryOptions -&gt; Maybe TlsPolicy)
+-&gt; (DeliveryOptions -&gt; Maybe TlsPolicy -&gt; DeliveryOptions)
+-&gt; Lens
+     DeliveryOptions DeliveryOptions (Maybe TlsPolicy) (Maybe TlsPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235280"><span class="annot"><span class="annottext">Maybe TlsPolicy
+tlsPolicy :: Maybe TlsPolicy
+$sel:tlsPolicy:DeliveryOptions' :: DeliveryOptions -&gt; Maybe TlsPolicy
+</span><a href="#local-6989586621679235280"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679235280"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235279"><span class="annot"><span class="annottext">s :: DeliveryOptions
+</span><a href="#local-6989586621679235279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235278"><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679235278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryOptions
+</span><a href="#local-6989586621679235279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tlsPolicy:DeliveryOptions' :: Maybe TlsPolicy
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#%24sel%3AtlsPolicy%3ADeliveryOptions%27"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679235278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679235273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeliveryOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DeliveryOptions)
+-&gt; Value
+-&gt; Parser DeliveryOptions
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DeliveryOptions&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235270"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe TlsPolicy -&gt; DeliveryOptions
+</span><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-var">DeliveryOptions'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe TlsPolicy -&gt; DeliveryOptions)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe TlsPolicy -&gt; DeliveryOptions)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SendingPoolName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TlsPolicy -&gt; DeliveryOptions)
+-&gt; Parser (Maybe TlsPolicy) -&gt; Parser DeliveryOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TlsPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TlsPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235264"><span id="local-6989586621679235266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235253"><span id="local-6989586621679235255"><span id="local-6989586621679235257"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679235251"><span class="annot"><span class="annottext">toJSON :: DeliveryOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235248"><span id="local-6989586621679235249"><span class="annot"><span class="annottext">Maybe Text
+Maybe TlsPolicy
+tlsPolicy :: Maybe TlsPolicy
+sendingPoolName :: Maybe Text
+$sel:tlsPolicy:DeliveryOptions' :: DeliveryOptions -&gt; Maybe TlsPolicy
+$sel:sendingPoolName:DeliveryOptions' :: DeliveryOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679235248"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SendingPoolName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235249"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TlsPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TlsPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TlsPolicy -&gt; Pair) -&gt; Maybe TlsPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679235248"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span></pre></body></html>

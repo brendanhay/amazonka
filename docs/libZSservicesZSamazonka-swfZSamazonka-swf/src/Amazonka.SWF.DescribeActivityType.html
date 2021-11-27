@@ -1,0 +1,613 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SWF.DescribeActivityType</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the specified activity type. This includes</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- configuration settings provided when the type was registered and other</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- general information about the type.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __Access Control__</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can use IAM policies to control this action\'s access to Amazon SWF</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- resources as follows:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   Use a @Resource@ element with the domain name to limit the action to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     only specified domains.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   Use an @Action@ element to allow or deny permission to call this</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     action.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   Constrain the following parameters by using a @Condition@ element</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     with the appropriate keys.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     -   @activityType.name@: String constraint. The key is</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--         @swf:activityType.name@.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     -   @activityType.version@: String constraint. The key is</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--         @swf:activityType.version@.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- If the caller doesn\'t have sufficient permissions to invoke the action,</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- or the parameter values fall outside the specified constraints, the</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- action fails. The associated event attribute\'s @cause@ parameter is set</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- to @OPERATION_NOT_PERMITTED@. For details and example IAM policies, see</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows&gt;</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.DescribeActivityType</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier">DescribeActivityType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#newDescribeActivityType"><span class="hs-identifier">newDescribeActivityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityType_domain"><span class="hs-identifier">describeActivityType_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityType_activityType"><span class="hs-identifier">describeActivityType_activityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier">DescribeActivityTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#newDescribeActivityTypeResponse"><span class="hs-identifier">newDescribeActivityTypeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_httpStatus"><span class="hs-identifier">describeActivityTypeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_typeInfo"><span class="hs-identifier">describeActivityTypeResponse_typeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_configuration"><span class="hs-identifier">describeActivityTypeResponse_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.html"><span class="hs-identifier">Amazonka.SWF.Types</span></a></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | /See:/ 'newDescribeActivityType' smart constructor.</span><span>
+</span><span id="line-81"></span><span id="local-6989586621679364759"><span id="local-6989586621679364760"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeActivityType"><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-var">DescribeActivityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeActivityType%27"><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType%27"><span class="hs-identifier hs-var">DescribeActivityType'</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain in which the activity type is registered.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adomain%3ADescribeActivityType%27"><span class="annot"><span class="annottext">DescribeActivityType -&gt; Text
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3Adomain%3ADescribeActivityType%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The activity type to get information about. Activity types are</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- identified by the @name@ and @version@ that were supplied when the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- activity was registered.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AactivityType%3ADescribeActivityType%27"><span class="annot"><span class="annottext">DescribeActivityType -&gt; ActivityType
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AactivityType%3ADescribeActivityType%27"><span class="hs-identifier hs-var hs-var">activityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityType.html#ActivityType"><span class="hs-identifier hs-type">ActivityType</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364752"><span id="local-6989586621679364754"><span class="annot"><span class="annottext">DescribeActivityType -&gt; DescribeActivityType -&gt; Bool
+(DescribeActivityType -&gt; DescribeActivityType -&gt; Bool)
+-&gt; (DescribeActivityType -&gt; DescribeActivityType -&gt; Bool)
+-&gt; Eq DescribeActivityType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeActivityType -&gt; DescribeActivityType -&gt; Bool
+$c/= :: DescribeActivityType -&gt; DescribeActivityType -&gt; Bool
+== :: DescribeActivityType -&gt; DescribeActivityType -&gt; Bool
+$c== :: DescribeActivityType -&gt; DescribeActivityType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364743"><span id="local-6989586621679364745"><span id="local-6989586621679364747"><span id="local-6989586621679364749"><span class="annot"><span class="annottext">ReadPrec [DescribeActivityType]
+ReadPrec DescribeActivityType
+Int -&gt; ReadS DescribeActivityType
+ReadS [DescribeActivityType]
+(Int -&gt; ReadS DescribeActivityType)
+-&gt; ReadS [DescribeActivityType]
+-&gt; ReadPrec DescribeActivityType
+-&gt; ReadPrec [DescribeActivityType]
+-&gt; Read DescribeActivityType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeActivityType]
+$creadListPrec :: ReadPrec [DescribeActivityType]
+readPrec :: ReadPrec DescribeActivityType
+$creadPrec :: ReadPrec DescribeActivityType
+readList :: ReadS [DescribeActivityType]
+$creadList :: ReadS [DescribeActivityType]
+readsPrec :: Int -&gt; ReadS DescribeActivityType
+$creadsPrec :: Int -&gt; ReadS DescribeActivityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364736"><span id="local-6989586621679364738"><span id="local-6989586621679364740"><span class="annot"><span class="annottext">Int -&gt; DescribeActivityType -&gt; ShowS
+[DescribeActivityType] -&gt; ShowS
+DescribeActivityType -&gt; String
+(Int -&gt; DescribeActivityType -&gt; ShowS)
+-&gt; (DescribeActivityType -&gt; String)
+-&gt; ([DescribeActivityType] -&gt; ShowS)
+-&gt; Show DescribeActivityType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeActivityType] -&gt; ShowS
+$cshowList :: [DescribeActivityType] -&gt; ShowS
+show :: DescribeActivityType -&gt; String
+$cshow :: DescribeActivityType -&gt; String
+showsPrec :: Int -&gt; DescribeActivityType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeActivityType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeActivityType -&gt; Rep DescribeActivityType x)
+-&gt; (forall x. Rep DescribeActivityType x -&gt; DescribeActivityType)
+-&gt; Generic DescribeActivityType
+forall x. Rep DescribeActivityType x -&gt; DescribeActivityType
+forall x. DescribeActivityType -&gt; Rep DescribeActivityType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeActivityType x -&gt; DescribeActivityType
+$cfrom :: forall x. DescribeActivityType -&gt; Rep DescribeActivityType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'DescribeActivityType' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'domain', 'describeActivityType_domain' - The name of the domain in which the activity type is registered.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'activityType', 'describeActivityType_activityType' - The activity type to get information about. Activity types are</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- identified by the @name@ and @version@ that were supplied when the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- activity was registered.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#newDescribeActivityType"><span class="hs-identifier hs-type">newDescribeActivityType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'activityType'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityType.html#ActivityType"><span class="hs-identifier hs-type">ActivityType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span>
+</span><span id="line-110"></span><span id="newDescribeActivityType"><span class="annot"><span class="annottext">newDescribeActivityType :: Text -&gt; ActivityType -&gt; DescribeActivityType
+</span><a href="Amazonka.SWF.DescribeActivityType.html#newDescribeActivityType"><span class="hs-identifier hs-var hs-var">newDescribeActivityType</span></a></span></span><span> </span><span id="local-6989586621679364731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364731"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span id="local-6989586621679364730"><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679364730"><span class="hs-identifier hs-var">pActivityType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">DescribeActivityType' :: Text -&gt; ActivityType -&gt; DescribeActivityType
+</span><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType%27"><span class="hs-identifier hs-type">DescribeActivityType'</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domain:DescribeActivityType' :: Text
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3Adomain%3ADescribeActivityType%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364731"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:activityType:DescribeActivityType' :: ActivityType
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AactivityType%3ADescribeActivityType%27"><span class="hs-identifier hs-var">activityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679364730"><span class="hs-identifier hs-var">pActivityType_</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the domain in which the activity type is registered.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityType_domain"><span class="hs-identifier hs-type">describeActivityType_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="describeActivityType_domain"><span class="annot"><span class="annottext">describeActivityType_domain :: (Text -&gt; f Text) -&gt; DescribeActivityType -&gt; f DescribeActivityType
+</span><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityType_domain"><span class="hs-identifier hs-var hs-var">describeActivityType_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeActivityType -&gt; Text)
+-&gt; (DescribeActivityType -&gt; Text -&gt; DescribeActivityType)
+-&gt; Lens DescribeActivityType DescribeActivityType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType%27"><span class="hs-identifier hs-type">DescribeActivityType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364727"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:DescribeActivityType' :: DescribeActivityType -&gt; Text
+</span><a href="#local-6989586621679364727"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364727"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364726"><span class="annot"><span class="annottext">s :: DescribeActivityType
+</span><a href="#local-6989586621679364726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType%27"><span class="hs-identifier hs-type">DescribeActivityType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivityType
+</span><a href="#local-6989586621679364726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DescribeActivityType' :: Text
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3Adomain%3ADescribeActivityType%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The activity type to get information about. Activity types are</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- identified by the @name@ and @version@ that were supplied when the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- activity was registered.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityType_activityType"><span class="hs-identifier hs-type">describeActivityType_activityType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityType.html#ActivityType"><span class="hs-identifier hs-type">ActivityType</span></a></span><span>
+</span><span id="line-124"></span><span id="describeActivityType_activityType"><span class="annot"><span class="annottext">describeActivityType_activityType :: (ActivityType -&gt; f ActivityType)
+-&gt; DescribeActivityType -&gt; f DescribeActivityType
+</span><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityType_activityType"><span class="hs-identifier hs-var hs-var">describeActivityType_activityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeActivityType -&gt; ActivityType)
+-&gt; (DescribeActivityType -&gt; ActivityType -&gt; DescribeActivityType)
+-&gt; Lens
+     DescribeActivityType DescribeActivityType ActivityType ActivityType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType%27"><span class="hs-identifier hs-type">DescribeActivityType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364724"><span class="annot"><span class="annottext">ActivityType
+activityType :: ActivityType
+$sel:activityType:DescribeActivityType' :: DescribeActivityType -&gt; ActivityType
+</span><a href="#local-6989586621679364724"><span class="hs-identifier hs-var hs-var">activityType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679364724"><span class="hs-identifier hs-var">activityType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364723"><span class="annot"><span class="annottext">s :: DescribeActivityType
+</span><a href="#local-6989586621679364723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType%27"><span class="hs-identifier hs-type">DescribeActivityType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364722"><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679364722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivityType
+</span><a href="#local-6989586621679364723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityType:DescribeActivityType' :: ActivityType
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AactivityType%3ADescribeActivityType%27"><span class="hs-identifier hs-var">activityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679364722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679364718"><span class="annot"><span class="annottext">request :: DescribeActivityType -&gt; Request DescribeActivityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeActivityType -&gt; Request DescribeActivityType
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SWF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679364714"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeActivityType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeActivityType)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeActivityType))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeActivityType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeActivityType)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364711"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364711"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679364710"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679364710"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679364709"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; ActivityTypeInfo
+-&gt; ActivityTypeConfiguration
+-&gt; DescribeActivityTypeResponse
+</span><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">DescribeActivityTypeResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; ActivityTypeInfo
+ -&gt; ActivityTypeConfiguration
+ -&gt; DescribeActivityTypeResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (ActivityTypeInfo
+      -&gt; ActivityTypeConfiguration -&gt; DescribeActivityTypeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364711"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (ActivityTypeInfo
+   -&gt; ActivityTypeConfiguration -&gt; DescribeActivityTypeResponse)
+-&gt; Either String ActivityTypeInfo
+-&gt; Either
+     String (ActivityTypeConfiguration -&gt; DescribeActivityTypeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ActivityTypeInfo
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;typeInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (ActivityTypeConfiguration -&gt; DescribeActivityTypeResponse)
+-&gt; Either String ActivityTypeConfiguration
+-&gt; Either String DescribeActivityTypeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ActivityTypeConfiguration
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364701"><span id="local-6989586621679364703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679364694"><span class="annot"><span class="annottext">toHeaders :: DescribeActivityType -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeActivityType -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SimpleWorkflowService.DescribeActivityType&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364684"><span id="local-6989586621679364686"><span id="local-6989586621679364688"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679364682"><span class="annot"><span class="annottext">toJSON :: DescribeActivityType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType%27"><span class="hs-identifier hs-type">DescribeActivityType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364679"><span id="local-6989586621679364680"><span class="annot"><span class="annottext">Text
+ActivityType
+activityType :: ActivityType
+domain :: Text
+$sel:activityType:DescribeActivityType' :: DescribeActivityType -&gt; ActivityType
+$sel:domain:DescribeActivityType' :: DescribeActivityType -&gt; Text
+</span><a href="#local-6989586621679364679"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364680"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;activityType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActivityType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679364679"><span class="hs-identifier hs-var">activityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679364673"><span class="annot"><span class="annottext">toPath :: DescribeActivityType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeActivityType -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityType"><span class="hs-identifier hs-type">DescribeActivityType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679364669"><span class="annot"><span class="annottext">toQuery :: DescribeActivityType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeActivityType -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | Detailed information about an activity type.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- /See:/ 'newDescribeActivityTypeResponse' smart constructor.</span><span>
+</span><span id="line-177"></span><span id="local-6989586621679364666"><span id="local-6989586621679364667"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeActivityTypeResponse"><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-var">DescribeActivityTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeActivityTypeResponse%27"><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">DescribeActivityTypeResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeActivityTypeResponse%27"><span class="annot"><span class="annottext">DescribeActivityTypeResponse -&gt; Int
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AhttpStatus%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | General information about the activity type.</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- The status of activity type (returned in the ActivityTypeInfo structure)</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- can be one of the following.</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- -   @REGISTERED@ &#8211; The type is registered and available. Workers</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--     supporting this type should be running.</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- -   @DEPRECATED@ &#8211; The type was deprecated using DeprecateActivityType,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">--     but is still in use. You should keep workers supporting this type</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--     running. You cannot create new tasks of this type.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AtypeInfo%3ADescribeActivityTypeResponse%27"><span class="annot"><span class="annottext">DescribeActivityTypeResponse -&gt; ActivityTypeInfo
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AtypeInfo%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var hs-var">typeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The configuration settings registered with the activity type.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3Aconfiguration%3ADescribeActivityTypeResponse%27"><span class="annot"><span class="annottext">DescribeActivityTypeResponse -&gt; ActivityTypeConfiguration
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3Aconfiguration%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityTypeConfiguration.html#ActivityTypeConfiguration"><span class="hs-identifier hs-type">ActivityTypeConfiguration</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364659"><span id="local-6989586621679364661"><span class="annot"><span class="annottext">DescribeActivityTypeResponse
+-&gt; DescribeActivityTypeResponse -&gt; Bool
+(DescribeActivityTypeResponse
+ -&gt; DescribeActivityTypeResponse -&gt; Bool)
+-&gt; (DescribeActivityTypeResponse
+    -&gt; DescribeActivityTypeResponse -&gt; Bool)
+-&gt; Eq DescribeActivityTypeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeActivityTypeResponse
+-&gt; DescribeActivityTypeResponse -&gt; Bool
+$c/= :: DescribeActivityTypeResponse
+-&gt; DescribeActivityTypeResponse -&gt; Bool
+== :: DescribeActivityTypeResponse
+-&gt; DescribeActivityTypeResponse -&gt; Bool
+$c== :: DescribeActivityTypeResponse
+-&gt; DescribeActivityTypeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364651"><span id="local-6989586621679364653"><span id="local-6989586621679364655"><span id="local-6989586621679364657"><span class="annot"><span class="annottext">ReadPrec [DescribeActivityTypeResponse]
+ReadPrec DescribeActivityTypeResponse
+Int -&gt; ReadS DescribeActivityTypeResponse
+ReadS [DescribeActivityTypeResponse]
+(Int -&gt; ReadS DescribeActivityTypeResponse)
+-&gt; ReadS [DescribeActivityTypeResponse]
+-&gt; ReadPrec DescribeActivityTypeResponse
+-&gt; ReadPrec [DescribeActivityTypeResponse]
+-&gt; Read DescribeActivityTypeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeActivityTypeResponse]
+$creadListPrec :: ReadPrec [DescribeActivityTypeResponse]
+readPrec :: ReadPrec DescribeActivityTypeResponse
+$creadPrec :: ReadPrec DescribeActivityTypeResponse
+readList :: ReadS [DescribeActivityTypeResponse]
+$creadList :: ReadS [DescribeActivityTypeResponse]
+readsPrec :: Int -&gt; ReadS DescribeActivityTypeResponse
+$creadsPrec :: Int -&gt; ReadS DescribeActivityTypeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364645"><span id="local-6989586621679364647"><span id="local-6989586621679364649"><span class="annot"><span class="annottext">Int -&gt; DescribeActivityTypeResponse -&gt; ShowS
+[DescribeActivityTypeResponse] -&gt; ShowS
+DescribeActivityTypeResponse -&gt; String
+(Int -&gt; DescribeActivityTypeResponse -&gt; ShowS)
+-&gt; (DescribeActivityTypeResponse -&gt; String)
+-&gt; ([DescribeActivityTypeResponse] -&gt; ShowS)
+-&gt; Show DescribeActivityTypeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeActivityTypeResponse] -&gt; ShowS
+$cshowList :: [DescribeActivityTypeResponse] -&gt; ShowS
+show :: DescribeActivityTypeResponse -&gt; String
+$cshow :: DescribeActivityTypeResponse -&gt; String
+showsPrec :: Int -&gt; DescribeActivityTypeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeActivityTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeActivityTypeResponse -&gt; Rep DescribeActivityTypeResponse x)
+-&gt; (forall x.
+    Rep DescribeActivityTypeResponse x -&gt; DescribeActivityTypeResponse)
+-&gt; Generic DescribeActivityTypeResponse
+forall x.
+Rep DescribeActivityTypeResponse x -&gt; DescribeActivityTypeResponse
+forall x.
+DescribeActivityTypeResponse -&gt; Rep DescribeActivityTypeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeActivityTypeResponse x -&gt; DescribeActivityTypeResponse
+$cfrom :: forall x.
+DescribeActivityTypeResponse -&gt; Rep DescribeActivityTypeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Create a value of 'DescribeActivityTypeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'httpStatus', 'describeActivityTypeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'typeInfo', 'describeActivityTypeResponse_typeInfo' - General information about the activity type.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- The status of activity type (returned in the ActivityTypeInfo structure)</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- can be one of the following.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   @REGISTERED@ &#8211; The type is registered and available. Workers</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     supporting this type should be running.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   @DEPRECATED@ &#8211; The type was deprecated using DeprecateActivityType,</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     but is still in use. You should keep workers supporting this type</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     running. You cannot create new tasks of this type.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'configuration', 'describeActivityTypeResponse_configuration' - The configuration settings registered with the activity type.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#newDescribeActivityTypeResponse"><span class="hs-identifier hs-type">newDescribeActivityTypeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'typeInfo'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'configuration'</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityTypeConfiguration.html#ActivityTypeConfiguration"><span class="hs-identifier hs-type">ActivityTypeConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span>
+</span><span id="line-228"></span><span id="newDescribeActivityTypeResponse"><span class="annot"><span class="annottext">newDescribeActivityTypeResponse :: Int
+-&gt; ActivityTypeInfo
+-&gt; ActivityTypeConfiguration
+-&gt; DescribeActivityTypeResponse
+</span><a href="Amazonka.SWF.DescribeActivityType.html#newDescribeActivityTypeResponse"><span class="hs-identifier hs-var hs-var">newDescribeActivityTypeResponse</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679364642"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679364641"><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679364641"><span class="hs-identifier hs-var">pTypeInfo_</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679364640"><span class="annot"><span class="annottext">ActivityTypeConfiguration
+</span><a href="#local-6989586621679364640"><span class="hs-identifier hs-var">pConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">DescribeActivityTypeResponse' :: Int
+-&gt; ActivityTypeInfo
+-&gt; ActivityTypeConfiguration
+-&gt; DescribeActivityTypeResponse
+</span><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-type">DescribeActivityTypeResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeActivityTypeResponse' :: Int
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AhttpStatus%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:typeInfo:DescribeActivityTypeResponse' :: ActivityTypeInfo
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AtypeInfo%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">typeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679364641"><span class="hs-identifier hs-var">pTypeInfo_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">$sel:configuration:DescribeActivityTypeResponse' :: ActivityTypeConfiguration
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3Aconfiguration%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityTypeConfiguration
+</span><a href="#local-6989586621679364640"><span class="hs-identifier hs-var">pConfiguration_</span></a></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_httpStatus"><span class="hs-identifier hs-type">describeActivityTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span id="describeActivityTypeResponse_httpStatus"><span class="annot"><span class="annottext">describeActivityTypeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeActivityTypeResponse -&gt; f DescribeActivityTypeResponse
+</span><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeActivityTypeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeActivityTypeResponse -&gt; Int)
+-&gt; (DescribeActivityTypeResponse
+    -&gt; Int -&gt; DescribeActivityTypeResponse)
+-&gt; Lens
+     DescribeActivityTypeResponse DescribeActivityTypeResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-type">DescribeActivityTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364639"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeActivityTypeResponse' :: DescribeActivityTypeResponse -&gt; Int
+</span><a href="#local-6989586621679364639"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364639"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364638"><span class="annot"><span class="annottext">s :: DescribeActivityTypeResponse
+</span><a href="#local-6989586621679364638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-type">DescribeActivityTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364637"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivityTypeResponse
+</span><a href="#local-6989586621679364638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeActivityTypeResponse' :: Int
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AhttpStatus%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | General information about the activity type.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- The status of activity type (returned in the ActivityTypeInfo structure)</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- can be one of the following.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @REGISTERED@ &#8211; The type is registered and available. Workers</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     supporting this type should be running.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   @DEPRECATED@ &#8211; The type was deprecated using DeprecateActivityType,</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     but is still in use. You should keep workers supporting this type</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     running. You cannot create new tasks of this type.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_typeInfo"><span class="hs-identifier hs-type">describeActivityTypeResponse_typeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span>
+</span><span id="line-255"></span><span id="describeActivityTypeResponse_typeInfo"><span class="annot"><span class="annottext">describeActivityTypeResponse_typeInfo :: (ActivityTypeInfo -&gt; f ActivityTypeInfo)
+-&gt; DescribeActivityTypeResponse -&gt; f DescribeActivityTypeResponse
+</span><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_typeInfo"><span class="hs-identifier hs-var hs-var">describeActivityTypeResponse_typeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeActivityTypeResponse -&gt; ActivityTypeInfo)
+-&gt; (DescribeActivityTypeResponse
+    -&gt; ActivityTypeInfo -&gt; DescribeActivityTypeResponse)
+-&gt; Lens
+     DescribeActivityTypeResponse
+     DescribeActivityTypeResponse
+     ActivityTypeInfo
+     ActivityTypeInfo
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-type">DescribeActivityTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364636"><span class="annot"><span class="annottext">ActivityTypeInfo
+typeInfo :: ActivityTypeInfo
+$sel:typeInfo:DescribeActivityTypeResponse' :: DescribeActivityTypeResponse -&gt; ActivityTypeInfo
+</span><a href="#local-6989586621679364636"><span class="hs-identifier hs-var hs-var">typeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679364636"><span class="hs-identifier hs-var">typeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364635"><span class="annot"><span class="annottext">s :: DescribeActivityTypeResponse
+</span><a href="#local-6989586621679364635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-type">DescribeActivityTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364634"><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679364634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivityTypeResponse
+</span><a href="#local-6989586621679364635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeInfo:DescribeActivityTypeResponse' :: ActivityTypeInfo
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3AtypeInfo%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">typeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679364634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The configuration settings registered with the activity type.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_configuration"><span class="hs-identifier hs-type">describeActivityTypeResponse_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ActivityTypeConfiguration.html#ActivityTypeConfiguration"><span class="hs-identifier hs-type">ActivityTypeConfiguration</span></a></span><span>
+</span><span id="line-259"></span><span id="describeActivityTypeResponse_configuration"><span class="annot"><span class="annottext">describeActivityTypeResponse_configuration :: (ActivityTypeConfiguration -&gt; f ActivityTypeConfiguration)
+-&gt; DescribeActivityTypeResponse -&gt; f DescribeActivityTypeResponse
+</span><a href="Amazonka.SWF.DescribeActivityType.html#describeActivityTypeResponse_configuration"><span class="hs-identifier hs-var hs-var">describeActivityTypeResponse_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeActivityTypeResponse -&gt; ActivityTypeConfiguration)
+-&gt; (DescribeActivityTypeResponse
+    -&gt; ActivityTypeConfiguration -&gt; DescribeActivityTypeResponse)
+-&gt; Lens
+     DescribeActivityTypeResponse
+     DescribeActivityTypeResponse
+     ActivityTypeConfiguration
+     ActivityTypeConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-type">DescribeActivityTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364633"><span class="annot"><span class="annottext">ActivityTypeConfiguration
+configuration :: ActivityTypeConfiguration
+$sel:configuration:DescribeActivityTypeResponse' :: DescribeActivityTypeResponse -&gt; ActivityTypeConfiguration
+</span><a href="#local-6989586621679364633"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeConfiguration
+</span><a href="#local-6989586621679364633"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364632"><span class="annot"><span class="annottext">s :: DescribeActivityTypeResponse
+</span><a href="#local-6989586621679364632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse%27"><span class="hs-identifier hs-type">DescribeActivityTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364631"><span class="annot"><span class="annottext">ActivityTypeConfiguration
+</span><a href="#local-6989586621679364631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivityTypeResponse
+</span><a href="#local-6989586621679364632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:DescribeActivityTypeResponse' :: ActivityTypeConfiguration
+</span><a href="Amazonka.SWF.DescribeActivityType.html#%24sel%3Aconfiguration%3ADescribeActivityTypeResponse%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityTypeConfiguration
+</span><a href="#local-6989586621679364631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.DescribeActivityType.html#DescribeActivityTypeResponse"><span class="hs-identifier hs-type">DescribeActivityTypeResponse</span></a></span></span><span>
+</span><span id="line-262"></span></pre></body></html>

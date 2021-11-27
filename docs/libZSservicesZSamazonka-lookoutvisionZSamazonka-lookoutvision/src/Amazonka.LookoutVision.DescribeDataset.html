@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LookoutVision.DescribeDataset</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describe an Amazon Lookout for Vision dataset.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation requires permissions to perform the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @lookoutvision:DescribeDataset@ operation.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutVision.DescribeDataset</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier">DescribeDataset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#newDescribeDataset"><span class="hs-identifier">newDescribeDataset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDataset_projectName"><span class="hs-identifier">describeDataset_projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDataset_datasetType"><span class="hs-identifier">describeDataset_datasetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier">DescribeDatasetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#newDescribeDatasetResponse"><span class="hs-identifier">newDescribeDatasetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDatasetResponse_datasetDescription"><span class="hs-identifier">describeDatasetResponse_datasetDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDatasetResponse_httpStatus"><span class="hs-identifier">describeDatasetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.html"><span class="hs-identifier">Amazonka.LookoutVision.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeDataset' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679185378"><span id="local-6989586621679185379"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDataset"><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-var">DescribeDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDataset%27"><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset%27"><span class="hs-identifier hs-var">DescribeDataset'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the project that contains the dataset that you want to</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- describe.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AprojectName%3ADescribeDataset%27"><span class="annot"><span class="annottext">DescribeDataset -&gt; Text
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AprojectName%3ADescribeDataset%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The type of the dataset to describe. Specify @train@ to describe the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- training dataset. Specify @test@ to describe the test dataset. If you</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- have a single dataset project, specify @train@</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdatasetType%3ADescribeDataset%27"><span class="annot"><span class="annottext">DescribeDataset -&gt; Text
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AdatasetType%3ADescribeDataset%27"><span class="hs-identifier hs-var hs-var">datasetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185371"><span id="local-6989586621679185373"><span class="annot"><span class="annottext">DescribeDataset -&gt; DescribeDataset -&gt; Bool
+(DescribeDataset -&gt; DescribeDataset -&gt; Bool)
+-&gt; (DescribeDataset -&gt; DescribeDataset -&gt; Bool)
+-&gt; Eq DescribeDataset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDataset -&gt; DescribeDataset -&gt; Bool
+$c/= :: DescribeDataset -&gt; DescribeDataset -&gt; Bool
+== :: DescribeDataset -&gt; DescribeDataset -&gt; Bool
+$c== :: DescribeDataset -&gt; DescribeDataset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185362"><span id="local-6989586621679185364"><span id="local-6989586621679185366"><span id="local-6989586621679185368"><span class="annot"><span class="annottext">ReadPrec [DescribeDataset]
+ReadPrec DescribeDataset
+Int -&gt; ReadS DescribeDataset
+ReadS [DescribeDataset]
+(Int -&gt; ReadS DescribeDataset)
+-&gt; ReadS [DescribeDataset]
+-&gt; ReadPrec DescribeDataset
+-&gt; ReadPrec [DescribeDataset]
+-&gt; Read DescribeDataset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDataset]
+$creadListPrec :: ReadPrec [DescribeDataset]
+readPrec :: ReadPrec DescribeDataset
+$creadPrec :: ReadPrec DescribeDataset
+readList :: ReadS [DescribeDataset]
+$creadList :: ReadS [DescribeDataset]
+readsPrec :: Int -&gt; ReadS DescribeDataset
+$creadsPrec :: Int -&gt; ReadS DescribeDataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185355"><span id="local-6989586621679185357"><span id="local-6989586621679185359"><span class="annot"><span class="annottext">Int -&gt; DescribeDataset -&gt; ShowS
+[DescribeDataset] -&gt; ShowS
+DescribeDataset -&gt; String
+(Int -&gt; DescribeDataset -&gt; ShowS)
+-&gt; (DescribeDataset -&gt; String)
+-&gt; ([DescribeDataset] -&gt; ShowS)
+-&gt; Show DescribeDataset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDataset] -&gt; ShowS
+$cshowList :: [DescribeDataset] -&gt; ShowS
+show :: DescribeDataset -&gt; String
+$cshow :: DescribeDataset -&gt; String
+showsPrec :: Int -&gt; DescribeDataset -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDataset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeDataset -&gt; Rep DescribeDataset x)
+-&gt; (forall x. Rep DescribeDataset x -&gt; DescribeDataset)
+-&gt; Generic DescribeDataset
+forall x. Rep DescribeDataset x -&gt; DescribeDataset
+forall x. DescribeDataset -&gt; Rep DescribeDataset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeDataset x -&gt; DescribeDataset
+$cfrom :: forall x. DescribeDataset -&gt; Rep DescribeDataset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'DescribeDataset' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'projectName', 'describeDataset_projectName' - The name of the project that contains the dataset that you want to</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- describe.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'datasetType', 'describeDataset_datasetType' - The type of the dataset to describe. Specify @train@ to describe the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- training dataset. Specify @test@ to describe the test dataset. If you</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- have a single dataset project, specify @train@</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#newDescribeDataset"><span class="hs-identifier hs-type">newDescribeDataset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'projectName'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'datasetType'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span>
+</span><span id="line-85"></span><span id="newDescribeDataset"><span class="annot"><span class="annottext">newDescribeDataset :: Text -&gt; Text -&gt; DescribeDataset
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#newDescribeDataset"><span class="hs-identifier hs-var hs-var">newDescribeDataset</span></a></span></span><span> </span><span id="local-6989586621679185350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185350"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span id="local-6989586621679185349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185349"><span class="hs-identifier hs-var">pDatasetType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DescribeDataset' :: Text -&gt; Text -&gt; DescribeDataset
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset%27"><span class="hs-identifier hs-type">DescribeDataset'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectName:DescribeDataset' :: Text
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AprojectName%3ADescribeDataset%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185350"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetType:DescribeDataset' :: Text
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AdatasetType%3ADescribeDataset%27"><span class="hs-identifier hs-var">datasetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185349"><span class="hs-identifier hs-var">pDatasetType_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The name of the project that contains the dataset that you want to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- describe.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDataset_projectName"><span class="hs-identifier hs-type">describeDataset_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="describeDataset_projectName"><span class="annot"><span class="annottext">describeDataset_projectName :: (Text -&gt; f Text) -&gt; DescribeDataset -&gt; f DescribeDataset
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDataset_projectName"><span class="hs-identifier hs-var hs-var">describeDataset_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataset -&gt; Text)
+-&gt; (DescribeDataset -&gt; Text -&gt; DescribeDataset)
+-&gt; Lens DescribeDataset DescribeDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset%27"><span class="hs-identifier hs-type">DescribeDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185346"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:DescribeDataset' :: DescribeDataset -&gt; Text
+</span><a href="#local-6989586621679185346"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185346"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185345"><span class="annot"><span class="annottext">s :: DescribeDataset
+</span><a href="#local-6989586621679185345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset%27"><span class="hs-identifier hs-type">DescribeDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataset
+</span><a href="#local-6989586621679185345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:DescribeDataset' :: Text
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AprojectName%3ADescribeDataset%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The type of the dataset to describe. Specify @train@ to describe the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- training dataset. Specify @test@ to describe the test dataset. If you</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- have a single dataset project, specify @train@</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDataset_datasetType"><span class="hs-identifier hs-type">describeDataset_datasetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="describeDataset_datasetType"><span class="annot"><span class="annottext">describeDataset_datasetType :: (Text -&gt; f Text) -&gt; DescribeDataset -&gt; f DescribeDataset
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDataset_datasetType"><span class="hs-identifier hs-var hs-var">describeDataset_datasetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataset -&gt; Text)
+-&gt; (DescribeDataset -&gt; Text -&gt; DescribeDataset)
+-&gt; Lens DescribeDataset DescribeDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset%27"><span class="hs-identifier hs-type">DescribeDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185343"><span class="annot"><span class="annottext">Text
+datasetType :: Text
+$sel:datasetType:DescribeDataset' :: DescribeDataset -&gt; Text
+</span><a href="#local-6989586621679185343"><span class="hs-identifier hs-var hs-var">datasetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185343"><span class="hs-identifier hs-var">datasetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185342"><span class="annot"><span class="annottext">s :: DescribeDataset
+</span><a href="#local-6989586621679185342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset%27"><span class="hs-identifier hs-type">DescribeDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataset
+</span><a href="#local-6989586621679185342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetType:DescribeDataset' :: Text
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AdatasetType%3ADescribeDataset%27"><span class="hs-identifier hs-var">datasetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-type">DescribeDatasetResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679185337"><span class="annot"><span class="annottext">request :: DescribeDataset -&gt; Request DescribeDataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeDataset -&gt; Request DescribeDataset
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LookoutVision.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679185333"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDataset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeDataset)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDataset))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDataset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeDataset)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185330"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185330"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185329"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185329"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185328"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185328"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatasetDescription -&gt; Int -&gt; DescribeDatasetResponse
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse%27"><span class="hs-identifier hs-var">DescribeDatasetResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DatasetDescription -&gt; Int -&gt; DescribeDatasetResponse)
+-&gt; Either String (Maybe DatasetDescription)
+-&gt; Either String (Int -&gt; DescribeDatasetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DatasetDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatasetDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDatasetResponse)
+-&gt; Either String Int -&gt; Either String DescribeDatasetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185330"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185320"><span id="local-6989586621679185322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679185313"><span class="annot"><span class="annottext">toHeaders :: DescribeDataset -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDataset -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679185307"><span class="annot"><span class="annottext">toPath :: DescribeDataset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset%27"><span class="hs-identifier hs-type">DescribeDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185304"><span id="local-6989586621679185305"><span class="annot"><span class="annottext">Text
+datasetType :: Text
+projectName :: Text
+$sel:datasetType:DescribeDataset' :: DescribeDataset -&gt; Text
+$sel:projectName:DescribeDataset' :: DescribeDataset -&gt; Text
+</span><a href="#local-6989586621679185304"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-11-20/projects/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185305"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/datasets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">datasetType</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDataset"><span class="hs-identifier hs-type">DescribeDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679185300"><span class="annot"><span class="annottext">toQuery :: DescribeDataset -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDataset -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDescribeDatasetResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679185297"><span id="local-6989586621679185298"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDatasetResponse"><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-var">DescribeDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDatasetResponse%27"><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse%27"><span class="hs-identifier hs-var">DescribeDatasetResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the requested dataset.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AdatasetDescription%3ADescribeDatasetResponse%27"><span class="annot"><span class="annottext">DescribeDatasetResponse -&gt; Maybe DatasetDescription
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AdatasetDescription%3ADescribeDatasetResponse%27"><span class="hs-identifier hs-var hs-var">datasetDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetDescription.html#DatasetDescription"><span class="hs-identifier hs-type">DatasetDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDatasetResponse%27"><span class="annot"><span class="annottext">DescribeDatasetResponse -&gt; Int
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AhttpStatus%3ADescribeDatasetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185291"><span id="local-6989586621679185293"><span class="annot"><span class="annottext">DescribeDatasetResponse -&gt; DescribeDatasetResponse -&gt; Bool
+(DescribeDatasetResponse -&gt; DescribeDatasetResponse -&gt; Bool)
+-&gt; (DescribeDatasetResponse -&gt; DescribeDatasetResponse -&gt; Bool)
+-&gt; Eq DescribeDatasetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDatasetResponse -&gt; DescribeDatasetResponse -&gt; Bool
+$c/= :: DescribeDatasetResponse -&gt; DescribeDatasetResponse -&gt; Bool
+== :: DescribeDatasetResponse -&gt; DescribeDatasetResponse -&gt; Bool
+$c== :: DescribeDatasetResponse -&gt; DescribeDatasetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185283"><span id="local-6989586621679185285"><span id="local-6989586621679185287"><span id="local-6989586621679185289"><span class="annot"><span class="annottext">ReadPrec [DescribeDatasetResponse]
+ReadPrec DescribeDatasetResponse
+Int -&gt; ReadS DescribeDatasetResponse
+ReadS [DescribeDatasetResponse]
+(Int -&gt; ReadS DescribeDatasetResponse)
+-&gt; ReadS [DescribeDatasetResponse]
+-&gt; ReadPrec DescribeDatasetResponse
+-&gt; ReadPrec [DescribeDatasetResponse]
+-&gt; Read DescribeDatasetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDatasetResponse]
+$creadListPrec :: ReadPrec [DescribeDatasetResponse]
+readPrec :: ReadPrec DescribeDatasetResponse
+$creadPrec :: ReadPrec DescribeDatasetResponse
+readList :: ReadS [DescribeDatasetResponse]
+$creadList :: ReadS [DescribeDatasetResponse]
+readsPrec :: Int -&gt; ReadS DescribeDatasetResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDatasetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185277"><span id="local-6989586621679185279"><span id="local-6989586621679185281"><span class="annot"><span class="annottext">Int -&gt; DescribeDatasetResponse -&gt; ShowS
+[DescribeDatasetResponse] -&gt; ShowS
+DescribeDatasetResponse -&gt; String
+(Int -&gt; DescribeDatasetResponse -&gt; ShowS)
+-&gt; (DescribeDatasetResponse -&gt; String)
+-&gt; ([DescribeDatasetResponse] -&gt; ShowS)
+-&gt; Show DescribeDatasetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDatasetResponse] -&gt; ShowS
+$cshowList :: [DescribeDatasetResponse] -&gt; ShowS
+show :: DescribeDatasetResponse -&gt; String
+$cshow :: DescribeDatasetResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDatasetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDatasetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDatasetResponse -&gt; Rep DescribeDatasetResponse x)
+-&gt; (forall x.
+    Rep DescribeDatasetResponse x -&gt; DescribeDatasetResponse)
+-&gt; Generic DescribeDatasetResponse
+forall x. Rep DescribeDatasetResponse x -&gt; DescribeDatasetResponse
+forall x. DescribeDatasetResponse -&gt; Rep DescribeDatasetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeDatasetResponse x -&gt; DescribeDatasetResponse
+$cfrom :: forall x. DescribeDatasetResponse -&gt; Rep DescribeDatasetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Create a value of 'DescribeDatasetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'datasetDescription', 'describeDatasetResponse_datasetDescription' - The description of the requested dataset.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'httpStatus', 'describeDatasetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#newDescribeDatasetResponse"><span class="hs-identifier hs-type">newDescribeDatasetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-type">DescribeDatasetResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newDescribeDatasetResponse"><span class="annot"><span class="annottext">newDescribeDatasetResponse :: Int -&gt; DescribeDatasetResponse
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#newDescribeDatasetResponse"><span class="hs-identifier hs-var hs-var">newDescribeDatasetResponse</span></a></span></span><span> </span><span id="local-6989586621679185274"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185274"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">DescribeDatasetResponse' :: Maybe DatasetDescription -&gt; Int -&gt; DescribeDatasetResponse
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse%27"><span class="hs-identifier hs-type">DescribeDatasetResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datasetDescription:DescribeDatasetResponse' :: Maybe DatasetDescription
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AdatasetDescription%3ADescribeDatasetResponse%27"><span class="hs-identifier hs-var">datasetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Maybe DatasetDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDatasetResponse' :: Int
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AhttpStatus%3ADescribeDatasetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185274"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The description of the requested dataset.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDatasetResponse_datasetDescription"><span class="hs-identifier hs-type">describeDatasetResponse_datasetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-type">DescribeDatasetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetDescription.html#DatasetDescription"><span class="hs-identifier hs-type">DatasetDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="describeDatasetResponse_datasetDescription"><span class="annot"><span class="annottext">describeDatasetResponse_datasetDescription :: (Maybe DatasetDescription -&gt; f (Maybe DatasetDescription))
+-&gt; DescribeDatasetResponse -&gt; f DescribeDatasetResponse
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDatasetResponse_datasetDescription"><span class="hs-identifier hs-var hs-var">describeDatasetResponse_datasetDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDatasetResponse -&gt; Maybe DatasetDescription)
+-&gt; (DescribeDatasetResponse
+    -&gt; Maybe DatasetDescription -&gt; DescribeDatasetResponse)
+-&gt; Lens
+     DescribeDatasetResponse
+     DescribeDatasetResponse
+     (Maybe DatasetDescription)
+     (Maybe DatasetDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse%27"><span class="hs-identifier hs-type">DescribeDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185273"><span class="annot"><span class="annottext">Maybe DatasetDescription
+datasetDescription :: Maybe DatasetDescription
+$sel:datasetDescription:DescribeDatasetResponse' :: DescribeDatasetResponse -&gt; Maybe DatasetDescription
+</span><a href="#local-6989586621679185273"><span class="hs-identifier hs-var hs-var">datasetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetDescription
+</span><a href="#local-6989586621679185273"><span class="hs-identifier hs-var">datasetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185272"><span class="annot"><span class="annottext">s :: DescribeDatasetResponse
+</span><a href="#local-6989586621679185272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse%27"><span class="hs-identifier hs-type">DescribeDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185271"><span class="annot"><span class="annottext">Maybe DatasetDescription
+</span><a href="#local-6989586621679185271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatasetResponse
+</span><a href="#local-6989586621679185272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetDescription:DescribeDatasetResponse' :: Maybe DatasetDescription
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AdatasetDescription%3ADescribeDatasetResponse%27"><span class="hs-identifier hs-var">datasetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetDescription
+</span><a href="#local-6989586621679185271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-type">DescribeDatasetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDatasetResponse_httpStatus"><span class="hs-identifier hs-type">describeDatasetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-type">DescribeDatasetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="describeDatasetResponse_httpStatus"><span class="annot"><span class="annottext">describeDatasetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeDatasetResponse -&gt; f DescribeDatasetResponse
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#describeDatasetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeDatasetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDatasetResponse -&gt; Int)
+-&gt; (DescribeDatasetResponse -&gt; Int -&gt; DescribeDatasetResponse)
+-&gt; Lens DescribeDatasetResponse DescribeDatasetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse%27"><span class="hs-identifier hs-type">DescribeDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185270"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeDatasetResponse' :: DescribeDatasetResponse -&gt; Int
+</span><a href="#local-6989586621679185270"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185270"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185269"><span class="annot"><span class="annottext">s :: DescribeDatasetResponse
+</span><a href="#local-6989586621679185269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse%27"><span class="hs-identifier hs-type">DescribeDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185268"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatasetResponse
+</span><a href="#local-6989586621679185269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDatasetResponse' :: Int
+</span><a href="Amazonka.LookoutVision.DescribeDataset.html#%24sel%3AhttpStatus%3ADescribeDatasetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-type">DescribeDatasetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DescribeDataset.html#DescribeDatasetResponse"><span class="hs-identifier hs-type">DescribeDatasetResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

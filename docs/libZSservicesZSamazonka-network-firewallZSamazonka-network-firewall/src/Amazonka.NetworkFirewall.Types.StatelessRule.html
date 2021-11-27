@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.Types.StatelessRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatelessRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleDefinition</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A single stateless rule. This is used in StatelessRulesAndCustomActions.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStatelessRule' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679241987"><span id="local-6989586621679241988"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatelessRule"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-var">StatelessRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatelessRule%27"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-var">StatelessRule'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines the stateless 5-tuple packet inspection criteria and the action</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to take on a packet that matches the criteria.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AruleDefinition%3AStatelessRule%27"><span class="annot"><span class="annottext">StatelessRule -&gt; RuleDefinition
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#%24sel%3AruleDefinition%3AStatelessRule%27"><span class="hs-identifier hs-var hs-var">ruleDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Indicates the order in which to run this rule relative to all of the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- rules that are defined for a stateless rule group. Network Firewall</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- evaluates the rules in a rule group starting with the lowest priority</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- setting. You must ensure that the priority settings are unique for the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- rule group.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Each stateless rule group uses exactly one</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @StatelessRulesAndCustomActions@ object, and each</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @StatelessRulesAndCustomActions@ contains exactly one @StatelessRules@</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- object. To ensure unique priority settings for your rule groups, set</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- unique priorities for the stateless rules that you define inside any</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- single @StatelessRules@ object.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- You can change the priority settings of your rules at any time. To make</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- it easier to insert rules later, number them so there\'s a wide range in</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- between, for example use 100, 200, and so on.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Apriority%3AStatelessRule%27"><span class="annot"><span class="annottext">StatelessRule -&gt; Natural
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#%24sel%3Apriority%3AStatelessRule%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241980"><span id="local-6989586621679241982"><span class="annot"><span class="annottext">StatelessRule -&gt; StatelessRule -&gt; Bool
+(StatelessRule -&gt; StatelessRule -&gt; Bool)
+-&gt; (StatelessRule -&gt; StatelessRule -&gt; Bool) -&gt; Eq StatelessRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StatelessRule -&gt; StatelessRule -&gt; Bool
+$c/= :: StatelessRule -&gt; StatelessRule -&gt; Bool
+== :: StatelessRule -&gt; StatelessRule -&gt; Bool
+$c== :: StatelessRule -&gt; StatelessRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241971"><span id="local-6989586621679241973"><span id="local-6989586621679241975"><span id="local-6989586621679241977"><span class="annot"><span class="annottext">ReadPrec [StatelessRule]
+ReadPrec StatelessRule
+Int -&gt; ReadS StatelessRule
+ReadS [StatelessRule]
+(Int -&gt; ReadS StatelessRule)
+-&gt; ReadS [StatelessRule]
+-&gt; ReadPrec StatelessRule
+-&gt; ReadPrec [StatelessRule]
+-&gt; Read StatelessRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StatelessRule]
+$creadListPrec :: ReadPrec [StatelessRule]
+readPrec :: ReadPrec StatelessRule
+$creadPrec :: ReadPrec StatelessRule
+readList :: ReadS [StatelessRule]
+$creadList :: ReadS [StatelessRule]
+readsPrec :: Int -&gt; ReadS StatelessRule
+$creadsPrec :: Int -&gt; ReadS StatelessRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241964"><span id="local-6989586621679241966"><span id="local-6989586621679241968"><span class="annot"><span class="annottext">Int -&gt; StatelessRule -&gt; ShowS
+[StatelessRule] -&gt; ShowS
+StatelessRule -&gt; String
+(Int -&gt; StatelessRule -&gt; ShowS)
+-&gt; (StatelessRule -&gt; String)
+-&gt; ([StatelessRule] -&gt; ShowS)
+-&gt; Show StatelessRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StatelessRule] -&gt; ShowS
+$cshowList :: [StatelessRule] -&gt; ShowS
+show :: StatelessRule -&gt; String
+$cshow :: StatelessRule -&gt; String
+showsPrec :: Int -&gt; StatelessRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; StatelessRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StatelessRule -&gt; Rep StatelessRule x)
+-&gt; (forall x. Rep StatelessRule x -&gt; StatelessRule)
+-&gt; Generic StatelessRule
+forall x. Rep StatelessRule x -&gt; StatelessRule
+forall x. StatelessRule -&gt; Rep StatelessRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StatelessRule x -&gt; StatelessRule
+$cfrom :: forall x. StatelessRule -&gt; Rep StatelessRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'StatelessRule' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'ruleDefinition', 'statelessRule_ruleDefinition' - Defines the stateless 5-tuple packet inspection criteria and the action</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- to take on a packet that matches the criteria.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'priority', 'statelessRule_priority' - Indicates the order in which to run this rule relative to all of the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- rules that are defined for a stateless rule group. Network Firewall</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- evaluates the rules in a rule group starting with the lowest priority</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- setting. You must ensure that the priority settings are unique for the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- rule group.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Each stateless rule group uses exactly one</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @StatelessRulesAndCustomActions@ object, and each</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- @StatelessRulesAndCustomActions@ contains exactly one @StatelessRules@</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- object. To ensure unique priority settings for your rule groups, set</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- unique priorities for the stateless rules that you define inside any</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- single @StatelessRules@ object.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- You can change the priority settings of your rules at any time. To make</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- it easier to insert rules later, number them so there\'s a wide range in</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- between, for example use 100, 200, and so on.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#newStatelessRule"><span class="hs-identifier hs-type">newStatelessRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'ruleDefinition'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'priority'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span><span>
+</span><span id="line-87"></span><span id="newStatelessRule"><span class="annot"><span class="annottext">newStatelessRule :: RuleDefinition -&gt; Natural -&gt; StatelessRule
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#newStatelessRule"><span class="hs-identifier hs-var hs-var">newStatelessRule</span></a></span></span><span> </span><span id="local-6989586621679241958"><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679241958"><span class="hs-identifier hs-var">pRuleDefinition_</span></a></span></span><span> </span><span id="local-6989586621679241957"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679241957"><span class="hs-identifier hs-var">pPriority_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">StatelessRule' :: RuleDefinition -&gt; Natural -&gt; StatelessRule
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-type">StatelessRule'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleDefinition:StatelessRule' :: RuleDefinition
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#%24sel%3AruleDefinition%3AStatelessRule%27"><span class="hs-identifier hs-var">ruleDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679241958"><span class="hs-identifier hs-var">pRuleDefinition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:StatelessRule' :: Natural
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#%24sel%3Apriority%3AStatelessRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679241957"><span class="hs-identifier hs-var">pPriority_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Defines the stateless 5-tuple packet inspection criteria and the action</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- to take on a packet that matches the criteria.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#statelessRule_ruleDefinition"><span class="hs-identifier hs-type">statelessRule_ruleDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span>
+</span><span id="line-96"></span><span id="statelessRule_ruleDefinition"><span class="annot"><span class="annottext">statelessRule_ruleDefinition :: (RuleDefinition -&gt; f RuleDefinition)
+-&gt; StatelessRule -&gt; f StatelessRule
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#statelessRule_ruleDefinition"><span class="hs-identifier hs-var hs-var">statelessRule_ruleDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StatelessRule -&gt; RuleDefinition)
+-&gt; (StatelessRule -&gt; RuleDefinition -&gt; StatelessRule)
+-&gt; Lens StatelessRule StatelessRule RuleDefinition RuleDefinition
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-type">StatelessRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241953"><span class="annot"><span class="annottext">RuleDefinition
+ruleDefinition :: RuleDefinition
+$sel:ruleDefinition:StatelessRule' :: StatelessRule -&gt; RuleDefinition
+</span><a href="#local-6989586621679241953"><span class="hs-identifier hs-var hs-var">ruleDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679241953"><span class="hs-identifier hs-var">ruleDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241952"><span class="annot"><span class="annottext">s :: StatelessRule
+</span><a href="#local-6989586621679241952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-type">StatelessRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241951"><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679241951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatelessRule
+</span><a href="#local-6989586621679241952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleDefinition:StatelessRule' :: RuleDefinition
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#%24sel%3AruleDefinition%3AStatelessRule%27"><span class="hs-identifier hs-var">ruleDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679241951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Indicates the order in which to run this rule relative to all of the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- rules that are defined for a stateless rule group. Network Firewall</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- evaluates the rules in a rule group starting with the lowest priority</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- setting. You must ensure that the priority settings are unique for the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- rule group.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Each stateless rule group uses exactly one</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @StatelessRulesAndCustomActions@ object, and each</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @StatelessRulesAndCustomActions@ contains exactly one @StatelessRules@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- object. To ensure unique priority settings for your rule groups, set</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- unique priorities for the stateless rules that you define inside any</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- single @StatelessRules@ object.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- You can change the priority settings of your rules at any time. To make</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- it easier to insert rules later, number them so there\'s a wide range in</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- between, for example use 100, 200, and so on.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#statelessRule_priority"><span class="hs-identifier hs-type">statelessRule_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-115"></span><span id="statelessRule_priority"><span class="annot"><span class="annottext">statelessRule_priority :: (Natural -&gt; f Natural) -&gt; StatelessRule -&gt; f StatelessRule
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#statelessRule_priority"><span class="hs-identifier hs-var hs-var">statelessRule_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StatelessRule -&gt; Natural)
+-&gt; (StatelessRule -&gt; Natural -&gt; StatelessRule)
+-&gt; Lens StatelessRule StatelessRule Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-type">StatelessRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241949"><span class="annot"><span class="annottext">Natural
+priority :: Natural
+$sel:priority:StatelessRule' :: StatelessRule -&gt; Natural
+</span><a href="#local-6989586621679241949"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679241949"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241948"><span class="annot"><span class="annottext">s :: StatelessRule
+</span><a href="#local-6989586621679241948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-type">StatelessRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241947"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679241947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatelessRule
+</span><a href="#local-6989586621679241948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:StatelessRule' :: Natural
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#%24sel%3Apriority%3AStatelessRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679241947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241944"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679241942"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StatelessRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser StatelessRule)
+-&gt; Value
+-&gt; Parser StatelessRule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;StatelessRule&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241939"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">RuleDefinition -&gt; Natural -&gt; StatelessRule
+</span><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-var">StatelessRule'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(RuleDefinition -&gt; Natural -&gt; StatelessRule)
+-&gt; Parser RuleDefinition -&gt; Parser (Natural -&gt; StatelessRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RuleDefinition
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleDefinition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; StatelessRule)
+-&gt; Parser Natural -&gt; Parser StatelessRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241933"><span id="local-6989586621679241935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241922"><span id="local-6989586621679241924"><span id="local-6989586621679241926"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier hs-type">StatelessRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679241920"><span class="annot"><span class="annottext">toJSON :: StatelessRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule%27"><span class="hs-identifier hs-type">StatelessRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241917"><span id="local-6989586621679241918"><span class="annot"><span class="annottext">Natural
+RuleDefinition
+priority :: Natural
+ruleDefinition :: RuleDefinition
+$sel:priority:StatelessRule' :: StatelessRule -&gt; Natural
+$sel:ruleDefinition:StatelessRule' :: StatelessRule -&gt; RuleDefinition
+</span><a href="#local-6989586621679241917"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RuleDefinition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679241918"><span class="hs-identifier hs-var">ruleDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679241917"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span></pre></body></html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.UpdateVolume</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an Amazon EBS volume\'s name or mount point. For more</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __Required Permissions__: To use this action, an IAM user must have a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Manage permissions level for the stack, or an attached policy that</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- explicitly grants permissions. For more information on user permissions,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.UpdateVolume</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier">UpdateVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#newUpdateVolume"><span class="hs-identifier">newUpdateVolume</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_name"><span class="hs-identifier">updateVolume_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_mountPoint"><span class="hs-identifier">updateVolume_mountPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_volumeId"><span class="hs-identifier">updateVolume_volumeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse"><span class="hs-identifier">UpdateVolumeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#newUpdateVolumeResponse"><span class="hs-identifier">newUpdateVolumeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.html"><span class="hs-identifier">Amazonka.OpsWorks.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateVolume' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679398029"><span id="local-6989586621679398030"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateVolume"><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-var">UpdateVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateVolume%27"><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-var">UpdateVolume'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new name.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3AUpdateVolume%27"><span class="annot"><span class="annottext">UpdateVolume -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3Aname%3AUpdateVolume%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The new mount point.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmountPoint%3AUpdateVolume%27"><span class="annot"><span class="annottext">UpdateVolume -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3AmountPoint%3AUpdateVolume%27"><span class="hs-identifier hs-var hs-var">mountPoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The volume ID.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AvolumeId%3AUpdateVolume%27"><span class="annot"><span class="annottext">UpdateVolume -&gt; Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3AvolumeId%3AUpdateVolume%27"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398021"><span id="local-6989586621679398023"><span class="annot"><span class="annottext">UpdateVolume -&gt; UpdateVolume -&gt; Bool
+(UpdateVolume -&gt; UpdateVolume -&gt; Bool)
+-&gt; (UpdateVolume -&gt; UpdateVolume -&gt; Bool) -&gt; Eq UpdateVolume
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateVolume -&gt; UpdateVolume -&gt; Bool
+$c/= :: UpdateVolume -&gt; UpdateVolume -&gt; Bool
+== :: UpdateVolume -&gt; UpdateVolume -&gt; Bool
+$c== :: UpdateVolume -&gt; UpdateVolume -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398012"><span id="local-6989586621679398014"><span id="local-6989586621679398016"><span id="local-6989586621679398018"><span class="annot"><span class="annottext">ReadPrec [UpdateVolume]
+ReadPrec UpdateVolume
+Int -&gt; ReadS UpdateVolume
+ReadS [UpdateVolume]
+(Int -&gt; ReadS UpdateVolume)
+-&gt; ReadS [UpdateVolume]
+-&gt; ReadPrec UpdateVolume
+-&gt; ReadPrec [UpdateVolume]
+-&gt; Read UpdateVolume
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateVolume]
+$creadListPrec :: ReadPrec [UpdateVolume]
+readPrec :: ReadPrec UpdateVolume
+$creadPrec :: ReadPrec UpdateVolume
+readList :: ReadS [UpdateVolume]
+$creadList :: ReadS [UpdateVolume]
+readsPrec :: Int -&gt; ReadS UpdateVolume
+$creadsPrec :: Int -&gt; ReadS UpdateVolume
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398005"><span id="local-6989586621679398007"><span id="local-6989586621679398009"><span class="annot"><span class="annottext">Int -&gt; UpdateVolume -&gt; ShowS
+[UpdateVolume] -&gt; ShowS
+UpdateVolume -&gt; String
+(Int -&gt; UpdateVolume -&gt; ShowS)
+-&gt; (UpdateVolume -&gt; String)
+-&gt; ([UpdateVolume] -&gt; ShowS)
+-&gt; Show UpdateVolume
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateVolume] -&gt; ShowS
+$cshowList :: [UpdateVolume] -&gt; ShowS
+show :: UpdateVolume -&gt; String
+$cshow :: UpdateVolume -&gt; String
+showsPrec :: Int -&gt; UpdateVolume -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateVolume -&gt; Rep UpdateVolume x)
+-&gt; (forall x. Rep UpdateVolume x -&gt; UpdateVolume)
+-&gt; Generic UpdateVolume
+forall x. Rep UpdateVolume x -&gt; UpdateVolume
+forall x. UpdateVolume -&gt; Rep UpdateVolume x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateVolume x -&gt; UpdateVolume
+$cfrom :: forall x. UpdateVolume -&gt; Rep UpdateVolume x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'UpdateVolume' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'name', 'updateVolume_name' - The new name.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'mountPoint', 'updateVolume_mountPoint' - The new mount point.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'volumeId', 'updateVolume_volumeId' - The volume ID.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#newUpdateVolume"><span class="hs-identifier hs-type">newUpdateVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'volumeId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span>
+</span><span id="line-83"></span><span id="newUpdateVolume"><span class="annot"><span class="annottext">newUpdateVolume :: Text -&gt; UpdateVolume
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#newUpdateVolume"><span class="hs-identifier hs-var hs-var">newUpdateVolume</span></a></span></span><span> </span><span id="local-6989586621679398000"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398000"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">UpdateVolume' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateVolume
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UpdateVolume' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3Aname%3AUpdateVolume%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:mountPoint:UpdateVolume' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3AmountPoint%3AUpdateVolume%27"><span class="hs-identifier hs-var">mountPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeId:UpdateVolume' :: Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3AvolumeId%3AUpdateVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398000"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The new name.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_name"><span class="hs-identifier hs-type">updateVolume_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="updateVolume_name"><span class="annot"><span class="annottext">updateVolume_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateVolume -&gt; f UpdateVolume
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_name"><span class="hs-identifier hs-var hs-var">updateVolume_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVolume -&gt; Maybe Text)
+-&gt; (UpdateVolume -&gt; Maybe Text -&gt; UpdateVolume)
+-&gt; Lens UpdateVolume UpdateVolume (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397997"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateVolume' :: UpdateVolume -&gt; Maybe Text
+</span><a href="#local-6989586621679397997"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397997"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397996"><span class="annot"><span class="annottext">s :: UpdateVolume
+</span><a href="#local-6989586621679397996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397995"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVolume
+</span><a href="#local-6989586621679397996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateVolume' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3Aname%3AUpdateVolume%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The new mount point.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_mountPoint"><span class="hs-identifier hs-type">updateVolume_mountPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="updateVolume_mountPoint"><span class="annot"><span class="annottext">updateVolume_mountPoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateVolume -&gt; f UpdateVolume
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_mountPoint"><span class="hs-identifier hs-var hs-var">updateVolume_mountPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVolume -&gt; Maybe Text)
+-&gt; (UpdateVolume -&gt; Maybe Text -&gt; UpdateVolume)
+-&gt; Lens UpdateVolume UpdateVolume (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397994"><span class="annot"><span class="annottext">Maybe Text
+mountPoint :: Maybe Text
+$sel:mountPoint:UpdateVolume' :: UpdateVolume -&gt; Maybe Text
+</span><a href="#local-6989586621679397994"><span class="hs-identifier hs-var hs-var">mountPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397994"><span class="hs-identifier hs-var">mountPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397993"><span class="annot"><span class="annottext">s :: UpdateVolume
+</span><a href="#local-6989586621679397993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397992"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVolume
+</span><a href="#local-6989586621679397993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mountPoint:UpdateVolume' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3AmountPoint%3AUpdateVolume%27"><span class="hs-identifier hs-var">mountPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The volume ID.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_volumeId"><span class="hs-identifier hs-type">updateVolume_volumeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="updateVolume_volumeId"><span class="annot"><span class="annottext">updateVolume_volumeId :: (Text -&gt; f Text) -&gt; UpdateVolume -&gt; f UpdateVolume
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#updateVolume_volumeId"><span class="hs-identifier hs-var hs-var">updateVolume_volumeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVolume -&gt; Text)
+-&gt; (UpdateVolume -&gt; Text -&gt; UpdateVolume)
+-&gt; Lens UpdateVolume UpdateVolume Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397991"><span class="annot"><span class="annottext">Text
+volumeId :: Text
+$sel:volumeId:UpdateVolume' :: UpdateVolume -&gt; Text
+</span><a href="#local-6989586621679397991"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397991"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397990"><span class="annot"><span class="annottext">s :: UpdateVolume
+</span><a href="#local-6989586621679397990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397989"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVolume
+</span><a href="#local-6989586621679397990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:UpdateVolume' :: Text
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#%24sel%3AvolumeId%3AUpdateVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse"><span class="hs-identifier hs-type">UpdateVolumeResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679397985"><span class="annot"><span class="annottext">request :: UpdateVolume -&gt; Request UpdateVolume
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateVolume -&gt; Request UpdateVolume
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679397981"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateVolume
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateVolume)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateVolume
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateVolume
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateVolume)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateVolume
+UpdateVolumeResponse
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse%27"><span class="hs-identifier hs-var">UpdateVolumeResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397974"><span id="local-6989586621679397976"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397971"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679397967"><span class="annot"><span class="annottext">toHeaders :: UpdateVolume -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateVolume -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpsWorks_20130218.UpdateVolume&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397957"><span id="local-6989586621679397959"><span id="local-6989586621679397961"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679397955"><span class="annot"><span class="annottext">toJSON :: UpdateVolume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume%27"><span class="hs-identifier hs-type">UpdateVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397951"><span id="local-6989586621679397952"><span id="local-6989586621679397953"><span class="annot"><span class="annottext">Maybe Text
+Text
+volumeId :: Text
+mountPoint :: Maybe Text
+name :: Maybe Text
+$sel:volumeId:UpdateVolume' :: UpdateVolume -&gt; Text
+$sel:mountPoint:UpdateVolume' :: UpdateVolume -&gt; Maybe Text
+$sel:name:UpdateVolume' :: UpdateVolume -&gt; Maybe Text
+</span><a href="#local-6989586621679397951"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397953"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MountPoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397952"><span class="hs-identifier hs-var">mountPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397951"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679397944"><span class="annot"><span class="annottext">toPath :: UpdateVolume -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateVolume -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolume"><span class="hs-identifier hs-type">UpdateVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679397940"><span class="annot"><span class="annottext">toQuery :: UpdateVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateVolume -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newUpdateVolumeResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679397937"><span id="local-6989586621679397938"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateVolumeResponse"><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse"><span class="hs-identifier hs-var">UpdateVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateVolumeResponse%27"><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse%27"><span class="hs-identifier hs-var">UpdateVolumeResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397933"><span id="local-6989586621679397935"><span class="annot"><span class="annottext">UpdateVolumeResponse -&gt; UpdateVolumeResponse -&gt; Bool
+(UpdateVolumeResponse -&gt; UpdateVolumeResponse -&gt; Bool)
+-&gt; (UpdateVolumeResponse -&gt; UpdateVolumeResponse -&gt; Bool)
+-&gt; Eq UpdateVolumeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateVolumeResponse -&gt; UpdateVolumeResponse -&gt; Bool
+$c/= :: UpdateVolumeResponse -&gt; UpdateVolumeResponse -&gt; Bool
+== :: UpdateVolumeResponse -&gt; UpdateVolumeResponse -&gt; Bool
+$c== :: UpdateVolumeResponse -&gt; UpdateVolumeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397925"><span id="local-6989586621679397927"><span id="local-6989586621679397929"><span id="local-6989586621679397931"><span class="annot"><span class="annottext">ReadPrec [UpdateVolumeResponse]
+ReadPrec UpdateVolumeResponse
+Int -&gt; ReadS UpdateVolumeResponse
+ReadS [UpdateVolumeResponse]
+(Int -&gt; ReadS UpdateVolumeResponse)
+-&gt; ReadS [UpdateVolumeResponse]
+-&gt; ReadPrec UpdateVolumeResponse
+-&gt; ReadPrec [UpdateVolumeResponse]
+-&gt; Read UpdateVolumeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateVolumeResponse]
+$creadListPrec :: ReadPrec [UpdateVolumeResponse]
+readPrec :: ReadPrec UpdateVolumeResponse
+$creadPrec :: ReadPrec UpdateVolumeResponse
+readList :: ReadS [UpdateVolumeResponse]
+$creadList :: ReadS [UpdateVolumeResponse]
+readsPrec :: Int -&gt; ReadS UpdateVolumeResponse
+$creadsPrec :: Int -&gt; ReadS UpdateVolumeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397919"><span id="local-6989586621679397921"><span id="local-6989586621679397923"><span class="annot"><span class="annottext">Int -&gt; UpdateVolumeResponse -&gt; ShowS
+[UpdateVolumeResponse] -&gt; ShowS
+UpdateVolumeResponse -&gt; String
+(Int -&gt; UpdateVolumeResponse -&gt; ShowS)
+-&gt; (UpdateVolumeResponse -&gt; String)
+-&gt; ([UpdateVolumeResponse] -&gt; ShowS)
+-&gt; Show UpdateVolumeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateVolumeResponse] -&gt; ShowS
+$cshowList :: [UpdateVolumeResponse] -&gt; ShowS
+show :: UpdateVolumeResponse -&gt; String
+$cshow :: UpdateVolumeResponse -&gt; String
+showsPrec :: Int -&gt; UpdateVolumeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateVolumeResponse -&gt; Rep UpdateVolumeResponse x)
+-&gt; (forall x. Rep UpdateVolumeResponse x -&gt; UpdateVolumeResponse)
+-&gt; Generic UpdateVolumeResponse
+forall x. Rep UpdateVolumeResponse x -&gt; UpdateVolumeResponse
+forall x. UpdateVolumeResponse -&gt; Rep UpdateVolumeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateVolumeResponse x -&gt; UpdateVolumeResponse
+$cfrom :: forall x. UpdateVolumeResponse -&gt; Rep UpdateVolumeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'UpdateVolumeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#newUpdateVolumeResponse"><span class="hs-identifier hs-type">newUpdateVolumeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse"><span class="hs-identifier hs-type">UpdateVolumeResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newUpdateVolumeResponse"><span class="annot"><span class="annottext">newUpdateVolumeResponse :: UpdateVolumeResponse
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#newUpdateVolumeResponse"><span class="hs-identifier hs-var hs-var">newUpdateVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateVolumeResponse
+</span><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse%27"><span class="hs-identifier hs-var">UpdateVolumeResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateVolume.html#UpdateVolumeResponse"><span class="hs-identifier hs-type">UpdateVolumeResponse</span></a></span></span><span>
+</span><span id="line-157"></span></pre></body></html>

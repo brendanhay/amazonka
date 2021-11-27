@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.DashboardFilterAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.DashboardFilterAttribute</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute"><span class="hs-identifier">DashboardFilterAttribute</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute_QUICKSIGHT_USER"><span class="hs-identifier">DashboardFilterAttribute_QUICKSIGHT_USER</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679551591"><span id="local-6989586621679551592"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashboardFilterAttribute"><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute"><span class="hs-identifier hs-var">DashboardFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashboardFilterAttribute%27"><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute%27"><span class="hs-identifier hs-var">DashboardFilterAttribute'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDashboardFilterAttribute"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#fromDashboardFilterAttribute"><span class="hs-identifier hs-var hs-var">fromDashboardFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679551583"><span id="local-6989586621679551585"><span id="local-6989586621679551587"><span class="annot"><span class="annottext">Int -&gt; DashboardFilterAttribute -&gt; ShowS
+[DashboardFilterAttribute] -&gt; ShowS
+DashboardFilterAttribute -&gt; String
+(Int -&gt; DashboardFilterAttribute -&gt; ShowS)
+-&gt; (DashboardFilterAttribute -&gt; String)
+-&gt; ([DashboardFilterAttribute] -&gt; ShowS)
+-&gt; Show DashboardFilterAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DashboardFilterAttribute] -&gt; ShowS
+$cshowList :: [DashboardFilterAttribute] -&gt; ShowS
+show :: DashboardFilterAttribute -&gt; String
+$cshow :: DashboardFilterAttribute -&gt; String
+showsPrec :: Int -&gt; DashboardFilterAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; DashboardFilterAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679551574"><span id="local-6989586621679551576"><span id="local-6989586621679551578"><span id="local-6989586621679551580"><span class="annot"><span class="annottext">ReadPrec [DashboardFilterAttribute]
+ReadPrec DashboardFilterAttribute
+Int -&gt; ReadS DashboardFilterAttribute
+ReadS [DashboardFilterAttribute]
+(Int -&gt; ReadS DashboardFilterAttribute)
+-&gt; ReadS [DashboardFilterAttribute]
+-&gt; ReadPrec DashboardFilterAttribute
+-&gt; ReadPrec [DashboardFilterAttribute]
+-&gt; Read DashboardFilterAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DashboardFilterAttribute]
+$creadListPrec :: ReadPrec [DashboardFilterAttribute]
+readPrec :: ReadPrec DashboardFilterAttribute
+$creadPrec :: ReadPrec DashboardFilterAttribute
+readList :: ReadS [DashboardFilterAttribute]
+$creadList :: ReadS [DashboardFilterAttribute]
+readsPrec :: Int -&gt; ReadS DashboardFilterAttribute
+$creadsPrec :: Int -&gt; ReadS DashboardFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679551569"><span id="local-6989586621679551571"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+(DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool)
+-&gt; (DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool)
+-&gt; Eq DashboardFilterAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+$c/= :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+== :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+$c== :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679551553"><span id="local-6989586621679551555"><span id="local-6989586621679551557"><span id="local-6989586621679551559"><span id="local-6989586621679551561"><span id="local-6989586621679551563"><span id="local-6989586621679551565"><span class="annot"><span class="annottext">Eq DashboardFilterAttribute
+Eq DashboardFilterAttribute
+-&gt; (DashboardFilterAttribute
+    -&gt; DashboardFilterAttribute -&gt; Ordering)
+-&gt; (DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool)
+-&gt; (DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool)
+-&gt; (DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool)
+-&gt; (DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool)
+-&gt; (DashboardFilterAttribute
+    -&gt; DashboardFilterAttribute -&gt; DashboardFilterAttribute)
+-&gt; (DashboardFilterAttribute
+    -&gt; DashboardFilterAttribute -&gt; DashboardFilterAttribute)
+-&gt; Ord DashboardFilterAttribute
+DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Ordering
+DashboardFilterAttribute
+-&gt; DashboardFilterAttribute -&gt; DashboardFilterAttribute
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DashboardFilterAttribute
+-&gt; DashboardFilterAttribute -&gt; DashboardFilterAttribute
+$cmin :: DashboardFilterAttribute
+-&gt; DashboardFilterAttribute -&gt; DashboardFilterAttribute
+max :: DashboardFilterAttribute
+-&gt; DashboardFilterAttribute -&gt; DashboardFilterAttribute
+$cmax :: DashboardFilterAttribute
+-&gt; DashboardFilterAttribute -&gt; DashboardFilterAttribute
+&gt;= :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+$c&gt;= :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+&gt; :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+$c&gt; :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+&lt;= :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+$c&lt;= :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+&lt; :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+$c&lt; :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Bool
+compare :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Ordering
+$ccompare :: DashboardFilterAttribute -&gt; DashboardFilterAttribute -&gt; Ordering
+$cp1Ord :: Eq DashboardFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DashboardFilterAttribute -&gt; Rep DashboardFilterAttribute x)
+-&gt; (forall x.
+    Rep DashboardFilterAttribute x -&gt; DashboardFilterAttribute)
+-&gt; Generic DashboardFilterAttribute
+forall x.
+Rep DashboardFilterAttribute x -&gt; DashboardFilterAttribute
+forall x.
+DashboardFilterAttribute -&gt; Rep DashboardFilterAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DashboardFilterAttribute x -&gt; DashboardFilterAttribute
+$cfrom :: forall x.
+DashboardFilterAttribute -&gt; Rep DashboardFilterAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679551545"><span id="local-6989586621679551547"><span class="annot"><span class="annottext">Int -&gt; DashboardFilterAttribute -&gt; Int
+DashboardFilterAttribute -&gt; Int
+(Int -&gt; DashboardFilterAttribute -&gt; Int)
+-&gt; (DashboardFilterAttribute -&gt; Int)
+-&gt; Hashable DashboardFilterAttribute
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DashboardFilterAttribute -&gt; Int
+$chash :: DashboardFilterAttribute -&gt; Int
+hashWithSalt :: Int -&gt; DashboardFilterAttribute -&gt; Int
+$chashWithSalt :: Int -&gt; DashboardFilterAttribute -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679551542"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; ()
+(DashboardFilterAttribute -&gt; ()) -&gt; NFData DashboardFilterAttribute
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DashboardFilterAttribute -&gt; ()
+$crnf :: DashboardFilterAttribute -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679551539"><span class="annot"><span class="annottext">Text -&gt; Either String DashboardFilterAttribute
+(Text -&gt; Either String DashboardFilterAttribute)
+-&gt; FromText DashboardFilterAttribute
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DashboardFilterAttribute
+$cfromText :: Text -&gt; Either String DashboardFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679551536"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; Text
+(DashboardFilterAttribute -&gt; Text)
+-&gt; ToText DashboardFilterAttribute
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DashboardFilterAttribute -&gt; Text
+$ctoText :: DashboardFilterAttribute -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679551533"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; ByteString
+(DashboardFilterAttribute -&gt; ByteString)
+-&gt; ToByteString DashboardFilterAttribute
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DashboardFilterAttribute -&gt; ByteString
+$ctoBS :: DashboardFilterAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679551530"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; ByteStringBuilder
+(DashboardFilterAttribute -&gt; ByteStringBuilder)
+-&gt; ToLog DashboardFilterAttribute
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DashboardFilterAttribute -&gt; ByteStringBuilder
+$cbuild :: DashboardFilterAttribute -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679551527"><span class="annot"><span class="annottext">HeaderName -&gt; DashboardFilterAttribute -&gt; [Header]
+(HeaderName -&gt; DashboardFilterAttribute -&gt; [Header])
+-&gt; ToHeader DashboardFilterAttribute
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DashboardFilterAttribute -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DashboardFilterAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679551524"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; QueryString
+(DashboardFilterAttribute -&gt; QueryString)
+-&gt; ToQuery DashboardFilterAttribute
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DashboardFilterAttribute -&gt; QueryString
+$ctoQuery :: DashboardFilterAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679551519"><span id="local-6989586621679551521"><span class="annot"><span class="annottext">Value -&gt; Parser [DashboardFilterAttribute]
+Value -&gt; Parser DashboardFilterAttribute
+(Value -&gt; Parser DashboardFilterAttribute)
+-&gt; (Value -&gt; Parser [DashboardFilterAttribute])
+-&gt; FromJSON DashboardFilterAttribute
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DashboardFilterAttribute]
+$cparseJSONList :: Value -&gt; Parser [DashboardFilterAttribute]
+parseJSON :: Value -&gt; Parser DashboardFilterAttribute
+$cparseJSON :: Value -&gt; Parser DashboardFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679551514"><span id="local-6989586621679551516"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashboardFilterAttribute]
+FromJSONKeyFunction DashboardFilterAttribute
+FromJSONKeyFunction DashboardFilterAttribute
+-&gt; FromJSONKeyFunction [DashboardFilterAttribute]
+-&gt; FromJSONKey DashboardFilterAttribute
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DashboardFilterAttribute]
+$cfromJSONKeyList :: FromJSONKeyFunction [DashboardFilterAttribute]
+fromJSONKey :: FromJSONKeyFunction DashboardFilterAttribute
+$cfromJSONKey :: FromJSONKeyFunction DashboardFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679551505"><span id="local-6989586621679551507"><span id="local-6989586621679551509"><span id="local-6989586621679551511"><span class="annot"><span class="annottext">[DashboardFilterAttribute] -&gt; Encoding
+[DashboardFilterAttribute] -&gt; Value
+DashboardFilterAttribute -&gt; Encoding
+DashboardFilterAttribute -&gt; Value
+(DashboardFilterAttribute -&gt; Value)
+-&gt; (DashboardFilterAttribute -&gt; Encoding)
+-&gt; ([DashboardFilterAttribute] -&gt; Value)
+-&gt; ([DashboardFilterAttribute] -&gt; Encoding)
+-&gt; ToJSON DashboardFilterAttribute
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DashboardFilterAttribute] -&gt; Encoding
+$ctoEncodingList :: [DashboardFilterAttribute] -&gt; Encoding
+toJSONList :: [DashboardFilterAttribute] -&gt; Value
+$ctoJSONList :: [DashboardFilterAttribute] -&gt; Value
+toEncoding :: DashboardFilterAttribute -&gt; Encoding
+$ctoEncoding :: DashboardFilterAttribute -&gt; Encoding
+toJSON :: DashboardFilterAttribute -&gt; Value
+$ctoJSON :: DashboardFilterAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679551500"><span id="local-6989586621679551502"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashboardFilterAttribute]
+ToJSONKeyFunction DashboardFilterAttribute
+ToJSONKeyFunction DashboardFilterAttribute
+-&gt; ToJSONKeyFunction [DashboardFilterAttribute]
+-&gt; ToJSONKey DashboardFilterAttribute
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DashboardFilterAttribute]
+$ctoJSONKeyList :: ToJSONKeyFunction [DashboardFilterAttribute]
+toJSONKey :: ToJSONKeyFunction DashboardFilterAttribute
+$ctoJSONKey :: ToJSONKeyFunction DashboardFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679551497"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashboardFilterAttribute
+([Node] -&gt; Either String DashboardFilterAttribute)
+-&gt; FromXML DashboardFilterAttribute
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DashboardFilterAttribute
+$cparseXML :: [Node] -&gt; Either String DashboardFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679551494"><span class="annot"><span class="annottext">DashboardFilterAttribute -&gt; XML
+(DashboardFilterAttribute -&gt; XML) -&gt; ToXML DashboardFilterAttribute
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DashboardFilterAttribute -&gt; XML
+$ctoXML :: DashboardFilterAttribute -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute_QUICKSIGHT_USER"><span class="hs-identifier hs-type">DashboardFilterAttribute_QUICKSIGHT_USER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute"><span class="hs-identifier hs-type">DashboardFilterAttribute</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardFilterAttribute_QUICKSIGHT_USER"><span id="%24mDashboardFilterAttribute_QUICKSIGHT_USER"><span id="DashboardFilterAttribute_QUICKSIGHT_USER"><span class="annot"><span class="annottext">$bDashboardFilterAttribute_QUICKSIGHT_USER :: DashboardFilterAttribute
+$mDashboardFilterAttribute_QUICKSIGHT_USER :: forall r.
+DashboardFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#%24bDashboardFilterAttribute_QUICKSIGHT_USER"><span class="hs-identifier hs-var hs-var hs-var">DashboardFilterAttribute_QUICKSIGHT_USER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute%27"><span class="hs-identifier hs-type">DashboardFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUICKSIGHT_USER&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute_QUICKSIGHT_USER"><span class="hs-pragma hs-type">DashboardFilterAttribute_QUICKSIGHT_USER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute%27"><span class="hs-pragma hs-type">DashboardFilterAttribute'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

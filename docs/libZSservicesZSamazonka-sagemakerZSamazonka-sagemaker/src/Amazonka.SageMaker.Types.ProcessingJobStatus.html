@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.ProcessingJobStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.ProcessingJobStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier">ProcessingJobStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Completed"><span class="hs-identifier">ProcessingJobStatus_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Failed"><span class="hs-identifier">ProcessingJobStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_InProgress"><span class="hs-identifier">ProcessingJobStatus_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Stopped"><span class="hs-identifier">ProcessingJobStatus_Stopped</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Stopping"><span class="hs-identifier">ProcessingJobStatus_Stopping</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680330176"><span id="local-6989586621680330177"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingJobStatus"><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-var">ProcessingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingJobStatus%27"><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-var">ProcessingJobStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProcessingJobStatus"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#fromProcessingJobStatus"><span class="hs-identifier hs-var hs-var">fromProcessingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330168"><span id="local-6989586621680330170"><span id="local-6989586621680330172"><span class="annot"><span class="annottext">Int -&gt; ProcessingJobStatus -&gt; ShowS
+[ProcessingJobStatus] -&gt; ShowS
+ProcessingJobStatus -&gt; String
+(Int -&gt; ProcessingJobStatus -&gt; ShowS)
+-&gt; (ProcessingJobStatus -&gt; String)
+-&gt; ([ProcessingJobStatus] -&gt; ShowS)
+-&gt; Show ProcessingJobStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProcessingJobStatus] -&gt; ShowS
+$cshowList :: [ProcessingJobStatus] -&gt; ShowS
+show :: ProcessingJobStatus -&gt; String
+$cshow :: ProcessingJobStatus -&gt; String
+showsPrec :: Int -&gt; ProcessingJobStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProcessingJobStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680330159"><span id="local-6989586621680330161"><span id="local-6989586621680330163"><span id="local-6989586621680330165"><span class="annot"><span class="annottext">ReadPrec [ProcessingJobStatus]
+ReadPrec ProcessingJobStatus
+Int -&gt; ReadS ProcessingJobStatus
+ReadS [ProcessingJobStatus]
+(Int -&gt; ReadS ProcessingJobStatus)
+-&gt; ReadS [ProcessingJobStatus]
+-&gt; ReadPrec ProcessingJobStatus
+-&gt; ReadPrec [ProcessingJobStatus]
+-&gt; Read ProcessingJobStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProcessingJobStatus]
+$creadListPrec :: ReadPrec [ProcessingJobStatus]
+readPrec :: ReadPrec ProcessingJobStatus
+$creadPrec :: ReadPrec ProcessingJobStatus
+readList :: ReadS [ProcessingJobStatus]
+$creadList :: ReadS [ProcessingJobStatus]
+readsPrec :: Int -&gt; ReadS ProcessingJobStatus
+$creadsPrec :: Int -&gt; ReadS ProcessingJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680330154"><span id="local-6989586621680330156"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+(ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
+-&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
+-&gt; Eq ProcessingJobStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+$c/= :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+== :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+$c== :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680330138"><span id="local-6989586621680330140"><span id="local-6989586621680330142"><span id="local-6989586621680330144"><span id="local-6989586621680330146"><span id="local-6989586621680330148"><span id="local-6989586621680330150"><span class="annot"><span class="annottext">Eq ProcessingJobStatus
+Eq ProcessingJobStatus
+-&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Ordering)
+-&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
+-&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
+-&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
+-&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
+-&gt; (ProcessingJobStatus
+    -&gt; ProcessingJobStatus -&gt; ProcessingJobStatus)
+-&gt; (ProcessingJobStatus
+    -&gt; ProcessingJobStatus -&gt; ProcessingJobStatus)
+-&gt; Ord ProcessingJobStatus
+ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Ordering
+ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; ProcessingJobStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; ProcessingJobStatus
+$cmin :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; ProcessingJobStatus
+max :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; ProcessingJobStatus
+$cmax :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; ProcessingJobStatus
+&gt;= :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+$c&gt;= :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+&gt; :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+$c&gt; :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+&lt;= :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+$c&lt;= :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+&lt; :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+$c&lt; :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+compare :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Ordering
+$ccompare :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Ordering
+$cp1Ord :: Eq ProcessingJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ProcessingJobStatus -&gt; Rep ProcessingJobStatus x)
+-&gt; (forall x. Rep ProcessingJobStatus x -&gt; ProcessingJobStatus)
+-&gt; Generic ProcessingJobStatus
+forall x. Rep ProcessingJobStatus x -&gt; ProcessingJobStatus
+forall x. ProcessingJobStatus -&gt; Rep ProcessingJobStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProcessingJobStatus x -&gt; ProcessingJobStatus
+$cfrom :: forall x. ProcessingJobStatus -&gt; Rep ProcessingJobStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330130"><span id="local-6989586621680330132"><span class="annot"><span class="annottext">Int -&gt; ProcessingJobStatus -&gt; Int
+ProcessingJobStatus -&gt; Int
+(Int -&gt; ProcessingJobStatus -&gt; Int)
+-&gt; (ProcessingJobStatus -&gt; Int) -&gt; Hashable ProcessingJobStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProcessingJobStatus -&gt; Int
+$chash :: ProcessingJobStatus -&gt; Int
+hashWithSalt :: Int -&gt; ProcessingJobStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ProcessingJobStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680330127"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ()
+(ProcessingJobStatus -&gt; ()) -&gt; NFData ProcessingJobStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProcessingJobStatus -&gt; ()
+$crnf :: ProcessingJobStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680330124"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingJobStatus
+(Text -&gt; Either String ProcessingJobStatus)
+-&gt; FromText ProcessingJobStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProcessingJobStatus
+$cfromText :: Text -&gt; Either String ProcessingJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680330121"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; Text
+(ProcessingJobStatus -&gt; Text) -&gt; ToText ProcessingJobStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProcessingJobStatus -&gt; Text
+$ctoText :: ProcessingJobStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680330118"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ByteString
+(ProcessingJobStatus -&gt; ByteString)
+-&gt; ToByteString ProcessingJobStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProcessingJobStatus -&gt; ByteString
+$ctoBS :: ProcessingJobStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680330115"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ByteStringBuilder
+(ProcessingJobStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ProcessingJobStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProcessingJobStatus -&gt; ByteStringBuilder
+$cbuild :: ProcessingJobStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680330112"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingJobStatus -&gt; [Header]
+(HeaderName -&gt; ProcessingJobStatus -&gt; [Header])
+-&gt; ToHeader ProcessingJobStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProcessingJobStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProcessingJobStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680330109"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; QueryString
+(ProcessingJobStatus -&gt; QueryString) -&gt; ToQuery ProcessingJobStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProcessingJobStatus -&gt; QueryString
+$ctoQuery :: ProcessingJobStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680330104"><span id="local-6989586621680330106"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingJobStatus]
+Value -&gt; Parser ProcessingJobStatus
+(Value -&gt; Parser ProcessingJobStatus)
+-&gt; (Value -&gt; Parser [ProcessingJobStatus])
+-&gt; FromJSON ProcessingJobStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProcessingJobStatus]
+$cparseJSONList :: Value -&gt; Parser [ProcessingJobStatus]
+parseJSON :: Value -&gt; Parser ProcessingJobStatus
+$cparseJSON :: Value -&gt; Parser ProcessingJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680330099"><span id="local-6989586621680330101"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingJobStatus]
+FromJSONKeyFunction ProcessingJobStatus
+FromJSONKeyFunction ProcessingJobStatus
+-&gt; FromJSONKeyFunction [ProcessingJobStatus]
+-&gt; FromJSONKey ProcessingJobStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProcessingJobStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProcessingJobStatus]
+fromJSONKey :: FromJSONKeyFunction ProcessingJobStatus
+$cfromJSONKey :: FromJSONKeyFunction ProcessingJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680330090"><span id="local-6989586621680330092"><span id="local-6989586621680330094"><span id="local-6989586621680330096"><span class="annot"><span class="annottext">[ProcessingJobStatus] -&gt; Encoding
+[ProcessingJobStatus] -&gt; Value
+ProcessingJobStatus -&gt; Encoding
+ProcessingJobStatus -&gt; Value
+(ProcessingJobStatus -&gt; Value)
+-&gt; (ProcessingJobStatus -&gt; Encoding)
+-&gt; ([ProcessingJobStatus] -&gt; Value)
+-&gt; ([ProcessingJobStatus] -&gt; Encoding)
+-&gt; ToJSON ProcessingJobStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProcessingJobStatus] -&gt; Encoding
+$ctoEncodingList :: [ProcessingJobStatus] -&gt; Encoding
+toJSONList :: [ProcessingJobStatus] -&gt; Value
+$ctoJSONList :: [ProcessingJobStatus] -&gt; Value
+toEncoding :: ProcessingJobStatus -&gt; Encoding
+$ctoEncoding :: ProcessingJobStatus -&gt; Encoding
+toJSON :: ProcessingJobStatus -&gt; Value
+$ctoJSON :: ProcessingJobStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680330085"><span id="local-6989586621680330087"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingJobStatus]
+ToJSONKeyFunction ProcessingJobStatus
+ToJSONKeyFunction ProcessingJobStatus
+-&gt; ToJSONKeyFunction [ProcessingJobStatus]
+-&gt; ToJSONKey ProcessingJobStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProcessingJobStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProcessingJobStatus]
+toJSONKey :: ToJSONKeyFunction ProcessingJobStatus
+$ctoJSONKey :: ToJSONKeyFunction ProcessingJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680330082"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingJobStatus
+([Node] -&gt; Either String ProcessingJobStatus)
+-&gt; FromXML ProcessingJobStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProcessingJobStatus
+$cparseXML :: [Node] -&gt; Either String ProcessingJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680330079"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; XML
+(ProcessingJobStatus -&gt; XML) -&gt; ToXML ProcessingJobStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProcessingJobStatus -&gt; XML
+$ctoXML :: ProcessingJobStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Completed"><span class="hs-identifier hs-type">ProcessingJobStatus_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-type">ProcessingJobStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProcessingJobStatus_Completed"><span id="%24mProcessingJobStatus_Completed"><span id="ProcessingJobStatus_Completed"><span class="annot"><span class="annottext">$bProcessingJobStatus_Completed :: ProcessingJobStatus
+$mProcessingJobStatus_Completed :: forall r. ProcessingJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#%24bProcessingJobStatus_Completed"><span class="hs-identifier hs-var hs-var hs-var">ProcessingJobStatus_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-type">ProcessingJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Completed&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Failed"><span class="hs-identifier hs-type">ProcessingJobStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-type">ProcessingJobStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProcessingJobStatus_Failed"><span id="%24mProcessingJobStatus_Failed"><span id="ProcessingJobStatus_Failed"><span class="annot"><span class="annottext">$bProcessingJobStatus_Failed :: ProcessingJobStatus
+$mProcessingJobStatus_Failed :: forall r. ProcessingJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#%24bProcessingJobStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">ProcessingJobStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-type">ProcessingJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_InProgress"><span class="hs-identifier hs-type">ProcessingJobStatus_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-type">ProcessingJobStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProcessingJobStatus_InProgress"><span id="%24mProcessingJobStatus_InProgress"><span id="ProcessingJobStatus_InProgress"><span class="annot"><span class="annottext">$bProcessingJobStatus_InProgress :: ProcessingJobStatus
+$mProcessingJobStatus_InProgress :: forall r. ProcessingJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#%24bProcessingJobStatus_InProgress"><span class="hs-identifier hs-var hs-var hs-var">ProcessingJobStatus_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-type">ProcessingJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Stopped"><span class="hs-identifier hs-type">ProcessingJobStatus_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-type">ProcessingJobStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProcessingJobStatus_Stopped"><span id="%24mProcessingJobStatus_Stopped"><span id="ProcessingJobStatus_Stopped"><span class="annot"><span class="annottext">$bProcessingJobStatus_Stopped :: ProcessingJobStatus
+$mProcessingJobStatus_Stopped :: forall r. ProcessingJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#%24bProcessingJobStatus_Stopped"><span class="hs-identifier hs-var hs-var hs-var">ProcessingJobStatus_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-type">ProcessingJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopped&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Stopping"><span class="hs-identifier hs-type">ProcessingJobStatus_Stopping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-type">ProcessingJobStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProcessingJobStatus_Stopping"><span id="%24mProcessingJobStatus_Stopping"><span id="ProcessingJobStatus_Stopping"><span class="annot"><span class="annottext">$bProcessingJobStatus_Stopping :: ProcessingJobStatus
+$mProcessingJobStatus_Stopping :: forall r. ProcessingJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#%24bProcessingJobStatus_Stopping"><span class="hs-identifier hs-var hs-var hs-var">ProcessingJobStatus_Stopping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-type">ProcessingJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopping&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Completed"><span class="hs-pragma hs-type">ProcessingJobStatus_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Failed"><span class="hs-pragma hs-type">ProcessingJobStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_InProgress"><span class="hs-pragma hs-type">ProcessingJobStatus_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Stopped"><span class="hs-pragma hs-type">ProcessingJobStatus_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus_Stopping"><span class="hs-pragma hs-type">ProcessingJobStatus_Stopping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-pragma hs-type">ProcessingJobStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

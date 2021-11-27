@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Connect.Types.QuickConnect</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.Types.QuickConnect</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnectConfig.html"><span class="hs-identifier">Amazonka.Connect.Types.QuickConnectConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a quick connect.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQuickConnect' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679407134"><span id="local-6989586621679407135"></span></span><span class="hs-keyword">data</span><span> </span><span id="QuickConnect"><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-var">QuickConnect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QuickConnect%27"><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-var">QuickConnect'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the quick connect.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3AQuickConnect%27"><span class="annot"><span class="annottext">QuickConnect -&gt; Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Aname%3AQuickConnect%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The identifier for the quick connect.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AquickConnectId%3AQuickConnect%27"><span class="annot"><span class="annottext">QuickConnect -&gt; Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectId%3AQuickConnect%27"><span class="hs-identifier hs-var hs-var">quickConnectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Adescription%3AQuickConnect%27"><span class="annot"><span class="annottext">QuickConnect -&gt; Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Adescription%3AQuickConnect%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the quick connect.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AquickConnectARN%3AQuickConnect%27"><span class="annot"><span class="annottext">QuickConnect -&gt; Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectARN%3AQuickConnect%27"><span class="hs-identifier hs-var hs-var">quickConnectARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atags%3AQuickConnect%27"><span class="annot"><span class="annottext">QuickConnect -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Atags%3AQuickConnect%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Contains information about the quick connect.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AquickConnectConfig%3AQuickConnect%27"><span class="annot"><span class="annottext">QuickConnect -&gt; Maybe QuickConnectConfig
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectConfig%3AQuickConnect%27"><span class="hs-identifier hs-var hs-var">quickConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnectConfig.html#QuickConnectConfig"><span class="hs-identifier hs-type">QuickConnectConfig</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407123"><span id="local-6989586621679407125"><span class="annot"><span class="annottext">QuickConnect -&gt; QuickConnect -&gt; Bool
+(QuickConnect -&gt; QuickConnect -&gt; Bool)
+-&gt; (QuickConnect -&gt; QuickConnect -&gt; Bool) -&gt; Eq QuickConnect
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QuickConnect -&gt; QuickConnect -&gt; Bool
+$c/= :: QuickConnect -&gt; QuickConnect -&gt; Bool
+== :: QuickConnect -&gt; QuickConnect -&gt; Bool
+$c== :: QuickConnect -&gt; QuickConnect -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407114"><span id="local-6989586621679407116"><span id="local-6989586621679407118"><span id="local-6989586621679407120"><span class="annot"><span class="annottext">ReadPrec [QuickConnect]
+ReadPrec QuickConnect
+Int -&gt; ReadS QuickConnect
+ReadS [QuickConnect]
+(Int -&gt; ReadS QuickConnect)
+-&gt; ReadS [QuickConnect]
+-&gt; ReadPrec QuickConnect
+-&gt; ReadPrec [QuickConnect]
+-&gt; Read QuickConnect
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QuickConnect]
+$creadListPrec :: ReadPrec [QuickConnect]
+readPrec :: ReadPrec QuickConnect
+$creadPrec :: ReadPrec QuickConnect
+readList :: ReadS [QuickConnect]
+$creadList :: ReadS [QuickConnect]
+readsPrec :: Int -&gt; ReadS QuickConnect
+$creadsPrec :: Int -&gt; ReadS QuickConnect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407107"><span id="local-6989586621679407109"><span id="local-6989586621679407111"><span class="annot"><span class="annottext">Int -&gt; QuickConnect -&gt; ShowS
+[QuickConnect] -&gt; ShowS
+QuickConnect -&gt; String
+(Int -&gt; QuickConnect -&gt; ShowS)
+-&gt; (QuickConnect -&gt; String)
+-&gt; ([QuickConnect] -&gt; ShowS)
+-&gt; Show QuickConnect
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QuickConnect] -&gt; ShowS
+$cshowList :: [QuickConnect] -&gt; ShowS
+show :: QuickConnect -&gt; String
+$cshow :: QuickConnect -&gt; String
+showsPrec :: Int -&gt; QuickConnect -&gt; ShowS
+$cshowsPrec :: Int -&gt; QuickConnect -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. QuickConnect -&gt; Rep QuickConnect x)
+-&gt; (forall x. Rep QuickConnect x -&gt; QuickConnect)
+-&gt; Generic QuickConnect
+forall x. Rep QuickConnect x -&gt; QuickConnect
+forall x. QuickConnect -&gt; Rep QuickConnect x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QuickConnect x -&gt; QuickConnect
+$cfrom :: forall x. QuickConnect -&gt; Rep QuickConnect x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'QuickConnect' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'name', 'quickConnect_name' - The name of the quick connect.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'quickConnectId', 'quickConnect_quickConnectId' - The identifier for the quick connect.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'description', 'quickConnect_description' - The description.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'quickConnectARN', 'quickConnect_quickConnectARN' - The Amazon Resource Name (ARN) of the quick connect.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'tags', 'quickConnect_tags' - One or more tags.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'quickConnectConfig', 'quickConnect_quickConnectConfig' - Contains information about the quick connect.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#newQuickConnect"><span class="hs-identifier hs-type">newQuickConnect</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span>
+</span><span id="line-67"></span><span id="newQuickConnect"><span class="annot"><span class="annottext">newQuickConnect :: QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#newQuickConnect"><span class="hs-identifier hs-var hs-var">newQuickConnect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">QuickConnect' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe QuickConnectConfig
+-&gt; QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Aname%3AQuickConnect%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:quickConnectId:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectId%3AQuickConnect%27"><span class="hs-identifier hs-var">quickConnectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Adescription%3AQuickConnect%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:quickConnectARN:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectARN%3AQuickConnect%27"><span class="hs-identifier hs-var">quickConnectARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:QuickConnect' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Atags%3AQuickConnect%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:quickConnectConfig:QuickConnect' :: Maybe QuickConnectConfig
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectConfig%3AQuickConnect%27"><span class="hs-identifier hs-var">quickConnectConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QuickConnectConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the quick connect.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_name"><span class="hs-identifier hs-type">quickConnect_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="quickConnect_name"><span class="annot"><span class="annottext">quickConnect_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QuickConnect -&gt; f QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_name"><span class="hs-identifier hs-var hs-var">quickConnect_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuickConnect -&gt; Maybe Text)
+-&gt; (QuickConnect -&gt; Maybe Text -&gt; QuickConnect)
+-&gt; Lens QuickConnect QuickConnect (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407098"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:QuickConnect' :: QuickConnect -&gt; Maybe Text
+</span><a href="#local-6989586621679407098"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407098"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407097"><span class="annot"><span class="annottext">s :: QuickConnect
+</span><a href="#local-6989586621679407097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuickConnect
+</span><a href="#local-6989586621679407097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Aname%3AQuickConnect%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The identifier for the quick connect.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_quickConnectId"><span class="hs-identifier hs-type">quickConnect_quickConnectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="quickConnect_quickConnectId"><span class="annot"><span class="annottext">quickConnect_quickConnectId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QuickConnect -&gt; f QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_quickConnectId"><span class="hs-identifier hs-var hs-var">quickConnect_quickConnectId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuickConnect -&gt; Maybe Text)
+-&gt; (QuickConnect -&gt; Maybe Text -&gt; QuickConnect)
+-&gt; Lens QuickConnect QuickConnect (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407094"><span class="annot"><span class="annottext">Maybe Text
+quickConnectId :: Maybe Text
+$sel:quickConnectId:QuickConnect' :: QuickConnect -&gt; Maybe Text
+</span><a href="#local-6989586621679407094"><span class="hs-identifier hs-var hs-var">quickConnectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407094"><span class="hs-identifier hs-var">quickConnectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407093"><span class="annot"><span class="annottext">s :: QuickConnect
+</span><a href="#local-6989586621679407093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuickConnect
+</span><a href="#local-6989586621679407093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quickConnectId:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectId%3AQuickConnect%27"><span class="hs-identifier hs-var">quickConnectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_description"><span class="hs-identifier hs-type">quickConnect_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="quickConnect_description"><span class="annot"><span class="annottext">quickConnect_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QuickConnect -&gt; f QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_description"><span class="hs-identifier hs-var hs-var">quickConnect_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuickConnect -&gt; Maybe Text)
+-&gt; (QuickConnect -&gt; Maybe Text -&gt; QuickConnect)
+-&gt; Lens QuickConnect QuickConnect (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407090"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:QuickConnect' :: QuickConnect -&gt; Maybe Text
+</span><a href="#local-6989586621679407090"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407090"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407089"><span class="annot"><span class="annottext">s :: QuickConnect
+</span><a href="#local-6989586621679407089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuickConnect
+</span><a href="#local-6989586621679407089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Adescription%3AQuickConnect%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the quick connect.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_quickConnectARN"><span class="hs-identifier hs-type">quickConnect_quickConnectARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="quickConnect_quickConnectARN"><span class="annot"><span class="annottext">quickConnect_quickConnectARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QuickConnect -&gt; f QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_quickConnectARN"><span class="hs-identifier hs-var hs-var">quickConnect_quickConnectARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuickConnect -&gt; Maybe Text)
+-&gt; (QuickConnect -&gt; Maybe Text -&gt; QuickConnect)
+-&gt; Lens QuickConnect QuickConnect (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407086"><span class="annot"><span class="annottext">Maybe Text
+quickConnectARN :: Maybe Text
+$sel:quickConnectARN:QuickConnect' :: QuickConnect -&gt; Maybe Text
+</span><a href="#local-6989586621679407086"><span class="hs-identifier hs-var hs-var">quickConnectARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407086"><span class="hs-identifier hs-var">quickConnectARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407085"><span class="annot"><span class="annottext">s :: QuickConnect
+</span><a href="#local-6989586621679407085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuickConnect
+</span><a href="#local-6989586621679407085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quickConnectARN:QuickConnect' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectARN%3AQuickConnect%27"><span class="hs-identifier hs-var">quickConnectARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_tags"><span class="hs-identifier hs-type">quickConnect_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="quickConnect_tags"><span class="annot"><span class="annottext">quickConnect_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; QuickConnect -&gt; f QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_tags"><span class="hs-identifier hs-var hs-var">quickConnect_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuickConnect -&gt; Maybe (HashMap Text Text))
+-&gt; (QuickConnect -&gt; Maybe (HashMap Text Text) -&gt; QuickConnect)
+-&gt; Lens
+     QuickConnect
+     QuickConnect
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407082"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:QuickConnect' :: QuickConnect -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679407082"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679407082"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407081"><span class="annot"><span class="annottext">s :: QuickConnect
+</span><a href="#local-6989586621679407081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407080"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679407080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuickConnect
+</span><a href="#local-6989586621679407081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:QuickConnect' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3Atags%3AQuickConnect%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679407080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; QuickConnect -&gt; f QuickConnect)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; QuickConnect
+-&gt; f QuickConnect
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Contains information about the quick connect.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_quickConnectConfig"><span class="hs-identifier hs-type">quickConnect_quickConnectConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnectConfig.html#QuickConnectConfig"><span class="hs-identifier hs-type">QuickConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="quickConnect_quickConnectConfig"><span class="annot"><span class="annottext">quickConnect_quickConnectConfig :: (Maybe QuickConnectConfig -&gt; f (Maybe QuickConnectConfig))
+-&gt; QuickConnect -&gt; f QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#quickConnect_quickConnectConfig"><span class="hs-identifier hs-var hs-var">quickConnect_quickConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuickConnect -&gt; Maybe QuickConnectConfig)
+-&gt; (QuickConnect -&gt; Maybe QuickConnectConfig -&gt; QuickConnect)
+-&gt; Lens
+     QuickConnect
+     QuickConnect
+     (Maybe QuickConnectConfig)
+     (Maybe QuickConnectConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407075"><span class="annot"><span class="annottext">Maybe QuickConnectConfig
+quickConnectConfig :: Maybe QuickConnectConfig
+$sel:quickConnectConfig:QuickConnect' :: QuickConnect -&gt; Maybe QuickConnectConfig
+</span><a href="#local-6989586621679407075"><span class="hs-identifier hs-var hs-var">quickConnectConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QuickConnectConfig
+</span><a href="#local-6989586621679407075"><span class="hs-identifier hs-var">quickConnectConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407074"><span class="annot"><span class="annottext">s :: QuickConnect
+</span><a href="#local-6989586621679407074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-type">QuickConnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407073"><span class="annot"><span class="annottext">Maybe QuickConnectConfig
+</span><a href="#local-6989586621679407073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuickConnect
+</span><a href="#local-6989586621679407074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quickConnectConfig:QuickConnect' :: Maybe QuickConnectConfig
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#%24sel%3AquickConnectConfig%3AQuickConnect%27"><span class="hs-identifier hs-var">quickConnectConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QuickConnectConfig
+</span><a href="#local-6989586621679407073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407070"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679407068"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QuickConnect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser QuickConnect) -&gt; Value -&gt; Parser QuickConnect
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;QuickConnect&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407065"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407065"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe QuickConnectConfig
+-&gt; QuickConnect
+</span><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect%27"><span class="hs-identifier hs-var">QuickConnect'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe QuickConnectConfig
+ -&gt; QuickConnect)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe QuickConnectConfig
+      -&gt; QuickConnect)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe QuickConnectConfig
+   -&gt; QuickConnect)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe QuickConnectConfig
+      -&gt; QuickConnect)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuickConnectId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe QuickConnectConfig
+   -&gt; QuickConnect)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe QuickConnectConfig
+      -&gt; QuickConnect)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe QuickConnectConfig
+   -&gt; QuickConnect)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe QuickConnectConfig -&gt; QuickConnect)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuickConnectARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe QuickConnectConfig -&gt; QuickConnect)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe QuickConnectConfig -&gt; QuickConnect)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe QuickConnectConfig -&gt; QuickConnect)
+-&gt; Parser (Maybe QuickConnectConfig) -&gt; Parser QuickConnect
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QuickConnectConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuickConnectConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407058"><span id="local-6989586621679407060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.QuickConnect.html#QuickConnect"><span class="hs-identifier hs-type">QuickConnect</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

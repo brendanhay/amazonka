@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DirectoryService.DeregisterCertificate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes from the system the certificate that was registered for secure</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- LDAP or client certificate authentication.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectoryService.DeregisterCertificate</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier">DeregisterCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#newDeregisterCertificate"><span class="hs-identifier">newDeregisterCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificate_directoryId"><span class="hs-identifier">deregisterCertificate_directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificate_certificateId"><span class="hs-identifier">deregisterCertificate_certificateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier">DeregisterCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#newDeregisterCertificateResponse"><span class="hs-identifier">newDeregisterCertificateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificateResponse_httpStatus"><span class="hs-identifier">deregisterCertificateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.html"><span class="hs-identifier">Amazonka.DirectoryService.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeregisterCertificate' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679311594"><span id="local-6989586621679311595"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCertificate"><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-var">DeregisterCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCertificate%27"><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-var">DeregisterCertificate'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="annot"><span class="annottext">DeregisterCertificate -&gt; Text
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The identifier of the certificate.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="annot"><span class="annottext">DeregisterCertificate -&gt; Text
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311587"><span id="local-6989586621679311589"><span class="annot"><span class="annottext">DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
+(DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool)
+-&gt; (DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool)
+-&gt; Eq DeregisterCertificate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
+$c/= :: DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
+== :: DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
+$c== :: DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311578"><span id="local-6989586621679311580"><span id="local-6989586621679311582"><span id="local-6989586621679311584"><span class="annot"><span class="annottext">ReadPrec [DeregisterCertificate]
+ReadPrec DeregisterCertificate
+Int -&gt; ReadS DeregisterCertificate
+ReadS [DeregisterCertificate]
+(Int -&gt; ReadS DeregisterCertificate)
+-&gt; ReadS [DeregisterCertificate]
+-&gt; ReadPrec DeregisterCertificate
+-&gt; ReadPrec [DeregisterCertificate]
+-&gt; Read DeregisterCertificate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeregisterCertificate]
+$creadListPrec :: ReadPrec [DeregisterCertificate]
+readPrec :: ReadPrec DeregisterCertificate
+$creadPrec :: ReadPrec DeregisterCertificate
+readList :: ReadS [DeregisterCertificate]
+$creadList :: ReadS [DeregisterCertificate]
+readsPrec :: Int -&gt; ReadS DeregisterCertificate
+$creadsPrec :: Int -&gt; ReadS DeregisterCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311571"><span id="local-6989586621679311573"><span id="local-6989586621679311575"><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificate -&gt; ShowS
+[DeregisterCertificate] -&gt; ShowS
+DeregisterCertificate -&gt; String
+(Int -&gt; DeregisterCertificate -&gt; ShowS)
+-&gt; (DeregisterCertificate -&gt; String)
+-&gt; ([DeregisterCertificate] -&gt; ShowS)
+-&gt; Show DeregisterCertificate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeregisterCertificate] -&gt; ShowS
+$cshowList :: [DeregisterCertificate] -&gt; ShowS
+show :: DeregisterCertificate -&gt; String
+$cshow :: DeregisterCertificate -&gt; String
+showsPrec :: Int -&gt; DeregisterCertificate -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeregisterCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeregisterCertificate -&gt; Rep DeregisterCertificate x)
+-&gt; (forall x. Rep DeregisterCertificate x -&gt; DeregisterCertificate)
+-&gt; Generic DeregisterCertificate
+forall x. Rep DeregisterCertificate x -&gt; DeregisterCertificate
+forall x. DeregisterCertificate -&gt; Rep DeregisterCertificate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeregisterCertificate x -&gt; DeregisterCertificate
+$cfrom :: forall x. DeregisterCertificate -&gt; Rep DeregisterCertificate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeregisterCertificate' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'directoryId', 'deregisterCertificate_directoryId' - The identifier of the directory.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'certificateId', 'deregisterCertificate_certificateId' - The identifier of the certificate.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#newDeregisterCertificate"><span class="hs-identifier hs-type">newDeregisterCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'directoryId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'certificateId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span>
+</span><span id="line-76"></span><span id="newDeregisterCertificate"><span class="annot"><span class="annottext">newDeregisterCertificate :: Text -&gt; Text -&gt; DeregisterCertificate
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#newDeregisterCertificate"><span class="hs-identifier hs-var hs-var">newDeregisterCertificate</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679311566"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311566"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679311565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311565"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DeregisterCertificate' :: Text -&gt; Text -&gt; DeregisterCertificate
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterCertificate' :: Text
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311566"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateId:DeregisterCertificate' :: Text
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311565"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificate_directoryId"><span class="hs-identifier hs-type">deregisterCertificate_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="deregisterCertificate_directoryId"><span class="annot"><span class="annottext">deregisterCertificate_directoryId :: (Text -&gt; f Text)
+-&gt; DeregisterCertificate -&gt; f DeregisterCertificate
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificate_directoryId"><span class="hs-identifier hs-var hs-var">deregisterCertificate_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterCertificate -&gt; Text)
+-&gt; (DeregisterCertificate -&gt; Text -&gt; DeregisterCertificate)
+-&gt; Lens DeregisterCertificate DeregisterCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311562"><span class="annot"><span class="annottext">Text
+directoryId :: Text
+$sel:directoryId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
+</span><a href="#local-6989586621679311562"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311562"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311561"><span class="annot"><span class="annottext">s :: DeregisterCertificate
+</span><a href="#local-6989586621679311561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificate
+</span><a href="#local-6989586621679311561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterCertificate' :: Text
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The identifier of the certificate.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificate_certificateId"><span class="hs-identifier hs-type">deregisterCertificate_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deregisterCertificate_certificateId"><span class="annot"><span class="annottext">deregisterCertificate_certificateId :: (Text -&gt; f Text)
+-&gt; DeregisterCertificate -&gt; f DeregisterCertificate
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificate_certificateId"><span class="hs-identifier hs-var hs-var">deregisterCertificate_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterCertificate -&gt; Text)
+-&gt; (DeregisterCertificate -&gt; Text -&gt; DeregisterCertificate)
+-&gt; Lens DeregisterCertificate DeregisterCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311559"><span class="annot"><span class="annottext">Text
+certificateId :: Text
+$sel:certificateId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
+</span><a href="#local-6989586621679311559"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311559"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311558"><span class="annot"><span class="annottext">s :: DeregisterCertificate
+</span><a href="#local-6989586621679311558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificate
+</span><a href="#local-6989586621679311558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:DeregisterCertificate' :: Text
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679311553"><span class="annot"><span class="annottext">request :: DeregisterCertificate -&gt; Request DeregisterCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeregisterCertificate -&gt; Request DeregisterCertificate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679311549"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeregisterCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeregisterCertificate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeregisterCertificate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeregisterCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeregisterCertificate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311546"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311545"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311545"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311544"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679311544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificateResponse
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-var">DeregisterCertificateResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeregisterCertificateResponse)
+-&gt; Either String Int -&gt; Either String DeregisterCertificateResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311546"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311537"><span id="local-6989586621679311539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679311530"><span class="annot"><span class="annottext">toHeaders :: DeregisterCertificate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeregisterCertificate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DirectoryService_20150416.DeregisterCertificate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311520"><span id="local-6989586621679311522"><span id="local-6989586621679311524"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679311518"><span class="annot"><span class="annottext">toJSON :: DeregisterCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311515"><span id="local-6989586621679311516"><span class="annot"><span class="annottext">Text
+certificateId :: Text
+directoryId :: Text
+$sel:certificateId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
+$sel:directoryId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
+</span><a href="#local-6989586621679311515"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311516"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311515"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679311509"><span class="annot"><span class="annottext">toPath :: DeregisterCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterCertificate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679311505"><span class="annot"><span class="annottext">toQuery :: DeregisterCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterCertificate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newDeregisterCertificateResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679311502"><span id="local-6989586621679311503"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCertificateResponse"><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-var">DeregisterCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCertificateResponse%27"><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-var">DeregisterCertificateResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="annot"><span class="annottext">DeregisterCertificateResponse -&gt; Int
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311497"><span id="local-6989586621679311499"><span class="annot"><span class="annottext">DeregisterCertificateResponse
+-&gt; DeregisterCertificateResponse -&gt; Bool
+(DeregisterCertificateResponse
+ -&gt; DeregisterCertificateResponse -&gt; Bool)
+-&gt; (DeregisterCertificateResponse
+    -&gt; DeregisterCertificateResponse -&gt; Bool)
+-&gt; Eq DeregisterCertificateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeregisterCertificateResponse
+-&gt; DeregisterCertificateResponse -&gt; Bool
+$c/= :: DeregisterCertificateResponse
+-&gt; DeregisterCertificateResponse -&gt; Bool
+== :: DeregisterCertificateResponse
+-&gt; DeregisterCertificateResponse -&gt; Bool
+$c== :: DeregisterCertificateResponse
+-&gt; DeregisterCertificateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311489"><span id="local-6989586621679311491"><span id="local-6989586621679311493"><span id="local-6989586621679311495"><span class="annot"><span class="annottext">ReadPrec [DeregisterCertificateResponse]
+ReadPrec DeregisterCertificateResponse
+Int -&gt; ReadS DeregisterCertificateResponse
+ReadS [DeregisterCertificateResponse]
+(Int -&gt; ReadS DeregisterCertificateResponse)
+-&gt; ReadS [DeregisterCertificateResponse]
+-&gt; ReadPrec DeregisterCertificateResponse
+-&gt; ReadPrec [DeregisterCertificateResponse]
+-&gt; Read DeregisterCertificateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeregisterCertificateResponse]
+$creadListPrec :: ReadPrec [DeregisterCertificateResponse]
+readPrec :: ReadPrec DeregisterCertificateResponse
+$creadPrec :: ReadPrec DeregisterCertificateResponse
+readList :: ReadS [DeregisterCertificateResponse]
+$creadList :: ReadS [DeregisterCertificateResponse]
+readsPrec :: Int -&gt; ReadS DeregisterCertificateResponse
+$creadsPrec :: Int -&gt; ReadS DeregisterCertificateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311483"><span id="local-6989586621679311485"><span id="local-6989586621679311487"><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificateResponse -&gt; ShowS
+[DeregisterCertificateResponse] -&gt; ShowS
+DeregisterCertificateResponse -&gt; String
+(Int -&gt; DeregisterCertificateResponse -&gt; ShowS)
+-&gt; (DeregisterCertificateResponse -&gt; String)
+-&gt; ([DeregisterCertificateResponse] -&gt; ShowS)
+-&gt; Show DeregisterCertificateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeregisterCertificateResponse] -&gt; ShowS
+$cshowList :: [DeregisterCertificateResponse] -&gt; ShowS
+show :: DeregisterCertificateResponse -&gt; String
+$cshow :: DeregisterCertificateResponse -&gt; String
+showsPrec :: Int -&gt; DeregisterCertificateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeregisterCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeregisterCertificateResponse
+ -&gt; Rep DeregisterCertificateResponse x)
+-&gt; (forall x.
+    Rep DeregisterCertificateResponse x
+    -&gt; DeregisterCertificateResponse)
+-&gt; Generic DeregisterCertificateResponse
+forall x.
+Rep DeregisterCertificateResponse x
+-&gt; DeregisterCertificateResponse
+forall x.
+DeregisterCertificateResponse
+-&gt; Rep DeregisterCertificateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeregisterCertificateResponse x
+-&gt; DeregisterCertificateResponse
+$cfrom :: forall x.
+DeregisterCertificateResponse
+-&gt; Rep DeregisterCertificateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'DeregisterCertificateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'deregisterCertificateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#newDeregisterCertificateResponse"><span class="hs-identifier hs-type">newDeregisterCertificateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newDeregisterCertificateResponse"><span class="annot"><span class="annottext">newDeregisterCertificateResponse :: Int -&gt; DeregisterCertificateResponse
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#newDeregisterCertificateResponse"><span class="hs-identifier hs-var hs-var">newDeregisterCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679311480"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311480"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DeregisterCertificateResponse' :: Int -&gt; DeregisterCertificateResponse
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterCertificateResponse' :: Int
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311480"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificateResponse_httpStatus"><span class="hs-identifier hs-type">deregisterCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="deregisterCertificateResponse_httpStatus"><span class="annot"><span class="annottext">deregisterCertificateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeregisterCertificateResponse -&gt; f DeregisterCertificateResponse
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#deregisterCertificateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deregisterCertificateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterCertificateResponse -&gt; Int)
+-&gt; (DeregisterCertificateResponse
+    -&gt; Int -&gt; DeregisterCertificateResponse)
+-&gt; Lens
+     DeregisterCertificateResponse DeregisterCertificateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311479"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeregisterCertificateResponse' :: DeregisterCertificateResponse -&gt; Int
+</span><a href="#local-6989586621679311479"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311479"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311478"><span class="annot"><span class="annottext">s :: DeregisterCertificateResponse
+</span><a href="#local-6989586621679311478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificateResponse
+</span><a href="#local-6989586621679311478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterCertificateResponse' :: Int
+</span><a href="Amazonka.DirectoryService.DeregisterCertificate.html#%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

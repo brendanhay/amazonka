@@ -1,0 +1,800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionStatus.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ApplicationVersionStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.S3Location.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.S3Location</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SourceBuildInformation.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.SourceBuildInformation</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes the properties of an application version.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newApplicationVersionDescription' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679307165"><span id="local-6989586621679307166"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationVersionDescription"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-var">ApplicationVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationVersionDescription%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-var">ApplicationVersionDescription'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The processing status of the application version. Reflects the state of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the application version during its creation. Many of the values are only</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- applicable if you specified @True@ for the @Process@ parameter of the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @CreateApplicationVersion@ action. The following list describes the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- possible values.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @Unprocessed@ &#8211; Application version wasn\'t pre-processed or</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     validated. Elastic Beanstalk will validate configuration files</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     during deployment of the application version to an environment.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @Processing@ &#8211; Elastic Beanstalk is currently processing the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     application version.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @Building@ &#8211; Application version is currently undergoing an AWS</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     CodeBuild build.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @Processed@ &#8211; Elastic Beanstalk was successfully pre-processed and</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     validated.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @Failed@ &#8211; Either the AWS CodeBuild build failed or configuration</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     files didn\'t pass validation. This application version isn\'t</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     usable.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Astatus%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe ApplicationVersionStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3Astatus%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionStatus.html#ApplicationVersionStatus"><span class="hs-identifier hs-type">ApplicationVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The storage location of the application version\'s source bundle in</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Amazon S3.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsourceBundle%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe S3Location
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AsourceBundle%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">sourceBundle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The last modified date of the application version.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdateUpdated%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AdateUpdated%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">dateUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The creation date of the application version.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdateCreated%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AdateCreated%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the application version.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AversionLabel%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AversionLabel%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | If the version\'s source code was retrieved from AWS CodeCommit, the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- location of the source code for the application version.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsourceBuildInformation%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe SourceBuildInformation
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AsourceBuildInformation%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">sourceBuildInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SourceBuildInformation.html#SourceBuildInformation"><span class="hs-identifier hs-type">SourceBuildInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the application to which the application version belongs.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AapplicationName%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AapplicationName%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application version.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AapplicationVersionArn%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AapplicationVersionArn%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">applicationVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Reference to the artifact from the AWS CodeBuild build.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AbuildArn%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AbuildArn%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">buildArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The description of the application version.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Adescription%3AApplicationVersionDescription%27"><span class="annot"><span class="annottext">ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3Adescription%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307150"><span id="local-6989586621679307152"><span class="annot"><span class="annottext">ApplicationVersionDescription
+-&gt; ApplicationVersionDescription -&gt; Bool
+(ApplicationVersionDescription
+ -&gt; ApplicationVersionDescription -&gt; Bool)
+-&gt; (ApplicationVersionDescription
+    -&gt; ApplicationVersionDescription -&gt; Bool)
+-&gt; Eq ApplicationVersionDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationVersionDescription
+-&gt; ApplicationVersionDescription -&gt; Bool
+$c/= :: ApplicationVersionDescription
+-&gt; ApplicationVersionDescription -&gt; Bool
+== :: ApplicationVersionDescription
+-&gt; ApplicationVersionDescription -&gt; Bool
+$c== :: ApplicationVersionDescription
+-&gt; ApplicationVersionDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307141"><span id="local-6989586621679307143"><span id="local-6989586621679307145"><span id="local-6989586621679307147"><span class="annot"><span class="annottext">ReadPrec [ApplicationVersionDescription]
+ReadPrec ApplicationVersionDescription
+Int -&gt; ReadS ApplicationVersionDescription
+ReadS [ApplicationVersionDescription]
+(Int -&gt; ReadS ApplicationVersionDescription)
+-&gt; ReadS [ApplicationVersionDescription]
+-&gt; ReadPrec ApplicationVersionDescription
+-&gt; ReadPrec [ApplicationVersionDescription]
+-&gt; Read ApplicationVersionDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationVersionDescription]
+$creadListPrec :: ReadPrec [ApplicationVersionDescription]
+readPrec :: ReadPrec ApplicationVersionDescription
+$creadPrec :: ReadPrec ApplicationVersionDescription
+readList :: ReadS [ApplicationVersionDescription]
+$creadList :: ReadS [ApplicationVersionDescription]
+readsPrec :: Int -&gt; ReadS ApplicationVersionDescription
+$creadsPrec :: Int -&gt; ReadS ApplicationVersionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307134"><span id="local-6989586621679307136"><span id="local-6989586621679307138"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionDescription -&gt; ShowS
+[ApplicationVersionDescription] -&gt; ShowS
+ApplicationVersionDescription -&gt; String
+(Int -&gt; ApplicationVersionDescription -&gt; ShowS)
+-&gt; (ApplicationVersionDescription -&gt; String)
+-&gt; ([ApplicationVersionDescription] -&gt; ShowS)
+-&gt; Show ApplicationVersionDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationVersionDescription] -&gt; ShowS
+$cshowList :: [ApplicationVersionDescription] -&gt; ShowS
+show :: ApplicationVersionDescription -&gt; String
+$cshow :: ApplicationVersionDescription -&gt; String
+showsPrec :: Int -&gt; ApplicationVersionDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationVersionDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplicationVersionDescription
+ -&gt; Rep ApplicationVersionDescription x)
+-&gt; (forall x.
+    Rep ApplicationVersionDescription x
+    -&gt; ApplicationVersionDescription)
+-&gt; Generic ApplicationVersionDescription
+forall x.
+Rep ApplicationVersionDescription x
+-&gt; ApplicationVersionDescription
+forall x.
+ApplicationVersionDescription
+-&gt; Rep ApplicationVersionDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplicationVersionDescription x
+-&gt; ApplicationVersionDescription
+$cfrom :: forall x.
+ApplicationVersionDescription
+-&gt; Rep ApplicationVersionDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'ApplicationVersionDescription' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'status', 'applicationVersionDescription_status' - The processing status of the application version. Reflects the state of</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the application version during its creation. Many of the values are only</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- applicable if you specified @True@ for the @Process@ parameter of the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- @CreateApplicationVersion@ action. The following list describes the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- possible values.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @Unprocessed@ &#8211; Application version wasn\'t pre-processed or</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     validated. Elastic Beanstalk will validate configuration files</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     during deployment of the application version to an environment.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @Processing@ &#8211; Elastic Beanstalk is currently processing the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     application version.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @Building@ &#8211; Application version is currently undergoing an AWS</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     CodeBuild build.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   @Processed@ &#8211; Elastic Beanstalk was successfully pre-processed and</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     validated.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @Failed@ &#8211; Either the AWS CodeBuild build failed or configuration</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     files didn\'t pass validation. This application version isn\'t</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     usable.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'sourceBundle', 'applicationVersionDescription_sourceBundle' - The storage location of the application version\'s source bundle in</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Amazon S3.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'dateUpdated', 'applicationVersionDescription_dateUpdated' - The last modified date of the application version.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'dateCreated', 'applicationVersionDescription_dateCreated' - The creation date of the application version.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'versionLabel', 'applicationVersionDescription_versionLabel' - A unique identifier for the application version.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'sourceBuildInformation', 'applicationVersionDescription_sourceBuildInformation' - If the version\'s source code was retrieved from AWS CodeCommit, the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- location of the source code for the application version.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'applicationName', 'applicationVersionDescription_applicationName' - The name of the application to which the application version belongs.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'applicationVersionArn', 'applicationVersionDescription_applicationVersionArn' - The Amazon Resource Name (ARN) of the application version.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'buildArn', 'applicationVersionDescription_buildArn' - Reference to the artifact from the AWS CodeBuild build.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'description', 'applicationVersionDescription_description' - The description of the application version.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#newApplicationVersionDescription"><span class="hs-identifier hs-type">newApplicationVersionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span>
+</span><span id="line-131"></span><span id="newApplicationVersionDescription"><span class="annot"><span class="annottext">newApplicationVersionDescription :: ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#newApplicationVersionDescription"><span class="hs-identifier hs-var hs-var">newApplicationVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">ApplicationVersionDescription' :: Maybe ApplicationVersionStatus
+-&gt; Maybe S3Location
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe SourceBuildInformation
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ApplicationVersionDescription' :: Maybe ApplicationVersionStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3Astatus%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationVersionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceBundle:ApplicationVersionDescription' :: Maybe S3Location
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AsourceBundle%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">sourceBundle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateUpdated:ApplicationVersionDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AdateUpdated%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:ApplicationVersionDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AdateCreated%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionLabel:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AversionLabel%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceBuildInformation:ApplicationVersionDescription' :: Maybe SourceBuildInformation
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AsourceBuildInformation%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">sourceBuildInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceBuildInformation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AapplicationName%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationVersionArn:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AapplicationVersionArn%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">applicationVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildArn:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AbuildArn%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">buildArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3Adescription%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The processing status of the application version. Reflects the state of</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the application version during its creation. Many of the values are only</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- applicable if you specified @True@ for the @Process@ parameter of the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- @CreateApplicationVersion@ action. The following list describes the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- possible values.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   @Unprocessed@ &#8211; Application version wasn\'t pre-processed or</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     validated. Elastic Beanstalk will validate configuration files</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     during deployment of the application version to an environment.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @Processing@ &#8211; Elastic Beanstalk is currently processing the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     application version.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   @Building@ &#8211; Application version is currently undergoing an AWS</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     CodeBuild build.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @Processed@ &#8211; Elastic Beanstalk was successfully pre-processed and</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     validated.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   @Failed@ &#8211; Either the AWS CodeBuild build failed or configuration</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     files didn\'t pass validation. This application version isn\'t</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     usable.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_status"><span class="hs-identifier hs-type">applicationVersionDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionStatus.html#ApplicationVersionStatus"><span class="hs-identifier hs-type">ApplicationVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="applicationVersionDescription_status"><span class="annot"><span class="annottext">applicationVersionDescription_status :: (Maybe ApplicationVersionStatus
+ -&gt; f (Maybe ApplicationVersionStatus))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_status"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe ApplicationVersionStatus)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe ApplicationVersionStatus -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe ApplicationVersionStatus)
+     (Maybe ApplicationVersionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307125"><span class="annot"><span class="annottext">Maybe ApplicationVersionStatus
+status :: Maybe ApplicationVersionStatus
+$sel:status:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe ApplicationVersionStatus
+</span><a href="#local-6989586621679307125"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionStatus
+</span><a href="#local-6989586621679307125"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307124"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307123"><span class="annot"><span class="annottext">Maybe ApplicationVersionStatus
+</span><a href="#local-6989586621679307123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApplicationVersionDescription' :: Maybe ApplicationVersionStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3Astatus%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionStatus
+</span><a href="#local-6989586621679307123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The storage location of the application version\'s source bundle in</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Amazon S3.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_sourceBundle"><span class="hs-identifier hs-type">applicationVersionDescription_sourceBundle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="applicationVersionDescription_sourceBundle"><span class="annot"><span class="annottext">applicationVersionDescription_sourceBundle :: (Maybe S3Location -&gt; f (Maybe S3Location))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_sourceBundle"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_sourceBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe S3Location)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe S3Location -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe S3Location)
+     (Maybe S3Location)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307121"><span class="annot"><span class="annottext">Maybe S3Location
+sourceBundle :: Maybe S3Location
+$sel:sourceBundle:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe S3Location
+</span><a href="#local-6989586621679307121"><span class="hs-identifier hs-var hs-var">sourceBundle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679307121"><span class="hs-identifier hs-var">sourceBundle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307120"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307119"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679307119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceBundle:ApplicationVersionDescription' :: Maybe S3Location
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AsourceBundle%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">sourceBundle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679307119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The last modified date of the application version.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_dateUpdated"><span class="hs-identifier hs-type">applicationVersionDescription_dateUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="applicationVersionDescription_dateUpdated"><span class="annot"><span class="annottext">applicationVersionDescription_dateUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_dateUpdated"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_dateUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe ISO8601)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe ISO8601 -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307117"><span class="annot"><span class="annottext">Maybe ISO8601
+dateUpdated :: Maybe ISO8601
+$sel:dateUpdated:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679307117"><span class="hs-identifier hs-var hs-var">dateUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307117"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307116"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307115"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateUpdated:ApplicationVersionDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AdateUpdated%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ApplicationVersionDescription
+ -&gt; f ApplicationVersionDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApplicationVersionDescription
+-&gt; f ApplicationVersionDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The creation date of the application version.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_dateCreated"><span class="hs-identifier hs-type">applicationVersionDescription_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="applicationVersionDescription_dateCreated"><span class="annot"><span class="annottext">applicationVersionDescription_dateCreated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_dateCreated"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe ISO8601)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe ISO8601 -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307110"><span class="annot"><span class="annottext">Maybe ISO8601
+dateCreated :: Maybe ISO8601
+$sel:dateCreated:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679307110"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307110"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307109"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307108"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:ApplicationVersionDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AdateCreated%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ApplicationVersionDescription
+ -&gt; f ApplicationVersionDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApplicationVersionDescription
+-&gt; f ApplicationVersionDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | A unique identifier for the application version.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_versionLabel"><span class="hs-identifier hs-type">applicationVersionDescription_versionLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="applicationVersionDescription_versionLabel"><span class="annot"><span class="annottext">applicationVersionDescription_versionLabel :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_versionLabel"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_versionLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe Text)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307106"><span class="annot"><span class="annottext">Maybe Text
+versionLabel :: Maybe Text
+$sel:versionLabel:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679307106"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307106"><span class="hs-identifier hs-var">versionLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307105"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLabel:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AversionLabel%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | If the version\'s source code was retrieved from AWS CodeCommit, the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- location of the source code for the application version.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_sourceBuildInformation"><span class="hs-identifier hs-type">applicationVersionDescription_sourceBuildInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SourceBuildInformation.html#SourceBuildInformation"><span class="hs-identifier hs-type">SourceBuildInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="applicationVersionDescription_sourceBuildInformation"><span class="annot"><span class="annottext">applicationVersionDescription_sourceBuildInformation :: (Maybe SourceBuildInformation -&gt; f (Maybe SourceBuildInformation))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_sourceBuildInformation"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_sourceBuildInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe SourceBuildInformation)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe SourceBuildInformation -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe SourceBuildInformation)
+     (Maybe SourceBuildInformation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307102"><span class="annot"><span class="annottext">Maybe SourceBuildInformation
+sourceBuildInformation :: Maybe SourceBuildInformation
+$sel:sourceBuildInformation:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe SourceBuildInformation
+</span><a href="#local-6989586621679307102"><span class="hs-identifier hs-var hs-var">sourceBuildInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceBuildInformation
+</span><a href="#local-6989586621679307102"><span class="hs-identifier hs-var">sourceBuildInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307101"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307100"><span class="annot"><span class="annottext">Maybe SourceBuildInformation
+</span><a href="#local-6989586621679307100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceBuildInformation:ApplicationVersionDescription' :: Maybe SourceBuildInformation
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AsourceBuildInformation%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">sourceBuildInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceBuildInformation
+</span><a href="#local-6989586621679307100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The name of the application to which the application version belongs.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_applicationName"><span class="hs-identifier hs-type">applicationVersionDescription_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="applicationVersionDescription_applicationName"><span class="annot"><span class="annottext">applicationVersionDescription_applicationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_applicationName"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe Text)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307098"><span class="annot"><span class="annottext">Maybe Text
+applicationName :: Maybe Text
+$sel:applicationName:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679307098"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307098"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307097"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AapplicationName%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application version.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_applicationVersionArn"><span class="hs-identifier hs-type">applicationVersionDescription_applicationVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="applicationVersionDescription_applicationVersionArn"><span class="annot"><span class="annottext">applicationVersionDescription_applicationVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_applicationVersionArn"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_applicationVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe Text)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307094"><span class="annot"><span class="annottext">Maybe Text
+applicationVersionArn :: Maybe Text
+$sel:applicationVersionArn:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679307094"><span class="hs-identifier hs-var hs-var">applicationVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307094"><span class="hs-identifier hs-var">applicationVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307093"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationVersionArn:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AapplicationVersionArn%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">applicationVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Reference to the artifact from the AWS CodeBuild build.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_buildArn"><span class="hs-identifier hs-type">applicationVersionDescription_buildArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="applicationVersionDescription_buildArn"><span class="annot"><span class="annottext">applicationVersionDescription_buildArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_buildArn"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_buildArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe Text)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307090"><span class="annot"><span class="annottext">Maybe Text
+buildArn :: Maybe Text
+$sel:buildArn:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679307090"><span class="hs-identifier hs-var hs-var">buildArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307090"><span class="hs-identifier hs-var">buildArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307089"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildArn:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3AbuildArn%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">buildArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The description of the application version.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_description"><span class="hs-identifier hs-type">applicationVersionDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="applicationVersionDescription_description"><span class="annot"><span class="annottext">applicationVersionDescription_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationVersionDescription -&gt; f ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#applicationVersionDescription_description"><span class="hs-identifier hs-var hs-var">applicationVersionDescription_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionDescription -&gt; Maybe Text)
+-&gt; (ApplicationVersionDescription
+    -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Lens
+     ApplicationVersionDescription
+     ApplicationVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307086"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ApplicationVersionDescription' :: ApplicationVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679307086"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307086"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307085"><span class="annot"><span class="annottext">s :: ApplicationVersionDescription
+</span><a href="#local-6989586621679307085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-type">ApplicationVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescription
+</span><a href="#local-6989586621679307085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ApplicationVersionDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#%24sel%3Adescription%3AApplicationVersionDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679307081"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationVersionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307079"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">Maybe ApplicationVersionStatus
+-&gt; Maybe S3Location
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe SourceBuildInformation
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ApplicationVersionDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription%27"><span class="hs-identifier hs-var">ApplicationVersionDescription'</span></a></span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ApplicationVersionStatus
+ -&gt; Maybe S3Location
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe SourceBuildInformation
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe ApplicationVersionStatus)
+-&gt; Either
+     String
+     (Maybe S3Location
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe SourceBuildInformation
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ApplicationVersionStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe S3Location
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe SourceBuildInformation
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe S3Location)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe SourceBuildInformation
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3Location)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceBundle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe SourceBuildInformation
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe SourceBuildInformation
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe SourceBuildInformation
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe SourceBuildInformation
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe SourceBuildInformation
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe SourceBuildInformation
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionLabel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe SourceBuildInformation
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe SourceBuildInformation)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SourceBuildInformation)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceBuildInformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; ApplicationVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BuildArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ApplicationVersionDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ApplicationVersionDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679307073"><span id="local-6989586621679307075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span></span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span></span><span>
+</span><span id="line-228"></span></pre></body></html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.SetIdentityMailFromDomain</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables or disables the custom MAIL FROM domain setup for a verified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- identity (an email address or a domain).</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To send emails using the specified MAIL FROM domain, you must add an MX</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- record to your MAIL FROM domain\'s DNS settings. If you want your emails</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to pass Sender Policy Framework (SPF) checks, you must also add or</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- update an SPF record. For more information, see the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.SetIdentityMailFromDomain</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomain"><span class="hs-identifier">newSetIdentityMailFromDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_mailFromDomain"><span class="hs-identifier">setIdentityMailFromDomain_mailFromDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_behaviorOnMXFailure"><span class="hs-identifier">setIdentityMailFromDomain_behaviorOnMXFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_identity"><span class="hs-identifier">setIdentityMailFromDomain_identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier">SetIdentityMailFromDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomainResponse"><span class="hs-identifier">newSetIdentityMailFromDomainResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomainResponse_httpStatus"><span class="hs-identifier">setIdentityMailFromDomainResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Represents a request to enable or disable the Amazon SES custom MAIL</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- FROM domain setup for a verified identity. For information about using a</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- custom MAIL FROM domain, see the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- /See:/ 'newSetIdentityMailFromDomain' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679278221"><span id="local-6989586621679278222"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityMailFromDomain"><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-var">SetIdentityMailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityMailFromDomain%27"><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomain'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The custom MAIL FROM domain that you want the verified identity to use.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- not be used in a \&quot;From\&quot; address if the MAIL FROM domain is the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- destination of email feedback forwarding (for more information, see the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide&gt;),</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- and 3) not be used to receive emails. A value of @null@ disables the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- custom MAIL FROM setting for the identity.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmailFromDomain%3ASetIdentityMailFromDomain%27"><span class="annot"><span class="annottext">SetIdentityMailFromDomain -&gt; Maybe Text
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AmailFromDomain%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The action that you want Amazon SES to take if it cannot successfully</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- read the required MX record when you send an email. If you choose</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @UseDefaultValue@, Amazon SES will use amazonses.com (or a subdomain of</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- that) as the MAIL FROM domain. If you choose @RejectMessage@, Amazon SES</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- will return a @MailFromDomainNotVerified@ error and not send the email.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- The action specified in @BehaviorOnMXFailure@ is taken when the custom</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- MAIL FROM domain setup is in the @Pending@, @Failed@, and</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @TemporaryFailure@ states.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AbehaviorOnMXFailure%3ASetIdentityMailFromDomain%27"><span class="annot"><span class="annottext">SetIdentityMailFromDomain -&gt; Maybe BehaviorOnMXFailure
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AbehaviorOnMXFailure%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var hs-var">behaviorOnMXFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BehaviorOnMXFailure.html#BehaviorOnMXFailure"><span class="hs-identifier hs-type">BehaviorOnMXFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The verified identity for which you want to enable or disable the</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- specified custom MAIL FROM domain.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="annot"><span class="annottext">SetIdentityMailFromDomain -&gt; Text
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278213"><span id="local-6989586621679278215"><span class="annot"><span class="annottext">SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
+(SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool)
+-&gt; (SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool)
+-&gt; Eq SetIdentityMailFromDomain
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
+$c/= :: SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
+== :: SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
+$c== :: SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278204"><span id="local-6989586621679278206"><span id="local-6989586621679278208"><span id="local-6989586621679278210"><span class="annot"><span class="annottext">ReadPrec [SetIdentityMailFromDomain]
+ReadPrec SetIdentityMailFromDomain
+Int -&gt; ReadS SetIdentityMailFromDomain
+ReadS [SetIdentityMailFromDomain]
+(Int -&gt; ReadS SetIdentityMailFromDomain)
+-&gt; ReadS [SetIdentityMailFromDomain]
+-&gt; ReadPrec SetIdentityMailFromDomain
+-&gt; ReadPrec [SetIdentityMailFromDomain]
+-&gt; Read SetIdentityMailFromDomain
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetIdentityMailFromDomain]
+$creadListPrec :: ReadPrec [SetIdentityMailFromDomain]
+readPrec :: ReadPrec SetIdentityMailFromDomain
+$creadPrec :: ReadPrec SetIdentityMailFromDomain
+readList :: ReadS [SetIdentityMailFromDomain]
+$creadList :: ReadS [SetIdentityMailFromDomain]
+readsPrec :: Int -&gt; ReadS SetIdentityMailFromDomain
+$creadsPrec :: Int -&gt; ReadS SetIdentityMailFromDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278197"><span id="local-6989586621679278199"><span id="local-6989586621679278201"><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomain -&gt; ShowS
+[SetIdentityMailFromDomain] -&gt; ShowS
+SetIdentityMailFromDomain -&gt; String
+(Int -&gt; SetIdentityMailFromDomain -&gt; ShowS)
+-&gt; (SetIdentityMailFromDomain -&gt; String)
+-&gt; ([SetIdentityMailFromDomain] -&gt; ShowS)
+-&gt; Show SetIdentityMailFromDomain
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetIdentityMailFromDomain] -&gt; ShowS
+$cshowList :: [SetIdentityMailFromDomain] -&gt; ShowS
+show :: SetIdentityMailFromDomain -&gt; String
+$cshow :: SetIdentityMailFromDomain -&gt; String
+showsPrec :: Int -&gt; SetIdentityMailFromDomain -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetIdentityMailFromDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetIdentityMailFromDomain -&gt; Rep SetIdentityMailFromDomain x)
+-&gt; (forall x.
+    Rep SetIdentityMailFromDomain x -&gt; SetIdentityMailFromDomain)
+-&gt; Generic SetIdentityMailFromDomain
+forall x.
+Rep SetIdentityMailFromDomain x -&gt; SetIdentityMailFromDomain
+forall x.
+SetIdentityMailFromDomain -&gt; Rep SetIdentityMailFromDomain x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetIdentityMailFromDomain x -&gt; SetIdentityMailFromDomain
+$cfrom :: forall x.
+SetIdentityMailFromDomain -&gt; Rep SetIdentityMailFromDomain x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'SetIdentityMailFromDomain' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'mailFromDomain', 'setIdentityMailFromDomain_mailFromDomain' - The custom MAIL FROM domain that you want the verified identity to use.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- not be used in a \&quot;From\&quot; address if the MAIL FROM domain is the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- destination of email feedback forwarding (for more information, see the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide&gt;),</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- and 3) not be used to receive emails. A value of @null@ disables the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- custom MAIL FROM setting for the identity.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'behaviorOnMXFailure', 'setIdentityMailFromDomain_behaviorOnMXFailure' - The action that you want Amazon SES to take if it cannot successfully</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- read the required MX record when you send an email. If you choose</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @UseDefaultValue@, Amazon SES will use amazonses.com (or a subdomain of</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- that) as the MAIL FROM domain. If you choose @RejectMessage@, Amazon SES</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- will return a @MailFromDomainNotVerified@ error and not send the email.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The action specified in @BehaviorOnMXFailure@ is taken when the custom</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- MAIL FROM domain setup is in the @Pending@, @Failed@, and</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @TemporaryFailure@ states.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'identity', 'setIdentityMailFromDomain_identity' - The verified identity for which you want to enable or disable the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- specified custom MAIL FROM domain.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomain"><span class="hs-identifier hs-type">newSetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'identity'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span>
+</span><span id="line-122"></span><span id="newSetIdentityMailFromDomain"><span class="annot"><span class="annottext">newSetIdentityMailFromDomain :: Text -&gt; SetIdentityMailFromDomain
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomain"><span class="hs-identifier hs-var hs-var">newSetIdentityMailFromDomain</span></a></span></span><span> </span><span id="local-6989586621679278192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278192"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain' :: Maybe Text
+-&gt; Maybe BehaviorOnMXFailure -&gt; Text -&gt; SetIdentityMailFromDomain
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mailFromDomain:SetIdentityMailFromDomain' :: Maybe Text
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AmailFromDomain%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: Maybe BehaviorOnMXFailure
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AbehaviorOnMXFailure%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:identity:SetIdentityMailFromDomain' :: Text
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278192"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The custom MAIL FROM domain that you want the verified identity to use.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- not be used in a \&quot;From\&quot; address if the MAIL FROM domain is the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- destination of email feedback forwarding (for more information, see the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide&gt;),</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- and 3) not be used to receive emails. A value of @null@ disables the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- custom MAIL FROM setting for the identity.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_mailFromDomain"><span class="hs-identifier hs-type">setIdentityMailFromDomain_mailFromDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="setIdentityMailFromDomain_mailFromDomain"><span class="annot"><span class="annottext">setIdentityMailFromDomain_mailFromDomain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetIdentityMailFromDomain -&gt; f SetIdentityMailFromDomain
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_mailFromDomain"><span class="hs-identifier hs-var hs-var">setIdentityMailFromDomain_mailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetIdentityMailFromDomain -&gt; Maybe Text)
+-&gt; (SetIdentityMailFromDomain
+    -&gt; Maybe Text -&gt; SetIdentityMailFromDomain)
+-&gt; Lens
+     SetIdentityMailFromDomain
+     SetIdentityMailFromDomain
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278189"><span class="annot"><span class="annottext">Maybe Text
+mailFromDomain :: Maybe Text
+$sel:mailFromDomain:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe Text
+</span><a href="#local-6989586621679278189"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278189"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278188"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomain:SetIdentityMailFromDomain' :: Maybe Text
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AmailFromDomain%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The action that you want Amazon SES to take if it cannot successfully</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- read the required MX record when you send an email. If you choose</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @UseDefaultValue@, Amazon SES will use amazonses.com (or a subdomain of</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- that) as the MAIL FROM domain. If you choose @RejectMessage@, Amazon SES</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- will return a @MailFromDomainNotVerified@ error and not send the email.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The action specified in @BehaviorOnMXFailure@ is taken when the custom</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- MAIL FROM domain setup is in the @Pending@, @Failed@, and</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @TemporaryFailure@ states.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_behaviorOnMXFailure"><span class="hs-identifier hs-type">setIdentityMailFromDomain_behaviorOnMXFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BehaviorOnMXFailure.html#BehaviorOnMXFailure"><span class="hs-identifier hs-type">BehaviorOnMXFailure</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="setIdentityMailFromDomain_behaviorOnMXFailure"><span class="annot"><span class="annottext">setIdentityMailFromDomain_behaviorOnMXFailure :: (Maybe BehaviorOnMXFailure -&gt; f (Maybe BehaviorOnMXFailure))
+-&gt; SetIdentityMailFromDomain -&gt; f SetIdentityMailFromDomain
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_behaviorOnMXFailure"><span class="hs-identifier hs-var hs-var">setIdentityMailFromDomain_behaviorOnMXFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetIdentityMailFromDomain -&gt; Maybe BehaviorOnMXFailure)
+-&gt; (SetIdentityMailFromDomain
+    -&gt; Maybe BehaviorOnMXFailure -&gt; SetIdentityMailFromDomain)
+-&gt; Lens
+     SetIdentityMailFromDomain
+     SetIdentityMailFromDomain
+     (Maybe BehaviorOnMXFailure)
+     (Maybe BehaviorOnMXFailure)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278186"><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+behaviorOnMXFailure :: Maybe BehaviorOnMXFailure
+$sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278186"><span class="hs-identifier hs-var hs-var">behaviorOnMXFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278186"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278185"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278184"><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: Maybe BehaviorOnMXFailure
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AbehaviorOnMXFailure%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The verified identity for which you want to enable or disable the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- specified custom MAIL FROM domain.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_identity"><span class="hs-identifier hs-type">setIdentityMailFromDomain_identity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="setIdentityMailFromDomain_identity"><span class="annot"><span class="annottext">setIdentityMailFromDomain_identity :: (Text -&gt; f Text)
+-&gt; SetIdentityMailFromDomain -&gt; f SetIdentityMailFromDomain
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomain_identity"><span class="hs-identifier hs-var hs-var">setIdentityMailFromDomain_identity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetIdentityMailFromDomain -&gt; Text)
+-&gt; (SetIdentityMailFromDomain -&gt; Text -&gt; SetIdentityMailFromDomain)
+-&gt; Lens
+     SetIdentityMailFromDomain SetIdentityMailFromDomain Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278183"><span class="annot"><span class="annottext">Text
+identity :: Text
+$sel:identity:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Text
+</span><a href="#local-6989586621679278183"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278183"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278182"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:SetIdentityMailFromDomain' :: Text
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-159"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679278177"><span class="annot"><span class="annottext">request :: SetIdentityMailFromDomain -&gt; Request SetIdentityMailFromDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; SetIdentityMailFromDomain -&gt; Request SetIdentityMailFromDomain
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679278173"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetIdentityMailFromDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetIdentityMailFromDomain)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse SetIdentityMailFromDomain))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetIdentityMailFromDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetIdentityMailFromDomain)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SetIdentityMailFromDomainResult&quot;</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278170"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278169"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278168"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679278168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomainResponse
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse'</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetIdentityMailFromDomainResponse)
+-&gt; Either String Int
+-&gt; Either String SetIdentityMailFromDomainResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278161"><span id="local-6989586621679278163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679278154"><span class="annot"><span class="annottext">toHeaders :: SetIdentityMailFromDomain -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetIdentityMailFromDomain -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679278149"><span class="annot"><span class="annottext">toPath :: SetIdentityMailFromDomain -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetIdentityMailFromDomain -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679278145"><span class="annot"><span class="annottext">toQuery :: SetIdentityMailFromDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278141"><span id="local-6989586621679278142"><span id="local-6989586621679278143"><span class="annot"><span class="annottext">Maybe Text
+Maybe BehaviorOnMXFailure
+Text
+identity :: Text
+behaviorOnMXFailure :: Maybe BehaviorOnMXFailure
+mailFromDomain :: Maybe Text
+$sel:identity:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Text
+$sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe BehaviorOnMXFailure
+$sel:mailFromDomain:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe Text
+</span><a href="#local-6989586621679278141"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SetIdentityMailFromDomain&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MailFromDomain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278143"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BehaviorOnMXFailure&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe BehaviorOnMXFailure -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278142"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Identity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278141"><span class="hs-identifier hs-var">identity</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- /See:/ 'newSetIdentityMailFromDomainResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621679278138"><span id="local-6989586621679278139"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityMailFromDomainResponse"><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityMailFromDomainResponse%27"><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse -&gt; Int
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278133"><span id="local-6989586621679278135"><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse
+-&gt; SetIdentityMailFromDomainResponse -&gt; Bool
+(SetIdentityMailFromDomainResponse
+ -&gt; SetIdentityMailFromDomainResponse -&gt; Bool)
+-&gt; (SetIdentityMailFromDomainResponse
+    -&gt; SetIdentityMailFromDomainResponse -&gt; Bool)
+-&gt; Eq SetIdentityMailFromDomainResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetIdentityMailFromDomainResponse
+-&gt; SetIdentityMailFromDomainResponse -&gt; Bool
+$c/= :: SetIdentityMailFromDomainResponse
+-&gt; SetIdentityMailFromDomainResponse -&gt; Bool
+== :: SetIdentityMailFromDomainResponse
+-&gt; SetIdentityMailFromDomainResponse -&gt; Bool
+$c== :: SetIdentityMailFromDomainResponse
+-&gt; SetIdentityMailFromDomainResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278125"><span id="local-6989586621679278127"><span id="local-6989586621679278129"><span id="local-6989586621679278131"><span class="annot"><span class="annottext">ReadPrec [SetIdentityMailFromDomainResponse]
+ReadPrec SetIdentityMailFromDomainResponse
+Int -&gt; ReadS SetIdentityMailFromDomainResponse
+ReadS [SetIdentityMailFromDomainResponse]
+(Int -&gt; ReadS SetIdentityMailFromDomainResponse)
+-&gt; ReadS [SetIdentityMailFromDomainResponse]
+-&gt; ReadPrec SetIdentityMailFromDomainResponse
+-&gt; ReadPrec [SetIdentityMailFromDomainResponse]
+-&gt; Read SetIdentityMailFromDomainResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetIdentityMailFromDomainResponse]
+$creadListPrec :: ReadPrec [SetIdentityMailFromDomainResponse]
+readPrec :: ReadPrec SetIdentityMailFromDomainResponse
+$creadPrec :: ReadPrec SetIdentityMailFromDomainResponse
+readList :: ReadS [SetIdentityMailFromDomainResponse]
+$creadList :: ReadS [SetIdentityMailFromDomainResponse]
+readsPrec :: Int -&gt; ReadS SetIdentityMailFromDomainResponse
+$creadsPrec :: Int -&gt; ReadS SetIdentityMailFromDomainResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278119"><span id="local-6989586621679278121"><span id="local-6989586621679278123"><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomainResponse -&gt; ShowS
+[SetIdentityMailFromDomainResponse] -&gt; ShowS
+SetIdentityMailFromDomainResponse -&gt; String
+(Int -&gt; SetIdentityMailFromDomainResponse -&gt; ShowS)
+-&gt; (SetIdentityMailFromDomainResponse -&gt; String)
+-&gt; ([SetIdentityMailFromDomainResponse] -&gt; ShowS)
+-&gt; Show SetIdentityMailFromDomainResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetIdentityMailFromDomainResponse] -&gt; ShowS
+$cshowList :: [SetIdentityMailFromDomainResponse] -&gt; ShowS
+show :: SetIdentityMailFromDomainResponse -&gt; String
+$cshow :: SetIdentityMailFromDomainResponse -&gt; String
+showsPrec :: Int -&gt; SetIdentityMailFromDomainResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetIdentityMailFromDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetIdentityMailFromDomainResponse
+ -&gt; Rep SetIdentityMailFromDomainResponse x)
+-&gt; (forall x.
+    Rep SetIdentityMailFromDomainResponse x
+    -&gt; SetIdentityMailFromDomainResponse)
+-&gt; Generic SetIdentityMailFromDomainResponse
+forall x.
+Rep SetIdentityMailFromDomainResponse x
+-&gt; SetIdentityMailFromDomainResponse
+forall x.
+SetIdentityMailFromDomainResponse
+-&gt; Rep SetIdentityMailFromDomainResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetIdentityMailFromDomainResponse x
+-&gt; SetIdentityMailFromDomainResponse
+$cfrom :: forall x.
+SetIdentityMailFromDomainResponse
+-&gt; Rep SetIdentityMailFromDomainResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'SetIdentityMailFromDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'setIdentityMailFromDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">newSetIdentityMailFromDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newSetIdentityMailFromDomainResponse"><span class="annot"><span class="annottext">newSetIdentityMailFromDomainResponse :: Int -&gt; SetIdentityMailFromDomainResponse
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomainResponse"><span class="hs-identifier hs-var hs-var">newSetIdentityMailFromDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679278116"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278116"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse' :: Int -&gt; SetIdentityMailFromDomainResponse
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityMailFromDomainResponse' :: Int
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278116"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomainResponse_httpStatus"><span class="hs-identifier hs-type">setIdentityMailFromDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span id="setIdentityMailFromDomainResponse_httpStatus"><span class="annot"><span class="annottext">setIdentityMailFromDomainResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SetIdentityMailFromDomainResponse
+-&gt; f SetIdentityMailFromDomainResponse
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#setIdentityMailFromDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">setIdentityMailFromDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetIdentityMailFromDomainResponse -&gt; Int)
+-&gt; (SetIdentityMailFromDomainResponse
+    -&gt; Int -&gt; SetIdentityMailFromDomainResponse)
+-&gt; Lens
+     SetIdentityMailFromDomainResponse
+     SetIdentityMailFromDomainResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278115"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SetIdentityMailFromDomainResponse' :: SetIdentityMailFromDomainResponse -&gt; Int
+</span><a href="#local-6989586621679278115"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278115"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278114"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomainResponse
+</span><a href="#local-6989586621679278114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse
+</span><a href="#local-6989586621679278114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityMailFromDomainResponse' :: Int
+</span><a href="Amazonka.SES.SetIdentityMailFromDomain.html#%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679278111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

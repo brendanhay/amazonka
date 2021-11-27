@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RDS.Types.ScalingConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.Types.ScalingConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains the scaling configuration of an Aurora Serverless DB cluster.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newScalingConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679765742"><span id="local-6989586621679765743"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingConfiguration"><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-var">ScalingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingConfiguration%27"><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-var">ScalingConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in seconds, before an Aurora DB cluster in @serverless@ mode</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- is paused.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Specify a value between 300 and 86,400 seconds.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsecondsUntilAutoPause%3AScalingConfiguration%27"><span class="annot"><span class="annottext">ScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AsecondsUntilAutoPause%3AScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">secondsUntilAutoPause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The action to take when the timeout is reached, either</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @ForceApplyCapacityChange@ sets the capacity to the specified value as</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- soon as possible.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @RollbackCapacityChange@, the default, ignores the capacity change if a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- scaling point isn\'t found in the timeout period.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- If you specify @ForceApplyCapacityChange@, connections that prevent</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Aurora Serverless from finding a scaling point might be dropped.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless&gt;</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- in the /Amazon Aurora User Guide/.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AtimeoutAction%3AScalingConfiguration%27"><span class="annot"><span class="annottext">ScalingConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AtimeoutAction%3AScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">timeoutAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether to allow or disallow automatic pause for</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- an Aurora DB cluster in @serverless@ DB engine mode. A DB cluster can be</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- paused only when it\'s idle (it has no connections).</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- If a DB cluster is paused for more than seven days, the DB cluster might</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- be backed up with a snapshot. In this case, the DB cluster is restored</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- when there is a request to connect to it.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AautoPause%3AScalingConfiguration%27"><span class="annot"><span class="annottext">ScalingConfiguration -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AautoPause%3AScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">autoPause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum capacity for an Aurora DB cluster in @serverless@ DB engine</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- mode.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- For Aurora MySQL, valid capacity values are @1@, @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @32@, @64@, @128@, and @256@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @32@, @64@, @192@, and @384@.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- The maximum capacity must be greater than or equal to the minimum</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxCapacity%3AScalingConfiguration%27"><span class="annot"><span class="annottext">ScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AmaxCapacity%3AScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The minimum capacity for an Aurora DB cluster in @serverless@ DB engine</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- mode.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- For Aurora MySQL, valid capacity values are @1@, @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @32@, @64@, @128@, and @256@.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @32@, @64@, @192@, and @384@.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- The minimum capacity must be less than or equal to the maximum capacity.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AminCapacity%3AScalingConfiguration%27"><span class="annot"><span class="annottext">ScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AminCapacity%3AScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">minCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The amount of time, in seconds, that Aurora Serverless tries to find a</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- scaling point to perform seamless scaling before enforcing the timeout</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- action. The default is 300.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Specify a value between 60 and 600 seconds.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AsecondsBeforeTimeout%3AScalingConfiguration%27"><span class="annot"><span class="annottext">ScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AsecondsBeforeTimeout%3AScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">secondsBeforeTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679765731"><span id="local-6989586621679765733"><span class="annot"><span class="annottext">ScalingConfiguration -&gt; ScalingConfiguration -&gt; Bool
+(ScalingConfiguration -&gt; ScalingConfiguration -&gt; Bool)
+-&gt; (ScalingConfiguration -&gt; ScalingConfiguration -&gt; Bool)
+-&gt; Eq ScalingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScalingConfiguration -&gt; ScalingConfiguration -&gt; Bool
+$c/= :: ScalingConfiguration -&gt; ScalingConfiguration -&gt; Bool
+== :: ScalingConfiguration -&gt; ScalingConfiguration -&gt; Bool
+$c== :: ScalingConfiguration -&gt; ScalingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679765722"><span id="local-6989586621679765724"><span id="local-6989586621679765726"><span id="local-6989586621679765728"><span class="annot"><span class="annottext">ReadPrec [ScalingConfiguration]
+ReadPrec ScalingConfiguration
+Int -&gt; ReadS ScalingConfiguration
+ReadS [ScalingConfiguration]
+(Int -&gt; ReadS ScalingConfiguration)
+-&gt; ReadS [ScalingConfiguration]
+-&gt; ReadPrec ScalingConfiguration
+-&gt; ReadPrec [ScalingConfiguration]
+-&gt; Read ScalingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScalingConfiguration]
+$creadListPrec :: ReadPrec [ScalingConfiguration]
+readPrec :: ReadPrec ScalingConfiguration
+$creadPrec :: ReadPrec ScalingConfiguration
+readList :: ReadS [ScalingConfiguration]
+$creadList :: ReadS [ScalingConfiguration]
+readsPrec :: Int -&gt; ReadS ScalingConfiguration
+$creadsPrec :: Int -&gt; ReadS ScalingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679765715"><span id="local-6989586621679765717"><span id="local-6989586621679765719"><span class="annot"><span class="annottext">Int -&gt; ScalingConfiguration -&gt; ShowS
+[ScalingConfiguration] -&gt; ShowS
+ScalingConfiguration -&gt; String
+(Int -&gt; ScalingConfiguration -&gt; ShowS)
+-&gt; (ScalingConfiguration -&gt; String)
+-&gt; ([ScalingConfiguration] -&gt; ShowS)
+-&gt; Show ScalingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScalingConfiguration] -&gt; ShowS
+$cshowList :: [ScalingConfiguration] -&gt; ShowS
+show :: ScalingConfiguration -&gt; String
+$cshow :: ScalingConfiguration -&gt; String
+showsPrec :: Int -&gt; ScalingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScalingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ScalingConfiguration -&gt; Rep ScalingConfiguration x)
+-&gt; (forall x. Rep ScalingConfiguration x -&gt; ScalingConfiguration)
+-&gt; Generic ScalingConfiguration
+forall x. Rep ScalingConfiguration x -&gt; ScalingConfiguration
+forall x. ScalingConfiguration -&gt; Rep ScalingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScalingConfiguration x -&gt; ScalingConfiguration
+$cfrom :: forall x. ScalingConfiguration -&gt; Rep ScalingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Create a value of 'ScalingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'secondsUntilAutoPause', 'scalingConfiguration_secondsUntilAutoPause' - The time, in seconds, before an Aurora DB cluster in @serverless@ mode</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- is paused.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Specify a value between 300 and 86,400 seconds.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'timeoutAction', 'scalingConfiguration_timeoutAction' - The action to take when the timeout is reached, either</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @ForceApplyCapacityChange@ sets the capacity to the specified value as</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- soon as possible.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @RollbackCapacityChange@, the default, ignores the capacity change if a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- scaling point isn\'t found in the timeout period.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- If you specify @ForceApplyCapacityChange@, connections that prevent</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Aurora Serverless from finding a scaling point might be dropped.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless&gt;</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide/.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'autoPause', 'scalingConfiguration_autoPause' - A value that indicates whether to allow or disallow automatic pause for</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- an Aurora DB cluster in @serverless@ DB engine mode. A DB cluster can be</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- paused only when it\'s idle (it has no connections).</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- If a DB cluster is paused for more than seven days, the DB cluster might</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- be backed up with a snapshot. In this case, the DB cluster is restored</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- when there is a request to connect to it.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'maxCapacity', 'scalingConfiguration_maxCapacity' - The maximum capacity for an Aurora DB cluster in @serverless@ DB engine</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- mode.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- For Aurora MySQL, valid capacity values are @1@, @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @32@, @64@, @128@, and @256@.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @32@, @64@, @192@, and @384@.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The maximum capacity must be greater than or equal to the minimum</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'minCapacity', 'scalingConfiguration_minCapacity' - The minimum capacity for an Aurora DB cluster in @serverless@ DB engine</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- mode.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- For Aurora MySQL, valid capacity values are @1@, @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @32@, @64@, @128@, and @256@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @32@, @64@, @192@, and @384@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The minimum capacity must be less than or equal to the maximum capacity.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'secondsBeforeTimeout', 'scalingConfiguration_secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless tries to find a</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- scaling point to perform seamless scaling before enforcing the timeout</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- action. The default is 300.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Specify a value between 60 and 600 seconds.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#newScalingConfiguration"><span class="hs-identifier hs-type">newScalingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span>
+</span><span id="line-162"></span><span id="newScalingConfiguration"><span class="annot"><span class="annottext">newScalingConfiguration :: ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#newScalingConfiguration"><span class="hs-identifier hs-var hs-var">newScalingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">ScalingConfiguration' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:secondsUntilAutoPause:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AsecondsUntilAutoPause%3AScalingConfiguration%27"><span class="hs-identifier hs-var">secondsUntilAutoPause</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutAction:ScalingConfiguration' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AtimeoutAction%3AScalingConfiguration%27"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoPause:ScalingConfiguration' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AautoPause%3AScalingConfiguration%27"><span class="hs-identifier hs-var">autoPause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxCapacity:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AmaxCapacity%3AScalingConfiguration%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:minCapacity:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AminCapacity%3AScalingConfiguration%27"><span class="hs-identifier hs-var">minCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:secondsBeforeTimeout:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AsecondsBeforeTimeout%3AScalingConfiguration%27"><span class="hs-identifier hs-var">secondsBeforeTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The time, in seconds, before an Aurora DB cluster in @serverless@ mode</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- is paused.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Specify a value between 300 and 86,400 seconds.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_secondsUntilAutoPause"><span class="hs-identifier hs-type">scalingConfiguration_secondsUntilAutoPause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="scalingConfiguration_secondsUntilAutoPause"><span class="annot"><span class="annottext">scalingConfiguration_secondsUntilAutoPause :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ScalingConfiguration -&gt; f ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_secondsUntilAutoPause"><span class="hs-identifier hs-var hs-var">scalingConfiguration_secondsUntilAutoPause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingConfiguration -&gt; Maybe Int)
+-&gt; (ScalingConfiguration -&gt; Maybe Int -&gt; ScalingConfiguration)
+-&gt; Lens
+     ScalingConfiguration ScalingConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765706"><span class="annot"><span class="annottext">Maybe Int
+secondsUntilAutoPause :: Maybe Int
+$sel:secondsUntilAutoPause:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679765706"><span class="hs-identifier hs-var hs-var">secondsUntilAutoPause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765706"><span class="hs-identifier hs-var">secondsUntilAutoPause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765705"><span class="annot"><span class="annottext">s :: ScalingConfiguration
+</span><a href="#local-6989586621679765705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765704"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConfiguration
+</span><a href="#local-6989586621679765705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secondsUntilAutoPause:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AsecondsUntilAutoPause%3AScalingConfiguration%27"><span class="hs-identifier hs-var">secondsUntilAutoPause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The action to take when the timeout is reached, either</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- @ForceApplyCapacityChange@ sets the capacity to the specified value as</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- soon as possible.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- @RollbackCapacityChange@, the default, ignores the capacity change if a</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- scaling point isn\'t found in the timeout period.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- If you specify @ForceApplyCapacityChange@, connections that prevent</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Aurora Serverless from finding a scaling point might be dropped.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless&gt;</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide/.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_timeoutAction"><span class="hs-identifier hs-type">scalingConfiguration_timeoutAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="scalingConfiguration_timeoutAction"><span class="annot"><span class="annottext">scalingConfiguration_timeoutAction :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScalingConfiguration -&gt; f ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_timeoutAction"><span class="hs-identifier hs-var hs-var">scalingConfiguration_timeoutAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingConfiguration -&gt; Maybe Text)
+-&gt; (ScalingConfiguration -&gt; Maybe Text -&gt; ScalingConfiguration)
+-&gt; Lens
+     ScalingConfiguration ScalingConfiguration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765702"><span class="annot"><span class="annottext">Maybe Text
+timeoutAction :: Maybe Text
+$sel:timeoutAction:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679765702"><span class="hs-identifier hs-var hs-var">timeoutAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765702"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765701"><span class="annot"><span class="annottext">s :: ScalingConfiguration
+</span><a href="#local-6989586621679765701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConfiguration
+</span><a href="#local-6989586621679765701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutAction:ScalingConfiguration' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AtimeoutAction%3AScalingConfiguration%27"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | A value that indicates whether to allow or disallow automatic pause for</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- an Aurora DB cluster in @serverless@ DB engine mode. A DB cluster can be</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- paused only when it\'s idle (it has no connections).</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- If a DB cluster is paused for more than seven days, the DB cluster might</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- be backed up with a snapshot. In this case, the DB cluster is restored</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- when there is a request to connect to it.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_autoPause"><span class="hs-identifier hs-type">scalingConfiguration_autoPause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="scalingConfiguration_autoPause"><span class="annot"><span class="annottext">scalingConfiguration_autoPause :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ScalingConfiguration -&gt; f ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_autoPause"><span class="hs-identifier hs-var hs-var">scalingConfiguration_autoPause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingConfiguration -&gt; Maybe Bool)
+-&gt; (ScalingConfiguration -&gt; Maybe Bool -&gt; ScalingConfiguration)
+-&gt; Lens
+     ScalingConfiguration ScalingConfiguration (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765698"><span class="annot"><span class="annottext">Maybe Bool
+autoPause :: Maybe Bool
+$sel:autoPause:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679765698"><span class="hs-identifier hs-var hs-var">autoPause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679765698"><span class="hs-identifier hs-var">autoPause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765697"><span class="annot"><span class="annottext">s :: ScalingConfiguration
+</span><a href="#local-6989586621679765697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765696"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679765696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConfiguration
+</span><a href="#local-6989586621679765697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoPause:ScalingConfiguration' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AautoPause%3AScalingConfiguration%27"><span class="hs-identifier hs-var">autoPause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679765696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The maximum capacity for an Aurora DB cluster in @serverless@ DB engine</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- mode.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- For Aurora MySQL, valid capacity values are @1@, @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @32@, @64@, @128@, and @256@.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @32@, @64@, @192@, and @384@.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- The maximum capacity must be greater than or equal to the minimum</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_maxCapacity"><span class="hs-identifier hs-type">scalingConfiguration_maxCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="scalingConfiguration_maxCapacity"><span class="annot"><span class="annottext">scalingConfiguration_maxCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ScalingConfiguration -&gt; f ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_maxCapacity"><span class="hs-identifier hs-var hs-var">scalingConfiguration_maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingConfiguration -&gt; Maybe Int)
+-&gt; (ScalingConfiguration -&gt; Maybe Int -&gt; ScalingConfiguration)
+-&gt; Lens
+     ScalingConfiguration ScalingConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765694"><span class="annot"><span class="annottext">Maybe Int
+maxCapacity :: Maybe Int
+$sel:maxCapacity:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679765694"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765694"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765693"><span class="annot"><span class="annottext">s :: ScalingConfiguration
+</span><a href="#local-6989586621679765693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765692"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConfiguration
+</span><a href="#local-6989586621679765693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCapacity:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AmaxCapacity%3AScalingConfiguration%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The minimum capacity for an Aurora DB cluster in @serverless@ DB engine</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- mode.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- For Aurora MySQL, valid capacity values are @1@, @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- @32@, @64@, @128@, and @256@.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@, @16@,</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @32@, @64@, @192@, and @384@.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- The minimum capacity must be less than or equal to the maximum capacity.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_minCapacity"><span class="hs-identifier hs-type">scalingConfiguration_minCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="scalingConfiguration_minCapacity"><span class="annot"><span class="annottext">scalingConfiguration_minCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ScalingConfiguration -&gt; f ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_minCapacity"><span class="hs-identifier hs-var hs-var">scalingConfiguration_minCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingConfiguration -&gt; Maybe Int)
+-&gt; (ScalingConfiguration -&gt; Maybe Int -&gt; ScalingConfiguration)
+-&gt; Lens
+     ScalingConfiguration ScalingConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765690"><span class="annot"><span class="annottext">Maybe Int
+minCapacity :: Maybe Int
+$sel:minCapacity:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679765690"><span class="hs-identifier hs-var hs-var">minCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765690"><span class="hs-identifier hs-var">minCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765689"><span class="annot"><span class="annottext">s :: ScalingConfiguration
+</span><a href="#local-6989586621679765689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765688"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConfiguration
+</span><a href="#local-6989586621679765689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCapacity:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AminCapacity%3AScalingConfiguration%27"><span class="hs-identifier hs-var">minCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The amount of time, in seconds, that Aurora Serverless tries to find a</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- scaling point to perform seamless scaling before enforcing the timeout</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- action. The default is 300.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Specify a value between 60 and 600 seconds.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_secondsBeforeTimeout"><span class="hs-identifier hs-type">scalingConfiguration_secondsBeforeTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="scalingConfiguration_secondsBeforeTimeout"><span class="annot"><span class="annottext">scalingConfiguration_secondsBeforeTimeout :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ScalingConfiguration -&gt; f ScalingConfiguration
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#scalingConfiguration_secondsBeforeTimeout"><span class="hs-identifier hs-var hs-var">scalingConfiguration_secondsBeforeTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingConfiguration -&gt; Maybe Int)
+-&gt; (ScalingConfiguration -&gt; Maybe Int -&gt; ScalingConfiguration)
+-&gt; Lens
+     ScalingConfiguration ScalingConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765686"><span class="annot"><span class="annottext">Maybe Int
+secondsBeforeTimeout :: Maybe Int
+$sel:secondsBeforeTimeout:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679765686"><span class="hs-identifier hs-var hs-var">secondsBeforeTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765686"><span class="hs-identifier hs-var">secondsBeforeTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765685"><span class="annot"><span class="annottext">s :: ScalingConfiguration
+</span><a href="#local-6989586621679765685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765684"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConfiguration
+</span><a href="#local-6989586621679765685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secondsBeforeTimeout:ScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.RDS.Types.ScalingConfiguration.html#%24sel%3AsecondsBeforeTimeout%3AScalingConfiguration%27"><span class="hs-identifier hs-var">secondsBeforeTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679765680"><span id="local-6989586621679765682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span></span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679765677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration"><span class="hs-identifier hs-type">ScalingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679765673"><span class="annot"><span class="annottext">toQuery :: ScalingConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ScalingConfiguration.html#ScalingConfiguration%27"><span class="hs-identifier hs-type">ScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765666"><span id="local-6989586621679765667"><span id="local-6989586621679765668"><span id="local-6989586621679765669"><span id="local-6989586621679765670"><span id="local-6989586621679765671"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe Text
+secondsBeforeTimeout :: Maybe Int
+minCapacity :: Maybe Int
+maxCapacity :: Maybe Int
+autoPause :: Maybe Bool
+timeoutAction :: Maybe Text
+secondsUntilAutoPause :: Maybe Int
+$sel:secondsBeforeTimeout:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+$sel:minCapacity:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+$sel:maxCapacity:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+$sel:autoPause:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Bool
+$sel:timeoutAction:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Text
+$sel:secondsUntilAutoPause:ScalingConfiguration' :: ScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679765666"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SecondsUntilAutoPause&quot;</span></span><span>
+</span><span id="line-251"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765671"><span class="hs-identifier hs-var">secondsUntilAutoPause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TimeoutAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765670"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AutoPause&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679765669"><span class="hs-identifier hs-var">autoPause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765668"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MinCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765667"><span class="hs-identifier hs-var">minCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SecondsBeforeTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679765666"><span class="hs-identifier hs-var">secondsBeforeTimeout</span></a></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-258"></span></pre></body></html>

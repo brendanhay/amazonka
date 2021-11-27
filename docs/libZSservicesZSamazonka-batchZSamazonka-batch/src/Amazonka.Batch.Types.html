@@ -1,0 +1,910 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.Batch.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Batch.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.html#_ServerException"><span class="hs-identifier">_ServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.html#_ClientException"><span class="hs-identifier">_ClientException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ArrayJobDependency</span></span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayJobDependency.html#ArrayJobDependency"><span class="hs-identifier">ArrayJobDependency</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssignPublicIp</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AssignPublicIp.html#AssignPublicIp"><span class="hs-identifier">AssignPublicIp</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CEState</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.CEState.html#CEState"><span class="hs-identifier">CEState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CEStatus</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.CEStatus.html#CEStatus"><span class="hs-identifier">CEStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CEType</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.CEType.html#CEType"><span class="hs-identifier">CEType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CRAllocationStrategy</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy"><span class="hs-identifier">CRAllocationStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CRType</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.CRType.html#CRType"><span class="hs-identifier">CRType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DeviceCgroupPermission</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.DeviceCgroupPermission.html#DeviceCgroupPermission"><span class="hs-identifier">DeviceCgroupPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EFSAuthorizationConfigIAM</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSAuthorizationConfigIAM.html#EFSAuthorizationConfigIAM"><span class="hs-identifier">EFSAuthorizationConfigIAM</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EFSTransitEncryption</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSTransitEncryption.html#EFSTransitEncryption"><span class="hs-identifier">EFSTransitEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JQState</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JQState.html#JQState"><span class="hs-identifier">JQState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JQStatus</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JQStatus.html#JQStatus"><span class="hs-identifier">JQStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobDefinitionType</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinitionType.html#JobDefinitionType"><span class="hs-identifier">JobDefinitionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobStatus</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobStatus.html#JobStatus"><span class="hs-identifier">JobStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogDriver</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LogDriver.html#LogDriver"><span class="hs-identifier">LogDriver</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PlatformCapability</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.PlatformCapability.html#PlatformCapability"><span class="hs-identifier">PlatformCapability</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResourceType</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ResourceType.html#ResourceType"><span class="hs-identifier">ResourceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RetryAction</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.RetryAction.html#RetryAction"><span class="hs-identifier">RetryAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ArrayProperties</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayProperties.html#ArrayProperties"><span class="hs-identifier">ArrayProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayProperties.html#newArrayProperties"><span class="hs-identifier">newArrayProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayProperties.html#arrayProperties_size"><span class="hs-identifier">arrayProperties_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ArrayPropertiesDetail</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier">ArrayPropertiesDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesDetail.html#newArrayPropertiesDetail"><span class="hs-identifier">newArrayPropertiesDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_size"><span class="hs-identifier">arrayPropertiesDetail_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_statusSummary"><span class="hs-identifier">arrayPropertiesDetail_statusSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_index"><span class="hs-identifier">arrayPropertiesDetail_index</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ArrayPropertiesSummary</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesSummary.html#ArrayPropertiesSummary"><span class="hs-identifier">ArrayPropertiesSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesSummary.html#newArrayPropertiesSummary"><span class="hs-identifier">newArrayPropertiesSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesSummary.html#arrayPropertiesSummary_size"><span class="hs-identifier">arrayPropertiesSummary_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesSummary.html#arrayPropertiesSummary_index"><span class="hs-identifier">arrayPropertiesSummary_index</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AttemptContainerDetail</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier">AttemptContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#newAttemptContainerDetail"><span class="hs-identifier">newAttemptContainerDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_networkInterfaces"><span class="hs-identifier">attemptContainerDetail_networkInterfaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_taskArn"><span class="hs-identifier">attemptContainerDetail_taskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_containerInstanceArn"><span class="hs-identifier">attemptContainerDetail_containerInstanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_reason"><span class="hs-identifier">attemptContainerDetail_reason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_logStreamName"><span class="hs-identifier">attemptContainerDetail_logStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_exitCode"><span class="hs-identifier">attemptContainerDetail_exitCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AttemptDetail</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier">AttemptDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptDetail.html#newAttemptDetail"><span class="hs-identifier">newAttemptDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptDetail.html#attemptDetail_stoppedAt"><span class="hs-identifier">attemptDetail_stoppedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptDetail.html#attemptDetail_startedAt"><span class="hs-identifier">attemptDetail_startedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptDetail.html#attemptDetail_container"><span class="hs-identifier">attemptDetail_container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptDetail.html#attemptDetail_statusReason"><span class="hs-identifier">attemptDetail_statusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ComputeEnvironmentDetail</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#newComputeEnvironmentDetail"><span class="hs-identifier">newComputeEnvironmentDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_status"><span class="hs-identifier">computeEnvironmentDetail_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_state"><span class="hs-identifier">computeEnvironmentDetail_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeResources"><span class="hs-identifier">computeEnvironmentDetail_computeResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_statusReason"><span class="hs-identifier">computeEnvironmentDetail_statusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_type"><span class="hs-identifier">computeEnvironmentDetail_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_serviceRole"><span class="hs-identifier">computeEnvironmentDetail_serviceRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_tags"><span class="hs-identifier">computeEnvironmentDetail_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeEnvironmentName"><span class="hs-identifier">computeEnvironmentDetail_computeEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeEnvironmentArn"><span class="hs-identifier">computeEnvironmentDetail_computeEnvironmentArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_ecsClusterArn"><span class="hs-identifier">computeEnvironmentDetail_ecsClusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ComputeEnvironmentOrder</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier">ComputeEnvironmentOrder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentOrder.html#newComputeEnvironmentOrder"><span class="hs-identifier">newComputeEnvironmentOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentOrder.html#computeEnvironmentOrder_order"><span class="hs-identifier">computeEnvironmentOrder_order</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentOrder.html#computeEnvironmentOrder_computeEnvironment"><span class="hs-identifier">computeEnvironmentOrder_computeEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ComputeResource</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier">ComputeResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#newComputeResource"><span class="hs-identifier">newComputeResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_securityGroupIds"><span class="hs-identifier">computeResource_securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_instanceTypes"><span class="hs-identifier">computeResource_instanceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_instanceRole"><span class="hs-identifier">computeResource_instanceRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_ec2KeyPair"><span class="hs-identifier">computeResource_ec2KeyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_minvCpus"><span class="hs-identifier">computeResource_minvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_ec2Configuration"><span class="hs-identifier">computeResource_ec2Configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_bidPercentage"><span class="hs-identifier">computeResource_bidPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_spotIamFleetRole"><span class="hs-identifier">computeResource_spotIamFleetRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_imageId"><span class="hs-identifier">computeResource_imageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_launchTemplate"><span class="hs-identifier">computeResource_launchTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_desiredvCpus"><span class="hs-identifier">computeResource_desiredvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_allocationStrategy"><span class="hs-identifier">computeResource_allocationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_placementGroup"><span class="hs-identifier">computeResource_placementGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_tags"><span class="hs-identifier">computeResource_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_type"><span class="hs-identifier">computeResource_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_maxvCpus"><span class="hs-identifier">computeResource_maxvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#computeResource_subnets"><span class="hs-identifier">computeResource_subnets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ComputeResourceUpdate</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier">ComputeResourceUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#newComputeResourceUpdate"><span class="hs-identifier">newComputeResourceUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_securityGroupIds"><span class="hs-identifier">computeResourceUpdate_securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_subnets"><span class="hs-identifier">computeResourceUpdate_subnets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_minvCpus"><span class="hs-identifier">computeResourceUpdate_minvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_maxvCpus"><span class="hs-identifier">computeResourceUpdate_maxvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_desiredvCpus"><span class="hs-identifier">computeResourceUpdate_desiredvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContainerDetail</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#ContainerDetail"><span class="hs-identifier">ContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#newContainerDetail"><span class="hs-identifier">newContainerDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_image"><span class="hs-identifier">containerDetail_image</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_command"><span class="hs-identifier">containerDetail_command</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_secrets"><span class="hs-identifier">containerDetail_secrets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_environment"><span class="hs-identifier">containerDetail_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_networkInterfaces"><span class="hs-identifier">containerDetail_networkInterfaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_taskArn"><span class="hs-identifier">containerDetail_taskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_ulimits"><span class="hs-identifier">containerDetail_ulimits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_containerInstanceArn"><span class="hs-identifier">containerDetail_containerInstanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_executionRoleArn"><span class="hs-identifier">containerDetail_executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_privileged"><span class="hs-identifier">containerDetail_privileged</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_jobRoleArn"><span class="hs-identifier">containerDetail_jobRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_resourceRequirements"><span class="hs-identifier">containerDetail_resourceRequirements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_instanceType"><span class="hs-identifier">containerDetail_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_memory"><span class="hs-identifier">containerDetail_memory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_user"><span class="hs-identifier">containerDetail_user</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_logConfiguration"><span class="hs-identifier">containerDetail_logConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_linuxParameters"><span class="hs-identifier">containerDetail_linuxParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_reason"><span class="hs-identifier">containerDetail_reason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_logStreamName"><span class="hs-identifier">containerDetail_logStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_mountPoints"><span class="hs-identifier">containerDetail_mountPoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_exitCode"><span class="hs-identifier">containerDetail_exitCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_fargatePlatformConfiguration"><span class="hs-identifier">containerDetail_fargatePlatformConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_vcpus"><span class="hs-identifier">containerDetail_vcpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_readonlyRootFilesystem"><span class="hs-identifier">containerDetail_readonlyRootFilesystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_volumes"><span class="hs-identifier">containerDetail_volumes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html#containerDetail_networkConfiguration"><span class="hs-identifier">containerDetail_networkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContainerOverrides</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#ContainerOverrides"><span class="hs-identifier">ContainerOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#newContainerOverrides"><span class="hs-identifier">newContainerOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#containerOverrides_command"><span class="hs-identifier">containerOverrides_command</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#containerOverrides_environment"><span class="hs-identifier">containerOverrides_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#containerOverrides_resourceRequirements"><span class="hs-identifier">containerOverrides_resourceRequirements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#containerOverrides_instanceType"><span class="hs-identifier">containerOverrides_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#containerOverrides_memory"><span class="hs-identifier">containerOverrides_memory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html#containerOverrides_vcpus"><span class="hs-identifier">containerOverrides_vcpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContainerProperties</span></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier">ContainerProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#newContainerProperties"><span class="hs-identifier">newContainerProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_image"><span class="hs-identifier">containerProperties_image</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_command"><span class="hs-identifier">containerProperties_command</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_secrets"><span class="hs-identifier">containerProperties_secrets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_environment"><span class="hs-identifier">containerProperties_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_ulimits"><span class="hs-identifier">containerProperties_ulimits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_executionRoleArn"><span class="hs-identifier">containerProperties_executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_privileged"><span class="hs-identifier">containerProperties_privileged</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_jobRoleArn"><span class="hs-identifier">containerProperties_jobRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_resourceRequirements"><span class="hs-identifier">containerProperties_resourceRequirements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_instanceType"><span class="hs-identifier">containerProperties_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_memory"><span class="hs-identifier">containerProperties_memory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_user"><span class="hs-identifier">containerProperties_user</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_logConfiguration"><span class="hs-identifier">containerProperties_logConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_linuxParameters"><span class="hs-identifier">containerProperties_linuxParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_mountPoints"><span class="hs-identifier">containerProperties_mountPoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_fargatePlatformConfiguration"><span class="hs-identifier">containerProperties_fargatePlatformConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_vcpus"><span class="hs-identifier">containerProperties_vcpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_readonlyRootFilesystem"><span class="hs-identifier">containerProperties_readonlyRootFilesystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_volumes"><span class="hs-identifier">containerProperties_volumes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html#containerProperties_networkConfiguration"><span class="hs-identifier">containerProperties_networkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContainerSummary</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier">ContainerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerSummary.html#newContainerSummary"><span class="hs-identifier">newContainerSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerSummary.html#containerSummary_reason"><span class="hs-identifier">containerSummary_reason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerSummary.html#containerSummary_exitCode"><span class="hs-identifier">containerSummary_exitCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Device</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Device.html#Device"><span class="hs-identifier">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Device.html#newDevice"><span class="hs-identifier">newDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Device.html#device_containerPath"><span class="hs-identifier">device_containerPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Device.html#device_permissions"><span class="hs-identifier">device_permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Device.html#device_hostPath"><span class="hs-identifier">device_hostPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EFSAuthorizationConfig</span></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier">EFSAuthorizationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSAuthorizationConfig.html#newEFSAuthorizationConfig"><span class="hs-identifier">newEFSAuthorizationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSAuthorizationConfig.html#eFSAuthorizationConfig_accessPointId"><span class="hs-identifier">eFSAuthorizationConfig_accessPointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSAuthorizationConfig.html#eFSAuthorizationConfig_iam"><span class="hs-identifier">eFSAuthorizationConfig_iam</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EFSVolumeConfiguration</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier">EFSVolumeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html#newEFSVolumeConfiguration"><span class="hs-identifier">newEFSVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html#eFSVolumeConfiguration_rootDirectory"><span class="hs-identifier">eFSVolumeConfiguration_rootDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html#eFSVolumeConfiguration_transitEncryption"><span class="hs-identifier">eFSVolumeConfiguration_transitEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html#eFSVolumeConfiguration_authorizationConfig"><span class="hs-identifier">eFSVolumeConfiguration_authorizationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html#eFSVolumeConfiguration_transitEncryptionPort"><span class="hs-identifier">eFSVolumeConfiguration_transitEncryptionPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html#eFSVolumeConfiguration_fileSystemId"><span class="hs-identifier">eFSVolumeConfiguration_fileSystemId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Ec2Configuration</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier">Ec2Configuration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ec2Configuration.html#newEc2Configuration"><span class="hs-identifier">newEc2Configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ec2Configuration.html#ec2Configuration_imageIdOverride"><span class="hs-identifier">ec2Configuration_imageIdOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ec2Configuration.html#ec2Configuration_imageType"><span class="hs-identifier">ec2Configuration_imageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EvaluateOnExit</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EvaluateOnExit.html#EvaluateOnExit"><span class="hs-identifier">EvaluateOnExit</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EvaluateOnExit.html#newEvaluateOnExit"><span class="hs-identifier">newEvaluateOnExit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EvaluateOnExit.html#evaluateOnExit_onExitCode"><span class="hs-identifier">evaluateOnExit_onExitCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EvaluateOnExit.html#evaluateOnExit_onReason"><span class="hs-identifier">evaluateOnExit_onReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EvaluateOnExit.html#evaluateOnExit_onStatusReason"><span class="hs-identifier">evaluateOnExit_onStatusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.EvaluateOnExit.html#evaluateOnExit_action"><span class="hs-identifier">evaluateOnExit_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FargatePlatformConfiguration</span></span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.FargatePlatformConfiguration.html#FargatePlatformConfiguration"><span class="hs-identifier">FargatePlatformConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.FargatePlatformConfiguration.html#newFargatePlatformConfiguration"><span class="hs-identifier">newFargatePlatformConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.FargatePlatformConfiguration.html#fargatePlatformConfiguration_platformVersion"><span class="hs-identifier">fargatePlatformConfiguration_platformVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Host</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Host.html#Host"><span class="hs-identifier">Host</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Host.html#newHost"><span class="hs-identifier">newHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Host.html#host_sourcePath"><span class="hs-identifier">host_sourcePath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobDefinition</span></span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#newJobDefinition"><span class="hs-identifier">newJobDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_status"><span class="hs-identifier">jobDefinition_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_propagateTags"><span class="hs-identifier">jobDefinition_propagateTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_retryStrategy"><span class="hs-identifier">jobDefinition_retryStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_platformCapabilities"><span class="hs-identifier">jobDefinition_platformCapabilities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_parameters"><span class="hs-identifier">jobDefinition_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_timeout"><span class="hs-identifier">jobDefinition_timeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_containerProperties"><span class="hs-identifier">jobDefinition_containerProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_nodeProperties"><span class="hs-identifier">jobDefinition_nodeProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_tags"><span class="hs-identifier">jobDefinition_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_jobDefinitionName"><span class="hs-identifier">jobDefinition_jobDefinitionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_jobDefinitionArn"><span class="hs-identifier">jobDefinition_jobDefinitionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_revision"><span class="hs-identifier">jobDefinition_revision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html#jobDefinition_type"><span class="hs-identifier">jobDefinition_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobDependency</span></span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier">JobDependency</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDependency.html#newJobDependency"><span class="hs-identifier">newJobDependency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDependency.html#jobDependency_jobId"><span class="hs-identifier">jobDependency_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDependency.html#jobDependency_type"><span class="hs-identifier">jobDependency_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobDetail</span></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#JobDetail"><span class="hs-identifier">JobDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#newJobDetail"><span class="hs-identifier">newJobDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_stoppedAt"><span class="hs-identifier">jobDetail_stoppedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_jobArn"><span class="hs-identifier">jobDetail_jobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_propagateTags"><span class="hs-identifier">jobDetail_propagateTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_createdAt"><span class="hs-identifier">jobDetail_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_retryStrategy"><span class="hs-identifier">jobDetail_retryStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_attempts"><span class="hs-identifier">jobDetail_attempts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_platformCapabilities"><span class="hs-identifier">jobDetail_platformCapabilities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_startedAt"><span class="hs-identifier">jobDetail_startedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_dependsOn"><span class="hs-identifier">jobDetail_dependsOn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_container"><span class="hs-identifier">jobDetail_container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_nodeDetails"><span class="hs-identifier">jobDetail_nodeDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_parameters"><span class="hs-identifier">jobDetail_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_statusReason"><span class="hs-identifier">jobDetail_statusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_arrayProperties"><span class="hs-identifier">jobDetail_arrayProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_timeout"><span class="hs-identifier">jobDetail_timeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_nodeProperties"><span class="hs-identifier">jobDetail_nodeProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_tags"><span class="hs-identifier">jobDetail_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_jobName"><span class="hs-identifier">jobDetail_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_jobId"><span class="hs-identifier">jobDetail_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_jobQueue"><span class="hs-identifier">jobDetail_jobQueue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_status"><span class="hs-identifier">jobDetail_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html#jobDetail_jobDefinition"><span class="hs-identifier">jobDetail_jobDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobQueueDetail</span></span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier">JobQueueDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#newJobQueueDetail"><span class="hs-identifier">newJobQueueDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_status"><span class="hs-identifier">jobQueueDetail_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_statusReason"><span class="hs-identifier">jobQueueDetail_statusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_tags"><span class="hs-identifier">jobQueueDetail_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_jobQueueName"><span class="hs-identifier">jobQueueDetail_jobQueueName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_jobQueueArn"><span class="hs-identifier">jobQueueDetail_jobQueueArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_state"><span class="hs-identifier">jobQueueDetail_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_priority"><span class="hs-identifier">jobQueueDetail_priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html#jobQueueDetail_computeEnvironmentOrder"><span class="hs-identifier">jobQueueDetail_computeEnvironmentOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobSummary</span></span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#newJobSummary"><span class="hs-identifier">newJobSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_stoppedAt"><span class="hs-identifier">jobSummary_stoppedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_status"><span class="hs-identifier">jobSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_jobArn"><span class="hs-identifier">jobSummary_jobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_createdAt"><span class="hs-identifier">jobSummary_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_startedAt"><span class="hs-identifier">jobSummary_startedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_container"><span class="hs-identifier">jobSummary_container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_jobDefinition"><span class="hs-identifier">jobSummary_jobDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_statusReason"><span class="hs-identifier">jobSummary_statusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_arrayProperties"><span class="hs-identifier">jobSummary_arrayProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_nodeProperties"><span class="hs-identifier">jobSummary_nodeProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_jobId"><span class="hs-identifier">jobSummary_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html#jobSummary_jobName"><span class="hs-identifier">jobSummary_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobTimeout</span></span><span>
+</span><span id="line-357"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier">JobTimeout</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobTimeout.html#newJobTimeout"><span class="hs-identifier">newJobTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.JobTimeout.html#jobTimeout_attemptDurationSeconds"><span class="hs-identifier">jobTimeout_attemptDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>
+</span><span id="line-361"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KeyValuePair</span></span><span>
+</span><span id="line-362"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuePair.html#KeyValuePair"><span class="hs-identifier">KeyValuePair</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuePair.html#newKeyValuePair"><span class="hs-identifier">newKeyValuePair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuePair.html#keyValuePair_value"><span class="hs-identifier">keyValuePair_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuePair.html#keyValuePair_name"><span class="hs-identifier">keyValuePair_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KeyValuesPair</span></span><span>
+</span><span id="line-368"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier">KeyValuesPair</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuesPair.html#newKeyValuesPair"><span class="hs-identifier">newKeyValuesPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuesPair.html#keyValuesPair_values"><span class="hs-identifier">keyValuesPair_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuesPair.html#keyValuesPair_name"><span class="hs-identifier">keyValuesPair_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>
+</span><span id="line-373"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LaunchTemplateSpecification</span></span><span>
+</span><span id="line-374"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LaunchTemplateSpecification.html#newLaunchTemplateSpecification"><span class="hs-identifier">newLaunchTemplateSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateName"><span class="hs-identifier">launchTemplateSpecification_launchTemplateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateId"><span class="hs-identifier">launchTemplateSpecification_launchTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_version"><span class="hs-identifier">launchTemplateSpecification_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LinuxParameters</span></span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier">LinuxParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#newLinuxParameters"><span class="hs-identifier">newLinuxParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#linuxParameters_sharedMemorySize"><span class="hs-identifier">linuxParameters_sharedMemorySize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#linuxParameters_initProcessEnabled"><span class="hs-identifier">linuxParameters_initProcessEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#linuxParameters_tmpfs"><span class="hs-identifier">linuxParameters_tmpfs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#linuxParameters_swappiness"><span class="hs-identifier">linuxParameters_swappiness</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#linuxParameters_devices"><span class="hs-identifier">linuxParameters_devices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html#linuxParameters_maxSwap"><span class="hs-identifier">linuxParameters_maxSwap</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogConfiguration</span></span><span>
+</span><span id="line-391"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier">LogConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LogConfiguration.html#newLogConfiguration"><span class="hs-identifier">newLogConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LogConfiguration.html#logConfiguration_options"><span class="hs-identifier">logConfiguration_options</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LogConfiguration.html#logConfiguration_secretOptions"><span class="hs-identifier">logConfiguration_secretOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.LogConfiguration.html#logConfiguration_logDriver"><span class="hs-identifier">logConfiguration_logDriver</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MountPoint</span></span><span>
+</span><span id="line-398"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.MountPoint.html#MountPoint"><span class="hs-identifier">MountPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.MountPoint.html#newMountPoint"><span class="hs-identifier">newMountPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.MountPoint.html#mountPoint_containerPath"><span class="hs-identifier">mountPoint_containerPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.MountPoint.html#mountPoint_sourceVolume"><span class="hs-identifier">mountPoint_sourceVolume</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.MountPoint.html#mountPoint_readOnly"><span class="hs-identifier">mountPoint_readOnly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>
+</span><span id="line-404"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NetworkConfiguration</span></span><span>
+</span><span id="line-405"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier">NetworkConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkConfiguration.html#newNetworkConfiguration"><span class="hs-identifier">newNetworkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkConfiguration.html#networkConfiguration_assignPublicIp"><span class="hs-identifier">networkConfiguration_assignPublicIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NetworkInterface</span></span><span>
+</span><span id="line-410"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-411"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html#newNetworkInterface"><span class="hs-identifier">newNetworkInterface</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-412"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html#networkInterface_ipv6Address"><span class="hs-identifier">networkInterface_ipv6Address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-413"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html#networkInterface_privateIpv4Address"><span class="hs-identifier">networkInterface_privateIpv4Address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html#networkInterface_attachmentId"><span class="hs-identifier">networkInterface_attachmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NodeDetails</span></span><span>
+</span><span id="line-417"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeDetails.html#NodeDetails"><span class="hs-identifier">NodeDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeDetails.html#newNodeDetails"><span class="hs-identifier">newNodeDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeDetails.html#nodeDetails_nodeIndex"><span class="hs-identifier">nodeDetails_nodeIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-420"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeDetails.html#nodeDetails_isMainNode"><span class="hs-identifier">nodeDetails_isMainNode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NodeOverrides</span></span><span>
+</span><span id="line-423"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier">NodeOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeOverrides.html#newNodeOverrides"><span class="hs-identifier">newNodeOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-425"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeOverrides.html#nodeOverrides_numNodes"><span class="hs-identifier">nodeOverrides_numNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeOverrides.html#nodeOverrides_nodePropertyOverrides"><span class="hs-identifier">nodeOverrides_nodePropertyOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-427"></span><span>
+</span><span id="line-428"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NodeProperties</span></span><span>
+</span><span id="line-429"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeProperties.html#NodeProperties"><span class="hs-identifier">NodeProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeProperties.html#newNodeProperties"><span class="hs-identifier">newNodeProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeProperties.html#nodeProperties_numNodes"><span class="hs-identifier">nodeProperties_numNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeProperties.html#nodeProperties_mainNode"><span class="hs-identifier">nodeProperties_mainNode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeProperties.html#nodeProperties_nodeRangeProperties"><span class="hs-identifier">nodeProperties_nodeRangeProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NodePropertiesSummary</span></span><span>
+</span><span id="line-436"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertiesSummary.html#NodePropertiesSummary"><span class="hs-identifier">NodePropertiesSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertiesSummary.html#newNodePropertiesSummary"><span class="hs-identifier">newNodePropertiesSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-438"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertiesSummary.html#nodePropertiesSummary_numNodes"><span class="hs-identifier">nodePropertiesSummary_numNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertiesSummary.html#nodePropertiesSummary_nodeIndex"><span class="hs-identifier">nodePropertiesSummary_nodeIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertiesSummary.html#nodePropertiesSummary_isMainNode"><span class="hs-identifier">nodePropertiesSummary_isMainNode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-441"></span><span>
+</span><span id="line-442"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NodePropertyOverride</span></span><span>
+</span><span id="line-443"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertyOverride.html#NodePropertyOverride"><span class="hs-identifier">NodePropertyOverride</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-444"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertyOverride.html#newNodePropertyOverride"><span class="hs-identifier">newNodePropertyOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-445"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertyOverride.html#nodePropertyOverride_containerOverrides"><span class="hs-identifier">nodePropertyOverride_containerOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-446"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertyOverride.html#nodePropertyOverride_targetNodes"><span class="hs-identifier">nodePropertyOverride_targetNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-447"></span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NodeRangeProperty</span></span><span>
+</span><span id="line-449"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier">NodeRangeProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-450"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeRangeProperty.html#newNodeRangeProperty"><span class="hs-identifier">newNodeRangeProperty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-451"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeRangeProperty.html#nodeRangeProperty_container"><span class="hs-identifier">nodeRangeProperty_container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-452"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.NodeRangeProperty.html#nodeRangeProperty_targetNodes"><span class="hs-identifier">nodeRangeProperty_targetNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-453"></span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResourceRequirement</span></span><span>
+</span><span id="line-455"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier">ResourceRequirement</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ResourceRequirement.html#newResourceRequirement"><span class="hs-identifier">newResourceRequirement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-457"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ResourceRequirement.html#resourceRequirement_value"><span class="hs-identifier">resourceRequirement_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-458"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.ResourceRequirement.html#resourceRequirement_type"><span class="hs-identifier">resourceRequirement_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-459"></span><span>
+</span><span id="line-460"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RetryStrategy</span></span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.RetryStrategy.html#RetryStrategy"><span class="hs-identifier">RetryStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.RetryStrategy.html#newRetryStrategy"><span class="hs-identifier">newRetryStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-463"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.RetryStrategy.html#retryStrategy_evaluateOnExit"><span class="hs-identifier">retryStrategy_evaluateOnExit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.RetryStrategy.html#retryStrategy_attempts"><span class="hs-identifier">retryStrategy_attempts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-465"></span><span>
+</span><span id="line-466"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Secret</span></span><span>
+</span><span id="line-467"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Secret.html#Secret"><span class="hs-identifier">Secret</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-468"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Secret.html#newSecret"><span class="hs-identifier">newSecret</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-469"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Secret.html#secret_name"><span class="hs-identifier">secret_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-470"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Secret.html#secret_valueFrom"><span class="hs-identifier">secret_valueFrom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tmpfs</span></span><span>
+</span><span id="line-473"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Tmpfs.html#Tmpfs"><span class="hs-identifier">Tmpfs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-474"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Tmpfs.html#newTmpfs"><span class="hs-identifier">newTmpfs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-475"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Tmpfs.html#tmpfs_mountOptions"><span class="hs-identifier">tmpfs_mountOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-476"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Tmpfs.html#tmpfs_containerPath"><span class="hs-identifier">tmpfs_containerPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-477"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Tmpfs.html#tmpfs_size"><span class="hs-identifier">tmpfs_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-478"></span><span>
+</span><span id="line-479"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Ulimit</span></span><span>
+</span><span id="line-480"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ulimit.html#Ulimit"><span class="hs-identifier">Ulimit</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-481"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ulimit.html#newUlimit"><span class="hs-identifier">newUlimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-482"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ulimit.html#ulimit_hardLimit"><span class="hs-identifier">ulimit_hardLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-483"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ulimit.html#ulimit_name"><span class="hs-identifier">ulimit_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Ulimit.html#ulimit_softLimit"><span class="hs-identifier">ulimit_softLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-485"></span><span>
+</span><span id="line-486"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Volume</span></span><span>
+</span><span id="line-487"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Volume.html#Volume"><span class="hs-identifier">Volume</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-488"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Volume.html#newVolume"><span class="hs-identifier">newVolume</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-489"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Volume.html#volume_name"><span class="hs-identifier">volume_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-490"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Volume.html#volume_efsVolumeConfiguration"><span class="hs-identifier">volume_efsVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-491"></span><span>    </span><span class="annot"><a href="Amazonka.Batch.Types.Volume.html#volume_host"><span class="hs-identifier">volume_host</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-492"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-493"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-494"></span><span>
+</span><span id="line-495"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayJobDependency.html"><span class="hs-identifier">Amazonka.Batch.Types.ArrayJobDependency</span></a></span><span>
+</span><span id="line-496"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayProperties.html"><span class="hs-identifier">Amazonka.Batch.Types.ArrayProperties</span></a></span><span>
+</span><span id="line-497"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesDetail.html"><span class="hs-identifier">Amazonka.Batch.Types.ArrayPropertiesDetail</span></a></span><span>
+</span><span id="line-498"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ArrayPropertiesSummary.html"><span class="hs-identifier">Amazonka.Batch.Types.ArrayPropertiesSummary</span></a></span><span>
+</span><span id="line-499"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AssignPublicIp.html"><span class="hs-identifier">Amazonka.Batch.Types.AssignPublicIp</span></a></span><span>
+</span><span id="line-500"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html"><span class="hs-identifier">Amazonka.Batch.Types.AttemptContainerDetail</span></a></span><span>
+</span><span id="line-501"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptDetail.html"><span class="hs-identifier">Amazonka.Batch.Types.AttemptDetail</span></a></span><span>
+</span><span id="line-502"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEState.html"><span class="hs-identifier">Amazonka.Batch.Types.CEState</span></a></span><span>
+</span><span id="line-503"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEStatus.html"><span class="hs-identifier">Amazonka.Batch.Types.CEStatus</span></a></span><span>
+</span><span id="line-504"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEType.html"><span class="hs-identifier">Amazonka.Batch.Types.CEType</span></a></span><span>
+</span><span id="line-505"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CRAllocationStrategy.html"><span class="hs-identifier">Amazonka.Batch.Types.CRAllocationStrategy</span></a></span><span>
+</span><span id="line-506"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CRType.html"><span class="hs-identifier">Amazonka.Batch.Types.CRType</span></a></span><span>
+</span><span id="line-507"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html"><span class="hs-identifier">Amazonka.Batch.Types.ComputeEnvironmentDetail</span></a></span><span>
+</span><span id="line-508"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentOrder.html"><span class="hs-identifier">Amazonka.Batch.Types.ComputeEnvironmentOrder</span></a></span><span>
+</span><span id="line-509"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html"><span class="hs-identifier">Amazonka.Batch.Types.ComputeResource</span></a></span><span>
+</span><span id="line-510"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html"><span class="hs-identifier">Amazonka.Batch.Types.ComputeResourceUpdate</span></a></span><span>
+</span><span id="line-511"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerDetail.html"><span class="hs-identifier">Amazonka.Batch.Types.ContainerDetail</span></a></span><span>
+</span><span id="line-512"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerOverrides.html"><span class="hs-identifier">Amazonka.Batch.Types.ContainerOverrides</span></a></span><span>
+</span><span id="line-513"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerProperties.html"><span class="hs-identifier">Amazonka.Batch.Types.ContainerProperties</span></a></span><span>
+</span><span id="line-514"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ContainerSummary.html"><span class="hs-identifier">Amazonka.Batch.Types.ContainerSummary</span></a></span><span>
+</span><span id="line-515"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.Device.html"><span class="hs-identifier">Amazonka.Batch.Types.Device</span></a></span><span>
+</span><span id="line-516"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.DeviceCgroupPermission.html"><span class="hs-identifier">Amazonka.Batch.Types.DeviceCgroupPermission</span></a></span><span>
+</span><span id="line-517"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.EFSAuthorizationConfig.html"><span class="hs-identifier">Amazonka.Batch.Types.EFSAuthorizationConfig</span></a></span><span>
+</span><span id="line-518"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.EFSAuthorizationConfigIAM.html"><span class="hs-identifier">Amazonka.Batch.Types.EFSAuthorizationConfigIAM</span></a></span><span>
+</span><span id="line-519"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.EFSTransitEncryption.html"><span class="hs-identifier">Amazonka.Batch.Types.EFSTransitEncryption</span></a></span><span>
+</span><span id="line-520"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.EFSVolumeConfiguration.html"><span class="hs-identifier">Amazonka.Batch.Types.EFSVolumeConfiguration</span></a></span><span>
+</span><span id="line-521"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.Ec2Configuration.html"><span class="hs-identifier">Amazonka.Batch.Types.Ec2Configuration</span></a></span><span>
+</span><span id="line-522"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.EvaluateOnExit.html"><span class="hs-identifier">Amazonka.Batch.Types.EvaluateOnExit</span></a></span><span>
+</span><span id="line-523"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.FargatePlatformConfiguration.html"><span class="hs-identifier">Amazonka.Batch.Types.FargatePlatformConfiguration</span></a></span><span>
+</span><span id="line-524"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.Host.html"><span class="hs-identifier">Amazonka.Batch.Types.Host</span></a></span><span>
+</span><span id="line-525"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JQState.html"><span class="hs-identifier">Amazonka.Batch.Types.JQState</span></a></span><span>
+</span><span id="line-526"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JQStatus.html"><span class="hs-identifier">Amazonka.Batch.Types.JQStatus</span></a></span><span>
+</span><span id="line-527"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinition.html"><span class="hs-identifier">Amazonka.Batch.Types.JobDefinition</span></a></span><span>
+</span><span id="line-528"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobDefinitionType.html"><span class="hs-identifier">Amazonka.Batch.Types.JobDefinitionType</span></a></span><span>
+</span><span id="line-529"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobDependency.html"><span class="hs-identifier">Amazonka.Batch.Types.JobDependency</span></a></span><span>
+</span><span id="line-530"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobDetail.html"><span class="hs-identifier">Amazonka.Batch.Types.JobDetail</span></a></span><span>
+</span><span id="line-531"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobQueueDetail.html"><span class="hs-identifier">Amazonka.Batch.Types.JobQueueDetail</span></a></span><span>
+</span><span id="line-532"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobStatus.html"><span class="hs-identifier">Amazonka.Batch.Types.JobStatus</span></a></span><span>
+</span><span id="line-533"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobSummary.html"><span class="hs-identifier">Amazonka.Batch.Types.JobSummary</span></a></span><span>
+</span><span id="line-534"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.JobTimeout.html"><span class="hs-identifier">Amazonka.Batch.Types.JobTimeout</span></a></span><span>
+</span><span id="line-535"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuePair.html"><span class="hs-identifier">Amazonka.Batch.Types.KeyValuePair</span></a></span><span>
+</span><span id="line-536"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.KeyValuesPair.html"><span class="hs-identifier">Amazonka.Batch.Types.KeyValuesPair</span></a></span><span>
+</span><span id="line-537"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.LaunchTemplateSpecification.html"><span class="hs-identifier">Amazonka.Batch.Types.LaunchTemplateSpecification</span></a></span><span>
+</span><span id="line-538"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.LinuxParameters.html"><span class="hs-identifier">Amazonka.Batch.Types.LinuxParameters</span></a></span><span>
+</span><span id="line-539"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.LogConfiguration.html"><span class="hs-identifier">Amazonka.Batch.Types.LogConfiguration</span></a></span><span>
+</span><span id="line-540"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.LogDriver.html"><span class="hs-identifier">Amazonka.Batch.Types.LogDriver</span></a></span><span>
+</span><span id="line-541"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.MountPoint.html"><span class="hs-identifier">Amazonka.Batch.Types.MountPoint</span></a></span><span>
+</span><span id="line-542"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkConfiguration.html"><span class="hs-identifier">Amazonka.Batch.Types.NetworkConfiguration</span></a></span><span>
+</span><span id="line-543"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html"><span class="hs-identifier">Amazonka.Batch.Types.NetworkInterface</span></a></span><span>
+</span><span id="line-544"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NodeDetails.html"><span class="hs-identifier">Amazonka.Batch.Types.NodeDetails</span></a></span><span>
+</span><span id="line-545"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NodeOverrides.html"><span class="hs-identifier">Amazonka.Batch.Types.NodeOverrides</span></a></span><span>
+</span><span id="line-546"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NodeProperties.html"><span class="hs-identifier">Amazonka.Batch.Types.NodeProperties</span></a></span><span>
+</span><span id="line-547"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertiesSummary.html"><span class="hs-identifier">Amazonka.Batch.Types.NodePropertiesSummary</span></a></span><span>
+</span><span id="line-548"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NodePropertyOverride.html"><span class="hs-identifier">Amazonka.Batch.Types.NodePropertyOverride</span></a></span><span>
+</span><span id="line-549"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NodeRangeProperty.html"><span class="hs-identifier">Amazonka.Batch.Types.NodeRangeProperty</span></a></span><span>
+</span><span id="line-550"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.PlatformCapability.html"><span class="hs-identifier">Amazonka.Batch.Types.PlatformCapability</span></a></span><span>
+</span><span id="line-551"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ResourceRequirement.html"><span class="hs-identifier">Amazonka.Batch.Types.ResourceRequirement</span></a></span><span>
+</span><span id="line-552"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ResourceType.html"><span class="hs-identifier">Amazonka.Batch.Types.ResourceType</span></a></span><span>
+</span><span id="line-553"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.RetryAction.html"><span class="hs-identifier">Amazonka.Batch.Types.RetryAction</span></a></span><span>
+</span><span id="line-554"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.RetryStrategy.html"><span class="hs-identifier">Amazonka.Batch.Types.RetryStrategy</span></a></span><span>
+</span><span id="line-555"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.Secret.html"><span class="hs-identifier">Amazonka.Batch.Types.Secret</span></a></span><span>
+</span><span id="line-556"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.Tmpfs.html"><span class="hs-identifier">Amazonka.Batch.Types.Tmpfs</span></a></span><span>
+</span><span id="line-557"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.Ulimit.html"><span class="hs-identifier">Amazonka.Batch.Types.Ulimit</span></a></span><span>
+</span><span id="line-558"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.Volume.html"><span class="hs-identifier">Amazonka.Batch.Types.Volume</span></a></span><span>
+</span><span id="line-559"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-560"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-561"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-562"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-563"></span><span>
+</span><span id="line-564"></span><span class="hs-comment">-- | API version @2016-08-10@ of the Amazon Batch SDK configuration.</span><span>
+</span><span id="line-565"></span><span class="annot"><a href="Amazonka.Batch.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-566"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.Batch.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-567"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-568"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Batch&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-569"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-570"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><a href="#local-6989586621679267099"><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;batch&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-571"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><a href="#local-6989586621679267098"><span class="hs-identifier hs-var">Core._serviceSigningName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;batch&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-572"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><a href="#local-6989586621679267097"><span class="hs-identifier hs-var">Core._serviceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-08-10&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-573"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><a href="#local-6989586621679267096"><span class="hs-identifier hs-var">Core._serviceEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-574"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Batch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-575"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><a href="#local-6989586621679267094"><span class="hs-identifier hs-var">Core._serviceTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-576"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><a href="#local-6989586621679267093"><span class="hs-identifier hs-var">Core._serviceCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-577"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><a href="#local-6989586621679267091"><span class="hs-identifier hs-var">Core._serviceError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Batch&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-578"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><a href="#local-6989586621679267089"><span class="hs-identifier hs-var">Core._serviceRetry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679267088"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-579"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-580"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-581"></span><span>    </span><span id="local-6989586621679267088"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679267088"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-582"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-583"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-584"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-585"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-586"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679267082"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-587"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-588"></span><span>    </span><span id="local-6989586621679267082"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679267082"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679267081"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-589"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-590"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-591"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-592"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-593"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-594"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-595"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-596"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-597"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-598"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-599"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-600"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-601"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-602"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-603"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-604"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-605"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-606"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-607"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-608"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-609"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-610"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-611"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-612"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-613"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-614"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-615"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-616"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-617"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-618"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-619"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-620"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-621"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-622"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-623"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-624"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-625"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-626"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-627"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-628"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-629"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-630"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679267081"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-631"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-632"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-633"></span><span>
+</span><span id="line-634"></span><span class="hs-comment">-- | These errors are usually caused by a server issue.</span><span>
+</span><span id="line-635"></span><span id="local-6989586621679267076"><span class="annot"><a href="Amazonka.Batch.Types.html#_ServerException"><span class="hs-identifier hs-type">_ServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679267076"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679267076"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-636"></span><span id="_ServerException"><span class="annot"><span class="annottext">_ServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Batch.Types.html#_ServerException"><span class="hs-identifier hs-var hs-var">_ServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-637"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-638"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Batch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-639"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServerException&quot;</span></span><span>
+</span><span id="line-640"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-641"></span><span>
+</span><span id="line-642"></span><span class="hs-comment">-- | These errors are usually caused by a client action, such as using an</span><span>
+</span><span id="line-643"></span><span class="hs-comment">-- action or resource on behalf of a user that doesn\'t have permissions to</span><span>
+</span><span id="line-644"></span><span class="hs-comment">-- use the action or resource, or specifying an identifier that\'s not</span><span>
+</span><span id="line-645"></span><span class="hs-comment">-- valid.</span><span>
+</span><span id="line-646"></span><span id="local-6989586621679267074"><span class="annot"><a href="Amazonka.Batch.Types.html#_ClientException"><span class="hs-identifier hs-type">_ClientException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679267074"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679267074"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-647"></span><span id="_ClientException"><span class="annot"><span class="annottext">_ClientException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Batch.Types.html#_ClientException"><span class="hs-identifier hs-var hs-var">_ClientException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-648"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-649"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Batch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-650"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ClientException&quot;</span></span><span>
+</span><span id="line-651"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-652"></span></pre></body></html>

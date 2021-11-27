@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpenSearch.Types.OutboundConnectionStatusCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpenSearch.Types.OutboundConnectionStatusCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_ACTIVE"><span class="hs-identifier">OutboundConnectionStatusCode_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_APPROVED"><span class="hs-identifier">OutboundConnectionStatusCode_APPROVED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_DELETED"><span class="hs-identifier">OutboundConnectionStatusCode_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_DELETING"><span class="hs-identifier">OutboundConnectionStatusCode_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_PENDING_ACCEPTANCE"><span class="hs-identifier">OutboundConnectionStatusCode_PENDING_ACCEPTANCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_PROVISIONING"><span class="hs-identifier">OutboundConnectionStatusCode_PROVISIONING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_REJECTED"><span class="hs-identifier">OutboundConnectionStatusCode_REJECTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_REJECTING"><span class="hs-identifier">OutboundConnectionStatusCode_REJECTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_VALIDATING"><span class="hs-identifier">OutboundConnectionStatusCode_VALIDATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_VALIDATION_FAILED"><span class="hs-identifier">OutboundConnectionStatusCode_VALIDATION_FAILED</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679301819"><span id="local-6989586621679301820"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutboundConnectionStatusCode"><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-var">OutboundConnectionStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutboundConnectionStatusCode%27"><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-var">OutboundConnectionStatusCode'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOutboundConnectionStatusCode"><span class="annot"><span class="annottext">OutboundConnectionStatusCode -&gt; Text
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#fromOutboundConnectionStatusCode"><span class="hs-identifier hs-var hs-var">fromOutboundConnectionStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301811"><span id="local-6989586621679301813"><span id="local-6989586621679301815"><span class="annot"><span class="annottext">Int -&gt; OutboundConnectionStatusCode -&gt; ShowS
+[OutboundConnectionStatusCode] -&gt; ShowS
+OutboundConnectionStatusCode -&gt; String
+(Int -&gt; OutboundConnectionStatusCode -&gt; ShowS)
+-&gt; (OutboundConnectionStatusCode -&gt; String)
+-&gt; ([OutboundConnectionStatusCode] -&gt; ShowS)
+-&gt; Show OutboundConnectionStatusCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OutboundConnectionStatusCode] -&gt; ShowS
+$cshowList :: [OutboundConnectionStatusCode] -&gt; ShowS
+show :: OutboundConnectionStatusCode -&gt; String
+$cshow :: OutboundConnectionStatusCode -&gt; String
+showsPrec :: Int -&gt; OutboundConnectionStatusCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; OutboundConnectionStatusCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301802"><span id="local-6989586621679301804"><span id="local-6989586621679301806"><span id="local-6989586621679301808"><span class="annot"><span class="annottext">ReadPrec [OutboundConnectionStatusCode]
+ReadPrec OutboundConnectionStatusCode
+Int -&gt; ReadS OutboundConnectionStatusCode
+ReadS [OutboundConnectionStatusCode]
+(Int -&gt; ReadS OutboundConnectionStatusCode)
+-&gt; ReadS [OutboundConnectionStatusCode]
+-&gt; ReadPrec OutboundConnectionStatusCode
+-&gt; ReadPrec [OutboundConnectionStatusCode]
+-&gt; Read OutboundConnectionStatusCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OutboundConnectionStatusCode]
+$creadListPrec :: ReadPrec [OutboundConnectionStatusCode]
+readPrec :: ReadPrec OutboundConnectionStatusCode
+$creadPrec :: ReadPrec OutboundConnectionStatusCode
+readList :: ReadS [OutboundConnectionStatusCode]
+$creadList :: ReadS [OutboundConnectionStatusCode]
+readsPrec :: Int -&gt; ReadS OutboundConnectionStatusCode
+$creadsPrec :: Int -&gt; ReadS OutboundConnectionStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301797"><span id="local-6989586621679301799"><span class="annot"><span class="annottext">OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+(OutboundConnectionStatusCode
+ -&gt; OutboundConnectionStatusCode -&gt; Bool)
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; Bool)
+-&gt; Eq OutboundConnectionStatusCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+$c/= :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+== :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+$c== :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301781"><span id="local-6989586621679301783"><span id="local-6989586621679301785"><span id="local-6989586621679301787"><span id="local-6989586621679301789"><span id="local-6989586621679301791"><span id="local-6989586621679301793"><span class="annot"><span class="annottext">Eq OutboundConnectionStatusCode
+Eq OutboundConnectionStatusCode
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; Ordering)
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; Bool)
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; Bool)
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; Bool)
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; Bool)
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; OutboundConnectionStatusCode)
+-&gt; (OutboundConnectionStatusCode
+    -&gt; OutboundConnectionStatusCode -&gt; OutboundConnectionStatusCode)
+-&gt; Ord OutboundConnectionStatusCode
+OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Ordering
+OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; OutboundConnectionStatusCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; OutboundConnectionStatusCode
+$cmin :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; OutboundConnectionStatusCode
+max :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; OutboundConnectionStatusCode
+$cmax :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; OutboundConnectionStatusCode
+&gt;= :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+$c&gt;= :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+&gt; :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+$c&gt; :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+&lt;= :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+$c&lt;= :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+&lt; :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+$c&lt; :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Bool
+compare :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Ordering
+$ccompare :: OutboundConnectionStatusCode
+-&gt; OutboundConnectionStatusCode -&gt; Ordering
+$cp1Ord :: Eq OutboundConnectionStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ OutboundConnectionStatusCode -&gt; Rep OutboundConnectionStatusCode x)
+-&gt; (forall x.
+    Rep OutboundConnectionStatusCode x -&gt; OutboundConnectionStatusCode)
+-&gt; Generic OutboundConnectionStatusCode
+forall x.
+Rep OutboundConnectionStatusCode x -&gt; OutboundConnectionStatusCode
+forall x.
+OutboundConnectionStatusCode -&gt; Rep OutboundConnectionStatusCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep OutboundConnectionStatusCode x -&gt; OutboundConnectionStatusCode
+$cfrom :: forall x.
+OutboundConnectionStatusCode -&gt; Rep OutboundConnectionStatusCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301773"><span id="local-6989586621679301775"><span class="annot"><span class="annottext">Int -&gt; OutboundConnectionStatusCode -&gt; Int
+OutboundConnectionStatusCode -&gt; Int
+(Int -&gt; OutboundConnectionStatusCode -&gt; Int)
+-&gt; (OutboundConnectionStatusCode -&gt; Int)
+-&gt; Hashable OutboundConnectionStatusCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OutboundConnectionStatusCode -&gt; Int
+$chash :: OutboundConnectionStatusCode -&gt; Int
+hashWithSalt :: Int -&gt; OutboundConnectionStatusCode -&gt; Int
+$chashWithSalt :: Int -&gt; OutboundConnectionStatusCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301770"><span class="annot"><span class="annottext">OutboundConnectionStatusCode -&gt; ()
+(OutboundConnectionStatusCode -&gt; ())
+-&gt; NFData OutboundConnectionStatusCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OutboundConnectionStatusCode -&gt; ()
+$crnf :: OutboundConnectionStatusCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301767"><span class="annot"><span class="annottext">Text -&gt; Either String OutboundConnectionStatusCode
+(Text -&gt; Either String OutboundConnectionStatusCode)
+-&gt; FromText OutboundConnectionStatusCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OutboundConnectionStatusCode
+$cfromText :: Text -&gt; Either String OutboundConnectionStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301764"><span class="annot"><span class="annottext">OutboundConnectionStatusCode -&gt; Text
+(OutboundConnectionStatusCode -&gt; Text)
+-&gt; ToText OutboundConnectionStatusCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OutboundConnectionStatusCode -&gt; Text
+$ctoText :: OutboundConnectionStatusCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301761"><span class="annot"><span class="annottext">OutboundConnectionStatusCode -&gt; ByteString
+(OutboundConnectionStatusCode -&gt; ByteString)
+-&gt; ToByteString OutboundConnectionStatusCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OutboundConnectionStatusCode -&gt; ByteString
+$ctoBS :: OutboundConnectionStatusCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301758"><span class="annot"><span class="annottext">OutboundConnectionStatusCode -&gt; ByteStringBuilder
+(OutboundConnectionStatusCode -&gt; ByteStringBuilder)
+-&gt; ToLog OutboundConnectionStatusCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OutboundConnectionStatusCode -&gt; ByteStringBuilder
+$cbuild :: OutboundConnectionStatusCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301755"><span class="annot"><span class="annottext">HeaderName -&gt; OutboundConnectionStatusCode -&gt; [Header]
+(HeaderName -&gt; OutboundConnectionStatusCode -&gt; [Header])
+-&gt; ToHeader OutboundConnectionStatusCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OutboundConnectionStatusCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OutboundConnectionStatusCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301752"><span class="annot"><span class="annottext">OutboundConnectionStatusCode -&gt; QueryString
+(OutboundConnectionStatusCode -&gt; QueryString)
+-&gt; ToQuery OutboundConnectionStatusCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OutboundConnectionStatusCode -&gt; QueryString
+$ctoQuery :: OutboundConnectionStatusCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301747"><span id="local-6989586621679301749"><span class="annot"><span class="annottext">Value -&gt; Parser [OutboundConnectionStatusCode]
+Value -&gt; Parser OutboundConnectionStatusCode
+(Value -&gt; Parser OutboundConnectionStatusCode)
+-&gt; (Value -&gt; Parser [OutboundConnectionStatusCode])
+-&gt; FromJSON OutboundConnectionStatusCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OutboundConnectionStatusCode]
+$cparseJSONList :: Value -&gt; Parser [OutboundConnectionStatusCode]
+parseJSON :: Value -&gt; Parser OutboundConnectionStatusCode
+$cparseJSON :: Value -&gt; Parser OutboundConnectionStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301742"><span id="local-6989586621679301744"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutboundConnectionStatusCode]
+FromJSONKeyFunction OutboundConnectionStatusCode
+FromJSONKeyFunction OutboundConnectionStatusCode
+-&gt; FromJSONKeyFunction [OutboundConnectionStatusCode]
+-&gt; FromJSONKey OutboundConnectionStatusCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OutboundConnectionStatusCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [OutboundConnectionStatusCode]
+fromJSONKey :: FromJSONKeyFunction OutboundConnectionStatusCode
+$cfromJSONKey :: FromJSONKeyFunction OutboundConnectionStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679301733"><span id="local-6989586621679301735"><span id="local-6989586621679301737"><span id="local-6989586621679301739"><span class="annot"><span class="annottext">[OutboundConnectionStatusCode] -&gt; Encoding
+[OutboundConnectionStatusCode] -&gt; Value
+OutboundConnectionStatusCode -&gt; Encoding
+OutboundConnectionStatusCode -&gt; Value
+(OutboundConnectionStatusCode -&gt; Value)
+-&gt; (OutboundConnectionStatusCode -&gt; Encoding)
+-&gt; ([OutboundConnectionStatusCode] -&gt; Value)
+-&gt; ([OutboundConnectionStatusCode] -&gt; Encoding)
+-&gt; ToJSON OutboundConnectionStatusCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OutboundConnectionStatusCode] -&gt; Encoding
+$ctoEncodingList :: [OutboundConnectionStatusCode] -&gt; Encoding
+toJSONList :: [OutboundConnectionStatusCode] -&gt; Value
+$ctoJSONList :: [OutboundConnectionStatusCode] -&gt; Value
+toEncoding :: OutboundConnectionStatusCode -&gt; Encoding
+$ctoEncoding :: OutboundConnectionStatusCode -&gt; Encoding
+toJSON :: OutboundConnectionStatusCode -&gt; Value
+$ctoJSON :: OutboundConnectionStatusCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679301728"><span id="local-6989586621679301730"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutboundConnectionStatusCode]
+ToJSONKeyFunction OutboundConnectionStatusCode
+ToJSONKeyFunction OutboundConnectionStatusCode
+-&gt; ToJSONKeyFunction [OutboundConnectionStatusCode]
+-&gt; ToJSONKey OutboundConnectionStatusCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OutboundConnectionStatusCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [OutboundConnectionStatusCode]
+toJSONKey :: ToJSONKeyFunction OutboundConnectionStatusCode
+$ctoJSONKey :: ToJSONKeyFunction OutboundConnectionStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679301725"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutboundConnectionStatusCode
+([Node] -&gt; Either String OutboundConnectionStatusCode)
+-&gt; FromXML OutboundConnectionStatusCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OutboundConnectionStatusCode
+$cparseXML :: [Node] -&gt; Either String OutboundConnectionStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679301722"><span class="annot"><span class="annottext">OutboundConnectionStatusCode -&gt; XML
+(OutboundConnectionStatusCode -&gt; XML)
+-&gt; ToXML OutboundConnectionStatusCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OutboundConnectionStatusCode -&gt; XML
+$ctoXML :: OutboundConnectionStatusCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_ACTIVE"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_ACTIVE"><span id="%24mOutboundConnectionStatusCode_ACTIVE"><span id="OutboundConnectionStatusCode_ACTIVE"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_ACTIVE :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_ACTIVE :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_APPROVED"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_APPROVED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_APPROVED"><span id="%24mOutboundConnectionStatusCode_APPROVED"><span id="OutboundConnectionStatusCode_APPROVED"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_APPROVED :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_APPROVED :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_APPROVED"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_APPROVED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APPROVED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_DELETED"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_DELETED"><span id="%24mOutboundConnectionStatusCode_DELETED"><span id="OutboundConnectionStatusCode_DELETED"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_DELETED :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_DELETED :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_DELETED"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_DELETING"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_DELETING"><span id="%24mOutboundConnectionStatusCode_DELETING"><span id="OutboundConnectionStatusCode_DELETING"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_DELETING :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_DELETING :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_DELETING"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_PENDING_ACCEPTANCE"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_PENDING_ACCEPTANCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_PENDING_ACCEPTANCE"><span id="%24mOutboundConnectionStatusCode_PENDING_ACCEPTANCE"><span id="OutboundConnectionStatusCode_PENDING_ACCEPTANCE"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_PENDING_ACCEPTANCE :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_PENDING_ACCEPTANCE :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_PENDING_ACCEPTANCE"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_PENDING_ACCEPTANCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_ACCEPTANCE&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_PROVISIONING"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_PROVISIONING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_PROVISIONING"><span id="%24mOutboundConnectionStatusCode_PROVISIONING"><span id="OutboundConnectionStatusCode_PROVISIONING"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_PROVISIONING :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_PROVISIONING :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_PROVISIONING"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_PROVISIONING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROVISIONING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_REJECTED"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_REJECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_REJECTED"><span id="%24mOutboundConnectionStatusCode_REJECTED"><span id="OutboundConnectionStatusCode_REJECTED"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_REJECTED :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_REJECTED :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_REJECTED"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_REJECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REJECTED&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_REJECTING"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_REJECTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_REJECTING"><span id="%24mOutboundConnectionStatusCode_REJECTING"><span id="OutboundConnectionStatusCode_REJECTING"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_REJECTING :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_REJECTING :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_REJECTING"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_REJECTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REJECTING&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_VALIDATING"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_VALIDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_VALIDATING"><span id="%24mOutboundConnectionStatusCode_VALIDATING"><span id="OutboundConnectionStatusCode_VALIDATING"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_VALIDATING :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_VALIDATING :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_VALIDATING"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_VALIDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATING&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_VALIDATION_FAILED"><span class="hs-identifier hs-type">OutboundConnectionStatusCode_VALIDATION_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode"><span class="hs-identifier hs-type">OutboundConnectionStatusCode</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutboundConnectionStatusCode_VALIDATION_FAILED"><span id="%24mOutboundConnectionStatusCode_VALIDATION_FAILED"><span id="OutboundConnectionStatusCode_VALIDATION_FAILED"><span class="annot"><span class="annottext">$bOutboundConnectionStatusCode_VALIDATION_FAILED :: OutboundConnectionStatusCode
+$mOutboundConnectionStatusCode_VALIDATION_FAILED :: forall r.
+OutboundConnectionStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#%24bOutboundConnectionStatusCode_VALIDATION_FAILED"><span class="hs-identifier hs-var hs-var hs-var">OutboundConnectionStatusCode_VALIDATION_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-identifier hs-type">OutboundConnectionStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATION_FAILED&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_ACTIVE"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_APPROVED"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_APPROVED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_DELETED"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_DELETING"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_PENDING_ACCEPTANCE"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_PENDING_ACCEPTANCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_PROVISIONING"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_PROVISIONING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_REJECTED"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_REJECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_REJECTING"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_REJECTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_VALIDATING"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_VALIDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode_VALIDATION_FAILED"><span class="hs-pragma hs-type">OutboundConnectionStatusCode_VALIDATION_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.OutboundConnectionStatusCode.html#OutboundConnectionStatusCode%27"><span class="hs-pragma hs-type">OutboundConnectionStatusCode'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

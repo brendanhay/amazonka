@@ -1,0 +1,1009 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WorkDocs.Types.DocumentVersionMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkDocs.Types.DocumentVersionMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentSourceType.html"><span class="hs-identifier">Amazonka.WorkDocs.Types.DocumentSourceType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentStatusType.html"><span class="hs-identifier">Amazonka.WorkDocs.Types.DocumentStatusType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentThumbnailType.html"><span class="hs-identifier">Amazonka.WorkDocs.Types.DocumentThumbnailType</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a version of a document.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDocumentVersionMetadata' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679260333"><span id="local-6989586621679260334"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentVersionMetadata"><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-var">DocumentVersionMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentVersionMetadata%27"><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-var">DocumentVersionMetadata'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The thumbnail of the document.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Athumbnail%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata
+-&gt; Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Athumbnail%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">thumbnail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentThumbnailType.html#DocumentThumbnailType"><span class="hs-identifier hs-type">DocumentThumbnailType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the document.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe DocumentStatusType
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Astatus%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentStatusType.html#DocumentStatusType"><span class="hs-identifier hs-type">DocumentStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The signature of the document.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Asignature%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asignature%3ADocumentVersionMetadata%27"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The timestamp when the content of the document was originally created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcontentCreatedTimestamp%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentCreatedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">contentCreatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The size of the document, in bytes.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Asize%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe Integer
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asize%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the version.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Aname%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The timestamp when the document was last uploaded.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AmodifiedTimestamp%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AmodifiedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">modifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The source of the document.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Asource%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata
+-&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asource%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentSourceType.html#DocumentSourceType"><span class="hs-identifier hs-type">DocumentSourceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ID of the version.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aid%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Aid%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The timestamp when the document was first uploaded.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcreatedTimestamp%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcreatedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The timestamp when the content of the document was modified.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcontentModifiedTimestamp%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentModifiedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">contentModifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the creator.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcreatorId%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcreatorId%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">creatorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The content type of the document.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcontentType%3ADocumentVersionMetadata%27"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentType%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260315"><span id="local-6989586621679260317"><span class="annot"><span class="annottext">DocumentVersionMetadata -&gt; DocumentVersionMetadata -&gt; Bool
+(DocumentVersionMetadata -&gt; DocumentVersionMetadata -&gt; Bool)
+-&gt; (DocumentVersionMetadata -&gt; DocumentVersionMetadata -&gt; Bool)
+-&gt; Eq DocumentVersionMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentVersionMetadata -&gt; DocumentVersionMetadata -&gt; Bool
+$c/= :: DocumentVersionMetadata -&gt; DocumentVersionMetadata -&gt; Bool
+== :: DocumentVersionMetadata -&gt; DocumentVersionMetadata -&gt; Bool
+$c== :: DocumentVersionMetadata -&gt; DocumentVersionMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260308"><span id="local-6989586621679260310"><span id="local-6989586621679260312"><span class="annot"><span class="annottext">Int -&gt; DocumentVersionMetadata -&gt; ShowS
+[DocumentVersionMetadata] -&gt; ShowS
+DocumentVersionMetadata -&gt; String
+(Int -&gt; DocumentVersionMetadata -&gt; ShowS)
+-&gt; (DocumentVersionMetadata -&gt; String)
+-&gt; ([DocumentVersionMetadata] -&gt; ShowS)
+-&gt; Show DocumentVersionMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentVersionMetadata] -&gt; ShowS
+$cshowList :: [DocumentVersionMetadata] -&gt; ShowS
+show :: DocumentVersionMetadata -&gt; String
+$cshow :: DocumentVersionMetadata -&gt; String
+showsPrec :: Int -&gt; DocumentVersionMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentVersionMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DocumentVersionMetadata -&gt; Rep DocumentVersionMetadata x)
+-&gt; (forall x.
+    Rep DocumentVersionMetadata x -&gt; DocumentVersionMetadata)
+-&gt; Generic DocumentVersionMetadata
+forall x. Rep DocumentVersionMetadata x -&gt; DocumentVersionMetadata
+forall x. DocumentVersionMetadata -&gt; Rep DocumentVersionMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DocumentVersionMetadata x -&gt; DocumentVersionMetadata
+$cfrom :: forall x. DocumentVersionMetadata -&gt; Rep DocumentVersionMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DocumentVersionMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'thumbnail', 'documentVersionMetadata_thumbnail' - The thumbnail of the document.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'status', 'documentVersionMetadata_status' - The status of the document.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'signature', 'documentVersionMetadata_signature' - The signature of the document.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'contentCreatedTimestamp', 'documentVersionMetadata_contentCreatedTimestamp' - The timestamp when the content of the document was originally created.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'size', 'documentVersionMetadata_size' - The size of the document, in bytes.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'name', 'documentVersionMetadata_name' - The name of the version.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'modifiedTimestamp', 'documentVersionMetadata_modifiedTimestamp' - The timestamp when the document was last uploaded.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'source', 'documentVersionMetadata_source' - The source of the document.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'id', 'documentVersionMetadata_id' - The ID of the version.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'createdTimestamp', 'documentVersionMetadata_createdTimestamp' - The timestamp when the document was first uploaded.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'contentModifiedTimestamp', 'documentVersionMetadata_contentModifiedTimestamp' - The timestamp when the content of the document was modified.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'creatorId', 'documentVersionMetadata_creatorId' - The ID of the creator.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'contentType', 'documentVersionMetadata_contentType' - The content type of the document.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#newDocumentVersionMetadata"><span class="hs-identifier hs-type">newDocumentVersionMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span>
+</span><span id="line-97"></span><span id="newDocumentVersionMetadata"><span class="annot"><span class="annottext">newDocumentVersionMetadata :: DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#newDocumentVersionMetadata"><span class="hs-identifier hs-var hs-var">newDocumentVersionMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">DocumentVersionMetadata' :: Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+-&gt; Maybe DocumentStatusType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thumbnail:DocumentVersionMetadata' :: Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Athumbnail%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">thumbnail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DocumentVersionMetadata' :: Maybe DocumentStatusType
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Astatus%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentStatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:signature:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asignature%3ADocumentVersionMetadata%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentCreatedTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentCreatedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">contentCreatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:size:DocumentVersionMetadata' :: Maybe Integer
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asize%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Aname%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:modifiedTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AmodifiedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">modifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:DocumentVersionMetadata' :: Maybe (HashMap DocumentSourceType (Sensitive Text))
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asource%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentSourceType (Sensitive Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Aid%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcreatedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentModifiedTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentModifiedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">contentModifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:creatorId:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcreatorId%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">creatorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentType%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The thumbnail of the document.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_thumbnail"><span class="hs-identifier hs-type">documentVersionMetadata_thumbnail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentThumbnailType.html#DocumentThumbnailType"><span class="hs-identifier hs-type">DocumentThumbnailType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="documentVersionMetadata_thumbnail"><span class="annot"><span class="annottext">documentVersionMetadata_thumbnail :: (Maybe (HashMap DocumentThumbnailType Text)
+ -&gt; f (Maybe (HashMap DocumentThumbnailType Text)))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_thumbnail"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_thumbnail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata
+ -&gt; Maybe (HashMap DocumentThumbnailType (Sensitive Text)))
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+    -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe (HashMap DocumentThumbnailType (Sensitive Text)))
+     (Maybe (HashMap DocumentThumbnailType (Sensitive Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260299"><span class="annot"><span class="annottext">Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+thumbnail :: Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+$sel:thumbnail:DocumentVersionMetadata' :: DocumentVersionMetadata
+-&gt; Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+</span><a href="#local-6989586621679260299"><span class="hs-identifier hs-var hs-var">thumbnail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+</span><a href="#local-6989586621679260299"><span class="hs-identifier hs-var">thumbnail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260298"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260297"><span class="annot"><span class="annottext">Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+</span><a href="#local-6989586621679260297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnail:DocumentVersionMetadata' :: Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Athumbnail%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">thumbnail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+</span><a href="#local-6989586621679260297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+  -&gt; f (Maybe (HashMap DocumentThumbnailType (Sensitive Text))))
+ -&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata)
+-&gt; ((Maybe (HashMap DocumentThumbnailType Text)
+     -&gt; f (Maybe (HashMap DocumentThumbnailType Text)))
+    -&gt; Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+    -&gt; f (Maybe (HashMap DocumentThumbnailType (Sensitive Text))))
+-&gt; (Maybe (HashMap DocumentThumbnailType Text)
+    -&gt; f (Maybe (HashMap DocumentThumbnailType Text)))
+-&gt; DocumentVersionMetadata
+-&gt; f DocumentVersionMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap DocumentThumbnailType (Sensitive Text))
+  (HashMap DocumentThumbnailType (Sensitive Text))
+  (HashMap DocumentThumbnailType Text)
+  (HashMap DocumentThumbnailType Text)
+-&gt; Iso
+     (Maybe (HashMap DocumentThumbnailType (Sensitive Text)))
+     (Maybe (HashMap DocumentThumbnailType (Sensitive Text)))
+     (Maybe (HashMap DocumentThumbnailType Text))
+     (Maybe (HashMap DocumentThumbnailType Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap DocumentThumbnailType (Sensitive Text))
+  (HashMap DocumentThumbnailType (Sensitive Text))
+  (HashMap DocumentThumbnailType Text)
+  (HashMap DocumentThumbnailType Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The status of the document.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_status"><span class="hs-identifier hs-type">documentVersionMetadata_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentStatusType.html#DocumentStatusType"><span class="hs-identifier hs-type">DocumentStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="documentVersionMetadata_status"><span class="annot"><span class="annottext">documentVersionMetadata_status :: (Maybe DocumentStatusType -&gt; f (Maybe DocumentStatusType))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_status"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe DocumentStatusType)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe DocumentStatusType -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe DocumentStatusType)
+     (Maybe DocumentStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260292"><span class="annot"><span class="annottext">Maybe DocumentStatusType
+status :: Maybe DocumentStatusType
+$sel:status:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe DocumentStatusType
+</span><a href="#local-6989586621679260292"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentStatusType
+</span><a href="#local-6989586621679260292"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260291"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260290"><span class="annot"><span class="annottext">Maybe DocumentStatusType
+</span><a href="#local-6989586621679260290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DocumentVersionMetadata' :: Maybe DocumentStatusType
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Astatus%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentStatusType
+</span><a href="#local-6989586621679260290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The signature of the document.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_signature"><span class="hs-identifier hs-type">documentVersionMetadata_signature</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="documentVersionMetadata_signature"><span class="annot"><span class="annottext">documentVersionMetadata_signature :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_signature"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_signature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe Text)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260288"><span class="annot"><span class="annottext">Maybe Text
+signature :: Maybe Text
+$sel:signature:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679260288"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260288"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260287"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260286"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asignature%3ADocumentVersionMetadata%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The timestamp when the content of the document was originally created.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_contentCreatedTimestamp"><span class="hs-identifier hs-type">documentVersionMetadata_contentCreatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="documentVersionMetadata_contentCreatedTimestamp"><span class="annot"><span class="annottext">documentVersionMetadata_contentCreatedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_contentCreatedTimestamp"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_contentCreatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe POSIX)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe POSIX -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260284"><span class="annot"><span class="annottext">Maybe POSIX
+contentCreatedTimestamp :: Maybe POSIX
+$sel:contentCreatedTimestamp:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679260284"><span class="hs-identifier hs-var hs-var">contentCreatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260284"><span class="hs-identifier hs-var">contentCreatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260283"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260282"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentCreatedTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentCreatedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">contentCreatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata
+-&gt; f DocumentVersionMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The size of the document, in bytes.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_size"><span class="hs-identifier hs-type">documentVersionMetadata_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="documentVersionMetadata_size"><span class="annot"><span class="annottext">documentVersionMetadata_size :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_size"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe Integer)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe Integer -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260279"><span class="annot"><span class="annottext">Maybe Integer
+size :: Maybe Integer
+$sel:size:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe Integer
+</span><a href="#local-6989586621679260279"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679260279"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260278"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260277"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679260277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:DocumentVersionMetadata' :: Maybe Integer
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asize%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679260277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The name of the version.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_name"><span class="hs-identifier hs-type">documentVersionMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="documentVersionMetadata_name"><span class="annot"><span class="annottext">documentVersionMetadata_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_name"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe Text)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260275"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679260275"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260275"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260274"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260273"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Aname%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The timestamp when the document was last uploaded.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_modifiedTimestamp"><span class="hs-identifier hs-type">documentVersionMetadata_modifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="documentVersionMetadata_modifiedTimestamp"><span class="annot"><span class="annottext">documentVersionMetadata_modifiedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_modifiedTimestamp"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_modifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe POSIX)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe POSIX -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260271"><span class="annot"><span class="annottext">Maybe POSIX
+modifiedTimestamp :: Maybe POSIX
+$sel:modifiedTimestamp:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679260271"><span class="hs-identifier hs-var hs-var">modifiedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260271"><span class="hs-identifier hs-var">modifiedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260270"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260269"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AmodifiedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">modifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata
+-&gt; f DocumentVersionMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The source of the document.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_source"><span class="hs-identifier hs-type">documentVersionMetadata_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentSourceType.html#DocumentSourceType"><span class="hs-identifier hs-type">DocumentSourceType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="documentVersionMetadata_source"><span class="annot"><span class="annottext">documentVersionMetadata_source :: (Maybe (HashMap DocumentSourceType Text)
+ -&gt; f (Maybe (HashMap DocumentSourceType Text)))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_source"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata
+ -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text)))
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+    -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe (HashMap DocumentSourceType (Sensitive Text)))
+     (Maybe (HashMap DocumentSourceType (Sensitive Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260267"><span class="annot"><span class="annottext">Maybe (HashMap DocumentSourceType (Sensitive Text))
+source :: Maybe (HashMap DocumentSourceType (Sensitive Text))
+$sel:source:DocumentVersionMetadata' :: DocumentVersionMetadata
+-&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+</span><a href="#local-6989586621679260267"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentSourceType (Sensitive Text))
+</span><a href="#local-6989586621679260267"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260266"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260265"><span class="annot"><span class="annottext">Maybe (HashMap DocumentSourceType (Sensitive Text))
+</span><a href="#local-6989586621679260265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:DocumentVersionMetadata' :: Maybe (HashMap DocumentSourceType (Sensitive Text))
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Asource%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentSourceType (Sensitive Text))
+</span><a href="#local-6989586621679260265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DocumentSourceType (Sensitive Text))
+  -&gt; f (Maybe (HashMap DocumentSourceType (Sensitive Text))))
+ -&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata)
+-&gt; ((Maybe (HashMap DocumentSourceType Text)
+     -&gt; f (Maybe (HashMap DocumentSourceType Text)))
+    -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+    -&gt; f (Maybe (HashMap DocumentSourceType (Sensitive Text))))
+-&gt; (Maybe (HashMap DocumentSourceType Text)
+    -&gt; f (Maybe (HashMap DocumentSourceType Text)))
+-&gt; DocumentVersionMetadata
+-&gt; f DocumentVersionMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap DocumentSourceType (Sensitive Text))
+  (HashMap DocumentSourceType (Sensitive Text))
+  (HashMap DocumentSourceType Text)
+  (HashMap DocumentSourceType Text)
+-&gt; Iso
+     (Maybe (HashMap DocumentSourceType (Sensitive Text)))
+     (Maybe (HashMap DocumentSourceType (Sensitive Text)))
+     (Maybe (HashMap DocumentSourceType Text))
+     (Maybe (HashMap DocumentSourceType Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap DocumentSourceType (Sensitive Text))
+  (HashMap DocumentSourceType (Sensitive Text))
+  (HashMap DocumentSourceType Text)
+  (HashMap DocumentSourceType Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The ID of the version.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_id"><span class="hs-identifier hs-type">documentVersionMetadata_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="documentVersionMetadata_id"><span class="annot"><span class="annottext">documentVersionMetadata_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_id"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe Text)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260263"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679260263"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260263"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260262"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260261"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3Aid%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The timestamp when the document was first uploaded.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_createdTimestamp"><span class="hs-identifier hs-type">documentVersionMetadata_createdTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="documentVersionMetadata_createdTimestamp"><span class="annot"><span class="annottext">documentVersionMetadata_createdTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_createdTimestamp"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe POSIX)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe POSIX -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260259"><span class="annot"><span class="annottext">Maybe POSIX
+createdTimestamp :: Maybe POSIX
+$sel:createdTimestamp:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679260259"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260259"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260258"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260257"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcreatedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata
+-&gt; f DocumentVersionMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The timestamp when the content of the document was modified.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_contentModifiedTimestamp"><span class="hs-identifier hs-type">documentVersionMetadata_contentModifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="documentVersionMetadata_contentModifiedTimestamp"><span class="annot"><span class="annottext">documentVersionMetadata_contentModifiedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_contentModifiedTimestamp"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_contentModifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe POSIX)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe POSIX -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260255"><span class="annot"><span class="annottext">Maybe POSIX
+contentModifiedTimestamp :: Maybe POSIX
+$sel:contentModifiedTimestamp:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679260255"><span class="hs-identifier hs-var hs-var">contentModifiedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260255"><span class="hs-identifier hs-var">contentModifiedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260254"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260253"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentModifiedTimestamp:DocumentVersionMetadata' :: Maybe POSIX
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentModifiedTimestamp%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">contentModifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentVersionMetadata
+-&gt; f DocumentVersionMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The ID of the creator.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_creatorId"><span class="hs-identifier hs-type">documentVersionMetadata_creatorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="documentVersionMetadata_creatorId"><span class="annot"><span class="annottext">documentVersionMetadata_creatorId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_creatorId"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_creatorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe Text)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260251"><span class="annot"><span class="annottext">Maybe Text
+creatorId :: Maybe Text
+$sel:creatorId:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679260251"><span class="hs-identifier hs-var hs-var">creatorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260251"><span class="hs-identifier hs-var">creatorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260250"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creatorId:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcreatorId%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">creatorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The content type of the document.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_contentType"><span class="hs-identifier hs-type">documentVersionMetadata_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="documentVersionMetadata_contentType"><span class="annot"><span class="annottext">documentVersionMetadata_contentType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentVersionMetadata -&gt; f DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#documentVersionMetadata_contentType"><span class="hs-identifier hs-var hs-var">documentVersionMetadata_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentVersionMetadata -&gt; Maybe Text)
+-&gt; (DocumentVersionMetadata
+    -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Lens
+     DocumentVersionMetadata
+     DocumentVersionMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260247"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:DocumentVersionMetadata' :: DocumentVersionMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679260247"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260247"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260246"><span class="annot"><span class="annottext">s :: DocumentVersionMetadata
+</span><a href="#local-6989586621679260246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-type">DocumentVersionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentVersionMetadata
+</span><a href="#local-6989586621679260246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:DocumentVersionMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#%24sel%3AcontentType%3ADocumentVersionMetadata%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679260240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentVersionMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DocumentVersionMetadata)
+-&gt; Value
+-&gt; Parser DocumentVersionMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DocumentVersionMetadata&quot;</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260237"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+-&gt; Maybe DocumentStatusType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DocumentVersionMetadata
+</span><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata%27"><span class="hs-identifier hs-var">DocumentVersionMetadata'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+ -&gt; Maybe DocumentStatusType
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe (HashMap DocumentThumbnailType (Sensitive Text)))
+-&gt; Parser
+     (Maybe DocumentStatusType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe (HashMap DocumentThumbnailType (Sensitive Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Thumbnail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Maybe (HashMap DocumentThumbnailType (Sensitive Text))))
+-&gt; Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+-&gt; Parser (Maybe (HashMap DocumentThumbnailType (Sensitive Text)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentThumbnailType (Sensitive Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DocumentStatusType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe DocumentStatusType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentStatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Signature&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentCreatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe (HashMap DocumentSourceType (Sensitive Text))
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifiedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap DocumentSourceType (Sensitive Text))
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe (HashMap DocumentSourceType (Sensitive Text)))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe (HashMap DocumentSourceType (Sensitive Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Maybe (HashMap DocumentSourceType (Sensitive Text))))
+-&gt; Maybe (HashMap DocumentSourceType (Sensitive Text))
+-&gt; Parser (Maybe (HashMap DocumentSourceType (Sensitive Text)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DocumentSourceType (Sensitive Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentModifiedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; DocumentVersionMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatorId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DocumentVersionMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser DocumentVersionMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260230"><span id="local-6989586621679260232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionMetadata.html#DocumentVersionMetadata"><span class="hs-identifier hs-type">DocumentVersionMetadata</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

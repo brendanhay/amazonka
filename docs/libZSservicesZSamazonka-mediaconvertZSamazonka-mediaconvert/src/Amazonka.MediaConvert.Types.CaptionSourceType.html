@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.CaptionSourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.CaptionSourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier">CaptionSourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_ANCILLARY"><span class="hs-identifier">CaptionSourceType_ANCILLARY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_DVB_SUB"><span class="hs-identifier">CaptionSourceType_DVB_SUB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_EMBEDDED"><span class="hs-identifier">CaptionSourceType_EMBEDDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_IMSC"><span class="hs-identifier">CaptionSourceType_IMSC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_NULL_SOURCE"><span class="hs-identifier">CaptionSourceType_NULL_SOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SCC"><span class="hs-identifier">CaptionSourceType_SCC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SCTE20"><span class="hs-identifier">CaptionSourceType_SCTE20</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SMI"><span class="hs-identifier">CaptionSourceType_SMI</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SMPTE_TT"><span class="hs-identifier">CaptionSourceType_SMPTE_TT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SRT"><span class="hs-identifier">CaptionSourceType_SRT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_STL"><span class="hs-identifier">CaptionSourceType_STL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_TELETEXT"><span class="hs-identifier">CaptionSourceType_TELETEXT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_TTML"><span class="hs-identifier">CaptionSourceType_TTML</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_WEBVTT"><span class="hs-identifier">CaptionSourceType_WEBVTT</span></a></span><span>
+</span><span id="line-37"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- | Use Source (SourceType) to identify the format of your input captions.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The service cannot auto-detect caption format.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679947878"><span id="local-6989586621679947879"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptionSourceType"><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-var">CaptionSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionSourceType%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-var">CaptionSourceType'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCaptionSourceType"><span class="annot"><span class="annottext">CaptionSourceType -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#fromCaptionSourceType"><span class="hs-identifier hs-var hs-var">fromCaptionSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947870"><span id="local-6989586621679947872"><span id="local-6989586621679947874"><span class="annot"><span class="annottext">Int -&gt; CaptionSourceType -&gt; ShowS
+[CaptionSourceType] -&gt; ShowS
+CaptionSourceType -&gt; String
+(Int -&gt; CaptionSourceType -&gt; ShowS)
+-&gt; (CaptionSourceType -&gt; String)
+-&gt; ([CaptionSourceType] -&gt; ShowS)
+-&gt; Show CaptionSourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CaptionSourceType] -&gt; ShowS
+$cshowList :: [CaptionSourceType] -&gt; ShowS
+show :: CaptionSourceType -&gt; String
+$cshow :: CaptionSourceType -&gt; String
+showsPrec :: Int -&gt; CaptionSourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CaptionSourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679947861"><span id="local-6989586621679947863"><span id="local-6989586621679947865"><span id="local-6989586621679947867"><span class="annot"><span class="annottext">ReadPrec [CaptionSourceType]
+ReadPrec CaptionSourceType
+Int -&gt; ReadS CaptionSourceType
+ReadS [CaptionSourceType]
+(Int -&gt; ReadS CaptionSourceType)
+-&gt; ReadS [CaptionSourceType]
+-&gt; ReadPrec CaptionSourceType
+-&gt; ReadPrec [CaptionSourceType]
+-&gt; Read CaptionSourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CaptionSourceType]
+$creadListPrec :: ReadPrec [CaptionSourceType]
+readPrec :: ReadPrec CaptionSourceType
+$creadPrec :: ReadPrec CaptionSourceType
+readList :: ReadS [CaptionSourceType]
+$creadList :: ReadS [CaptionSourceType]
+readsPrec :: Int -&gt; ReadS CaptionSourceType
+$creadsPrec :: Int -&gt; ReadS CaptionSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679947856"><span id="local-6989586621679947858"><span class="annot"><span class="annottext">CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+(CaptionSourceType -&gt; CaptionSourceType -&gt; Bool)
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; Bool)
+-&gt; Eq CaptionSourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+$c/= :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+== :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+$c== :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679947840"><span id="local-6989586621679947842"><span id="local-6989586621679947844"><span id="local-6989586621679947846"><span id="local-6989586621679947848"><span id="local-6989586621679947850"><span id="local-6989586621679947852"><span class="annot"><span class="annottext">Eq CaptionSourceType
+Eq CaptionSourceType
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; Ordering)
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; Bool)
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; Bool)
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; Bool)
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; Bool)
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; CaptionSourceType)
+-&gt; (CaptionSourceType -&gt; CaptionSourceType -&gt; CaptionSourceType)
+-&gt; Ord CaptionSourceType
+CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+CaptionSourceType -&gt; CaptionSourceType -&gt; Ordering
+CaptionSourceType -&gt; CaptionSourceType -&gt; CaptionSourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CaptionSourceType -&gt; CaptionSourceType -&gt; CaptionSourceType
+$cmin :: CaptionSourceType -&gt; CaptionSourceType -&gt; CaptionSourceType
+max :: CaptionSourceType -&gt; CaptionSourceType -&gt; CaptionSourceType
+$cmax :: CaptionSourceType -&gt; CaptionSourceType -&gt; CaptionSourceType
+&gt;= :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+$c&gt;= :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+&gt; :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+$c&gt; :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+&lt;= :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+$c&lt;= :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+&lt; :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+$c&lt; :: CaptionSourceType -&gt; CaptionSourceType -&gt; Bool
+compare :: CaptionSourceType -&gt; CaptionSourceType -&gt; Ordering
+$ccompare :: CaptionSourceType -&gt; CaptionSourceType -&gt; Ordering
+$cp1Ord :: Eq CaptionSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CaptionSourceType -&gt; Rep CaptionSourceType x)
+-&gt; (forall x. Rep CaptionSourceType x -&gt; CaptionSourceType)
+-&gt; Generic CaptionSourceType
+forall x. Rep CaptionSourceType x -&gt; CaptionSourceType
+forall x. CaptionSourceType -&gt; Rep CaptionSourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CaptionSourceType x -&gt; CaptionSourceType
+$cfrom :: forall x. CaptionSourceType -&gt; Rep CaptionSourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947832"><span id="local-6989586621679947834"><span class="annot"><span class="annottext">Int -&gt; CaptionSourceType -&gt; Int
+CaptionSourceType -&gt; Int
+(Int -&gt; CaptionSourceType -&gt; Int)
+-&gt; (CaptionSourceType -&gt; Int) -&gt; Hashable CaptionSourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CaptionSourceType -&gt; Int
+$chash :: CaptionSourceType -&gt; Int
+hashWithSalt :: Int -&gt; CaptionSourceType -&gt; Int
+$chashWithSalt :: Int -&gt; CaptionSourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947829"><span class="annot"><span class="annottext">CaptionSourceType -&gt; ()
+(CaptionSourceType -&gt; ()) -&gt; NFData CaptionSourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CaptionSourceType -&gt; ()
+$crnf :: CaptionSourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947826"><span class="annot"><span class="annottext">Text -&gt; Either String CaptionSourceType
+(Text -&gt; Either String CaptionSourceType)
+-&gt; FromText CaptionSourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CaptionSourceType
+$cfromText :: Text -&gt; Either String CaptionSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679947823"><span class="annot"><span class="annottext">CaptionSourceType -&gt; Text
+(CaptionSourceType -&gt; Text) -&gt; ToText CaptionSourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CaptionSourceType -&gt; Text
+$ctoText :: CaptionSourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679947820"><span class="annot"><span class="annottext">CaptionSourceType -&gt; ByteString
+(CaptionSourceType -&gt; ByteString) -&gt; ToByteString CaptionSourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CaptionSourceType -&gt; ByteString
+$ctoBS :: CaptionSourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679947817"><span class="annot"><span class="annottext">CaptionSourceType -&gt; ByteStringBuilder
+(CaptionSourceType -&gt; ByteStringBuilder) -&gt; ToLog CaptionSourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CaptionSourceType -&gt; ByteStringBuilder
+$cbuild :: CaptionSourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679947814"><span class="annot"><span class="annottext">HeaderName -&gt; CaptionSourceType -&gt; [Header]
+(HeaderName -&gt; CaptionSourceType -&gt; [Header])
+-&gt; ToHeader CaptionSourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CaptionSourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CaptionSourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679947811"><span class="annot"><span class="annottext">CaptionSourceType -&gt; QueryString
+(CaptionSourceType -&gt; QueryString) -&gt; ToQuery CaptionSourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CaptionSourceType -&gt; QueryString
+$ctoQuery :: CaptionSourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679947806"><span id="local-6989586621679947808"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptionSourceType]
+Value -&gt; Parser CaptionSourceType
+(Value -&gt; Parser CaptionSourceType)
+-&gt; (Value -&gt; Parser [CaptionSourceType])
+-&gt; FromJSON CaptionSourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CaptionSourceType]
+$cparseJSONList :: Value -&gt; Parser [CaptionSourceType]
+parseJSON :: Value -&gt; Parser CaptionSourceType
+$cparseJSON :: Value -&gt; Parser CaptionSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679947801"><span id="local-6989586621679947803"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptionSourceType]
+FromJSONKeyFunction CaptionSourceType
+FromJSONKeyFunction CaptionSourceType
+-&gt; FromJSONKeyFunction [CaptionSourceType]
+-&gt; FromJSONKey CaptionSourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CaptionSourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CaptionSourceType]
+fromJSONKey :: FromJSONKeyFunction CaptionSourceType
+$cfromJSONKey :: FromJSONKeyFunction CaptionSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679947792"><span id="local-6989586621679947794"><span id="local-6989586621679947796"><span id="local-6989586621679947798"><span class="annot"><span class="annottext">[CaptionSourceType] -&gt; Encoding
+[CaptionSourceType] -&gt; Value
+CaptionSourceType -&gt; Encoding
+CaptionSourceType -&gt; Value
+(CaptionSourceType -&gt; Value)
+-&gt; (CaptionSourceType -&gt; Encoding)
+-&gt; ([CaptionSourceType] -&gt; Value)
+-&gt; ([CaptionSourceType] -&gt; Encoding)
+-&gt; ToJSON CaptionSourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CaptionSourceType] -&gt; Encoding
+$ctoEncodingList :: [CaptionSourceType] -&gt; Encoding
+toJSONList :: [CaptionSourceType] -&gt; Value
+$ctoJSONList :: [CaptionSourceType] -&gt; Value
+toEncoding :: CaptionSourceType -&gt; Encoding
+$ctoEncoding :: CaptionSourceType -&gt; Encoding
+toJSON :: CaptionSourceType -&gt; Value
+$ctoJSON :: CaptionSourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679947787"><span id="local-6989586621679947789"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptionSourceType]
+ToJSONKeyFunction CaptionSourceType
+ToJSONKeyFunction CaptionSourceType
+-&gt; ToJSONKeyFunction [CaptionSourceType]
+-&gt; ToJSONKey CaptionSourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CaptionSourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CaptionSourceType]
+toJSONKey :: ToJSONKeyFunction CaptionSourceType
+$ctoJSONKey :: ToJSONKeyFunction CaptionSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679947784"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptionSourceType
+([Node] -&gt; Either String CaptionSourceType)
+-&gt; FromXML CaptionSourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CaptionSourceType
+$cparseXML :: [Node] -&gt; Either String CaptionSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679947781"><span class="annot"><span class="annottext">CaptionSourceType -&gt; XML
+(CaptionSourceType -&gt; XML) -&gt; ToXML CaptionSourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CaptionSourceType -&gt; XML
+$ctoXML :: CaptionSourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_ANCILLARY"><span class="hs-identifier hs-type">CaptionSourceType_ANCILLARY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_ANCILLARY"><span id="%24mCaptionSourceType_ANCILLARY"><span id="CaptionSourceType_ANCILLARY"><span class="annot"><span class="annottext">$bCaptionSourceType_ANCILLARY :: CaptionSourceType
+$mCaptionSourceType_ANCILLARY :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_ANCILLARY"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_ANCILLARY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ANCILLARY&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_DVB_SUB"><span class="hs-identifier hs-type">CaptionSourceType_DVB_SUB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_DVB_SUB"><span id="%24mCaptionSourceType_DVB_SUB"><span id="CaptionSourceType_DVB_SUB"><span class="annot"><span class="annottext">$bCaptionSourceType_DVB_SUB :: CaptionSourceType
+$mCaptionSourceType_DVB_SUB :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_DVB_SUB"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_DVB_SUB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DVB_SUB&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_EMBEDDED"><span class="hs-identifier hs-type">CaptionSourceType_EMBEDDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_EMBEDDED"><span id="%24mCaptionSourceType_EMBEDDED"><span id="CaptionSourceType_EMBEDDED"><span class="annot"><span class="annottext">$bCaptionSourceType_EMBEDDED :: CaptionSourceType
+$mCaptionSourceType_EMBEDDED :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_EMBEDDED"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_EMBEDDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMBEDDED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_IMSC"><span class="hs-identifier hs-type">CaptionSourceType_IMSC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_IMSC"><span id="%24mCaptionSourceType_IMSC"><span id="CaptionSourceType_IMSC"><span class="annot"><span class="annottext">$bCaptionSourceType_IMSC :: CaptionSourceType
+$mCaptionSourceType_IMSC :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_IMSC"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_IMSC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMSC&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_NULL_SOURCE"><span class="hs-identifier hs-type">CaptionSourceType_NULL_SOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_NULL_SOURCE"><span id="%24mCaptionSourceType_NULL_SOURCE"><span id="CaptionSourceType_NULL_SOURCE"><span class="annot"><span class="annottext">$bCaptionSourceType_NULL_SOURCE :: CaptionSourceType
+$mCaptionSourceType_NULL_SOURCE :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_NULL_SOURCE"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_NULL_SOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NULL_SOURCE&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SCC"><span class="hs-identifier hs-type">CaptionSourceType_SCC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_SCC"><span id="%24mCaptionSourceType_SCC"><span id="CaptionSourceType_SCC"><span class="annot"><span class="annottext">$bCaptionSourceType_SCC :: CaptionSourceType
+$mCaptionSourceType_SCC :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_SCC"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_SCC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SCC&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SCTE20"><span class="hs-identifier hs-type">CaptionSourceType_SCTE20</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_SCTE20"><span id="%24mCaptionSourceType_SCTE20"><span id="CaptionSourceType_SCTE20"><span class="annot"><span class="annottext">$bCaptionSourceType_SCTE20 :: CaptionSourceType
+$mCaptionSourceType_SCTE20 :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_SCTE20"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_SCTE20</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SCTE20&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SMI"><span class="hs-identifier hs-type">CaptionSourceType_SMI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_SMI"><span id="%24mCaptionSourceType_SMI"><span id="CaptionSourceType_SMI"><span class="annot"><span class="annottext">$bCaptionSourceType_SMI :: CaptionSourceType
+$mCaptionSourceType_SMI :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_SMI"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_SMI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMI&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SMPTE_TT"><span class="hs-identifier hs-type">CaptionSourceType_SMPTE_TT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_SMPTE_TT"><span id="%24mCaptionSourceType_SMPTE_TT"><span id="CaptionSourceType_SMPTE_TT"><span class="annot"><span class="annottext">$bCaptionSourceType_SMPTE_TT :: CaptionSourceType
+$mCaptionSourceType_SMPTE_TT :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_SMPTE_TT"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_SMPTE_TT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMPTE_TT&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SRT"><span class="hs-identifier hs-type">CaptionSourceType_SRT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_SRT"><span id="%24mCaptionSourceType_SRT"><span id="CaptionSourceType_SRT"><span class="annot"><span class="annottext">$bCaptionSourceType_SRT :: CaptionSourceType
+$mCaptionSourceType_SRT :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_SRT"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_SRT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SRT&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_STL"><span class="hs-identifier hs-type">CaptionSourceType_STL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_STL"><span id="%24mCaptionSourceType_STL"><span id="CaptionSourceType_STL"><span class="annot"><span class="annottext">$bCaptionSourceType_STL :: CaptionSourceType
+$mCaptionSourceType_STL :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_STL"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_STL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STL&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_TELETEXT"><span class="hs-identifier hs-type">CaptionSourceType_TELETEXT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_TELETEXT"><span id="%24mCaptionSourceType_TELETEXT"><span id="CaptionSourceType_TELETEXT"><span class="annot"><span class="annottext">$bCaptionSourceType_TELETEXT :: CaptionSourceType
+$mCaptionSourceType_TELETEXT :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_TELETEXT"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_TELETEXT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TELETEXT&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_TTML"><span class="hs-identifier hs-type">CaptionSourceType_TTML</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_TTML"><span id="%24mCaptionSourceType_TTML"><span id="CaptionSourceType_TTML"><span class="annot"><span class="annottext">$bCaptionSourceType_TTML :: CaptionSourceType
+$mCaptionSourceType_TTML :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_TTML"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_TTML</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TTML&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_WEBVTT"><span class="hs-identifier hs-type">CaptionSourceType_WEBVTT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionSourceType_WEBVTT"><span id="%24mCaptionSourceType_WEBVTT"><span id="CaptionSourceType_WEBVTT"><span class="annot"><span class="annottext">$bCaptionSourceType_WEBVTT :: CaptionSourceType
+$mCaptionSourceType_WEBVTT :: forall r. CaptionSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#%24bCaptionSourceType_WEBVTT"><span class="hs-identifier hs-var hs-var hs-var">CaptionSourceType_WEBVTT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-identifier hs-type">CaptionSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEBVTT&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_ANCILLARY"><span class="hs-pragma hs-type">CaptionSourceType_ANCILLARY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_DVB_SUB"><span class="hs-pragma hs-type">CaptionSourceType_DVB_SUB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_EMBEDDED"><span class="hs-pragma hs-type">CaptionSourceType_EMBEDDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_IMSC"><span class="hs-pragma hs-type">CaptionSourceType_IMSC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_NULL_SOURCE"><span class="hs-pragma hs-type">CaptionSourceType_NULL_SOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SCC"><span class="hs-pragma hs-type">CaptionSourceType_SCC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SCTE20"><span class="hs-pragma hs-type">CaptionSourceType_SCTE20</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SMI"><span class="hs-pragma hs-type">CaptionSourceType_SMI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SMPTE_TT"><span class="hs-pragma hs-type">CaptionSourceType_SMPTE_TT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_SRT"><span class="hs-pragma hs-type">CaptionSourceType_SRT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_STL"><span class="hs-pragma hs-type">CaptionSourceType_STL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_TELETEXT"><span class="hs-pragma hs-type">CaptionSourceType_TELETEXT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_TTML"><span class="hs-pragma hs-type">CaptionSourceType_TTML</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType_WEBVTT"><span class="hs-pragma hs-type">CaptionSourceType_WEBVTT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType%27"><span class="hs-pragma hs-type">CaptionSourceType'</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-133"></span></pre></body></html>

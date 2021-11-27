@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Preset</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Preset</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.PresetSettings.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.PresetSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Type.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Type</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A preset is a collection of preconfigured media conversion settings that</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- you want MediaConvert to apply to the output during the conversion</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- process.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPreset' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621680023627"><span id="local-6989586621680023628"></span></span><span class="hs-keyword">data</span><span> </span><span id="Preset"><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-var">Preset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Preset%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-var">Preset'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp in epoch seconds when the preset was last updated.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastUpdated%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3AlastUpdated%3APreset%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An identifier for this resource that is unique within all of AWS.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Aarn%3APreset%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The timestamp in epoch seconds for preset creation.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedAt%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3AcreatedAt%3APreset%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | An optional category you create to organize your presets.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Acategory%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Acategory%3APreset%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A preset can be of two types: system or custom. System or built-in</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- preset can\'t be modified or deleted by the user.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atype%27%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; Maybe Type
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Atype%27%3APreset%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An optional description you create for each preset.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Adescription%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Adescription%3APreset%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Settings for preset</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Asettings%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; PresetSettings
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Asettings%3APreset%27"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A name you create for each preset. Each name must be unique within your</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3APreset%27"><span class="annot"><span class="annottext">Preset -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Aname%3APreset%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680023614"><span id="local-6989586621680023616"><span class="annot"><span class="annottext">Preset -&gt; Preset -&gt; Bool
+(Preset -&gt; Preset -&gt; Bool)
+-&gt; (Preset -&gt; Preset -&gt; Bool) -&gt; Eq Preset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Preset -&gt; Preset -&gt; Bool
+$c/= :: Preset -&gt; Preset -&gt; Bool
+== :: Preset -&gt; Preset -&gt; Bool
+$c== :: Preset -&gt; Preset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680023605"><span id="local-6989586621680023607"><span id="local-6989586621680023609"><span id="local-6989586621680023611"><span class="annot"><span class="annottext">ReadPrec [Preset]
+ReadPrec Preset
+Int -&gt; ReadS Preset
+ReadS [Preset]
+(Int -&gt; ReadS Preset)
+-&gt; ReadS [Preset]
+-&gt; ReadPrec Preset
+-&gt; ReadPrec [Preset]
+-&gt; Read Preset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Preset]
+$creadListPrec :: ReadPrec [Preset]
+readPrec :: ReadPrec Preset
+$creadPrec :: ReadPrec Preset
+readList :: ReadS [Preset]
+$creadList :: ReadS [Preset]
+readsPrec :: Int -&gt; ReadS Preset
+$creadsPrec :: Int -&gt; ReadS Preset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680023598"><span id="local-6989586621680023600"><span id="local-6989586621680023602"><span class="annot"><span class="annottext">Int -&gt; Preset -&gt; ShowS
+[Preset] -&gt; ShowS
+Preset -&gt; String
+(Int -&gt; Preset -&gt; ShowS)
+-&gt; (Preset -&gt; String) -&gt; ([Preset] -&gt; ShowS) -&gt; Show Preset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Preset] -&gt; ShowS
+$cshowList :: [Preset] -&gt; ShowS
+show :: Preset -&gt; String
+$cshow :: Preset -&gt; String
+showsPrec :: Int -&gt; Preset -&gt; ShowS
+$cshowsPrec :: Int -&gt; Preset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Preset -&gt; Rep Preset x)
+-&gt; (forall x. Rep Preset x -&gt; Preset) -&gt; Generic Preset
+forall x. Rep Preset x -&gt; Preset
+forall x. Preset -&gt; Rep Preset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Preset x -&gt; Preset
+$cfrom :: forall x. Preset -&gt; Rep Preset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'Preset' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'lastUpdated', 'preset_lastUpdated' - The timestamp in epoch seconds when the preset was last updated.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'arn', 'preset_arn' - An identifier for this resource that is unique within all of AWS.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'createdAt', 'preset_createdAt' - The timestamp in epoch seconds for preset creation.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'category', 'preset_category' - An optional category you create to organize your presets.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'type'', 'preset_type' - A preset can be of two types: system or custom. System or built-in</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- preset can\'t be modified or deleted by the user.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'preset_description' - An optional description you create for each preset.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'settings', 'preset_settings' - Settings for preset</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'name', 'preset_name' - A name you create for each preset. Each name must be unique within your</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#newPreset"><span class="hs-identifier hs-type">newPreset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'settings'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span>
+</span><span id="line-86"></span><span id="newPreset"><span class="annot"><span class="annottext">newPreset :: PresetSettings -&gt; Text -&gt; Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#newPreset"><span class="hs-identifier hs-var hs-var">newPreset</span></a></span></span><span> </span><span id="local-6989586621680023592"><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680023592"><span class="hs-identifier hs-var">pSettings_</span></a></span></span><span> </span><span id="local-6989586621680023591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680023591"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">Preset' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Type
+-&gt; Maybe Text
+-&gt; PresetSettings
+-&gt; Text
+-&gt; Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdated:Preset' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3AlastUpdated%3APreset%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Preset' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Aarn%3APreset%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Preset' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3AcreatedAt%3APreset%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:category:Preset' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Acategory%3APreset%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Preset' :: Maybe Type
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Atype%27%3APreset%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Preset' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Adescription%3APreset%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:settings:Preset' :: PresetSettings
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Asettings%3APreset%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680023592"><span class="hs-identifier hs-var">pSettings_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Preset' :: Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Aname%3APreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680023591"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The timestamp in epoch seconds when the preset was last updated.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_lastUpdated"><span class="hs-identifier hs-type">preset_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="preset_lastUpdated"><span class="annot"><span class="annottext">preset_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_lastUpdated"><span class="hs-identifier hs-var hs-var">preset_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; Maybe POSIX)
+-&gt; (Preset -&gt; Maybe POSIX -&gt; Preset)
+-&gt; Lens Preset Preset (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023587"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdated :: Maybe POSIX
+$sel:lastUpdated:Preset' :: Preset -&gt; Maybe POSIX
+</span><a href="#local-6989586621680023587"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680023587"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023586"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023585"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680023585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:Preset' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3AlastUpdated%3APreset%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680023585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Preset -&gt; f Preset)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Preset
+-&gt; f Preset
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | An identifier for this resource that is unique within all of AWS.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_arn"><span class="hs-identifier hs-type">preset_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="preset_arn"><span class="annot"><span class="annottext">preset_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_arn"><span class="hs-identifier hs-var hs-var">preset_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; Maybe Text)
+-&gt; (Preset -&gt; Maybe Text -&gt; Preset)
+-&gt; Lens Preset Preset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023580"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Preset' :: Preset -&gt; Maybe Text
+</span><a href="#local-6989586621680023580"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023580"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023579"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Preset' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Aarn%3APreset%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The timestamp in epoch seconds for preset creation.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_createdAt"><span class="hs-identifier hs-type">preset_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="preset_createdAt"><span class="annot"><span class="annottext">preset_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_createdAt"><span class="hs-identifier hs-var hs-var">preset_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; Maybe POSIX)
+-&gt; (Preset -&gt; Maybe POSIX -&gt; Preset)
+-&gt; Lens Preset Preset (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023576"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Preset' :: Preset -&gt; Maybe POSIX
+</span><a href="#local-6989586621680023576"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680023576"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023575"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023574"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680023574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Preset' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3AcreatedAt%3APreset%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680023574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Preset -&gt; f Preset)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Preset
+-&gt; f Preset
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | An optional category you create to organize your presets.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_category"><span class="hs-identifier hs-type">preset_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="preset_category"><span class="annot"><span class="annottext">preset_category :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_category"><span class="hs-identifier hs-var hs-var">preset_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; Maybe Text)
+-&gt; (Preset -&gt; Maybe Text -&gt; Preset)
+-&gt; Lens Preset Preset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023572"><span class="annot"><span class="annottext">Maybe Text
+category :: Maybe Text
+$sel:category:Preset' :: Preset -&gt; Maybe Text
+</span><a href="#local-6989586621680023572"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023572"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023571"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:Preset' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Acategory%3APreset%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A preset can be of two types: system or custom. System or built-in</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- preset can\'t be modified or deleted by the user.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_type"><span class="hs-identifier hs-type">preset_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="preset_type"><span class="annot"><span class="annottext">preset_type :: (Maybe Type -&gt; f (Maybe Type)) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_type"><span class="hs-identifier hs-var hs-var">preset_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; Maybe Type)
+-&gt; (Preset -&gt; Maybe Type -&gt; Preset)
+-&gt; Lens Preset Preset (Maybe Type) (Maybe Type)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023568"><span class="annot"><span class="annottext">Maybe Type
+type' :: Maybe Type
+$sel:type':Preset' :: Preset -&gt; Maybe Type
+</span><a href="#local-6989586621680023568"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621680023568"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023567"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023566"><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621680023566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Preset' :: Maybe Type
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Atype%27%3APreset%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621680023566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | An optional description you create for each preset.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_description"><span class="hs-identifier hs-type">preset_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="preset_description"><span class="annot"><span class="annottext">preset_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_description"><span class="hs-identifier hs-var hs-var">preset_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; Maybe Text)
+-&gt; (Preset -&gt; Maybe Text -&gt; Preset)
+-&gt; Lens Preset Preset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023564"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Preset' :: Preset -&gt; Maybe Text
+</span><a href="#local-6989586621680023564"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023564"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023563"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Preset' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Adescription%3APreset%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680023562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Settings for preset</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_settings"><span class="hs-identifier hs-type">preset_settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span>
+</span><span id="line-125"></span><span id="preset_settings"><span class="annot"><span class="annottext">preset_settings :: (PresetSettings -&gt; f PresetSettings) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_settings"><span class="hs-identifier hs-var hs-var">preset_settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; PresetSettings)
+-&gt; (Preset -&gt; PresetSettings -&gt; Preset)
+-&gt; Lens Preset Preset PresetSettings PresetSettings
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023560"><span class="annot"><span class="annottext">PresetSettings
+settings :: PresetSettings
+$sel:settings:Preset' :: Preset -&gt; PresetSettings
+</span><a href="#local-6989586621680023560"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680023560"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023559"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023558"><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680023558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:Preset' :: PresetSettings
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Asettings%3APreset%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680023558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A name you create for each preset. Each name must be unique within your</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#preset_name"><span class="hs-identifier hs-type">preset_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="preset_name"><span class="annot"><span class="annottext">preset_name :: (Text -&gt; f Text) -&gt; Preset -&gt; f Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#preset_name"><span class="hs-identifier hs-var hs-var">preset_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Preset -&gt; Text)
+-&gt; (Preset -&gt; Text -&gt; Preset) -&gt; Lens Preset Preset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680023556"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:Preset' :: Preset -&gt; Text
+</span><a href="#local-6989586621680023556"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680023556"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680023555"><span class="annot"><span class="annottext">s :: Preset
+</span><a href="#local-6989586621680023555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-type">Preset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680023554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680023554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Preset
+</span><a href="#local-6989586621680023555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Preset' :: Text
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#%24sel%3Aname%3APreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680023554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680023551"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680023549"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Preset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Preset) -&gt; Value -&gt; Parser Preset
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Preset&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680023546"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Type
+-&gt; Maybe Text
+-&gt; PresetSettings
+-&gt; Text
+-&gt; Preset
+</span><a href="Amazonka.MediaConvert.Types.Preset.html#Preset%27"><span class="hs-identifier hs-var">Preset'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Type
+ -&gt; Maybe Text
+ -&gt; PresetSettings
+ -&gt; Text
+ -&gt; Preset)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe Text
+      -&gt; PresetSettings
+      -&gt; Text
+      -&gt; Preset)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe Text
+   -&gt; PresetSettings
+   -&gt; Text
+   -&gt; Preset)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe Text
+      -&gt; PresetSettings
+      -&gt; Text
+      -&gt; Preset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe Text
+   -&gt; PresetSettings
+   -&gt; Text
+   -&gt; Preset)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Type -&gt; Maybe Text -&gt; PresetSettings -&gt; Text -&gt; Preset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Type -&gt; Maybe Text -&gt; PresetSettings -&gt; Text -&gt; Preset)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Type -&gt; Maybe Text -&gt; PresetSettings -&gt; Text -&gt; Preset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;category&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Type -&gt; Maybe Text -&gt; PresetSettings -&gt; Text -&gt; Preset)
+-&gt; Parser (Maybe Type)
+-&gt; Parser (Maybe Text -&gt; PresetSettings -&gt; Text -&gt; Preset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Type)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PresetSettings -&gt; Text -&gt; Preset)
+-&gt; Parser (Maybe Text) -&gt; Parser (PresetSettings -&gt; Text -&gt; Preset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (PresetSettings -&gt; Text -&gt; Preset)
+-&gt; Parser PresetSettings -&gt; Parser (Text -&gt; Preset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PresetSettings
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;settings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Preset) -&gt; Parser Text -&gt; Parser Preset
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680023546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680023539"><span id="local-6989586621680023541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680023536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

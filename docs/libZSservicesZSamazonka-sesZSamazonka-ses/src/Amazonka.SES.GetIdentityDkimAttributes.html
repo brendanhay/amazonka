@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.GetIdentityDkimAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the current status of Easy DKIM signing for an entity. For</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- domain name identities, this operation also returns the DKIM tokens that</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- are required for Easy DKIM signing, and whether Amazon SES has</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- successfully verified that these tokens have been published.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation takes a list of identities as input and returns the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- following information for each:</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Whether Easy DKIM signing is enabled or disabled.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   A set of DKIM tokens that represent the identity. If the identity is</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     an email address, the tokens represent the domain of that address.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   Whether Amazon SES has successfully verified the DKIM tokens</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     published in the domain\'s DNS. This information is only returned</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     for domain name identities, not for email addresses.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- This operation is throttled at one request per second and can only get</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- DKIM attributes for up to 100 identities at a time.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- For more information about creating DNS records using DKIM tokens, go to</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.GetIdentityDkimAttributes</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributes"><span class="hs-identifier">newGetIdentityDkimAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributes_identities"><span class="hs-identifier">getIdentityDkimAttributes_identities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier">GetIdentityDkimAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributesResponse"><span class="hs-identifier">newGetIdentityDkimAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributesResponse_httpStatus"><span class="hs-identifier">getIdentityDkimAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributesResponse_dkimAttributes"><span class="hs-identifier">getIdentityDkimAttributesResponse_dkimAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Represents a request for the status of Amazon SES Easy DKIM signing for</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- an identity. For domain identities, this request also returns the DKIM</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- tokens that are required for Easy DKIM signing, and whether Amazon SES</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- successfully verified that these tokens were published. For more</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- information about Easy DKIM, see the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- /See:/ 'newGetIdentityDkimAttributes' smart constructor.</span><span>
+</span><span id="line-79"></span><span id="local-6989586621679284517"><span id="local-6989586621679284518"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityDkimAttributes"><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-var">GetIdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityDkimAttributes%27"><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-var">GetIdentityDkimAttributes'</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of one or more verified identities - email addresses, domains, or</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aidentities%3AGetIdentityDkimAttributes%27"><span class="annot"><span class="annottext">GetIdentityDkimAttributes -&gt; [Text]
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3Aidentities%3AGetIdentityDkimAttributes%27"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284511"><span id="local-6989586621679284513"><span class="annot"><span class="annottext">GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
+(GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool)
+-&gt; (GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool)
+-&gt; Eq GetIdentityDkimAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
+$c/= :: GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
+== :: GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
+$c== :: GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284502"><span id="local-6989586621679284504"><span id="local-6989586621679284506"><span id="local-6989586621679284508"><span class="annot"><span class="annottext">ReadPrec [GetIdentityDkimAttributes]
+ReadPrec GetIdentityDkimAttributes
+Int -&gt; ReadS GetIdentityDkimAttributes
+ReadS [GetIdentityDkimAttributes]
+(Int -&gt; ReadS GetIdentityDkimAttributes)
+-&gt; ReadS [GetIdentityDkimAttributes]
+-&gt; ReadPrec GetIdentityDkimAttributes
+-&gt; ReadPrec [GetIdentityDkimAttributes]
+-&gt; Read GetIdentityDkimAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIdentityDkimAttributes]
+$creadListPrec :: ReadPrec [GetIdentityDkimAttributes]
+readPrec :: ReadPrec GetIdentityDkimAttributes
+$creadPrec :: ReadPrec GetIdentityDkimAttributes
+readList :: ReadS [GetIdentityDkimAttributes]
+$creadList :: ReadS [GetIdentityDkimAttributes]
+readsPrec :: Int -&gt; ReadS GetIdentityDkimAttributes
+$creadsPrec :: Int -&gt; ReadS GetIdentityDkimAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284495"><span id="local-6989586621679284497"><span id="local-6989586621679284499"><span class="annot"><span class="annottext">Int -&gt; GetIdentityDkimAttributes -&gt; ShowS
+[GetIdentityDkimAttributes] -&gt; ShowS
+GetIdentityDkimAttributes -&gt; String
+(Int -&gt; GetIdentityDkimAttributes -&gt; ShowS)
+-&gt; (GetIdentityDkimAttributes -&gt; String)
+-&gt; ([GetIdentityDkimAttributes] -&gt; ShowS)
+-&gt; Show GetIdentityDkimAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIdentityDkimAttributes] -&gt; ShowS
+$cshowList :: [GetIdentityDkimAttributes] -&gt; ShowS
+show :: GetIdentityDkimAttributes -&gt; String
+$cshow :: GetIdentityDkimAttributes -&gt; String
+showsPrec :: Int -&gt; GetIdentityDkimAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIdentityDkimAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetIdentityDkimAttributes -&gt; Rep GetIdentityDkimAttributes x)
+-&gt; (forall x.
+    Rep GetIdentityDkimAttributes x -&gt; GetIdentityDkimAttributes)
+-&gt; Generic GetIdentityDkimAttributes
+forall x.
+Rep GetIdentityDkimAttributes x -&gt; GetIdentityDkimAttributes
+forall x.
+GetIdentityDkimAttributes -&gt; Rep GetIdentityDkimAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetIdentityDkimAttributes x -&gt; GetIdentityDkimAttributes
+$cfrom :: forall x.
+GetIdentityDkimAttributes -&gt; Rep GetIdentityDkimAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'GetIdentityDkimAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'identities', 'getIdentityDkimAttributes_identities' - A list of one or more verified identities - email addresses, domains, or</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributes"><span class="hs-identifier hs-type">newGetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span>
+</span><span id="line-98"></span><span id="newGetIdentityDkimAttributes"><span class="annot"><span class="annottext">newGetIdentityDkimAttributes :: GetIdentityDkimAttributes
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributes"><span class="hs-identifier hs-var hs-var">newGetIdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">GetIdentityDkimAttributes' :: [Text] -&gt; GetIdentityDkimAttributes
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identities:GetIdentityDkimAttributes' :: [Text]
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3Aidentities%3AGetIdentityDkimAttributes%27"><span class="hs-identifier hs-var">identities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | A list of one or more verified identities - email addresses, domains, or</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributes_identities"><span class="hs-identifier hs-type">getIdentityDkimAttributes_identities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span id="getIdentityDkimAttributes_identities"><span class="annot"><span class="annottext">getIdentityDkimAttributes_identities :: ([Text] -&gt; f [Text])
+-&gt; GetIdentityDkimAttributes -&gt; f GetIdentityDkimAttributes
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributes_identities"><span class="hs-identifier hs-var hs-var">getIdentityDkimAttributes_identities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityDkimAttributes -&gt; [Text])
+-&gt; (GetIdentityDkimAttributes
+    -&gt; [Text] -&gt; GetIdentityDkimAttributes)
+-&gt; Lens
+     GetIdentityDkimAttributes GetIdentityDkimAttributes [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284488"><span class="annot"><span class="annottext">[Text]
+identities :: [Text]
+$sel:identities:GetIdentityDkimAttributes' :: GetIdentityDkimAttributes -&gt; [Text]
+</span><a href="#local-6989586621679284488"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284488"><span class="hs-identifier hs-var">identities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284487"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributes
+</span><a href="#local-6989586621679284487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284486"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributes
+</span><a href="#local-6989586621679284487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identities:GetIdentityDkimAttributes' :: [Text]
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3Aidentities%3AGetIdentityDkimAttributes%27"><span class="hs-identifier hs-var">identities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GetIdentityDkimAttributes -&gt; f GetIdentityDkimAttributes)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetIdentityDkimAttributes
+-&gt; f GetIdentityDkimAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679284480"><span class="annot"><span class="annottext">request :: GetIdentityDkimAttributes -&gt; Request GetIdentityDkimAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetIdentityDkimAttributes -&gt; Request GetIdentityDkimAttributes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679284476"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetIdentityDkimAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetIdentityDkimAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetIdentityDkimAttributes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetIdentityDkimAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetIdentityDkimAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetIdentityDkimAttributesResult&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284473"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284472"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284472"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284471"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679284471"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; HashMap Text IdentityDkimAttributes
+-&gt; GetIdentityDkimAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">GetIdentityDkimAttributesResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; HashMap Text IdentityDkimAttributes
+ -&gt; GetIdentityDkimAttributesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (HashMap Text IdentityDkimAttributes
+      -&gt; GetIdentityDkimAttributesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284473"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (HashMap Text IdentityDkimAttributes
+   -&gt; GetIdentityDkimAttributesResponse)
+-&gt; Either String (HashMap Text IdentityDkimAttributes)
+-&gt; Either String GetIdentityDkimAttributesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679284471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DkimAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (HashMap Text IdentityDkimAttributes))
+-&gt; Either String (HashMap Text IdentityDkimAttributes)
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; Text
+-&gt; Text
+-&gt; [Node]
+-&gt; Either String (HashMap Text IdentityDkimAttributes)
+forall k v.
+(Eq k, Hashable k, FromText k, FromXML v) =&gt;
+Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
+</span><span class="hs-identifier hs-var">Core.parseXMLMap</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span>
+</span><span id="line-122"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284461"><span id="local-6989586621679284463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679284454"><span class="annot"><span class="annottext">toHeaders :: GetIdentityDkimAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetIdentityDkimAttributes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679284449"><span class="annot"><span class="annottext">toPath :: GetIdentityDkimAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetIdentityDkimAttributes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679284445"><span class="annot"><span class="annottext">toQuery :: GetIdentityDkimAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284443"><span class="annot"><span class="annottext">[Text]
+identities :: [Text]
+$sel:identities:GetIdentityDkimAttributes' :: GetIdentityDkimAttributes -&gt; [Text]
+</span><a href="#local-6989586621679284443"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetIdentityDkimAttributes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Identities&quot;</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284443"><span class="hs-identifier hs-var">identities</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Represents the status of Amazon SES Easy DKIM signing for an identity.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- For domain identities, this response also contains the DKIM tokens that</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- are required for Easy DKIM signing, and whether Amazon SES successfully</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- verified that these tokens were published.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- /See:/ 'newGetIdentityDkimAttributesResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679284439"><span id="local-6989586621679284440"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityDkimAttributesResponse"><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-var">GetIdentityDkimAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityDkimAttributesResponse%27"><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">GetIdentityDkimAttributesResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse -&gt; Int
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The DKIM attributes for an email address or a domain.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AdkimAttributes%3AGetIdentityDkimAttributesResponse%27"><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
+-&gt; HashMap Text IdentityDkimAttributes
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3AdkimAttributes%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var hs-var">dkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284433"><span id="local-6989586621679284435"><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
+-&gt; GetIdentityDkimAttributesResponse -&gt; Bool
+(GetIdentityDkimAttributesResponse
+ -&gt; GetIdentityDkimAttributesResponse -&gt; Bool)
+-&gt; (GetIdentityDkimAttributesResponse
+    -&gt; GetIdentityDkimAttributesResponse -&gt; Bool)
+-&gt; Eq GetIdentityDkimAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIdentityDkimAttributesResponse
+-&gt; GetIdentityDkimAttributesResponse -&gt; Bool
+$c/= :: GetIdentityDkimAttributesResponse
+-&gt; GetIdentityDkimAttributesResponse -&gt; Bool
+== :: GetIdentityDkimAttributesResponse
+-&gt; GetIdentityDkimAttributesResponse -&gt; Bool
+$c== :: GetIdentityDkimAttributesResponse
+-&gt; GetIdentityDkimAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284425"><span id="local-6989586621679284427"><span id="local-6989586621679284429"><span id="local-6989586621679284431"><span class="annot"><span class="annottext">ReadPrec [GetIdentityDkimAttributesResponse]
+ReadPrec GetIdentityDkimAttributesResponse
+Int -&gt; ReadS GetIdentityDkimAttributesResponse
+ReadS [GetIdentityDkimAttributesResponse]
+(Int -&gt; ReadS GetIdentityDkimAttributesResponse)
+-&gt; ReadS [GetIdentityDkimAttributesResponse]
+-&gt; ReadPrec GetIdentityDkimAttributesResponse
+-&gt; ReadPrec [GetIdentityDkimAttributesResponse]
+-&gt; Read GetIdentityDkimAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIdentityDkimAttributesResponse]
+$creadListPrec :: ReadPrec [GetIdentityDkimAttributesResponse]
+readPrec :: ReadPrec GetIdentityDkimAttributesResponse
+$creadPrec :: ReadPrec GetIdentityDkimAttributesResponse
+readList :: ReadS [GetIdentityDkimAttributesResponse]
+$creadList :: ReadS [GetIdentityDkimAttributesResponse]
+readsPrec :: Int -&gt; ReadS GetIdentityDkimAttributesResponse
+$creadsPrec :: Int -&gt; ReadS GetIdentityDkimAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284419"><span id="local-6989586621679284421"><span id="local-6989586621679284423"><span class="annot"><span class="annottext">Int -&gt; GetIdentityDkimAttributesResponse -&gt; ShowS
+[GetIdentityDkimAttributesResponse] -&gt; ShowS
+GetIdentityDkimAttributesResponse -&gt; String
+(Int -&gt; GetIdentityDkimAttributesResponse -&gt; ShowS)
+-&gt; (GetIdentityDkimAttributesResponse -&gt; String)
+-&gt; ([GetIdentityDkimAttributesResponse] -&gt; ShowS)
+-&gt; Show GetIdentityDkimAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIdentityDkimAttributesResponse] -&gt; ShowS
+$cshowList :: [GetIdentityDkimAttributesResponse] -&gt; ShowS
+show :: GetIdentityDkimAttributesResponse -&gt; String
+$cshow :: GetIdentityDkimAttributesResponse -&gt; String
+showsPrec :: Int -&gt; GetIdentityDkimAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIdentityDkimAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetIdentityDkimAttributesResponse
+ -&gt; Rep GetIdentityDkimAttributesResponse x)
+-&gt; (forall x.
+    Rep GetIdentityDkimAttributesResponse x
+    -&gt; GetIdentityDkimAttributesResponse)
+-&gt; Generic GetIdentityDkimAttributesResponse
+forall x.
+Rep GetIdentityDkimAttributesResponse x
+-&gt; GetIdentityDkimAttributesResponse
+forall x.
+GetIdentityDkimAttributesResponse
+-&gt; Rep GetIdentityDkimAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetIdentityDkimAttributesResponse x
+-&gt; GetIdentityDkimAttributesResponse
+$cfrom :: forall x.
+GetIdentityDkimAttributesResponse
+-&gt; Rep GetIdentityDkimAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'GetIdentityDkimAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'getIdentityDkimAttributesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'dkimAttributes', 'getIdentityDkimAttributesResponse_dkimAttributes' - The DKIM attributes for an email address or a domain.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">newGetIdentityDkimAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newGetIdentityDkimAttributesResponse"><span class="annot"><span class="annottext">newGetIdentityDkimAttributesResponse :: Int -&gt; GetIdentityDkimAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetIdentityDkimAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679284416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse' :: Int
+-&gt; HashMap Text IdentityDkimAttributes
+-&gt; GetIdentityDkimAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityDkimAttributesResponse' :: Int
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:dkimAttributes:GetIdentityDkimAttributesResponse' :: HashMap Text IdentityDkimAttributes
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3AdkimAttributes%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">dkimAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributesResponse_httpStatus"><span class="hs-identifier hs-type">getIdentityDkimAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span id="getIdentityDkimAttributesResponse_httpStatus"><span class="annot"><span class="annottext">getIdentityDkimAttributesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetIdentityDkimAttributesResponse
+-&gt; f GetIdentityDkimAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getIdentityDkimAttributesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityDkimAttributesResponse -&gt; Int)
+-&gt; (GetIdentityDkimAttributesResponse
+    -&gt; Int -&gt; GetIdentityDkimAttributesResponse)
+-&gt; Lens
+     GetIdentityDkimAttributesResponse
+     GetIdentityDkimAttributesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284415"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetIdentityDkimAttributesResponse' :: GetIdentityDkimAttributesResponse -&gt; Int
+</span><a href="#local-6989586621679284415"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284415"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284414"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284413"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityDkimAttributesResponse' :: Int
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The DKIM attributes for an email address or a domain.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributesResponse_dkimAttributes"><span class="hs-identifier hs-type">getIdentityDkimAttributesResponse_dkimAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="getIdentityDkimAttributesResponse_dkimAttributes"><span class="annot"><span class="annottext">getIdentityDkimAttributesResponse_dkimAttributes :: (HashMap Text IdentityDkimAttributes
+ -&gt; f (HashMap Text IdentityDkimAttributes))
+-&gt; GetIdentityDkimAttributesResponse
+-&gt; f GetIdentityDkimAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributesResponse_dkimAttributes"><span class="hs-identifier hs-var hs-var">getIdentityDkimAttributesResponse_dkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityDkimAttributesResponse
+ -&gt; HashMap Text IdentityDkimAttributes)
+-&gt; (GetIdentityDkimAttributesResponse
+    -&gt; HashMap Text IdentityDkimAttributes
+    -&gt; GetIdentityDkimAttributesResponse)
+-&gt; Lens
+     GetIdentityDkimAttributesResponse
+     GetIdentityDkimAttributesResponse
+     (HashMap Text IdentityDkimAttributes)
+     (HashMap Text IdentityDkimAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284412"><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+dkimAttributes :: HashMap Text IdentityDkimAttributes
+$sel:dkimAttributes:GetIdentityDkimAttributesResponse' :: GetIdentityDkimAttributesResponse
+-&gt; HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284412"><span class="hs-identifier hs-var hs-var">dkimAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284412"><span class="hs-identifier hs-var">dkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284411"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284410"><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimAttributes:GetIdentityDkimAttributesResponse' :: HashMap Text IdentityDkimAttributes
+</span><a href="Amazonka.SES.GetIdentityDkimAttributes.html#%24sel%3AdkimAttributes%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">dkimAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text IdentityDkimAttributes
+  -&gt; f (HashMap Text IdentityDkimAttributes))
+ -&gt; GetIdentityDkimAttributesResponse
+ -&gt; f GetIdentityDkimAttributesResponse)
+-&gt; ((HashMap Text IdentityDkimAttributes
+     -&gt; f (HashMap Text IdentityDkimAttributes))
+    -&gt; HashMap Text IdentityDkimAttributes
+    -&gt; f (HashMap Text IdentityDkimAttributes))
+-&gt; (HashMap Text IdentityDkimAttributes
+    -&gt; f (HashMap Text IdentityDkimAttributes))
+-&gt; GetIdentityDkimAttributesResponse
+-&gt; f GetIdentityDkimAttributesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text IdentityDkimAttributes
+ -&gt; f (HashMap Text IdentityDkimAttributes))
+-&gt; HashMap Text IdentityDkimAttributes
+-&gt; f (HashMap Text IdentityDkimAttributes)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679284408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span></span><span>
+</span><span id="line-193"></span></pre></body></html>

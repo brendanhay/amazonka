@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53.GetTrafficPolicyInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about a specified traffic policy instance.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- After you submit a @CreateTrafficPolicyInstance@ or an</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @UpdateTrafficPolicyInstance@ request, there\'s a brief delay while</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon Route 53 creates the resource record sets that are specified in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the traffic policy definition. For more information, see the @State@</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- response element.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- In the Route 53 console, traffic policy instances are known as policy</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- records.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53.GetTrafficPolicyInstance</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier">GetTrafficPolicyInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#newGetTrafficPolicyInstance"><span class="hs-identifier">newGetTrafficPolicyInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstance_id"><span class="hs-identifier">getTrafficPolicyInstance_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier">GetTrafficPolicyInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#newGetTrafficPolicyInstanceResponse"><span class="hs-identifier">newGetTrafficPolicyInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstanceResponse_httpStatus"><span class="hs-identifier">getTrafficPolicyInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstanceResponse_trafficPolicyInstance"><span class="hs-identifier">getTrafficPolicyInstanceResponse_trafficPolicyInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.html"><span class="hs-identifier">Amazonka.Route53.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Gets information about a specified traffic policy instance.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newGetTrafficPolicyInstance' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679304466"><span id="local-6989586621679304467"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrafficPolicyInstance"><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-var">GetTrafficPolicyInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrafficPolicyInstance%27"><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance%27"><span class="hs-identifier hs-var">GetTrafficPolicyInstance'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the traffic policy instance that you want to get information</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- about.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aid%3AGetTrafficPolicyInstance%27"><span class="annot"><span class="annottext">GetTrafficPolicyInstance -&gt; Text
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3Aid%3AGetTrafficPolicyInstance%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304460"><span id="local-6989586621679304462"><span class="annot"><span class="annottext">GetTrafficPolicyInstance -&gt; GetTrafficPolicyInstance -&gt; Bool
+(GetTrafficPolicyInstance -&gt; GetTrafficPolicyInstance -&gt; Bool)
+-&gt; (GetTrafficPolicyInstance -&gt; GetTrafficPolicyInstance -&gt; Bool)
+-&gt; Eq GetTrafficPolicyInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTrafficPolicyInstance -&gt; GetTrafficPolicyInstance -&gt; Bool
+$c/= :: GetTrafficPolicyInstance -&gt; GetTrafficPolicyInstance -&gt; Bool
+== :: GetTrafficPolicyInstance -&gt; GetTrafficPolicyInstance -&gt; Bool
+$c== :: GetTrafficPolicyInstance -&gt; GetTrafficPolicyInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304451"><span id="local-6989586621679304453"><span id="local-6989586621679304455"><span id="local-6989586621679304457"><span class="annot"><span class="annottext">ReadPrec [GetTrafficPolicyInstance]
+ReadPrec GetTrafficPolicyInstance
+Int -&gt; ReadS GetTrafficPolicyInstance
+ReadS [GetTrafficPolicyInstance]
+(Int -&gt; ReadS GetTrafficPolicyInstance)
+-&gt; ReadS [GetTrafficPolicyInstance]
+-&gt; ReadPrec GetTrafficPolicyInstance
+-&gt; ReadPrec [GetTrafficPolicyInstance]
+-&gt; Read GetTrafficPolicyInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTrafficPolicyInstance]
+$creadListPrec :: ReadPrec [GetTrafficPolicyInstance]
+readPrec :: ReadPrec GetTrafficPolicyInstance
+$creadPrec :: ReadPrec GetTrafficPolicyInstance
+readList :: ReadS [GetTrafficPolicyInstance]
+$creadList :: ReadS [GetTrafficPolicyInstance]
+readsPrec :: Int -&gt; ReadS GetTrafficPolicyInstance
+$creadsPrec :: Int -&gt; ReadS GetTrafficPolicyInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304444"><span id="local-6989586621679304446"><span id="local-6989586621679304448"><span class="annot"><span class="annottext">Int -&gt; GetTrafficPolicyInstance -&gt; ShowS
+[GetTrafficPolicyInstance] -&gt; ShowS
+GetTrafficPolicyInstance -&gt; String
+(Int -&gt; GetTrafficPolicyInstance -&gt; ShowS)
+-&gt; (GetTrafficPolicyInstance -&gt; String)
+-&gt; ([GetTrafficPolicyInstance] -&gt; ShowS)
+-&gt; Show GetTrafficPolicyInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTrafficPolicyInstance] -&gt; ShowS
+$cshowList :: [GetTrafficPolicyInstance] -&gt; ShowS
+show :: GetTrafficPolicyInstance -&gt; String
+$cshow :: GetTrafficPolicyInstance -&gt; String
+showsPrec :: Int -&gt; GetTrafficPolicyInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTrafficPolicyInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetTrafficPolicyInstance -&gt; Rep GetTrafficPolicyInstance x)
+-&gt; (forall x.
+    Rep GetTrafficPolicyInstance x -&gt; GetTrafficPolicyInstance)
+-&gt; Generic GetTrafficPolicyInstance
+forall x.
+Rep GetTrafficPolicyInstance x -&gt; GetTrafficPolicyInstance
+forall x.
+GetTrafficPolicyInstance -&gt; Rep GetTrafficPolicyInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetTrafficPolicyInstance x -&gt; GetTrafficPolicyInstance
+$cfrom :: forall x.
+GetTrafficPolicyInstance -&gt; Rep GetTrafficPolicyInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetTrafficPolicyInstance' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'id', 'getTrafficPolicyInstance_id' - The ID of the traffic policy instance that you want to get information</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- about.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#newGetTrafficPolicyInstance"><span class="hs-identifier hs-type">newGetTrafficPolicyInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span>
+</span><span id="line-82"></span><span id="newGetTrafficPolicyInstance"><span class="annot"><span class="annottext">newGetTrafficPolicyInstance :: Text -&gt; GetTrafficPolicyInstance
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#newGetTrafficPolicyInstance"><span class="hs-identifier hs-var hs-var">newGetTrafficPolicyInstance</span></a></span></span><span> </span><span id="local-6989586621679304439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304439"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GetTrafficPolicyInstance' :: Text -&gt; GetTrafficPolicyInstance
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetTrafficPolicyInstance' :: Text
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3Aid%3AGetTrafficPolicyInstance%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304439"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ID of the traffic policy instance that you want to get information</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- about.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstance_id"><span class="hs-identifier hs-type">getTrafficPolicyInstance_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="getTrafficPolicyInstance_id"><span class="annot"><span class="annottext">getTrafficPolicyInstance_id :: (Text -&gt; f Text)
+-&gt; GetTrafficPolicyInstance -&gt; f GetTrafficPolicyInstance
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstance_id"><span class="hs-identifier hs-var hs-var">getTrafficPolicyInstance_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTrafficPolicyInstance -&gt; Text)
+-&gt; (GetTrafficPolicyInstance -&gt; Text -&gt; GetTrafficPolicyInstance)
+-&gt; Lens GetTrafficPolicyInstance GetTrafficPolicyInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304436"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetTrafficPolicyInstance' :: GetTrafficPolicyInstance -&gt; Text
+</span><a href="#local-6989586621679304436"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304436"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304435"><span class="annot"><span class="annottext">s :: GetTrafficPolicyInstance
+</span><a href="#local-6989586621679304435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicyInstance
+</span><a href="#local-6989586621679304435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetTrafficPolicyInstance' :: Text
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3Aid%3AGetTrafficPolicyInstance%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679304430"><span class="annot"><span class="annottext">request :: GetTrafficPolicyInstance -&gt; Request GetTrafficPolicyInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetTrafficPolicyInstance -&gt; Request GetTrafficPolicyInstance
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679304426"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetTrafficPolicyInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetTrafficPolicyInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetTrafficPolicyInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetTrafficPolicyInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetTrafficPolicyInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304423"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304423"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304422"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304422"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304421"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304421"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; TrafficPolicyInstance -&gt; GetTrafficPolicyInstanceResponse
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var">GetTrafficPolicyInstanceResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; TrafficPolicyInstance -&gt; GetTrafficPolicyInstanceResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (TrafficPolicyInstance -&gt; GetTrafficPolicyInstanceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304423"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (TrafficPolicyInstance -&gt; GetTrafficPolicyInstanceResponse)
+-&gt; Either String TrafficPolicyInstance
+-&gt; Either String GetTrafficPolicyInstanceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String TrafficPolicyInstance
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrafficPolicyInstance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304413"><span id="local-6989586621679304415"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679304406"><span class="annot"><span class="annottext">toHeaders :: GetTrafficPolicyInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTrafficPolicyInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679304401"><span class="annot"><span class="annottext">toPath :: GetTrafficPolicyInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304399"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetTrafficPolicyInstance' :: GetTrafficPolicyInstance -&gt; Text
+</span><a href="#local-6989586621679304399"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/trafficpolicyinstance/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304399"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstance"><span class="hs-identifier hs-type">GetTrafficPolicyInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679304395"><span class="annot"><span class="annottext">toQuery :: GetTrafficPolicyInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTrafficPolicyInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A complex type that contains information about the resource record sets</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- that Amazon Route 53 created based on a specified traffic policy.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- /See:/ 'newGetTrafficPolicyInstanceResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679304392"><span id="local-6989586621679304393"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrafficPolicyInstanceResponse"><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-var">GetTrafficPolicyInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrafficPolicyInstanceResponse%27"><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var">GetTrafficPolicyInstanceResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTrafficPolicyInstanceResponse%27"><span class="annot"><span class="annottext">GetTrafficPolicyInstanceResponse -&gt; Int
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3AhttpStatus%3AGetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | A complex type that contains settings for the traffic policy instance.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AtrafficPolicyInstance%3AGetTrafficPolicyInstanceResponse%27"><span class="annot"><span class="annottext">GetTrafficPolicyInstanceResponse -&gt; TrafficPolicyInstance
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3AtrafficPolicyInstance%3AGetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var hs-var">trafficPolicyInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.TrafficPolicyInstance.html#TrafficPolicyInstance"><span class="hs-identifier hs-type">TrafficPolicyInstance</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304386"><span id="local-6989586621679304388"><span class="annot"><span class="annottext">GetTrafficPolicyInstanceResponse
+-&gt; GetTrafficPolicyInstanceResponse -&gt; Bool
+(GetTrafficPolicyInstanceResponse
+ -&gt; GetTrafficPolicyInstanceResponse -&gt; Bool)
+-&gt; (GetTrafficPolicyInstanceResponse
+    -&gt; GetTrafficPolicyInstanceResponse -&gt; Bool)
+-&gt; Eq GetTrafficPolicyInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTrafficPolicyInstanceResponse
+-&gt; GetTrafficPolicyInstanceResponse -&gt; Bool
+$c/= :: GetTrafficPolicyInstanceResponse
+-&gt; GetTrafficPolicyInstanceResponse -&gt; Bool
+== :: GetTrafficPolicyInstanceResponse
+-&gt; GetTrafficPolicyInstanceResponse -&gt; Bool
+$c== :: GetTrafficPolicyInstanceResponse
+-&gt; GetTrafficPolicyInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304378"><span id="local-6989586621679304380"><span id="local-6989586621679304382"><span id="local-6989586621679304384"><span class="annot"><span class="annottext">ReadPrec [GetTrafficPolicyInstanceResponse]
+ReadPrec GetTrafficPolicyInstanceResponse
+Int -&gt; ReadS GetTrafficPolicyInstanceResponse
+ReadS [GetTrafficPolicyInstanceResponse]
+(Int -&gt; ReadS GetTrafficPolicyInstanceResponse)
+-&gt; ReadS [GetTrafficPolicyInstanceResponse]
+-&gt; ReadPrec GetTrafficPolicyInstanceResponse
+-&gt; ReadPrec [GetTrafficPolicyInstanceResponse]
+-&gt; Read GetTrafficPolicyInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTrafficPolicyInstanceResponse]
+$creadListPrec :: ReadPrec [GetTrafficPolicyInstanceResponse]
+readPrec :: ReadPrec GetTrafficPolicyInstanceResponse
+$creadPrec :: ReadPrec GetTrafficPolicyInstanceResponse
+readList :: ReadS [GetTrafficPolicyInstanceResponse]
+$creadList :: ReadS [GetTrafficPolicyInstanceResponse]
+readsPrec :: Int -&gt; ReadS GetTrafficPolicyInstanceResponse
+$creadsPrec :: Int -&gt; ReadS GetTrafficPolicyInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304372"><span id="local-6989586621679304374"><span id="local-6989586621679304376"><span class="annot"><span class="annottext">Int -&gt; GetTrafficPolicyInstanceResponse -&gt; ShowS
+[GetTrafficPolicyInstanceResponse] -&gt; ShowS
+GetTrafficPolicyInstanceResponse -&gt; String
+(Int -&gt; GetTrafficPolicyInstanceResponse -&gt; ShowS)
+-&gt; (GetTrafficPolicyInstanceResponse -&gt; String)
+-&gt; ([GetTrafficPolicyInstanceResponse] -&gt; ShowS)
+-&gt; Show GetTrafficPolicyInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTrafficPolicyInstanceResponse] -&gt; ShowS
+$cshowList :: [GetTrafficPolicyInstanceResponse] -&gt; ShowS
+show :: GetTrafficPolicyInstanceResponse -&gt; String
+$cshow :: GetTrafficPolicyInstanceResponse -&gt; String
+showsPrec :: Int -&gt; GetTrafficPolicyInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTrafficPolicyInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetTrafficPolicyInstanceResponse
+ -&gt; Rep GetTrafficPolicyInstanceResponse x)
+-&gt; (forall x.
+    Rep GetTrafficPolicyInstanceResponse x
+    -&gt; GetTrafficPolicyInstanceResponse)
+-&gt; Generic GetTrafficPolicyInstanceResponse
+forall x.
+Rep GetTrafficPolicyInstanceResponse x
+-&gt; GetTrafficPolicyInstanceResponse
+forall x.
+GetTrafficPolicyInstanceResponse
+-&gt; Rep GetTrafficPolicyInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetTrafficPolicyInstanceResponse x
+-&gt; GetTrafficPolicyInstanceResponse
+$cfrom :: forall x.
+GetTrafficPolicyInstanceResponse
+-&gt; Rep GetTrafficPolicyInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'GetTrafficPolicyInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'httpStatus', 'getTrafficPolicyInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'trafficPolicyInstance', 'getTrafficPolicyInstanceResponse_trafficPolicyInstance' - A complex type that contains settings for the traffic policy instance.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#newGetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">newGetTrafficPolicyInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'trafficPolicyInstance'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.TrafficPolicyInstance.html#TrafficPolicyInstance"><span class="hs-identifier hs-type">TrafficPolicyInstance</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newGetTrafficPolicyInstanceResponse"><span class="annot"><span class="annottext">newGetTrafficPolicyInstanceResponse :: Int -&gt; TrafficPolicyInstance -&gt; GetTrafficPolicyInstanceResponse
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#newGetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-var hs-var">newGetTrafficPolicyInstanceResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679304369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304369"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679304368"><span class="annot"><span class="annottext">TrafficPolicyInstance
+</span><a href="#local-6989586621679304368"><span class="hs-identifier hs-var">pTrafficPolicyInstance_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">GetTrafficPolicyInstanceResponse' :: Int -&gt; TrafficPolicyInstance -&gt; GetTrafficPolicyInstanceResponse
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrafficPolicyInstanceResponse' :: Int
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3AhttpStatus%3AGetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304369"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficPolicyInstance:GetTrafficPolicyInstanceResponse' :: TrafficPolicyInstance
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3AtrafficPolicyInstance%3AGetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var">trafficPolicyInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">TrafficPolicyInstance
+</span><a href="#local-6989586621679304368"><span class="hs-identifier hs-var">pTrafficPolicyInstance_</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstanceResponse_httpStatus"><span class="hs-identifier hs-type">getTrafficPolicyInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="getTrafficPolicyInstanceResponse_httpStatus"><span class="annot"><span class="annottext">getTrafficPolicyInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetTrafficPolicyInstanceResponse
+-&gt; f GetTrafficPolicyInstanceResponse
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getTrafficPolicyInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTrafficPolicyInstanceResponse -&gt; Int)
+-&gt; (GetTrafficPolicyInstanceResponse
+    -&gt; Int -&gt; GetTrafficPolicyInstanceResponse)
+-&gt; Lens
+     GetTrafficPolicyInstanceResponse
+     GetTrafficPolicyInstanceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304367"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetTrafficPolicyInstanceResponse' :: GetTrafficPolicyInstanceResponse -&gt; Int
+</span><a href="#local-6989586621679304367"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304367"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304366"><span class="annot"><span class="annottext">s :: GetTrafficPolicyInstanceResponse
+</span><a href="#local-6989586621679304366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304365"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicyInstanceResponse
+</span><a href="#local-6989586621679304366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrafficPolicyInstanceResponse' :: Int
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3AhttpStatus%3AGetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | A complex type that contains settings for the traffic policy instance.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstanceResponse_trafficPolicyInstance"><span class="hs-identifier hs-type">getTrafficPolicyInstanceResponse_trafficPolicyInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.TrafficPolicyInstance.html#TrafficPolicyInstance"><span class="hs-identifier hs-type">TrafficPolicyInstance</span></a></span><span>
+</span><span id="line-163"></span><span id="getTrafficPolicyInstanceResponse_trafficPolicyInstance"><span class="annot"><span class="annottext">getTrafficPolicyInstanceResponse_trafficPolicyInstance :: (TrafficPolicyInstance -&gt; f TrafficPolicyInstance)
+-&gt; GetTrafficPolicyInstanceResponse
+-&gt; f GetTrafficPolicyInstanceResponse
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#getTrafficPolicyInstanceResponse_trafficPolicyInstance"><span class="hs-identifier hs-var hs-var">getTrafficPolicyInstanceResponse_trafficPolicyInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTrafficPolicyInstanceResponse -&gt; TrafficPolicyInstance)
+-&gt; (GetTrafficPolicyInstanceResponse
+    -&gt; TrafficPolicyInstance -&gt; GetTrafficPolicyInstanceResponse)
+-&gt; Lens
+     GetTrafficPolicyInstanceResponse
+     GetTrafficPolicyInstanceResponse
+     TrafficPolicyInstance
+     TrafficPolicyInstance
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304364"><span class="annot"><span class="annottext">TrafficPolicyInstance
+trafficPolicyInstance :: TrafficPolicyInstance
+$sel:trafficPolicyInstance:GetTrafficPolicyInstanceResponse' :: GetTrafficPolicyInstanceResponse -&gt; TrafficPolicyInstance
+</span><a href="#local-6989586621679304364"><span class="hs-identifier hs-var hs-var">trafficPolicyInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficPolicyInstance
+</span><a href="#local-6989586621679304364"><span class="hs-identifier hs-var">trafficPolicyInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304363"><span class="annot"><span class="annottext">s :: GetTrafficPolicyInstanceResponse
+</span><a href="#local-6989586621679304363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304362"><span class="annot"><span class="annottext">TrafficPolicyInstance
+</span><a href="#local-6989586621679304362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicyInstanceResponse
+</span><a href="#local-6989586621679304363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicyInstance:GetTrafficPolicyInstanceResponse' :: TrafficPolicyInstance
+</span><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#%24sel%3AtrafficPolicyInstance%3AGetTrafficPolicyInstanceResponse%27"><span class="hs-identifier hs-var">trafficPolicyInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficPolicyInstance
+</span><a href="#local-6989586621679304362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679304360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetTrafficPolicyInstance.html#GetTrafficPolicyInstanceResponse"><span class="hs-identifier hs-type">GetTrafficPolicyInstanceResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

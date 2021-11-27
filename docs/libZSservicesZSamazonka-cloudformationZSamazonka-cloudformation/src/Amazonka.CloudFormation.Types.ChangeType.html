@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.Types.ChangeType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.Types.ChangeType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType"><span class="hs-identifier">ChangeType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType_Resource"><span class="hs-identifier">ChangeType_Resource</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679415426"><span id="local-6989586621679415427"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeType"><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-var">ChangeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeType%27"><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType%27"><span class="hs-identifier hs-var">ChangeType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChangeType"><span class="annot"><span class="annottext">ChangeType -&gt; Text
+</span><a href="Amazonka.CloudFormation.Types.ChangeType.html#fromChangeType"><span class="hs-identifier hs-var hs-var">fromChangeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679415418"><span id="local-6989586621679415420"><span id="local-6989586621679415422"><span class="annot"><span class="annottext">Int -&gt; ChangeType -&gt; ShowS
+[ChangeType] -&gt; ShowS
+ChangeType -&gt; String
+(Int -&gt; ChangeType -&gt; ShowS)
+-&gt; (ChangeType -&gt; String)
+-&gt; ([ChangeType] -&gt; ShowS)
+-&gt; Show ChangeType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChangeType] -&gt; ShowS
+$cshowList :: [ChangeType] -&gt; ShowS
+show :: ChangeType -&gt; String
+$cshow :: ChangeType -&gt; String
+showsPrec :: Int -&gt; ChangeType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChangeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679415409"><span id="local-6989586621679415411"><span id="local-6989586621679415413"><span id="local-6989586621679415415"><span class="annot"><span class="annottext">ReadPrec [ChangeType]
+ReadPrec ChangeType
+Int -&gt; ReadS ChangeType
+ReadS [ChangeType]
+(Int -&gt; ReadS ChangeType)
+-&gt; ReadS [ChangeType]
+-&gt; ReadPrec ChangeType
+-&gt; ReadPrec [ChangeType]
+-&gt; Read ChangeType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChangeType]
+$creadListPrec :: ReadPrec [ChangeType]
+readPrec :: ReadPrec ChangeType
+$creadPrec :: ReadPrec ChangeType
+readList :: ReadS [ChangeType]
+$creadList :: ReadS [ChangeType]
+readsPrec :: Int -&gt; ReadS ChangeType
+$creadsPrec :: Int -&gt; ReadS ChangeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679415404"><span id="local-6989586621679415406"><span class="annot"><span class="annottext">ChangeType -&gt; ChangeType -&gt; Bool
+(ChangeType -&gt; ChangeType -&gt; Bool)
+-&gt; (ChangeType -&gt; ChangeType -&gt; Bool) -&gt; Eq ChangeType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChangeType -&gt; ChangeType -&gt; Bool
+$c/= :: ChangeType -&gt; ChangeType -&gt; Bool
+== :: ChangeType -&gt; ChangeType -&gt; Bool
+$c== :: ChangeType -&gt; ChangeType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679415388"><span id="local-6989586621679415390"><span id="local-6989586621679415392"><span id="local-6989586621679415394"><span id="local-6989586621679415396"><span id="local-6989586621679415398"><span id="local-6989586621679415400"><span class="annot"><span class="annottext">Eq ChangeType
+Eq ChangeType
+-&gt; (ChangeType -&gt; ChangeType -&gt; Ordering)
+-&gt; (ChangeType -&gt; ChangeType -&gt; Bool)
+-&gt; (ChangeType -&gt; ChangeType -&gt; Bool)
+-&gt; (ChangeType -&gt; ChangeType -&gt; Bool)
+-&gt; (ChangeType -&gt; ChangeType -&gt; Bool)
+-&gt; (ChangeType -&gt; ChangeType -&gt; ChangeType)
+-&gt; (ChangeType -&gt; ChangeType -&gt; ChangeType)
+-&gt; Ord ChangeType
+ChangeType -&gt; ChangeType -&gt; Bool
+ChangeType -&gt; ChangeType -&gt; Ordering
+ChangeType -&gt; ChangeType -&gt; ChangeType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChangeType -&gt; ChangeType -&gt; ChangeType
+$cmin :: ChangeType -&gt; ChangeType -&gt; ChangeType
+max :: ChangeType -&gt; ChangeType -&gt; ChangeType
+$cmax :: ChangeType -&gt; ChangeType -&gt; ChangeType
+&gt;= :: ChangeType -&gt; ChangeType -&gt; Bool
+$c&gt;= :: ChangeType -&gt; ChangeType -&gt; Bool
+&gt; :: ChangeType -&gt; ChangeType -&gt; Bool
+$c&gt; :: ChangeType -&gt; ChangeType -&gt; Bool
+&lt;= :: ChangeType -&gt; ChangeType -&gt; Bool
+$c&lt;= :: ChangeType -&gt; ChangeType -&gt; Bool
+&lt; :: ChangeType -&gt; ChangeType -&gt; Bool
+$c&lt; :: ChangeType -&gt; ChangeType -&gt; Bool
+compare :: ChangeType -&gt; ChangeType -&gt; Ordering
+$ccompare :: ChangeType -&gt; ChangeType -&gt; Ordering
+$cp1Ord :: Eq ChangeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChangeType -&gt; Rep ChangeType x)
+-&gt; (forall x. Rep ChangeType x -&gt; ChangeType) -&gt; Generic ChangeType
+forall x. Rep ChangeType x -&gt; ChangeType
+forall x. ChangeType -&gt; Rep ChangeType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChangeType x -&gt; ChangeType
+$cfrom :: forall x. ChangeType -&gt; Rep ChangeType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679415380"><span id="local-6989586621679415382"><span class="annot"><span class="annottext">Int -&gt; ChangeType -&gt; Int
+ChangeType -&gt; Int
+(Int -&gt; ChangeType -&gt; Int)
+-&gt; (ChangeType -&gt; Int) -&gt; Hashable ChangeType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChangeType -&gt; Int
+$chash :: ChangeType -&gt; Int
+hashWithSalt :: Int -&gt; ChangeType -&gt; Int
+$chashWithSalt :: Int -&gt; ChangeType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679415377"><span class="annot"><span class="annottext">ChangeType -&gt; ()
+(ChangeType -&gt; ()) -&gt; NFData ChangeType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChangeType -&gt; ()
+$crnf :: ChangeType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679415374"><span class="annot"><span class="annottext">Text -&gt; Either String ChangeType
+(Text -&gt; Either String ChangeType) -&gt; FromText ChangeType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChangeType
+$cfromText :: Text -&gt; Either String ChangeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679415371"><span class="annot"><span class="annottext">ChangeType -&gt; Text
+(ChangeType -&gt; Text) -&gt; ToText ChangeType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChangeType -&gt; Text
+$ctoText :: ChangeType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679415368"><span class="annot"><span class="annottext">ChangeType -&gt; ByteString
+(ChangeType -&gt; ByteString) -&gt; ToByteString ChangeType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChangeType -&gt; ByteString
+$ctoBS :: ChangeType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679415365"><span class="annot"><span class="annottext">ChangeType -&gt; ByteStringBuilder
+(ChangeType -&gt; ByteStringBuilder) -&gt; ToLog ChangeType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChangeType -&gt; ByteStringBuilder
+$cbuild :: ChangeType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679415362"><span class="annot"><span class="annottext">HeaderName -&gt; ChangeType -&gt; [Header]
+(HeaderName -&gt; ChangeType -&gt; [Header]) -&gt; ToHeader ChangeType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChangeType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChangeType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679415359"><span class="annot"><span class="annottext">ChangeType -&gt; QueryString
+(ChangeType -&gt; QueryString) -&gt; ToQuery ChangeType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChangeType -&gt; QueryString
+$ctoQuery :: ChangeType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679415354"><span id="local-6989586621679415356"><span class="annot"><span class="annottext">Value -&gt; Parser [ChangeType]
+Value -&gt; Parser ChangeType
+(Value -&gt; Parser ChangeType)
+-&gt; (Value -&gt; Parser [ChangeType]) -&gt; FromJSON ChangeType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChangeType]
+$cparseJSONList :: Value -&gt; Parser [ChangeType]
+parseJSON :: Value -&gt; Parser ChangeType
+$cparseJSON :: Value -&gt; Parser ChangeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679415349"><span id="local-6989586621679415351"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChangeType]
+FromJSONKeyFunction ChangeType
+FromJSONKeyFunction ChangeType
+-&gt; FromJSONKeyFunction [ChangeType] -&gt; FromJSONKey ChangeType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChangeType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChangeType]
+fromJSONKey :: FromJSONKeyFunction ChangeType
+$cfromJSONKey :: FromJSONKeyFunction ChangeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679415340"><span id="local-6989586621679415342"><span id="local-6989586621679415344"><span id="local-6989586621679415346"><span class="annot"><span class="annottext">[ChangeType] -&gt; Encoding
+[ChangeType] -&gt; Value
+ChangeType -&gt; Encoding
+ChangeType -&gt; Value
+(ChangeType -&gt; Value)
+-&gt; (ChangeType -&gt; Encoding)
+-&gt; ([ChangeType] -&gt; Value)
+-&gt; ([ChangeType] -&gt; Encoding)
+-&gt; ToJSON ChangeType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChangeType] -&gt; Encoding
+$ctoEncodingList :: [ChangeType] -&gt; Encoding
+toJSONList :: [ChangeType] -&gt; Value
+$ctoJSONList :: [ChangeType] -&gt; Value
+toEncoding :: ChangeType -&gt; Encoding
+$ctoEncoding :: ChangeType -&gt; Encoding
+toJSON :: ChangeType -&gt; Value
+$ctoJSON :: ChangeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679415335"><span id="local-6989586621679415337"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChangeType]
+ToJSONKeyFunction ChangeType
+ToJSONKeyFunction ChangeType
+-&gt; ToJSONKeyFunction [ChangeType] -&gt; ToJSONKey ChangeType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChangeType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChangeType]
+toJSONKey :: ToJSONKeyFunction ChangeType
+$ctoJSONKey :: ToJSONKeyFunction ChangeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679415332"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChangeType
+([Node] -&gt; Either String ChangeType) -&gt; FromXML ChangeType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChangeType
+$cparseXML :: [Node] -&gt; Either String ChangeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679415329"><span class="annot"><span class="annottext">ChangeType -&gt; XML
+(ChangeType -&gt; XML) -&gt; ToXML ChangeType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChangeType -&gt; XML
+$ctoXML :: ChangeType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType_Resource"><span class="hs-identifier hs-type">ChangeType_Resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChangeType_Resource"><span id="%24mChangeType_Resource"><span id="ChangeType_Resource"><span class="annot"><span class="annottext">$bChangeType_Resource :: ChangeType
+$mChangeType_Resource :: forall r. ChangeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.ChangeType.html#%24bChangeType_Resource"><span class="hs-identifier hs-var hs-var hs-var">ChangeType_Resource</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType%27"><span class="hs-identifier hs-type">ChangeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Resource&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType_Resource"><span class="hs-pragma hs-type">ChangeType_Resource</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ChangeType.html#ChangeType%27"><span class="hs-pragma hs-type">ChangeType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroupsTagging.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_InvalidParameterException"><span class="hs-identifier">_InvalidParameterException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_ConstraintViolationException"><span class="hs-identifier">_ConstraintViolationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_ThrottledException"><span class="hs-identifier">_ThrottledException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_PaginationTokenExpiredException"><span class="hs-identifier">_PaginationTokenExpiredException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_ConcurrentModificationException"><span class="hs-identifier">_ConcurrentModificationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_InternalServiceException"><span class="hs-identifier">_InternalServiceException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><span class="hs-comment">-- * GroupByAttribute</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier">GroupByAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResourceErrorCode</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode"><span class="hs-identifier">ResourceErrorCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TargetIdType</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TargetIdType.html#TargetIdType"><span class="hs-identifier">TargetIdType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ComplianceDetails</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier">ComplianceDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.html#newComplianceDetails"><span class="hs-identifier">newComplianceDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.html#complianceDetails_keysWithNoncompliantValues"><span class="hs-identifier">complianceDetails_keysWithNoncompliantValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.html#complianceDetails_complianceStatus"><span class="hs-identifier">complianceDetails_complianceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.html#complianceDetails_noncompliantKeys"><span class="hs-identifier">complianceDetails_noncompliantKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FailureInfo</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.FailureInfo.html#FailureInfo"><span class="hs-identifier">FailureInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.FailureInfo.html#newFailureInfo"><span class="hs-identifier">newFailureInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.FailureInfo.html#failureInfo_errorCode"><span class="hs-identifier">failureInfo_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.FailureInfo.html#failureInfo_errorMessage"><span class="hs-identifier">failureInfo_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.FailureInfo.html#failureInfo_statusCode"><span class="hs-identifier">failureInfo_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResourceTagMapping</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html#ResourceTagMapping"><span class="hs-identifier">ResourceTagMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html#newResourceTagMapping"><span class="hs-identifier">newResourceTagMapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html#resourceTagMapping_complianceDetails"><span class="hs-identifier">resourceTagMapping_complianceDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html#resourceTagMapping_resourceARN"><span class="hs-identifier">resourceTagMapping_resourceARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html#resourceTagMapping_tags"><span class="hs-identifier">resourceTagMapping_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Summary</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier">Summary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#newSummary"><span class="hs-identifier">newSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#summary_targetId"><span class="hs-identifier">summary_targetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#summary_lastUpdated"><span class="hs-identifier">summary_lastUpdated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#summary_resourceType"><span class="hs-identifier">summary_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#summary_nonCompliantResources"><span class="hs-identifier">summary_nonCompliantResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#summary_targetIdType"><span class="hs-identifier">summary_targetIdType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#summary_region"><span class="hs-identifier">summary_region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TagFilter</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TagFilter.html#newTagFilter"><span class="hs-identifier">newTagFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier">tagFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier">tagFilter_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.ComplianceDetails</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.FailureInfo.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.FailureInfo</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.GroupByAttribute</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.Summary</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Tag.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.Tag</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TagFilter.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.TagFilter</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.TargetIdType.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types.TargetIdType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | API version @2017-01-26@ of the Amazon Resource Groups Tagging API SDK configuration.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-97"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;ResourceGroupsTagging&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;tagging&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;tagging&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2017-01-26&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;ResourceGroupsTagging&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679157036"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>    </span><span id="local-6989586621679157036"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679157036"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679157030"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>    </span><span id="local-6989586621679157030"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679157030"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679157029"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679157029"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | This error indicates one of the following:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   A parameter is missing.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   A malformed string was supplied for the request parameter.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- -   An out-of-range value was supplied for the request parameter.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   The target ID is invalid, unsupported, or doesn\'t exist.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   You can\'t access the Amazon S3 bucket for report storage. For more</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report Additional Requirements for Organization-wide Tag Compliance Reports&gt;</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     in the /AWS Organizations User Guide./</span><span>
+</span><span id="line-181"></span><span id="local-6989586621679157024"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_InvalidParameterException"><span class="hs-identifier hs-type">_InvalidParameterException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679157024"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679157024"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-182"></span><span id="_InvalidParameterException"><span class="annot"><span class="annottext">_InvalidParameterException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#_InvalidParameterException"><span class="hs-identifier hs-var hs-var">_InvalidParameterException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidParameterException&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The request was denied because performing this operation violates a</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- constraint.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Some of the reasons in the following list might not apply to this</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- specific operation.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   You must meet the prerequisites for using tag policies. For</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html Prerequisites and Permissions for Using Tag Policies&gt;</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     in the /AWS Organizations User Guide./</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   You must enable the tag policies service principal</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     (@tagpolicies.tag.amazonaws.com@) to integrate with AWS</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     Organizations For information, see</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html EnableAWSServiceAccess&gt;.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   You must have a tag policy attached to the organization root, an OU,</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     or an account.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679157022"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_ConstraintViolationException"><span class="hs-identifier hs-type">_ConstraintViolationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679157022"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679157022"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-206"></span><span id="_ConstraintViolationException"><span class="annot"><span class="annottext">_ConstraintViolationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#_ConstraintViolationException"><span class="hs-identifier hs-var hs-var">_ConstraintViolationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConstraintViolationException&quot;</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The request was denied to limit the frequency of submitted requests.</span><span>
+</span><span id="line-212"></span><span id="local-6989586621679157021"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_ThrottledException"><span class="hs-identifier hs-type">_ThrottledException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679157021"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679157021"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-213"></span><span id="_ThrottledException"><span class="annot"><span class="annottext">_ThrottledException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#_ThrottledException"><span class="hs-identifier hs-var hs-var">_ThrottledException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | A @PaginationToken@ is valid for a maximum of 15 minutes. Your request</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- was denied because the specified @PaginationToken@ has expired.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621679157020"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_PaginationTokenExpiredException"><span class="hs-identifier hs-type">_PaginationTokenExpiredException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679157020"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679157020"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-221"></span><span id="_PaginationTokenExpiredException"><span class="annot"><span class="annottext">_PaginationTokenExpiredException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#_PaginationTokenExpiredException"><span class="hs-identifier hs-var hs-var">_PaginationTokenExpiredException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;PaginationTokenExpiredException&quot;</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The target of the operation is currently being modified by a different</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- request. Try again later.</span><span>
+</span><span id="line-228"></span><span id="local-6989586621679157019"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_ConcurrentModificationException"><span class="hs-identifier hs-type">_ConcurrentModificationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679157019"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679157019"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-229"></span><span id="_ConcurrentModificationException"><span class="annot"><span class="annottext">_ConcurrentModificationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#_ConcurrentModificationException"><span class="hs-identifier hs-var hs-var">_ConcurrentModificationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConcurrentModificationException&quot;</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The request processing failed because of an unknown error, exception, or</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- failure. You can retry the request.</span><span>
+</span><span id="line-236"></span><span id="local-6989586621679157018"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html#_InternalServiceException"><span class="hs-identifier hs-type">_InternalServiceException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679157018"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679157018"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-237"></span><span id="_InternalServiceException"><span class="annot"><span class="annottext">_InternalServiceException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#_InternalServiceException"><span class="hs-identifier hs-var hs-var">_InternalServiceException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServiceException&quot;</span></span><span>
+</span><span id="line-241"></span></pre></body></html>

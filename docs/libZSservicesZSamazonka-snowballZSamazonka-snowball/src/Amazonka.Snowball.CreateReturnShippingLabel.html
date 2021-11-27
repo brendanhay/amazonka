@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Snowball.CreateReturnShippingLabel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a shipping label that will be used to return the Snow device to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- AWS.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Snowball.CreateReturnShippingLabel</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier">CreateReturnShippingLabel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#newCreateReturnShippingLabel"><span class="hs-identifier">newCreateReturnShippingLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabel_shippingOption"><span class="hs-identifier">createReturnShippingLabel_shippingOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabel_jobId"><span class="hs-identifier">createReturnShippingLabel_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier">CreateReturnShippingLabelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#newCreateReturnShippingLabelResponse"><span class="hs-identifier">newCreateReturnShippingLabelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabelResponse_status"><span class="hs-identifier">createReturnShippingLabelResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabelResponse_httpStatus"><span class="hs-identifier">createReturnShippingLabelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.html"><span class="hs-identifier">Amazonka.Snowball.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateReturnShippingLabel' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679231428"><span id="local-6989586621679231429"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateReturnShippingLabel"><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-var">CreateReturnShippingLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateReturnShippingLabel%27"><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel%27"><span class="hs-identifier hs-var">CreateReturnShippingLabel'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The shipping speed for a particular job. This speed doesn\'t dictate how</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- soon the device is returned to AWS. This speed represents how quickly it</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- moves to its destination while in transit. Regional shipping speeds are</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- as follows:</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AshippingOption%3ACreateReturnShippingLabel%27"><span class="annot"><span class="annottext">CreateReturnShippingLabel -&gt; Maybe ShippingOption
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AshippingOption%3ACreateReturnShippingLabel%27"><span class="hs-identifier hs-var hs-var">shippingOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ShippingOption.html#ShippingOption"><span class="hs-identifier hs-type">ShippingOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID for a job that you want to create the return shipping label for;</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- for example, @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AjobId%3ACreateReturnShippingLabel%27"><span class="annot"><span class="annottext">CreateReturnShippingLabel -&gt; Text
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AjobId%3ACreateReturnShippingLabel%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231421"><span id="local-6989586621679231423"><span class="annot"><span class="annottext">CreateReturnShippingLabel -&gt; CreateReturnShippingLabel -&gt; Bool
+(CreateReturnShippingLabel -&gt; CreateReturnShippingLabel -&gt; Bool)
+-&gt; (CreateReturnShippingLabel -&gt; CreateReturnShippingLabel -&gt; Bool)
+-&gt; Eq CreateReturnShippingLabel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateReturnShippingLabel -&gt; CreateReturnShippingLabel -&gt; Bool
+$c/= :: CreateReturnShippingLabel -&gt; CreateReturnShippingLabel -&gt; Bool
+== :: CreateReturnShippingLabel -&gt; CreateReturnShippingLabel -&gt; Bool
+$c== :: CreateReturnShippingLabel -&gt; CreateReturnShippingLabel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231412"><span id="local-6989586621679231414"><span id="local-6989586621679231416"><span id="local-6989586621679231418"><span class="annot"><span class="annottext">ReadPrec [CreateReturnShippingLabel]
+ReadPrec CreateReturnShippingLabel
+Int -&gt; ReadS CreateReturnShippingLabel
+ReadS [CreateReturnShippingLabel]
+(Int -&gt; ReadS CreateReturnShippingLabel)
+-&gt; ReadS [CreateReturnShippingLabel]
+-&gt; ReadPrec CreateReturnShippingLabel
+-&gt; ReadPrec [CreateReturnShippingLabel]
+-&gt; Read CreateReturnShippingLabel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateReturnShippingLabel]
+$creadListPrec :: ReadPrec [CreateReturnShippingLabel]
+readPrec :: ReadPrec CreateReturnShippingLabel
+$creadPrec :: ReadPrec CreateReturnShippingLabel
+readList :: ReadS [CreateReturnShippingLabel]
+$creadList :: ReadS [CreateReturnShippingLabel]
+readsPrec :: Int -&gt; ReadS CreateReturnShippingLabel
+$creadsPrec :: Int -&gt; ReadS CreateReturnShippingLabel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231405"><span id="local-6989586621679231407"><span id="local-6989586621679231409"><span class="annot"><span class="annottext">Int -&gt; CreateReturnShippingLabel -&gt; ShowS
+[CreateReturnShippingLabel] -&gt; ShowS
+CreateReturnShippingLabel -&gt; String
+(Int -&gt; CreateReturnShippingLabel -&gt; ShowS)
+-&gt; (CreateReturnShippingLabel -&gt; String)
+-&gt; ([CreateReturnShippingLabel] -&gt; ShowS)
+-&gt; Show CreateReturnShippingLabel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateReturnShippingLabel] -&gt; ShowS
+$cshowList :: [CreateReturnShippingLabel] -&gt; ShowS
+show :: CreateReturnShippingLabel -&gt; String
+$cshow :: CreateReturnShippingLabel -&gt; String
+showsPrec :: Int -&gt; CreateReturnShippingLabel -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateReturnShippingLabel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateReturnShippingLabel -&gt; Rep CreateReturnShippingLabel x)
+-&gt; (forall x.
+    Rep CreateReturnShippingLabel x -&gt; CreateReturnShippingLabel)
+-&gt; Generic CreateReturnShippingLabel
+forall x.
+Rep CreateReturnShippingLabel x -&gt; CreateReturnShippingLabel
+forall x.
+CreateReturnShippingLabel -&gt; Rep CreateReturnShippingLabel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateReturnShippingLabel x -&gt; CreateReturnShippingLabel
+$cfrom :: forall x.
+CreateReturnShippingLabel -&gt; Rep CreateReturnShippingLabel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'CreateReturnShippingLabel' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'shippingOption', 'createReturnShippingLabel_shippingOption' - The shipping speed for a particular job. This speed doesn\'t dictate how</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- soon the device is returned to AWS. This speed represents how quickly it</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- moves to its destination while in transit. Regional shipping speeds are</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- as follows:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'jobId', 'createReturnShippingLabel_jobId' - The ID for a job that you want to create the return shipping label for;</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for example, @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#newCreateReturnShippingLabel"><span class="hs-identifier hs-type">newCreateReturnShippingLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span>
+</span><span id="line-83"></span><span id="newCreateReturnShippingLabel"><span class="annot"><span class="annottext">newCreateReturnShippingLabel :: Text -&gt; CreateReturnShippingLabel
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#newCreateReturnShippingLabel"><span class="hs-identifier hs-var hs-var">newCreateReturnShippingLabel</span></a></span></span><span> </span><span id="local-6989586621679231400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231400"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">CreateReturnShippingLabel' :: Maybe ShippingOption -&gt; Text -&gt; CreateReturnShippingLabel
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel%27"><span class="hs-identifier hs-type">CreateReturnShippingLabel'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shippingOption:CreateReturnShippingLabel' :: Maybe ShippingOption
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AshippingOption%3ACreateReturnShippingLabel%27"><span class="hs-identifier hs-var">shippingOption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe ShippingOption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:CreateReturnShippingLabel' :: Text
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AjobId%3ACreateReturnShippingLabel%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231400"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The shipping speed for a particular job. This speed doesn\'t dictate how</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- soon the device is returned to AWS. This speed represents how quickly it</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- moves to its destination while in transit. Regional shipping speeds are</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- as follows:</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabel_shippingOption"><span class="hs-identifier hs-type">createReturnShippingLabel_shippingOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ShippingOption.html#ShippingOption"><span class="hs-identifier hs-type">ShippingOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="createReturnShippingLabel_shippingOption"><span class="annot"><span class="annottext">createReturnShippingLabel_shippingOption :: (Maybe ShippingOption -&gt; f (Maybe ShippingOption))
+-&gt; CreateReturnShippingLabel -&gt; f CreateReturnShippingLabel
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabel_shippingOption"><span class="hs-identifier hs-var hs-var">createReturnShippingLabel_shippingOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReturnShippingLabel -&gt; Maybe ShippingOption)
+-&gt; (CreateReturnShippingLabel
+    -&gt; Maybe ShippingOption -&gt; CreateReturnShippingLabel)
+-&gt; Lens
+     CreateReturnShippingLabel
+     CreateReturnShippingLabel
+     (Maybe ShippingOption)
+     (Maybe ShippingOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel%27"><span class="hs-identifier hs-type">CreateReturnShippingLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231397"><span class="annot"><span class="annottext">Maybe ShippingOption
+shippingOption :: Maybe ShippingOption
+$sel:shippingOption:CreateReturnShippingLabel' :: CreateReturnShippingLabel -&gt; Maybe ShippingOption
+</span><a href="#local-6989586621679231397"><span class="hs-identifier hs-var hs-var">shippingOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShippingOption
+</span><a href="#local-6989586621679231397"><span class="hs-identifier hs-var">shippingOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231396"><span class="annot"><span class="annottext">s :: CreateReturnShippingLabel
+</span><a href="#local-6989586621679231396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel%27"><span class="hs-identifier hs-type">CreateReturnShippingLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231395"><span class="annot"><span class="annottext">Maybe ShippingOption
+</span><a href="#local-6989586621679231395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReturnShippingLabel
+</span><a href="#local-6989586621679231396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shippingOption:CreateReturnShippingLabel' :: Maybe ShippingOption
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AshippingOption%3ACreateReturnShippingLabel%27"><span class="hs-identifier hs-var">shippingOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShippingOption
+</span><a href="#local-6989586621679231395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID for a job that you want to create the return shipping label for;</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for example, @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabel_jobId"><span class="hs-identifier hs-type">createReturnShippingLabel_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="createReturnShippingLabel_jobId"><span class="annot"><span class="annottext">createReturnShippingLabel_jobId :: (Text -&gt; f Text)
+-&gt; CreateReturnShippingLabel -&gt; f CreateReturnShippingLabel
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabel_jobId"><span class="hs-identifier hs-var hs-var">createReturnShippingLabel_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReturnShippingLabel -&gt; Text)
+-&gt; (CreateReturnShippingLabel -&gt; Text -&gt; CreateReturnShippingLabel)
+-&gt; Lens
+     CreateReturnShippingLabel CreateReturnShippingLabel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel%27"><span class="hs-identifier hs-type">CreateReturnShippingLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231394"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CreateReturnShippingLabel' :: CreateReturnShippingLabel -&gt; Text
+</span><a href="#local-6989586621679231394"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231394"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231393"><span class="annot"><span class="annottext">s :: CreateReturnShippingLabel
+</span><a href="#local-6989586621679231393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel%27"><span class="hs-identifier hs-type">CreateReturnShippingLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReturnShippingLabel
+</span><a href="#local-6989586621679231393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CreateReturnShippingLabel' :: Text
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AjobId%3ACreateReturnShippingLabel%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679231388"><span class="annot"><span class="annottext">request :: CreateReturnShippingLabel -&gt; Request CreateReturnShippingLabel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateReturnShippingLabel -&gt; Request CreateReturnShippingLabel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Snowball.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679231384"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateReturnShippingLabel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateReturnShippingLabel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateReturnShippingLabel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateReturnShippingLabel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateReturnShippingLabel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231381"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231380"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231380"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231379"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe ShippingLabelStatus
+-&gt; Int -&gt; CreateReturnShippingLabelResponse
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var">CreateReturnShippingLabelResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ShippingLabelStatus
+ -&gt; Int -&gt; CreateReturnShippingLabelResponse)
+-&gt; Either String (Maybe ShippingLabelStatus)
+-&gt; Either String (Int -&gt; CreateReturnShippingLabelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ShippingLabelStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateReturnShippingLabelResponse)
+-&gt; Either String Int
+-&gt; Either String CreateReturnShippingLabelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231381"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231371"><span id="local-6989586621679231373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679231364"><span class="annot"><span class="annottext">toHeaders :: CreateReturnShippingLabel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateReturnShippingLabel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSIESnowballJobManagementService.CreateReturnShippingLabel&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231354"><span id="local-6989586621679231356"><span id="local-6989586621679231358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679231352"><span class="annot"><span class="annottext">toJSON :: CreateReturnShippingLabel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel%27"><span class="hs-identifier hs-type">CreateReturnShippingLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231349"><span id="local-6989586621679231350"><span class="annot"><span class="annottext">Maybe ShippingOption
+Text
+jobId :: Text
+shippingOption :: Maybe ShippingOption
+$sel:jobId:CreateReturnShippingLabel' :: CreateReturnShippingLabel -&gt; Text
+$sel:shippingOption:CreateReturnShippingLabel' :: CreateReturnShippingLabel -&gt; Maybe ShippingOption
+</span><a href="#local-6989586621679231349"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShippingOption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ShippingOption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(ShippingOption -&gt; Pair) -&gt; Maybe ShippingOption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ShippingOption
+</span><a href="#local-6989586621679231350"><span class="hs-identifier hs-var">shippingOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231349"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679231343"><span class="annot"><span class="annottext">toPath :: CreateReturnShippingLabel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateReturnShippingLabel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabel"><span class="hs-identifier hs-type">CreateReturnShippingLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679231339"><span class="annot"><span class="annottext">toQuery :: CreateReturnShippingLabel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateReturnShippingLabel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newCreateReturnShippingLabelResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679231336"><span id="local-6989586621679231337"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateReturnShippingLabelResponse"><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-var">CreateReturnShippingLabelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateReturnShippingLabelResponse%27"><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var">CreateReturnShippingLabelResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status information of the task on a Snow device that is being</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- returned to AWS.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3Astatus%3ACreateReturnShippingLabelResponse%27"><span class="annot"><span class="annottext">CreateReturnShippingLabelResponse -&gt; Maybe ShippingLabelStatus
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3Astatus%3ACreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ShippingLabelStatus.html#ShippingLabelStatus"><span class="hs-identifier hs-type">ShippingLabelStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateReturnShippingLabelResponse%27"><span class="annot"><span class="annottext">CreateReturnShippingLabelResponse -&gt; Int
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AhttpStatus%3ACreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231330"><span id="local-6989586621679231332"><span class="annot"><span class="annottext">CreateReturnShippingLabelResponse
+-&gt; CreateReturnShippingLabelResponse -&gt; Bool
+(CreateReturnShippingLabelResponse
+ -&gt; CreateReturnShippingLabelResponse -&gt; Bool)
+-&gt; (CreateReturnShippingLabelResponse
+    -&gt; CreateReturnShippingLabelResponse -&gt; Bool)
+-&gt; Eq CreateReturnShippingLabelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateReturnShippingLabelResponse
+-&gt; CreateReturnShippingLabelResponse -&gt; Bool
+$c/= :: CreateReturnShippingLabelResponse
+-&gt; CreateReturnShippingLabelResponse -&gt; Bool
+== :: CreateReturnShippingLabelResponse
+-&gt; CreateReturnShippingLabelResponse -&gt; Bool
+$c== :: CreateReturnShippingLabelResponse
+-&gt; CreateReturnShippingLabelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231322"><span id="local-6989586621679231324"><span id="local-6989586621679231326"><span id="local-6989586621679231328"><span class="annot"><span class="annottext">ReadPrec [CreateReturnShippingLabelResponse]
+ReadPrec CreateReturnShippingLabelResponse
+Int -&gt; ReadS CreateReturnShippingLabelResponse
+ReadS [CreateReturnShippingLabelResponse]
+(Int -&gt; ReadS CreateReturnShippingLabelResponse)
+-&gt; ReadS [CreateReturnShippingLabelResponse]
+-&gt; ReadPrec CreateReturnShippingLabelResponse
+-&gt; ReadPrec [CreateReturnShippingLabelResponse]
+-&gt; Read CreateReturnShippingLabelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateReturnShippingLabelResponse]
+$creadListPrec :: ReadPrec [CreateReturnShippingLabelResponse]
+readPrec :: ReadPrec CreateReturnShippingLabelResponse
+$creadPrec :: ReadPrec CreateReturnShippingLabelResponse
+readList :: ReadS [CreateReturnShippingLabelResponse]
+$creadList :: ReadS [CreateReturnShippingLabelResponse]
+readsPrec :: Int -&gt; ReadS CreateReturnShippingLabelResponse
+$creadsPrec :: Int -&gt; ReadS CreateReturnShippingLabelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231316"><span id="local-6989586621679231318"><span id="local-6989586621679231320"><span class="annot"><span class="annottext">Int -&gt; CreateReturnShippingLabelResponse -&gt; ShowS
+[CreateReturnShippingLabelResponse] -&gt; ShowS
+CreateReturnShippingLabelResponse -&gt; String
+(Int -&gt; CreateReturnShippingLabelResponse -&gt; ShowS)
+-&gt; (CreateReturnShippingLabelResponse -&gt; String)
+-&gt; ([CreateReturnShippingLabelResponse] -&gt; ShowS)
+-&gt; Show CreateReturnShippingLabelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateReturnShippingLabelResponse] -&gt; ShowS
+$cshowList :: [CreateReturnShippingLabelResponse] -&gt; ShowS
+show :: CreateReturnShippingLabelResponse -&gt; String
+$cshow :: CreateReturnShippingLabelResponse -&gt; String
+showsPrec :: Int -&gt; CreateReturnShippingLabelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateReturnShippingLabelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateReturnShippingLabelResponse
+ -&gt; Rep CreateReturnShippingLabelResponse x)
+-&gt; (forall x.
+    Rep CreateReturnShippingLabelResponse x
+    -&gt; CreateReturnShippingLabelResponse)
+-&gt; Generic CreateReturnShippingLabelResponse
+forall x.
+Rep CreateReturnShippingLabelResponse x
+-&gt; CreateReturnShippingLabelResponse
+forall x.
+CreateReturnShippingLabelResponse
+-&gt; Rep CreateReturnShippingLabelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateReturnShippingLabelResponse x
+-&gt; CreateReturnShippingLabelResponse
+$cfrom :: forall x.
+CreateReturnShippingLabelResponse
+-&gt; Rep CreateReturnShippingLabelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'CreateReturnShippingLabelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'status', 'createReturnShippingLabelResponse_status' - The status information of the task on a Snow device that is being</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- returned to AWS.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'createReturnShippingLabelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#newCreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">newCreateReturnShippingLabelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newCreateReturnShippingLabelResponse"><span class="annot"><span class="annottext">newCreateReturnShippingLabelResponse :: Int -&gt; CreateReturnShippingLabelResponse
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#newCreateReturnShippingLabelResponse"><span class="hs-identifier hs-var hs-var">newCreateReturnShippingLabelResponse</span></a></span></span><span> </span><span id="local-6989586621679231313"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231313"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">CreateReturnShippingLabelResponse' :: Maybe ShippingLabelStatus
+-&gt; Int -&gt; CreateReturnShippingLabelResponse
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CreateReturnShippingLabelResponse' :: Maybe ShippingLabelStatus
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3Astatus%3ACreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe ShippingLabelStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateReturnShippingLabelResponse' :: Int
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AhttpStatus%3ACreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231313"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The status information of the task on a Snow device that is being</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- returned to AWS.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabelResponse_status"><span class="hs-identifier hs-type">createReturnShippingLabelResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ShippingLabelStatus.html#ShippingLabelStatus"><span class="hs-identifier hs-type">ShippingLabelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="createReturnShippingLabelResponse_status"><span class="annot"><span class="annottext">createReturnShippingLabelResponse_status :: (Maybe ShippingLabelStatus -&gt; f (Maybe ShippingLabelStatus))
+-&gt; CreateReturnShippingLabelResponse
+-&gt; f CreateReturnShippingLabelResponse
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabelResponse_status"><span class="hs-identifier hs-var hs-var">createReturnShippingLabelResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReturnShippingLabelResponse -&gt; Maybe ShippingLabelStatus)
+-&gt; (CreateReturnShippingLabelResponse
+    -&gt; Maybe ShippingLabelStatus -&gt; CreateReturnShippingLabelResponse)
+-&gt; Lens
+     CreateReturnShippingLabelResponse
+     CreateReturnShippingLabelResponse
+     (Maybe ShippingLabelStatus)
+     (Maybe ShippingLabelStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231312"><span class="annot"><span class="annottext">Maybe ShippingLabelStatus
+status :: Maybe ShippingLabelStatus
+$sel:status:CreateReturnShippingLabelResponse' :: CreateReturnShippingLabelResponse -&gt; Maybe ShippingLabelStatus
+</span><a href="#local-6989586621679231312"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShippingLabelStatus
+</span><a href="#local-6989586621679231312"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231311"><span class="annot"><span class="annottext">s :: CreateReturnShippingLabelResponse
+</span><a href="#local-6989586621679231311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231310"><span class="annot"><span class="annottext">Maybe ShippingLabelStatus
+</span><a href="#local-6989586621679231310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReturnShippingLabelResponse
+</span><a href="#local-6989586621679231311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateReturnShippingLabelResponse' :: Maybe ShippingLabelStatus
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3Astatus%3ACreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShippingLabelStatus
+</span><a href="#local-6989586621679231310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabelResponse_httpStatus"><span class="hs-identifier hs-type">createReturnShippingLabelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span id="createReturnShippingLabelResponse_httpStatus"><span class="annot"><span class="annottext">createReturnShippingLabelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateReturnShippingLabelResponse
+-&gt; f CreateReturnShippingLabelResponse
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#createReturnShippingLabelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createReturnShippingLabelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReturnShippingLabelResponse -&gt; Int)
+-&gt; (CreateReturnShippingLabelResponse
+    -&gt; Int -&gt; CreateReturnShippingLabelResponse)
+-&gt; Lens
+     CreateReturnShippingLabelResponse
+     CreateReturnShippingLabelResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231309"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateReturnShippingLabelResponse' :: CreateReturnShippingLabelResponse -&gt; Int
+</span><a href="#local-6989586621679231309"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231309"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231308"><span class="annot"><span class="annottext">s :: CreateReturnShippingLabelResponse
+</span><a href="#local-6989586621679231308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReturnShippingLabelResponse
+</span><a href="#local-6989586621679231308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateReturnShippingLabelResponse' :: Int
+</span><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#%24sel%3AhttpStatus%3ACreateReturnShippingLabelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679231305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CreateReturnShippingLabel.html#CreateReturnShippingLabelResponse"><span class="hs-identifier hs-type">CreateReturnShippingLabelResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

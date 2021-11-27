@@ -1,0 +1,760 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.DescribeTapeArchives</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a description of specified virtual tapes in the virtual tape</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- shelf (VTS). This operation is only supported in the tape gateway type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If a specific @TapeARN@ is not specified, Storage Gateway returns a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- description of all virtual tapes found in the VTS associated with your</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.DescribeTapeArchives</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier">DescribeTapeArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#newDescribeTapeArchives"><span class="hs-identifier">newDescribeTapeArchives</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_marker"><span class="hs-identifier">describeTapeArchives_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_limit"><span class="hs-identifier">describeTapeArchives_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_tapeARNs"><span class="hs-identifier">describeTapeArchives_tapeARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier">DescribeTapeArchivesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#newDescribeTapeArchivesResponse"><span class="hs-identifier">newDescribeTapeArchivesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_tapeArchives"><span class="hs-identifier">describeTapeArchivesResponse_tapeArchives</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_marker"><span class="hs-identifier">describeTapeArchivesResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_httpStatus"><span class="hs-identifier">describeTapeArchivesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.html"><span class="hs-identifier">Amazonka.StorageGateway.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | DescribeTapeArchivesInput</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newDescribeTapeArchives' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679384422"><span id="local-6989586621679384423"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTapeArchives"><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-var">DescribeTapeArchives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTapeArchives%27"><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-var">DescribeTapeArchives'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An opaque string that indicates the position at which to begin</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- describing virtual tapes.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeTapeArchives%27"><span class="annot"><span class="annottext">DescribeTapeArchives -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Amarker%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Specifies that the number of virtual tapes described be limited to the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- specified number.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeTapeArchives%27"><span class="annot"><span class="annottext">DescribeTapeArchives -&gt; Maybe Natural
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Alimit%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the virtual tapes you want to describe.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtapeARNs%3ADescribeTapeArchives%27"><span class="annot"><span class="annottext">DescribeTapeArchives -&gt; Maybe [Text]
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AtapeARNs%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var hs-var">tapeARNs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384414"><span id="local-6989586621679384416"><span class="annot"><span class="annottext">DescribeTapeArchives -&gt; DescribeTapeArchives -&gt; Bool
+(DescribeTapeArchives -&gt; DescribeTapeArchives -&gt; Bool)
+-&gt; (DescribeTapeArchives -&gt; DescribeTapeArchives -&gt; Bool)
+-&gt; Eq DescribeTapeArchives
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTapeArchives -&gt; DescribeTapeArchives -&gt; Bool
+$c/= :: DescribeTapeArchives -&gt; DescribeTapeArchives -&gt; Bool
+== :: DescribeTapeArchives -&gt; DescribeTapeArchives -&gt; Bool
+$c== :: DescribeTapeArchives -&gt; DescribeTapeArchives -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384405"><span id="local-6989586621679384407"><span id="local-6989586621679384409"><span id="local-6989586621679384411"><span class="annot"><span class="annottext">ReadPrec [DescribeTapeArchives]
+ReadPrec DescribeTapeArchives
+Int -&gt; ReadS DescribeTapeArchives
+ReadS [DescribeTapeArchives]
+(Int -&gt; ReadS DescribeTapeArchives)
+-&gt; ReadS [DescribeTapeArchives]
+-&gt; ReadPrec DescribeTapeArchives
+-&gt; ReadPrec [DescribeTapeArchives]
+-&gt; Read DescribeTapeArchives
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTapeArchives]
+$creadListPrec :: ReadPrec [DescribeTapeArchives]
+readPrec :: ReadPrec DescribeTapeArchives
+$creadPrec :: ReadPrec DescribeTapeArchives
+readList :: ReadS [DescribeTapeArchives]
+$creadList :: ReadS [DescribeTapeArchives]
+readsPrec :: Int -&gt; ReadS DescribeTapeArchives
+$creadsPrec :: Int -&gt; ReadS DescribeTapeArchives
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384398"><span id="local-6989586621679384400"><span id="local-6989586621679384402"><span class="annot"><span class="annottext">Int -&gt; DescribeTapeArchives -&gt; ShowS
+[DescribeTapeArchives] -&gt; ShowS
+DescribeTapeArchives -&gt; String
+(Int -&gt; DescribeTapeArchives -&gt; ShowS)
+-&gt; (DescribeTapeArchives -&gt; String)
+-&gt; ([DescribeTapeArchives] -&gt; ShowS)
+-&gt; Show DescribeTapeArchives
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTapeArchives] -&gt; ShowS
+$cshowList :: [DescribeTapeArchives] -&gt; ShowS
+show :: DescribeTapeArchives -&gt; String
+$cshow :: DescribeTapeArchives -&gt; String
+showsPrec :: Int -&gt; DescribeTapeArchives -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTapeArchives -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeTapeArchives -&gt; Rep DescribeTapeArchives x)
+-&gt; (forall x. Rep DescribeTapeArchives x -&gt; DescribeTapeArchives)
+-&gt; Generic DescribeTapeArchives
+forall x. Rep DescribeTapeArchives x -&gt; DescribeTapeArchives
+forall x. DescribeTapeArchives -&gt; Rep DescribeTapeArchives x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeTapeArchives x -&gt; DescribeTapeArchives
+$cfrom :: forall x. DescribeTapeArchives -&gt; Rep DescribeTapeArchives x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'DescribeTapeArchives' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'marker', 'describeTapeArchives_marker' - An opaque string that indicates the position at which to begin</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- describing virtual tapes.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'limit', 'describeTapeArchives_limit' - Specifies that the number of virtual tapes described be limited to the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- specified number.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tapeARNs', 'describeTapeArchives_tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the virtual tapes you want to describe.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#newDescribeTapeArchives"><span class="hs-identifier hs-type">newDescribeTapeArchives</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span>
+</span><span id="line-93"></span><span id="newDescribeTapeArchives"><span class="annot"><span class="annottext">newDescribeTapeArchives :: DescribeTapeArchives
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#newDescribeTapeArchives"><span class="hs-identifier hs-var hs-var">newDescribeTapeArchives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">DescribeTapeArchives' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe [Text] -&gt; DescribeTapeArchives
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeTapeArchives' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Amarker%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeTapeArchives' :: Maybe Natural
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Alimit%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:tapeARNs:DescribeTapeArchives' :: Maybe [Text]
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AtapeARNs%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var">tapeARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | An opaque string that indicates the position at which to begin</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- describing virtual tapes.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_marker"><span class="hs-identifier hs-type">describeTapeArchives_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="describeTapeArchives_marker"><span class="annot"><span class="annottext">describeTapeArchives_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTapeArchives -&gt; f DescribeTapeArchives
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_marker"><span class="hs-identifier hs-var hs-var">describeTapeArchives_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTapeArchives -&gt; Maybe Text)
+-&gt; (DescribeTapeArchives -&gt; Maybe Text -&gt; DescribeTapeArchives)
+-&gt; Lens
+     DescribeTapeArchives DescribeTapeArchives (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384392"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeTapeArchives' :: DescribeTapeArchives -&gt; Maybe Text
+</span><a href="#local-6989586621679384392"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384392"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384391"><span class="annot"><span class="annottext">s :: DescribeTapeArchives
+</span><a href="#local-6989586621679384391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTapeArchives
+</span><a href="#local-6989586621679384391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeTapeArchives' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Amarker%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Specifies that the number of virtual tapes described be limited to the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- specified number.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_limit"><span class="hs-identifier hs-type">describeTapeArchives_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="describeTapeArchives_limit"><span class="annot"><span class="annottext">describeTapeArchives_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeTapeArchives -&gt; f DescribeTapeArchives
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_limit"><span class="hs-identifier hs-var hs-var">describeTapeArchives_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTapeArchives -&gt; Maybe Natural)
+-&gt; (DescribeTapeArchives -&gt; Maybe Natural -&gt; DescribeTapeArchives)
+-&gt; Lens
+     DescribeTapeArchives
+     DescribeTapeArchives
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384389"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeTapeArchives' :: DescribeTapeArchives -&gt; Maybe Natural
+</span><a href="#local-6989586621679384389"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679384389"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384388"><span class="annot"><span class="annottext">s :: DescribeTapeArchives
+</span><a href="#local-6989586621679384388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384387"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679384387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTapeArchives
+</span><a href="#local-6989586621679384388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeTapeArchives' :: Maybe Natural
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Alimit%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679384387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the virtual tapes you want to describe.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_tapeARNs"><span class="hs-identifier hs-type">describeTapeArchives_tapeARNs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="describeTapeArchives_tapeARNs"><span class="annot"><span class="annottext">describeTapeArchives_tapeARNs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTapeArchives -&gt; f DescribeTapeArchives
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_tapeARNs"><span class="hs-identifier hs-var hs-var">describeTapeArchives_tapeARNs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTapeArchives -&gt; Maybe [Text])
+-&gt; (DescribeTapeArchives -&gt; Maybe [Text] -&gt; DescribeTapeArchives)
+-&gt; Lens
+     DescribeTapeArchives
+     DescribeTapeArchives
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384386"><span class="annot"><span class="annottext">Maybe [Text]
+tapeARNs :: Maybe [Text]
+$sel:tapeARNs:DescribeTapeArchives' :: DescribeTapeArchives -&gt; Maybe [Text]
+</span><a href="#local-6989586621679384386"><span class="hs-identifier hs-var hs-var">tapeARNs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679384386"><span class="hs-identifier hs-var">tapeARNs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384385"><span class="annot"><span class="annottext">s :: DescribeTapeArchives
+</span><a href="#local-6989586621679384385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384384"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679384384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTapeArchives
+</span><a href="#local-6989586621679384385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeARNs:DescribeTapeArchives' :: Maybe [Text]
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AtapeARNs%3ADescribeTapeArchives%27"><span class="hs-identifier hs-var">tapeARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679384384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeTapeArchives -&gt; f DescribeTapeArchives)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTapeArchives
+-&gt; f DescribeTapeArchives
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679384377"><span class="annot"><span class="annottext">page :: DescribeTapeArchives
+-&gt; AWSResponse DescribeTapeArchives -&gt; Maybe DescribeTapeArchives
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679384375"><span class="annot"><span class="annottext">DescribeTapeArchives
+</span><a href="#local-6989586621679384375"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679384374"><span class="annot"><span class="annottext">AWSResponse DescribeTapeArchives
+</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTapeArchives
+DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">DescribeTapeArchivesResponse
+-&gt; Getting (First Text) DescribeTapeArchivesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeTapeArchivesResponse
+-&gt; Const (First Text) DescribeTapeArchivesResponse
+Lens' DescribeTapeArchivesResponse (Maybe Text)
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_marker"><span class="hs-identifier hs-var">describeTapeArchivesResponse_marker</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeTapeArchivesResponse
+ -&gt; Const (First Text) DescribeTapeArchivesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeTapeArchivesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeTapeArchives
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [TapeArchive] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTapeArchives
+DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">DescribeTapeArchivesResponse
+-&gt; Getting
+     (First [TapeArchive]) DescribeTapeArchivesResponse [TapeArchive]
+-&gt; Maybe [TapeArchive]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [TapeArchive]
+ -&gt; Const (First [TapeArchive]) (Maybe [TapeArchive]))
+-&gt; DescribeTapeArchivesResponse
+-&gt; Const (First [TapeArchive]) DescribeTapeArchivesResponse
+Lens' DescribeTapeArchivesResponse (Maybe [TapeArchive])
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_tapeArchives"><span class="hs-identifier hs-var">describeTapeArchivesResponse_tapeArchives</span></a></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [TapeArchive]
+  -&gt; Const (First [TapeArchive]) (Maybe [TapeArchive]))
+ -&gt; DescribeTapeArchivesResponse
+ -&gt; Const (First [TapeArchive]) DescribeTapeArchivesResponse)
+-&gt; (([TapeArchive] -&gt; Const (First [TapeArchive]) [TapeArchive])
+    -&gt; Maybe [TapeArchive]
+    -&gt; Const (First [TapeArchive]) (Maybe [TapeArchive]))
+-&gt; Getting
+     (First [TapeArchive]) DescribeTapeArchivesResponse [TapeArchive]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TapeArchive] -&gt; Const (First [TapeArchive]) [TapeArchive])
+-&gt; Maybe [TapeArchive]
+-&gt; Const (First [TapeArchive]) (Maybe [TapeArchive])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeTapeArchives
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">DescribeTapeArchives -&gt; Maybe DescribeTapeArchives
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeTapeArchives -&gt; Maybe DescribeTapeArchives)
+-&gt; DescribeTapeArchives -&gt; Maybe DescribeTapeArchives
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">DescribeTapeArchives
+</span><a href="#local-6989586621679384375"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">DescribeTapeArchives
+-&gt; (DescribeTapeArchives -&gt; DescribeTapeArchives)
+-&gt; DescribeTapeArchives
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeTapeArchives -&gt; Identity DescribeTapeArchives
+Lens
+  DescribeTapeArchives DescribeTapeArchives (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchives_marker"><span class="hs-identifier hs-var">describeTapeArchives_marker</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeTapeArchives -&gt; Identity DescribeTapeArchives)
+-&gt; Maybe Text -&gt; DescribeTapeArchives -&gt; DescribeTapeArchives
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTapeArchives
+DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">DescribeTapeArchivesResponse
+-&gt; Getting (First Text) DescribeTapeArchivesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeTapeArchivesResponse
+-&gt; Const (First Text) DescribeTapeArchivesResponse
+Lens' DescribeTapeArchivesResponse (Maybe Text)
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_marker"><span class="hs-identifier hs-var">describeTapeArchivesResponse_marker</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeTapeArchivesResponse
+ -&gt; Const (First Text) DescribeTapeArchivesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeTapeArchivesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679384365"><span class="annot"><span class="annottext">request :: DescribeTapeArchives -&gt; Request DescribeTapeArchives
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTapeArchives -&gt; Request DescribeTapeArchives
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679384361"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeTapeArchives
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTapeArchives)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeTapeArchives))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeTapeArchives
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTapeArchives)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384358"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384357"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384357"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384356"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TapeArchive]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeTapeArchivesResponse
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">DescribeTapeArchivesResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TapeArchive]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeTapeArchivesResponse)
+-&gt; Either String (Maybe [TapeArchive])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeTapeArchivesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TapeArchive]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TapeArchives&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TapeArchive]))
+-&gt; Maybe [TapeArchive] -&gt; Either String (Maybe [TapeArchive])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TapeArchive]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeTapeArchivesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeTapeArchivesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeTapeArchivesResponse)
+-&gt; Either String Int -&gt; Either String DescribeTapeArchivesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384358"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384347"><span id="local-6989586621679384349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679384340"><span class="annot"><span class="annottext">toHeaders :: DescribeTapeArchives -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTapeArchives -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.DescribeTapeArchives&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384330"><span id="local-6989586621679384332"><span id="local-6989586621679384334"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679384328"><span class="annot"><span class="annottext">toJSON :: DescribeTapeArchives -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives%27"><span class="hs-identifier hs-type">DescribeTapeArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384324"><span id="local-6989586621679384325"><span id="local-6989586621679384326"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+tapeARNs :: Maybe [Text]
+limit :: Maybe Natural
+marker :: Maybe Text
+$sel:tapeARNs:DescribeTapeArchives' :: DescribeTapeArchives -&gt; Maybe [Text]
+$sel:limit:DescribeTapeArchives' :: DescribeTapeArchives -&gt; Maybe Natural
+$sel:marker:DescribeTapeArchives' :: DescribeTapeArchives -&gt; Maybe Text
+</span><a href="#local-6989586621679384324"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384326"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679384325"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TapeARNs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679384324"><span class="hs-identifier hs-var">tapeARNs</span></a></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679384318"><span class="annot"><span class="annottext">toPath :: DescribeTapeArchives -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTapeArchives -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchives"><span class="hs-identifier hs-type">DescribeTapeArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679384314"><span class="annot"><span class="annottext">toQuery :: DescribeTapeArchives -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTapeArchives -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | DescribeTapeArchivesOutput</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- /See:/ 'newDescribeTapeArchivesResponse' smart constructor.</span><span>
+</span><span id="line-189"></span><span id="local-6989586621679384311"><span id="local-6989586621679384312"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTapeArchivesResponse"><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-var">DescribeTapeArchivesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTapeArchivesResponse%27"><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">DescribeTapeArchivesResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of virtual tape objects in the virtual tape shelf (VTS). The</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- description includes of the Amazon Resource Name (ARN) of the virtual</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- tapes. The information returned includes the Amazon Resource Names</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- the description, and tape barcode.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AtapeArchives%3ADescribeTapeArchivesResponse%27"><span class="annot"><span class="annottext">DescribeTapeArchivesResponse -&gt; Maybe [TapeArchive]
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AtapeArchives%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var hs-var">tapeArchives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.TapeArchive.html#TapeArchive"><span class="hs-identifier hs-type">TapeArchive</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | An opaque string that indicates the position at which the virtual tapes</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- that were fetched for description ended. Use this marker in your next</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- request to fetch the next set of virtual tapes in the virtual tape shelf</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- (VTS). If there are no more virtual tapes to describe, this field does</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- not appear in the response.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeTapeArchivesResponse%27"><span class="annot"><span class="annottext">DescribeTapeArchivesResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Amarker%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTapeArchivesResponse%27"><span class="annot"><span class="annottext">DescribeTapeArchivesResponse -&gt; Int
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AhttpStatus%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384304"><span id="local-6989586621679384306"><span class="annot"><span class="annottext">DescribeTapeArchivesResponse
+-&gt; DescribeTapeArchivesResponse -&gt; Bool
+(DescribeTapeArchivesResponse
+ -&gt; DescribeTapeArchivesResponse -&gt; Bool)
+-&gt; (DescribeTapeArchivesResponse
+    -&gt; DescribeTapeArchivesResponse -&gt; Bool)
+-&gt; Eq DescribeTapeArchivesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTapeArchivesResponse
+-&gt; DescribeTapeArchivesResponse -&gt; Bool
+$c/= :: DescribeTapeArchivesResponse
+-&gt; DescribeTapeArchivesResponse -&gt; Bool
+== :: DescribeTapeArchivesResponse
+-&gt; DescribeTapeArchivesResponse -&gt; Bool
+$c== :: DescribeTapeArchivesResponse
+-&gt; DescribeTapeArchivesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384296"><span id="local-6989586621679384298"><span id="local-6989586621679384300"><span id="local-6989586621679384302"><span class="annot"><span class="annottext">ReadPrec [DescribeTapeArchivesResponse]
+ReadPrec DescribeTapeArchivesResponse
+Int -&gt; ReadS DescribeTapeArchivesResponse
+ReadS [DescribeTapeArchivesResponse]
+(Int -&gt; ReadS DescribeTapeArchivesResponse)
+-&gt; ReadS [DescribeTapeArchivesResponse]
+-&gt; ReadPrec DescribeTapeArchivesResponse
+-&gt; ReadPrec [DescribeTapeArchivesResponse]
+-&gt; Read DescribeTapeArchivesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTapeArchivesResponse]
+$creadListPrec :: ReadPrec [DescribeTapeArchivesResponse]
+readPrec :: ReadPrec DescribeTapeArchivesResponse
+$creadPrec :: ReadPrec DescribeTapeArchivesResponse
+readList :: ReadS [DescribeTapeArchivesResponse]
+$creadList :: ReadS [DescribeTapeArchivesResponse]
+readsPrec :: Int -&gt; ReadS DescribeTapeArchivesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeTapeArchivesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384290"><span id="local-6989586621679384292"><span id="local-6989586621679384294"><span class="annot"><span class="annottext">Int -&gt; DescribeTapeArchivesResponse -&gt; ShowS
+[DescribeTapeArchivesResponse] -&gt; ShowS
+DescribeTapeArchivesResponse -&gt; String
+(Int -&gt; DescribeTapeArchivesResponse -&gt; ShowS)
+-&gt; (DescribeTapeArchivesResponse -&gt; String)
+-&gt; ([DescribeTapeArchivesResponse] -&gt; ShowS)
+-&gt; Show DescribeTapeArchivesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTapeArchivesResponse] -&gt; ShowS
+$cshowList :: [DescribeTapeArchivesResponse] -&gt; ShowS
+show :: DescribeTapeArchivesResponse -&gt; String
+$cshow :: DescribeTapeArchivesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeTapeArchivesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTapeArchivesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeTapeArchivesResponse -&gt; Rep DescribeTapeArchivesResponse x)
+-&gt; (forall x.
+    Rep DescribeTapeArchivesResponse x -&gt; DescribeTapeArchivesResponse)
+-&gt; Generic DescribeTapeArchivesResponse
+forall x.
+Rep DescribeTapeArchivesResponse x -&gt; DescribeTapeArchivesResponse
+forall x.
+DescribeTapeArchivesResponse -&gt; Rep DescribeTapeArchivesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeTapeArchivesResponse x -&gt; DescribeTapeArchivesResponse
+$cfrom :: forall x.
+DescribeTapeArchivesResponse -&gt; Rep DescribeTapeArchivesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Create a value of 'DescribeTapeArchivesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'tapeArchives', 'describeTapeArchivesResponse_tapeArchives' - An array of virtual tape objects in the virtual tape shelf (VTS). The</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- description includes of the Amazon Resource Name (ARN) of the virtual</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- tapes. The information returned includes the Amazon Resource Names</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- the description, and tape barcode.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'marker', 'describeTapeArchivesResponse_marker' - An opaque string that indicates the position at which the virtual tapes</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- that were fetched for description ended. Use this marker in your next</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- request to fetch the next set of virtual tapes in the virtual tape shelf</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- (VTS). If there are no more virtual tapes to describe, this field does</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- not appear in the response.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'describeTapeArchivesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#newDescribeTapeArchivesResponse"><span class="hs-identifier hs-type">newDescribeTapeArchivesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span>
+</span><span id="line-232"></span><span id="newDescribeTapeArchivesResponse"><span class="annot"><span class="annottext">newDescribeTapeArchivesResponse :: Int -&gt; DescribeTapeArchivesResponse
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#newDescribeTapeArchivesResponse"><span class="hs-identifier hs-var hs-var">newDescribeTapeArchivesResponse</span></a></span></span><span> </span><span id="local-6989586621679384287"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">DescribeTapeArchivesResponse' :: Maybe [TapeArchive]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeTapeArchivesResponse
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tapeArchives:DescribeTapeArchivesResponse' :: Maybe [TapeArchive]
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AtapeArchives%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">tapeArchives</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe [TapeArchive]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeTapeArchivesResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Amarker%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTapeArchivesResponse' :: Int
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AhttpStatus%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | An array of virtual tape objects in the virtual tape shelf (VTS). The</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- description includes of the Amazon Resource Name (ARN) of the virtual</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- tapes. The information returned includes the Amazon Resource Names</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- the description, and tape barcode.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_tapeArchives"><span class="hs-identifier hs-type">describeTapeArchivesResponse_tapeArchives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.TapeArchive.html#TapeArchive"><span class="hs-identifier hs-type">TapeArchive</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="describeTapeArchivesResponse_tapeArchives"><span class="annot"><span class="annottext">describeTapeArchivesResponse_tapeArchives :: (Maybe [TapeArchive] -&gt; f (Maybe [TapeArchive]))
+-&gt; DescribeTapeArchivesResponse -&gt; f DescribeTapeArchivesResponse
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_tapeArchives"><span class="hs-identifier hs-var hs-var">describeTapeArchivesResponse_tapeArchives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTapeArchivesResponse -&gt; Maybe [TapeArchive])
+-&gt; (DescribeTapeArchivesResponse
+    -&gt; Maybe [TapeArchive] -&gt; DescribeTapeArchivesResponse)
+-&gt; Lens' DescribeTapeArchivesResponse (Maybe [TapeArchive])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384286"><span class="annot"><span class="annottext">Maybe [TapeArchive]
+tapeArchives :: Maybe [TapeArchive]
+$sel:tapeArchives:DescribeTapeArchivesResponse' :: DescribeTapeArchivesResponse -&gt; Maybe [TapeArchive]
+</span><a href="#local-6989586621679384286"><span class="hs-identifier hs-var hs-var">tapeArchives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TapeArchive]
+</span><a href="#local-6989586621679384286"><span class="hs-identifier hs-var">tapeArchives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384285"><span class="annot"><span class="annottext">s :: DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384284"><span class="annot"><span class="annottext">Maybe [TapeArchive]
+</span><a href="#local-6989586621679384284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeArchives:DescribeTapeArchivesResponse' :: Maybe [TapeArchive]
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AtapeArchives%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">tapeArchives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TapeArchive]
+</span><a href="#local-6989586621679384284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TapeArchive] -&gt; f (Maybe [TapeArchive]))
+ -&gt; DescribeTapeArchivesResponse -&gt; f DescribeTapeArchivesResponse)
+-&gt; ((Maybe [TapeArchive] -&gt; f (Maybe [TapeArchive]))
+    -&gt; Maybe [TapeArchive] -&gt; f (Maybe [TapeArchive]))
+-&gt; (Maybe [TapeArchive] -&gt; f (Maybe [TapeArchive]))
+-&gt; DescribeTapeArchivesResponse
+-&gt; f DescribeTapeArchivesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TapeArchive] [TapeArchive] [TapeArchive] [TapeArchive]
+-&gt; Iso
+     (Maybe [TapeArchive])
+     (Maybe [TapeArchive])
+     (Maybe [TapeArchive])
+     (Maybe [TapeArchive])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TapeArchive] [TapeArchive] [TapeArchive] [TapeArchive]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | An opaque string that indicates the position at which the virtual tapes</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- that were fetched for description ended. Use this marker in your next</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- request to fetch the next set of virtual tapes in the virtual tape shelf</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- (VTS). If there are no more virtual tapes to describe, this field does</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- not appear in the response.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_marker"><span class="hs-identifier hs-type">describeTapeArchivesResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="describeTapeArchivesResponse_marker"><span class="annot"><span class="annottext">describeTapeArchivesResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTapeArchivesResponse -&gt; f DescribeTapeArchivesResponse
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_marker"><span class="hs-identifier hs-var hs-var">describeTapeArchivesResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTapeArchivesResponse -&gt; Maybe Text)
+-&gt; (DescribeTapeArchivesResponse
+    -&gt; Maybe Text -&gt; DescribeTapeArchivesResponse)
+-&gt; Lens' DescribeTapeArchivesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384283"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeTapeArchivesResponse' :: DescribeTapeArchivesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679384283"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384283"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384282"><span class="annot"><span class="annottext">s :: DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeTapeArchivesResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3Amarker%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_httpStatus"><span class="hs-identifier hs-type">describeTapeArchivesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span id="describeTapeArchivesResponse_httpStatus"><span class="annot"><span class="annottext">describeTapeArchivesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeTapeArchivesResponse -&gt; f DescribeTapeArchivesResponse
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#describeTapeArchivesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeTapeArchivesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTapeArchivesResponse -&gt; Int)
+-&gt; (DescribeTapeArchivesResponse
+    -&gt; Int -&gt; DescribeTapeArchivesResponse)
+-&gt; Lens
+     DescribeTapeArchivesResponse DescribeTapeArchivesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384280"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeTapeArchivesResponse' :: DescribeTapeArchivesResponse -&gt; Int
+</span><a href="#local-6989586621679384280"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384280"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384279"><span class="annot"><span class="annottext">s :: DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse%27"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384278"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTapeArchivesResponse
+</span><a href="#local-6989586621679384279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTapeArchivesResponse' :: Int
+</span><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#%24sel%3AhttpStatus%3ADescribeTapeArchivesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeTapeArchives.html#DescribeTapeArchivesResponse"><span class="hs-identifier hs-type">DescribeTapeArchivesResponse</span></a></span></span><span>
+</span><span id="line-261"></span></pre></body></html>

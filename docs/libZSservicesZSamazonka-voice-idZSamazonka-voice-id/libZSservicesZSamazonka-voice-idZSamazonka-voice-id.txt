@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.VoiceId.Types.AuthenticationConfiguration
+module Amazonka.VoiceId.Types.AuthenticationConfiguration
 
 -- | The configuration used to authenticate a speaker during a session.
 --   
@@ -32,16 +32,16 @@ newAuthenticationConfiguration :: Natural -> AuthenticationConfiguration
 
 -- | The minimum threshold needed to successfully authenticate a speaker.
 authenticationConfiguration_acceptanceThreshold :: Lens' AuthenticationConfiguration Natural
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance GHC.Show.Show Network.AWS.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance GHC.Read.Read Network.AWS.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Show.Show Amazonka.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Read.Read Amazonka.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.AuthenticationConfiguration.AuthenticationConfiguration
 
 
-module Network.AWS.VoiceId.Types.AuthenticationDecision
+module Amazonka.VoiceId.Types.AuthenticationDecision
 newtype AuthenticationDecision
 AuthenticationDecision' :: Text -> AuthenticationDecision
 [fromAuthenticationDecision] :: AuthenticationDecision -> Text
@@ -51,28 +51,28 @@ pattern AuthenticationDecision_REJECT :: AuthenticationDecision
 pattern AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED :: AuthenticationDecision
 pattern AuthenticationDecision_SPEAKER_NOT_ENROLLED :: AuthenticationDecision
 pattern AuthenticationDecision_SPEAKER_OPTED_OUT :: AuthenticationDecision
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance GHC.Read.Read Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
-instance GHC.Show.Show Network.AWS.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance GHC.Read.Read Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
+instance GHC.Show.Show Amazonka.VoiceId.Types.AuthenticationDecision.AuthenticationDecision
 
 
-module Network.AWS.VoiceId.Types.AuthenticationResult
+module Amazonka.VoiceId.Types.AuthenticationResult
 
 -- | The authentication result produced by Voice ID, processed against the
 --   current session state and streamed audio of the speaker.
@@ -212,97 +212,97 @@ authenticationResult_generatedSpeakerId :: Lens' AuthenticationResult (Maybe Tex
 -- | A timestamp indicating when audio aggregation ended for this
 --   authentication result.
 authenticationResult_audioAggregationEndedAt :: Lens' AuthenticationResult (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.AuthenticationResult.AuthenticationResult
-instance GHC.Show.Show Network.AWS.VoiceId.Types.AuthenticationResult.AuthenticationResult
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.AuthenticationResult.AuthenticationResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.AuthenticationResult.AuthenticationResult
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.AuthenticationResult.AuthenticationResult
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.AuthenticationResult.AuthenticationResult
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.AuthenticationResult.AuthenticationResult
+instance GHC.Show.Show Amazonka.VoiceId.Types.AuthenticationResult.AuthenticationResult
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.AuthenticationResult.AuthenticationResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.AuthenticationResult.AuthenticationResult
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.AuthenticationResult.AuthenticationResult
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.AuthenticationResult.AuthenticationResult
 
 
-module Network.AWS.VoiceId.Types.DomainStatus
+module Amazonka.VoiceId.Types.DomainStatus
 newtype DomainStatus
 DomainStatus' :: Text -> DomainStatus
 [fromDomainStatus] :: DomainStatus -> Text
 pattern DomainStatus_ACTIVE :: DomainStatus
 pattern DomainStatus_PENDING :: DomainStatus
 pattern DomainStatus_SUSPENDED :: DomainStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance GHC.Read.Read Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
-instance GHC.Show.Show Network.AWS.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance GHC.Read.Read Amazonka.VoiceId.Types.DomainStatus.DomainStatus
+instance GHC.Show.Show Amazonka.VoiceId.Types.DomainStatus.DomainStatus
 
 
-module Network.AWS.VoiceId.Types.DuplicateRegistrationAction
+module Amazonka.VoiceId.Types.DuplicateRegistrationAction
 newtype DuplicateRegistrationAction
 DuplicateRegistrationAction' :: Text -> DuplicateRegistrationAction
 [fromDuplicateRegistrationAction] :: DuplicateRegistrationAction -> Text
 pattern DuplicateRegistrationAction_REGISTER_AS_NEW :: DuplicateRegistrationAction
 pattern DuplicateRegistrationAction_SKIP :: DuplicateRegistrationAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance GHC.Read.Read Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
-instance GHC.Show.Show Network.AWS.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance GHC.Read.Read Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
+instance GHC.Show.Show Amazonka.VoiceId.Types.DuplicateRegistrationAction.DuplicateRegistrationAction
 
 
-module Network.AWS.VoiceId.Types.ExistingEnrollmentAction
+module Amazonka.VoiceId.Types.ExistingEnrollmentAction
 newtype ExistingEnrollmentAction
 ExistingEnrollmentAction' :: Text -> ExistingEnrollmentAction
 [fromExistingEnrollmentAction] :: ExistingEnrollmentAction -> Text
 pattern ExistingEnrollmentAction_OVERWRITE :: ExistingEnrollmentAction
 pattern ExistingEnrollmentAction_SKIP :: ExistingEnrollmentAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance GHC.Read.Read Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
-instance GHC.Show.Show Network.AWS.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance GHC.Read.Read Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
+instance GHC.Show.Show Amazonka.VoiceId.Types.ExistingEnrollmentAction.ExistingEnrollmentAction
 
 
-module Network.AWS.VoiceId.Types.FailureDetails
+module Amazonka.VoiceId.Types.FailureDetails
 
 -- | Contains error details for a failed batch job.
 --   
@@ -338,43 +338,43 @@ failureDetails_message :: Lens' FailureDetails (Maybe Text)
 
 -- | An HTTP status code representing the nature of the error.
 failureDetails_statusCode :: Lens' FailureDetails (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FailureDetails.FailureDetails
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FailureDetails.FailureDetails
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FailureDetails.FailureDetails
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FailureDetails.FailureDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FailureDetails.FailureDetails
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FailureDetails.FailureDetails
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FailureDetails.FailureDetails
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FailureDetails.FailureDetails
+instance GHC.Show.Show Amazonka.VoiceId.Types.FailureDetails.FailureDetails
+instance GHC.Read.Read Amazonka.VoiceId.Types.FailureDetails.FailureDetails
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FailureDetails.FailureDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FailureDetails.FailureDetails
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FailureDetails.FailureDetails
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FailureDetails.FailureDetails
 
 
-module Network.AWS.VoiceId.Types.FraudDetectionAction
+module Amazonka.VoiceId.Types.FraudDetectionAction
 newtype FraudDetectionAction
 FraudDetectionAction' :: Text -> FraudDetectionAction
 [fromFraudDetectionAction] :: FraudDetectionAction -> Text
 pattern FraudDetectionAction_FAIL :: FraudDetectionAction
 pattern FraudDetectionAction_IGNORE :: FraudDetectionAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance GHC.Read.Read Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudDetectionAction.FraudDetectionAction
 
 
-module Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig
+module Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig
 
 -- | The configuration defining the action to take when a speaker is
 --   flagged by the fraud detection system during a batch speaker
@@ -435,17 +435,17 @@ enrollmentJobFraudDetectionConfig_riskThreshold :: Lens' EnrollmentJobFraudDetec
 --   the speaker being enrolled even if they are flagged by the fraud
 --   detection system.
 enrollmentJobFraudDetectionConfig_fraudDetectionAction :: Lens' EnrollmentJobFraudDetectionConfig (Maybe FraudDetectionAction)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
-instance GHC.Show.Show Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
-instance GHC.Read.Read Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance GHC.Show.Show Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance GHC.Read.Read Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig.EnrollmentJobFraudDetectionConfig
 
 
-module Network.AWS.VoiceId.Types.EnrollmentConfig
+module Amazonka.VoiceId.Types.EnrollmentConfig
 
 -- | Contains configurations defining enrollment behavior for the batch
 --   job.
@@ -499,17 +499,17 @@ enrollmentConfig_fraudDetectionConfig :: Lens' EnrollmentConfig (Maybe Enrollmen
 --   audio stored for that speaker with new data generated from the latest
 --   audio.
 enrollmentConfig_existingEnrollmentAction :: Lens' EnrollmentConfig (Maybe ExistingEnrollmentAction)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
-instance GHC.Show.Show Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
-instance GHC.Read.Read Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance GHC.Show.Show Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance GHC.Read.Read Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.EnrollmentConfig.EnrollmentConfig
 
 
-module Network.AWS.VoiceId.Types.FraudDetectionConfiguration
+module Amazonka.VoiceId.Types.FraudDetectionConfiguration
 
 -- | The configuration used for performing fraud detection over a speaker
 --   during a session.
@@ -543,70 +543,70 @@ newFraudDetectionConfiguration :: Natural -> FraudDetectionConfiguration
 --   the detected risk score calculated by Voice ID is higher than the
 --   threshold, the speaker is considered a fraudster.
 fraudDetectionConfiguration_riskThreshold :: Lens' FraudDetectionConfiguration Natural
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
+instance GHC.Read.Read Amazonka.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudDetectionConfiguration.FraudDetectionConfiguration
 
 
-module Network.AWS.VoiceId.Types.FraudDetectionDecision
+module Amazonka.VoiceId.Types.FraudDetectionDecision
 newtype FraudDetectionDecision
 FraudDetectionDecision' :: Text -> FraudDetectionDecision
 [fromFraudDetectionDecision] :: FraudDetectionDecision -> Text
 pattern FraudDetectionDecision_HIGH_RISK :: FraudDetectionDecision
 pattern FraudDetectionDecision_LOW_RISK :: FraudDetectionDecision
 pattern FraudDetectionDecision_NOT_ENOUGH_SPEECH :: FraudDetectionDecision
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance GHC.Read.Read Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudDetectionDecision.FraudDetectionDecision
 
 
-module Network.AWS.VoiceId.Types.FraudDetectionReason
+module Amazonka.VoiceId.Types.FraudDetectionReason
 newtype FraudDetectionReason
 FraudDetectionReason' :: Text -> FraudDetectionReason
 [fromFraudDetectionReason] :: FraudDetectionReason -> Text
 pattern FraudDetectionReason_KNOWN_FRAUDSTER :: FraudDetectionReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance GHC.Read.Read Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudDetectionReason.FraudDetectionReason
 
 
-module Network.AWS.VoiceId.Types.Fraudster
+module Amazonka.VoiceId.Types.Fraudster
 
 -- | Contains all the information about a fraudster.
 --   
@@ -650,16 +650,16 @@ fraudster_generatedFraudsterId :: Lens' Fraudster (Maybe Text)
 
 -- | The identifier for the domain containing the fraudster.
 fraudster_domainId :: Lens' Fraudster (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.Fraudster.Fraudster
-instance GHC.Show.Show Network.AWS.VoiceId.Types.Fraudster.Fraudster
-instance GHC.Read.Read Network.AWS.VoiceId.Types.Fraudster.Fraudster
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.Fraudster.Fraudster
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.Fraudster.Fraudster
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.Fraudster.Fraudster
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.Fraudster.Fraudster
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.Fraudster.Fraudster
+instance GHC.Show.Show Amazonka.VoiceId.Types.Fraudster.Fraudster
+instance GHC.Read.Read Amazonka.VoiceId.Types.Fraudster.Fraudster
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.Fraudster.Fraudster
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.Fraudster.Fraudster
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.Fraudster.Fraudster
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.Fraudster.Fraudster
 
 
-module Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus
+module Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus
 newtype FraudsterRegistrationJobStatus
 FraudsterRegistrationJobStatus' :: Text -> FraudsterRegistrationJobStatus
 [fromFraudsterRegistrationJobStatus] :: FraudsterRegistrationJobStatus -> Text
@@ -668,28 +668,28 @@ pattern FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS :: FraudsterRegistr
 pattern FraudsterRegistrationJobStatus_FAILED :: FraudsterRegistrationJobStatus
 pattern FraudsterRegistrationJobStatus_IN_PROGRESS :: FraudsterRegistrationJobStatus
 pattern FraudsterRegistrationJobStatus_SUBMITTED :: FraudsterRegistrationJobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance GHC.Read.Read Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus.FraudsterRegistrationJobStatus
 
 
-module Network.AWS.VoiceId.Types.InputDataConfig
+module Amazonka.VoiceId.Types.InputDataConfig
 
 -- | The configuration containing input file information for a batch job.
 --   
@@ -718,17 +718,17 @@ newInputDataConfig :: Text -> InputDataConfig
 -- | The S3 location for the input manifest file that contains the list of
 --   individual enrollment or registration job requests.
 inputDataConfig_s3Uri :: Lens' InputDataConfig Text
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
-instance GHC.Show.Show Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
-instance GHC.Read.Read Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.InputDataConfig.InputDataConfig
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
+instance GHC.Show.Show Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
+instance GHC.Read.Read Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.InputDataConfig.InputDataConfig
 
 
-module Network.AWS.VoiceId.Types.JobProgress
+module Amazonka.VoiceId.Types.JobProgress
 
 -- | Indicates the completion progress for a batch job.
 --   
@@ -756,16 +756,16 @@ newJobProgress :: JobProgress
 -- | Shows the completed percentage of enrollment or registration requests
 --   listed in the input file.
 jobProgress_percentComplete :: Lens' JobProgress (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.JobProgress.JobProgress
-instance GHC.Show.Show Network.AWS.VoiceId.Types.JobProgress.JobProgress
-instance GHC.Read.Read Network.AWS.VoiceId.Types.JobProgress.JobProgress
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.JobProgress.JobProgress
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.JobProgress.JobProgress
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.JobProgress.JobProgress
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.JobProgress.JobProgress
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.JobProgress.JobProgress
+instance GHC.Show.Show Amazonka.VoiceId.Types.JobProgress.JobProgress
+instance GHC.Read.Read Amazonka.VoiceId.Types.JobProgress.JobProgress
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.JobProgress.JobProgress
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.JobProgress.JobProgress
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.JobProgress.JobProgress
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.JobProgress.JobProgress
 
 
-module Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary
+module Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
 
 -- | Contains a summary of information about a fraudster registration job.
 --   
@@ -880,15 +880,15 @@ fraudsterRegistrationJobSummary_domainId :: Lens' FraudsterRegistrationJobSummar
 
 -- | The current status of the fraudster registration job.
 fraudsterRegistrationJobSummary_jobStatus :: Lens' FraudsterRegistrationJobSummary (Maybe FraudsterRegistrationJobStatus)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary.FraudsterRegistrationJobSummary
 
 
-module Network.AWS.VoiceId.Types.KnownFraudsterRisk
+module Amazonka.VoiceId.Types.KnownFraudsterRisk
 
 -- | Contains details produced as a result of performing known fraudster
 --   risk analysis on a speaker.
@@ -934,16 +934,16 @@ knownFraudsterRisk_generatedFraudsterId :: Lens' KnownFraudsterRisk (Maybe Text)
 
 -- | The score indicating the likelihood the speaker is a known fraudster.
 knownFraudsterRisk_riskScore :: Lens' KnownFraudsterRisk Natural
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
-instance GHC.Show.Show Network.AWS.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
-instance GHC.Read.Read Network.AWS.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
+instance GHC.Show.Show Amazonka.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
+instance GHC.Read.Read Amazonka.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.KnownFraudsterRisk.KnownFraudsterRisk
 
 
-module Network.AWS.VoiceId.Types.FraudRiskDetails
+module Amazonka.VoiceId.Types.FraudRiskDetails
 
 -- | Details regarding various fraud risk analyses performed against the
 --   current session state and streamed audio of the speaker.
@@ -973,16 +973,16 @@ newFraudRiskDetails :: KnownFraudsterRisk -> FraudRiskDetails
 -- | The details resulting from 'Known Fraudster Risk' analysis of the
 --   speaker.
 fraudRiskDetails_knownFraudsterRisk :: Lens' FraudRiskDetails KnownFraudsterRisk
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
+instance GHC.Read.Read Amazonka.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudRiskDetails.FraudRiskDetails
 
 
-module Network.AWS.VoiceId.Types.FraudDetectionResult
+module Amazonka.VoiceId.Types.FraudDetectionResult
 
 -- | The fraud detection result produced by Voice ID, processed against the
 --   current session state and streamed audio of the speaker.
@@ -1103,16 +1103,16 @@ fraudDetectionResult_audioAggregationStartedAt :: Lens' FraudDetectionResult (Ma
 -- | A timestamp indicating when audio aggregation ended for this fraud
 --   detection result.
 fraudDetectionResult_audioAggregationEndedAt :: Lens' FraudDetectionResult (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
-instance GHC.Read.Read Network.AWS.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
+instance GHC.Read.Read Amazonka.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudDetectionResult.FraudDetectionResult
 
 
-module Network.AWS.VoiceId.Types.OutputDataConfig
+module Amazonka.VoiceId.Types.OutputDataConfig
 
 -- | The configuration containing output file information for a batch job.
 --   
@@ -1166,17 +1166,17 @@ outputDataConfig_kmsKeyId :: Lens' OutputDataConfig (Maybe Text)
 --   is
 --   <tt>s3://output-bucket/output-folder/job-Id/input-file.json.out</tt>.
 outputDataConfig_s3Uri :: Lens' OutputDataConfig Text
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Show.Show Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Read.Read Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Show.Show Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Read.Read Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.OutputDataConfig.OutputDataConfig
 
 
-module Network.AWS.VoiceId.Types.RegistrationConfig
+module Amazonka.VoiceId.Types.RegistrationConfig
 
 -- | The configuration definining the action to take when a duplicate
 --   fraudster is detected, and the similarity threshold to use for
@@ -1228,17 +1228,17 @@ registrationConfig_duplicateRegistrationAction :: Lens' RegistrationConfig (Mayb
 -- | The minimum similarity score between the new and old fraudsters in
 --   order to consider the new fraudster a duplicate.
 registrationConfig_fraudsterSimilarityThreshold :: Lens' RegistrationConfig (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
-instance GHC.Show.Show Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
-instance GHC.Read.Read Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance GHC.Show.Show Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance GHC.Read.Read Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.RegistrationConfig.RegistrationConfig
 
 
-module Network.AWS.VoiceId.Types.FraudsterRegistrationJob
+module Amazonka.VoiceId.Types.FraudsterRegistrationJob
 
 -- | Contains all the information about a fraudster registration job.
 --   
@@ -1414,15 +1414,15 @@ fraudsterRegistrationJob_jobStatus :: Lens' FraudsterRegistrationJob (Maybe Frau
 --   when a duplicate fraudster is detected, and the similarity threshold
 --   to use for detecting a duplicate fraudster.
 fraudsterRegistrationJob_registrationConfig :: Lens' FraudsterRegistrationJob (Maybe RegistrationConfig)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
-instance GHC.Show.Show Network.AWS.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
+instance GHC.Show.Show Amazonka.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.FraudsterRegistrationJob.FraudsterRegistrationJob
 
 
-module Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration
+module Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
 
 -- | The configuration containing information about the customer-managed
 --   KMS Key used for encrypting customer data.
@@ -1453,17 +1453,17 @@ newServerSideEncryptionConfiguration :: Text -> ServerSideEncryptionConfiguratio
 -- | The identifier of the KMS Key you want Voice ID to use to encrypt your
 --   data.
 serverSideEncryptionConfiguration_kmsKeyId :: Lens' ServerSideEncryptionConfiguration Text
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance GHC.Show.Show Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance GHC.Read.Read Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Show.Show Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Read.Read Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
 
 
-module Network.AWS.VoiceId.Types.DomainSummary
+module Amazonka.VoiceId.Types.DomainSummary
 
 -- | Contains a summary of information about a domain.
 --   
@@ -1557,15 +1557,15 @@ domainSummary_description :: Lens' DomainSummary (Maybe Text)
 -- | The server-side encryption configuration containing the KMS Key
 --   Identifier you want Voice ID to use to encrypt your data..
 domainSummary_serverSideEncryptionConfiguration :: Lens' DomainSummary (Maybe ServerSideEncryptionConfiguration)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.DomainSummary.DomainSummary
-instance GHC.Show.Show Network.AWS.VoiceId.Types.DomainSummary.DomainSummary
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.DomainSummary.DomainSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.DomainSummary.DomainSummary
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.DomainSummary.DomainSummary
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.DomainSummary.DomainSummary
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.DomainSummary.DomainSummary
+instance GHC.Show.Show Amazonka.VoiceId.Types.DomainSummary.DomainSummary
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.DomainSummary.DomainSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.DomainSummary.DomainSummary
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.DomainSummary.DomainSummary
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.DomainSummary.DomainSummary
 
 
-module Network.AWS.VoiceId.Types.Domain
+module Amazonka.VoiceId.Types.Domain
 
 -- | Contains all the information about a domain.
 --   
@@ -1657,15 +1657,15 @@ domain_description :: Lens' Domain (Maybe Text)
 -- | The server-side encryption configuration containing the KMS Key
 --   Identifier you want Voice ID to use to encrypt your data.
 domain_serverSideEncryptionConfiguration :: Lens' Domain (Maybe ServerSideEncryptionConfiguration)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.Domain.Domain
-instance GHC.Show.Show Network.AWS.VoiceId.Types.Domain.Domain
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.Domain.Domain
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.Domain.Domain
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.Domain.Domain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.Domain.Domain
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.Domain.Domain
+instance GHC.Show.Show Amazonka.VoiceId.Types.Domain.Domain
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.Domain.Domain
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.Domain.Domain
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.Domain.Domain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.Domain.Domain
 
 
-module Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus
+module Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus
 newtype SpeakerEnrollmentJobStatus
 SpeakerEnrollmentJobStatus' :: Text -> SpeakerEnrollmentJobStatus
 [fromSpeakerEnrollmentJobStatus] :: SpeakerEnrollmentJobStatus -> Text
@@ -1674,28 +1674,28 @@ pattern SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS :: SpeakerEnrollmentJob
 pattern SpeakerEnrollmentJobStatus_FAILED :: SpeakerEnrollmentJobStatus
 pattern SpeakerEnrollmentJobStatus_IN_PROGRESS :: SpeakerEnrollmentJobStatus
 pattern SpeakerEnrollmentJobStatus_SUBMITTED :: SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance GHC.Read.Read Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
-instance GHC.Show.Show Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance GHC.Read.Read Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
+instance GHC.Show.Show Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus.SpeakerEnrollmentJobStatus
 
 
-module Network.AWS.VoiceId.Types.SpeakerEnrollmentJob
+module Amazonka.VoiceId.Types.SpeakerEnrollmentJob
 
 -- | Contains all the information about a speaker enrollment job.
 --   
@@ -1866,15 +1866,15 @@ speakerEnrollmentJob_domainId :: Lens' SpeakerEnrollmentJob (Maybe Text)
 
 -- | The current status of the speaker enrollment job.
 speakerEnrollmentJob_jobStatus :: Lens' SpeakerEnrollmentJob (Maybe SpeakerEnrollmentJobStatus)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
-instance GHC.Show.Show Network.AWS.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
+instance GHC.Show.Show Amazonka.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.SpeakerEnrollmentJob.SpeakerEnrollmentJob
 
 
-module Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary
+module Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary
 
 -- | Contains a summary of information about a speaker enrollment job.
 --   
@@ -1986,15 +1986,15 @@ speakerEnrollmentJobSummary_domainId :: Lens' SpeakerEnrollmentJobSummary (Maybe
 
 -- | The current status of the speaker enrollment job.
 speakerEnrollmentJobSummary_jobStatus :: Lens' SpeakerEnrollmentJobSummary (Maybe SpeakerEnrollmentJobStatus)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
-instance GHC.Show.Show Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
+instance GHC.Show.Show Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary.SpeakerEnrollmentJobSummary
 
 
-module Network.AWS.VoiceId.Types.SpeakerStatus
+module Amazonka.VoiceId.Types.SpeakerStatus
 newtype SpeakerStatus
 SpeakerStatus' :: Text -> SpeakerStatus
 [fromSpeakerStatus] :: SpeakerStatus -> Text
@@ -2002,28 +2002,28 @@ pattern SpeakerStatus_ENROLLED :: SpeakerStatus
 pattern SpeakerStatus_EXPIRED :: SpeakerStatus
 pattern SpeakerStatus_OPTED_OUT :: SpeakerStatus
 pattern SpeakerStatus_PENDING :: SpeakerStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance GHC.Read.Read Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
-instance GHC.Show.Show Network.AWS.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance GHC.Read.Read Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
+instance GHC.Show.Show Amazonka.VoiceId.Types.SpeakerStatus.SpeakerStatus
 
 
-module Network.AWS.VoiceId.Types.Speaker
+module Amazonka.VoiceId.Types.Speaker
 
 -- | Contains all the information about a speaker.
 --   
@@ -2095,15 +2095,15 @@ speaker_updatedAt :: Lens' Speaker (Maybe UTCTime)
 
 -- | The service-generated identifier for the speaker.
 speaker_generatedSpeakerId :: Lens' Speaker (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.Speaker.Speaker
-instance GHC.Show.Show Network.AWS.VoiceId.Types.Speaker.Speaker
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.Speaker.Speaker
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.Speaker.Speaker
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.Speaker.Speaker
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.Speaker.Speaker
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.Speaker.Speaker
+instance GHC.Show.Show Amazonka.VoiceId.Types.Speaker.Speaker
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.Speaker.Speaker
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.Speaker.Speaker
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.Speaker.Speaker
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.Speaker.Speaker
 
 
-module Network.AWS.VoiceId.Types.SpeakerSummary
+module Amazonka.VoiceId.Types.SpeakerSummary
 
 -- | Contains a summary of information about a speaker.
 --   
@@ -2176,43 +2176,43 @@ speakerSummary_updatedAt :: Lens' SpeakerSummary (Maybe UTCTime)
 
 -- | The service-generated identifier for the speaker.
 speakerSummary_generatedSpeakerId :: Lens' SpeakerSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.SpeakerSummary.SpeakerSummary
-instance GHC.Show.Show Network.AWS.VoiceId.Types.SpeakerSummary.SpeakerSummary
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.SpeakerSummary.SpeakerSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.SpeakerSummary.SpeakerSummary
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.SpeakerSummary.SpeakerSummary
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.SpeakerSummary.SpeakerSummary
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.SpeakerSummary.SpeakerSummary
+instance GHC.Show.Show Amazonka.VoiceId.Types.SpeakerSummary.SpeakerSummary
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.SpeakerSummary.SpeakerSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.SpeakerSummary.SpeakerSummary
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.SpeakerSummary.SpeakerSummary
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.SpeakerSummary.SpeakerSummary
 
 
-module Network.AWS.VoiceId.Types.StreamingStatus
+module Amazonka.VoiceId.Types.StreamingStatus
 newtype StreamingStatus
 StreamingStatus' :: Text -> StreamingStatus
 [fromStreamingStatus] :: StreamingStatus -> Text
 pattern StreamingStatus_ENDED :: StreamingStatus
 pattern StreamingStatus_ONGOING :: StreamingStatus
 pattern StreamingStatus_PENDING_CONFIGURATION :: StreamingStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance GHC.Classes.Ord Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance GHC.Read.Read Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
-instance GHC.Show.Show Network.AWS.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.XML.ToXML Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.XML.FromXML Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Log.ToLog Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Text.ToText Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Text.FromText Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance GHC.Classes.Ord Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance GHC.Read.Read Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
+instance GHC.Show.Show Amazonka.VoiceId.Types.StreamingStatus.StreamingStatus
 
 
-module Network.AWS.VoiceId.Types.Tag
+module Amazonka.VoiceId.Types.Tag
 
 -- | A tag that can be assigned to a Voice ID resource.
 --   
@@ -2256,16 +2256,16 @@ tag_key :: Lens' Tag Text
 --   given resource. For example, in the tag ‘Department’:’Sales’, the
 --   value is 'Sales'.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.VoiceId.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.VoiceId.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.VoiceId.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.VoiceId.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.VoiceId.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.VoiceId.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.VoiceId.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.VoiceId.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.VoiceId.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.Types.Tag.Tag
 
 
-module Network.AWS.VoiceId.Types
+module Amazonka.VoiceId.Types
 
 -- | API version <tt>2021-09-27</tt> of the Amazon Voice ID SDK
 --   configuration.
@@ -4083,7 +4083,7 @@ tag_value :: Lens' Tag Text
 
 -- | Tags an Amazon Connect Voice ID resource with the provided list of
 --   tags.
-module Network.AWS.VoiceId.TagResource
+module Amazonka.VoiceId.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4142,25 +4142,25 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.VoiceId.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.VoiceId.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.VoiceId.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.VoiceId.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.VoiceId.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.VoiceId.TagResource.TagResource
+instance GHC.Show.Show Amazonka.VoiceId.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.VoiceId.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.VoiceId.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.VoiceId.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.VoiceId.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.VoiceId.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.VoiceId.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.TagResource.TagResource
 
 
 -- | Starts a new batch speaker enrollment job using specified details.
-module Network.AWS.VoiceId.StartSpeakerEnrollmentJob
+module Amazonka.VoiceId.StartSpeakerEnrollmentJob
 
 -- | <i>See:</i> <a>newStartSpeakerEnrollmentJob</a> smart constructor.
 data StartSpeakerEnrollmentJob
@@ -4311,24 +4311,24 @@ startSpeakerEnrollmentJobResponse_job :: Lens' StartSpeakerEnrollmentJobResponse
 
 -- | The response's http status code.
 startSpeakerEnrollmentJobResponse_httpStatus :: Lens' StartSpeakerEnrollmentJobResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance GHC.Show.Show Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance GHC.Classes.Eq Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance GHC.Generics.Generic Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
-instance GHC.Show.Show Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance GHC.Generics.Generic Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance GHC.Show.Show Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance GHC.Classes.Eq Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance GHC.Generics.Generic Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
+instance GHC.Show.Show Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.StartSpeakerEnrollmentJob.StartSpeakerEnrollmentJob
 
 
 -- | Starts a new batch fraudster registration job using provided details.
-module Network.AWS.VoiceId.StartFraudsterRegistrationJob
+module Amazonka.VoiceId.StartFraudsterRegistrationJob
 
 -- | <i>See:</i> <a>newStartFraudsterRegistrationJob</a> smart constructor.
 data StartFraudsterRegistrationJob
@@ -4479,20 +4479,20 @@ startFraudsterRegistrationJobResponse_job :: Lens' StartFraudsterRegistrationJob
 
 -- | The response's http status code.
 startFraudsterRegistrationJobResponse_httpStatus :: Lens' StartFraudsterRegistrationJobResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance GHC.Show.Show Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance GHC.Classes.Eq Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance GHC.Generics.Generic Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
-instance GHC.Show.Show Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance GHC.Generics.Generic Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance GHC.Show.Show Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance GHC.Classes.Eq Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance GHC.Generics.Generic Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
+instance GHC.Show.Show Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.StartFraudsterRegistrationJob.StartFraudsterRegistrationJob
 
 
 -- | Opts out a speaker from Voice ID system. A speaker can be opted out
@@ -4502,7 +4502,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.StartFraudsterRegist
 --   opted out. Enrollment and evaluation authentication requests are
 --   rejected for opted out speakers, and opted out speakers have no voice
 --   embeddings stored in the system.
-module Network.AWS.VoiceId.OptOutSpeaker
+module Amazonka.VoiceId.OptOutSpeaker
 
 -- | <i>See:</i> <a>newOptOutSpeaker</a> smart constructor.
 data OptOutSpeaker
@@ -4569,24 +4569,24 @@ optOutSpeakerResponse_speaker :: Lens' OptOutSpeakerResponse (Maybe Speaker)
 
 -- | The response's http status code.
 optOutSpeakerResponse_httpStatus :: Lens' OptOutSpeakerResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance GHC.Show.Show Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance GHC.Classes.Eq Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance GHC.Generics.Generic Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
-instance GHC.Show.Show Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance GHC.Generics.Generic Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance GHC.Show.Show Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance GHC.Classes.Eq Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance GHC.Generics.Generic Amazonka.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
+instance GHC.Show.Show Amazonka.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance Control.DeepSeq.NFData Amazonka.VoiceId.OptOutSpeaker.OptOutSpeakerResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance Control.DeepSeq.NFData Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.OptOutSpeaker.OptOutSpeaker
 
 
 -- | Lists all tags associated with a specified Voice ID resource.
-module Network.AWS.VoiceId.ListTagsForResource
+module Amazonka.VoiceId.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4647,25 +4647,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.VoiceId.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.VoiceId.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.VoiceId.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists all speakers in a specified domain.
-module Network.AWS.VoiceId.ListSpeakers
+module Amazonka.VoiceId.ListSpeakers
 
 -- | <i>See:</i> <a>newListSpeakers</a> smart constructor.
 data ListSpeakers
@@ -4783,27 +4783,27 @@ listSpeakersResponse_nextToken :: Lens' ListSpeakersResponse (Maybe Text)
 
 -- | The response's http status code.
 listSpeakersResponse_httpStatus :: Lens' ListSpeakersResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance GHC.Show.Show Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance GHC.Read.Read Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListSpeakers.ListSpeakersResponse
-instance GHC.Show.Show Network.AWS.VoiceId.ListSpeakers.ListSpeakersResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListSpeakers.ListSpeakersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListSpeakers.ListSpeakersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.ListSpeakers.ListSpeakers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.ListSpeakers.ListSpeakers
+instance GHC.Generics.Generic Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance GHC.Show.Show Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance GHC.Read.Read Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance GHC.Classes.Eq Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance GHC.Generics.Generic Amazonka.VoiceId.ListSpeakers.ListSpeakersResponse
+instance GHC.Show.Show Amazonka.VoiceId.ListSpeakers.ListSpeakersResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.ListSpeakers.ListSpeakersResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListSpeakers.ListSpeakersResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.ListSpeakers.ListSpeakers
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.ListSpeakers.ListSpeakers
 
 
 -- | Lists all the speaker enrollment jobs in the domain with the specified
 --   <tt>JobStatus</tt>. If <tt>JobStatus</tt> is not provided, this lists
 --   all jobs with all possible speaker enrollment job statuses.
-module Network.AWS.VoiceId.ListSpeakerEnrollmentJobs
+module Amazonka.VoiceId.ListSpeakerEnrollmentJobs
 
 -- | <i>See:</i> <a>newListSpeakerEnrollmentJobs</a> smart constructor.
 data ListSpeakerEnrollmentJobs
@@ -4933,27 +4933,27 @@ listSpeakerEnrollmentJobsResponse_jobSummaries :: Lens' ListSpeakerEnrollmentJob
 
 -- | The response's http status code.
 listSpeakerEnrollmentJobsResponse_httpStatus :: Lens' ListSpeakerEnrollmentJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance GHC.Show.Show Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance GHC.Read.Read Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
-instance GHC.Show.Show Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance GHC.Generics.Generic Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance GHC.Show.Show Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance GHC.Read.Read Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance GHC.Classes.Eq Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance GHC.Generics.Generic Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
+instance GHC.Show.Show Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.ListSpeakerEnrollmentJobs.ListSpeakerEnrollmentJobs
 
 
 -- | Lists all the fraudster registration jobs in the domain with the given
 --   <tt>JobStatus</tt>. If <tt>JobStatus</tt> is not provided, this lists
 --   all fraudster registration jobs in the given domain.
-module Network.AWS.VoiceId.ListFraudsterRegistrationJobs
+module Amazonka.VoiceId.ListFraudsterRegistrationJobs
 
 -- | <i>See:</i> <a>newListFraudsterRegistrationJobs</a> smart constructor.
 data ListFraudsterRegistrationJobs
@@ -5087,25 +5087,25 @@ listFraudsterRegistrationJobsResponse_jobSummaries :: Lens' ListFraudsterRegistr
 
 -- | The response's http status code.
 listFraudsterRegistrationJobsResponse_httpStatus :: Lens' ListFraudsterRegistrationJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance GHC.Show.Show Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance GHC.Read.Read Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
-instance GHC.Show.Show Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance GHC.Generics.Generic Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance GHC.Show.Show Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance GHC.Read.Read Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance GHC.Classes.Eq Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance GHC.Generics.Generic Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
+instance GHC.Show.Show Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.ListFraudsterRegistrationJobs.ListFraudsterRegistrationJobs
 
 
 -- | Lists all the domains in the Amazon Web Services account.
-module Network.AWS.VoiceId.ListDomains
+module Amazonka.VoiceId.ListDomains
 
 -- | <i>See:</i> <a>newListDomains</a> smart constructor.
 data ListDomains
@@ -5213,26 +5213,26 @@ listDomainsResponse_domainSummaries :: Lens' ListDomainsResponse (Maybe [DomainS
 
 -- | The response's http status code.
 listDomainsResponse_httpStatus :: Lens' ListDomainsResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListDomains.ListDomains
-instance GHC.Show.Show Network.AWS.VoiceId.ListDomains.ListDomains
-instance GHC.Read.Read Network.AWS.VoiceId.ListDomains.ListDomains
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListDomains.ListDomains
-instance GHC.Generics.Generic Network.AWS.VoiceId.ListDomains.ListDomainsResponse
-instance GHC.Show.Show Network.AWS.VoiceId.ListDomains.ListDomainsResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.ListDomains.ListDomainsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListDomains.ListDomainsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.ListDomains.ListDomains
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.ListDomains.ListDomains
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.ListDomains.ListDomains
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.ListDomains.ListDomains
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.VoiceId.ListDomains.ListDomains
+instance GHC.Show.Show Amazonka.VoiceId.ListDomains.ListDomains
+instance GHC.Read.Read Amazonka.VoiceId.ListDomains.ListDomains
+instance GHC.Classes.Eq Amazonka.VoiceId.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.VoiceId.ListDomains.ListDomainsResponse
+instance GHC.Show.Show Amazonka.VoiceId.ListDomains.ListDomainsResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.ListDomains.ListDomainsResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListDomains.ListDomainsResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.VoiceId.ListDomains.ListDomains
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.ListDomains.ListDomains
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.ListDomains.ListDomains
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.ListDomains.ListDomains
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.ListDomains.ListDomains
 
 
 -- | Evaluates a specified session based on audio data accumulated during a
 --   streaming Amazon Connect Voice ID call.
-module Network.AWS.VoiceId.EvaluateSession
+module Amazonka.VoiceId.EvaluateSession
 
 -- | <i>See:</i> <a>newEvaluateSession</a> smart constructor.
 data EvaluateSession
@@ -5386,25 +5386,25 @@ evaluateSessionResponse_sessionName :: Lens' EvaluateSessionResponse (Maybe Text
 
 -- | The response's http status code.
 evaluateSessionResponse_httpStatus :: Lens' EvaluateSessionResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance GHC.Show.Show Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance GHC.Read.Read Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance GHC.Classes.Eq Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance GHC.Generics.Generic Network.AWS.VoiceId.EvaluateSession.EvaluateSessionResponse
-instance GHC.Show.Show Network.AWS.VoiceId.EvaluateSession.EvaluateSessionResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.EvaluateSession.EvaluateSessionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.EvaluateSession.EvaluateSessionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.EvaluateSession.EvaluateSession
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.EvaluateSession.EvaluateSession
+instance GHC.Generics.Generic Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance GHC.Show.Show Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance GHC.Read.Read Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance GHC.Classes.Eq Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance GHC.Generics.Generic Amazonka.VoiceId.EvaluateSession.EvaluateSessionResponse
+instance GHC.Show.Show Amazonka.VoiceId.EvaluateSession.EvaluateSessionResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.EvaluateSession.EvaluateSessionResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance Control.DeepSeq.NFData Amazonka.VoiceId.EvaluateSession.EvaluateSessionResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance Control.DeepSeq.NFData Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.EvaluateSession.EvaluateSession
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.EvaluateSession.EvaluateSession
 
 
 -- | Describes the specified speaker enrollment job.
-module Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob
+module Amazonka.VoiceId.DescribeSpeakerEnrollmentJob
 
 -- | <i>See:</i> <a>newDescribeSpeakerEnrollmentJob</a> smart constructor.
 data DescribeSpeakerEnrollmentJob
@@ -5474,25 +5474,25 @@ describeSpeakerEnrollmentJobResponse_job :: Lens' DescribeSpeakerEnrollmentJobRe
 
 -- | The response's http status code.
 describeSpeakerEnrollmentJobResponse_httpStatus :: Lens' DescribeSpeakerEnrollmentJobResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance GHC.Read.Read Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance GHC.Show.Show Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance GHC.Read.Read Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
+instance GHC.Show.Show Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DescribeSpeakerEnrollmentJob.DescribeSpeakerEnrollmentJob
 
 
 -- | Describes the specified speaker.
-module Network.AWS.VoiceId.DescribeSpeaker
+module Amazonka.VoiceId.DescribeSpeaker
 
 -- | <i>See:</i> <a>newDescribeSpeaker</a> smart constructor.
 data DescribeSpeaker
@@ -5560,24 +5560,24 @@ describeSpeakerResponse_speaker :: Lens' DescribeSpeakerResponse (Maybe Speaker)
 
 -- | The response's http status code.
 describeSpeakerResponse_httpStatus :: Lens' DescribeSpeakerResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance GHC.Show.Show Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
+instance GHC.Show.Show Amazonka.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeSpeaker.DescribeSpeakerResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DescribeSpeaker.DescribeSpeaker
 
 
 -- | Describes the specified fraudster registration job.
-module Network.AWS.VoiceId.DescribeFraudsterRegistrationJob
+module Amazonka.VoiceId.DescribeFraudsterRegistrationJob
 
 -- | <i>See:</i> <a>newDescribeFraudsterRegistrationJob</a> smart
 --   constructor.
@@ -5650,25 +5650,25 @@ describeFraudsterRegistrationJobResponse_job :: Lens' DescribeFraudsterRegistrat
 
 -- | The response's http status code.
 describeFraudsterRegistrationJobResponse_httpStatus :: Lens' DescribeFraudsterRegistrationJobResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance GHC.Read.Read Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance GHC.Show.Show Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance GHC.Read.Read Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
+instance GHC.Show.Show Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DescribeFraudsterRegistrationJob.DescribeFraudsterRegistrationJob
 
 
 -- | Describes the specified fraudster.
-module Network.AWS.VoiceId.DescribeFraudster
+module Amazonka.VoiceId.DescribeFraudster
 
 -- | <i>See:</i> <a>newDescribeFraudster</a> smart constructor.
 data DescribeFraudster
@@ -5737,25 +5737,25 @@ describeFraudsterResponse_fraudster :: Lens' DescribeFraudsterResponse (Maybe Fr
 
 -- | The response's http status code.
 describeFraudsterResponse_httpStatus :: Lens' DescribeFraudsterResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeFraudster.DescribeFraudsterResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeFraudster.DescribeFraudsterResponse
-instance GHC.Read.Read Network.AWS.VoiceId.DescribeFraudster.DescribeFraudsterResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeFraudster.DescribeFraudsterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeFraudster.DescribeFraudsterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DescribeFraudster.DescribeFraudster
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance GHC.Show.Show Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeFraudster.DescribeFraudsterResponse
+instance GHC.Show.Show Amazonka.VoiceId.DescribeFraudster.DescribeFraudsterResponse
+instance GHC.Read.Read Amazonka.VoiceId.DescribeFraudster.DescribeFraudsterResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeFraudster.DescribeFraudsterResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeFraudster.DescribeFraudsterResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DescribeFraudster.DescribeFraudster
 
 
 -- | Describes the specified domain.
-module Network.AWS.VoiceId.DescribeDomain
+module Amazonka.VoiceId.DescribeDomain
 
 -- | <i>See:</i> <a>newDescribeDomain</a> smart constructor.
 data DescribeDomain
@@ -5813,25 +5813,25 @@ describeDomainResponse_domain :: Lens' DescribeDomainResponse (Maybe Domain)
 
 -- | The response's http status code.
 describeDomainResponse_httpStatus :: Lens' DescribeDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance GHC.Read.Read Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance GHC.Generics.Generic Network.AWS.VoiceId.DescribeDomain.DescribeDomainResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DescribeDomain.DescribeDomainResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DescribeDomain.DescribeDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeDomain.DescribeDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DescribeDomain.DescribeDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DescribeDomain.DescribeDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance GHC.Show.Show Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance GHC.Read.Read Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.DescribeDomain.DescribeDomainResponse
+instance GHC.Show.Show Amazonka.VoiceId.DescribeDomain.DescribeDomainResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DescribeDomain.DescribeDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeDomain.DescribeDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DescribeDomain.DescribeDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DescribeDomain.DescribeDomain
 
 
 -- | Deletes the specified speaker from the Amazon Connect Voice ID system.
-module Network.AWS.VoiceId.DeleteSpeaker
+module Amazonka.VoiceId.DeleteSpeaker
 
 -- | <i>See:</i> <a>newDeleteSpeaker</a> smart constructor.
 data DeleteSpeaker
@@ -5875,26 +5875,26 @@ DeleteSpeakerResponse' :: DeleteSpeakerResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteSpeakerResponse :: DeleteSpeakerResponse
-instance GHC.Generics.Generic Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance GHC.Show.Show Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance GHC.Classes.Eq Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance GHC.Generics.Generic Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
-instance GHC.Read.Read Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance GHC.Generics.Generic Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance GHC.Show.Show Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance GHC.Classes.Eq Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance GHC.Generics.Generic Amazonka.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
+instance GHC.Show.Show Amazonka.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
+instance GHC.Read.Read Amazonka.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DeleteSpeaker.DeleteSpeakerResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DeleteSpeaker.DeleteSpeaker
 
 
 -- | Deletes the specified fraudster from the Amazon Connect Voice ID
 --   system.
-module Network.AWS.VoiceId.DeleteFraudster
+module Amazonka.VoiceId.DeleteFraudster
 
 -- | <i>See:</i> <a>newDeleteFraudster</a> smart constructor.
 data DeleteFraudster
@@ -5939,25 +5939,25 @@ DeleteFraudsterResponse' :: DeleteFraudsterResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteFraudsterResponse :: DeleteFraudsterResponse
-instance GHC.Generics.Generic Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance GHC.Show.Show Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance GHC.Classes.Eq Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance GHC.Generics.Generic Network.AWS.VoiceId.DeleteFraudster.DeleteFraudsterResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DeleteFraudster.DeleteFraudsterResponse
-instance GHC.Read.Read Network.AWS.VoiceId.DeleteFraudster.DeleteFraudsterResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DeleteFraudster.DeleteFraudsterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DeleteFraudster.DeleteFraudsterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DeleteFraudster.DeleteFraudster
+instance GHC.Generics.Generic Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance GHC.Show.Show Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance GHC.Classes.Eq Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance GHC.Generics.Generic Amazonka.VoiceId.DeleteFraudster.DeleteFraudsterResponse
+instance GHC.Show.Show Amazonka.VoiceId.DeleteFraudster.DeleteFraudsterResponse
+instance GHC.Read.Read Amazonka.VoiceId.DeleteFraudster.DeleteFraudsterResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DeleteFraudster.DeleteFraudsterResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DeleteFraudster.DeleteFraudsterResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DeleteFraudster.DeleteFraudster
 
 
 -- | Deletes the specified domain from the Amazon Connect Voice ID system.
-module Network.AWS.VoiceId.DeleteDomain
+module Amazonka.VoiceId.DeleteDomain
 
 -- | <i>See:</i> <a>newDeleteDomain</a> smart constructor.
 data DeleteDomain
@@ -5992,27 +5992,27 @@ DeleteDomainResponse' :: DeleteDomainResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteDomainResponse :: DeleteDomainResponse
-instance GHC.Generics.Generic Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance GHC.Show.Show Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance GHC.Read.Read Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance GHC.Classes.Eq Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance GHC.Generics.Generic Network.AWS.VoiceId.DeleteDomain.DeleteDomainResponse
-instance GHC.Show.Show Network.AWS.VoiceId.DeleteDomain.DeleteDomainResponse
-instance GHC.Read.Read Network.AWS.VoiceId.DeleteDomain.DeleteDomainResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.DeleteDomain.DeleteDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DeleteDomain.DeleteDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.DeleteDomain.DeleteDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance GHC.Show.Show Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance GHC.Read.Read Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance GHC.Classes.Eq Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.DeleteDomain.DeleteDomainResponse
+instance GHC.Show.Show Amazonka.VoiceId.DeleteDomain.DeleteDomainResponse
+instance GHC.Read.Read Amazonka.VoiceId.DeleteDomain.DeleteDomainResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.DeleteDomain.DeleteDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DeleteDomain.DeleteDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.DeleteDomain.DeleteDomain
 
 
 -- | Creates a domain that contains all Amazon Connect Voice ID data, such
 --   as speakers, fraudsters, customer audio, and voiceprints.
-module Network.AWS.VoiceId.CreateDomain
+module Amazonka.VoiceId.CreateDomain
 
 -- | <i>See:</i> <a>newCreateDomain</a> smart constructor.
 data CreateDomain
@@ -6119,25 +6119,25 @@ createDomainResponse_domain :: Lens' CreateDomainResponse (Maybe Domain)
 
 -- | The response's http status code.
 createDomainResponse_httpStatus :: Lens' CreateDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance GHC.Show.Show Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance GHC.Classes.Eq Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance GHC.Generics.Generic Network.AWS.VoiceId.CreateDomain.CreateDomainResponse
-instance GHC.Show.Show Network.AWS.VoiceId.CreateDomain.CreateDomainResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.CreateDomain.CreateDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.CreateDomain.CreateDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.CreateDomain.CreateDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.CreateDomain.CreateDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.CreateDomain.CreateDomain
+instance GHC.Show.Show Amazonka.VoiceId.CreateDomain.CreateDomain
+instance GHC.Classes.Eq Amazonka.VoiceId.CreateDomain.CreateDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.CreateDomain.CreateDomainResponse
+instance GHC.Show.Show Amazonka.VoiceId.CreateDomain.CreateDomainResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.CreateDomain.CreateDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.CreateDomain.CreateDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.CreateDomain.CreateDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.CreateDomain.CreateDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.CreateDomain.CreateDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.CreateDomain.CreateDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.CreateDomain.CreateDomain
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.CreateDomain.CreateDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.CreateDomain.CreateDomain
 
 
 -- | Removes specified tags from a specified Amazon Connect Voice ID
 --   resource.
-module Network.AWS.VoiceId.UntagResource
+module Amazonka.VoiceId.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6197,27 +6197,27 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.VoiceId.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.VoiceId.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.VoiceId.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.VoiceId.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.VoiceId.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.VoiceId.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.VoiceId.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.VoiceId.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.VoiceId.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.VoiceId.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.VoiceId.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.VoiceId.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.VoiceId.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.UntagResource.UntagResource
 
 
 -- | Updates the specified domain. This API has clobber behavior, and
 --   clears and replaces all attributes. If an optional field, such as
 --   'Description' is not provided, it is removed from the domain.
-module Network.AWS.VoiceId.UpdateDomain
+module Amazonka.VoiceId.UpdateDomain
 
 -- | <i>See:</i> <a>newUpdateDomain</a> smart constructor.
 data UpdateDomain
@@ -6314,23 +6314,23 @@ updateDomainResponse_domain :: Lens' UpdateDomainResponse (Maybe Domain)
 
 -- | The response's http status code.
 updateDomainResponse_httpStatus :: Lens' UpdateDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance GHC.Show.Show Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance GHC.Classes.Eq Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance GHC.Generics.Generic Network.AWS.VoiceId.UpdateDomain.UpdateDomainResponse
-instance GHC.Show.Show Network.AWS.VoiceId.UpdateDomain.UpdateDomainResponse
-instance GHC.Classes.Eq Network.AWS.VoiceId.UpdateDomain.UpdateDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.UpdateDomain.UpdateDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance Control.DeepSeq.NFData Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.VoiceId.UpdateDomain.UpdateDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.VoiceId.UpdateDomain.UpdateDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance GHC.Show.Show Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance GHC.Classes.Eq Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance GHC.Generics.Generic Amazonka.VoiceId.UpdateDomain.UpdateDomainResponse
+instance GHC.Show.Show Amazonka.VoiceId.UpdateDomain.UpdateDomainResponse
+instance GHC.Classes.Eq Amazonka.VoiceId.UpdateDomain.UpdateDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.UpdateDomain.UpdateDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance Control.DeepSeq.NFData Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance Amazonka.Data.Path.ToPath Amazonka.VoiceId.UpdateDomain.UpdateDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.VoiceId.UpdateDomain.UpdateDomain
 
 
-module Network.AWS.VoiceId.Lens
+module Amazonka.VoiceId.Lens
 
 -- | The identifier for the domain containing the fraudster registration
 --   job.
@@ -7148,7 +7148,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.VoiceId.Waiters
+module Amazonka.VoiceId.Waiters
 
 
 -- | Derived from API version <tt>2021-09-27</tt> of the AWS service
@@ -7156,7 +7156,7 @@ module Network.AWS.VoiceId.Waiters
 --   
 --   Amazon Connect Voice ID provides real-time caller authentication and
 --   fraud screening. This guide describes the APIs used for this service.
-module Network.AWS.VoiceId
+module Amazonka.VoiceId
 
 -- | API version <tt>2021-09-27</tt> of the Amazon Voice ID SDK
 --   configuration.

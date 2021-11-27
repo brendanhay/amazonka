@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags"><span class="hs-identifier">SmbSecurityDescriptorCopyFlags</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_NONE"><span class="hs-identifier">SmbSecurityDescriptorCopyFlags_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_OWNER_DACL"><span class="hs-identifier">SmbSecurityDescriptorCopyFlags_OWNER_DACL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL"><span class="hs-identifier">SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679250715"><span id="local-6989586621679250716"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SmbSecurityDescriptorCopyFlags"><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags"><span class="hs-identifier hs-var">SmbSecurityDescriptorCopyFlags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmbSecurityDescriptorCopyFlags%27"><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags%27"><span class="hs-identifier hs-var">SmbSecurityDescriptorCopyFlags'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSmbSecurityDescriptorCopyFlags"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags -&gt; Text
+</span><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#fromSmbSecurityDescriptorCopyFlags"><span class="hs-identifier hs-var hs-var">fromSmbSecurityDescriptorCopyFlags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250707"><span id="local-6989586621679250709"><span id="local-6989586621679250711"><span class="annot"><span class="annottext">Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; ShowS
+[SmbSecurityDescriptorCopyFlags] -&gt; ShowS
+SmbSecurityDescriptorCopyFlags -&gt; String
+(Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; ShowS)
+-&gt; (SmbSecurityDescriptorCopyFlags -&gt; String)
+-&gt; ([SmbSecurityDescriptorCopyFlags] -&gt; ShowS)
+-&gt; Show SmbSecurityDescriptorCopyFlags
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SmbSecurityDescriptorCopyFlags] -&gt; ShowS
+$cshowList :: [SmbSecurityDescriptorCopyFlags] -&gt; ShowS
+show :: SmbSecurityDescriptorCopyFlags -&gt; String
+$cshow :: SmbSecurityDescriptorCopyFlags -&gt; String
+showsPrec :: Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; ShowS
+$cshowsPrec :: Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250698"><span id="local-6989586621679250700"><span id="local-6989586621679250702"><span id="local-6989586621679250704"><span class="annot"><span class="annottext">ReadPrec [SmbSecurityDescriptorCopyFlags]
+ReadPrec SmbSecurityDescriptorCopyFlags
+Int -&gt; ReadS SmbSecurityDescriptorCopyFlags
+ReadS [SmbSecurityDescriptorCopyFlags]
+(Int -&gt; ReadS SmbSecurityDescriptorCopyFlags)
+-&gt; ReadS [SmbSecurityDescriptorCopyFlags]
+-&gt; ReadPrec SmbSecurityDescriptorCopyFlags
+-&gt; ReadPrec [SmbSecurityDescriptorCopyFlags]
+-&gt; Read SmbSecurityDescriptorCopyFlags
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SmbSecurityDescriptorCopyFlags]
+$creadListPrec :: ReadPrec [SmbSecurityDescriptorCopyFlags]
+readPrec :: ReadPrec SmbSecurityDescriptorCopyFlags
+$creadPrec :: ReadPrec SmbSecurityDescriptorCopyFlags
+readList :: ReadS [SmbSecurityDescriptorCopyFlags]
+$creadList :: ReadS [SmbSecurityDescriptorCopyFlags]
+readsPrec :: Int -&gt; ReadS SmbSecurityDescriptorCopyFlags
+$creadsPrec :: Int -&gt; ReadS SmbSecurityDescriptorCopyFlags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250693"><span id="local-6989586621679250695"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+(SmbSecurityDescriptorCopyFlags
+ -&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool)
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool)
+-&gt; Eq SmbSecurityDescriptorCopyFlags
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+$c/= :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+== :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+$c== :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679250677"><span id="local-6989586621679250679"><span id="local-6989586621679250681"><span id="local-6989586621679250683"><span id="local-6989586621679250685"><span id="local-6989586621679250687"><span id="local-6989586621679250689"><span class="annot"><span class="annottext">Eq SmbSecurityDescriptorCopyFlags
+Eq SmbSecurityDescriptorCopyFlags
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags -&gt; Ordering)
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool)
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool)
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool)
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool)
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags)
+-&gt; (SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags
+    -&gt; SmbSecurityDescriptorCopyFlags)
+-&gt; Ord SmbSecurityDescriptorCopyFlags
+SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Ordering
+SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; SmbSecurityDescriptorCopyFlags
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; SmbSecurityDescriptorCopyFlags
+$cmin :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; SmbSecurityDescriptorCopyFlags
+max :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; SmbSecurityDescriptorCopyFlags
+$cmax :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; SmbSecurityDescriptorCopyFlags
+&gt;= :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+$c&gt;= :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+&gt; :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+$c&gt; :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+&lt;= :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+$c&lt;= :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+&lt; :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+$c&lt; :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Bool
+compare :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Ordering
+$ccompare :: SmbSecurityDescriptorCopyFlags
+-&gt; SmbSecurityDescriptorCopyFlags -&gt; Ordering
+$cp1Ord :: Eq SmbSecurityDescriptorCopyFlags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SmbSecurityDescriptorCopyFlags
+ -&gt; Rep SmbSecurityDescriptorCopyFlags x)
+-&gt; (forall x.
+    Rep SmbSecurityDescriptorCopyFlags x
+    -&gt; SmbSecurityDescriptorCopyFlags)
+-&gt; Generic SmbSecurityDescriptorCopyFlags
+forall x.
+Rep SmbSecurityDescriptorCopyFlags x
+-&gt; SmbSecurityDescriptorCopyFlags
+forall x.
+SmbSecurityDescriptorCopyFlags
+-&gt; Rep SmbSecurityDescriptorCopyFlags x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SmbSecurityDescriptorCopyFlags x
+-&gt; SmbSecurityDescriptorCopyFlags
+$cfrom :: forall x.
+SmbSecurityDescriptorCopyFlags
+-&gt; Rep SmbSecurityDescriptorCopyFlags x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250669"><span id="local-6989586621679250671"><span class="annot"><span class="annottext">Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; Int
+SmbSecurityDescriptorCopyFlags -&gt; Int
+(Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; Int)
+-&gt; (SmbSecurityDescriptorCopyFlags -&gt; Int)
+-&gt; Hashable SmbSecurityDescriptorCopyFlags
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SmbSecurityDescriptorCopyFlags -&gt; Int
+$chash :: SmbSecurityDescriptorCopyFlags -&gt; Int
+hashWithSalt :: Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; Int
+$chashWithSalt :: Int -&gt; SmbSecurityDescriptorCopyFlags -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250666"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags -&gt; ()
+(SmbSecurityDescriptorCopyFlags -&gt; ())
+-&gt; NFData SmbSecurityDescriptorCopyFlags
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SmbSecurityDescriptorCopyFlags -&gt; ()
+$crnf :: SmbSecurityDescriptorCopyFlags -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250663"><span class="annot"><span class="annottext">Text -&gt; Either String SmbSecurityDescriptorCopyFlags
+(Text -&gt; Either String SmbSecurityDescriptorCopyFlags)
+-&gt; FromText SmbSecurityDescriptorCopyFlags
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SmbSecurityDescriptorCopyFlags
+$cfromText :: Text -&gt; Either String SmbSecurityDescriptorCopyFlags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250660"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags -&gt; Text
+(SmbSecurityDescriptorCopyFlags -&gt; Text)
+-&gt; ToText SmbSecurityDescriptorCopyFlags
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SmbSecurityDescriptorCopyFlags -&gt; Text
+$ctoText :: SmbSecurityDescriptorCopyFlags -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250657"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags -&gt; ByteString
+(SmbSecurityDescriptorCopyFlags -&gt; ByteString)
+-&gt; ToByteString SmbSecurityDescriptorCopyFlags
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SmbSecurityDescriptorCopyFlags -&gt; ByteString
+$ctoBS :: SmbSecurityDescriptorCopyFlags -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250654"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags -&gt; ByteStringBuilder
+(SmbSecurityDescriptorCopyFlags -&gt; ByteStringBuilder)
+-&gt; ToLog SmbSecurityDescriptorCopyFlags
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SmbSecurityDescriptorCopyFlags -&gt; ByteStringBuilder
+$cbuild :: SmbSecurityDescriptorCopyFlags -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250651"><span class="annot"><span class="annottext">HeaderName -&gt; SmbSecurityDescriptorCopyFlags -&gt; [Header]
+(HeaderName -&gt; SmbSecurityDescriptorCopyFlags -&gt; [Header])
+-&gt; ToHeader SmbSecurityDescriptorCopyFlags
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SmbSecurityDescriptorCopyFlags -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SmbSecurityDescriptorCopyFlags -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250648"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags -&gt; QueryString
+(SmbSecurityDescriptorCopyFlags -&gt; QueryString)
+-&gt; ToQuery SmbSecurityDescriptorCopyFlags
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SmbSecurityDescriptorCopyFlags -&gt; QueryString
+$ctoQuery :: SmbSecurityDescriptorCopyFlags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250643"><span id="local-6989586621679250645"><span class="annot"><span class="annottext">Value -&gt; Parser [SmbSecurityDescriptorCopyFlags]
+Value -&gt; Parser SmbSecurityDescriptorCopyFlags
+(Value -&gt; Parser SmbSecurityDescriptorCopyFlags)
+-&gt; (Value -&gt; Parser [SmbSecurityDescriptorCopyFlags])
+-&gt; FromJSON SmbSecurityDescriptorCopyFlags
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SmbSecurityDescriptorCopyFlags]
+$cparseJSONList :: Value -&gt; Parser [SmbSecurityDescriptorCopyFlags]
+parseJSON :: Value -&gt; Parser SmbSecurityDescriptorCopyFlags
+$cparseJSON :: Value -&gt; Parser SmbSecurityDescriptorCopyFlags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250638"><span id="local-6989586621679250640"><span class="annot"><span class="annottext">FromJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+FromJSONKeyFunction SmbSecurityDescriptorCopyFlags
+FromJSONKeyFunction SmbSecurityDescriptorCopyFlags
+-&gt; FromJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+-&gt; FromJSONKey SmbSecurityDescriptorCopyFlags
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+$cfromJSONKeyList :: FromJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+fromJSONKey :: FromJSONKeyFunction SmbSecurityDescriptorCopyFlags
+$cfromJSONKey :: FromJSONKeyFunction SmbSecurityDescriptorCopyFlags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250629"><span id="local-6989586621679250631"><span id="local-6989586621679250633"><span id="local-6989586621679250635"><span class="annot"><span class="annottext">[SmbSecurityDescriptorCopyFlags] -&gt; Encoding
+[SmbSecurityDescriptorCopyFlags] -&gt; Value
+SmbSecurityDescriptorCopyFlags -&gt; Encoding
+SmbSecurityDescriptorCopyFlags -&gt; Value
+(SmbSecurityDescriptorCopyFlags -&gt; Value)
+-&gt; (SmbSecurityDescriptorCopyFlags -&gt; Encoding)
+-&gt; ([SmbSecurityDescriptorCopyFlags] -&gt; Value)
+-&gt; ([SmbSecurityDescriptorCopyFlags] -&gt; Encoding)
+-&gt; ToJSON SmbSecurityDescriptorCopyFlags
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SmbSecurityDescriptorCopyFlags] -&gt; Encoding
+$ctoEncodingList :: [SmbSecurityDescriptorCopyFlags] -&gt; Encoding
+toJSONList :: [SmbSecurityDescriptorCopyFlags] -&gt; Value
+$ctoJSONList :: [SmbSecurityDescriptorCopyFlags] -&gt; Value
+toEncoding :: SmbSecurityDescriptorCopyFlags -&gt; Encoding
+$ctoEncoding :: SmbSecurityDescriptorCopyFlags -&gt; Encoding
+toJSON :: SmbSecurityDescriptorCopyFlags -&gt; Value
+$ctoJSON :: SmbSecurityDescriptorCopyFlags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250624"><span id="local-6989586621679250626"><span class="annot"><span class="annottext">ToJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+ToJSONKeyFunction SmbSecurityDescriptorCopyFlags
+ToJSONKeyFunction SmbSecurityDescriptorCopyFlags
+-&gt; ToJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+-&gt; ToJSONKey SmbSecurityDescriptorCopyFlags
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+$ctoJSONKeyList :: ToJSONKeyFunction [SmbSecurityDescriptorCopyFlags]
+toJSONKey :: ToJSONKeyFunction SmbSecurityDescriptorCopyFlags
+$ctoJSONKey :: ToJSONKeyFunction SmbSecurityDescriptorCopyFlags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250621"><span class="annot"><span class="annottext">[Node] -&gt; Either String SmbSecurityDescriptorCopyFlags
+([Node] -&gt; Either String SmbSecurityDescriptorCopyFlags)
+-&gt; FromXML SmbSecurityDescriptorCopyFlags
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SmbSecurityDescriptorCopyFlags
+$cparseXML :: [Node] -&gt; Either String SmbSecurityDescriptorCopyFlags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679250618"><span class="annot"><span class="annottext">SmbSecurityDescriptorCopyFlags -&gt; XML
+(SmbSecurityDescriptorCopyFlags -&gt; XML)
+-&gt; ToXML SmbSecurityDescriptorCopyFlags
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SmbSecurityDescriptorCopyFlags -&gt; XML
+$ctoXML :: SmbSecurityDescriptorCopyFlags -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_NONE"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmbSecurityDescriptorCopyFlags_NONE"><span id="%24mSmbSecurityDescriptorCopyFlags_NONE"><span id="SmbSecurityDescriptorCopyFlags_NONE"><span class="annot"><span class="annottext">$bSmbSecurityDescriptorCopyFlags_NONE :: SmbSecurityDescriptorCopyFlags
+$mSmbSecurityDescriptorCopyFlags_NONE :: forall r.
+SmbSecurityDescriptorCopyFlags -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#%24bSmbSecurityDescriptorCopyFlags_NONE"><span class="hs-identifier hs-var hs-var hs-var">SmbSecurityDescriptorCopyFlags_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags%27"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_OWNER_DACL"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags_OWNER_DACL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmbSecurityDescriptorCopyFlags_OWNER_DACL"><span id="%24mSmbSecurityDescriptorCopyFlags_OWNER_DACL"><span id="SmbSecurityDescriptorCopyFlags_OWNER_DACL"><span class="annot"><span class="annottext">$bSmbSecurityDescriptorCopyFlags_OWNER_DACL :: SmbSecurityDescriptorCopyFlags
+$mSmbSecurityDescriptorCopyFlags_OWNER_DACL :: forall r.
+SmbSecurityDescriptorCopyFlags -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#%24bSmbSecurityDescriptorCopyFlags_OWNER_DACL"><span class="hs-identifier hs-var hs-var hs-var">SmbSecurityDescriptorCopyFlags_OWNER_DACL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags%27"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OWNER_DACL&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL"><span id="%24mSmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL"><span id="SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL"><span class="annot"><span class="annottext">$bSmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL :: SmbSecurityDescriptorCopyFlags
+$mSmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL :: forall r.
+SmbSecurityDescriptorCopyFlags -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#%24bSmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL"><span class="hs-identifier hs-var hs-var hs-var">SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags%27"><span class="hs-identifier hs-type">SmbSecurityDescriptorCopyFlags'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OWNER_DACL_SACL&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_NONE"><span class="hs-pragma hs-type">SmbSecurityDescriptorCopyFlags_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_OWNER_DACL"><span class="hs-pragma hs-type">SmbSecurityDescriptorCopyFlags_OWNER_DACL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL"><span class="hs-pragma hs-type">SmbSecurityDescriptorCopyFlags_OWNER_DACL_SACL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags%27"><span class="hs-pragma hs-type">SmbSecurityDescriptorCopyFlags'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.StartSession</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates a connection to a target (for example, an instance) for a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Session Manager session. Returns a URL and token that can be used to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- open a WebSocket connection for sending input and receiving outputs.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon Web Services CLI usage: @start-session@ is an interactive command</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- that requires the Session Manager plugin to be installed on the client</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- machine making the call. For information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html Install the Session Manager plugin for the Amazon Web Services CLI&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn\'t</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- currently supported by Amazon Web Services Tools for PowerShell on</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Windows local machines.</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.StartSession</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier">StartSession</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#newStartSession"><span class="hs-identifier">newStartSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSession_documentName"><span class="hs-identifier">startSession_documentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSession_parameters"><span class="hs-identifier">startSession_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSession_target"><span class="hs-identifier">startSession_target</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier">StartSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#newStartSessionResponse"><span class="hs-identifier">newStartSessionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_streamUrl"><span class="hs-identifier">startSessionResponse_streamUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_tokenValue"><span class="hs-identifier">startSessionResponse_tokenValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_sessionId"><span class="hs-identifier">startSessionResponse_sessionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_httpStatus"><span class="hs-identifier">startSessionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newStartSession' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679824470"><span id="local-6989586621679824471"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSession"><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-var">StartSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSession%27"><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-var">StartSession'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the SSM document to define the parameters and plugin</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- settings for the session. For example, @SSM-SessionManagerRunShell@. You</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- can call the GetDocument API to verify the document exists before</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- attempting to start a session. If no document name is provided, a shell</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- to the instance is launched by default.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdocumentName%3AStartSession%27"><span class="annot"><span class="annottext">StartSession -&gt; Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AdocumentName%3AStartSession%27"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aparameters%3AStartSession%27"><span class="annot"><span class="annottext">StartSession -&gt; Maybe (HashMap Text [Text])
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3Aparameters%3AStartSession%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The instance to connect to for the session.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Atarget%3AStartSession%27"><span class="annot"><span class="annottext">StartSession -&gt; Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3Atarget%3AStartSession%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824462"><span id="local-6989586621679824464"><span class="annot"><span class="annottext">StartSession -&gt; StartSession -&gt; Bool
+(StartSession -&gt; StartSession -&gt; Bool)
+-&gt; (StartSession -&gt; StartSession -&gt; Bool) -&gt; Eq StartSession
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartSession -&gt; StartSession -&gt; Bool
+$c/= :: StartSession -&gt; StartSession -&gt; Bool
+== :: StartSession -&gt; StartSession -&gt; Bool
+$c== :: StartSession -&gt; StartSession -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824453"><span id="local-6989586621679824455"><span id="local-6989586621679824457"><span id="local-6989586621679824459"><span class="annot"><span class="annottext">ReadPrec [StartSession]
+ReadPrec StartSession
+Int -&gt; ReadS StartSession
+ReadS [StartSession]
+(Int -&gt; ReadS StartSession)
+-&gt; ReadS [StartSession]
+-&gt; ReadPrec StartSession
+-&gt; ReadPrec [StartSession]
+-&gt; Read StartSession
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartSession]
+$creadListPrec :: ReadPrec [StartSession]
+readPrec :: ReadPrec StartSession
+$creadPrec :: ReadPrec StartSession
+readList :: ReadS [StartSession]
+$creadList :: ReadS [StartSession]
+readsPrec :: Int -&gt; ReadS StartSession
+$creadsPrec :: Int -&gt; ReadS StartSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824446"><span id="local-6989586621679824448"><span id="local-6989586621679824450"><span class="annot"><span class="annottext">Int -&gt; StartSession -&gt; ShowS
+[StartSession] -&gt; ShowS
+StartSession -&gt; String
+(Int -&gt; StartSession -&gt; ShowS)
+-&gt; (StartSession -&gt; String)
+-&gt; ([StartSession] -&gt; ShowS)
+-&gt; Show StartSession
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartSession] -&gt; ShowS
+$cshowList :: [StartSession] -&gt; ShowS
+show :: StartSession -&gt; String
+$cshow :: StartSession -&gt; String
+showsPrec :: Int -&gt; StartSession -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartSession -&gt; Rep StartSession x)
+-&gt; (forall x. Rep StartSession x -&gt; StartSession)
+-&gt; Generic StartSession
+forall x. Rep StartSession x -&gt; StartSession
+forall x. StartSession -&gt; Rep StartSession x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartSession x -&gt; StartSession
+$cfrom :: forall x. StartSession -&gt; Rep StartSession x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'StartSession' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'documentName', 'startSession_documentName' - The name of the SSM document to define the parameters and plugin</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- settings for the session. For example, @SSM-SessionManagerRunShell@. You</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- can call the GetDocument API to verify the document exists before</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- attempting to start a session. If no document name is provided, a shell</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- to the instance is launched by default.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'parameters', 'startSession_parameters' - Reserved for future use.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'target', 'startSession_target' - The instance to connect to for the session.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#newStartSession"><span class="hs-identifier hs-type">newStartSession</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'target'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span>
+</span><span id="line-101"></span><span id="newStartSession"><span class="annot"><span class="annottext">newStartSession :: Text -&gt; StartSession
+</span><a href="Amazonka.SSM.StartSession.html#newStartSession"><span class="hs-identifier hs-var hs-var">newStartSession</span></a></span></span><span> </span><span id="local-6989586621679824441"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824441"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">StartSession' :: Maybe Text -&gt; Maybe (HashMap Text [Text]) -&gt; Text -&gt; StartSession
+</span><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documentName:StartSession' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AdocumentName%3AStartSession%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:StartSession' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3Aparameters%3AStartSession%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:StartSession' :: Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3Atarget%3AStartSession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824441"><span class="hs-identifier hs-var">pTarget_</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The name of the SSM document to define the parameters and plugin</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- settings for the session. For example, @SSM-SessionManagerRunShell@. You</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- can call the GetDocument API to verify the document exists before</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- attempting to start a session. If no document name is provided, a shell</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- to the instance is launched by default.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSession_documentName"><span class="hs-identifier hs-type">startSession_documentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="startSession_documentName"><span class="annot"><span class="annottext">startSession_documentName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StartSession -&gt; f StartSession
+</span><a href="Amazonka.SSM.StartSession.html#startSession_documentName"><span class="hs-identifier hs-var hs-var">startSession_documentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSession -&gt; Maybe Text)
+-&gt; (StartSession -&gt; Maybe Text -&gt; StartSession)
+-&gt; Lens StartSession StartSession (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824438"><span class="annot"><span class="annottext">Maybe Text
+documentName :: Maybe Text
+$sel:documentName:StartSession' :: StartSession -&gt; Maybe Text
+</span><a href="#local-6989586621679824438"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824438"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824437"><span class="annot"><span class="annottext">s :: StartSession
+</span><a href="#local-6989586621679824437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824436"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
+</span><a href="#local-6989586621679824437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentName:StartSession' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AdocumentName%3AStartSession%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSession_parameters"><span class="hs-identifier hs-type">startSession_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="startSession_parameters"><span class="annot"><span class="annottext">startSession_parameters :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; StartSession -&gt; f StartSession
+</span><a href="Amazonka.SSM.StartSession.html#startSession_parameters"><span class="hs-identifier hs-var hs-var">startSession_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSession -&gt; Maybe (HashMap Text [Text]))
+-&gt; (StartSession -&gt; Maybe (HashMap Text [Text]) -&gt; StartSession)
+-&gt; Lens
+     StartSession
+     StartSession
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824435"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+parameters :: Maybe (HashMap Text [Text])
+$sel:parameters:StartSession' :: StartSession -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824435"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824435"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824434"><span class="annot"><span class="annottext">s :: StartSession
+</span><a href="#local-6989586621679824434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824433"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
+</span><a href="#local-6989586621679824434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:StartSession' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3Aparameters%3AStartSession%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+ -&gt; StartSession -&gt; f StartSession)
+-&gt; ((Maybe (HashMap Text [Text])
+     -&gt; f (Maybe (HashMap Text [Text])))
+    -&gt; Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; StartSession
+-&gt; f StartSession
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+-&gt; Iso
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The instance to connect to for the session.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSession_target"><span class="hs-identifier hs-type">startSession_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="startSession_target"><span class="annot"><span class="annottext">startSession_target :: (Text -&gt; f Text) -&gt; StartSession -&gt; f StartSession
+</span><a href="Amazonka.SSM.StartSession.html#startSession_target"><span class="hs-identifier hs-var hs-var">startSession_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSession -&gt; Text)
+-&gt; (StartSession -&gt; Text -&gt; StartSession)
+-&gt; Lens StartSession StartSession Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824429"><span class="annot"><span class="annottext">Text
+target :: Text
+$sel:target:StartSession' :: StartSession -&gt; Text
+</span><a href="#local-6989586621679824429"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824429"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824428"><span class="annot"><span class="annottext">s :: StartSession
+</span><a href="#local-6989586621679824428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824427"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
+</span><a href="#local-6989586621679824428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:StartSession' :: Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3Atarget%3AStartSession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679824423"><span class="annot"><span class="annottext">request :: StartSession -&gt; Request StartSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartSession -&gt; Request StartSession
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679824419"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartSession)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartSession))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartSession)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679824416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824416"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679824415"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679824415"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679824414"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse
+</span><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-var">StartSessionResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; StartSessionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TokenValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StartSessionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartSessionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartSessionResponse)
+-&gt; Either String Int -&gt; Either String StartSessionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824416"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824406"><span id="local-6989586621679824408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679824399"><span class="annot"><span class="annottext">toHeaders :: StartSession -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartSession -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.StartSession&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824389"><span id="local-6989586621679824391"><span id="local-6989586621679824393"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679824387"><span class="annot"><span class="annottext">toJSON :: StartSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824383"><span id="local-6989586621679824384"><span id="local-6989586621679824385"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text [Text])
+Text
+target :: Text
+parameters :: Maybe (HashMap Text [Text])
+documentName :: Maybe Text
+$sel:target:StartSession' :: StartSession -&gt; Text
+$sel:parameters:StartSession' :: StartSession -&gt; Maybe (HashMap Text [Text])
+$sel:documentName:StartSession' :: StartSession -&gt; Maybe Text
+</span><a href="#local-6989586621679824383"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824385"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text [Text] -&gt; Pair)
+-&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824384"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824383"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679824377"><span class="annot"><span class="annottext">toPath :: StartSession -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartSession -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679824373"><span class="annot"><span class="annottext">toQuery :: StartSession -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartSession -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newStartSessionResponse' smart constructor.</span><span>
+</span><span id="line-171"></span><span id="local-6989586621679824370"><span id="local-6989586621679824371"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSessionResponse"><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-var">StartSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSessionResponse%27"><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-var">StartSessionResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AstreamUrl%3AStartSessionResponse%27"><span class="annot"><span class="annottext">StartSessionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AstreamUrl%3AStartSessionResponse%27"><span class="hs-identifier hs-var hs-var">streamUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | An encrypted token value containing session and caller information. Used</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AtokenValue%3AStartSessionResponse%27"><span class="annot"><span class="annottext">StartSessionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AtokenValue%3AStartSessionResponse%27"><span class="hs-identifier hs-var hs-var">tokenValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The ID of the session.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AsessionId%3AStartSessionResponse%27"><span class="annot"><span class="annottext">StartSessionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AsessionId%3AStartSessionResponse%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="annot"><span class="annottext">StartSessionResponse -&gt; Int
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824362"><span id="local-6989586621679824364"><span class="annot"><span class="annottext">StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
+(StartSessionResponse -&gt; StartSessionResponse -&gt; Bool)
+-&gt; (StartSessionResponse -&gt; StartSessionResponse -&gt; Bool)
+-&gt; Eq StartSessionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
+$c/= :: StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
+== :: StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
+$c== :: StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824354"><span id="local-6989586621679824356"><span id="local-6989586621679824358"><span id="local-6989586621679824360"><span class="annot"><span class="annottext">ReadPrec [StartSessionResponse]
+ReadPrec StartSessionResponse
+Int -&gt; ReadS StartSessionResponse
+ReadS [StartSessionResponse]
+(Int -&gt; ReadS StartSessionResponse)
+-&gt; ReadS [StartSessionResponse]
+-&gt; ReadPrec StartSessionResponse
+-&gt; ReadPrec [StartSessionResponse]
+-&gt; Read StartSessionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartSessionResponse]
+$creadListPrec :: ReadPrec [StartSessionResponse]
+readPrec :: ReadPrec StartSessionResponse
+$creadPrec :: ReadPrec StartSessionResponse
+readList :: ReadS [StartSessionResponse]
+$creadList :: ReadS [StartSessionResponse]
+readsPrec :: Int -&gt; ReadS StartSessionResponse
+$creadsPrec :: Int -&gt; ReadS StartSessionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824348"><span id="local-6989586621679824350"><span id="local-6989586621679824352"><span class="annot"><span class="annottext">Int -&gt; StartSessionResponse -&gt; ShowS
+[StartSessionResponse] -&gt; ShowS
+StartSessionResponse -&gt; String
+(Int -&gt; StartSessionResponse -&gt; ShowS)
+-&gt; (StartSessionResponse -&gt; String)
+-&gt; ([StartSessionResponse] -&gt; ShowS)
+-&gt; Show StartSessionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartSessionResponse] -&gt; ShowS
+$cshowList :: [StartSessionResponse] -&gt; ShowS
+show :: StartSessionResponse -&gt; String
+$cshow :: StartSessionResponse -&gt; String
+showsPrec :: Int -&gt; StartSessionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartSessionResponse -&gt; Rep StartSessionResponse x)
+-&gt; (forall x. Rep StartSessionResponse x -&gt; StartSessionResponse)
+-&gt; Generic StartSessionResponse
+forall x. Rep StartSessionResponse x -&gt; StartSessionResponse
+forall x. StartSessionResponse -&gt; Rep StartSessionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartSessionResponse x -&gt; StartSessionResponse
+$cfrom :: forall x. StartSessionResponse -&gt; Rep StartSessionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'StartSessionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'streamUrl', 'startSessionResponse_streamUrl' - A URL back to SSM Agent on the instance that the Session Manager client</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'sessionId', 'startSessionResponse_sessionId' - The ID of the session.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'httpStatus', 'startSessionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#newStartSessionResponse"><span class="hs-identifier hs-type">newStartSessionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span>
+</span><span id="line-228"></span><span id="newStartSessionResponse"><span class="annot"><span class="annottext">newStartSessionResponse :: Int -&gt; StartSessionResponse
+</span><a href="Amazonka.SSM.StartSession.html#newStartSessionResponse"><span class="hs-identifier hs-var hs-var">newStartSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679824345"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">StartSessionResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse
+</span><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamUrl:StartSessionResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AstreamUrl%3AStartSessionResponse%27"><span class="hs-identifier hs-var">streamUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenValue:StartSessionResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AtokenValue%3AStartSessionResponse%27"><span class="hs-identifier hs-var">tokenValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionId:StartSessionResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AsessionId%3AStartSessionResponse%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartSessionResponse' :: Int
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_streamUrl"><span class="hs-identifier hs-type">startSessionResponse_streamUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="startSessionResponse_streamUrl"><span class="annot"><span class="annottext">startSessionResponse_streamUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSessionResponse -&gt; f StartSessionResponse
+</span><a href="Amazonka.SSM.StartSession.html#startSessionResponse_streamUrl"><span class="hs-identifier hs-var hs-var">startSessionResponse_streamUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSessionResponse -&gt; Maybe Text)
+-&gt; (StartSessionResponse -&gt; Maybe Text -&gt; StartSessionResponse)
+-&gt; Lens
+     StartSessionResponse StartSessionResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824344"><span class="annot"><span class="annottext">Maybe Text
+streamUrl :: Maybe Text
+$sel:streamUrl:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679824344"><span class="hs-identifier hs-var hs-var">streamUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824344"><span class="hs-identifier hs-var">streamUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824343"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamUrl:StartSessionResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AstreamUrl%3AStartSessionResponse%27"><span class="hs-identifier hs-var">streamUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | An encrypted token value containing session and caller information. Used</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_tokenValue"><span class="hs-identifier hs-type">startSessionResponse_tokenValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="startSessionResponse_tokenValue"><span class="annot"><span class="annottext">startSessionResponse_tokenValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSessionResponse -&gt; f StartSessionResponse
+</span><a href="Amazonka.SSM.StartSession.html#startSessionResponse_tokenValue"><span class="hs-identifier hs-var hs-var">startSessionResponse_tokenValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSessionResponse -&gt; Maybe Text)
+-&gt; (StartSessionResponse -&gt; Maybe Text -&gt; StartSessionResponse)
+-&gt; Lens
+     StartSessionResponse StartSessionResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824341"><span class="annot"><span class="annottext">Maybe Text
+tokenValue :: Maybe Text
+$sel:tokenValue:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679824341"><span class="hs-identifier hs-var hs-var">tokenValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824341"><span class="hs-identifier hs-var">tokenValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824340"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenValue:StartSessionResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AtokenValue%3AStartSessionResponse%27"><span class="hs-identifier hs-var">tokenValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The ID of the session.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_sessionId"><span class="hs-identifier hs-type">startSessionResponse_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="startSessionResponse_sessionId"><span class="annot"><span class="annottext">startSessionResponse_sessionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSessionResponse -&gt; f StartSessionResponse
+</span><a href="Amazonka.SSM.StartSession.html#startSessionResponse_sessionId"><span class="hs-identifier hs-var hs-var">startSessionResponse_sessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSessionResponse -&gt; Maybe Text)
+-&gt; (StartSessionResponse -&gt; Maybe Text -&gt; StartSessionResponse)
+-&gt; Lens
+     StartSessionResponse StartSessionResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824338"><span class="annot"><span class="annottext">Maybe Text
+sessionId :: Maybe Text
+$sel:sessionId:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679824338"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824338"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824337"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:StartSessionResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AsessionId%3AStartSessionResponse%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.SSM.StartSession.html#startSessionResponse_httpStatus"><span class="hs-identifier hs-type">startSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-263"></span><span id="startSessionResponse_httpStatus"><span class="annot"><span class="annottext">startSessionResponse_httpStatus :: (Int -&gt; f Int) -&gt; StartSessionResponse -&gt; f StartSessionResponse
+</span><a href="Amazonka.SSM.StartSession.html#startSessionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startSessionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSessionResponse -&gt; Int)
+-&gt; (StartSessionResponse -&gt; Int -&gt; StartSessionResponse)
+-&gt; Lens StartSessionResponse StartSessionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824335"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartSessionResponse' :: StartSessionResponse -&gt; Int
+</span><a href="#local-6989586621679824335"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824335"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824334"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartSessionResponse' :: Int
+</span><a href="Amazonka.SSM.StartSession.html#%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824331"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span></span><span>
+</span><span id="line-266"></span></pre></body></html>

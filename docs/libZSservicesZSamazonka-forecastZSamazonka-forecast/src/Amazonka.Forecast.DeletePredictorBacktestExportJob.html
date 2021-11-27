@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Forecast.DeletePredictorBacktestExportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a predictor backtest export job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Forecast.DeletePredictorBacktestExportJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier">DeletePredictorBacktestExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#newDeletePredictorBacktestExportJob"><span class="hs-identifier">newDeletePredictorBacktestExportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#deletePredictorBacktestExportJob_predictorBacktestExportJobArn"><span class="hs-identifier">deletePredictorBacktestExportJob_predictorBacktestExportJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse"><span class="hs-identifier">DeletePredictorBacktestExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#newDeletePredictorBacktestExportJobResponse"><span class="hs-identifier">newDeletePredictorBacktestExportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.html"><span class="hs-identifier">Amazonka.Forecast.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeletePredictorBacktestExportJob' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679256636"><span id="local-6989586621679256637"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePredictorBacktestExportJob"><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-var">DeletePredictorBacktestExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePredictorBacktestExportJob%27"><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-var">DeletePredictorBacktestExportJob'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the predictor backtest export job to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ApredictorBacktestExportJobArn%3ADeletePredictorBacktestExportJob%27"><span class="annot"><span class="annottext">DeletePredictorBacktestExportJob -&gt; Text
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#%24sel%3ApredictorBacktestExportJobArn%3ADeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-var hs-var">predictorBacktestExportJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256630"><span id="local-6989586621679256632"><span class="annot"><span class="annottext">DeletePredictorBacktestExportJob
+-&gt; DeletePredictorBacktestExportJob -&gt; Bool
+(DeletePredictorBacktestExportJob
+ -&gt; DeletePredictorBacktestExportJob -&gt; Bool)
+-&gt; (DeletePredictorBacktestExportJob
+    -&gt; DeletePredictorBacktestExportJob -&gt; Bool)
+-&gt; Eq DeletePredictorBacktestExportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePredictorBacktestExportJob
+-&gt; DeletePredictorBacktestExportJob -&gt; Bool
+$c/= :: DeletePredictorBacktestExportJob
+-&gt; DeletePredictorBacktestExportJob -&gt; Bool
+== :: DeletePredictorBacktestExportJob
+-&gt; DeletePredictorBacktestExportJob -&gt; Bool
+$c== :: DeletePredictorBacktestExportJob
+-&gt; DeletePredictorBacktestExportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256621"><span id="local-6989586621679256623"><span id="local-6989586621679256625"><span id="local-6989586621679256627"><span class="annot"><span class="annottext">ReadPrec [DeletePredictorBacktestExportJob]
+ReadPrec DeletePredictorBacktestExportJob
+Int -&gt; ReadS DeletePredictorBacktestExportJob
+ReadS [DeletePredictorBacktestExportJob]
+(Int -&gt; ReadS DeletePredictorBacktestExportJob)
+-&gt; ReadS [DeletePredictorBacktestExportJob]
+-&gt; ReadPrec DeletePredictorBacktestExportJob
+-&gt; ReadPrec [DeletePredictorBacktestExportJob]
+-&gt; Read DeletePredictorBacktestExportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePredictorBacktestExportJob]
+$creadListPrec :: ReadPrec [DeletePredictorBacktestExportJob]
+readPrec :: ReadPrec DeletePredictorBacktestExportJob
+$creadPrec :: ReadPrec DeletePredictorBacktestExportJob
+readList :: ReadS [DeletePredictorBacktestExportJob]
+$creadList :: ReadS [DeletePredictorBacktestExportJob]
+readsPrec :: Int -&gt; ReadS DeletePredictorBacktestExportJob
+$creadsPrec :: Int -&gt; ReadS DeletePredictorBacktestExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256614"><span id="local-6989586621679256616"><span id="local-6989586621679256618"><span class="annot"><span class="annottext">Int -&gt; DeletePredictorBacktestExportJob -&gt; ShowS
+[DeletePredictorBacktestExportJob] -&gt; ShowS
+DeletePredictorBacktestExportJob -&gt; String
+(Int -&gt; DeletePredictorBacktestExportJob -&gt; ShowS)
+-&gt; (DeletePredictorBacktestExportJob -&gt; String)
+-&gt; ([DeletePredictorBacktestExportJob] -&gt; ShowS)
+-&gt; Show DeletePredictorBacktestExportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePredictorBacktestExportJob] -&gt; ShowS
+$cshowList :: [DeletePredictorBacktestExportJob] -&gt; ShowS
+show :: DeletePredictorBacktestExportJob -&gt; String
+$cshow :: DeletePredictorBacktestExportJob -&gt; String
+showsPrec :: Int -&gt; DeletePredictorBacktestExportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePredictorBacktestExportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletePredictorBacktestExportJob
+ -&gt; Rep DeletePredictorBacktestExportJob x)
+-&gt; (forall x.
+    Rep DeletePredictorBacktestExportJob x
+    -&gt; DeletePredictorBacktestExportJob)
+-&gt; Generic DeletePredictorBacktestExportJob
+forall x.
+Rep DeletePredictorBacktestExportJob x
+-&gt; DeletePredictorBacktestExportJob
+forall x.
+DeletePredictorBacktestExportJob
+-&gt; Rep DeletePredictorBacktestExportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeletePredictorBacktestExportJob x
+-&gt; DeletePredictorBacktestExportJob
+$cfrom :: forall x.
+DeletePredictorBacktestExportJob
+-&gt; Rep DeletePredictorBacktestExportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'DeletePredictorBacktestExportJob' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'predictorBacktestExportJobArn', 'deletePredictorBacktestExportJob_predictorBacktestExportJobArn' - The Amazon Resource Name (ARN) of the predictor backtest export job to</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#newDeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">newDeletePredictorBacktestExportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'predictorBacktestExportJobArn'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span>
+</span><span id="line-67"></span><span id="newDeletePredictorBacktestExportJob"><span class="annot"><span class="annottext">newDeletePredictorBacktestExportJob :: Text -&gt; DeletePredictorBacktestExportJob
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#newDeletePredictorBacktestExportJob"><span class="hs-identifier hs-var hs-var">newDeletePredictorBacktestExportJob</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679256609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256609"><span class="hs-identifier hs-var">pPredictorBacktestExportJobArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">DeletePredictorBacktestExportJob' :: Text -&gt; DeletePredictorBacktestExportJob
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:predictorBacktestExportJobArn:DeletePredictorBacktestExportJob' :: Text
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#%24sel%3ApredictorBacktestExportJobArn%3ADeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-var">predictorBacktestExportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256609"><span class="hs-identifier hs-var">pPredictorBacktestExportJobArn_</span></a></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the predictor backtest export job to</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#deletePredictorBacktestExportJob_predictorBacktestExportJobArn"><span class="hs-identifier hs-type">deletePredictorBacktestExportJob_predictorBacktestExportJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="deletePredictorBacktestExportJob_predictorBacktestExportJobArn"><span class="annot"><span class="annottext">deletePredictorBacktestExportJob_predictorBacktestExportJobArn :: (Text -&gt; f Text)
+-&gt; DeletePredictorBacktestExportJob
+-&gt; f DeletePredictorBacktestExportJob
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#deletePredictorBacktestExportJob_predictorBacktestExportJobArn"><span class="hs-identifier hs-var hs-var">deletePredictorBacktestExportJob_predictorBacktestExportJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePredictorBacktestExportJob -&gt; Text)
+-&gt; (DeletePredictorBacktestExportJob
+    -&gt; Text -&gt; DeletePredictorBacktestExportJob)
+-&gt; Lens
+     DeletePredictorBacktestExportJob
+     DeletePredictorBacktestExportJob
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256606"><span class="annot"><span class="annottext">Text
+predictorBacktestExportJobArn :: Text
+$sel:predictorBacktestExportJobArn:DeletePredictorBacktestExportJob' :: DeletePredictorBacktestExportJob -&gt; Text
+</span><a href="#local-6989586621679256606"><span class="hs-identifier hs-var hs-var">predictorBacktestExportJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256606"><span class="hs-identifier hs-var">predictorBacktestExportJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256605"><span class="annot"><span class="annottext">s :: DeletePredictorBacktestExportJob
+</span><a href="#local-6989586621679256605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256604"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePredictorBacktestExportJob
+</span><a href="#local-6989586621679256605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictorBacktestExportJobArn:DeletePredictorBacktestExportJob' :: Text
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#%24sel%3ApredictorBacktestExportJobArn%3ADeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-var">predictorBacktestExportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJobResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679256600"><span class="annot"><span class="annottext">request :: DeletePredictorBacktestExportJob
+-&gt; Request DeletePredictorBacktestExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeletePredictorBacktestExportJob
+-&gt; Request DeletePredictorBacktestExportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Forecast.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679256596"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeletePredictorBacktestExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeletePredictorBacktestExportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeletePredictorBacktestExportJob
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeletePredictorBacktestExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeletePredictorBacktestExportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeletePredictorBacktestExportJob
+DeletePredictorBacktestExportJobResponse
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse%27"><span class="hs-identifier hs-var">DeletePredictorBacktestExportJobResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679256589"><span id="local-6989586621679256591"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679256586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679256582"><span class="annot"><span class="annottext">toHeaders :: DeletePredictorBacktestExportJob -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeletePredictorBacktestExportJob -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonForecast.DeletePredictorBacktestExportJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256572"><span id="local-6989586621679256574"><span id="local-6989586621679256576"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679256570"><span class="annot"><span class="annottext">toJSON :: DeletePredictorBacktestExportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob%27"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256568"><span class="annot"><span class="annottext">Text
+predictorBacktestExportJobArn :: Text
+$sel:predictorBacktestExportJobArn:DeletePredictorBacktestExportJob' :: DeletePredictorBacktestExportJob -&gt; Text
+</span><a href="#local-6989586621679256568"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PredictorBacktestExportJobArn&quot;</span></span><span>
+</span><span id="line-123"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256568"><span class="hs-identifier hs-var">predictorBacktestExportJobArn</span></a></span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679256562"><span class="annot"><span class="annottext">toPath :: DeletePredictorBacktestExportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePredictorBacktestExportJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJob"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJob</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679256558"><span class="annot"><span class="annottext">toQuery :: DeletePredictorBacktestExportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePredictorBacktestExportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newDeletePredictorBacktestExportJobResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679256555"><span id="local-6989586621679256556"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePredictorBacktestExportJobResponse"><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse"><span class="hs-identifier hs-var">DeletePredictorBacktestExportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePredictorBacktestExportJobResponse%27"><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse%27"><span class="hs-identifier hs-var">DeletePredictorBacktestExportJobResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256551"><span id="local-6989586621679256553"><span class="annot"><span class="annottext">DeletePredictorBacktestExportJobResponse
+-&gt; DeletePredictorBacktestExportJobResponse -&gt; Bool
+(DeletePredictorBacktestExportJobResponse
+ -&gt; DeletePredictorBacktestExportJobResponse -&gt; Bool)
+-&gt; (DeletePredictorBacktestExportJobResponse
+    -&gt; DeletePredictorBacktestExportJobResponse -&gt; Bool)
+-&gt; Eq DeletePredictorBacktestExportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePredictorBacktestExportJobResponse
+-&gt; DeletePredictorBacktestExportJobResponse -&gt; Bool
+$c/= :: DeletePredictorBacktestExportJobResponse
+-&gt; DeletePredictorBacktestExportJobResponse -&gt; Bool
+== :: DeletePredictorBacktestExportJobResponse
+-&gt; DeletePredictorBacktestExportJobResponse -&gt; Bool
+$c== :: DeletePredictorBacktestExportJobResponse
+-&gt; DeletePredictorBacktestExportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256543"><span id="local-6989586621679256545"><span id="local-6989586621679256547"><span id="local-6989586621679256549"><span class="annot"><span class="annottext">ReadPrec [DeletePredictorBacktestExportJobResponse]
+ReadPrec DeletePredictorBacktestExportJobResponse
+Int -&gt; ReadS DeletePredictorBacktestExportJobResponse
+ReadS [DeletePredictorBacktestExportJobResponse]
+(Int -&gt; ReadS DeletePredictorBacktestExportJobResponse)
+-&gt; ReadS [DeletePredictorBacktestExportJobResponse]
+-&gt; ReadPrec DeletePredictorBacktestExportJobResponse
+-&gt; ReadPrec [DeletePredictorBacktestExportJobResponse]
+-&gt; Read DeletePredictorBacktestExportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePredictorBacktestExportJobResponse]
+$creadListPrec :: ReadPrec [DeletePredictorBacktestExportJobResponse]
+readPrec :: ReadPrec DeletePredictorBacktestExportJobResponse
+$creadPrec :: ReadPrec DeletePredictorBacktestExportJobResponse
+readList :: ReadS [DeletePredictorBacktestExportJobResponse]
+$creadList :: ReadS [DeletePredictorBacktestExportJobResponse]
+readsPrec :: Int -&gt; ReadS DeletePredictorBacktestExportJobResponse
+$creadsPrec :: Int -&gt; ReadS DeletePredictorBacktestExportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256537"><span id="local-6989586621679256539"><span id="local-6989586621679256541"><span class="annot"><span class="annottext">Int -&gt; DeletePredictorBacktestExportJobResponse -&gt; ShowS
+[DeletePredictorBacktestExportJobResponse] -&gt; ShowS
+DeletePredictorBacktestExportJobResponse -&gt; String
+(Int -&gt; DeletePredictorBacktestExportJobResponse -&gt; ShowS)
+-&gt; (DeletePredictorBacktestExportJobResponse -&gt; String)
+-&gt; ([DeletePredictorBacktestExportJobResponse] -&gt; ShowS)
+-&gt; Show DeletePredictorBacktestExportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePredictorBacktestExportJobResponse] -&gt; ShowS
+$cshowList :: [DeletePredictorBacktestExportJobResponse] -&gt; ShowS
+show :: DeletePredictorBacktestExportJobResponse -&gt; String
+$cshow :: DeletePredictorBacktestExportJobResponse -&gt; String
+showsPrec :: Int -&gt; DeletePredictorBacktestExportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePredictorBacktestExportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletePredictorBacktestExportJobResponse
+ -&gt; Rep DeletePredictorBacktestExportJobResponse x)
+-&gt; (forall x.
+    Rep DeletePredictorBacktestExportJobResponse x
+    -&gt; DeletePredictorBacktestExportJobResponse)
+-&gt; Generic DeletePredictorBacktestExportJobResponse
+forall x.
+Rep DeletePredictorBacktestExportJobResponse x
+-&gt; DeletePredictorBacktestExportJobResponse
+forall x.
+DeletePredictorBacktestExportJobResponse
+-&gt; Rep DeletePredictorBacktestExportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeletePredictorBacktestExportJobResponse x
+-&gt; DeletePredictorBacktestExportJobResponse
+$cfrom :: forall x.
+DeletePredictorBacktestExportJobResponse
+-&gt; Rep DeletePredictorBacktestExportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'DeletePredictorBacktestExportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#newDeletePredictorBacktestExportJobResponse"><span class="hs-identifier hs-type">newDeletePredictorBacktestExportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJobResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newDeletePredictorBacktestExportJobResponse"><span class="annot"><span class="annottext">newDeletePredictorBacktestExportJobResponse :: DeletePredictorBacktestExportJobResponse
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#newDeletePredictorBacktestExportJobResponse"><span class="hs-identifier hs-var hs-var">newDeletePredictorBacktestExportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DeletePredictorBacktestExportJobResponse
+</span><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse%27"><span class="hs-identifier hs-var">DeletePredictorBacktestExportJobResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679256533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictorBacktestExportJob.html#DeletePredictorBacktestExportJobResponse"><span class="hs-identifier hs-type">DeletePredictorBacktestExportJobResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

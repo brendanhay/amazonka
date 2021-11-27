@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutEquipment.Types.TargetSamplingRate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutEquipment.Types.TargetSamplingRate</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier">TargetSamplingRate</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT10M"><span class="hs-identifier">TargetSamplingRate_PT10M</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT10S"><span class="hs-identifier">TargetSamplingRate_PT10S</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT15M"><span class="hs-identifier">TargetSamplingRate_PT15M</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT15S"><span class="hs-identifier">TargetSamplingRate_PT15S</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1H"><span class="hs-identifier">TargetSamplingRate_PT1H</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1M"><span class="hs-identifier">TargetSamplingRate_PT1M</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1S"><span class="hs-identifier">TargetSamplingRate_PT1S</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT30M"><span class="hs-identifier">TargetSamplingRate_PT30M</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT30S"><span class="hs-identifier">TargetSamplingRate_PT30S</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT5M"><span class="hs-identifier">TargetSamplingRate_PT5M</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT5S"><span class="hs-identifier">TargetSamplingRate_PT5S</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679210192"><span id="local-6989586621679210193"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetSamplingRate"><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-var">TargetSamplingRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetSamplingRate%27"><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-var">TargetSamplingRate'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetSamplingRate"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; Text
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#fromTargetSamplingRate"><span class="hs-identifier hs-var hs-var">fromTargetSamplingRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210184"><span id="local-6989586621679210186"><span id="local-6989586621679210188"><span class="annot"><span class="annottext">Int -&gt; TargetSamplingRate -&gt; ShowS
+[TargetSamplingRate] -&gt; ShowS
+TargetSamplingRate -&gt; String
+(Int -&gt; TargetSamplingRate -&gt; ShowS)
+-&gt; (TargetSamplingRate -&gt; String)
+-&gt; ([TargetSamplingRate] -&gt; ShowS)
+-&gt; Show TargetSamplingRate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TargetSamplingRate] -&gt; ShowS
+$cshowList :: [TargetSamplingRate] -&gt; ShowS
+show :: TargetSamplingRate -&gt; String
+$cshow :: TargetSamplingRate -&gt; String
+showsPrec :: Int -&gt; TargetSamplingRate -&gt; ShowS
+$cshowsPrec :: Int -&gt; TargetSamplingRate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679210175"><span id="local-6989586621679210177"><span id="local-6989586621679210179"><span id="local-6989586621679210181"><span class="annot"><span class="annottext">ReadPrec [TargetSamplingRate]
+ReadPrec TargetSamplingRate
+Int -&gt; ReadS TargetSamplingRate
+ReadS [TargetSamplingRate]
+(Int -&gt; ReadS TargetSamplingRate)
+-&gt; ReadS [TargetSamplingRate]
+-&gt; ReadPrec TargetSamplingRate
+-&gt; ReadPrec [TargetSamplingRate]
+-&gt; Read TargetSamplingRate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TargetSamplingRate]
+$creadListPrec :: ReadPrec [TargetSamplingRate]
+readPrec :: ReadPrec TargetSamplingRate
+$creadPrec :: ReadPrec TargetSamplingRate
+readList :: ReadS [TargetSamplingRate]
+$creadList :: ReadS [TargetSamplingRate]
+readsPrec :: Int -&gt; ReadS TargetSamplingRate
+$creadsPrec :: Int -&gt; ReadS TargetSamplingRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679210170"><span id="local-6989586621679210172"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+(TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool)
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool)
+-&gt; Eq TargetSamplingRate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+$c/= :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+== :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+$c== :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679210154"><span id="local-6989586621679210156"><span id="local-6989586621679210158"><span id="local-6989586621679210160"><span id="local-6989586621679210162"><span id="local-6989586621679210164"><span id="local-6989586621679210166"><span class="annot"><span class="annottext">Eq TargetSamplingRate
+Eq TargetSamplingRate
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; Ordering)
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool)
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool)
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool)
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool)
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; TargetSamplingRate)
+-&gt; (TargetSamplingRate -&gt; TargetSamplingRate -&gt; TargetSamplingRate)
+-&gt; Ord TargetSamplingRate
+TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+TargetSamplingRate -&gt; TargetSamplingRate -&gt; Ordering
+TargetSamplingRate -&gt; TargetSamplingRate -&gt; TargetSamplingRate
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; TargetSamplingRate
+$cmin :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; TargetSamplingRate
+max :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; TargetSamplingRate
+$cmax :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; TargetSamplingRate
+&gt;= :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+$c&gt;= :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+&gt; :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+$c&gt; :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+&lt;= :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+$c&lt;= :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+&lt; :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+$c&lt; :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Bool
+compare :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Ordering
+$ccompare :: TargetSamplingRate -&gt; TargetSamplingRate -&gt; Ordering
+$cp1Ord :: Eq TargetSamplingRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TargetSamplingRate -&gt; Rep TargetSamplingRate x)
+-&gt; (forall x. Rep TargetSamplingRate x -&gt; TargetSamplingRate)
+-&gt; Generic TargetSamplingRate
+forall x. Rep TargetSamplingRate x -&gt; TargetSamplingRate
+forall x. TargetSamplingRate -&gt; Rep TargetSamplingRate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TargetSamplingRate x -&gt; TargetSamplingRate
+$cfrom :: forall x. TargetSamplingRate -&gt; Rep TargetSamplingRate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210146"><span id="local-6989586621679210148"><span class="annot"><span class="annottext">Int -&gt; TargetSamplingRate -&gt; Int
+TargetSamplingRate -&gt; Int
+(Int -&gt; TargetSamplingRate -&gt; Int)
+-&gt; (TargetSamplingRate -&gt; Int) -&gt; Hashable TargetSamplingRate
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TargetSamplingRate -&gt; Int
+$chash :: TargetSamplingRate -&gt; Int
+hashWithSalt :: Int -&gt; TargetSamplingRate -&gt; Int
+$chashWithSalt :: Int -&gt; TargetSamplingRate -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679210143"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; ()
+(TargetSamplingRate -&gt; ()) -&gt; NFData TargetSamplingRate
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TargetSamplingRate -&gt; ()
+$crnf :: TargetSamplingRate -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679210140"><span class="annot"><span class="annottext">Text -&gt; Either String TargetSamplingRate
+(Text -&gt; Either String TargetSamplingRate)
+-&gt; FromText TargetSamplingRate
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TargetSamplingRate
+$cfromText :: Text -&gt; Either String TargetSamplingRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679210137"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; Text
+(TargetSamplingRate -&gt; Text) -&gt; ToText TargetSamplingRate
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TargetSamplingRate -&gt; Text
+$ctoText :: TargetSamplingRate -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679210134"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; ByteString
+(TargetSamplingRate -&gt; ByteString)
+-&gt; ToByteString TargetSamplingRate
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TargetSamplingRate -&gt; ByteString
+$ctoBS :: TargetSamplingRate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679210131"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; ByteStringBuilder
+(TargetSamplingRate -&gt; ByteStringBuilder)
+-&gt; ToLog TargetSamplingRate
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TargetSamplingRate -&gt; ByteStringBuilder
+$cbuild :: TargetSamplingRate -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679210128"><span class="annot"><span class="annottext">HeaderName -&gt; TargetSamplingRate -&gt; [Header]
+(HeaderName -&gt; TargetSamplingRate -&gt; [Header])
+-&gt; ToHeader TargetSamplingRate
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TargetSamplingRate -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TargetSamplingRate -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679210125"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; QueryString
+(TargetSamplingRate -&gt; QueryString) -&gt; ToQuery TargetSamplingRate
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TargetSamplingRate -&gt; QueryString
+$ctoQuery :: TargetSamplingRate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679210120"><span id="local-6989586621679210122"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetSamplingRate]
+Value -&gt; Parser TargetSamplingRate
+(Value -&gt; Parser TargetSamplingRate)
+-&gt; (Value -&gt; Parser [TargetSamplingRate])
+-&gt; FromJSON TargetSamplingRate
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TargetSamplingRate]
+$cparseJSONList :: Value -&gt; Parser [TargetSamplingRate]
+parseJSON :: Value -&gt; Parser TargetSamplingRate
+$cparseJSON :: Value -&gt; Parser TargetSamplingRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679210115"><span id="local-6989586621679210117"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetSamplingRate]
+FromJSONKeyFunction TargetSamplingRate
+FromJSONKeyFunction TargetSamplingRate
+-&gt; FromJSONKeyFunction [TargetSamplingRate]
+-&gt; FromJSONKey TargetSamplingRate
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TargetSamplingRate]
+$cfromJSONKeyList :: FromJSONKeyFunction [TargetSamplingRate]
+fromJSONKey :: FromJSONKeyFunction TargetSamplingRate
+$cfromJSONKey :: FromJSONKeyFunction TargetSamplingRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679210106"><span id="local-6989586621679210108"><span id="local-6989586621679210110"><span id="local-6989586621679210112"><span class="annot"><span class="annottext">[TargetSamplingRate] -&gt; Encoding
+[TargetSamplingRate] -&gt; Value
+TargetSamplingRate -&gt; Encoding
+TargetSamplingRate -&gt; Value
+(TargetSamplingRate -&gt; Value)
+-&gt; (TargetSamplingRate -&gt; Encoding)
+-&gt; ([TargetSamplingRate] -&gt; Value)
+-&gt; ([TargetSamplingRate] -&gt; Encoding)
+-&gt; ToJSON TargetSamplingRate
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TargetSamplingRate] -&gt; Encoding
+$ctoEncodingList :: [TargetSamplingRate] -&gt; Encoding
+toJSONList :: [TargetSamplingRate] -&gt; Value
+$ctoJSONList :: [TargetSamplingRate] -&gt; Value
+toEncoding :: TargetSamplingRate -&gt; Encoding
+$ctoEncoding :: TargetSamplingRate -&gt; Encoding
+toJSON :: TargetSamplingRate -&gt; Value
+$ctoJSON :: TargetSamplingRate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679210101"><span id="local-6989586621679210103"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetSamplingRate]
+ToJSONKeyFunction TargetSamplingRate
+ToJSONKeyFunction TargetSamplingRate
+-&gt; ToJSONKeyFunction [TargetSamplingRate]
+-&gt; ToJSONKey TargetSamplingRate
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TargetSamplingRate]
+$ctoJSONKeyList :: ToJSONKeyFunction [TargetSamplingRate]
+toJSONKey :: ToJSONKeyFunction TargetSamplingRate
+$ctoJSONKey :: ToJSONKeyFunction TargetSamplingRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679210098"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetSamplingRate
+([Node] -&gt; Either String TargetSamplingRate)
+-&gt; FromXML TargetSamplingRate
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TargetSamplingRate
+$cparseXML :: [Node] -&gt; Either String TargetSamplingRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679210095"><span class="annot"><span class="annottext">TargetSamplingRate -&gt; XML
+(TargetSamplingRate -&gt; XML) -&gt; ToXML TargetSamplingRate
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TargetSamplingRate -&gt; XML
+$ctoXML :: TargetSamplingRate -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT10M"><span class="hs-identifier hs-type">TargetSamplingRate_PT10M</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT10M"><span id="%24mTargetSamplingRate_PT10M"><span id="TargetSamplingRate_PT10M"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT10M :: TargetSamplingRate
+$mTargetSamplingRate_PT10M :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT10M"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT10M</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT10M&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT10S"><span class="hs-identifier hs-type">TargetSamplingRate_PT10S</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT10S"><span id="%24mTargetSamplingRate_PT10S"><span id="TargetSamplingRate_PT10S"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT10S :: TargetSamplingRate
+$mTargetSamplingRate_PT10S :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT10S"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT10S</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT10S&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT15M"><span class="hs-identifier hs-type">TargetSamplingRate_PT15M</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT15M"><span id="%24mTargetSamplingRate_PT15M"><span id="TargetSamplingRate_PT15M"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT15M :: TargetSamplingRate
+$mTargetSamplingRate_PT15M :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT15M"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT15M</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT15M&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT15S"><span class="hs-identifier hs-type">TargetSamplingRate_PT15S</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT15S"><span id="%24mTargetSamplingRate_PT15S"><span id="TargetSamplingRate_PT15S"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT15S :: TargetSamplingRate
+$mTargetSamplingRate_PT15S :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT15S"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT15S</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT15S&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1H"><span class="hs-identifier hs-type">TargetSamplingRate_PT1H</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT1H"><span id="%24mTargetSamplingRate_PT1H"><span id="TargetSamplingRate_PT1H"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT1H :: TargetSamplingRate
+$mTargetSamplingRate_PT1H :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT1H"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT1H</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT1H&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1M"><span class="hs-identifier hs-type">TargetSamplingRate_PT1M</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT1M"><span id="%24mTargetSamplingRate_PT1M"><span id="TargetSamplingRate_PT1M"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT1M :: TargetSamplingRate
+$mTargetSamplingRate_PT1M :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT1M"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT1M</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT1M&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1S"><span class="hs-identifier hs-type">TargetSamplingRate_PT1S</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT1S"><span id="%24mTargetSamplingRate_PT1S"><span id="TargetSamplingRate_PT1S"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT1S :: TargetSamplingRate
+$mTargetSamplingRate_PT1S :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT1S"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT1S</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT1S&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT30M"><span class="hs-identifier hs-type">TargetSamplingRate_PT30M</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT30M"><span id="%24mTargetSamplingRate_PT30M"><span id="TargetSamplingRate_PT30M"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT30M :: TargetSamplingRate
+$mTargetSamplingRate_PT30M :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT30M"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT30M</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT30M&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT30S"><span class="hs-identifier hs-type">TargetSamplingRate_PT30S</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT30S"><span id="%24mTargetSamplingRate_PT30S"><span id="TargetSamplingRate_PT30S"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT30S :: TargetSamplingRate
+$mTargetSamplingRate_PT30S :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT30S"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT30S</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT30S&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT5M"><span class="hs-identifier hs-type">TargetSamplingRate_PT5M</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT5M"><span id="%24mTargetSamplingRate_PT5M"><span id="TargetSamplingRate_PT5M"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT5M :: TargetSamplingRate
+$mTargetSamplingRate_PT5M :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT5M"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT5M</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT5M&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT5S"><span class="hs-identifier hs-type">TargetSamplingRate_PT5S</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier hs-type">TargetSamplingRate</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetSamplingRate_PT5S"><span id="%24mTargetSamplingRate_PT5S"><span id="TargetSamplingRate_PT5S"><span class="annot"><span class="annottext">$bTargetSamplingRate_PT5S :: TargetSamplingRate
+$mTargetSamplingRate_PT5S :: forall r. TargetSamplingRate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#%24bTargetSamplingRate_PT5S"><span class="hs-identifier hs-var hs-var hs-var">TargetSamplingRate_PT5S</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-identifier hs-type">TargetSamplingRate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT5S&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT10M"><span class="hs-pragma hs-type">TargetSamplingRate_PT10M</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT10S"><span class="hs-pragma hs-type">TargetSamplingRate_PT10S</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT15M"><span class="hs-pragma hs-type">TargetSamplingRate_PT15M</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT15S"><span class="hs-pragma hs-type">TargetSamplingRate_PT15S</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1H"><span class="hs-pragma hs-type">TargetSamplingRate_PT1H</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1M"><span class="hs-pragma hs-type">TargetSamplingRate_PT1M</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT1S"><span class="hs-pragma hs-type">TargetSamplingRate_PT1S</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT30M"><span class="hs-pragma hs-type">TargetSamplingRate_PT30M</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT30S"><span class="hs-pragma hs-type">TargetSamplingRate_PT30S</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT5M"><span class="hs-pragma hs-type">TargetSamplingRate_PT5M</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate_PT5S"><span class="hs-pragma hs-type">TargetSamplingRate_PT5S</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate%27"><span class="hs-pragma hs-type">TargetSamplingRate'</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-116"></span></pre></body></html>

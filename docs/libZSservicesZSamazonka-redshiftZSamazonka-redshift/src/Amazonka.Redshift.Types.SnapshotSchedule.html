@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.Types.SnapshotSchedule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.Types.SnapshotSchedule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Internal.html"><span class="hs-identifier">Amazonka.Redshift.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.ClusterAssociatedToSchedule.html"><span class="hs-identifier">Amazonka.Redshift.Types.ClusterAssociatedToSchedule</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.Tag.html"><span class="hs-identifier">Amazonka.Redshift.Types.Tag</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a snapshot schedule. You can set a regular interval for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- creating snapshots of a cluster. You can also schedule snapshots for</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- specific dates.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSnapshotSchedule' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679499343"><span id="local-6989586621679499344"></span></span><span class="hs-keyword">data</span><span> </span><span id="SnapshotSchedule"><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-var">SnapshotSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotSchedule%27"><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-var">SnapshotSchedule'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of clusters associated with the schedule. A maximum of 100</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- clusters is returned.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AassociatedClusters%3ASnapshotSchedule%27"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; Maybe [ClusterAssociatedToSchedule]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AassociatedClusters%3ASnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">associatedClusters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.ClusterAssociatedToSchedule.html#ClusterAssociatedToSchedule"><span class="hs-identifier hs-type">ClusterAssociatedToSchedule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnextInvocations%3ASnapshotSchedule%27"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; Maybe [ISO8601]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AnextInvocations%3ASnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">nextInvocations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A list of ScheduleDefinitions.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AscheduleDefinitions%3ASnapshotSchedule%27"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleDefinitions%3ASnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">scheduleDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The description of the schedule.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AscheduleDescription%3ASnapshotSchedule%27"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleDescription%3ASnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">scheduleDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the schedule.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AscheduleIdentifier%3ASnapshotSchedule%27"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleIdentifier%3ASnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">scheduleIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The number of clusters associated with the schedule.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AassociatedClusterCount%3ASnapshotSchedule%27"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; Maybe Int
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AassociatedClusterCount%3ASnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">associatedClusterCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | An optional set of tags describing the schedule.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atags%3ASnapshotSchedule%27"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; Maybe [Tag]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3Atags%3ASnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679499331"><span id="local-6989586621679499333"><span class="annot"><span class="annottext">SnapshotSchedule -&gt; SnapshotSchedule -&gt; Bool
+(SnapshotSchedule -&gt; SnapshotSchedule -&gt; Bool)
+-&gt; (SnapshotSchedule -&gt; SnapshotSchedule -&gt; Bool)
+-&gt; Eq SnapshotSchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SnapshotSchedule -&gt; SnapshotSchedule -&gt; Bool
+$c/= :: SnapshotSchedule -&gt; SnapshotSchedule -&gt; Bool
+== :: SnapshotSchedule -&gt; SnapshotSchedule -&gt; Bool
+$c== :: SnapshotSchedule -&gt; SnapshotSchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499322"><span id="local-6989586621679499324"><span id="local-6989586621679499326"><span id="local-6989586621679499328"><span class="annot"><span class="annottext">ReadPrec [SnapshotSchedule]
+ReadPrec SnapshotSchedule
+Int -&gt; ReadS SnapshotSchedule
+ReadS [SnapshotSchedule]
+(Int -&gt; ReadS SnapshotSchedule)
+-&gt; ReadS [SnapshotSchedule]
+-&gt; ReadPrec SnapshotSchedule
+-&gt; ReadPrec [SnapshotSchedule]
+-&gt; Read SnapshotSchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SnapshotSchedule]
+$creadListPrec :: ReadPrec [SnapshotSchedule]
+readPrec :: ReadPrec SnapshotSchedule
+$creadPrec :: ReadPrec SnapshotSchedule
+readList :: ReadS [SnapshotSchedule]
+$creadList :: ReadS [SnapshotSchedule]
+readsPrec :: Int -&gt; ReadS SnapshotSchedule
+$creadsPrec :: Int -&gt; ReadS SnapshotSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499315"><span id="local-6989586621679499317"><span id="local-6989586621679499319"><span class="annot"><span class="annottext">Int -&gt; SnapshotSchedule -&gt; ShowS
+[SnapshotSchedule] -&gt; ShowS
+SnapshotSchedule -&gt; String
+(Int -&gt; SnapshotSchedule -&gt; ShowS)
+-&gt; (SnapshotSchedule -&gt; String)
+-&gt; ([SnapshotSchedule] -&gt; ShowS)
+-&gt; Show SnapshotSchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SnapshotSchedule] -&gt; ShowS
+$cshowList :: [SnapshotSchedule] -&gt; ShowS
+show :: SnapshotSchedule -&gt; String
+$cshow :: SnapshotSchedule -&gt; String
+showsPrec :: Int -&gt; SnapshotSchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; SnapshotSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SnapshotSchedule -&gt; Rep SnapshotSchedule x)
+-&gt; (forall x. Rep SnapshotSchedule x -&gt; SnapshotSchedule)
+-&gt; Generic SnapshotSchedule
+forall x. Rep SnapshotSchedule x -&gt; SnapshotSchedule
+forall x. SnapshotSchedule -&gt; Rep SnapshotSchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SnapshotSchedule x -&gt; SnapshotSchedule
+$cfrom :: forall x. SnapshotSchedule -&gt; Rep SnapshotSchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'SnapshotSchedule' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'associatedClusters', 'snapshotSchedule_associatedClusters' - A list of clusters associated with the schedule. A maximum of 100</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- clusters is returned.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'nextInvocations', 'snapshotSchedule_nextInvocations' -</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'scheduleDefinitions', 'snapshotSchedule_scheduleDefinitions' - A list of ScheduleDefinitions.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'scheduleDescription', 'snapshotSchedule_scheduleDescription' - The description of the schedule.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'scheduleIdentifier', 'snapshotSchedule_scheduleIdentifier' - A unique identifier for the schedule.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'associatedClusterCount', 'snapshotSchedule_associatedClusterCount' - The number of clusters associated with the schedule.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'tags', 'snapshotSchedule_tags' - An optional set of tags describing the schedule.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#newSnapshotSchedule"><span class="hs-identifier hs-type">newSnapshotSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span>
+</span><span id="line-76"></span><span id="newSnapshotSchedule"><span class="annot"><span class="annottext">newSnapshotSchedule :: SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#newSnapshotSchedule"><span class="hs-identifier hs-var hs-var">newSnapshotSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">SnapshotSchedule' :: Maybe [ClusterAssociatedToSchedule]
+-&gt; Maybe [ISO8601]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [Tag]
+-&gt; SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associatedClusters:SnapshotSchedule' :: Maybe [ClusterAssociatedToSchedule]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AassociatedClusters%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">associatedClusters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ClusterAssociatedToSchedule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextInvocations:SnapshotSchedule' :: Maybe [ISO8601]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AnextInvocations%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleDefinitions:SnapshotSchedule' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleDefinitions%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">scheduleDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleDescription:SnapshotSchedule' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleDescription%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">scheduleDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleIdentifier:SnapshotSchedule' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleIdentifier%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">scheduleIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedClusterCount:SnapshotSchedule' :: Maybe Int
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AassociatedClusterCount%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">associatedClusterCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SnapshotSchedule' :: Maybe [Tag]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3Atags%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A list of clusters associated with the schedule. A maximum of 100</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- clusters is returned.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_associatedClusters"><span class="hs-identifier hs-type">snapshotSchedule_associatedClusters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.ClusterAssociatedToSchedule.html#ClusterAssociatedToSchedule"><span class="hs-identifier hs-type">ClusterAssociatedToSchedule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="snapshotSchedule_associatedClusters"><span class="annot"><span class="annottext">snapshotSchedule_associatedClusters :: (Maybe [ClusterAssociatedToSchedule]
+ -&gt; f (Maybe [ClusterAssociatedToSchedule]))
+-&gt; SnapshotSchedule -&gt; f SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_associatedClusters"><span class="hs-identifier hs-var hs-var">snapshotSchedule_associatedClusters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotSchedule -&gt; Maybe [ClusterAssociatedToSchedule])
+-&gt; (SnapshotSchedule
+    -&gt; Maybe [ClusterAssociatedToSchedule] -&gt; SnapshotSchedule)
+-&gt; Lens
+     SnapshotSchedule
+     SnapshotSchedule
+     (Maybe [ClusterAssociatedToSchedule])
+     (Maybe [ClusterAssociatedToSchedule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499306"><span class="annot"><span class="annottext">Maybe [ClusterAssociatedToSchedule]
+associatedClusters :: Maybe [ClusterAssociatedToSchedule]
+$sel:associatedClusters:SnapshotSchedule' :: SnapshotSchedule -&gt; Maybe [ClusterAssociatedToSchedule]
+</span><a href="#local-6989586621679499306"><span class="hs-identifier hs-var hs-var">associatedClusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterAssociatedToSchedule]
+</span><a href="#local-6989586621679499306"><span class="hs-identifier hs-var">associatedClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499305"><span class="annot"><span class="annottext">s :: SnapshotSchedule
+</span><a href="#local-6989586621679499305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499304"><span class="annot"><span class="annottext">Maybe [ClusterAssociatedToSchedule]
+</span><a href="#local-6989586621679499304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotSchedule
+</span><a href="#local-6989586621679499305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedClusters:SnapshotSchedule' :: Maybe [ClusterAssociatedToSchedule]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AassociatedClusters%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">associatedClusters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterAssociatedToSchedule]
+</span><a href="#local-6989586621679499304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterAssociatedToSchedule]
+  -&gt; f (Maybe [ClusterAssociatedToSchedule]))
+ -&gt; SnapshotSchedule -&gt; f SnapshotSchedule)
+-&gt; ((Maybe [ClusterAssociatedToSchedule]
+     -&gt; f (Maybe [ClusterAssociatedToSchedule]))
+    -&gt; Maybe [ClusterAssociatedToSchedule]
+    -&gt; f (Maybe [ClusterAssociatedToSchedule]))
+-&gt; (Maybe [ClusterAssociatedToSchedule]
+    -&gt; f (Maybe [ClusterAssociatedToSchedule]))
+-&gt; SnapshotSchedule
+-&gt; f SnapshotSchedule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClusterAssociatedToSchedule]
+  [ClusterAssociatedToSchedule]
+  [ClusterAssociatedToSchedule]
+  [ClusterAssociatedToSchedule]
+-&gt; Iso
+     (Maybe [ClusterAssociatedToSchedule])
+     (Maybe [ClusterAssociatedToSchedule])
+     (Maybe [ClusterAssociatedToSchedule])
+     (Maybe [ClusterAssociatedToSchedule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClusterAssociatedToSchedule]
+  [ClusterAssociatedToSchedule]
+  [ClusterAssociatedToSchedule]
+  [ClusterAssociatedToSchedule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_nextInvocations"><span class="hs-identifier hs-type">snapshotSchedule_nextInvocations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="snapshotSchedule_nextInvocations"><span class="annot"><span class="annottext">snapshotSchedule_nextInvocations :: (Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
+-&gt; SnapshotSchedule -&gt; f SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_nextInvocations"><span class="hs-identifier hs-var hs-var">snapshotSchedule_nextInvocations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotSchedule -&gt; Maybe [ISO8601])
+-&gt; (SnapshotSchedule -&gt; Maybe [ISO8601] -&gt; SnapshotSchedule)
+-&gt; Lens
+     SnapshotSchedule
+     SnapshotSchedule
+     (Maybe [ISO8601])
+     (Maybe [ISO8601])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499299"><span class="annot"><span class="annottext">Maybe [ISO8601]
+nextInvocations :: Maybe [ISO8601]
+$sel:nextInvocations:SnapshotSchedule' :: SnapshotSchedule -&gt; Maybe [ISO8601]
+</span><a href="#local-6989586621679499299"><span class="hs-identifier hs-var hs-var">nextInvocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
+</span><a href="#local-6989586621679499299"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499298"><span class="annot"><span class="annottext">s :: SnapshotSchedule
+</span><a href="#local-6989586621679499298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499297"><span class="annot"><span class="annottext">Maybe [ISO8601]
+</span><a href="#local-6989586621679499297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotSchedule
+</span><a href="#local-6989586621679499298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextInvocations:SnapshotSchedule' :: Maybe [ISO8601]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AnextInvocations%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
+</span><a href="#local-6989586621679499297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ISO8601] -&gt; f (Maybe [ISO8601]))
+ -&gt; SnapshotSchedule -&gt; f SnapshotSchedule)
+-&gt; ((Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
+    -&gt; Maybe [ISO8601] -&gt; f (Maybe [ISO8601]))
+-&gt; (Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
+-&gt; SnapshotSchedule
+-&gt; f SnapshotSchedule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ISO8601] [ISO8601] [UTCTime] [UTCTime]
+-&gt; Iso
+     (Maybe [ISO8601])
+     (Maybe [ISO8601])
+     (Maybe [UTCTime])
+     (Maybe [UTCTime])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ISO8601] [ISO8601] [UTCTime] [UTCTime]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A list of ScheduleDefinitions.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_scheduleDefinitions"><span class="hs-identifier hs-type">snapshotSchedule_scheduleDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="snapshotSchedule_scheduleDefinitions"><span class="annot"><span class="annottext">snapshotSchedule_scheduleDefinitions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SnapshotSchedule -&gt; f SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_scheduleDefinitions"><span class="hs-identifier hs-var hs-var">snapshotSchedule_scheduleDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotSchedule -&gt; Maybe [Text])
+-&gt; (SnapshotSchedule -&gt; Maybe [Text] -&gt; SnapshotSchedule)
+-&gt; Lens
+     SnapshotSchedule SnapshotSchedule (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499295"><span class="annot"><span class="annottext">Maybe [Text]
+scheduleDefinitions :: Maybe [Text]
+$sel:scheduleDefinitions:SnapshotSchedule' :: SnapshotSchedule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679499295"><span class="hs-identifier hs-var hs-var">scheduleDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679499295"><span class="hs-identifier hs-var">scheduleDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499294"><span class="annot"><span class="annottext">s :: SnapshotSchedule
+</span><a href="#local-6989586621679499294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499293"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679499293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotSchedule
+</span><a href="#local-6989586621679499294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleDefinitions:SnapshotSchedule' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleDefinitions%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">scheduleDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679499293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; SnapshotSchedule -&gt; f SnapshotSchedule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SnapshotSchedule
+-&gt; f SnapshotSchedule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The description of the schedule.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_scheduleDescription"><span class="hs-identifier hs-type">snapshotSchedule_scheduleDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="snapshotSchedule_scheduleDescription"><span class="annot"><span class="annottext">snapshotSchedule_scheduleDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SnapshotSchedule -&gt; f SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_scheduleDescription"><span class="hs-identifier hs-var hs-var">snapshotSchedule_scheduleDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotSchedule -&gt; Maybe Text)
+-&gt; (SnapshotSchedule -&gt; Maybe Text -&gt; SnapshotSchedule)
+-&gt; Lens SnapshotSchedule SnapshotSchedule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499291"><span class="annot"><span class="annottext">Maybe Text
+scheduleDescription :: Maybe Text
+$sel:scheduleDescription:SnapshotSchedule' :: SnapshotSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679499291"><span class="hs-identifier hs-var hs-var">scheduleDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499291"><span class="hs-identifier hs-var">scheduleDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499290"><span class="annot"><span class="annottext">s :: SnapshotSchedule
+</span><a href="#local-6989586621679499290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499289"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotSchedule
+</span><a href="#local-6989586621679499290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleDescription:SnapshotSchedule' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleDescription%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">scheduleDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A unique identifier for the schedule.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_scheduleIdentifier"><span class="hs-identifier hs-type">snapshotSchedule_scheduleIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="snapshotSchedule_scheduleIdentifier"><span class="annot"><span class="annottext">snapshotSchedule_scheduleIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SnapshotSchedule -&gt; f SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_scheduleIdentifier"><span class="hs-identifier hs-var hs-var">snapshotSchedule_scheduleIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotSchedule -&gt; Maybe Text)
+-&gt; (SnapshotSchedule -&gt; Maybe Text -&gt; SnapshotSchedule)
+-&gt; Lens SnapshotSchedule SnapshotSchedule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499287"><span class="annot"><span class="annottext">Maybe Text
+scheduleIdentifier :: Maybe Text
+$sel:scheduleIdentifier:SnapshotSchedule' :: SnapshotSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679499287"><span class="hs-identifier hs-var hs-var">scheduleIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499287"><span class="hs-identifier hs-var">scheduleIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499286"><span class="annot"><span class="annottext">s :: SnapshotSchedule
+</span><a href="#local-6989586621679499286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotSchedule
+</span><a href="#local-6989586621679499286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleIdentifier:SnapshotSchedule' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AscheduleIdentifier%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">scheduleIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The number of clusters associated with the schedule.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_associatedClusterCount"><span class="hs-identifier hs-type">snapshotSchedule_associatedClusterCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="snapshotSchedule_associatedClusterCount"><span class="annot"><span class="annottext">snapshotSchedule_associatedClusterCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SnapshotSchedule -&gt; f SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_associatedClusterCount"><span class="hs-identifier hs-var hs-var">snapshotSchedule_associatedClusterCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotSchedule -&gt; Maybe Int)
+-&gt; (SnapshotSchedule -&gt; Maybe Int -&gt; SnapshotSchedule)
+-&gt; Lens SnapshotSchedule SnapshotSchedule (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499283"><span class="annot"><span class="annottext">Maybe Int
+associatedClusterCount :: Maybe Int
+$sel:associatedClusterCount:SnapshotSchedule' :: SnapshotSchedule -&gt; Maybe Int
+</span><a href="#local-6989586621679499283"><span class="hs-identifier hs-var hs-var">associatedClusterCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679499283"><span class="hs-identifier hs-var">associatedClusterCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499282"><span class="annot"><span class="annottext">s :: SnapshotSchedule
+</span><a href="#local-6989586621679499282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499281"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679499281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotSchedule
+</span><a href="#local-6989586621679499282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedClusterCount:SnapshotSchedule' :: Maybe Int
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3AassociatedClusterCount%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">associatedClusterCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679499281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | An optional set of tags describing the schedule.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_tags"><span class="hs-identifier hs-type">snapshotSchedule_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="snapshotSchedule_tags"><span class="annot"><span class="annottext">snapshotSchedule_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; SnapshotSchedule -&gt; f SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#snapshotSchedule_tags"><span class="hs-identifier hs-var hs-var">snapshotSchedule_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotSchedule -&gt; Maybe [Tag])
+-&gt; (SnapshotSchedule -&gt; Maybe [Tag] -&gt; SnapshotSchedule)
+-&gt; Lens
+     SnapshotSchedule SnapshotSchedule (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499279"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:SnapshotSchedule' :: SnapshotSchedule -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679499279"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679499279"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499278"><span class="annot"><span class="annottext">s :: SnapshotSchedule
+</span><a href="#local-6989586621679499278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-type">SnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499277"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679499277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotSchedule
+</span><a href="#local-6989586621679499278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SnapshotSchedule' :: Maybe [Tag]
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#%24sel%3Atags%3ASnapshotSchedule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679499277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; SnapshotSchedule -&gt; f SnapshotSchedule)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; SnapshotSchedule
+-&gt; f SnapshotSchedule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679499274"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SnapshotSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679499272"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">Maybe [ClusterAssociatedToSchedule]
+-&gt; Maybe [ISO8601]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [Tag]
+-&gt; SnapshotSchedule
+</span><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule%27"><span class="hs-identifier hs-var">SnapshotSchedule'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [ClusterAssociatedToSchedule]
+ -&gt; Maybe [ISO8601]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe [Tag]
+ -&gt; SnapshotSchedule)
+-&gt; Either String (Maybe [ClusterAssociatedToSchedule])
+-&gt; Either
+     String
+     (Maybe [ISO8601]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; SnapshotSchedule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociatedClusters&quot;</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ClusterAssociatedToSchedule]))
+-&gt; Either String (Maybe [ClusterAssociatedToSchedule])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ClusterAssociatedToSchedule])
+-&gt; [Node] -&gt; Either String (Maybe [ClusterAssociatedToSchedule])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span>
+</span><span id="line-123"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ClusterAssociatedToSchedule]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterAssociatedToSchedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ISO8601]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; SnapshotSchedule)
+-&gt; Either String (Maybe [ISO8601])
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; SnapshotSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextInvocations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ISO8601]))
+-&gt; Either String (Maybe [ISO8601])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ISO8601])
+-&gt; [Node] -&gt; Either String (Maybe [ISO8601])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ISO8601]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; SnapshotSchedule)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe [Tag] -&gt; SnapshotSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleDefinitions&quot;</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleDefinition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe [Tag] -&gt; SnapshotSchedule)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Int -&gt; Maybe [Tag] -&gt; SnapshotSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Int -&gt; Maybe [Tag] -&gt; SnapshotSchedule)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; Maybe [Tag] -&gt; SnapshotSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Maybe [Tag] -&gt; SnapshotSchedule)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe [Tag] -&gt; SnapshotSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociatedClusterCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; SnapshotSchedule)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String SnapshotSchedule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499263"><span id="local-6989586621679499265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.SnapshotSchedule.html#SnapshotSchedule"><span class="hs-identifier hs-type">SnapshotSchedule</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.DataPipeline.Types.Field
+module Amazonka.DataPipeline.Types.Field
 
 -- | A key-value pair that describes a property of a pipeline object. The
 --   value is specified as either a string value (<tt>StringValue</tt>) or
@@ -49,17 +49,17 @@ field_stringValue :: Lens' Field (Maybe Text)
 
 -- | The field identifier.
 field_key :: Lens' Field Text
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.Field.Field
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.Field.Field
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.Field.Field
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.Field.Field
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.Field.Field
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.Field.Field
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.Field.Field
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.Field.Field
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.Field.Field
+instance GHC.Show.Show Amazonka.DataPipeline.Types.Field.Field
+instance GHC.Read.Read Amazonka.DataPipeline.Types.Field.Field
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.Field.Field
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.Field.Field
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.Field.Field
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.Field.Field
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.Field.Field
 
 
-module Network.AWS.DataPipeline.Types.InstanceIdentity
+module Amazonka.DataPipeline.Types.InstanceIdentity
 
 -- | Identity information for the EC2 instance that is hosting the task
 --   runner. You can get this value by calling a metadata URI from the EC2
@@ -111,16 +111,16 @@ instanceIdentity_signature :: Lens' InstanceIdentity (Maybe Text)
 --   is launched and exposed to the instance via the instance metadata
 --   service in the form of a JSON representation of an object.
 instanceIdentity_document :: Lens' InstanceIdentity (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.InstanceIdentity.InstanceIdentity
+instance GHC.Show.Show Amazonka.DataPipeline.Types.InstanceIdentity.InstanceIdentity
+instance GHC.Read.Read Amazonka.DataPipeline.Types.InstanceIdentity.InstanceIdentity
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.InstanceIdentity.InstanceIdentity
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.InstanceIdentity.InstanceIdentity
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.InstanceIdentity.InstanceIdentity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.InstanceIdentity.InstanceIdentity
 
 
-module Network.AWS.DataPipeline.Types.OperatorType
+module Amazonka.DataPipeline.Types.OperatorType
 newtype OperatorType
 OperatorType' :: Text -> OperatorType
 [fromOperatorType] :: OperatorType -> Text
@@ -129,28 +129,28 @@ pattern OperatorType_EQ :: OperatorType
 pattern OperatorType_GE :: OperatorType
 pattern OperatorType_LE :: OperatorType
 pattern OperatorType_REF_EQ :: OperatorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Network.AWS.Data.Text.ToText Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Network.AWS.Data.Text.FromText Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance GHC.Classes.Ord Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.OperatorType.OperatorType
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.XML.ToXML Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.XML.FromXML Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.Log.ToLog Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.Text.ToText Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Amazonka.Data.Text.FromText Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance GHC.Classes.Ord Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance GHC.Read.Read Amazonka.DataPipeline.Types.OperatorType.OperatorType
+instance GHC.Show.Show Amazonka.DataPipeline.Types.OperatorType.OperatorType
 
 
-module Network.AWS.DataPipeline.Types.Operator
+module Amazonka.DataPipeline.Types.Operator
 
 -- | Contains a logical operation for comparing the value of a field with a
 --   specified value.
@@ -296,16 +296,16 @@ operator_values :: Lens' Operator (Maybe [Text])
 --   AWS Data Pipeline. User-defined fields that you add to a pipeline
 --   should prefix their name with the string "my".
 operator_type :: Lens' Operator (Maybe OperatorType)
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.Operator.Operator
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.Operator.Operator
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.Operator.Operator
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.Operator.Operator
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.Operator.Operator
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.Operator.Operator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.Operator.Operator
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.Operator.Operator
+instance GHC.Show.Show Amazonka.DataPipeline.Types.Operator.Operator
+instance GHC.Read.Read Amazonka.DataPipeline.Types.Operator.Operator
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.Operator.Operator
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.Operator.Operator
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.Operator.Operator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.Operator.Operator
 
 
-module Network.AWS.DataPipeline.Types.ParameterAttribute
+module Amazonka.DataPipeline.Types.ParameterAttribute
 
 -- | The attributes allowed or specified with a parameter object.
 --   
@@ -341,17 +341,17 @@ parameterAttribute_key :: Lens' ParameterAttribute Text
 
 -- | The field value, expressed as a String.
 parameterAttribute_stringValue :: Lens' ParameterAttribute Text
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance GHC.Show.Show Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance GHC.Read.Read Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.ParameterAttribute.ParameterAttribute
 
 
-module Network.AWS.DataPipeline.Types.ParameterObject
+module Amazonka.DataPipeline.Types.ParameterObject
 
 -- | Contains information about a parameter object.
 --   
@@ -387,17 +387,17 @@ parameterObject_id :: Lens' ParameterObject Text
 
 -- | The attributes of the parameter object.
 parameterObject_attributes :: Lens' ParameterObject [ParameterAttribute]
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.ParameterObject.ParameterObject
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
+instance GHC.Show.Show Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
+instance GHC.Read.Read Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.ParameterObject.ParameterObject
 
 
-module Network.AWS.DataPipeline.Types.ParameterValue
+module Amazonka.DataPipeline.Types.ParameterValue
 
 -- | A value or list of parameter values.
 --   
@@ -433,17 +433,17 @@ parameterValue_id :: Lens' ParameterValue Text
 
 -- | The field value, expressed as a String.
 parameterValue_stringValue :: Lens' ParameterValue Text
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.ParameterValue.ParameterValue
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
+instance GHC.Show.Show Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
+instance GHC.Read.Read Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.ParameterValue.ParameterValue
 
 
-module Network.AWS.DataPipeline.Types.PipelineIdName
+module Amazonka.DataPipeline.Types.PipelineIdName
 
 -- | Contains the name and identifier of a pipeline.
 --   
@@ -481,16 +481,16 @@ pipelineIdName_name :: Lens' PipelineIdName (Maybe Text)
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is
 --   a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
 pipelineIdName_id :: Lens' PipelineIdName (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.PipelineIdName.PipelineIdName
+instance GHC.Show.Show Amazonka.DataPipeline.Types.PipelineIdName.PipelineIdName
+instance GHC.Read.Read Amazonka.DataPipeline.Types.PipelineIdName.PipelineIdName
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.PipelineIdName.PipelineIdName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.PipelineIdName.PipelineIdName
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.PipelineIdName.PipelineIdName
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.PipelineIdName.PipelineIdName
 
 
-module Network.AWS.DataPipeline.Types.PipelineObject
+module Amazonka.DataPipeline.Types.PipelineObject
 
 -- | Contains information about a pipeline object. This can be a logical,
 --   physical, or physical attempt pipeline object. The complete set of
@@ -536,17 +536,17 @@ pipelineObject_name :: Lens' PipelineObject Text
 
 -- | Key-value pairs that define the properties of the object.
 pipelineObject_fields :: Lens' PipelineObject [Field]
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.PipelineObject.PipelineObject
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
+instance GHC.Show.Show Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
+instance GHC.Read.Read Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.PipelineObject.PipelineObject
 
 
-module Network.AWS.DataPipeline.Types.Selector
+module Amazonka.DataPipeline.Types.Selector
 
 -- | A comparision that is used to determine whether a query should return
 --   this object.
@@ -588,16 +588,16 @@ selector_operator :: Lens' Selector (Maybe Operator)
 --   definition syntax that is used by the AWS Data Pipeline API. If the
 --   field is not set on the object, the condition fails.
 selector_fieldName :: Lens' Selector (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.Selector.Selector
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.Selector.Selector
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.Selector.Selector
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.Selector.Selector
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.Selector.Selector
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.Selector.Selector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.Selector.Selector
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.Selector.Selector
+instance GHC.Show.Show Amazonka.DataPipeline.Types.Selector.Selector
+instance GHC.Read.Read Amazonka.DataPipeline.Types.Selector.Selector
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.Selector.Selector
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.Selector.Selector
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.Selector.Selector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.Selector.Selector
 
 
-module Network.AWS.DataPipeline.Types.Query
+module Amazonka.DataPipeline.Types.Query
 
 -- | Defines the query to run against an object.
 --   
@@ -625,16 +625,16 @@ newQuery :: Query
 -- | List of selectors that define the query. An object must satisfy all of
 --   the selectors to match the query.
 query_selectors :: Lens' Query (Maybe [Selector])
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.Query.Query
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.Query.Query
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.Query.Query
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.Query.Query
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.Query.Query
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.Query.Query
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.Query.Query
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.Query.Query
+instance GHC.Show.Show Amazonka.DataPipeline.Types.Query.Query
+instance GHC.Read.Read Amazonka.DataPipeline.Types.Query.Query
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.Query.Query
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.Query.Query
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.Query.Query
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.Query.Query
 
 
-module Network.AWS.DataPipeline.Types.Tag
+module Amazonka.DataPipeline.Types.Tag
 
 -- | Tags are key/value pairs defined by a user and associated with a
 --   pipeline to control access. AWS Data Pipeline allows you to associate
@@ -683,17 +683,17 @@ tag_key :: Lens' Tag Text
 --   information, see <a>Controlling User Access to Pipelines</a> in the
 --   <i>AWS Data Pipeline Developer Guide</i>.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.DataPipeline.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.DataPipeline.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.Tag.Tag
 
 
-module Network.AWS.DataPipeline.Types.PipelineDescription
+module Amazonka.DataPipeline.Types.PipelineDescription
 
 -- | Contains pipeline metadata.
 --   
@@ -772,16 +772,16 @@ pipelineDescription_name :: Lens' PipelineDescription Text
 -- | A list of read-only fields that contain metadata about the pipeline:
 --   @userId, @accountId, and @pipelineState.
 pipelineDescription_fields :: Lens' PipelineDescription [Field]
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.PipelineDescription.PipelineDescription
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.PipelineDescription.PipelineDescription
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.PipelineDescription.PipelineDescription
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.PipelineDescription.PipelineDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.PipelineDescription.PipelineDescription
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.PipelineDescription.PipelineDescription
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.PipelineDescription.PipelineDescription
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.PipelineDescription.PipelineDescription
+instance GHC.Show.Show Amazonka.DataPipeline.Types.PipelineDescription.PipelineDescription
+instance GHC.Read.Read Amazonka.DataPipeline.Types.PipelineDescription.PipelineDescription
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.PipelineDescription.PipelineDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.PipelineDescription.PipelineDescription
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.PipelineDescription.PipelineDescription
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.PipelineDescription.PipelineDescription
 
 
-module Network.AWS.DataPipeline.Types.TaskObject
+module Amazonka.DataPipeline.Types.TaskObject
 
 -- | Contains information about a pipeline task that is assigned to a task
 --   runner.
@@ -843,44 +843,44 @@ taskObject_taskId :: Lens' TaskObject (Maybe Text)
 -- | Connection information for the location where the task runner will
 --   publish the output of the task.
 taskObject_objects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.TaskObject.TaskObject
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.TaskObject.TaskObject
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.TaskObject.TaskObject
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.TaskObject.TaskObject
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.TaskObject.TaskObject
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.TaskObject.TaskObject
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.TaskObject.TaskObject
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.TaskObject.TaskObject
+instance GHC.Show.Show Amazonka.DataPipeline.Types.TaskObject.TaskObject
+instance GHC.Read.Read Amazonka.DataPipeline.Types.TaskObject.TaskObject
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.TaskObject.TaskObject
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.TaskObject.TaskObject
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.TaskObject.TaskObject
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.TaskObject.TaskObject
 
 
-module Network.AWS.DataPipeline.Types.TaskStatus
+module Amazonka.DataPipeline.Types.TaskStatus
 newtype TaskStatus
 TaskStatus' :: Text -> TaskStatus
 [fromTaskStatus] :: TaskStatus -> Text
 pattern TaskStatus_FAILED :: TaskStatus
 pattern TaskStatus_FALSE :: TaskStatus
 pattern TaskStatus_FINISHED :: TaskStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance GHC.Classes.Ord Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.XML.ToXML Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.XML.FromXML Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Log.ToLog Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Text.ToText Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Text.FromText Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance GHC.Classes.Ord Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance GHC.Read.Read Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
+instance GHC.Show.Show Amazonka.DataPipeline.Types.TaskStatus.TaskStatus
 
 
-module Network.AWS.DataPipeline.Types.ValidationError
+module Amazonka.DataPipeline.Types.ValidationError
 
 -- | Defines a validation error. Validation errors prevent pipeline
 --   activation. The set of validation errors that can be returned are
@@ -917,16 +917,16 @@ validationError_id :: Lens' ValidationError (Maybe Text)
 
 -- | A description of the validation error.
 validationError_errors :: Lens' ValidationError (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.ValidationError.ValidationError
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.ValidationError.ValidationError
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.ValidationError.ValidationError
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.ValidationError.ValidationError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.ValidationError.ValidationError
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.ValidationError.ValidationError
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.ValidationError.ValidationError
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.ValidationError.ValidationError
+instance GHC.Show.Show Amazonka.DataPipeline.Types.ValidationError.ValidationError
+instance GHC.Read.Read Amazonka.DataPipeline.Types.ValidationError.ValidationError
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.ValidationError.ValidationError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.ValidationError.ValidationError
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.ValidationError.ValidationError
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.ValidationError.ValidationError
 
 
-module Network.AWS.DataPipeline.Types.ValidationWarning
+module Amazonka.DataPipeline.Types.ValidationWarning
 
 -- | Defines a validation warning. Validation warnings do not prevent
 --   pipeline activation. The set of validation warnings that can be
@@ -964,16 +964,16 @@ validationWarning_warnings :: Lens' ValidationWarning (Maybe [Text])
 
 -- | The identifier of the object that contains the validation warning.
 validationWarning_id :: Lens' ValidationWarning (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.ValidationWarning.ValidationWarning
-instance GHC.Show.Show Network.AWS.DataPipeline.Types.ValidationWarning.ValidationWarning
-instance GHC.Read.Read Network.AWS.DataPipeline.Types.ValidationWarning.ValidationWarning
-instance GHC.Classes.Eq Network.AWS.DataPipeline.Types.ValidationWarning.ValidationWarning
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataPipeline.Types.ValidationWarning.ValidationWarning
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.Types.ValidationWarning.ValidationWarning
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.Types.ValidationWarning.ValidationWarning
+instance GHC.Generics.Generic Amazonka.DataPipeline.Types.ValidationWarning.ValidationWarning
+instance GHC.Show.Show Amazonka.DataPipeline.Types.ValidationWarning.ValidationWarning
+instance GHC.Read.Read Amazonka.DataPipeline.Types.ValidationWarning.ValidationWarning
+instance GHC.Classes.Eq Amazonka.DataPipeline.Types.ValidationWarning.ValidationWarning
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataPipeline.Types.ValidationWarning.ValidationWarning
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.Types.ValidationWarning.ValidationWarning
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.Types.ValidationWarning.ValidationWarning
 
 
-module Network.AWS.DataPipeline.Types
+module Amazonka.DataPipeline.Types
 
 -- | API version <tt>2012-10-29</tt> of the Amazon Data Pipeline SDK
 --   configuration.
@@ -1773,7 +1773,7 @@ validationWarning_id :: Lens' ValidationWarning (Maybe Text)
 --   was sucessful. A task runner does not need to call
 --   <tt>SetTaskStatus</tt> for tasks that are canceled by the web service
 --   during a call to ReportTaskProgress.
-module Network.AWS.DataPipeline.SetTaskStatus
+module Amazonka.DataPipeline.SetTaskStatus
 
 -- | Contains the parameters for SetTaskStatus.
 --   
@@ -1898,22 +1898,22 @@ newSetTaskStatusResponse :: Int -> SetTaskStatusResponse
 
 -- | The response's http status code.
 setTaskStatusResponse_httpStatus :: Lens' SetTaskStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance GHC.Show.Show Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance GHC.Read.Read Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance GHC.Classes.Eq Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance GHC.Generics.Generic Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatusResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatusResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatusResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.SetTaskStatus.SetTaskStatus
+instance GHC.Generics.Generic Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance GHC.Show.Show Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance GHC.Read.Read Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance GHC.Classes.Eq Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance GHC.Generics.Generic Amazonka.DataPipeline.SetTaskStatus.SetTaskStatusResponse
+instance GHC.Show.Show Amazonka.DataPipeline.SetTaskStatus.SetTaskStatusResponse
+instance GHC.Read.Read Amazonka.DataPipeline.SetTaskStatus.SetTaskStatusResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.SetTaskStatus.SetTaskStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.SetTaskStatus.SetTaskStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.SetTaskStatus.SetTaskStatus
 
 
 -- | Requests that the status of the specified physical or logical pipeline
@@ -1923,7 +1923,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.SetTaskStatus.S
 --   Activity). You cannot perform this operation on <tt>FINISHED</tt>
 --   pipelines and attempting to do so returns
 --   <tt>InvalidRequestException</tt>.
-module Network.AWS.DataPipeline.SetStatus
+module Amazonka.DataPipeline.SetStatus
 
 -- | Contains the parameters for SetStatus.
 --   
@@ -1988,22 +1988,22 @@ SetStatusResponse' :: SetStatusResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetStatusResponse :: SetStatusResponse
-instance GHC.Generics.Generic Network.AWS.DataPipeline.SetStatus.SetStatus
-instance GHC.Show.Show Network.AWS.DataPipeline.SetStatus.SetStatus
-instance GHC.Read.Read Network.AWS.DataPipeline.SetStatus.SetStatus
-instance GHC.Classes.Eq Network.AWS.DataPipeline.SetStatus.SetStatus
-instance GHC.Generics.Generic Network.AWS.DataPipeline.SetStatus.SetStatusResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.SetStatus.SetStatusResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.SetStatus.SetStatusResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.SetStatus.SetStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.SetStatus.SetStatus
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.SetStatus.SetStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.SetStatus.SetStatus
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.SetStatus.SetStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.SetStatus.SetStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.SetStatus.SetStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.SetStatus.SetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.SetStatus.SetStatus
+instance GHC.Generics.Generic Amazonka.DataPipeline.SetStatus.SetStatus
+instance GHC.Show.Show Amazonka.DataPipeline.SetStatus.SetStatus
+instance GHC.Read.Read Amazonka.DataPipeline.SetStatus.SetStatus
+instance GHC.Classes.Eq Amazonka.DataPipeline.SetStatus.SetStatus
+instance GHC.Generics.Generic Amazonka.DataPipeline.SetStatus.SetStatusResponse
+instance GHC.Show.Show Amazonka.DataPipeline.SetStatus.SetStatusResponse
+instance GHC.Read.Read Amazonka.DataPipeline.SetStatus.SetStatusResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.SetStatus.SetStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.SetStatus.SetStatus
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.SetStatus.SetStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.SetStatus.SetStatus
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.SetStatus.SetStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.SetStatus.SetStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.SetStatus.SetStatus
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.SetStatus.SetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.SetStatus.SetStatus
 
 
 -- | Task runners call <tt>ReportTaskRunnerHeartbeat</tt> every 15 minutes
@@ -2011,7 +2011,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.SetStatus.SetSt
 --   Runner is launched on a resource managed by AWS Data Pipeline, the web
 --   service can use this call to detect when the task runner application
 --   has failed and restart a new instance.
-module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
+module Amazonka.DataPipeline.ReportTaskRunnerHeartbeat
 
 -- | Contains the parameters for ReportTaskRunnerHeartbeat.
 --   
@@ -2123,22 +2123,22 @@ reportTaskRunnerHeartbeatResponse_httpStatus :: Lens' ReportTaskRunnerHeartbeatR
 
 -- | Indicates whether the calling task runner should terminate.
 reportTaskRunnerHeartbeatResponse_terminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance GHC.Show.Show Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance GHC.Read.Read Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance GHC.Generics.Generic Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance GHC.Show.Show Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance GHC.Read.Read Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance GHC.Classes.Eq Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance GHC.Generics.Generic Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
+instance GHC.Show.Show Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
+instance GHC.Read.Read Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeatResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.ReportTaskRunnerHeartbeat.ReportTaskRunnerHeartbeat
 
 
 -- | Task runners call <tt>ReportTaskProgress</tt> when assigned a task to
@@ -2154,7 +2154,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.ReportTaskRunne
 --   Pipeline assumes that the task runner is unable to process the task
 --   and reassigns the task in a subsequent response to PollForTask. Task
 --   runners should call <tt>ReportTaskProgress</tt> every 60 seconds.
-module Network.AWS.DataPipeline.ReportTaskProgress
+module Amazonka.DataPipeline.ReportTaskProgress
 
 -- | Contains the parameters for ReportTaskProgress.
 --   
@@ -2236,26 +2236,26 @@ reportTaskProgressResponse_httpStatus :: Lens' ReportTaskProgressResponse Int
 --   The task runner does not need to call SetTaskStatus for canceled
 --   tasks.
 reportTaskProgressResponse_canceled :: Lens' ReportTaskProgressResponse Bool
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance GHC.Show.Show Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance GHC.Read.Read Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance GHC.Generics.Generic Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance GHC.Show.Show Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance GHC.Read.Read Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance GHC.Classes.Eq Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance GHC.Generics.Generic Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
+instance GHC.Show.Show Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
+instance GHC.Read.Read Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgressResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.ReportTaskProgress.ReportTaskProgress
 
 
 -- | Removes existing tags from the specified pipeline.
-module Network.AWS.DataPipeline.RemoveTags
+module Amazonka.DataPipeline.RemoveTags
 
 -- | Contains the parameters for RemoveTags.
 --   
@@ -2315,29 +2315,29 @@ newRemoveTagsResponse :: Int -> RemoveTagsResponse
 
 -- | The response's http status code.
 removeTagsResponse_httpStatus :: Lens' RemoveTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance GHC.Show.Show Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance GHC.Read.Read Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance GHC.Classes.Eq Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance GHC.Generics.Generic Network.AWS.DataPipeline.RemoveTags.RemoveTagsResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.RemoveTags.RemoveTagsResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.RemoveTags.RemoveTagsResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.RemoveTags.RemoveTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.RemoveTags.RemoveTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.RemoveTags.RemoveTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.RemoveTags.RemoveTags
+instance GHC.Generics.Generic Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance GHC.Show.Show Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance GHC.Read.Read Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance GHC.Classes.Eq Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance GHC.Generics.Generic Amazonka.DataPipeline.RemoveTags.RemoveTagsResponse
+instance GHC.Show.Show Amazonka.DataPipeline.RemoveTags.RemoveTagsResponse
+instance GHC.Read.Read Amazonka.DataPipeline.RemoveTags.RemoveTagsResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.RemoveTags.RemoveTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.RemoveTags.RemoveTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.RemoveTags.RemoveTags
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.RemoveTags.RemoveTags
 
 
 -- | Queries the specified pipeline for the names of objects that match the
 --   specified set of conditions.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataPipeline.QueryObjects
+module Amazonka.DataPipeline.QueryObjects
 
 -- | Contains the parameters for QueryObjects.
 --   
@@ -2488,23 +2488,23 @@ queryObjectsResponse_marker :: Lens' QueryObjectsResponse (Maybe Text)
 
 -- | The response's http status code.
 queryObjectsResponse_httpStatus :: Lens' QueryObjectsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance GHC.Show.Show Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance GHC.Read.Read Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance GHC.Classes.Eq Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance GHC.Generics.Generic Network.AWS.DataPipeline.QueryObjects.QueryObjectsResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.QueryObjects.QueryObjectsResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.QueryObjects.QueryObjectsResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.QueryObjects.QueryObjectsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.QueryObjects.QueryObjectsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.QueryObjects.QueryObjects
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.QueryObjects.QueryObjects
+instance GHC.Generics.Generic Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance GHC.Show.Show Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance GHC.Read.Read Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance GHC.Classes.Eq Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance GHC.Generics.Generic Amazonka.DataPipeline.QueryObjects.QueryObjectsResponse
+instance GHC.Show.Show Amazonka.DataPipeline.QueryObjects.QueryObjectsResponse
+instance GHC.Read.Read Amazonka.DataPipeline.QueryObjects.QueryObjectsResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.QueryObjects.QueryObjectsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.QueryObjects.QueryObjectsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.QueryObjects.QueryObjects
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.QueryObjects.QueryObjects
 
 
 -- | Adds tasks, schedules, and preconditions to the specified pipeline.
@@ -2525,7 +2525,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.QueryObjects.Qu
 --   Pipeline object definitions are passed to the
 --   <tt>PutPipelineDefinition</tt> action and returned by the
 --   GetPipelineDefinition action.
-module Network.AWS.DataPipeline.PutPipelineDefinition
+module Amazonka.DataPipeline.PutPipelineDefinition
 
 -- | Contains the parameters for PutPipelineDefinition.
 --   
@@ -2654,22 +2654,22 @@ putPipelineDefinitionResponse_httpStatus :: Lens' PutPipelineDefinitionResponse 
 --   pipeline and call <tt>PutPipelineDefinition</tt> to commit the
 --   corrected pipeline.
 putPipelineDefinitionResponse_errored :: Lens' PutPipelineDefinitionResponse Bool
-instance GHC.Generics.Generic Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance GHC.Show.Show Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance GHC.Read.Read Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance GHC.Classes.Eq Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance GHC.Generics.Generic Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance GHC.Generics.Generic Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance GHC.Show.Show Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance GHC.Read.Read Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance GHC.Classes.Eq Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance GHC.Generics.Generic Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
+instance GHC.Show.Show Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
+instance GHC.Read.Read Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.PutPipelineDefinition.PutPipelineDefinition
 
 
 -- | Task runners call <tt>PollForTask</tt> to receive a task to perform
@@ -2688,7 +2688,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.PutPipelineDefi
 --   should not call <tt>PollForTask</tt> again on the same
 --   <tt>workerGroup</tt> until it receives a response, and this can take
 --   up to 90 seconds.
-module Network.AWS.DataPipeline.PollForTask
+module Amazonka.DataPipeline.PollForTask
 
 -- | Contains the parameters for PollForTask.
 --   
@@ -2813,29 +2813,29 @@ pollForTaskResponse_taskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 
 -- | The response's http status code.
 pollForTaskResponse_httpStatus :: Lens' PollForTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.PollForTask.PollForTask
-instance GHC.Show.Show Network.AWS.DataPipeline.PollForTask.PollForTask
-instance GHC.Read.Read Network.AWS.DataPipeline.PollForTask.PollForTask
-instance GHC.Classes.Eq Network.AWS.DataPipeline.PollForTask.PollForTask
-instance GHC.Generics.Generic Network.AWS.DataPipeline.PollForTask.PollForTaskResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.PollForTask.PollForTaskResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.PollForTask.PollForTaskResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.PollForTask.PollForTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.PollForTask.PollForTask
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.PollForTask.PollForTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.PollForTask.PollForTask
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.PollForTask.PollForTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.PollForTask.PollForTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.PollForTask.PollForTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.PollForTask.PollForTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.PollForTask.PollForTask
+instance GHC.Generics.Generic Amazonka.DataPipeline.PollForTask.PollForTask
+instance GHC.Show.Show Amazonka.DataPipeline.PollForTask.PollForTask
+instance GHC.Read.Read Amazonka.DataPipeline.PollForTask.PollForTask
+instance GHC.Classes.Eq Amazonka.DataPipeline.PollForTask.PollForTask
+instance GHC.Generics.Generic Amazonka.DataPipeline.PollForTask.PollForTaskResponse
+instance GHC.Show.Show Amazonka.DataPipeline.PollForTask.PollForTaskResponse
+instance GHC.Read.Read Amazonka.DataPipeline.PollForTask.PollForTaskResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.PollForTask.PollForTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.PollForTask.PollForTask
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.PollForTask.PollForTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.PollForTask.PollForTask
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.PollForTask.PollForTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.PollForTask.PollForTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.PollForTask.PollForTask
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.PollForTask.PollForTask
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.PollForTask.PollForTask
 
 
 -- | Lists the pipeline identifiers for all active pipelines that you have
 --   permission to access.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataPipeline.ListPipelines
+module Amazonka.DataPipeline.ListPipelines
 
 -- | Contains the parameters for ListPipelines.
 --   
@@ -2939,29 +2939,29 @@ listPipelinesResponse_httpStatus :: Lens' ListPipelinesResponse Int
 --   the pipelines, you can use these identifiers to call DescribePipelines
 --   and GetPipelineDefinition.
 listPipelinesResponse_pipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance GHC.Show.Show Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance GHC.Read.Read Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ListPipelines.ListPipelinesResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.ListPipelines.ListPipelinesResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.ListPipelines.ListPipelinesResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ListPipelines.ListPipelinesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ListPipelines.ListPipelinesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.ListPipelines.ListPipelines
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.ListPipelines.ListPipelines
+instance GHC.Generics.Generic Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance GHC.Show.Show Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance GHC.Read.Read Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance GHC.Classes.Eq Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance GHC.Generics.Generic Amazonka.DataPipeline.ListPipelines.ListPipelinesResponse
+instance GHC.Show.Show Amazonka.DataPipeline.ListPipelines.ListPipelinesResponse
+instance GHC.Read.Read Amazonka.DataPipeline.ListPipelines.ListPipelinesResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.ListPipelines.ListPipelinesResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ListPipelines.ListPipelinesResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.ListPipelines.ListPipelines
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.ListPipelines.ListPipelines
 
 
 -- | Gets the definition of the specified pipeline. You can call
 --   <tt>GetPipelineDefinition</tt> to retrieve the pipeline definition
 --   that you provided using PutPipelineDefinition.
-module Network.AWS.DataPipeline.GetPipelineDefinition
+module Amazonka.DataPipeline.GetPipelineDefinition
 
 -- | Contains the parameters for GetPipelineDefinition.
 --   
@@ -3061,28 +3061,28 @@ getPipelineDefinitionResponse_parameterValues :: Lens' GetPipelineDefinitionResp
 
 -- | The response's http status code.
 getPipelineDefinitionResponse_httpStatus :: Lens' GetPipelineDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance GHC.Show.Show Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance GHC.Read.Read Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance GHC.Classes.Eq Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance GHC.Generics.Generic Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance GHC.Generics.Generic Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance GHC.Show.Show Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance GHC.Read.Read Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance GHC.Classes.Eq Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance GHC.Generics.Generic Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
+instance GHC.Show.Show Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
+instance GHC.Read.Read Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.GetPipelineDefinition.GetPipelineDefinition
 
 
 -- | Task runners call <tt>EvaluateExpression</tt> to evaluate a string in
 --   the context of the specified object. For example, a task runner can
 --   evaluate SQL queries stored in Amazon S3.
-module Network.AWS.DataPipeline.EvaluateExpression
+module Amazonka.DataPipeline.EvaluateExpression
 
 -- | Contains the parameters for EvaluateExpression.
 --   
@@ -3162,22 +3162,22 @@ evaluateExpressionResponse_httpStatus :: Lens' EvaluateExpressionResponse Int
 
 -- | The evaluated expression.
 evaluateExpressionResponse_evaluatedExpression :: Lens' EvaluateExpressionResponse Text
-instance GHC.Generics.Generic Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance GHC.Show.Show Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance GHC.Read.Read Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance GHC.Classes.Eq Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance GHC.Generics.Generic Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.EvaluateExpression.EvaluateExpression
+instance GHC.Generics.Generic Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance GHC.Show.Show Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance GHC.Read.Read Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance GHC.Classes.Eq Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance GHC.Generics.Generic Amazonka.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
+instance GHC.Show.Show Amazonka.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
+instance GHC.Read.Read Amazonka.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.EvaluateExpression.EvaluateExpressionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.EvaluateExpression.EvaluateExpression
 
 
 -- | Retrieves metadata about one or more pipelines. The information
@@ -3190,7 +3190,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.EvaluateExpress
 --   
 --   To retrieve the full pipeline definition instead of metadata about the
 --   pipeline, call GetPipelineDefinition.
-module Network.AWS.DataPipeline.DescribePipelines
+module Amazonka.DataPipeline.DescribePipelines
 
 -- | Contains the parameters for DescribePipelines.
 --   
@@ -3258,22 +3258,22 @@ describePipelinesResponse_httpStatus :: Lens' DescribePipelinesResponse Int
 
 -- | An array of descriptions for the specified pipelines.
 describePipelinesResponse_pipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance GHC.Show.Show Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance GHC.Read.Read Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DescribePipelines.DescribePipelinesResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.DescribePipelines.DescribePipelinesResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.DescribePipelines.DescribePipelinesResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DescribePipelines.DescribePipelinesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DescribePipelines.DescribePipelinesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.DescribePipelines.DescribePipelines
+instance GHC.Generics.Generic Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance GHC.Show.Show Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance GHC.Read.Read Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance GHC.Classes.Eq Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance GHC.Generics.Generic Amazonka.DataPipeline.DescribePipelines.DescribePipelinesResponse
+instance GHC.Show.Show Amazonka.DataPipeline.DescribePipelines.DescribePipelinesResponse
+instance GHC.Read.Read Amazonka.DataPipeline.DescribePipelines.DescribePipelinesResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.DescribePipelines.DescribePipelinesResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DescribePipelines.DescribePipelinesResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.DescribePipelines.DescribePipelines
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.DescribePipelines.DescribePipelines
 
 
 -- | Gets the object definitions for a set of objects associated with the
@@ -3281,7 +3281,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.DescribePipelin
 --   define the properties of the object.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataPipeline.DescribeObjects
+module Amazonka.DataPipeline.DescribeObjects
 
 -- | Contains the parameters for DescribeObjects.
 --   
@@ -3416,23 +3416,23 @@ describeObjectsResponse_httpStatus :: Lens' DescribeObjectsResponse Int
 
 -- | An array of object definitions.
 describeObjectsResponse_pipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance GHC.Show.Show Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance GHC.Read.Read Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DescribeObjects.DescribeObjectsResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.DescribeObjects.DescribeObjectsResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.DescribeObjects.DescribeObjectsResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DescribeObjects.DescribeObjectsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DescribeObjects.DescribeObjectsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.DescribeObjects.DescribeObjects
+instance GHC.Generics.Generic Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance GHC.Show.Show Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance GHC.Read.Read Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance GHC.Classes.Eq Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance GHC.Generics.Generic Amazonka.DataPipeline.DescribeObjects.DescribeObjectsResponse
+instance GHC.Show.Show Amazonka.DataPipeline.DescribeObjects.DescribeObjectsResponse
+instance GHC.Read.Read Amazonka.DataPipeline.DescribeObjects.DescribeObjectsResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.DescribeObjects.DescribeObjectsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DescribeObjects.DescribeObjectsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.DescribeObjects.DescribeObjects
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.DescribeObjects.DescribeObjects
 
 
 -- | Deletes a pipeline, its pipeline definition, and its run history. AWS
@@ -3443,7 +3443,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.DescribeObjects
 --   deleted pipeline. To temporarily pause a pipeline instead of deleting
 --   it, call SetStatus with the status set to <tt>PAUSE</tt> on individual
 --   components. Components that are paused by SetStatus can be resumed.
-module Network.AWS.DataPipeline.DeletePipeline
+module Amazonka.DataPipeline.DeletePipeline
 
 -- | Contains the parameters for DeletePipeline.
 --   
@@ -3480,22 +3480,22 @@ DeletePipelineResponse' :: DeletePipelineResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeletePipelineResponse :: DeletePipelineResponse
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance GHC.Show.Show Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance GHC.Read.Read Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DeletePipeline.DeletePipelineResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.DeletePipeline.DeletePipelineResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.DeletePipeline.DeletePipelineResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DeletePipeline.DeletePipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DeletePipeline.DeletePipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.DeletePipeline.DeletePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance GHC.Show.Show Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance GHC.Read.Read Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance GHC.Classes.Eq Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.DeletePipeline.DeletePipelineResponse
+instance GHC.Show.Show Amazonka.DataPipeline.DeletePipeline.DeletePipelineResponse
+instance GHC.Read.Read Amazonka.DataPipeline.DeletePipeline.DeletePipelineResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.DeletePipeline.DeletePipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DeletePipeline.DeletePipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.DeletePipeline.DeletePipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.DeletePipeline.DeletePipeline
 
 
 -- | Deactivates the specified running pipeline. The pipeline is set to the
@@ -3504,7 +3504,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.DeletePipeline.
 --   To resume a deactivated pipeline, use ActivatePipeline. By default,
 --   the pipeline resumes from the last completed execution. Optionally,
 --   you can specify the date and time to resume the pipeline.
-module Network.AWS.DataPipeline.DeactivatePipeline
+module Amazonka.DataPipeline.DeactivatePipeline
 
 -- | Contains the parameters for DeactivatePipeline.
 --   
@@ -3574,27 +3574,27 @@ newDeactivatePipelineResponse :: Int -> DeactivatePipelineResponse
 
 -- | The response's http status code.
 deactivatePipelineResponse_httpStatus :: Lens' DeactivatePipelineResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance GHC.Show.Show Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance GHC.Read.Read Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance GHC.Generics.Generic Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance GHC.Show.Show Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance GHC.Read.Read Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance GHC.Classes.Eq Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
+instance GHC.Show.Show Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
+instance GHC.Read.Read Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.DeactivatePipeline.DeactivatePipeline
 
 
 -- | Creates a new, empty pipeline. Use PutPipelineDefinition to populate
 --   the pipeline.
-module Network.AWS.DataPipeline.CreatePipeline
+module Amazonka.DataPipeline.CreatePipeline
 
 -- | Contains the parameters for CreatePipeline.
 --   
@@ -3737,26 +3737,26 @@ createPipelineResponse_httpStatus :: Lens' CreatePipelineResponse Int
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
 --   example, <tt>df-06372391ZG65EXAMPLE</tt>.
 createPipelineResponse_pipelineId :: Lens' CreatePipelineResponse Text
-instance GHC.Generics.Generic Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance GHC.Show.Show Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance GHC.Read.Read Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance GHC.Classes.Eq Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance GHC.Generics.Generic Network.AWS.DataPipeline.CreatePipeline.CreatePipelineResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.CreatePipeline.CreatePipelineResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.CreatePipeline.CreatePipelineResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.CreatePipeline.CreatePipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.CreatePipeline.CreatePipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.CreatePipeline.CreatePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance GHC.Show.Show Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance GHC.Read.Read Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance GHC.Classes.Eq Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.CreatePipeline.CreatePipelineResponse
+instance GHC.Show.Show Amazonka.DataPipeline.CreatePipeline.CreatePipelineResponse
+instance GHC.Read.Read Amazonka.DataPipeline.CreatePipeline.CreatePipelineResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.CreatePipeline.CreatePipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.CreatePipeline.CreatePipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.CreatePipeline.CreatePipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.CreatePipeline.CreatePipeline
 
 
 -- | Adds or modifies tags for the specified pipeline.
-module Network.AWS.DataPipeline.AddTags
+module Amazonka.DataPipeline.AddTags
 
 -- | Contains the parameters for AddTags.
 --   
@@ -3815,22 +3815,22 @@ newAddTagsResponse :: Int -> AddTagsResponse
 
 -- | The response's http status code.
 addTagsResponse_httpStatus :: Lens' AddTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.AddTags.AddTags
-instance GHC.Show.Show Network.AWS.DataPipeline.AddTags.AddTags
-instance GHC.Read.Read Network.AWS.DataPipeline.AddTags.AddTags
-instance GHC.Classes.Eq Network.AWS.DataPipeline.AddTags.AddTags
-instance GHC.Generics.Generic Network.AWS.DataPipeline.AddTags.AddTagsResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.AddTags.AddTagsResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.AddTags.AddTagsResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.AddTags.AddTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.AddTags.AddTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.AddTags.AddTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.AddTags.AddTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.AddTags.AddTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.AddTags.AddTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.DataPipeline.AddTags.AddTags
+instance GHC.Show.Show Amazonka.DataPipeline.AddTags.AddTags
+instance GHC.Read.Read Amazonka.DataPipeline.AddTags.AddTags
+instance GHC.Classes.Eq Amazonka.DataPipeline.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.DataPipeline.AddTags.AddTagsResponse
+instance GHC.Show.Show Amazonka.DataPipeline.AddTags.AddTagsResponse
+instance GHC.Read.Read Amazonka.DataPipeline.AddTags.AddTagsResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.AddTags.AddTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.AddTags.AddTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.AddTags.AddTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.AddTags.AddTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.AddTags.AddTags
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.AddTags.AddTags
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.AddTags.AddTags
 
 
 -- | Validates the specified pipeline and starts processing pipeline tasks.
@@ -3841,7 +3841,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.AddTags.AddTags
 --   
 --   To activate a finished pipeline, modify the end date for the pipeline
 --   and then activate it.
-module Network.AWS.DataPipeline.ActivatePipeline
+module Amazonka.DataPipeline.ActivatePipeline
 
 -- | Contains the parameters for ActivatePipeline.
 --   
@@ -3916,27 +3916,27 @@ newActivatePipelineResponse :: Int -> ActivatePipelineResponse
 
 -- | The response's http status code.
 activatePipelineResponse_httpStatus :: Lens' ActivatePipelineResponse Int
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance GHC.Show.Show Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance GHC.Read.Read Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ActivatePipeline.ActivatePipelineResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.ActivatePipeline.ActivatePipelineResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.ActivatePipeline.ActivatePipelineResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ActivatePipeline.ActivatePipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ActivatePipeline.ActivatePipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.ActivatePipeline.ActivatePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance GHC.Show.Show Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance GHC.Read.Read Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance GHC.Classes.Eq Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance GHC.Generics.Generic Amazonka.DataPipeline.ActivatePipeline.ActivatePipelineResponse
+instance GHC.Show.Show Amazonka.DataPipeline.ActivatePipeline.ActivatePipelineResponse
+instance GHC.Read.Read Amazonka.DataPipeline.ActivatePipeline.ActivatePipelineResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.ActivatePipeline.ActivatePipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ActivatePipeline.ActivatePipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.ActivatePipeline.ActivatePipeline
 
 
 -- | Validates the specified pipeline definition to ensure that it is well
 --   formed and can be run without error.
-module Network.AWS.DataPipeline.ValidatePipelineDefinition
+module Amazonka.DataPipeline.ValidatePipelineDefinition
 
 -- | Contains the parameters for ValidatePipelineDefinition.
 --   
@@ -4051,25 +4051,25 @@ validatePipelineDefinitionResponse_httpStatus :: Lens' ValidatePipelineDefinitio
 
 -- | Indicates whether there were validation errors.
 validatePipelineDefinitionResponse_errored :: Lens' ValidatePipelineDefinitionResponse Bool
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance GHC.Show.Show Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance GHC.Read.Read Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance GHC.Generics.Generic Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
-instance GHC.Show.Show Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
-instance GHC.Read.Read Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance Control.DeepSeq.NFData Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance GHC.Generics.Generic Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance GHC.Show.Show Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance GHC.Read.Read Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance GHC.Classes.Eq Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance GHC.Generics.Generic Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
+instance GHC.Show.Show Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
+instance GHC.Read.Read Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
+instance GHC.Classes.Eq Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance Control.DeepSeq.NFData Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.DataPipeline.ValidatePipelineDefinition.ValidatePipelineDefinition
 
 
-module Network.AWS.DataPipeline.Lens
+module Amazonka.DataPipeline.Lens
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25
 --   identifiers in a single call. To obtain pipeline IDs, call
@@ -4629,7 +4629,7 @@ validationWarning_warnings :: Lens' ValidationWarning (Maybe [Text])
 validationWarning_id :: Lens' ValidationWarning (Maybe Text)
 
 
-module Network.AWS.DataPipeline.Waiters
+module Amazonka.DataPipeline.Waiters
 
 
 -- | Derived from API version <tt>2012-10-29</tt> of the AWS service
@@ -4659,7 +4659,7 @@ module Network.AWS.DataPipeline.Waiters
 --   progress to the web service as it does so. When the task is done, the
 --   task runner reports the final success or failure of the task to the
 --   web service.
-module Network.AWS.DataPipeline
+module Amazonka.DataPipeline
 
 -- | API version <tt>2012-10-29</tt> of the Amazon Data Pipeline SDK
 --   configuration.

@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.DataSync.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataSync.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.html#_InternalException"><span class="hs-identifier">_InternalException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AgentStatus</span></span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentStatus.html#AgentStatus"><span class="hs-identifier">AgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Atime</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Atime.html#Atime"><span class="hs-identifier">Atime</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EndpointType</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.EndpointType.html#EndpointType"><span class="hs-identifier">EndpointType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FilterType</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.FilterType.html#FilterType"><span class="hs-identifier">FilterType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Gid</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Gid.html#Gid"><span class="hs-identifier">Gid</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LocationFilterName</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilterName.html#LocationFilterName"><span class="hs-identifier">LocationFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogLevel</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LogLevel.html#LogLevel"><span class="hs-identifier">LogLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Mtime</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Mtime.html#Mtime"><span class="hs-identifier">Mtime</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NfsVersion</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.NfsVersion.html#NfsVersion"><span class="hs-identifier">NfsVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ObjectStorageServerProtocol</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol"><span class="hs-identifier">ObjectStorageServerProtocol</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operator</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Operator.html#Operator"><span class="hs-identifier">Operator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OverwriteMode</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.OverwriteMode.html#OverwriteMode"><span class="hs-identifier">OverwriteMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PhaseStatus</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PhaseStatus.html#PhaseStatus"><span class="hs-identifier">PhaseStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PosixPermissions</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PosixPermissions.html#PosixPermissions"><span class="hs-identifier">PosixPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PreserveDeletedFiles</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PreserveDeletedFiles.html#PreserveDeletedFiles"><span class="hs-identifier">PreserveDeletedFiles</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PreserveDevices</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PreserveDevices.html#PreserveDevices"><span class="hs-identifier">PreserveDevices</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3StorageClass</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.S3StorageClass.html#S3StorageClass"><span class="hs-identifier">S3StorageClass</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SmbSecurityDescriptorCopyFlags</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html#SmbSecurityDescriptorCopyFlags"><span class="hs-identifier">SmbSecurityDescriptorCopyFlags</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SmbVersion</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion"><span class="hs-identifier">SmbVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskExecutionStatus</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier">TaskExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskFilterName</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilterName.html#TaskFilterName"><span class="hs-identifier">TaskFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskQueueing</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskQueueing.html#TaskQueueing"><span class="hs-identifier">TaskQueueing</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskStatus</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier">TaskStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TransferMode</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TransferMode.html#TransferMode"><span class="hs-identifier">TransferMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Uid</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Uid.html#Uid"><span class="hs-identifier">Uid</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VerifyMode</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.VerifyMode.html#VerifyMode"><span class="hs-identifier">VerifyMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AgentListEntry</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentListEntry.html#AgentListEntry"><span class="hs-identifier">AgentListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentListEntry.html#newAgentListEntry"><span class="hs-identifier">newAgentListEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentListEntry.html#agentListEntry_status"><span class="hs-identifier">agentListEntry_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentListEntry.html#agentListEntry_agentArn"><span class="hs-identifier">agentListEntry_agentArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentListEntry.html#agentListEntry_name"><span class="hs-identifier">agentListEntry_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Ec2Config</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Ec2Config.html#Ec2Config"><span class="hs-identifier">Ec2Config</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Ec2Config.html#newEc2Config"><span class="hs-identifier">newEc2Config</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Ec2Config.html#ec2Config_subnetArn"><span class="hs-identifier">ec2Config_subnetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Ec2Config.html#ec2Config_securityGroupArns"><span class="hs-identifier">ec2Config_securityGroupArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FilterRule</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier">FilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#newFilterRule"><span class="hs-identifier">newFilterRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#filterRule_filterType"><span class="hs-identifier">filterRule_filterType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#filterRule_value"><span class="hs-identifier">filterRule_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LocationFilter</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier">LocationFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilter.html#newLocationFilter"><span class="hs-identifier">newLocationFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilter.html#locationFilter_name"><span class="hs-identifier">locationFilter_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilter.html#locationFilter_values"><span class="hs-identifier">locationFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilter.html#locationFilter_operator"><span class="hs-identifier">locationFilter_operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LocationListEntry</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationListEntry.html#LocationListEntry"><span class="hs-identifier">LocationListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationListEntry.html#newLocationListEntry"><span class="hs-identifier">newLocationListEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationListEntry.html#locationListEntry_locationUri"><span class="hs-identifier">locationListEntry_locationUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationListEntry.html#locationListEntry_locationArn"><span class="hs-identifier">locationListEntry_locationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NfsMountOptions</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.NfsMountOptions.html#NfsMountOptions"><span class="hs-identifier">NfsMountOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.NfsMountOptions.html#newNfsMountOptions"><span class="hs-identifier">newNfsMountOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.NfsMountOptions.html#nfsMountOptions_version"><span class="hs-identifier">nfsMountOptions_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OnPremConfig</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.OnPremConfig.html#OnPremConfig"><span class="hs-identifier">OnPremConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.OnPremConfig.html#newOnPremConfig"><span class="hs-identifier">newOnPremConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.OnPremConfig.html#onPremConfig_agentArns"><span class="hs-identifier">onPremConfig_agentArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Options</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#Options"><span class="hs-identifier">Options</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#newOptions"><span class="hs-identifier">newOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_atime"><span class="hs-identifier">options_atime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_verifyMode"><span class="hs-identifier">options_verifyMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_taskQueueing"><span class="hs-identifier">options_taskQueueing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_logLevel"><span class="hs-identifier">options_logLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_posixPermissions"><span class="hs-identifier">options_posixPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_mtime"><span class="hs-identifier">options_mtime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_uid"><span class="hs-identifier">options_uid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_bytesPerSecond"><span class="hs-identifier">options_bytesPerSecond</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_securityDescriptorCopyFlags"><span class="hs-identifier">options_securityDescriptorCopyFlags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_gid"><span class="hs-identifier">options_gid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_overwriteMode"><span class="hs-identifier">options_overwriteMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_transferMode"><span class="hs-identifier">options_transferMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_preserveDeletedFiles"><span class="hs-identifier">options_preserveDeletedFiles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#options_preserveDevices"><span class="hs-identifier">options_preserveDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrivateLinkConfig</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PrivateLinkConfig.html#PrivateLinkConfig"><span class="hs-identifier">PrivateLinkConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PrivateLinkConfig.html#newPrivateLinkConfig"><span class="hs-identifier">newPrivateLinkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PrivateLinkConfig.html#privateLinkConfig_securityGroupArns"><span class="hs-identifier">privateLinkConfig_securityGroupArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PrivateLinkConfig.html#privateLinkConfig_subnetArns"><span class="hs-identifier">privateLinkConfig_subnetArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PrivateLinkConfig.html#privateLinkConfig_privateLinkEndpoint"><span class="hs-identifier">privateLinkConfig_privateLinkEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.PrivateLinkConfig.html#privateLinkConfig_vpcEndpointId"><span class="hs-identifier">privateLinkConfig_vpcEndpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3Config</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.S3Config.html#S3Config"><span class="hs-identifier">S3Config</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.S3Config.html#newS3Config"><span class="hs-identifier">newS3Config</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.S3Config.html#s3Config_bucketAccessRoleArn"><span class="hs-identifier">s3Config_bucketAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SmbMountOptions</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbMountOptions.html#SmbMountOptions"><span class="hs-identifier">SmbMountOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbMountOptions.html#newSmbMountOptions"><span class="hs-identifier">newSmbMountOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbMountOptions.html#smbMountOptions_version"><span class="hs-identifier">smbMountOptions_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TagListEntry</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TagListEntry.html#TagListEntry"><span class="hs-identifier">TagListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TagListEntry.html#newTagListEntry"><span class="hs-identifier">newTagListEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TagListEntry.html#tagListEntry_value"><span class="hs-identifier">tagListEntry_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TagListEntry.html#tagListEntry_key"><span class="hs-identifier">tagListEntry_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskExecutionListEntry</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionListEntry.html#TaskExecutionListEntry"><span class="hs-identifier">TaskExecutionListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionListEntry.html#newTaskExecutionListEntry"><span class="hs-identifier">newTaskExecutionListEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionListEntry.html#taskExecutionListEntry_status"><span class="hs-identifier">taskExecutionListEntry_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionListEntry.html#taskExecutionListEntry_taskExecutionArn"><span class="hs-identifier">taskExecutionListEntry_taskExecutionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskExecutionResultDetail</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#TaskExecutionResultDetail"><span class="hs-identifier">TaskExecutionResultDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#newTaskExecutionResultDetail"><span class="hs-identifier">newTaskExecutionResultDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_prepareDuration"><span class="hs-identifier">taskExecutionResultDetail_prepareDuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_prepareStatus"><span class="hs-identifier">taskExecutionResultDetail_prepareStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_verifyStatus"><span class="hs-identifier">taskExecutionResultDetail_verifyStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_verifyDuration"><span class="hs-identifier">taskExecutionResultDetail_verifyDuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_totalDuration"><span class="hs-identifier">taskExecutionResultDetail_totalDuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_transferStatus"><span class="hs-identifier">taskExecutionResultDetail_transferStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_errorCode"><span class="hs-identifier">taskExecutionResultDetail_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_transferDuration"><span class="hs-identifier">taskExecutionResultDetail_transferDuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html#taskExecutionResultDetail_errorDetail"><span class="hs-identifier">taskExecutionResultDetail_errorDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskFilter</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilter.html#TaskFilter"><span class="hs-identifier">TaskFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilter.html#newTaskFilter"><span class="hs-identifier">newTaskFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilter.html#taskFilter_name"><span class="hs-identifier">taskFilter_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilter.html#taskFilter_values"><span class="hs-identifier">taskFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilter.html#taskFilter_operator"><span class="hs-identifier">taskFilter_operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskListEntry</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskListEntry.html#TaskListEntry"><span class="hs-identifier">TaskListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskListEntry.html#newTaskListEntry"><span class="hs-identifier">newTaskListEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskListEntry.html#taskListEntry_status"><span class="hs-identifier">taskListEntry_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskListEntry.html#taskListEntry_taskArn"><span class="hs-identifier">taskListEntry_taskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskListEntry.html#taskListEntry_name"><span class="hs-identifier">taskListEntry_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskSchedule</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskSchedule.html#TaskSchedule"><span class="hs-identifier">TaskSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskSchedule.html#newTaskSchedule"><span class="hs-identifier">newTaskSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskSchedule.html#taskSchedule_scheduleExpression"><span class="hs-identifier">taskSchedule_scheduleExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentListEntry.html"><span class="hs-identifier">Amazonka.DataSync.Types.AgentListEntry</span></a></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.AgentStatus.html"><span class="hs-identifier">Amazonka.DataSync.Types.AgentStatus</span></a></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Atime.html"><span class="hs-identifier">Amazonka.DataSync.Types.Atime</span></a></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Ec2Config.html"><span class="hs-identifier">Amazonka.DataSync.Types.Ec2Config</span></a></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.EndpointType.html"><span class="hs-identifier">Amazonka.DataSync.Types.EndpointType</span></a></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html"><span class="hs-identifier">Amazonka.DataSync.Types.FilterRule</span></a></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.FilterType.html"><span class="hs-identifier">Amazonka.DataSync.Types.FilterType</span></a></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Gid.html"><span class="hs-identifier">Amazonka.DataSync.Types.Gid</span></a></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilter.html"><span class="hs-identifier">Amazonka.DataSync.Types.LocationFilter</span></a></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationFilterName.html"><span class="hs-identifier">Amazonka.DataSync.Types.LocationFilterName</span></a></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.LocationListEntry.html"><span class="hs-identifier">Amazonka.DataSync.Types.LocationListEntry</span></a></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.LogLevel.html"><span class="hs-identifier">Amazonka.DataSync.Types.LogLevel</span></a></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Mtime.html"><span class="hs-identifier">Amazonka.DataSync.Types.Mtime</span></a></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.NfsMountOptions.html"><span class="hs-identifier">Amazonka.DataSync.Types.NfsMountOptions</span></a></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.NfsVersion.html"><span class="hs-identifier">Amazonka.DataSync.Types.NfsVersion</span></a></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.ObjectStorageServerProtocol.html"><span class="hs-identifier">Amazonka.DataSync.Types.ObjectStorageServerProtocol</span></a></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.OnPremConfig.html"><span class="hs-identifier">Amazonka.DataSync.Types.OnPremConfig</span></a></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Operator.html"><span class="hs-identifier">Amazonka.DataSync.Types.Operator</span></a></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html"><span class="hs-identifier">Amazonka.DataSync.Types.Options</span></a></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.OverwriteMode.html"><span class="hs-identifier">Amazonka.DataSync.Types.OverwriteMode</span></a></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.PhaseStatus.html"><span class="hs-identifier">Amazonka.DataSync.Types.PhaseStatus</span></a></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.PosixPermissions.html"><span class="hs-identifier">Amazonka.DataSync.Types.PosixPermissions</span></a></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.PreserveDeletedFiles.html"><span class="hs-identifier">Amazonka.DataSync.Types.PreserveDeletedFiles</span></a></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.PreserveDevices.html"><span class="hs-identifier">Amazonka.DataSync.Types.PreserveDevices</span></a></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.PrivateLinkConfig.html"><span class="hs-identifier">Amazonka.DataSync.Types.PrivateLinkConfig</span></a></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.S3Config.html"><span class="hs-identifier">Amazonka.DataSync.Types.S3Config</span></a></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.S3StorageClass.html"><span class="hs-identifier">Amazonka.DataSync.Types.S3StorageClass</span></a></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbMountOptions.html"><span class="hs-identifier">Amazonka.DataSync.Types.SmbMountOptions</span></a></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags.html"><span class="hs-identifier">Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags</span></a></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html"><span class="hs-identifier">Amazonka.DataSync.Types.SmbVersion</span></a></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TagListEntry.html"><span class="hs-identifier">Amazonka.DataSync.Types.TagListEntry</span></a></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionListEntry.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskExecutionListEntry</span></a></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionResultDetail.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskExecutionResultDetail</span></a></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskExecutionStatus.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskExecutionStatus</span></a></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilter.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskFilter</span></a></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskFilterName.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskFilterName</span></a></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskListEntry.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskListEntry</span></a></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskQueueing.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskQueueing</span></a></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskSchedule.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskSchedule</span></a></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskStatus.html"><span class="hs-identifier">Amazonka.DataSync.Types.TaskStatus</span></a></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TransferMode.html"><span class="hs-identifier">Amazonka.DataSync.Types.TransferMode</span></a></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Uid.html"><span class="hs-identifier">Amazonka.DataSync.Types.Uid</span></a></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.VerifyMode.html"><span class="hs-identifier">Amazonka.DataSync.Types.VerifyMode</span></a></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | API version @2018-11-09@ of the Amazon DataSync SDK configuration.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-275"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;DataSync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;datasync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;datasync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2018-11-09&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;DataSync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679253363"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-290"></span><span>    </span><span id="local-6989586621679253363"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679253363"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-292"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679253357"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-296"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>    </span><span id="local-6989586621679253357"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679253357"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679253356"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-298"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-299"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-300"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-301"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-307"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-308"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-309"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-313"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-314"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-315"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-318"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-319"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-320"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-321"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-322"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-325"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-327"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-328"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-329"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-330"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-335"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-337"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253356"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-340"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-341"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- | This exception is thrown when the client submits a malformed request.</span><span>
+</span><span id="line-344"></span><span id="local-6989586621679253351"><span class="annot"><a href="Amazonka.DataSync.Types.html#_InvalidRequestException"><span class="hs-identifier hs-type">_InvalidRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253351"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253351"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-345"></span><span id="_InvalidRequestException"><span class="annot"><span class="annottext">_InvalidRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataSync.Types.html#_InvalidRequestException"><span class="hs-identifier hs-var hs-var">_InvalidRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-346"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidRequestException&quot;</span></span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | This exception is thrown when an error occurs in the DataSync service.</span><span>
+</span><span id="line-351"></span><span id="local-6989586621679253349"><span class="annot"><a href="Amazonka.DataSync.Types.html#_InternalException"><span class="hs-identifier hs-type">_InternalException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253349"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253349"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-352"></span><span id="_InternalException"><span class="annot"><span class="annottext">_InternalException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataSync.Types.html#_InternalException"><span class="hs-identifier hs-var hs-var">_InternalException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalException&quot;</span></span><span>
+</span><span id="line-356"></span></pre></body></html>

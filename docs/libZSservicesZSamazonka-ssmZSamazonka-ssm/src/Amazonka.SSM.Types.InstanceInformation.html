@@ -1,0 +1,1435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.InstanceInformation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.InstanceInformation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceAggregatedAssociationOverview.html"><span class="hs-identifier">Amazonka.SSM.Types.InstanceAggregatedAssociationOverview</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PingStatus.html"><span class="hs-identifier">Amazonka.SSM.Types.PingStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PlatformType.html"><span class="hs-identifier">Amazonka.SSM.Types.PlatformType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceType.html"><span class="hs-identifier">Amazonka.SSM.Types.ResourceType</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes a filter for a specific list of instances.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInstanceInformation' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679812968"><span id="local-6989586621679812969"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceInformation"><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-var">InstanceInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceInformation%27"><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-var">InstanceInformation'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceId%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AinstanceId%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Connection status of SSM Agent.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- The status @Inactive@ has been deprecated and is no longer in use.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApingStatus%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe PingStatus
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3ApingStatus%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">pingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PingStatus.html#PingStatus"><span class="hs-identifier hs-type">PingStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The IP address of the managed instance.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AiPAddress%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AiPAddress%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">iPAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of instance. Instances are either EC2 instances or managed</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- instances.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AresourceType%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe ResourceType
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AresourceType%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date the server or VM was registered with Amazon Web Services as a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- managed instance.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AregistrationDate%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AregistrationDate%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">registrationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The version of the OS platform running on your instance.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AplatformVersion%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Indicates whether the latest version of SSM Agent is running on your</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Linux Managed Instance. This field doesn\'t indicate whether or not the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- latest version is installed on Windows managed instances, because some</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- older versions of Windows Server use the EC2Config service to process</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Systems Manager requests.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AisLatestVersion%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Bool
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AisLatestVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">isLatestVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The version of SSM Agent running on your Linux instance.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AagentVersion%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AagentVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">agentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The date and time when the agent last pinged the Systems Manager</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlastPingDateTime%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastPingDateTime%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">lastPingDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The last date the association was successfully run.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AlastSuccessfulAssociationExecutionDate%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastSuccessfulAssociationExecutionDate%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">lastSuccessfulAssociationExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The activation ID created by Amazon Web Services Systems Manager when</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the server or virtual machine (VM) was registered.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AactivationId%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AactivationId%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">activationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name assigned to an on-premises server or virtual machine (VM) when</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- it is activated as a Systems Manager managed instance. The name is</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- specified as the @DefaultInstanceName@ property using the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- CreateActivation command. It is applied to the managed instance by</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- specifying the Activation Code and Activation ID when you install SSM</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Agent on the instance, as explained in</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html Install SSM Agent for a hybrid environment (Linux)&gt;</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html Install SSM Agent for a hybrid environment (Windows)&gt;.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- To retrieve the Name tag of an EC2 instance, use the Amazon EC2</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @DescribeInstances@ operation. For information, see</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances&gt;</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- in the /Amazon EC2 API Reference/ or</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances&gt;</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services CLI Command Reference/.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aname%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3Aname%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The operating system platform type.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AplatformType%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe PlatformType
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformType%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">platformType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-type">PlatformType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Information about the association.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AassociationOverview%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe InstanceAggregatedAssociationOverview
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AassociationOverview%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">associationOverview</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceAggregatedAssociationOverview.html#InstanceAggregatedAssociationOverview"><span class="hs-identifier hs-type">InstanceAggregatedAssociationOverview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The status of the association.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AassociationStatus%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AassociationStatus%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">associationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The date the association was last run.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AlastAssociationExecutionDate%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastAssociationExecutionDate%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">lastAssociationExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The name of the operating system platform running on your instance.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AplatformName%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformName%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">platformName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The fully qualified host name of the managed instance.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AcomputerName%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AcomputerName%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The Identity and Access Management (IAM) role assigned to the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- on-premises Systems Manager managed instance. This call doesn\'t return</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- retrieve the IAM role for an EC2 instance, use the Amazon EC2</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- @DescribeInstances@ operation. For information, see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances&gt;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- in the /Amazon EC2 API Reference/ or</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances&gt;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services CLI Command Reference/.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AiamRole%3AInstanceInformation%27"><span class="annot"><span class="annottext">InstanceInformation -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AiamRole%3AInstanceInformation%27"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679812944"><span id="local-6989586621679812946"><span class="annot"><span class="annottext">InstanceInformation -&gt; InstanceInformation -&gt; Bool
+(InstanceInformation -&gt; InstanceInformation -&gt; Bool)
+-&gt; (InstanceInformation -&gt; InstanceInformation -&gt; Bool)
+-&gt; Eq InstanceInformation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceInformation -&gt; InstanceInformation -&gt; Bool
+$c/= :: InstanceInformation -&gt; InstanceInformation -&gt; Bool
+== :: InstanceInformation -&gt; InstanceInformation -&gt; Bool
+$c== :: InstanceInformation -&gt; InstanceInformation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812935"><span id="local-6989586621679812937"><span id="local-6989586621679812939"><span id="local-6989586621679812941"><span class="annot"><span class="annottext">ReadPrec [InstanceInformation]
+ReadPrec InstanceInformation
+Int -&gt; ReadS InstanceInformation
+ReadS [InstanceInformation]
+(Int -&gt; ReadS InstanceInformation)
+-&gt; ReadS [InstanceInformation]
+-&gt; ReadPrec InstanceInformation
+-&gt; ReadPrec [InstanceInformation]
+-&gt; Read InstanceInformation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceInformation]
+$creadListPrec :: ReadPrec [InstanceInformation]
+readPrec :: ReadPrec InstanceInformation
+$creadPrec :: ReadPrec InstanceInformation
+readList :: ReadS [InstanceInformation]
+$creadList :: ReadS [InstanceInformation]
+readsPrec :: Int -&gt; ReadS InstanceInformation
+$creadsPrec :: Int -&gt; ReadS InstanceInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812928"><span id="local-6989586621679812930"><span id="local-6989586621679812932"><span class="annot"><span class="annottext">Int -&gt; InstanceInformation -&gt; ShowS
+[InstanceInformation] -&gt; ShowS
+InstanceInformation -&gt; String
+(Int -&gt; InstanceInformation -&gt; ShowS)
+-&gt; (InstanceInformation -&gt; String)
+-&gt; ([InstanceInformation] -&gt; ShowS)
+-&gt; Show InstanceInformation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceInformation] -&gt; ShowS
+$cshowList :: [InstanceInformation] -&gt; ShowS
+show :: InstanceInformation -&gt; String
+$cshow :: InstanceInformation -&gt; String
+showsPrec :: Int -&gt; InstanceInformation -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceInformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstanceInformation -&gt; Rep InstanceInformation x)
+-&gt; (forall x. Rep InstanceInformation x -&gt; InstanceInformation)
+-&gt; Generic InstanceInformation
+forall x. Rep InstanceInformation x -&gt; InstanceInformation
+forall x. InstanceInformation -&gt; Rep InstanceInformation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceInformation x -&gt; InstanceInformation
+$cfrom :: forall x. InstanceInformation -&gt; Rep InstanceInformation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Create a value of 'InstanceInformation' with all optional fields omitted.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'instanceId', 'instanceInformation_instanceId' - The instance ID.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'pingStatus', 'instanceInformation_pingStatus' - Connection status of SSM Agent.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The status @Inactive@ has been deprecated and is no longer in use.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'iPAddress', 'instanceInformation_iPAddress' - The IP address of the managed instance.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'resourceType', 'instanceInformation_resourceType' - The type of instance. Instances are either EC2 instances or managed</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- instances.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'registrationDate', 'instanceInformation_registrationDate' - The date the server or VM was registered with Amazon Web Services as a</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- managed instance.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'platformVersion', 'instanceInformation_platformVersion' - The version of the OS platform running on your instance.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'isLatestVersion', 'instanceInformation_isLatestVersion' - Indicates whether the latest version of SSM Agent is running on your</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Linux Managed Instance. This field doesn\'t indicate whether or not the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- latest version is installed on Windows managed instances, because some</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- older versions of Windows Server use the EC2Config service to process</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Systems Manager requests.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'agentVersion', 'instanceInformation_agentVersion' - The version of SSM Agent running on your Linux instance.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'lastPingDateTime', 'instanceInformation_lastPingDateTime' - The date and time when the agent last pinged the Systems Manager</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'lastSuccessfulAssociationExecutionDate', 'instanceInformation_lastSuccessfulAssociationExecutionDate' - The last date the association was successfully run.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'activationId', 'instanceInformation_activationId' - The activation ID created by Amazon Web Services Systems Manager when</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- the server or virtual machine (VM) was registered.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'name', 'instanceInformation_name' - The name assigned to an on-premises server or virtual machine (VM) when</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- it is activated as a Systems Manager managed instance. The name is</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- specified as the @DefaultInstanceName@ property using the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- CreateActivation command. It is applied to the managed instance by</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- specifying the Activation Code and Activation ID when you install SSM</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Agent on the instance, as explained in</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html Install SSM Agent for a hybrid environment (Linux)&gt;</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html Install SSM Agent for a hybrid environment (Windows)&gt;.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- To retrieve the Name tag of an EC2 instance, use the Amazon EC2</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- @DescribeInstances@ operation. For information, see</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances&gt;</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- in the /Amazon EC2 API Reference/ or</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances&gt;</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- in the /Amazon Web Services CLI Command Reference/.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'platformType', 'instanceInformation_platformType' - The operating system platform type.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'associationOverview', 'instanceInformation_associationOverview' - Information about the association.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'associationStatus', 'instanceInformation_associationStatus' - The status of the association.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'lastAssociationExecutionDate', 'instanceInformation_lastAssociationExecutionDate' - The date the association was last run.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'platformName', 'instanceInformation_platformName' - The name of the operating system platform running on your instance.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'computerName', 'instanceInformation_computerName' - The fully qualified host name of the managed instance.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'iamRole', 'instanceInformation_iamRole' - The Identity and Access Management (IAM) role assigned to the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- on-premises Systems Manager managed instance. This call doesn\'t return</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- retrieve the IAM role for an EC2 instance, use the Amazon EC2</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- @DescribeInstances@ operation. For information, see</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances&gt;</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- in the /Amazon EC2 API Reference/ or</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances&gt;</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- in the /Amazon Web Services CLI Command Reference/.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#newInstanceInformation"><span class="hs-identifier hs-type">newInstanceInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span>
+</span><span id="line-186"></span><span id="newInstanceInformation"><span class="annot"><span class="annottext">newInstanceInformation :: InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#newInstanceInformation"><span class="hs-identifier hs-var hs-var">newInstanceInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">InstanceInformation' :: Maybe Text
+-&gt; Maybe PingStatus
+-&gt; Maybe Text
+-&gt; Maybe ResourceType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PlatformType
+-&gt; Maybe InstanceAggregatedAssociationOverview
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AinstanceId%3AInstanceInformation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:pingStatus:InstanceInformation' :: Maybe PingStatus
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3ApingStatus%3AInstanceInformation%27"><span class="hs-identifier hs-var">pingStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PingStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPAddress:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AiPAddress%3AInstanceInformation%27"><span class="hs-identifier hs-var">iPAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:InstanceInformation' :: Maybe ResourceType
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AresourceType%3AInstanceInformation%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:registrationDate:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AregistrationDate%3AInstanceInformation%27"><span class="hs-identifier hs-var">registrationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformVersion:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var">platformVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:isLatestVersion:InstanceInformation' :: Maybe Bool
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AisLatestVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var">isLatestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:agentVersion:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AagentVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var">agentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastPingDateTime:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastPingDateTime%3AInstanceInformation%27"><span class="hs-identifier hs-var">lastPingDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastSuccessfulAssociationExecutionDate:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastSuccessfulAssociationExecutionDate%3AInstanceInformation%27"><span class="hs-identifier hs-var">lastSuccessfulAssociationExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:activationId:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AactivationId%3AInstanceInformation%27"><span class="hs-identifier hs-var">activationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3Aname%3AInstanceInformation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformType:InstanceInformation' :: Maybe PlatformType
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformType%3AInstanceInformation%27"><span class="hs-identifier hs-var">platformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationOverview:InstanceInformation' :: Maybe InstanceAggregatedAssociationOverview
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AassociationOverview%3AInstanceInformation%27"><span class="hs-identifier hs-var">associationOverview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAggregatedAssociationOverview
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationStatus:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AassociationStatus%3AInstanceInformation%27"><span class="hs-identifier hs-var">associationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAssociationExecutionDate:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastAssociationExecutionDate%3AInstanceInformation%27"><span class="hs-identifier hs-var">lastAssociationExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformName:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformName%3AInstanceInformation%27"><span class="hs-identifier hs-var">platformName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:computerName:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AcomputerName%3AInstanceInformation%27"><span class="hs-identifier hs-var">computerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRole:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AiamRole%3AInstanceInformation%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_instanceId"><span class="hs-identifier hs-type">instanceInformation_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="instanceInformation_instanceId"><span class="annot"><span class="annottext">instanceInformation_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_instanceId"><span class="hs-identifier hs-var hs-var">instanceInformation_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812919"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812919"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812919"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812918"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AinstanceId%3AInstanceInformation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Connection status of SSM Agent.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- The status @Inactive@ has been deprecated and is no longer in use.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_pingStatus"><span class="hs-identifier hs-type">instanceInformation_pingStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PingStatus.html#PingStatus"><span class="hs-identifier hs-type">PingStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="instanceInformation_pingStatus"><span class="annot"><span class="annottext">instanceInformation_pingStatus :: (Maybe PingStatus -&gt; f (Maybe PingStatus))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_pingStatus"><span class="hs-identifier hs-var hs-var">instanceInformation_pingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe PingStatus)
+-&gt; (InstanceInformation -&gt; Maybe PingStatus -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation
+     InstanceInformation
+     (Maybe PingStatus)
+     (Maybe PingStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812915"><span class="annot"><span class="annottext">Maybe PingStatus
+pingStatus :: Maybe PingStatus
+$sel:pingStatus:InstanceInformation' :: InstanceInformation -&gt; Maybe PingStatus
+</span><a href="#local-6989586621679812915"><span class="hs-identifier hs-var hs-var">pingStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PingStatus
+</span><a href="#local-6989586621679812915"><span class="hs-identifier hs-var">pingStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812914"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812913"><span class="annot"><span class="annottext">Maybe PingStatus
+</span><a href="#local-6989586621679812913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pingStatus:InstanceInformation' :: Maybe PingStatus
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3ApingStatus%3AInstanceInformation%27"><span class="hs-identifier hs-var">pingStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PingStatus
+</span><a href="#local-6989586621679812913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The IP address of the managed instance.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_iPAddress"><span class="hs-identifier hs-type">instanceInformation_iPAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="instanceInformation_iPAddress"><span class="annot"><span class="annottext">instanceInformation_iPAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_iPAddress"><span class="hs-identifier hs-var hs-var">instanceInformation_iPAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812911"><span class="annot"><span class="annottext">Maybe Text
+iPAddress :: Maybe Text
+$sel:iPAddress:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812911"><span class="hs-identifier hs-var hs-var">iPAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812911"><span class="hs-identifier hs-var">iPAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812910"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPAddress:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AiPAddress%3AInstanceInformation%27"><span class="hs-identifier hs-var">iPAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The type of instance. Instances are either EC2 instances or managed</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- instances.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_resourceType"><span class="hs-identifier hs-type">instanceInformation_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="instanceInformation_resourceType"><span class="annot"><span class="annottext">instanceInformation_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_resourceType"><span class="hs-identifier hs-var hs-var">instanceInformation_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe ResourceType)
+-&gt; (InstanceInformation
+    -&gt; Maybe ResourceType -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation
+     InstanceInformation
+     (Maybe ResourceType)
+     (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812907"><span class="annot"><span class="annottext">Maybe ResourceType
+resourceType :: Maybe ResourceType
+$sel:resourceType:InstanceInformation' :: InstanceInformation -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679812907"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679812907"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812906"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812905"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679812905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:InstanceInformation' :: Maybe ResourceType
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AresourceType%3AInstanceInformation%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679812905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The date the server or VM was registered with Amazon Web Services as a</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- managed instance.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_registrationDate"><span class="hs-identifier hs-type">instanceInformation_registrationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="instanceInformation_registrationDate"><span class="annot"><span class="annottext">instanceInformation_registrationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_registrationDate"><span class="hs-identifier hs-var hs-var">instanceInformation_registrationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe POSIX)
+-&gt; (InstanceInformation -&gt; Maybe POSIX -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812903"><span class="annot"><span class="annottext">Maybe POSIX
+registrationDate :: Maybe POSIX
+$sel:registrationDate:InstanceInformation' :: InstanceInformation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679812903"><span class="hs-identifier hs-var hs-var">registrationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812903"><span class="hs-identifier hs-var">registrationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812902"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812901"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationDate:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AregistrationDate%3AInstanceInformation%27"><span class="hs-identifier hs-var">registrationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; InstanceInformation -&gt; f InstanceInformation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation
+-&gt; f InstanceInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The version of the OS platform running on your instance.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_platformVersion"><span class="hs-identifier hs-type">instanceInformation_platformVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="instanceInformation_platformVersion"><span class="annot"><span class="annottext">instanceInformation_platformVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_platformVersion"><span class="hs-identifier hs-var hs-var">instanceInformation_platformVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812896"><span class="annot"><span class="annottext">Maybe Text
+platformVersion :: Maybe Text
+$sel:platformVersion:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812896"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812896"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812895"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812894"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformVersion:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var">platformVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | Indicates whether the latest version of SSM Agent is running on your</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Linux Managed Instance. This field doesn\'t indicate whether or not the</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- latest version is installed on Windows managed instances, because some</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- older versions of Windows Server use the EC2Config service to process</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Systems Manager requests.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_isLatestVersion"><span class="hs-identifier hs-type">instanceInformation_isLatestVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="instanceInformation_isLatestVersion"><span class="annot"><span class="annottext">instanceInformation_isLatestVersion :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_isLatestVersion"><span class="hs-identifier hs-var hs-var">instanceInformation_isLatestVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Bool)
+-&gt; (InstanceInformation -&gt; Maybe Bool -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812892"><span class="annot"><span class="annottext">Maybe Bool
+isLatestVersion :: Maybe Bool
+$sel:isLatestVersion:InstanceInformation' :: InstanceInformation -&gt; Maybe Bool
+</span><a href="#local-6989586621679812892"><span class="hs-identifier hs-var hs-var">isLatestVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812892"><span class="hs-identifier hs-var">isLatestVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812891"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812890"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isLatestVersion:InstanceInformation' :: Maybe Bool
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AisLatestVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var">isLatestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The version of SSM Agent running on your Linux instance.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_agentVersion"><span class="hs-identifier hs-type">instanceInformation_agentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="instanceInformation_agentVersion"><span class="annot"><span class="annottext">instanceInformation_agentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_agentVersion"><span class="hs-identifier hs-var hs-var">instanceInformation_agentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812888"><span class="annot"><span class="annottext">Maybe Text
+agentVersion :: Maybe Text
+$sel:agentVersion:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812888"><span class="hs-identifier hs-var hs-var">agentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812888"><span class="hs-identifier hs-var">agentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812887"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812886"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentVersion:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AagentVersion%3AInstanceInformation%27"><span class="hs-identifier hs-var">agentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The date and time when the agent last pinged the Systems Manager</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_lastPingDateTime"><span class="hs-identifier hs-type">instanceInformation_lastPingDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="instanceInformation_lastPingDateTime"><span class="annot"><span class="annottext">instanceInformation_lastPingDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_lastPingDateTime"><span class="hs-identifier hs-var hs-var">instanceInformation_lastPingDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe POSIX)
+-&gt; (InstanceInformation -&gt; Maybe POSIX -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812884"><span class="annot"><span class="annottext">Maybe POSIX
+lastPingDateTime :: Maybe POSIX
+$sel:lastPingDateTime:InstanceInformation' :: InstanceInformation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679812884"><span class="hs-identifier hs-var hs-var">lastPingDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812884"><span class="hs-identifier hs-var">lastPingDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812883"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812882"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastPingDateTime:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastPingDateTime%3AInstanceInformation%27"><span class="hs-identifier hs-var">lastPingDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; InstanceInformation -&gt; f InstanceInformation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation
+-&gt; f InstanceInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The last date the association was successfully run.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_lastSuccessfulAssociationExecutionDate"><span class="hs-identifier hs-type">instanceInformation_lastSuccessfulAssociationExecutionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="instanceInformation_lastSuccessfulAssociationExecutionDate"><span class="annot"><span class="annottext">instanceInformation_lastSuccessfulAssociationExecutionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_lastSuccessfulAssociationExecutionDate"><span class="hs-identifier hs-var hs-var">instanceInformation_lastSuccessfulAssociationExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe POSIX)
+-&gt; (InstanceInformation -&gt; Maybe POSIX -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812880"><span class="annot"><span class="annottext">Maybe POSIX
+lastSuccessfulAssociationExecutionDate :: Maybe POSIX
+$sel:lastSuccessfulAssociationExecutionDate:InstanceInformation' :: InstanceInformation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679812880"><span class="hs-identifier hs-var hs-var">lastSuccessfulAssociationExecutionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812880"><span class="hs-identifier hs-var">lastSuccessfulAssociationExecutionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812879"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812878"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastSuccessfulAssociationExecutionDate:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastSuccessfulAssociationExecutionDate%3AInstanceInformation%27"><span class="hs-identifier hs-var">lastSuccessfulAssociationExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; InstanceInformation -&gt; f InstanceInformation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation
+-&gt; f InstanceInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The activation ID created by Amazon Web Services Systems Manager when</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- the server or virtual machine (VM) was registered.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_activationId"><span class="hs-identifier hs-type">instanceInformation_activationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="instanceInformation_activationId"><span class="annot"><span class="annottext">instanceInformation_activationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_activationId"><span class="hs-identifier hs-var hs-var">instanceInformation_activationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812876"><span class="annot"><span class="annottext">Maybe Text
+activationId :: Maybe Text
+$sel:activationId:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812876"><span class="hs-identifier hs-var hs-var">activationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812876"><span class="hs-identifier hs-var">activationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812875"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812874"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationId:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AactivationId%3AInstanceInformation%27"><span class="hs-identifier hs-var">activationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The name assigned to an on-premises server or virtual machine (VM) when</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- it is activated as a Systems Manager managed instance. The name is</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- specified as the @DefaultInstanceName@ property using the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- CreateActivation command. It is applied to the managed instance by</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- specifying the Activation Code and Activation ID when you install SSM</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- Agent on the instance, as explained in</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html Install SSM Agent for a hybrid environment (Linux)&gt;</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html Install SSM Agent for a hybrid environment (Windows)&gt;.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- To retrieve the Name tag of an EC2 instance, use the Amazon EC2</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- @DescribeInstances@ operation. For information, see</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances&gt;</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- in the /Amazon EC2 API Reference/ or</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances&gt;</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- in the /Amazon Web Services CLI Command Reference/.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_name"><span class="hs-identifier hs-type">instanceInformation_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="instanceInformation_name"><span class="annot"><span class="annottext">instanceInformation_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_name"><span class="hs-identifier hs-var hs-var">instanceInformation_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812872"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812872"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812872"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812871"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812870"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3Aname%3AInstanceInformation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The operating system platform type.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_platformType"><span class="hs-identifier hs-type">instanceInformation_platformType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-type">PlatformType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="instanceInformation_platformType"><span class="annot"><span class="annottext">instanceInformation_platformType :: (Maybe PlatformType -&gt; f (Maybe PlatformType))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_platformType"><span class="hs-identifier hs-var hs-var">instanceInformation_platformType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe PlatformType)
+-&gt; (InstanceInformation
+    -&gt; Maybe PlatformType -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation
+     InstanceInformation
+     (Maybe PlatformType)
+     (Maybe PlatformType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812868"><span class="annot"><span class="annottext">Maybe PlatformType
+platformType :: Maybe PlatformType
+$sel:platformType:InstanceInformation' :: InstanceInformation -&gt; Maybe PlatformType
+</span><a href="#local-6989586621679812868"><span class="hs-identifier hs-var hs-var">platformType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformType
+</span><a href="#local-6989586621679812868"><span class="hs-identifier hs-var">platformType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812867"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812866"><span class="annot"><span class="annottext">Maybe PlatformType
+</span><a href="#local-6989586621679812866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformType:InstanceInformation' :: Maybe PlatformType
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformType%3AInstanceInformation%27"><span class="hs-identifier hs-var">platformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformType
+</span><a href="#local-6989586621679812866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | Information about the association.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_associationOverview"><span class="hs-identifier hs-type">instanceInformation_associationOverview</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceAggregatedAssociationOverview.html#InstanceAggregatedAssociationOverview"><span class="hs-identifier hs-type">InstanceAggregatedAssociationOverview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="instanceInformation_associationOverview"><span class="annot"><span class="annottext">instanceInformation_associationOverview :: (Maybe InstanceAggregatedAssociationOverview
+ -&gt; f (Maybe InstanceAggregatedAssociationOverview))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_associationOverview"><span class="hs-identifier hs-var hs-var">instanceInformation_associationOverview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation
+ -&gt; Maybe InstanceAggregatedAssociationOverview)
+-&gt; (InstanceInformation
+    -&gt; Maybe InstanceAggregatedAssociationOverview
+    -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation
+     InstanceInformation
+     (Maybe InstanceAggregatedAssociationOverview)
+     (Maybe InstanceAggregatedAssociationOverview)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812864"><span class="annot"><span class="annottext">Maybe InstanceAggregatedAssociationOverview
+associationOverview :: Maybe InstanceAggregatedAssociationOverview
+$sel:associationOverview:InstanceInformation' :: InstanceInformation -&gt; Maybe InstanceAggregatedAssociationOverview
+</span><a href="#local-6989586621679812864"><span class="hs-identifier hs-var hs-var">associationOverview</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAggregatedAssociationOverview
+</span><a href="#local-6989586621679812864"><span class="hs-identifier hs-var">associationOverview</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812863"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812862"><span class="annot"><span class="annottext">Maybe InstanceAggregatedAssociationOverview
+</span><a href="#local-6989586621679812862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationOverview:InstanceInformation' :: Maybe InstanceAggregatedAssociationOverview
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AassociationOverview%3AInstanceInformation%27"><span class="hs-identifier hs-var">associationOverview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAggregatedAssociationOverview
+</span><a href="#local-6989586621679812862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The status of the association.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_associationStatus"><span class="hs-identifier hs-type">instanceInformation_associationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="instanceInformation_associationStatus"><span class="annot"><span class="annottext">instanceInformation_associationStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_associationStatus"><span class="hs-identifier hs-var hs-var">instanceInformation_associationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812860"><span class="annot"><span class="annottext">Maybe Text
+associationStatus :: Maybe Text
+$sel:associationStatus:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812860"><span class="hs-identifier hs-var hs-var">associationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812860"><span class="hs-identifier hs-var">associationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812859"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812858"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationStatus:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AassociationStatus%3AInstanceInformation%27"><span class="hs-identifier hs-var">associationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The date the association was last run.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_lastAssociationExecutionDate"><span class="hs-identifier hs-type">instanceInformation_lastAssociationExecutionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="instanceInformation_lastAssociationExecutionDate"><span class="annot"><span class="annottext">instanceInformation_lastAssociationExecutionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_lastAssociationExecutionDate"><span class="hs-identifier hs-var hs-var">instanceInformation_lastAssociationExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe POSIX)
+-&gt; (InstanceInformation -&gt; Maybe POSIX -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812856"><span class="annot"><span class="annottext">Maybe POSIX
+lastAssociationExecutionDate :: Maybe POSIX
+$sel:lastAssociationExecutionDate:InstanceInformation' :: InstanceInformation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679812856"><span class="hs-identifier hs-var hs-var">lastAssociationExecutionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812856"><span class="hs-identifier hs-var">lastAssociationExecutionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812855"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812854"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAssociationExecutionDate:InstanceInformation' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AlastAssociationExecutionDate%3AInstanceInformation%27"><span class="hs-identifier hs-var">lastAssociationExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679812854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; InstanceInformation -&gt; f InstanceInformation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceInformation
+-&gt; f InstanceInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The name of the operating system platform running on your instance.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_platformName"><span class="hs-identifier hs-type">instanceInformation_platformName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="instanceInformation_platformName"><span class="annot"><span class="annottext">instanceInformation_platformName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_platformName"><span class="hs-identifier hs-var hs-var">instanceInformation_platformName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812852"><span class="annot"><span class="annottext">Maybe Text
+platformName :: Maybe Text
+$sel:platformName:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812852"><span class="hs-identifier hs-var hs-var">platformName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812852"><span class="hs-identifier hs-var">platformName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812851"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformName:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AplatformName%3AInstanceInformation%27"><span class="hs-identifier hs-var">platformName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The fully qualified host name of the managed instance.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_computerName"><span class="hs-identifier hs-type">instanceInformation_computerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="instanceInformation_computerName"><span class="annot"><span class="annottext">instanceInformation_computerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_computerName"><span class="hs-identifier hs-var hs-var">instanceInformation_computerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812848"><span class="annot"><span class="annottext">Maybe Text
+computerName :: Maybe Text
+$sel:computerName:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812848"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812848"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812847"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerName:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AcomputerName%3AInstanceInformation%27"><span class="hs-identifier hs-var">computerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The Identity and Access Management (IAM) role assigned to the</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- on-premises Systems Manager managed instance. This call doesn\'t return</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- retrieve the IAM role for an EC2 instance, use the Amazon EC2</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- @DescribeInstances@ operation. For information, see</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances&gt;</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- in the /Amazon EC2 API Reference/ or</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances&gt;</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- in the /Amazon Web Services CLI Command Reference/.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_iamRole"><span class="hs-identifier hs-type">instanceInformation_iamRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="instanceInformation_iamRole"><span class="annot"><span class="annottext">instanceInformation_iamRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceInformation -&gt; f InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#instanceInformation_iamRole"><span class="hs-identifier hs-var hs-var">instanceInformation_iamRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceInformation -&gt; Maybe Text)
+-&gt; (InstanceInformation -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Lens
+     InstanceInformation InstanceInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812844"><span class="annot"><span class="annottext">Maybe Text
+iamRole :: Maybe Text
+$sel:iamRole:InstanceInformation' :: InstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679812844"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812844"><span class="hs-identifier hs-var">iamRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812843"><span class="annot"><span class="annottext">s :: InstanceInformation
+</span><a href="#local-6989586621679812843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-type">InstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceInformation
+</span><a href="#local-6989586621679812843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRole:InstanceInformation' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#%24sel%3AiamRole%3AInstanceInformation%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812839"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679812837"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InstanceInformation)
+-&gt; Value
+-&gt; Parser InstanceInformation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InstanceInformation&quot;</span></span><span>
+</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679812834"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe PingStatus
+-&gt; Maybe Text
+-&gt; Maybe ResourceType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PlatformType
+-&gt; Maybe InstanceAggregatedAssociationOverview
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; InstanceInformation
+</span><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation%27"><span class="hs-identifier hs-var">InstanceInformation'</span></a></span><span>
+</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe PingStatus
+ -&gt; Maybe Text
+ -&gt; Maybe ResourceType
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe PlatformType
+ -&gt; Maybe InstanceAggregatedAssociationOverview
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PingStatus
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PingStatus
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe PingStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PingStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PingStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IPAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe ResourceType)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegistrationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlatformVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsLatestVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AgentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastPingDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastSuccessfulAssociationExecutionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActivationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PlatformType
+      -&gt; Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PlatformType
+   -&gt; Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe PlatformType)
+-&gt; Parser
+     (Maybe InstanceAggregatedAssociationOverview
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PlatformType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlatformType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceAggregatedAssociationOverview
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe InstanceAggregatedAssociationOverview)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe InstanceAggregatedAssociationOverview)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociationOverview&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastAssociationExecutionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlatformName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; InstanceInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InstanceInformation)
+-&gt; Parser (Maybe Text) -&gt; Parser InstanceInformation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812828"><span id="local-6989586621679812830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span></span></span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span></span><span>
+</span><span id="line-348"></span></pre></body></html>

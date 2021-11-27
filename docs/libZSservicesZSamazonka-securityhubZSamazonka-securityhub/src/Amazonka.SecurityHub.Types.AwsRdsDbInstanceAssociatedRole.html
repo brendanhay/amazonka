@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An IAM role associated with the DB instance.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAwsRdsDbInstanceAssociatedRole' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679964396"><span id="local-6989586621679964397"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsRdsDbInstanceAssociatedRole"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-var">AwsRdsDbInstanceAssociatedRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsRdsDbInstanceAssociatedRole%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">AwsRdsDbInstanceAssociatedRole'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the state of the association between the IAM role and the DB</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- instance. The @Status@ property returns one of the following values:</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The IAM role ARN is associated with the DB instance and</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--     can be used to access other Amazon Web Services services on your</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--     behalf.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @PENDING@ - The IAM role ARN is being associated with the DB</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--     instance.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @INVALID@ - The IAM role ARN is associated with the DB instance. But</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     the DB instance is unable to assume the IAM role in order to access</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     other Amazon Web Services services on your behalf.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astatus%3AAwsRdsDbInstanceAssociatedRole%27"><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3Astatus%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the feature associated with the IAM role.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AfeatureName%3AAwsRdsDbInstanceAssociatedRole%27"><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3AfeatureName%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role that is associated with the DB instance.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AroleArn%3AAwsRdsDbInstanceAssociatedRole%27"><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3AroleArn%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679964388"><span id="local-6989586621679964390"><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole
+-&gt; AwsRdsDbInstanceAssociatedRole -&gt; Bool
+(AwsRdsDbInstanceAssociatedRole
+ -&gt; AwsRdsDbInstanceAssociatedRole -&gt; Bool)
+-&gt; (AwsRdsDbInstanceAssociatedRole
+    -&gt; AwsRdsDbInstanceAssociatedRole -&gt; Bool)
+-&gt; Eq AwsRdsDbInstanceAssociatedRole
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsRdsDbInstanceAssociatedRole
+-&gt; AwsRdsDbInstanceAssociatedRole -&gt; Bool
+$c/= :: AwsRdsDbInstanceAssociatedRole
+-&gt; AwsRdsDbInstanceAssociatedRole -&gt; Bool
+== :: AwsRdsDbInstanceAssociatedRole
+-&gt; AwsRdsDbInstanceAssociatedRole -&gt; Bool
+$c== :: AwsRdsDbInstanceAssociatedRole
+-&gt; AwsRdsDbInstanceAssociatedRole -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679964379"><span id="local-6989586621679964381"><span id="local-6989586621679964383"><span id="local-6989586621679964385"><span class="annot"><span class="annottext">ReadPrec [AwsRdsDbInstanceAssociatedRole]
+ReadPrec AwsRdsDbInstanceAssociatedRole
+Int -&gt; ReadS AwsRdsDbInstanceAssociatedRole
+ReadS [AwsRdsDbInstanceAssociatedRole]
+(Int -&gt; ReadS AwsRdsDbInstanceAssociatedRole)
+-&gt; ReadS [AwsRdsDbInstanceAssociatedRole]
+-&gt; ReadPrec AwsRdsDbInstanceAssociatedRole
+-&gt; ReadPrec [AwsRdsDbInstanceAssociatedRole]
+-&gt; Read AwsRdsDbInstanceAssociatedRole
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsRdsDbInstanceAssociatedRole]
+$creadListPrec :: ReadPrec [AwsRdsDbInstanceAssociatedRole]
+readPrec :: ReadPrec AwsRdsDbInstanceAssociatedRole
+$creadPrec :: ReadPrec AwsRdsDbInstanceAssociatedRole
+readList :: ReadS [AwsRdsDbInstanceAssociatedRole]
+$creadList :: ReadS [AwsRdsDbInstanceAssociatedRole]
+readsPrec :: Int -&gt; ReadS AwsRdsDbInstanceAssociatedRole
+$creadsPrec :: Int -&gt; ReadS AwsRdsDbInstanceAssociatedRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679964372"><span id="local-6989586621679964374"><span id="local-6989586621679964376"><span class="annot"><span class="annottext">Int -&gt; AwsRdsDbInstanceAssociatedRole -&gt; ShowS
+[AwsRdsDbInstanceAssociatedRole] -&gt; ShowS
+AwsRdsDbInstanceAssociatedRole -&gt; String
+(Int -&gt; AwsRdsDbInstanceAssociatedRole -&gt; ShowS)
+-&gt; (AwsRdsDbInstanceAssociatedRole -&gt; String)
+-&gt; ([AwsRdsDbInstanceAssociatedRole] -&gt; ShowS)
+-&gt; Show AwsRdsDbInstanceAssociatedRole
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsRdsDbInstanceAssociatedRole] -&gt; ShowS
+$cshowList :: [AwsRdsDbInstanceAssociatedRole] -&gt; ShowS
+show :: AwsRdsDbInstanceAssociatedRole -&gt; String
+$cshow :: AwsRdsDbInstanceAssociatedRole -&gt; String
+showsPrec :: Int -&gt; AwsRdsDbInstanceAssociatedRole -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsRdsDbInstanceAssociatedRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsRdsDbInstanceAssociatedRole
+ -&gt; Rep AwsRdsDbInstanceAssociatedRole x)
+-&gt; (forall x.
+    Rep AwsRdsDbInstanceAssociatedRole x
+    -&gt; AwsRdsDbInstanceAssociatedRole)
+-&gt; Generic AwsRdsDbInstanceAssociatedRole
+forall x.
+Rep AwsRdsDbInstanceAssociatedRole x
+-&gt; AwsRdsDbInstanceAssociatedRole
+forall x.
+AwsRdsDbInstanceAssociatedRole
+-&gt; Rep AwsRdsDbInstanceAssociatedRole x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsRdsDbInstanceAssociatedRole x
+-&gt; AwsRdsDbInstanceAssociatedRole
+$cfrom :: forall x.
+AwsRdsDbInstanceAssociatedRole
+-&gt; Rep AwsRdsDbInstanceAssociatedRole x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'AwsRdsDbInstanceAssociatedRole' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'status', 'awsRdsDbInstanceAssociatedRole_status' - Describes the state of the association between the IAM role and the DB</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- instance. The @Status@ property returns one of the following values:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- -   @ACTIVE@ - The IAM role ARN is associated with the DB instance and</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--     can be used to access other Amazon Web Services services on your</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--     behalf.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- -   @PENDING@ - The IAM role ARN is being associated with the DB</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--     instance.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -   @INVALID@ - The IAM role ARN is associated with the DB instance. But</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--     the DB instance is unable to assume the IAM role in order to access</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--     other Amazon Web Services services on your behalf.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'featureName', 'awsRdsDbInstanceAssociatedRole_featureName' - The name of the feature associated with the IAM role.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'roleArn', 'awsRdsDbInstanceAssociatedRole_roleArn' - The ARN of the IAM role that is associated with the DB instance.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#newAwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">newAwsRdsDbInstanceAssociatedRole</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span><span>
+</span><span id="line-78"></span><span id="newAwsRdsDbInstanceAssociatedRole"><span class="annot"><span class="annottext">newAwsRdsDbInstanceAssociatedRole :: AwsRdsDbInstanceAssociatedRole
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#newAwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-var hs-var">newAwsRdsDbInstanceAssociatedRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AwsRdsDbInstanceAssociatedRole' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3Astatus%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureName:AwsRdsDbInstanceAssociatedRole' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3AfeatureName%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">featureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:AwsRdsDbInstanceAssociatedRole' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3AroleArn%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Describes the state of the association between the IAM role and the DB</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- instance. The @Status@ property returns one of the following values:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @ACTIVE@ - The IAM role ARN is associated with the DB instance and</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     can be used to access other Amazon Web Services services on your</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     behalf.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @PENDING@ - The IAM role ARN is being associated with the DB</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     instance.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @INVALID@ - The IAM role ARN is associated with the DB instance. But</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     the DB instance is unable to assume the IAM role in order to access</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     other Amazon Web Services services on your behalf.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#awsRdsDbInstanceAssociatedRole_status"><span class="hs-identifier hs-type">awsRdsDbInstanceAssociatedRole_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="awsRdsDbInstanceAssociatedRole_status"><span class="annot"><span class="annottext">awsRdsDbInstanceAssociatedRole_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsRdsDbInstanceAssociatedRole
+-&gt; f AwsRdsDbInstanceAssociatedRole
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#awsRdsDbInstanceAssociatedRole_status"><span class="hs-identifier hs-var hs-var">awsRdsDbInstanceAssociatedRole_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text)
+-&gt; (AwsRdsDbInstanceAssociatedRole
+    -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+-&gt; Lens
+     AwsRdsDbInstanceAssociatedRole
+     AwsRdsDbInstanceAssociatedRole
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964363"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:AwsRdsDbInstanceAssociatedRole' :: AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679964363"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964363"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964362"><span class="annot"><span class="annottext">s :: AwsRdsDbInstanceAssociatedRole
+</span><a href="#local-6989586621679964362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964361"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole
+</span><a href="#local-6989586621679964362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AwsRdsDbInstanceAssociatedRole' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3Astatus%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the feature associated with the IAM role.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#awsRdsDbInstanceAssociatedRole_featureName"><span class="hs-identifier hs-type">awsRdsDbInstanceAssociatedRole_featureName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="awsRdsDbInstanceAssociatedRole_featureName"><span class="annot"><span class="annottext">awsRdsDbInstanceAssociatedRole_featureName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsRdsDbInstanceAssociatedRole
+-&gt; f AwsRdsDbInstanceAssociatedRole
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#awsRdsDbInstanceAssociatedRole_featureName"><span class="hs-identifier hs-var hs-var">awsRdsDbInstanceAssociatedRole_featureName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text)
+-&gt; (AwsRdsDbInstanceAssociatedRole
+    -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+-&gt; Lens
+     AwsRdsDbInstanceAssociatedRole
+     AwsRdsDbInstanceAssociatedRole
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964359"><span class="annot"><span class="annottext">Maybe Text
+featureName :: Maybe Text
+$sel:featureName:AwsRdsDbInstanceAssociatedRole' :: AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679964359"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964359"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964358"><span class="annot"><span class="annottext">s :: AwsRdsDbInstanceAssociatedRole
+</span><a href="#local-6989586621679964358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964357"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole
+</span><a href="#local-6989586621679964358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:AwsRdsDbInstanceAssociatedRole' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3AfeatureName%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">featureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ARN of the IAM role that is associated with the DB instance.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#awsRdsDbInstanceAssociatedRole_roleArn"><span class="hs-identifier hs-type">awsRdsDbInstanceAssociatedRole_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="awsRdsDbInstanceAssociatedRole_roleArn"><span class="annot"><span class="annottext">awsRdsDbInstanceAssociatedRole_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsRdsDbInstanceAssociatedRole
+-&gt; f AwsRdsDbInstanceAssociatedRole
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#awsRdsDbInstanceAssociatedRole_roleArn"><span class="hs-identifier hs-var hs-var">awsRdsDbInstanceAssociatedRole_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text)
+-&gt; (AwsRdsDbInstanceAssociatedRole
+    -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+-&gt; Lens
+     AwsRdsDbInstanceAssociatedRole
+     AwsRdsDbInstanceAssociatedRole
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964355"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:AwsRdsDbInstanceAssociatedRole' :: AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679964355"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964355"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964354"><span class="annot"><span class="annottext">s :: AwsRdsDbInstanceAssociatedRole
+</span><a href="#local-6989586621679964354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964353"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsRdsDbInstanceAssociatedRole
+</span><a href="#local-6989586621679964354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AwsRdsDbInstanceAssociatedRole' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#%24sel%3AroleArn%3AAwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964350"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679964348"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsRdsDbInstanceAssociatedRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsRdsDbInstanceAssociatedRole)
+-&gt; Value
+-&gt; Parser AwsRdsDbInstanceAssociatedRole
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsRdsDbInstanceAssociatedRole&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679964345"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679964345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole
+</span><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-var">AwsRdsDbInstanceAssociatedRole'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679964345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679964345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AwsRdsDbInstanceAssociatedRole)
+-&gt; Parser (Maybe Text) -&gt; Parser AwsRdsDbInstanceAssociatedRole
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679964345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679964339"><span id="local-6989586621679964341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679964336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964328"><span id="local-6989586621679964330"><span id="local-6989586621679964332"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679964326"><span class="annot"><span class="annottext">toJSON :: AwsRdsDbInstanceAssociatedRole -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole.html#AwsRdsDbInstanceAssociatedRole%27"><span class="hs-identifier hs-type">AwsRdsDbInstanceAssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964322"><span id="local-6989586621679964323"><span id="local-6989586621679964324"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+featureName :: Maybe Text
+status :: Maybe Text
+$sel:roleArn:AwsRdsDbInstanceAssociatedRole' :: AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+$sel:featureName:AwsRdsDbInstanceAssociatedRole' :: AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+$sel:status:AwsRdsDbInstanceAssociatedRole' :: AwsRdsDbInstanceAssociatedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679964322"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964324"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964323"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679964322"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span></pre></body></html>

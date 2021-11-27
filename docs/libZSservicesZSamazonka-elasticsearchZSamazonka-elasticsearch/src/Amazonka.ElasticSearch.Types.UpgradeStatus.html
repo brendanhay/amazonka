@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticSearch.Types.UpgradeStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticSearch.Types.UpgradeStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus"><span class="hs-identifier">UpgradeStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_FAILED"><span class="hs-identifier">UpgradeStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_IN_PROGRESS"><span class="hs-identifier">UpgradeStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_SUCCEEDED"><span class="hs-identifier">UpgradeStatus_SUCCEEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_SUCCEEDED_WITH_ISSUES"><span class="hs-identifier">UpgradeStatus_SUCCEEDED_WITH_ISSUES</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679303513"><span id="local-6989586621679303514"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpgradeStatus"><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus"><span class="hs-identifier hs-var">UpgradeStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradeStatus%27"><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus%27"><span class="hs-identifier hs-var">UpgradeStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpgradeStatus"><span class="annot"><span class="annottext">UpgradeStatus -&gt; Text
+</span><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#fromUpgradeStatus"><span class="hs-identifier hs-var hs-var">fromUpgradeStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303505"><span id="local-6989586621679303507"><span id="local-6989586621679303509"><span class="annot"><span class="annottext">Int -&gt; UpgradeStatus -&gt; ShowS
+[UpgradeStatus] -&gt; ShowS
+UpgradeStatus -&gt; String
+(Int -&gt; UpgradeStatus -&gt; ShowS)
+-&gt; (UpgradeStatus -&gt; String)
+-&gt; ([UpgradeStatus] -&gt; ShowS)
+-&gt; Show UpgradeStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpgradeStatus] -&gt; ShowS
+$cshowList :: [UpgradeStatus] -&gt; ShowS
+show :: UpgradeStatus -&gt; String
+$cshow :: UpgradeStatus -&gt; String
+showsPrec :: Int -&gt; UpgradeStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpgradeStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679303496"><span id="local-6989586621679303498"><span id="local-6989586621679303500"><span id="local-6989586621679303502"><span class="annot"><span class="annottext">ReadPrec [UpgradeStatus]
+ReadPrec UpgradeStatus
+Int -&gt; ReadS UpgradeStatus
+ReadS [UpgradeStatus]
+(Int -&gt; ReadS UpgradeStatus)
+-&gt; ReadS [UpgradeStatus]
+-&gt; ReadPrec UpgradeStatus
+-&gt; ReadPrec [UpgradeStatus]
+-&gt; Read UpgradeStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpgradeStatus]
+$creadListPrec :: ReadPrec [UpgradeStatus]
+readPrec :: ReadPrec UpgradeStatus
+$creadPrec :: ReadPrec UpgradeStatus
+readList :: ReadS [UpgradeStatus]
+$creadList :: ReadS [UpgradeStatus]
+readsPrec :: Int -&gt; ReadS UpgradeStatus
+$creadsPrec :: Int -&gt; ReadS UpgradeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679303491"><span id="local-6989586621679303493"><span class="annot"><span class="annottext">UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+(UpgradeStatus -&gt; UpgradeStatus -&gt; Bool)
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; Bool) -&gt; Eq UpgradeStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+$c/= :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+== :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+$c== :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679303475"><span id="local-6989586621679303477"><span id="local-6989586621679303479"><span id="local-6989586621679303481"><span id="local-6989586621679303483"><span id="local-6989586621679303485"><span id="local-6989586621679303487"><span class="annot"><span class="annottext">Eq UpgradeStatus
+Eq UpgradeStatus
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; Ordering)
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; Bool)
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; Bool)
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; Bool)
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; Bool)
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; UpgradeStatus)
+-&gt; (UpgradeStatus -&gt; UpgradeStatus -&gt; UpgradeStatus)
+-&gt; Ord UpgradeStatus
+UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+UpgradeStatus -&gt; UpgradeStatus -&gt; Ordering
+UpgradeStatus -&gt; UpgradeStatus -&gt; UpgradeStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UpgradeStatus -&gt; UpgradeStatus -&gt; UpgradeStatus
+$cmin :: UpgradeStatus -&gt; UpgradeStatus -&gt; UpgradeStatus
+max :: UpgradeStatus -&gt; UpgradeStatus -&gt; UpgradeStatus
+$cmax :: UpgradeStatus -&gt; UpgradeStatus -&gt; UpgradeStatus
+&gt;= :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+$c&gt;= :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+&gt; :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+$c&gt; :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+&lt;= :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+$c&lt;= :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+&lt; :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+$c&lt; :: UpgradeStatus -&gt; UpgradeStatus -&gt; Bool
+compare :: UpgradeStatus -&gt; UpgradeStatus -&gt; Ordering
+$ccompare :: UpgradeStatus -&gt; UpgradeStatus -&gt; Ordering
+$cp1Ord :: Eq UpgradeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UpgradeStatus -&gt; Rep UpgradeStatus x)
+-&gt; (forall x. Rep UpgradeStatus x -&gt; UpgradeStatus)
+-&gt; Generic UpgradeStatus
+forall x. Rep UpgradeStatus x -&gt; UpgradeStatus
+forall x. UpgradeStatus -&gt; Rep UpgradeStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpgradeStatus x -&gt; UpgradeStatus
+$cfrom :: forall x. UpgradeStatus -&gt; Rep UpgradeStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303467"><span id="local-6989586621679303469"><span class="annot"><span class="annottext">Int -&gt; UpgradeStatus -&gt; Int
+UpgradeStatus -&gt; Int
+(Int -&gt; UpgradeStatus -&gt; Int)
+-&gt; (UpgradeStatus -&gt; Int) -&gt; Hashable UpgradeStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UpgradeStatus -&gt; Int
+$chash :: UpgradeStatus -&gt; Int
+hashWithSalt :: Int -&gt; UpgradeStatus -&gt; Int
+$chashWithSalt :: Int -&gt; UpgradeStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679303464"><span class="annot"><span class="annottext">UpgradeStatus -&gt; ()
+(UpgradeStatus -&gt; ()) -&gt; NFData UpgradeStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UpgradeStatus -&gt; ()
+$crnf :: UpgradeStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679303461"><span class="annot"><span class="annottext">Text -&gt; Either String UpgradeStatus
+(Text -&gt; Either String UpgradeStatus) -&gt; FromText UpgradeStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UpgradeStatus
+$cfromText :: Text -&gt; Either String UpgradeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679303458"><span class="annot"><span class="annottext">UpgradeStatus -&gt; Text
+(UpgradeStatus -&gt; Text) -&gt; ToText UpgradeStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UpgradeStatus -&gt; Text
+$ctoText :: UpgradeStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679303455"><span class="annot"><span class="annottext">UpgradeStatus -&gt; ByteString
+(UpgradeStatus -&gt; ByteString) -&gt; ToByteString UpgradeStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UpgradeStatus -&gt; ByteString
+$ctoBS :: UpgradeStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679303452"><span class="annot"><span class="annottext">UpgradeStatus -&gt; ByteStringBuilder
+(UpgradeStatus -&gt; ByteStringBuilder) -&gt; ToLog UpgradeStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UpgradeStatus -&gt; ByteStringBuilder
+$cbuild :: UpgradeStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679303449"><span class="annot"><span class="annottext">HeaderName -&gt; UpgradeStatus -&gt; [Header]
+(HeaderName -&gt; UpgradeStatus -&gt; [Header]) -&gt; ToHeader UpgradeStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UpgradeStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UpgradeStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679303446"><span class="annot"><span class="annottext">UpgradeStatus -&gt; QueryString
+(UpgradeStatus -&gt; QueryString) -&gt; ToQuery UpgradeStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UpgradeStatus -&gt; QueryString
+$ctoQuery :: UpgradeStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679303441"><span id="local-6989586621679303443"><span class="annot"><span class="annottext">Value -&gt; Parser [UpgradeStatus]
+Value -&gt; Parser UpgradeStatus
+(Value -&gt; Parser UpgradeStatus)
+-&gt; (Value -&gt; Parser [UpgradeStatus]) -&gt; FromJSON UpgradeStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UpgradeStatus]
+$cparseJSONList :: Value -&gt; Parser [UpgradeStatus]
+parseJSON :: Value -&gt; Parser UpgradeStatus
+$cparseJSON :: Value -&gt; Parser UpgradeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679303436"><span id="local-6989586621679303438"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpgradeStatus]
+FromJSONKeyFunction UpgradeStatus
+FromJSONKeyFunction UpgradeStatus
+-&gt; FromJSONKeyFunction [UpgradeStatus] -&gt; FromJSONKey UpgradeStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UpgradeStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [UpgradeStatus]
+fromJSONKey :: FromJSONKeyFunction UpgradeStatus
+$cfromJSONKey :: FromJSONKeyFunction UpgradeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679303427"><span id="local-6989586621679303429"><span id="local-6989586621679303431"><span id="local-6989586621679303433"><span class="annot"><span class="annottext">[UpgradeStatus] -&gt; Encoding
+[UpgradeStatus] -&gt; Value
+UpgradeStatus -&gt; Encoding
+UpgradeStatus -&gt; Value
+(UpgradeStatus -&gt; Value)
+-&gt; (UpgradeStatus -&gt; Encoding)
+-&gt; ([UpgradeStatus] -&gt; Value)
+-&gt; ([UpgradeStatus] -&gt; Encoding)
+-&gt; ToJSON UpgradeStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UpgradeStatus] -&gt; Encoding
+$ctoEncodingList :: [UpgradeStatus] -&gt; Encoding
+toJSONList :: [UpgradeStatus] -&gt; Value
+$ctoJSONList :: [UpgradeStatus] -&gt; Value
+toEncoding :: UpgradeStatus -&gt; Encoding
+$ctoEncoding :: UpgradeStatus -&gt; Encoding
+toJSON :: UpgradeStatus -&gt; Value
+$ctoJSON :: UpgradeStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679303422"><span id="local-6989586621679303424"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpgradeStatus]
+ToJSONKeyFunction UpgradeStatus
+ToJSONKeyFunction UpgradeStatus
+-&gt; ToJSONKeyFunction [UpgradeStatus] -&gt; ToJSONKey UpgradeStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UpgradeStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [UpgradeStatus]
+toJSONKey :: ToJSONKeyFunction UpgradeStatus
+$ctoJSONKey :: ToJSONKeyFunction UpgradeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679303419"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpgradeStatus
+([Node] -&gt; Either String UpgradeStatus) -&gt; FromXML UpgradeStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UpgradeStatus
+$cparseXML :: [Node] -&gt; Either String UpgradeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679303416"><span class="annot"><span class="annottext">UpgradeStatus -&gt; XML
+(UpgradeStatus -&gt; XML) -&gt; ToXML UpgradeStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UpgradeStatus -&gt; XML
+$ctoXML :: UpgradeStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_FAILED"><span class="hs-identifier hs-type">UpgradeStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus"><span class="hs-identifier hs-type">UpgradeStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpgradeStatus_FAILED"><span id="%24mUpgradeStatus_FAILED"><span id="UpgradeStatus_FAILED"><span class="annot"><span class="annottext">$bUpgradeStatus_FAILED :: UpgradeStatus
+$mUpgradeStatus_FAILED :: forall r. UpgradeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#%24bUpgradeStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">UpgradeStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus%27"><span class="hs-identifier hs-type">UpgradeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_IN_PROGRESS"><span class="hs-identifier hs-type">UpgradeStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus"><span class="hs-identifier hs-type">UpgradeStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpgradeStatus_IN_PROGRESS"><span id="%24mUpgradeStatus_IN_PROGRESS"><span id="UpgradeStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bUpgradeStatus_IN_PROGRESS :: UpgradeStatus
+$mUpgradeStatus_IN_PROGRESS :: forall r. UpgradeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#%24bUpgradeStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">UpgradeStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus%27"><span class="hs-identifier hs-type">UpgradeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_SUCCEEDED"><span class="hs-identifier hs-type">UpgradeStatus_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus"><span class="hs-identifier hs-type">UpgradeStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpgradeStatus_SUCCEEDED"><span id="%24mUpgradeStatus_SUCCEEDED"><span id="UpgradeStatus_SUCCEEDED"><span class="annot"><span class="annottext">$bUpgradeStatus_SUCCEEDED :: UpgradeStatus
+$mUpgradeStatus_SUCCEEDED :: forall r. UpgradeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#%24bUpgradeStatus_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">UpgradeStatus_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus%27"><span class="hs-identifier hs-type">UpgradeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_SUCCEEDED_WITH_ISSUES"><span class="hs-identifier hs-type">UpgradeStatus_SUCCEEDED_WITH_ISSUES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus"><span class="hs-identifier hs-type">UpgradeStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpgradeStatus_SUCCEEDED_WITH_ISSUES"><span id="%24mUpgradeStatus_SUCCEEDED_WITH_ISSUES"><span id="UpgradeStatus_SUCCEEDED_WITH_ISSUES"><span class="annot"><span class="annottext">$bUpgradeStatus_SUCCEEDED_WITH_ISSUES :: UpgradeStatus
+$mUpgradeStatus_SUCCEEDED_WITH_ISSUES :: forall r. UpgradeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#%24bUpgradeStatus_SUCCEEDED_WITH_ISSUES"><span class="hs-identifier hs-var hs-var hs-var">UpgradeStatus_SUCCEEDED_WITH_ISSUES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus%27"><span class="hs-identifier hs-type">UpgradeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED_WITH_ISSUES&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_FAILED"><span class="hs-pragma hs-type">UpgradeStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_IN_PROGRESS"><span class="hs-pragma hs-type">UpgradeStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_SUCCEEDED"><span class="hs-pragma hs-type">UpgradeStatus_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus_SUCCEEDED_WITH_ISSUES"><span class="hs-pragma hs-type">UpgradeStatus_SUCCEEDED_WITH_ISSUES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.UpgradeStatus.html#UpgradeStatus%27"><span class="hs-pragma hs-type">UpgradeStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

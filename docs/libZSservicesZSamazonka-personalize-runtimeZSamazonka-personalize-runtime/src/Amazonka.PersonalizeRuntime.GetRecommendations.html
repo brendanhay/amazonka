@@ -1,0 +1,875 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.PersonalizeRuntime.GetRecommendations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of recommended items. The required input depends on the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- recipe type used to create the solution backing the campaign, as</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   RELATED_ITEMS - @itemId@ required, @userId@ not used</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   USER_PERSONALIZATION - @itemId@ optional, @userId@ required</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Campaigns that are backed by a solution created using a recipe of type</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- PERSONALIZED_RANKING use the API.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.PersonalizeRuntime.GetRecommendations</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier">GetRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#newGetRecommendations"><span class="hs-identifier">newGetRecommendations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_context"><span class="hs-identifier">getRecommendations_context</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_itemId"><span class="hs-identifier">getRecommendations_itemId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_userId"><span class="hs-identifier">getRecommendations_userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_numResults"><span class="hs-identifier">getRecommendations_numResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_filterArn"><span class="hs-identifier">getRecommendations_filterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_filterValues"><span class="hs-identifier">getRecommendations_filterValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_campaignArn"><span class="hs-identifier">getRecommendations_campaignArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier">GetRecommendationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#newGetRecommendationsResponse"><span class="hs-identifier">newGetRecommendationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_recommendationId"><span class="hs-identifier">getRecommendationsResponse_recommendationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_itemList"><span class="hs-identifier">getRecommendationsResponse_itemList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_httpStatus"><span class="hs-identifier">getRecommendationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.Types.html"><span class="hs-identifier">Amazonka.PersonalizeRuntime.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newGetRecommendations' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679138786"><span id="local-6989586621679138787"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecommendations"><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-var">GetRecommendations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecommendations%27"><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-var">GetRecommendations'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The contextual metadata to use when getting recommendations. Contextual</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- metadata includes any interaction information that might be relevant</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- when getting a user\'s recommendations, such as the user\'s current</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- location or device type.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Acontext%3AGetRecommendations%27"><span class="annot"><span class="annottext">GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text))
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3Acontext%3AGetRecommendations%27"><span class="hs-identifier hs-var hs-var">context</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The item ID to provide recommendations for.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Required for @RELATED_ITEMS@ recipe type.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AitemId%3AGetRecommendations%27"><span class="annot"><span class="annottext">GetRecommendations -&gt; Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AitemId%3AGetRecommendations%27"><span class="hs-identifier hs-var hs-var">itemId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The user ID to provide recommendations for.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Required for @USER_PERSONALIZATION@ recipe type.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AuserId%3AGetRecommendations%27"><span class="annot"><span class="annottext">GetRecommendations -&gt; Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AuserId%3AGetRecommendations%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The number of results to return. The default is 25. The maximum is 500.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AnumResults%3AGetRecommendations%27"><span class="annot"><span class="annottext">GetRecommendations -&gt; Maybe Natural
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AnumResults%3AGetRecommendations%27"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The ARN of the filter to apply to the returned recommendations. For more</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations&gt;.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- When using this parameter, be sure the filter resource is @ACTIVE@.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AfilterArn%3AGetRecommendations%27"><span class="annot"><span class="annottext">GetRecommendations -&gt; Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AfilterArn%3AGetRecommendations%27"><span class="hs-identifier hs-var hs-var">filterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The values to use when filtering recommendations. For each placeholder</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- parameter in your filter expression, provide the parameter name (in</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- matching case) as a key and the filter value(s) as the corresponding</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- value. Separate multiple values for one parameter with a comma.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- For filter expressions that use an @INCLUDE@ element to include items,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- you must provide values for all parameters that are defined in the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- expression. For filters with expressions that use an @EXCLUDE@ element</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- to exclude items, you can omit the @filter-values@.In this case, Amazon</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Personalize doesn\'t use that portion of the expression to filter</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations&gt;.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AfilterValues%3AGetRecommendations%27"><span class="annot"><span class="annottext">GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text))
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AfilterValues%3AGetRecommendations%27"><span class="hs-identifier hs-var hs-var">filterValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the campaign to use for getting</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AcampaignArn%3AGetRecommendations%27"><span class="annot"><span class="annottext">GetRecommendations -&gt; Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AcampaignArn%3AGetRecommendations%27"><span class="hs-identifier hs-var hs-var">campaignArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679138774"><span id="local-6989586621679138776"><span class="annot"><span class="annottext">GetRecommendations -&gt; GetRecommendations -&gt; Bool
+(GetRecommendations -&gt; GetRecommendations -&gt; Bool)
+-&gt; (GetRecommendations -&gt; GetRecommendations -&gt; Bool)
+-&gt; Eq GetRecommendations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRecommendations -&gt; GetRecommendations -&gt; Bool
+$c/= :: GetRecommendations -&gt; GetRecommendations -&gt; Bool
+== :: GetRecommendations -&gt; GetRecommendations -&gt; Bool
+$c== :: GetRecommendations -&gt; GetRecommendations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138767"><span id="local-6989586621679138769"><span id="local-6989586621679138771"><span class="annot"><span class="annottext">Int -&gt; GetRecommendations -&gt; ShowS
+[GetRecommendations] -&gt; ShowS
+GetRecommendations -&gt; String
+(Int -&gt; GetRecommendations -&gt; ShowS)
+-&gt; (GetRecommendations -&gt; String)
+-&gt; ([GetRecommendations] -&gt; ShowS)
+-&gt; Show GetRecommendations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRecommendations] -&gt; ShowS
+$cshowList :: [GetRecommendations] -&gt; ShowS
+show :: GetRecommendations -&gt; String
+$cshow :: GetRecommendations -&gt; String
+showsPrec :: Int -&gt; GetRecommendations -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRecommendations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetRecommendations -&gt; Rep GetRecommendations x)
+-&gt; (forall x. Rep GetRecommendations x -&gt; GetRecommendations)
+-&gt; Generic GetRecommendations
+forall x. Rep GetRecommendations x -&gt; GetRecommendations
+forall x. GetRecommendations -&gt; Rep GetRecommendations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetRecommendations x -&gt; GetRecommendations
+$cfrom :: forall x. GetRecommendations -&gt; Rep GetRecommendations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Create a value of 'GetRecommendations' with all optional fields omitted.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'context', 'getRecommendations_context' - The contextual metadata to use when getting recommendations. Contextual</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- metadata includes any interaction information that might be relevant</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- when getting a user\'s recommendations, such as the user\'s current</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- location or device type.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'itemId', 'getRecommendations_itemId' - The item ID to provide recommendations for.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Required for @RELATED_ITEMS@ recipe type.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'userId', 'getRecommendations_userId' - The user ID to provide recommendations for.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Required for @USER_PERSONALIZATION@ recipe type.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'numResults', 'getRecommendations_numResults' - The number of results to return. The default is 25. The maximum is 500.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'filterArn', 'getRecommendations_filterArn' - The ARN of the filter to apply to the returned recommendations. For more</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations&gt;.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- When using this parameter, be sure the filter resource is @ACTIVE@.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'filterValues', 'getRecommendations_filterValues' - The values to use when filtering recommendations. For each placeholder</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- parameter in your filter expression, provide the parameter name (in</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- matching case) as a key and the filter value(s) as the corresponding</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- value. Separate multiple values for one parameter with a comma.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- For filter expressions that use an @INCLUDE@ element to include items,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- you must provide values for all parameters that are defined in the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- expression. For filters with expressions that use an @EXCLUDE@ element</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- to exclude items, you can omit the @filter-values@.In this case, Amazon</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Personalize doesn\'t use that portion of the expression to filter</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations&gt;.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'campaignArn', 'getRecommendations_campaignArn' - The Amazon Resource Name (ARN) of the campaign to use for getting</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#newGetRecommendations"><span class="hs-identifier hs-type">newGetRecommendations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'campaignArn'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span>
+</span><span id="line-159"></span><span id="newGetRecommendations"><span class="annot"><span class="annottext">newGetRecommendations :: Text -&gt; GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#newGetRecommendations"><span class="hs-identifier hs-var hs-var">newGetRecommendations</span></a></span></span><span> </span><span id="local-6989586621679138762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138762"><span class="hs-identifier hs-var">pCampaignArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">GetRecommendations' :: Maybe (HashMap Text (Sensitive Text))
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text (Sensitive Text))
+-&gt; Text
+-&gt; GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:context:GetRecommendations' :: Maybe (HashMap Text (Sensitive Text))
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3Acontext%3AGetRecommendations%27"><span class="hs-identifier hs-var">context</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:itemId:GetRecommendations' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AitemId%3AGetRecommendations%27"><span class="hs-identifier hs-var">itemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:GetRecommendations' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AuserId%3AGetRecommendations%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:GetRecommendations' :: Maybe Natural
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AnumResults%3AGetRecommendations%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterArn:GetRecommendations' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AfilterArn%3AGetRecommendations%27"><span class="hs-identifier hs-var">filterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterValues:GetRecommendations' :: Maybe (HashMap Text (Sensitive Text))
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AfilterValues%3AGetRecommendations%27"><span class="hs-identifier hs-var">filterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:campaignArn:GetRecommendations' :: Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AcampaignArn%3AGetRecommendations%27"><span class="hs-identifier hs-var">campaignArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138762"><span class="hs-identifier hs-var">pCampaignArn_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The contextual metadata to use when getting recommendations. Contextual</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- metadata includes any interaction information that might be relevant</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- when getting a user\'s recommendations, such as the user\'s current</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- location or device type.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_context"><span class="hs-identifier hs-type">getRecommendations_context</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="getRecommendations_context"><span class="annot"><span class="annottext">getRecommendations_context :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecommendations -&gt; f GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_context"><span class="hs-identifier hs-var hs-var">getRecommendations_context</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text)))
+-&gt; (GetRecommendations
+    -&gt; Maybe (HashMap Text (Sensitive Text)) -&gt; GetRecommendations)
+-&gt; Lens
+     GetRecommendations
+     GetRecommendations
+     (Maybe (HashMap Text (Sensitive Text)))
+     (Maybe (HashMap Text (Sensitive Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138759"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+context :: Maybe (HashMap Text (Sensitive Text))
+$sel:context:GetRecommendations' :: GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138759"><span class="hs-identifier hs-var hs-var">context</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138759"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138758"><span class="annot"><span class="annottext">s :: GetRecommendations
+</span><a href="#local-6989586621679138758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138757"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendations
+</span><a href="#local-6989586621679138758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:context:GetRecommendations' :: Maybe (HashMap Text (Sensitive Text))
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3Acontext%3AGetRecommendations%27"><span class="hs-identifier hs-var">context</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (Sensitive Text))
+  -&gt; f (Maybe (HashMap Text (Sensitive Text))))
+ -&gt; GetRecommendations -&gt; f GetRecommendations)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text (Sensitive Text))
+    -&gt; f (Maybe (HashMap Text (Sensitive Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecommendations
+-&gt; f GetRecommendations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (Sensitive Text))
+  (HashMap Text (Sensitive Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text (Sensitive Text)))
+     (Maybe (HashMap Text (Sensitive Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (Sensitive Text))
+  (HashMap Text (Sensitive Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The item ID to provide recommendations for.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Required for @RELATED_ITEMS@ recipe type.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_itemId"><span class="hs-identifier hs-type">getRecommendations_itemId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="getRecommendations_itemId"><span class="annot"><span class="annottext">getRecommendations_itemId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecommendations -&gt; f GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_itemId"><span class="hs-identifier hs-var hs-var">getRecommendations_itemId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendations -&gt; Maybe Text)
+-&gt; (GetRecommendations -&gt; Maybe Text -&gt; GetRecommendations)
+-&gt; Lens
+     GetRecommendations GetRecommendations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138753"><span class="annot"><span class="annottext">Maybe Text
+itemId :: Maybe Text
+$sel:itemId:GetRecommendations' :: GetRecommendations -&gt; Maybe Text
+</span><a href="#local-6989586621679138753"><span class="hs-identifier hs-var hs-var">itemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138753"><span class="hs-identifier hs-var">itemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138752"><span class="annot"><span class="annottext">s :: GetRecommendations
+</span><a href="#local-6989586621679138752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138751"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendations
+</span><a href="#local-6989586621679138752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemId:GetRecommendations' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AitemId%3AGetRecommendations%27"><span class="hs-identifier hs-var">itemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The user ID to provide recommendations for.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Required for @USER_PERSONALIZATION@ recipe type.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_userId"><span class="hs-identifier hs-type">getRecommendations_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="getRecommendations_userId"><span class="annot"><span class="annottext">getRecommendations_userId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecommendations -&gt; f GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_userId"><span class="hs-identifier hs-var hs-var">getRecommendations_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendations -&gt; Maybe Text)
+-&gt; (GetRecommendations -&gt; Maybe Text -&gt; GetRecommendations)
+-&gt; Lens
+     GetRecommendations GetRecommendations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138750"><span class="annot"><span class="annottext">Maybe Text
+userId :: Maybe Text
+$sel:userId:GetRecommendations' :: GetRecommendations -&gt; Maybe Text
+</span><a href="#local-6989586621679138750"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138750"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138749"><span class="annot"><span class="annottext">s :: GetRecommendations
+</span><a href="#local-6989586621679138749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138748"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendations
+</span><a href="#local-6989586621679138749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:GetRecommendations' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AuserId%3AGetRecommendations%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The number of results to return. The default is 25. The maximum is 500.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_numResults"><span class="hs-identifier hs-type">getRecommendations_numResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="getRecommendations_numResults"><span class="annot"><span class="annottext">getRecommendations_numResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetRecommendations -&gt; f GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_numResults"><span class="hs-identifier hs-var hs-var">getRecommendations_numResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendations -&gt; Maybe Natural)
+-&gt; (GetRecommendations -&gt; Maybe Natural -&gt; GetRecommendations)
+-&gt; Lens
+     GetRecommendations
+     GetRecommendations
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138747"><span class="annot"><span class="annottext">Maybe Natural
+numResults :: Maybe Natural
+$sel:numResults:GetRecommendations' :: GetRecommendations -&gt; Maybe Natural
+</span><a href="#local-6989586621679138747"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679138747"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138746"><span class="annot"><span class="annottext">s :: GetRecommendations
+</span><a href="#local-6989586621679138746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138745"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679138745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendations
+</span><a href="#local-6989586621679138746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:GetRecommendations' :: Maybe Natural
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AnumResults%3AGetRecommendations%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679138745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The ARN of the filter to apply to the returned recommendations. For more</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations&gt;.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- When using this parameter, be sure the filter resource is @ACTIVE@.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_filterArn"><span class="hs-identifier hs-type">getRecommendations_filterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="getRecommendations_filterArn"><span class="annot"><span class="annottext">getRecommendations_filterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecommendations -&gt; f GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_filterArn"><span class="hs-identifier hs-var hs-var">getRecommendations_filterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendations -&gt; Maybe Text)
+-&gt; (GetRecommendations -&gt; Maybe Text -&gt; GetRecommendations)
+-&gt; Lens
+     GetRecommendations GetRecommendations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138744"><span class="annot"><span class="annottext">Maybe Text
+filterArn :: Maybe Text
+$sel:filterArn:GetRecommendations' :: GetRecommendations -&gt; Maybe Text
+</span><a href="#local-6989586621679138744"><span class="hs-identifier hs-var hs-var">filterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138744"><span class="hs-identifier hs-var">filterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138743"><span class="annot"><span class="annottext">s :: GetRecommendations
+</span><a href="#local-6989586621679138743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138742"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendations
+</span><a href="#local-6989586621679138743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterArn:GetRecommendations' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AfilterArn%3AGetRecommendations%27"><span class="hs-identifier hs-var">filterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The values to use when filtering recommendations. For each placeholder</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- parameter in your filter expression, provide the parameter name (in</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- matching case) as a key and the filter value(s) as the corresponding</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- value. Separate multiple values for one parameter with a comma.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- For filter expressions that use an @INCLUDE@ element to include items,</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- you must provide values for all parameters that are defined in the</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- expression. For filters with expressions that use an @EXCLUDE@ element</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- to exclude items, you can omit the @filter-values@.In this case, Amazon</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Personalize doesn\'t use that portion of the expression to filter</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations&gt;.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_filterValues"><span class="hs-identifier hs-type">getRecommendations_filterValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="getRecommendations_filterValues"><span class="annot"><span class="annottext">getRecommendations_filterValues :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecommendations -&gt; f GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_filterValues"><span class="hs-identifier hs-var hs-var">getRecommendations_filterValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text)))
+-&gt; (GetRecommendations
+    -&gt; Maybe (HashMap Text (Sensitive Text)) -&gt; GetRecommendations)
+-&gt; Lens
+     GetRecommendations
+     GetRecommendations
+     (Maybe (HashMap Text (Sensitive Text)))
+     (Maybe (HashMap Text (Sensitive Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138741"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+filterValues :: Maybe (HashMap Text (Sensitive Text))
+$sel:filterValues:GetRecommendations' :: GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138741"><span class="hs-identifier hs-var hs-var">filterValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138741"><span class="hs-identifier hs-var">filterValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138740"><span class="annot"><span class="annottext">s :: GetRecommendations
+</span><a href="#local-6989586621679138740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138739"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendations
+</span><a href="#local-6989586621679138740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterValues:GetRecommendations' :: Maybe (HashMap Text (Sensitive Text))
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AfilterValues%3AGetRecommendations%27"><span class="hs-identifier hs-var">filterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (Sensitive Text))
+  -&gt; f (Maybe (HashMap Text (Sensitive Text))))
+ -&gt; GetRecommendations -&gt; f GetRecommendations)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text (Sensitive Text))
+    -&gt; f (Maybe (HashMap Text (Sensitive Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecommendations
+-&gt; f GetRecommendations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (Sensitive Text))
+  (HashMap Text (Sensitive Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text (Sensitive Text)))
+     (Maybe (HashMap Text (Sensitive Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (Sensitive Text))
+  (HashMap Text (Sensitive Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the campaign to use for getting</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_campaignArn"><span class="hs-identifier hs-type">getRecommendations_campaignArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-221"></span><span id="getRecommendations_campaignArn"><span class="annot"><span class="annottext">getRecommendations_campaignArn :: (Text -&gt; f Text) -&gt; GetRecommendations -&gt; f GetRecommendations
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendations_campaignArn"><span class="hs-identifier hs-var hs-var">getRecommendations_campaignArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendations -&gt; Text)
+-&gt; (GetRecommendations -&gt; Text -&gt; GetRecommendations)
+-&gt; Lens GetRecommendations GetRecommendations Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138738"><span class="annot"><span class="annottext">Text
+campaignArn :: Text
+$sel:campaignArn:GetRecommendations' :: GetRecommendations -&gt; Text
+</span><a href="#local-6989586621679138738"><span class="hs-identifier hs-var hs-var">campaignArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138738"><span class="hs-identifier hs-var">campaignArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138737"><span class="annot"><span class="annottext">s :: GetRecommendations
+</span><a href="#local-6989586621679138737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendations
+</span><a href="#local-6989586621679138737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignArn:GetRecommendations' :: Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AcampaignArn%3AGetRecommendations%27"><span class="hs-identifier hs-var">campaignArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-225"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679138732"><span class="annot"><span class="annottext">request :: GetRecommendations -&gt; Request GetRecommendations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRecommendations -&gt; Request GetRecommendations
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.PersonalizeRuntime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679138728"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetRecommendations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetRecommendations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetRecommendations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetRecommendations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetRecommendations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679138725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138725"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679138724"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679138724"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679138723"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679138723"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PredictedItem] -&gt; Int -&gt; GetRecommendationsResponse
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-var">GetRecommendationsResponse'</span></a></span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PredictedItem] -&gt; Int -&gt; GetRecommendationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [PredictedItem] -&gt; Int -&gt; GetRecommendationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679138723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recommendationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [PredictedItem] -&gt; Int -&gt; GetRecommendationsResponse)
+-&gt; Either String (Maybe [PredictedItem])
+-&gt; Either String (Int -&gt; GetRecommendationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679138723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PredictedItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;itemList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PredictedItem]))
+-&gt; Maybe [PredictedItem] -&gt; Either String (Maybe [PredictedItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PredictedItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetRecommendationsResponse)
+-&gt; Either String Int -&gt; Either String GetRecommendationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138725"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138714"><span id="local-6989586621679138716"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span></span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679138707"><span class="annot"><span class="annottext">toHeaders :: GetRecommendations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRecommendations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-245"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-248"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138697"><span id="local-6989586621679138699"><span id="local-6989586621679138701"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679138695"><span class="annot"><span class="annottext">toJSON :: GetRecommendations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations%27"><span class="hs-identifier hs-type">GetRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138687"><span id="local-6989586621679138688"><span id="local-6989586621679138689"><span id="local-6989586621679138690"><span id="local-6989586621679138691"><span id="local-6989586621679138692"><span id="local-6989586621679138693"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe (HashMap Text (Sensitive Text))
+Text
+campaignArn :: Text
+filterValues :: Maybe (HashMap Text (Sensitive Text))
+filterArn :: Maybe Text
+numResults :: Maybe Natural
+userId :: Maybe Text
+itemId :: Maybe Text
+context :: Maybe (HashMap Text (Sensitive Text))
+$sel:campaignArn:GetRecommendations' :: GetRecommendations -&gt; Text
+$sel:filterValues:GetRecommendations' :: GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text))
+$sel:filterArn:GetRecommendations' :: GetRecommendations -&gt; Maybe Text
+$sel:numResults:GetRecommendations' :: GetRecommendations -&gt; Maybe Natural
+$sel:userId:GetRecommendations' :: GetRecommendations -&gt; Maybe Text
+$sel:itemId:GetRecommendations' :: GetRecommendations -&gt; Maybe Text
+$sel:context:GetRecommendations' :: GetRecommendations -&gt; Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138687"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-256"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;context&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text (Sensitive Text) -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text (Sensitive Text) -&gt; Pair)
+-&gt; Maybe (HashMap Text (Sensitive Text)) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138693"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;itemId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138692"><span class="hs-identifier hs-var">itemId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138691"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;numResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679138690"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138689"><span class="hs-identifier hs-var">filterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text (Sensitive Text) -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text (Sensitive Text) -&gt; Pair)
+-&gt; Maybe (HashMap Text (Sensitive Text)) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679138688"><span class="hs-identifier hs-var">filterValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;campaignArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138687"><span class="hs-identifier hs-var">campaignArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679138681"><span class="annot"><span class="annottext">toPath :: GetRecommendations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRecommendations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/recommendations&quot;</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendations"><span class="hs-identifier hs-type">GetRecommendations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679138677"><span class="annot"><span class="annottext">toQuery :: GetRecommendations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRecommendations -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | /See:/ 'newGetRecommendationsResponse' smart constructor.</span><span>
+</span><span id="line-273"></span><span id="local-6989586621679138674"><span id="local-6989586621679138675"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecommendationsResponse"><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-var">GetRecommendationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecommendationsResponse%27"><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-var">GetRecommendationsResponse'</span></a></span></span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the recommendation.</span><span>
+</span><span id="line-275"></span><span>    </span><span id="%24sel%3ArecommendationId%3AGetRecommendationsResponse%27"><span class="annot"><span class="annottext">GetRecommendationsResponse -&gt; Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3ArecommendationId%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var hs-var">recommendationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- | A list of recommendations sorted in ascending order by prediction score.</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- There can be a maximum of 500 items in the list.</span><span>
+</span><span id="line-278"></span><span>    </span><span id="%24sel%3AitemList%3AGetRecommendationsResponse%27"><span class="annot"><span class="annottext">GetRecommendationsResponse -&gt; Maybe [PredictedItem]
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AitemList%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var hs-var">itemList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.Types.PredictedItem.html#PredictedItem"><span class="hs-identifier hs-type">PredictedItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-280"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRecommendationsResponse%27"><span class="annot"><span class="annottext">GetRecommendationsResponse -&gt; Int
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AhttpStatus%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679138667"><span id="local-6989586621679138669"><span class="annot"><span class="annottext">GetRecommendationsResponse -&gt; GetRecommendationsResponse -&gt; Bool
+(GetRecommendationsResponse -&gt; GetRecommendationsResponse -&gt; Bool)
+-&gt; (GetRecommendationsResponse
+    -&gt; GetRecommendationsResponse -&gt; Bool)
+-&gt; Eq GetRecommendationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRecommendationsResponse -&gt; GetRecommendationsResponse -&gt; Bool
+$c/= :: GetRecommendationsResponse -&gt; GetRecommendationsResponse -&gt; Bool
+== :: GetRecommendationsResponse -&gt; GetRecommendationsResponse -&gt; Bool
+$c== :: GetRecommendationsResponse -&gt; GetRecommendationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138659"><span id="local-6989586621679138661"><span id="local-6989586621679138663"><span id="local-6989586621679138665"><span class="annot"><span class="annottext">ReadPrec [GetRecommendationsResponse]
+ReadPrec GetRecommendationsResponse
+Int -&gt; ReadS GetRecommendationsResponse
+ReadS [GetRecommendationsResponse]
+(Int -&gt; ReadS GetRecommendationsResponse)
+-&gt; ReadS [GetRecommendationsResponse]
+-&gt; ReadPrec GetRecommendationsResponse
+-&gt; ReadPrec [GetRecommendationsResponse]
+-&gt; Read GetRecommendationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRecommendationsResponse]
+$creadListPrec :: ReadPrec [GetRecommendationsResponse]
+readPrec :: ReadPrec GetRecommendationsResponse
+$creadPrec :: ReadPrec GetRecommendationsResponse
+readList :: ReadS [GetRecommendationsResponse]
+$creadList :: ReadS [GetRecommendationsResponse]
+readsPrec :: Int -&gt; ReadS GetRecommendationsResponse
+$creadsPrec :: Int -&gt; ReadS GetRecommendationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138652"><span id="local-6989586621679138654"><span id="local-6989586621679138656"><span class="annot"><span class="annottext">Int -&gt; GetRecommendationsResponse -&gt; ShowS
+[GetRecommendationsResponse] -&gt; ShowS
+GetRecommendationsResponse -&gt; String
+(Int -&gt; GetRecommendationsResponse -&gt; ShowS)
+-&gt; (GetRecommendationsResponse -&gt; String)
+-&gt; ([GetRecommendationsResponse] -&gt; ShowS)
+-&gt; Show GetRecommendationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRecommendationsResponse] -&gt; ShowS
+$cshowList :: [GetRecommendationsResponse] -&gt; ShowS
+show :: GetRecommendationsResponse -&gt; String
+$cshow :: GetRecommendationsResponse -&gt; String
+showsPrec :: Int -&gt; GetRecommendationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRecommendationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetRecommendationsResponse -&gt; Rep GetRecommendationsResponse x)
+-&gt; (forall x.
+    Rep GetRecommendationsResponse x -&gt; GetRecommendationsResponse)
+-&gt; Generic GetRecommendationsResponse
+forall x.
+Rep GetRecommendationsResponse x -&gt; GetRecommendationsResponse
+forall x.
+GetRecommendationsResponse -&gt; Rep GetRecommendationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetRecommendationsResponse x -&gt; GetRecommendationsResponse
+$cfrom :: forall x.
+GetRecommendationsResponse -&gt; Rep GetRecommendationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Create a value of 'GetRecommendationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- 'recommendationId', 'getRecommendationsResponse_recommendationId' - The ID of the recommendation.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- 'itemList', 'getRecommendationsResponse_itemList' - A list of recommendations sorted in ascending order by prediction score.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- There can be a maximum of 500 items in the list.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- 'httpStatus', 'getRecommendationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#newGetRecommendationsResponse"><span class="hs-identifier hs-type">newGetRecommendationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-301"></span><span>  </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span>
+</span><span id="line-302"></span><span id="newGetRecommendationsResponse"><span class="annot"><span class="annottext">newGetRecommendationsResponse :: Int -&gt; GetRecommendationsResponse
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#newGetRecommendationsResponse"><span class="hs-identifier hs-var hs-var">newGetRecommendationsResponse</span></a></span></span><span> </span><span id="local-6989586621679138649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>  </span><span class="annot"><span class="annottext">GetRecommendationsResponse' :: Maybe Text
+-&gt; Maybe [PredictedItem] -&gt; Int -&gt; GetRecommendationsResponse
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-type">GetRecommendationsResponse'</span></a></span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recommendationId:GetRecommendationsResponse' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3ArecommendationId%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var">recommendationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:itemList:GetRecommendationsResponse' :: Maybe [PredictedItem]
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AitemList%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var">itemList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PredictedItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecommendationsResponse' :: Int
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AhttpStatus%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | The ID of the recommendation.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_recommendationId"><span class="hs-identifier hs-type">getRecommendationsResponse_recommendationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="getRecommendationsResponse_recommendationId"><span class="annot"><span class="annottext">getRecommendationsResponse_recommendationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecommendationsResponse -&gt; f GetRecommendationsResponse
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_recommendationId"><span class="hs-identifier hs-var hs-var">getRecommendationsResponse_recommendationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendationsResponse -&gt; Maybe Text)
+-&gt; (GetRecommendationsResponse
+    -&gt; Maybe Text -&gt; GetRecommendationsResponse)
+-&gt; Lens
+     GetRecommendationsResponse
+     GetRecommendationsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-type">GetRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138648"><span class="annot"><span class="annottext">Maybe Text
+recommendationId :: Maybe Text
+$sel:recommendationId:GetRecommendationsResponse' :: GetRecommendationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679138648"><span class="hs-identifier hs-var hs-var">recommendationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138648"><span class="hs-identifier hs-var">recommendationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138647"><span class="annot"><span class="annottext">s :: GetRecommendationsResponse
+</span><a href="#local-6989586621679138647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-type">GetRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138646"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendationsResponse
+</span><a href="#local-6989586621679138647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationId:GetRecommendationsResponse' :: Maybe Text
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3ArecommendationId%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var">recommendationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | A list of recommendations sorted in ascending order by prediction score.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- There can be a maximum of 500 items in the list.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_itemList"><span class="hs-identifier hs-type">getRecommendationsResponse_itemList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.Types.PredictedItem.html#PredictedItem"><span class="hs-identifier hs-type">PredictedItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="getRecommendationsResponse_itemList"><span class="annot"><span class="annottext">getRecommendationsResponse_itemList :: (Maybe [PredictedItem] -&gt; f (Maybe [PredictedItem]))
+-&gt; GetRecommendationsResponse -&gt; f GetRecommendationsResponse
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_itemList"><span class="hs-identifier hs-var hs-var">getRecommendationsResponse_itemList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendationsResponse -&gt; Maybe [PredictedItem])
+-&gt; (GetRecommendationsResponse
+    -&gt; Maybe [PredictedItem] -&gt; GetRecommendationsResponse)
+-&gt; Lens
+     GetRecommendationsResponse
+     GetRecommendationsResponse
+     (Maybe [PredictedItem])
+     (Maybe [PredictedItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-type">GetRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138645"><span class="annot"><span class="annottext">Maybe [PredictedItem]
+itemList :: Maybe [PredictedItem]
+$sel:itemList:GetRecommendationsResponse' :: GetRecommendationsResponse -&gt; Maybe [PredictedItem]
+</span><a href="#local-6989586621679138645"><span class="hs-identifier hs-var hs-var">itemList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PredictedItem]
+</span><a href="#local-6989586621679138645"><span class="hs-identifier hs-var">itemList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138644"><span class="annot"><span class="annottext">s :: GetRecommendationsResponse
+</span><a href="#local-6989586621679138644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-type">GetRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138643"><span class="annot"><span class="annottext">Maybe [PredictedItem]
+</span><a href="#local-6989586621679138643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendationsResponse
+</span><a href="#local-6989586621679138644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemList:GetRecommendationsResponse' :: Maybe [PredictedItem]
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AitemList%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var">itemList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PredictedItem]
+</span><a href="#local-6989586621679138643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PredictedItem] -&gt; f (Maybe [PredictedItem]))
+ -&gt; GetRecommendationsResponse -&gt; f GetRecommendationsResponse)
+-&gt; ((Maybe [PredictedItem] -&gt; f (Maybe [PredictedItem]))
+    -&gt; Maybe [PredictedItem] -&gt; f (Maybe [PredictedItem]))
+-&gt; (Maybe [PredictedItem] -&gt; f (Maybe [PredictedItem]))
+-&gt; GetRecommendationsResponse
+-&gt; f GetRecommendationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PredictedItem] [PredictedItem] [PredictedItem] [PredictedItem]
+-&gt; Iso
+     (Maybe [PredictedItem])
+     (Maybe [PredictedItem])
+     (Maybe [PredictedItem])
+     (Maybe [PredictedItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PredictedItem] [PredictedItem] [PredictedItem] [PredictedItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_httpStatus"><span class="hs-identifier hs-type">getRecommendationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-321"></span><span id="getRecommendationsResponse_httpStatus"><span class="annot"><span class="annottext">getRecommendationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetRecommendationsResponse -&gt; f GetRecommendationsResponse
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#getRecommendationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getRecommendationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecommendationsResponse -&gt; Int)
+-&gt; (GetRecommendationsResponse
+    -&gt; Int -&gt; GetRecommendationsResponse)
+-&gt; Lens
+     GetRecommendationsResponse GetRecommendationsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-type">GetRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138642"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetRecommendationsResponse' :: GetRecommendationsResponse -&gt; Int
+</span><a href="#local-6989586621679138642"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138642"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138641"><span class="annot"><span class="annottext">s :: GetRecommendationsResponse
+</span><a href="#local-6989586621679138641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse%27"><span class="hs-identifier hs-type">GetRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138640"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecommendationsResponse
+</span><a href="#local-6989586621679138641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecommendationsResponse' :: Int
+</span><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#%24sel%3AhttpStatus%3AGetRecommendationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeRuntime.GetRecommendations.html#GetRecommendationsResponse"><span class="hs-identifier hs-type">GetRecommendationsResponse</span></a></span></span><span>
+</span><span id="line-324"></span></pre></body></html>

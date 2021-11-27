@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.TrafficRoutingConfigType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.TrafficRoutingConfigType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType"><span class="hs-identifier">TrafficRoutingConfigType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType_ALL_AT_ONCE"><span class="hs-identifier">TrafficRoutingConfigType_ALL_AT_ONCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType_CANARY"><span class="hs-identifier">TrafficRoutingConfigType_CANARY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680347257"><span id="local-6989586621680347258"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficRoutingConfigType"><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType"><span class="hs-identifier hs-var">TrafficRoutingConfigType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficRoutingConfigType%27"><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType%27"><span class="hs-identifier hs-var">TrafficRoutingConfigType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrafficRoutingConfigType"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#fromTrafficRoutingConfigType"><span class="hs-identifier hs-var hs-var">fromTrafficRoutingConfigType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680347249"><span id="local-6989586621680347251"><span id="local-6989586621680347253"><span class="annot"><span class="annottext">Int -&gt; TrafficRoutingConfigType -&gt; ShowS
+[TrafficRoutingConfigType] -&gt; ShowS
+TrafficRoutingConfigType -&gt; String
+(Int -&gt; TrafficRoutingConfigType -&gt; ShowS)
+-&gt; (TrafficRoutingConfigType -&gt; String)
+-&gt; ([TrafficRoutingConfigType] -&gt; ShowS)
+-&gt; Show TrafficRoutingConfigType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TrafficRoutingConfigType] -&gt; ShowS
+$cshowList :: [TrafficRoutingConfigType] -&gt; ShowS
+show :: TrafficRoutingConfigType -&gt; String
+$cshow :: TrafficRoutingConfigType -&gt; String
+showsPrec :: Int -&gt; TrafficRoutingConfigType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TrafficRoutingConfigType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680347240"><span id="local-6989586621680347242"><span id="local-6989586621680347244"><span id="local-6989586621680347246"><span class="annot"><span class="annottext">ReadPrec [TrafficRoutingConfigType]
+ReadPrec TrafficRoutingConfigType
+Int -&gt; ReadS TrafficRoutingConfigType
+ReadS [TrafficRoutingConfigType]
+(Int -&gt; ReadS TrafficRoutingConfigType)
+-&gt; ReadS [TrafficRoutingConfigType]
+-&gt; ReadPrec TrafficRoutingConfigType
+-&gt; ReadPrec [TrafficRoutingConfigType]
+-&gt; Read TrafficRoutingConfigType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TrafficRoutingConfigType]
+$creadListPrec :: ReadPrec [TrafficRoutingConfigType]
+readPrec :: ReadPrec TrafficRoutingConfigType
+$creadPrec :: ReadPrec TrafficRoutingConfigType
+readList :: ReadS [TrafficRoutingConfigType]
+$creadList :: ReadS [TrafficRoutingConfigType]
+readsPrec :: Int -&gt; ReadS TrafficRoutingConfigType
+$creadsPrec :: Int -&gt; ReadS TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680347235"><span id="local-6989586621680347237"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+(TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool)
+-&gt; (TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool)
+-&gt; Eq TrafficRoutingConfigType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+$c/= :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+== :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+$c== :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680347219"><span id="local-6989586621680347221"><span id="local-6989586621680347223"><span id="local-6989586621680347225"><span id="local-6989586621680347227"><span id="local-6989586621680347229"><span id="local-6989586621680347231"><span class="annot"><span class="annottext">Eq TrafficRoutingConfigType
+Eq TrafficRoutingConfigType
+-&gt; (TrafficRoutingConfigType
+    -&gt; TrafficRoutingConfigType -&gt; Ordering)
+-&gt; (TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool)
+-&gt; (TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool)
+-&gt; (TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool)
+-&gt; (TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool)
+-&gt; (TrafficRoutingConfigType
+    -&gt; TrafficRoutingConfigType -&gt; TrafficRoutingConfigType)
+-&gt; (TrafficRoutingConfigType
+    -&gt; TrafficRoutingConfigType -&gt; TrafficRoutingConfigType)
+-&gt; Ord TrafficRoutingConfigType
+TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Ordering
+TrafficRoutingConfigType
+-&gt; TrafficRoutingConfigType -&gt; TrafficRoutingConfigType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TrafficRoutingConfigType
+-&gt; TrafficRoutingConfigType -&gt; TrafficRoutingConfigType
+$cmin :: TrafficRoutingConfigType
+-&gt; TrafficRoutingConfigType -&gt; TrafficRoutingConfigType
+max :: TrafficRoutingConfigType
+-&gt; TrafficRoutingConfigType -&gt; TrafficRoutingConfigType
+$cmax :: TrafficRoutingConfigType
+-&gt; TrafficRoutingConfigType -&gt; TrafficRoutingConfigType
+&gt;= :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+$c&gt;= :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+&gt; :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+$c&gt; :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+&lt;= :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+$c&lt;= :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+&lt; :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+$c&lt; :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Bool
+compare :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Ordering
+$ccompare :: TrafficRoutingConfigType -&gt; TrafficRoutingConfigType -&gt; Ordering
+$cp1Ord :: Eq TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TrafficRoutingConfigType -&gt; Rep TrafficRoutingConfigType x)
+-&gt; (forall x.
+    Rep TrafficRoutingConfigType x -&gt; TrafficRoutingConfigType)
+-&gt; Generic TrafficRoutingConfigType
+forall x.
+Rep TrafficRoutingConfigType x -&gt; TrafficRoutingConfigType
+forall x.
+TrafficRoutingConfigType -&gt; Rep TrafficRoutingConfigType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TrafficRoutingConfigType x -&gt; TrafficRoutingConfigType
+$cfrom :: forall x.
+TrafficRoutingConfigType -&gt; Rep TrafficRoutingConfigType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680347211"><span id="local-6989586621680347213"><span class="annot"><span class="annottext">Int -&gt; TrafficRoutingConfigType -&gt; Int
+TrafficRoutingConfigType -&gt; Int
+(Int -&gt; TrafficRoutingConfigType -&gt; Int)
+-&gt; (TrafficRoutingConfigType -&gt; Int)
+-&gt; Hashable TrafficRoutingConfigType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TrafficRoutingConfigType -&gt; Int
+$chash :: TrafficRoutingConfigType -&gt; Int
+hashWithSalt :: Int -&gt; TrafficRoutingConfigType -&gt; Int
+$chashWithSalt :: Int -&gt; TrafficRoutingConfigType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680347208"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; ()
+(TrafficRoutingConfigType -&gt; ()) -&gt; NFData TrafficRoutingConfigType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TrafficRoutingConfigType -&gt; ()
+$crnf :: TrafficRoutingConfigType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680347205"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficRoutingConfigType
+(Text -&gt; Either String TrafficRoutingConfigType)
+-&gt; FromText TrafficRoutingConfigType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TrafficRoutingConfigType
+$cfromText :: Text -&gt; Either String TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680347202"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; Text
+(TrafficRoutingConfigType -&gt; Text)
+-&gt; ToText TrafficRoutingConfigType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TrafficRoutingConfigType -&gt; Text
+$ctoText :: TrafficRoutingConfigType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680347199"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; ByteString
+(TrafficRoutingConfigType -&gt; ByteString)
+-&gt; ToByteString TrafficRoutingConfigType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TrafficRoutingConfigType -&gt; ByteString
+$ctoBS :: TrafficRoutingConfigType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680347196"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; ByteStringBuilder
+(TrafficRoutingConfigType -&gt; ByteStringBuilder)
+-&gt; ToLog TrafficRoutingConfigType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TrafficRoutingConfigType -&gt; ByteStringBuilder
+$cbuild :: TrafficRoutingConfigType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680347193"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficRoutingConfigType -&gt; [Header]
+(HeaderName -&gt; TrafficRoutingConfigType -&gt; [Header])
+-&gt; ToHeader TrafficRoutingConfigType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TrafficRoutingConfigType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TrafficRoutingConfigType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680347190"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; QueryString
+(TrafficRoutingConfigType -&gt; QueryString)
+-&gt; ToQuery TrafficRoutingConfigType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TrafficRoutingConfigType -&gt; QueryString
+$ctoQuery :: TrafficRoutingConfigType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680347185"><span id="local-6989586621680347187"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficRoutingConfigType]
+Value -&gt; Parser TrafficRoutingConfigType
+(Value -&gt; Parser TrafficRoutingConfigType)
+-&gt; (Value -&gt; Parser [TrafficRoutingConfigType])
+-&gt; FromJSON TrafficRoutingConfigType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TrafficRoutingConfigType]
+$cparseJSONList :: Value -&gt; Parser [TrafficRoutingConfigType]
+parseJSON :: Value -&gt; Parser TrafficRoutingConfigType
+$cparseJSON :: Value -&gt; Parser TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680347180"><span id="local-6989586621680347182"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficRoutingConfigType]
+FromJSONKeyFunction TrafficRoutingConfigType
+FromJSONKeyFunction TrafficRoutingConfigType
+-&gt; FromJSONKeyFunction [TrafficRoutingConfigType]
+-&gt; FromJSONKey TrafficRoutingConfigType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TrafficRoutingConfigType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TrafficRoutingConfigType]
+fromJSONKey :: FromJSONKeyFunction TrafficRoutingConfigType
+$cfromJSONKey :: FromJSONKeyFunction TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680347171"><span id="local-6989586621680347173"><span id="local-6989586621680347175"><span id="local-6989586621680347177"><span class="annot"><span class="annottext">[TrafficRoutingConfigType] -&gt; Encoding
+[TrafficRoutingConfigType] -&gt; Value
+TrafficRoutingConfigType -&gt; Encoding
+TrafficRoutingConfigType -&gt; Value
+(TrafficRoutingConfigType -&gt; Value)
+-&gt; (TrafficRoutingConfigType -&gt; Encoding)
+-&gt; ([TrafficRoutingConfigType] -&gt; Value)
+-&gt; ([TrafficRoutingConfigType] -&gt; Encoding)
+-&gt; ToJSON TrafficRoutingConfigType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TrafficRoutingConfigType] -&gt; Encoding
+$ctoEncodingList :: [TrafficRoutingConfigType] -&gt; Encoding
+toJSONList :: [TrafficRoutingConfigType] -&gt; Value
+$ctoJSONList :: [TrafficRoutingConfigType] -&gt; Value
+toEncoding :: TrafficRoutingConfigType -&gt; Encoding
+$ctoEncoding :: TrafficRoutingConfigType -&gt; Encoding
+toJSON :: TrafficRoutingConfigType -&gt; Value
+$ctoJSON :: TrafficRoutingConfigType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680347166"><span id="local-6989586621680347168"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficRoutingConfigType]
+ToJSONKeyFunction TrafficRoutingConfigType
+ToJSONKeyFunction TrafficRoutingConfigType
+-&gt; ToJSONKeyFunction [TrafficRoutingConfigType]
+-&gt; ToJSONKey TrafficRoutingConfigType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TrafficRoutingConfigType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TrafficRoutingConfigType]
+toJSONKey :: ToJSONKeyFunction TrafficRoutingConfigType
+$ctoJSONKey :: ToJSONKeyFunction TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680347163"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficRoutingConfigType
+([Node] -&gt; Either String TrafficRoutingConfigType)
+-&gt; FromXML TrafficRoutingConfigType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TrafficRoutingConfigType
+$cparseXML :: [Node] -&gt; Either String TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680347160"><span class="annot"><span class="annottext">TrafficRoutingConfigType -&gt; XML
+(TrafficRoutingConfigType -&gt; XML) -&gt; ToXML TrafficRoutingConfigType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TrafficRoutingConfigType -&gt; XML
+$ctoXML :: TrafficRoutingConfigType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType_ALL_AT_ONCE"><span class="hs-identifier hs-type">TrafficRoutingConfigType_ALL_AT_ONCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType"><span class="hs-identifier hs-type">TrafficRoutingConfigType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrafficRoutingConfigType_ALL_AT_ONCE"><span id="%24mTrafficRoutingConfigType_ALL_AT_ONCE"><span id="TrafficRoutingConfigType_ALL_AT_ONCE"><span class="annot"><span class="annottext">$bTrafficRoutingConfigType_ALL_AT_ONCE :: TrafficRoutingConfigType
+$mTrafficRoutingConfigType_ALL_AT_ONCE :: forall r.
+TrafficRoutingConfigType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#%24bTrafficRoutingConfigType_ALL_AT_ONCE"><span class="hs-identifier hs-var hs-var hs-var">TrafficRoutingConfigType_ALL_AT_ONCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType%27"><span class="hs-identifier hs-type">TrafficRoutingConfigType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL_AT_ONCE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType_CANARY"><span class="hs-identifier hs-type">TrafficRoutingConfigType_CANARY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType"><span class="hs-identifier hs-type">TrafficRoutingConfigType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrafficRoutingConfigType_CANARY"><span id="%24mTrafficRoutingConfigType_CANARY"><span id="TrafficRoutingConfigType_CANARY"><span class="annot"><span class="annottext">$bTrafficRoutingConfigType_CANARY :: TrafficRoutingConfigType
+$mTrafficRoutingConfigType_CANARY :: forall r.
+TrafficRoutingConfigType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#%24bTrafficRoutingConfigType_CANARY"><span class="hs-identifier hs-var hs-var hs-var">TrafficRoutingConfigType_CANARY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType%27"><span class="hs-identifier hs-type">TrafficRoutingConfigType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANARY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType_ALL_AT_ONCE"><span class="hs-pragma hs-type">TrafficRoutingConfigType_ALL_AT_ONCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType_CANARY"><span class="hs-pragma hs-type">TrafficRoutingConfigType_CANARY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType%27"><span class="hs-pragma hs-type">TrafficRoutingConfigType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

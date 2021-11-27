@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEvents.Types.EvaluationMethod</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEvents.Types.EvaluationMethod</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod"><span class="hs-identifier">EvaluationMethod</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod_BATCH"><span class="hs-identifier">EvaluationMethod_BATCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod_SERIAL"><span class="hs-identifier">EvaluationMethod_SERIAL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679239992"><span id="local-6989586621679239993"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EvaluationMethod"><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod"><span class="hs-identifier hs-var">EvaluationMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationMethod%27"><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod%27"><span class="hs-identifier hs-var">EvaluationMethod'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEvaluationMethod"><span class="annot"><span class="annottext">EvaluationMethod -&gt; Text
+</span><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#fromEvaluationMethod"><span class="hs-identifier hs-var hs-var">fromEvaluationMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239984"><span id="local-6989586621679239986"><span id="local-6989586621679239988"><span class="annot"><span class="annottext">Int -&gt; EvaluationMethod -&gt; ShowS
+[EvaluationMethod] -&gt; ShowS
+EvaluationMethod -&gt; String
+(Int -&gt; EvaluationMethod -&gt; ShowS)
+-&gt; (EvaluationMethod -&gt; String)
+-&gt; ([EvaluationMethod] -&gt; ShowS)
+-&gt; Show EvaluationMethod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EvaluationMethod] -&gt; ShowS
+$cshowList :: [EvaluationMethod] -&gt; ShowS
+show :: EvaluationMethod -&gt; String
+$cshow :: EvaluationMethod -&gt; String
+showsPrec :: Int -&gt; EvaluationMethod -&gt; ShowS
+$cshowsPrec :: Int -&gt; EvaluationMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679239975"><span id="local-6989586621679239977"><span id="local-6989586621679239979"><span id="local-6989586621679239981"><span class="annot"><span class="annottext">ReadPrec [EvaluationMethod]
+ReadPrec EvaluationMethod
+Int -&gt; ReadS EvaluationMethod
+ReadS [EvaluationMethod]
+(Int -&gt; ReadS EvaluationMethod)
+-&gt; ReadS [EvaluationMethod]
+-&gt; ReadPrec EvaluationMethod
+-&gt; ReadPrec [EvaluationMethod]
+-&gt; Read EvaluationMethod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EvaluationMethod]
+$creadListPrec :: ReadPrec [EvaluationMethod]
+readPrec :: ReadPrec EvaluationMethod
+$creadPrec :: ReadPrec EvaluationMethod
+readList :: ReadS [EvaluationMethod]
+$creadList :: ReadS [EvaluationMethod]
+readsPrec :: Int -&gt; ReadS EvaluationMethod
+$creadsPrec :: Int -&gt; ReadS EvaluationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679239970"><span id="local-6989586621679239972"><span class="annot"><span class="annottext">EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+(EvaluationMethod -&gt; EvaluationMethod -&gt; Bool)
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; Bool)
+-&gt; Eq EvaluationMethod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+$c/= :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+== :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+$c== :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679239954"><span id="local-6989586621679239956"><span id="local-6989586621679239958"><span id="local-6989586621679239960"><span id="local-6989586621679239962"><span id="local-6989586621679239964"><span id="local-6989586621679239966"><span class="annot"><span class="annottext">Eq EvaluationMethod
+Eq EvaluationMethod
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; Ordering)
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; Bool)
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; Bool)
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; Bool)
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; Bool)
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; EvaluationMethod)
+-&gt; (EvaluationMethod -&gt; EvaluationMethod -&gt; EvaluationMethod)
+-&gt; Ord EvaluationMethod
+EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+EvaluationMethod -&gt; EvaluationMethod -&gt; Ordering
+EvaluationMethod -&gt; EvaluationMethod -&gt; EvaluationMethod
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EvaluationMethod -&gt; EvaluationMethod -&gt; EvaluationMethod
+$cmin :: EvaluationMethod -&gt; EvaluationMethod -&gt; EvaluationMethod
+max :: EvaluationMethod -&gt; EvaluationMethod -&gt; EvaluationMethod
+$cmax :: EvaluationMethod -&gt; EvaluationMethod -&gt; EvaluationMethod
+&gt;= :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+$c&gt;= :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+&gt; :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+$c&gt; :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+&lt;= :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+$c&lt;= :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+&lt; :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+$c&lt; :: EvaluationMethod -&gt; EvaluationMethod -&gt; Bool
+compare :: EvaluationMethod -&gt; EvaluationMethod -&gt; Ordering
+$ccompare :: EvaluationMethod -&gt; EvaluationMethod -&gt; Ordering
+$cp1Ord :: Eq EvaluationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EvaluationMethod -&gt; Rep EvaluationMethod x)
+-&gt; (forall x. Rep EvaluationMethod x -&gt; EvaluationMethod)
+-&gt; Generic EvaluationMethod
+forall x. Rep EvaluationMethod x -&gt; EvaluationMethod
+forall x. EvaluationMethod -&gt; Rep EvaluationMethod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EvaluationMethod x -&gt; EvaluationMethod
+$cfrom :: forall x. EvaluationMethod -&gt; Rep EvaluationMethod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239946"><span id="local-6989586621679239948"><span class="annot"><span class="annottext">Int -&gt; EvaluationMethod -&gt; Int
+EvaluationMethod -&gt; Int
+(Int -&gt; EvaluationMethod -&gt; Int)
+-&gt; (EvaluationMethod -&gt; Int) -&gt; Hashable EvaluationMethod
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EvaluationMethod -&gt; Int
+$chash :: EvaluationMethod -&gt; Int
+hashWithSalt :: Int -&gt; EvaluationMethod -&gt; Int
+$chashWithSalt :: Int -&gt; EvaluationMethod -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679239943"><span class="annot"><span class="annottext">EvaluationMethod -&gt; ()
+(EvaluationMethod -&gt; ()) -&gt; NFData EvaluationMethod
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EvaluationMethod -&gt; ()
+$crnf :: EvaluationMethod -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679239940"><span class="annot"><span class="annottext">Text -&gt; Either String EvaluationMethod
+(Text -&gt; Either String EvaluationMethod)
+-&gt; FromText EvaluationMethod
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EvaluationMethod
+$cfromText :: Text -&gt; Either String EvaluationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679239937"><span class="annot"><span class="annottext">EvaluationMethod -&gt; Text
+(EvaluationMethod -&gt; Text) -&gt; ToText EvaluationMethod
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EvaluationMethod -&gt; Text
+$ctoText :: EvaluationMethod -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679239934"><span class="annot"><span class="annottext">EvaluationMethod -&gt; ByteString
+(EvaluationMethod -&gt; ByteString) -&gt; ToByteString EvaluationMethod
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EvaluationMethod -&gt; ByteString
+$ctoBS :: EvaluationMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679239931"><span class="annot"><span class="annottext">EvaluationMethod -&gt; ByteStringBuilder
+(EvaluationMethod -&gt; ByteStringBuilder) -&gt; ToLog EvaluationMethod
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EvaluationMethod -&gt; ByteStringBuilder
+$cbuild :: EvaluationMethod -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679239928"><span class="annot"><span class="annottext">HeaderName -&gt; EvaluationMethod -&gt; [Header]
+(HeaderName -&gt; EvaluationMethod -&gt; [Header])
+-&gt; ToHeader EvaluationMethod
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EvaluationMethod -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EvaluationMethod -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679239925"><span class="annot"><span class="annottext">EvaluationMethod -&gt; QueryString
+(EvaluationMethod -&gt; QueryString) -&gt; ToQuery EvaluationMethod
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EvaluationMethod -&gt; QueryString
+$ctoQuery :: EvaluationMethod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679239920"><span id="local-6989586621679239922"><span class="annot"><span class="annottext">Value -&gt; Parser [EvaluationMethod]
+Value -&gt; Parser EvaluationMethod
+(Value -&gt; Parser EvaluationMethod)
+-&gt; (Value -&gt; Parser [EvaluationMethod])
+-&gt; FromJSON EvaluationMethod
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EvaluationMethod]
+$cparseJSONList :: Value -&gt; Parser [EvaluationMethod]
+parseJSON :: Value -&gt; Parser EvaluationMethod
+$cparseJSON :: Value -&gt; Parser EvaluationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679239915"><span id="local-6989586621679239917"><span class="annot"><span class="annottext">FromJSONKeyFunction [EvaluationMethod]
+FromJSONKeyFunction EvaluationMethod
+FromJSONKeyFunction EvaluationMethod
+-&gt; FromJSONKeyFunction [EvaluationMethod]
+-&gt; FromJSONKey EvaluationMethod
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EvaluationMethod]
+$cfromJSONKeyList :: FromJSONKeyFunction [EvaluationMethod]
+fromJSONKey :: FromJSONKeyFunction EvaluationMethod
+$cfromJSONKey :: FromJSONKeyFunction EvaluationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679239906"><span id="local-6989586621679239908"><span id="local-6989586621679239910"><span id="local-6989586621679239912"><span class="annot"><span class="annottext">[EvaluationMethod] -&gt; Encoding
+[EvaluationMethod] -&gt; Value
+EvaluationMethod -&gt; Encoding
+EvaluationMethod -&gt; Value
+(EvaluationMethod -&gt; Value)
+-&gt; (EvaluationMethod -&gt; Encoding)
+-&gt; ([EvaluationMethod] -&gt; Value)
+-&gt; ([EvaluationMethod] -&gt; Encoding)
+-&gt; ToJSON EvaluationMethod
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EvaluationMethod] -&gt; Encoding
+$ctoEncodingList :: [EvaluationMethod] -&gt; Encoding
+toJSONList :: [EvaluationMethod] -&gt; Value
+$ctoJSONList :: [EvaluationMethod] -&gt; Value
+toEncoding :: EvaluationMethod -&gt; Encoding
+$ctoEncoding :: EvaluationMethod -&gt; Encoding
+toJSON :: EvaluationMethod -&gt; Value
+$ctoJSON :: EvaluationMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679239901"><span id="local-6989586621679239903"><span class="annot"><span class="annottext">ToJSONKeyFunction [EvaluationMethod]
+ToJSONKeyFunction EvaluationMethod
+ToJSONKeyFunction EvaluationMethod
+-&gt; ToJSONKeyFunction [EvaluationMethod]
+-&gt; ToJSONKey EvaluationMethod
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EvaluationMethod]
+$ctoJSONKeyList :: ToJSONKeyFunction [EvaluationMethod]
+toJSONKey :: ToJSONKeyFunction EvaluationMethod
+$ctoJSONKey :: ToJSONKeyFunction EvaluationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679239898"><span class="annot"><span class="annottext">[Node] -&gt; Either String EvaluationMethod
+([Node] -&gt; Either String EvaluationMethod)
+-&gt; FromXML EvaluationMethod
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EvaluationMethod
+$cparseXML :: [Node] -&gt; Either String EvaluationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679239895"><span class="annot"><span class="annottext">EvaluationMethod -&gt; XML
+(EvaluationMethod -&gt; XML) -&gt; ToXML EvaluationMethod
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EvaluationMethod -&gt; XML
+$ctoXML :: EvaluationMethod -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod_BATCH"><span class="hs-identifier hs-type">EvaluationMethod_BATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod"><span class="hs-identifier hs-type">EvaluationMethod</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEvaluationMethod_BATCH"><span id="%24mEvaluationMethod_BATCH"><span id="EvaluationMethod_BATCH"><span class="annot"><span class="annottext">$bEvaluationMethod_BATCH :: EvaluationMethod
+$mEvaluationMethod_BATCH :: forall r. EvaluationMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#%24bEvaluationMethod_BATCH"><span class="hs-identifier hs-var hs-var hs-var">EvaluationMethod_BATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod%27"><span class="hs-identifier hs-type">EvaluationMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BATCH&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod_SERIAL"><span class="hs-identifier hs-type">EvaluationMethod_SERIAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod"><span class="hs-identifier hs-type">EvaluationMethod</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEvaluationMethod_SERIAL"><span id="%24mEvaluationMethod_SERIAL"><span id="EvaluationMethod_SERIAL"><span class="annot"><span class="annottext">$bEvaluationMethod_SERIAL :: EvaluationMethod
+$mEvaluationMethod_SERIAL :: forall r. EvaluationMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#%24bEvaluationMethod_SERIAL"><span class="hs-identifier hs-var hs-var hs-var">EvaluationMethod_SERIAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod%27"><span class="hs-identifier hs-type">EvaluationMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERIAL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod_BATCH"><span class="hs-pragma hs-type">EvaluationMethod_BATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod_SERIAL"><span class="hs-pragma hs-type">EvaluationMethod_SERIAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EvaluationMethod.html#EvaluationMethod%27"><span class="hs-pragma hs-type">EvaluationMethod'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

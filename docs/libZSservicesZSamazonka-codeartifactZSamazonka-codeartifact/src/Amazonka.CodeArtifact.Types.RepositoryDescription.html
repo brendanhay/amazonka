@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.Types.RepositoryDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.Types.RepositoryDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo.html"><span class="hs-identifier">Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo.html"><span class="hs-identifier">Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The details of a repository stored in AWS CodeArtifact. A CodeArtifact</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- repository contains a set of package versions, each of which maps to a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- set of assets. Repositories are polyglot&#8212;a single repository can contain</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- packages of any supported type. Each repository exposes endpoints for</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- fetching and publishing packages using tools like the @npm@ CLI, the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Maven CLI (@mvn@), and @pip@. You can create up to 100 repositories per</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newRepositoryDescription' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679232270"><span id="local-6989586621679232271"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepositoryDescription"><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-var">RepositoryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepositoryDescription%27"><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-var">RepositoryDescription'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of upstream repositories to associate with the repository. The</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- order of the upstream repositories in the list determines their priority</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- order when AWS CodeArtifact looks for a requested package version. For</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories&gt;.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aupstreams%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe [UpstreamRepositoryInfo]
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aupstreams%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">upstreams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo.html#UpstreamRepositoryInfo"><span class="hs-identifier hs-type">UpstreamRepositoryInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the repository.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aarn%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aarn%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain that</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- contains the repository. It does not include dashes or spaces.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdomainOwner%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AdomainOwner%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The name of the domain that contains the repository.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdomainName%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AdomainName%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the repository.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aname%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that manages the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AadministratorAccount%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AadministratorAccount%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">administratorAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | An array of external connections associated with the repository.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AexternalConnections%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe [RepositoryExternalConnectionInfo]
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AexternalConnections%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">externalConnections</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo.html#RepositoryExternalConnectionInfo"><span class="hs-identifier hs-type">RepositoryExternalConnectionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A text description of the repository.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3ARepositoryDescription%27"><span class="annot"><span class="annottext">RepositoryDescription -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Adescription%3ARepositoryDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232257"><span id="local-6989586621679232259"><span class="annot"><span class="annottext">RepositoryDescription -&gt; RepositoryDescription -&gt; Bool
+(RepositoryDescription -&gt; RepositoryDescription -&gt; Bool)
+-&gt; (RepositoryDescription -&gt; RepositoryDescription -&gt; Bool)
+-&gt; Eq RepositoryDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RepositoryDescription -&gt; RepositoryDescription -&gt; Bool
+$c/= :: RepositoryDescription -&gt; RepositoryDescription -&gt; Bool
+== :: RepositoryDescription -&gt; RepositoryDescription -&gt; Bool
+$c== :: RepositoryDescription -&gt; RepositoryDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232248"><span id="local-6989586621679232250"><span id="local-6989586621679232252"><span id="local-6989586621679232254"><span class="annot"><span class="annottext">ReadPrec [RepositoryDescription]
+ReadPrec RepositoryDescription
+Int -&gt; ReadS RepositoryDescription
+ReadS [RepositoryDescription]
+(Int -&gt; ReadS RepositoryDescription)
+-&gt; ReadS [RepositoryDescription]
+-&gt; ReadPrec RepositoryDescription
+-&gt; ReadPrec [RepositoryDescription]
+-&gt; Read RepositoryDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RepositoryDescription]
+$creadListPrec :: ReadPrec [RepositoryDescription]
+readPrec :: ReadPrec RepositoryDescription
+$creadPrec :: ReadPrec RepositoryDescription
+readList :: ReadS [RepositoryDescription]
+$creadList :: ReadS [RepositoryDescription]
+readsPrec :: Int -&gt; ReadS RepositoryDescription
+$creadsPrec :: Int -&gt; ReadS RepositoryDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232241"><span id="local-6989586621679232243"><span id="local-6989586621679232245"><span class="annot"><span class="annottext">Int -&gt; RepositoryDescription -&gt; ShowS
+[RepositoryDescription] -&gt; ShowS
+RepositoryDescription -&gt; String
+(Int -&gt; RepositoryDescription -&gt; ShowS)
+-&gt; (RepositoryDescription -&gt; String)
+-&gt; ([RepositoryDescription] -&gt; ShowS)
+-&gt; Show RepositoryDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RepositoryDescription] -&gt; ShowS
+$cshowList :: [RepositoryDescription] -&gt; ShowS
+show :: RepositoryDescription -&gt; String
+$cshow :: RepositoryDescription -&gt; String
+showsPrec :: Int -&gt; RepositoryDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; RepositoryDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RepositoryDescription -&gt; Rep RepositoryDescription x)
+-&gt; (forall x. Rep RepositoryDescription x -&gt; RepositoryDescription)
+-&gt; Generic RepositoryDescription
+forall x. Rep RepositoryDescription x -&gt; RepositoryDescription
+forall x. RepositoryDescription -&gt; Rep RepositoryDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RepositoryDescription x -&gt; RepositoryDescription
+$cfrom :: forall x. RepositoryDescription -&gt; Rep RepositoryDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'RepositoryDescription' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'upstreams', 'repositoryDescription_upstreams' - A list of upstream repositories to associate with the repository. The</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- order of the upstream repositories in the list determines their priority</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- order when AWS CodeArtifact looks for a requested package version. For</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories&gt;.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'arn', 'repositoryDescription_arn' - The Amazon Resource Name (ARN) of the repository.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'domainOwner', 'repositoryDescription_domainOwner' - The 12-digit account number of the AWS account that owns the domain that</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- contains the repository. It does not include dashes or spaces.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'domainName', 'repositoryDescription_domainName' - The name of the domain that contains the repository.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'name', 'repositoryDescription_name' - The name of the repository.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'administratorAccount', 'repositoryDescription_administratorAccount' - The 12-digit account number of the AWS account that manages the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'externalConnections', 'repositoryDescription_externalConnections' - An array of external connections associated with the repository.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'description', 'repositoryDescription_description' - A text description of the repository.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#newRepositoryDescription"><span class="hs-identifier hs-type">newRepositoryDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span>
+</span><span id="line-94"></span><span id="newRepositoryDescription"><span class="annot"><span class="annottext">newRepositoryDescription :: RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#newRepositoryDescription"><span class="hs-identifier hs-var hs-var">newRepositoryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">RepositoryDescription' :: Maybe [UpstreamRepositoryInfo]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [RepositoryExternalConnectionInfo]
+-&gt; Maybe Text
+-&gt; RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:upstreams:RepositoryDescription' :: Maybe [UpstreamRepositoryInfo]
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aupstreams%3ARepositoryDescription%27"><span class="hs-identifier hs-var">upstreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpstreamRepositoryInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aarn%3ARepositoryDescription%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainOwner:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AdomainOwner%3ARepositoryDescription%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AdomainName%3ARepositoryDescription%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aname%3ARepositoryDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:administratorAccount:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AadministratorAccount%3ARepositoryDescription%27"><span class="hs-identifier hs-var">administratorAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:externalConnections:RepositoryDescription' :: Maybe [RepositoryExternalConnectionInfo]
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AexternalConnections%3ARepositoryDescription%27"><span class="hs-identifier hs-var">externalConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryExternalConnectionInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Adescription%3ARepositoryDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | A list of upstream repositories to associate with the repository. The</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- order of the upstream repositories in the list determines their priority</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- order when AWS CodeArtifact looks for a requested package version. For</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories&gt;.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_upstreams"><span class="hs-identifier hs-type">repositoryDescription_upstreams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo.html#UpstreamRepositoryInfo"><span class="hs-identifier hs-type">UpstreamRepositoryInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="repositoryDescription_upstreams"><span class="annot"><span class="annottext">repositoryDescription_upstreams :: (Maybe [UpstreamRepositoryInfo]
+ -&gt; f (Maybe [UpstreamRepositoryInfo]))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_upstreams"><span class="hs-identifier hs-var hs-var">repositoryDescription_upstreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe [UpstreamRepositoryInfo])
+-&gt; (RepositoryDescription
+    -&gt; Maybe [UpstreamRepositoryInfo] -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe [UpstreamRepositoryInfo])
+     (Maybe [UpstreamRepositoryInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232232"><span class="annot"><span class="annottext">Maybe [UpstreamRepositoryInfo]
+upstreams :: Maybe [UpstreamRepositoryInfo]
+$sel:upstreams:RepositoryDescription' :: RepositoryDescription -&gt; Maybe [UpstreamRepositoryInfo]
+</span><a href="#local-6989586621679232232"><span class="hs-identifier hs-var hs-var">upstreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpstreamRepositoryInfo]
+</span><a href="#local-6989586621679232232"><span class="hs-identifier hs-var">upstreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232231"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232230"><span class="annot"><span class="annottext">Maybe [UpstreamRepositoryInfo]
+</span><a href="#local-6989586621679232230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upstreams:RepositoryDescription' :: Maybe [UpstreamRepositoryInfo]
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aupstreams%3ARepositoryDescription%27"><span class="hs-identifier hs-var">upstreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpstreamRepositoryInfo]
+</span><a href="#local-6989586621679232230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpstreamRepositoryInfo]
+  -&gt; f (Maybe [UpstreamRepositoryInfo]))
+ -&gt; RepositoryDescription -&gt; f RepositoryDescription)
+-&gt; ((Maybe [UpstreamRepositoryInfo]
+     -&gt; f (Maybe [UpstreamRepositoryInfo]))
+    -&gt; Maybe [UpstreamRepositoryInfo]
+    -&gt; f (Maybe [UpstreamRepositoryInfo]))
+-&gt; (Maybe [UpstreamRepositoryInfo]
+    -&gt; f (Maybe [UpstreamRepositoryInfo]))
+-&gt; RepositoryDescription
+-&gt; f RepositoryDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpstreamRepositoryInfo]
+  [UpstreamRepositoryInfo]
+  [UpstreamRepositoryInfo]
+  [UpstreamRepositoryInfo]
+-&gt; Iso
+     (Maybe [UpstreamRepositoryInfo])
+     (Maybe [UpstreamRepositoryInfo])
+     (Maybe [UpstreamRepositoryInfo])
+     (Maybe [UpstreamRepositoryInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpstreamRepositoryInfo]
+  [UpstreamRepositoryInfo]
+  [UpstreamRepositoryInfo]
+  [UpstreamRepositoryInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the repository.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_arn"><span class="hs-identifier hs-type">repositoryDescription_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="repositoryDescription_arn"><span class="annot"><span class="annottext">repositoryDescription_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_arn"><span class="hs-identifier hs-var hs-var">repositoryDescription_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe Text)
+-&gt; (RepositoryDescription -&gt; Maybe Text -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232225"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:RepositoryDescription' :: RepositoryDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679232225"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232225"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232224"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232223"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aarn%3ARepositoryDescription%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain that</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- contains the repository. It does not include dashes or spaces.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_domainOwner"><span class="hs-identifier hs-type">repositoryDescription_domainOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="repositoryDescription_domainOwner"><span class="annot"><span class="annottext">repositoryDescription_domainOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_domainOwner"><span class="hs-identifier hs-var hs-var">repositoryDescription_domainOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe Text)
+-&gt; (RepositoryDescription -&gt; Maybe Text -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232221"><span class="annot"><span class="annottext">Maybe Text
+domainOwner :: Maybe Text
+$sel:domainOwner:RepositoryDescription' :: RepositoryDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679232221"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232221"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232220"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainOwner:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AdomainOwner%3ARepositoryDescription%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The name of the domain that contains the repository.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_domainName"><span class="hs-identifier hs-type">repositoryDescription_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="repositoryDescription_domainName"><span class="annot"><span class="annottext">repositoryDescription_domainName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_domainName"><span class="hs-identifier hs-var hs-var">repositoryDescription_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe Text)
+-&gt; (RepositoryDescription -&gt; Maybe Text -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232217"><span class="annot"><span class="annottext">Maybe Text
+domainName :: Maybe Text
+$sel:domainName:RepositoryDescription' :: RepositoryDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679232217"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232217"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232216"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AdomainName%3ARepositoryDescription%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The name of the repository.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_name"><span class="hs-identifier hs-type">repositoryDescription_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="repositoryDescription_name"><span class="annot"><span class="annottext">repositoryDescription_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_name"><span class="hs-identifier hs-var hs-var">repositoryDescription_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe Text)
+-&gt; (RepositoryDescription -&gt; Maybe Text -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232213"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:RepositoryDescription' :: RepositoryDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679232213"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232213"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232212"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232211"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Aname%3ARepositoryDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that manages the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_administratorAccount"><span class="hs-identifier hs-type">repositoryDescription_administratorAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="repositoryDescription_administratorAccount"><span class="annot"><span class="annottext">repositoryDescription_administratorAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_administratorAccount"><span class="hs-identifier hs-var hs-var">repositoryDescription_administratorAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe Text)
+-&gt; (RepositoryDescription -&gt; Maybe Text -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232209"><span class="annot"><span class="annottext">Maybe Text
+administratorAccount :: Maybe Text
+$sel:administratorAccount:RepositoryDescription' :: RepositoryDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679232209"><span class="hs-identifier hs-var hs-var">administratorAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232209"><span class="hs-identifier hs-var">administratorAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232208"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232207"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:administratorAccount:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AadministratorAccount%3ARepositoryDescription%27"><span class="hs-identifier hs-var">administratorAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | An array of external connections associated with the repository.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_externalConnections"><span class="hs-identifier hs-type">repositoryDescription_externalConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo.html#RepositoryExternalConnectionInfo"><span class="hs-identifier hs-type">RepositoryExternalConnectionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="repositoryDescription_externalConnections"><span class="annot"><span class="annottext">repositoryDescription_externalConnections :: (Maybe [RepositoryExternalConnectionInfo]
+ -&gt; f (Maybe [RepositoryExternalConnectionInfo]))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_externalConnections"><span class="hs-identifier hs-var hs-var">repositoryDescription_externalConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe [RepositoryExternalConnectionInfo])
+-&gt; (RepositoryDescription
+    -&gt; Maybe [RepositoryExternalConnectionInfo]
+    -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe [RepositoryExternalConnectionInfo])
+     (Maybe [RepositoryExternalConnectionInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232205"><span class="annot"><span class="annottext">Maybe [RepositoryExternalConnectionInfo]
+externalConnections :: Maybe [RepositoryExternalConnectionInfo]
+$sel:externalConnections:RepositoryDescription' :: RepositoryDescription -&gt; Maybe [RepositoryExternalConnectionInfo]
+</span><a href="#local-6989586621679232205"><span class="hs-identifier hs-var hs-var">externalConnections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryExternalConnectionInfo]
+</span><a href="#local-6989586621679232205"><span class="hs-identifier hs-var">externalConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232204"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232203"><span class="annot"><span class="annottext">Maybe [RepositoryExternalConnectionInfo]
+</span><a href="#local-6989586621679232203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalConnections:RepositoryDescription' :: Maybe [RepositoryExternalConnectionInfo]
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3AexternalConnections%3ARepositoryDescription%27"><span class="hs-identifier hs-var">externalConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryExternalConnectionInfo]
+</span><a href="#local-6989586621679232203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RepositoryExternalConnectionInfo]
+  -&gt; f (Maybe [RepositoryExternalConnectionInfo]))
+ -&gt; RepositoryDescription -&gt; f RepositoryDescription)
+-&gt; ((Maybe [RepositoryExternalConnectionInfo]
+     -&gt; f (Maybe [RepositoryExternalConnectionInfo]))
+    -&gt; Maybe [RepositoryExternalConnectionInfo]
+    -&gt; f (Maybe [RepositoryExternalConnectionInfo]))
+-&gt; (Maybe [RepositoryExternalConnectionInfo]
+    -&gt; f (Maybe [RepositoryExternalConnectionInfo]))
+-&gt; RepositoryDescription
+-&gt; f RepositoryDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RepositoryExternalConnectionInfo]
+  [RepositoryExternalConnectionInfo]
+  [RepositoryExternalConnectionInfo]
+  [RepositoryExternalConnectionInfo]
+-&gt; Iso
+     (Maybe [RepositoryExternalConnectionInfo])
+     (Maybe [RepositoryExternalConnectionInfo])
+     (Maybe [RepositoryExternalConnectionInfo])
+     (Maybe [RepositoryExternalConnectionInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RepositoryExternalConnectionInfo]
+  [RepositoryExternalConnectionInfo]
+  [RepositoryExternalConnectionInfo]
+  [RepositoryExternalConnectionInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | A text description of the repository.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_description"><span class="hs-identifier hs-type">repositoryDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="repositoryDescription_description"><span class="annot"><span class="annottext">repositoryDescription_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RepositoryDescription -&gt; f RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#repositoryDescription_description"><span class="hs-identifier hs-var hs-var">repositoryDescription_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryDescription -&gt; Maybe Text)
+-&gt; (RepositoryDescription -&gt; Maybe Text -&gt; RepositoryDescription)
+-&gt; Lens
+     RepositoryDescription
+     RepositoryDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232201"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RepositoryDescription' :: RepositoryDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679232201"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232201"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232200"><span class="annot"><span class="annottext">s :: RepositoryDescription
+</span><a href="#local-6989586621679232200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-type">RepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryDescription
+</span><a href="#local-6989586621679232200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RepositoryDescription' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#%24sel%3Adescription%3ARepositoryDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232196"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679232194"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RepositoryDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RepositoryDescription)
+-&gt; Value
+-&gt; Parser RepositoryDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RepositoryDescription&quot;</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232191"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UpstreamRepositoryInfo]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [RepositoryExternalConnectionInfo]
+-&gt; Maybe Text
+-&gt; RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription%27"><span class="hs-identifier hs-var">RepositoryDescription'</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UpstreamRepositoryInfo]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [RepositoryExternalConnectionInfo]
+ -&gt; Maybe Text
+ -&gt; RepositoryDescription)
+-&gt; Parser (Maybe [UpstreamRepositoryInfo])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [RepositoryExternalConnectionInfo]
+      -&gt; Maybe Text
+      -&gt; RepositoryDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UpstreamRepositoryInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;upstreams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UpstreamRepositoryInfo]))
+-&gt; Maybe [UpstreamRepositoryInfo]
+-&gt; Parser (Maybe [UpstreamRepositoryInfo])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UpstreamRepositoryInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [RepositoryExternalConnectionInfo]
+   -&gt; Maybe Text
+   -&gt; RepositoryDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [RepositoryExternalConnectionInfo]
+      -&gt; Maybe Text
+      -&gt; RepositoryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [RepositoryExternalConnectionInfo]
+   -&gt; Maybe Text
+   -&gt; RepositoryDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [RepositoryExternalConnectionInfo]
+      -&gt; Maybe Text
+      -&gt; RepositoryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [RepositoryExternalConnectionInfo]
+   -&gt; Maybe Text
+   -&gt; RepositoryDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [RepositoryExternalConnectionInfo]
+      -&gt; Maybe Text
+      -&gt; RepositoryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [RepositoryExternalConnectionInfo]
+   -&gt; Maybe Text
+   -&gt; RepositoryDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [RepositoryExternalConnectionInfo]
+      -&gt; Maybe Text
+      -&gt; RepositoryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [RepositoryExternalConnectionInfo]
+   -&gt; Maybe Text
+   -&gt; RepositoryDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [RepositoryExternalConnectionInfo]
+      -&gt; Maybe Text -&gt; RepositoryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;administratorAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RepositoryExternalConnectionInfo]
+   -&gt; Maybe Text -&gt; RepositoryDescription)
+-&gt; Parser (Maybe [RepositoryExternalConnectionInfo])
+-&gt; Parser (Maybe Text -&gt; RepositoryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [RepositoryExternalConnectionInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;externalConnections&quot;</span></span><span>
+</span><span id="line-157"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RepositoryExternalConnectionInfo]))
+-&gt; Maybe [RepositoryExternalConnectionInfo]
+-&gt; Parser (Maybe [RepositoryExternalConnectionInfo])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryExternalConnectionInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RepositoryDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser RepositoryDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232184"><span id="local-6989586621679232186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -1,0 +1,1119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.CheckoutLicense</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Checks out the specified license.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.CheckoutLicense</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier">CheckoutLicense</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#newCheckoutLicense"><span class="hs-identifier">newCheckoutLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_nodeId"><span class="hs-identifier">checkoutLicense_nodeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_beneficiary"><span class="hs-identifier">checkoutLicense_beneficiary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_productSKU"><span class="hs-identifier">checkoutLicense_productSKU</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_checkoutType"><span class="hs-identifier">checkoutLicense_checkoutType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_keyFingerprint"><span class="hs-identifier">checkoutLicense_keyFingerprint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_entitlements"><span class="hs-identifier">checkoutLicense_entitlements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_clientToken"><span class="hs-identifier">checkoutLicense_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#newCheckoutLicenseResponse"><span class="hs-identifier">newCheckoutLicenseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_entitlementsAllowed"><span class="hs-identifier">checkoutLicenseResponse_entitlementsAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_checkoutType"><span class="hs-identifier">checkoutLicenseResponse_checkoutType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_expiration"><span class="hs-identifier">checkoutLicenseResponse_expiration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_signedToken"><span class="hs-identifier">checkoutLicenseResponse_signedToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_licenseConsumptionToken"><span class="hs-identifier">checkoutLicenseResponse_licenseConsumptionToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_nodeId"><span class="hs-identifier">checkoutLicenseResponse_nodeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_issuedAt"><span class="hs-identifier">checkoutLicenseResponse_issuedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_licenseArn"><span class="hs-identifier">checkoutLicenseResponse_licenseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_httpStatus"><span class="hs-identifier">checkoutLicenseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.html"><span class="hs-identifier">Amazonka.LicenseManager.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCheckoutLicense' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679313832"><span id="local-6989586621679313833"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckoutLicense"><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-var">CheckoutLicense</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckoutLicense%27"><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-var">CheckoutLicense'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Node ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnodeId%3ACheckoutLicense%27"><span class="annot"><span class="annottext">CheckoutLicense -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AnodeId%3ACheckoutLicense%27"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | License beneficiary.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Abeneficiary%3ACheckoutLicense%27"><span class="annot"><span class="annottext">CheckoutLicense -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Abeneficiary%3ACheckoutLicense%27"><span class="hs-identifier hs-var hs-var">beneficiary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Product SKU.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AproductSKU%3ACheckoutLicense%27"><span class="annot"><span class="annottext">CheckoutLicense -&gt; Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AproductSKU%3ACheckoutLicense%27"><span class="hs-identifier hs-var hs-var">productSKU</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Checkout type.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AcheckoutType%3ACheckoutLicense%27"><span class="annot"><span class="annottext">CheckoutLicense -&gt; CheckoutType
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AcheckoutType%3ACheckoutLicense%27"><span class="hs-identifier hs-var hs-var">checkoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-type">CheckoutType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Key fingerprint identifying the license.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AkeyFingerprint%3ACheckoutLicense%27"><span class="annot"><span class="annottext">CheckoutLicense -&gt; Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AkeyFingerprint%3ACheckoutLicense%27"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | License entitlements.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aentitlements%3ACheckoutLicense%27"><span class="annot"><span class="annottext">CheckoutLicense -&gt; [EntitlementData]
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Aentitlements%3ACheckoutLicense%27"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.EntitlementData.html#EntitlementData"><span class="hs-identifier hs-type">EntitlementData</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AclientToken%3ACheckoutLicense%27"><span class="annot"><span class="annottext">CheckoutLicense -&gt; Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AclientToken%3ACheckoutLicense%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313820"><span id="local-6989586621679313822"><span class="annot"><span class="annottext">CheckoutLicense -&gt; CheckoutLicense -&gt; Bool
+(CheckoutLicense -&gt; CheckoutLicense -&gt; Bool)
+-&gt; (CheckoutLicense -&gt; CheckoutLicense -&gt; Bool)
+-&gt; Eq CheckoutLicense
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CheckoutLicense -&gt; CheckoutLicense -&gt; Bool
+$c/= :: CheckoutLicense -&gt; CheckoutLicense -&gt; Bool
+== :: CheckoutLicense -&gt; CheckoutLicense -&gt; Bool
+$c== :: CheckoutLicense -&gt; CheckoutLicense -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313811"><span id="local-6989586621679313813"><span id="local-6989586621679313815"><span id="local-6989586621679313817"><span class="annot"><span class="annottext">ReadPrec [CheckoutLicense]
+ReadPrec CheckoutLicense
+Int -&gt; ReadS CheckoutLicense
+ReadS [CheckoutLicense]
+(Int -&gt; ReadS CheckoutLicense)
+-&gt; ReadS [CheckoutLicense]
+-&gt; ReadPrec CheckoutLicense
+-&gt; ReadPrec [CheckoutLicense]
+-&gt; Read CheckoutLicense
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CheckoutLicense]
+$creadListPrec :: ReadPrec [CheckoutLicense]
+readPrec :: ReadPrec CheckoutLicense
+$creadPrec :: ReadPrec CheckoutLicense
+readList :: ReadS [CheckoutLicense]
+$creadList :: ReadS [CheckoutLicense]
+readsPrec :: Int -&gt; ReadS CheckoutLicense
+$creadsPrec :: Int -&gt; ReadS CheckoutLicense
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313804"><span id="local-6989586621679313806"><span id="local-6989586621679313808"><span class="annot"><span class="annottext">Int -&gt; CheckoutLicense -&gt; ShowS
+[CheckoutLicense] -&gt; ShowS
+CheckoutLicense -&gt; String
+(Int -&gt; CheckoutLicense -&gt; ShowS)
+-&gt; (CheckoutLicense -&gt; String)
+-&gt; ([CheckoutLicense] -&gt; ShowS)
+-&gt; Show CheckoutLicense
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CheckoutLicense] -&gt; ShowS
+$cshowList :: [CheckoutLicense] -&gt; ShowS
+show :: CheckoutLicense -&gt; String
+$cshow :: CheckoutLicense -&gt; String
+showsPrec :: Int -&gt; CheckoutLicense -&gt; ShowS
+$cshowsPrec :: Int -&gt; CheckoutLicense -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CheckoutLicense -&gt; Rep CheckoutLicense x)
+-&gt; (forall x. Rep CheckoutLicense x -&gt; CheckoutLicense)
+-&gt; Generic CheckoutLicense
+forall x. Rep CheckoutLicense x -&gt; CheckoutLicense
+forall x. CheckoutLicense -&gt; Rep CheckoutLicense x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CheckoutLicense x -&gt; CheckoutLicense
+$cfrom :: forall x. CheckoutLicense -&gt; Rep CheckoutLicense x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'CheckoutLicense' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'nodeId', 'checkoutLicense_nodeId' - Node ID.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'beneficiary', 'checkoutLicense_beneficiary' - License beneficiary.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'productSKU', 'checkoutLicense_productSKU' - Product SKU.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'checkoutType', 'checkoutLicense_checkoutType' - Checkout type.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'keyFingerprint', 'checkoutLicense_keyFingerprint' - Key fingerprint identifying the license.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'entitlements', 'checkoutLicense_entitlements' - License entitlements.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'clientToken', 'checkoutLicense_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#newCheckoutLicense"><span class="hs-identifier hs-type">newCheckoutLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'productSKU'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'checkoutType'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-type">CheckoutType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'keyFingerprint'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span>
+</span><span id="line-114"></span><span id="newCheckoutLicense"><span class="annot"><span class="annottext">newCheckoutLicense :: Text -&gt; CheckoutType -&gt; Text -&gt; Text -&gt; CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#newCheckoutLicense"><span class="hs-identifier hs-var hs-var">newCheckoutLicense</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679313799"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313799"><span class="hs-identifier hs-var">pProductSKU_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679313798"><span class="annot"><span class="annottext">CheckoutType
+</span><a href="#local-6989586621679313798"><span class="hs-identifier hs-var">pCheckoutType_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679313797"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313797"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679313796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313796"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">CheckoutLicense' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; CheckoutType
+-&gt; Text
+-&gt; [EntitlementData]
+-&gt; Text
+-&gt; CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nodeId:CheckoutLicense' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AnodeId%3ACheckoutLicense%27"><span class="hs-identifier hs-var">nodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:beneficiary:CheckoutLicense' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Abeneficiary%3ACheckoutLicense%27"><span class="hs-identifier hs-var">beneficiary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:productSKU:CheckoutLicense' :: Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AproductSKU%3ACheckoutLicense%27"><span class="hs-identifier hs-var">productSKU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313799"><span class="hs-identifier hs-var">pProductSKU_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:checkoutType:CheckoutLicense' :: CheckoutType
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AcheckoutType%3ACheckoutLicense%27"><span class="hs-identifier hs-var">checkoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CheckoutType
+</span><a href="#local-6989586621679313798"><span class="hs-identifier hs-var">pCheckoutType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyFingerprint:CheckoutLicense' :: Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AkeyFingerprint%3ACheckoutLicense%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313797"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:entitlements:CheckoutLicense' :: [EntitlementData]
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Aentitlements%3ACheckoutLicense%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EntitlementData]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CheckoutLicense' :: Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AclientToken%3ACheckoutLicense%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313796"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Node ID.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_nodeId"><span class="hs-identifier hs-type">checkoutLicense_nodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="checkoutLicense_nodeId"><span class="annot"><span class="annottext">checkoutLicense_nodeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicense -&gt; f CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_nodeId"><span class="hs-identifier hs-var hs-var">checkoutLicense_nodeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicense -&gt; Maybe Text)
+-&gt; (CheckoutLicense -&gt; Maybe Text -&gt; CheckoutLicense)
+-&gt; Lens CheckoutLicense CheckoutLicense (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313793"><span class="annot"><span class="annottext">Maybe Text
+nodeId :: Maybe Text
+$sel:nodeId:CheckoutLicense' :: CheckoutLicense -&gt; Maybe Text
+</span><a href="#local-6989586621679313793"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313793"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313792"><span class="annot"><span class="annottext">s :: CheckoutLicense
+</span><a href="#local-6989586621679313792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicense
+</span><a href="#local-6989586621679313792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeId:CheckoutLicense' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AnodeId%3ACheckoutLicense%27"><span class="hs-identifier hs-var">nodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | License beneficiary.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_beneficiary"><span class="hs-identifier hs-type">checkoutLicense_beneficiary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="checkoutLicense_beneficiary"><span class="annot"><span class="annottext">checkoutLicense_beneficiary :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicense -&gt; f CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_beneficiary"><span class="hs-identifier hs-var hs-var">checkoutLicense_beneficiary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicense -&gt; Maybe Text)
+-&gt; (CheckoutLicense -&gt; Maybe Text -&gt; CheckoutLicense)
+-&gt; Lens CheckoutLicense CheckoutLicense (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313790"><span class="annot"><span class="annottext">Maybe Text
+beneficiary :: Maybe Text
+$sel:beneficiary:CheckoutLicense' :: CheckoutLicense -&gt; Maybe Text
+</span><a href="#local-6989586621679313790"><span class="hs-identifier hs-var hs-var">beneficiary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313790"><span class="hs-identifier hs-var">beneficiary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313789"><span class="annot"><span class="annottext">s :: CheckoutLicense
+</span><a href="#local-6989586621679313789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicense
+</span><a href="#local-6989586621679313789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beneficiary:CheckoutLicense' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Abeneficiary%3ACheckoutLicense%27"><span class="hs-identifier hs-var">beneficiary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Product SKU.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_productSKU"><span class="hs-identifier hs-type">checkoutLicense_productSKU</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="checkoutLicense_productSKU"><span class="annot"><span class="annottext">checkoutLicense_productSKU :: (Text -&gt; f Text) -&gt; CheckoutLicense -&gt; f CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_productSKU"><span class="hs-identifier hs-var hs-var">checkoutLicense_productSKU</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicense -&gt; Text)
+-&gt; (CheckoutLicense -&gt; Text -&gt; CheckoutLicense)
+-&gt; Lens CheckoutLicense CheckoutLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313787"><span class="annot"><span class="annottext">Text
+productSKU :: Text
+$sel:productSKU:CheckoutLicense' :: CheckoutLicense -&gt; Text
+</span><a href="#local-6989586621679313787"><span class="hs-identifier hs-var hs-var">productSKU</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313787"><span class="hs-identifier hs-var">productSKU</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313786"><span class="annot"><span class="annottext">s :: CheckoutLicense
+</span><a href="#local-6989586621679313786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicense
+</span><a href="#local-6989586621679313786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productSKU:CheckoutLicense' :: Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AproductSKU%3ACheckoutLicense%27"><span class="hs-identifier hs-var">productSKU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Checkout type.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_checkoutType"><span class="hs-identifier hs-type">checkoutLicense_checkoutType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-type">CheckoutType</span></a></span><span>
+</span><span id="line-143"></span><span id="checkoutLicense_checkoutType"><span class="annot"><span class="annottext">checkoutLicense_checkoutType :: (CheckoutType -&gt; f CheckoutType)
+-&gt; CheckoutLicense -&gt; f CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_checkoutType"><span class="hs-identifier hs-var hs-var">checkoutLicense_checkoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicense -&gt; CheckoutType)
+-&gt; (CheckoutLicense -&gt; CheckoutType -&gt; CheckoutLicense)
+-&gt; Lens CheckoutLicense CheckoutLicense CheckoutType CheckoutType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313784"><span class="annot"><span class="annottext">CheckoutType
+checkoutType :: CheckoutType
+$sel:checkoutType:CheckoutLicense' :: CheckoutLicense -&gt; CheckoutType
+</span><a href="#local-6989586621679313784"><span class="hs-identifier hs-var hs-var">checkoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutType
+</span><a href="#local-6989586621679313784"><span class="hs-identifier hs-var">checkoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313783"><span class="annot"><span class="annottext">s :: CheckoutLicense
+</span><a href="#local-6989586621679313783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313782"><span class="annot"><span class="annottext">CheckoutType
+</span><a href="#local-6989586621679313782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicense
+</span><a href="#local-6989586621679313783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkoutType:CheckoutLicense' :: CheckoutType
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AcheckoutType%3ACheckoutLicense%27"><span class="hs-identifier hs-var">checkoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CheckoutType
+</span><a href="#local-6989586621679313782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Key fingerprint identifying the license.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_keyFingerprint"><span class="hs-identifier hs-type">checkoutLicense_keyFingerprint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-147"></span><span id="checkoutLicense_keyFingerprint"><span class="annot"><span class="annottext">checkoutLicense_keyFingerprint :: (Text -&gt; f Text) -&gt; CheckoutLicense -&gt; f CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_keyFingerprint"><span class="hs-identifier hs-var hs-var">checkoutLicense_keyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicense -&gt; Text)
+-&gt; (CheckoutLicense -&gt; Text -&gt; CheckoutLicense)
+-&gt; Lens CheckoutLicense CheckoutLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313781"><span class="annot"><span class="annottext">Text
+keyFingerprint :: Text
+$sel:keyFingerprint:CheckoutLicense' :: CheckoutLicense -&gt; Text
+</span><a href="#local-6989586621679313781"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313781"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313780"><span class="annot"><span class="annottext">s :: CheckoutLicense
+</span><a href="#local-6989586621679313780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicense
+</span><a href="#local-6989586621679313780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:CheckoutLicense' :: Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AkeyFingerprint%3ACheckoutLicense%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | License entitlements.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_entitlements"><span class="hs-identifier hs-type">checkoutLicense_entitlements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.EntitlementData.html#EntitlementData"><span class="hs-identifier hs-type">EntitlementData</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span id="checkoutLicense_entitlements"><span class="annot"><span class="annottext">checkoutLicense_entitlements :: ([EntitlementData] -&gt; f [EntitlementData])
+-&gt; CheckoutLicense -&gt; f CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_entitlements"><span class="hs-identifier hs-var hs-var">checkoutLicense_entitlements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicense -&gt; [EntitlementData])
+-&gt; (CheckoutLicense -&gt; [EntitlementData] -&gt; CheckoutLicense)
+-&gt; Lens
+     CheckoutLicense CheckoutLicense [EntitlementData] [EntitlementData]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313778"><span class="annot"><span class="annottext">[EntitlementData]
+entitlements :: [EntitlementData]
+$sel:entitlements:CheckoutLicense' :: CheckoutLicense -&gt; [EntitlementData]
+</span><a href="#local-6989586621679313778"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EntitlementData]
+</span><a href="#local-6989586621679313778"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313777"><span class="annot"><span class="annottext">s :: CheckoutLicense
+</span><a href="#local-6989586621679313777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313776"><span class="annot"><span class="annottext">[EntitlementData]
+</span><a href="#local-6989586621679313776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicense
+</span><a href="#local-6989586621679313777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlements:CheckoutLicense' :: [EntitlementData]
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Aentitlements%3ACheckoutLicense%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EntitlementData]
+</span><a href="#local-6989586621679313776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EntitlementData] -&gt; f [EntitlementData])
+ -&gt; CheckoutLicense -&gt; f CheckoutLicense)
+-&gt; (([EntitlementData] -&gt; f [EntitlementData])
+    -&gt; [EntitlementData] -&gt; f [EntitlementData])
+-&gt; ([EntitlementData] -&gt; f [EntitlementData])
+-&gt; CheckoutLicense
+-&gt; f CheckoutLicense
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EntitlementData] -&gt; f [EntitlementData])
+-&gt; [EntitlementData] -&gt; f [EntitlementData]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_clientToken"><span class="hs-identifier hs-type">checkoutLicense_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="checkoutLicense_clientToken"><span class="annot"><span class="annottext">checkoutLicense_clientToken :: (Text -&gt; f Text) -&gt; CheckoutLicense -&gt; f CheckoutLicense
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicense_clientToken"><span class="hs-identifier hs-var hs-var">checkoutLicense_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicense -&gt; Text)
+-&gt; (CheckoutLicense -&gt; Text -&gt; CheckoutLicense)
+-&gt; Lens CheckoutLicense CheckoutLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313773"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CheckoutLicense' :: CheckoutLicense -&gt; Text
+</span><a href="#local-6989586621679313773"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313773"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313772"><span class="annot"><span class="annottext">s :: CheckoutLicense
+</span><a href="#local-6989586621679313772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicense
+</span><a href="#local-6989586621679313772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CheckoutLicense' :: Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AclientToken%3ACheckoutLicense%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-160"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679313767"><span class="annot"><span class="annottext">request :: CheckoutLicense -&gt; Request CheckoutLicense
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CheckoutLicense -&gt; Request CheckoutLicense
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LicenseManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679313763"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CheckoutLicense
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CheckoutLicense)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CheckoutLicense))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CheckoutLicense
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CheckoutLicense)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313760"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313759"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313759"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313758"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EntitlementData]
+-&gt; Maybe CheckoutType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-var">CheckoutLicenseResponse'</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EntitlementData]
+ -&gt; Maybe CheckoutType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe [EntitlementData])
+-&gt; Either
+     String
+     (Maybe CheckoutType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EntitlementData]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntitlementsAllowed&quot;</span></span><span>
+</span><span id="line-168"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [EntitlementData]))
+-&gt; Maybe [EntitlementData]
+-&gt; Either String (Maybe [EntitlementData])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EntitlementData]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-169"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CheckoutType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe CheckoutType)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CheckoutType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CheckoutType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Expiration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SignedToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseConsumptionToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IssuedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CheckoutLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CheckoutLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CheckoutLicenseResponse)
+-&gt; Either String Int -&gt; Either String CheckoutLicenseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313760"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313749"><span id="local-6989586621679313751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679313742"><span class="annot"><span class="annottext">toHeaders :: CheckoutLicense -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CheckoutLicense -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLicenseManager.CheckoutLicense&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-195"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313732"><span id="local-6989586621679313734"><span id="local-6989586621679313736"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679313730"><span class="annot"><span class="annottext">toJSON :: CheckoutLicense -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense%27"><span class="hs-identifier hs-type">CheckoutLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313722"><span id="local-6989586621679313723"><span id="local-6989586621679313724"><span id="local-6989586621679313725"><span id="local-6989586621679313726"><span id="local-6989586621679313727"><span id="local-6989586621679313728"><span class="annot"><span class="annottext">[EntitlementData]
+Maybe Text
+Text
+CheckoutType
+clientToken :: Text
+entitlements :: [EntitlementData]
+keyFingerprint :: Text
+checkoutType :: CheckoutType
+productSKU :: Text
+beneficiary :: Maybe Text
+nodeId :: Maybe Text
+$sel:clientToken:CheckoutLicense' :: CheckoutLicense -&gt; Text
+$sel:entitlements:CheckoutLicense' :: CheckoutLicense -&gt; [EntitlementData]
+$sel:keyFingerprint:CheckoutLicense' :: CheckoutLicense -&gt; Text
+$sel:checkoutType:CheckoutLicense' :: CheckoutLicense -&gt; CheckoutType
+$sel:productSKU:CheckoutLicense' :: CheckoutLicense -&gt; Text
+$sel:beneficiary:CheckoutLicense' :: CheckoutLicense -&gt; Maybe Text
+$sel:nodeId:CheckoutLicense' :: CheckoutLicense -&gt; Maybe Text
+</span><a href="#local-6989586621679313722"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313728"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Beneficiary&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313727"><span class="hs-identifier hs-var">beneficiary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductSKU&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313726"><span class="hs-identifier hs-var">productSKU</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CheckoutType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CheckoutType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CheckoutType
+</span><a href="#local-6989586621679313725"><span class="hs-identifier hs-var">checkoutType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-208"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyFingerprint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313724"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entitlements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EntitlementData] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[EntitlementData]
+</span><a href="#local-6989586621679313723"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313722"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679313716"><span class="annot"><span class="annottext">toPath :: CheckoutLicense -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CheckoutLicense -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicense"><span class="hs-identifier hs-type">CheckoutLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679313712"><span class="annot"><span class="annottext">toQuery :: CheckoutLicense -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CheckoutLicense -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | /See:/ 'newCheckoutLicenseResponse' smart constructor.</span><span>
+</span><span id="line-221"></span><span id="local-6989586621679313709"><span id="local-6989586621679313710"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckoutLicenseResponse"><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-var">CheckoutLicenseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckoutLicenseResponse%27"><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-var">CheckoutLicenseResponse'</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allowed license entitlements.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AentitlementsAllowed%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe [EntitlementData]
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AentitlementsAllowed%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">entitlementsAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.EntitlementData.html#EntitlementData"><span class="hs-identifier hs-type">EntitlementData</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | Checkout type.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AcheckoutType%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe CheckoutType
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AcheckoutType%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">checkoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-type">CheckoutType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | Date and time at which the license checkout expires.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3Aexpiration%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Aexpiration%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | Signed token.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AsignedToken%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AsignedToken%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">signedToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | License consumption token.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AlicenseConsumptionToken%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AlicenseConsumptionToken%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">licenseConsumptionToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | Node ID.</span><span>
+</span><span id="line-233"></span><span>    </span><span id="%24sel%3AnodeId%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AnodeId%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- | Date and time at which the license checkout is issued.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AissuedAt%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AissuedAt%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">issuedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the checkout license.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AlicenseArn%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AlicenseArn%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">licenseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACheckoutLicenseResponse%27"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; Int
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AhttpStatus%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313696"><span id="local-6989586621679313698"><span class="annot"><span class="annottext">CheckoutLicenseResponse -&gt; CheckoutLicenseResponse -&gt; Bool
+(CheckoutLicenseResponse -&gt; CheckoutLicenseResponse -&gt; Bool)
+-&gt; (CheckoutLicenseResponse -&gt; CheckoutLicenseResponse -&gt; Bool)
+-&gt; Eq CheckoutLicenseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CheckoutLicenseResponse -&gt; CheckoutLicenseResponse -&gt; Bool
+$c/= :: CheckoutLicenseResponse -&gt; CheckoutLicenseResponse -&gt; Bool
+== :: CheckoutLicenseResponse -&gt; CheckoutLicenseResponse -&gt; Bool
+$c== :: CheckoutLicenseResponse -&gt; CheckoutLicenseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313688"><span id="local-6989586621679313690"><span id="local-6989586621679313692"><span id="local-6989586621679313694"><span class="annot"><span class="annottext">ReadPrec [CheckoutLicenseResponse]
+ReadPrec CheckoutLicenseResponse
+Int -&gt; ReadS CheckoutLicenseResponse
+ReadS [CheckoutLicenseResponse]
+(Int -&gt; ReadS CheckoutLicenseResponse)
+-&gt; ReadS [CheckoutLicenseResponse]
+-&gt; ReadPrec CheckoutLicenseResponse
+-&gt; ReadPrec [CheckoutLicenseResponse]
+-&gt; Read CheckoutLicenseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CheckoutLicenseResponse]
+$creadListPrec :: ReadPrec [CheckoutLicenseResponse]
+readPrec :: ReadPrec CheckoutLicenseResponse
+$creadPrec :: ReadPrec CheckoutLicenseResponse
+readList :: ReadS [CheckoutLicenseResponse]
+$creadList :: ReadS [CheckoutLicenseResponse]
+readsPrec :: Int -&gt; ReadS CheckoutLicenseResponse
+$creadsPrec :: Int -&gt; ReadS CheckoutLicenseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313682"><span id="local-6989586621679313684"><span id="local-6989586621679313686"><span class="annot"><span class="annottext">Int -&gt; CheckoutLicenseResponse -&gt; ShowS
+[CheckoutLicenseResponse] -&gt; ShowS
+CheckoutLicenseResponse -&gt; String
+(Int -&gt; CheckoutLicenseResponse -&gt; ShowS)
+-&gt; (CheckoutLicenseResponse -&gt; String)
+-&gt; ([CheckoutLicenseResponse] -&gt; ShowS)
+-&gt; Show CheckoutLicenseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CheckoutLicenseResponse] -&gt; ShowS
+$cshowList :: [CheckoutLicenseResponse] -&gt; ShowS
+show :: CheckoutLicenseResponse -&gt; String
+$cshow :: CheckoutLicenseResponse -&gt; String
+showsPrec :: Int -&gt; CheckoutLicenseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CheckoutLicenseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CheckoutLicenseResponse -&gt; Rep CheckoutLicenseResponse x)
+-&gt; (forall x.
+    Rep CheckoutLicenseResponse x -&gt; CheckoutLicenseResponse)
+-&gt; Generic CheckoutLicenseResponse
+forall x. Rep CheckoutLicenseResponse x -&gt; CheckoutLicenseResponse
+forall x. CheckoutLicenseResponse -&gt; Rep CheckoutLicenseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CheckoutLicenseResponse x -&gt; CheckoutLicenseResponse
+$cfrom :: forall x. CheckoutLicenseResponse -&gt; Rep CheckoutLicenseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Create a value of 'CheckoutLicenseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'entitlementsAllowed', 'checkoutLicenseResponse_entitlementsAllowed' - Allowed license entitlements.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'checkoutType', 'checkoutLicenseResponse_checkoutType' - Checkout type.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'expiration', 'checkoutLicenseResponse_expiration' - Date and time at which the license checkout expires.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'signedToken', 'checkoutLicenseResponse_signedToken' - Signed token.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'licenseConsumptionToken', 'checkoutLicenseResponse_licenseConsumptionToken' - License consumption token.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'nodeId', 'checkoutLicenseResponse_nodeId' - Node ID.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'issuedAt', 'checkoutLicenseResponse_issuedAt' - Date and time at which the license checkout is issued.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'licenseArn', 'checkoutLicenseResponse_licenseArn' - Amazon Resource Name (ARN) of the checkout license.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'httpStatus', 'checkoutLicenseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#newCheckoutLicenseResponse"><span class="hs-identifier hs-type">newCheckoutLicenseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span>
+</span><span id="line-272"></span><span id="newCheckoutLicenseResponse"><span class="annot"><span class="annottext">newCheckoutLicenseResponse :: Int -&gt; CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#newCheckoutLicenseResponse"><span class="hs-identifier hs-var hs-var">newCheckoutLicenseResponse</span></a></span></span><span> </span><span id="local-6989586621679313679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>  </span><span class="annot"><span class="annottext">CheckoutLicenseResponse' :: Maybe [EntitlementData]
+-&gt; Maybe CheckoutType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entitlementsAllowed:CheckoutLicenseResponse' :: Maybe [EntitlementData]
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AentitlementsAllowed%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">entitlementsAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EntitlementData]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:checkoutType:CheckoutLicenseResponse' :: Maybe CheckoutType
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AcheckoutType%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">checkoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CheckoutType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">$sel:expiration:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Aexpiration%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">expiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:signedToken:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AsignedToken%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">signedToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseConsumptionToken:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AlicenseConsumptionToken%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">licenseConsumptionToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeId:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AnodeId%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">nodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:issuedAt:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AissuedAt%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">issuedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseArn:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AlicenseArn%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">licenseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CheckoutLicenseResponse' :: Int
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AhttpStatus%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-284"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | Allowed license entitlements.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_entitlementsAllowed"><span class="hs-identifier hs-type">checkoutLicenseResponse_entitlementsAllowed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.EntitlementData.html#EntitlementData"><span class="hs-identifier hs-type">EntitlementData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="checkoutLicenseResponse_entitlementsAllowed"><span class="annot"><span class="annottext">checkoutLicenseResponse_entitlementsAllowed :: (Maybe [EntitlementData] -&gt; f (Maybe [EntitlementData]))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_entitlementsAllowed"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_entitlementsAllowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe [EntitlementData])
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe [EntitlementData] -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe [EntitlementData])
+     (Maybe [EntitlementData])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313678"><span class="annot"><span class="annottext">Maybe [EntitlementData]
+entitlementsAllowed :: Maybe [EntitlementData]
+$sel:entitlementsAllowed:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe [EntitlementData]
+</span><a href="#local-6989586621679313678"><span class="hs-identifier hs-var hs-var">entitlementsAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntitlementData]
+</span><a href="#local-6989586621679313678"><span class="hs-identifier hs-var">entitlementsAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313677"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313676"><span class="annot"><span class="annottext">Maybe [EntitlementData]
+</span><a href="#local-6989586621679313676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlementsAllowed:CheckoutLicenseResponse' :: Maybe [EntitlementData]
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AentitlementsAllowed%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">entitlementsAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EntitlementData]
+</span><a href="#local-6989586621679313676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntitlementData] -&gt; f (Maybe [EntitlementData]))
+ -&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse)
+-&gt; ((Maybe [EntitlementData] -&gt; f (Maybe [EntitlementData]))
+    -&gt; Maybe [EntitlementData] -&gt; f (Maybe [EntitlementData]))
+-&gt; (Maybe [EntitlementData] -&gt; f (Maybe [EntitlementData]))
+-&gt; CheckoutLicenseResponse
+-&gt; f CheckoutLicenseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EntitlementData]
+  [EntitlementData]
+  [EntitlementData]
+  [EntitlementData]
+-&gt; Iso
+     (Maybe [EntitlementData])
+     (Maybe [EntitlementData])
+     (Maybe [EntitlementData])
+     (Maybe [EntitlementData])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EntitlementData]
+  [EntitlementData]
+  [EntitlementData]
+  [EntitlementData]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Checkout type.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_checkoutType"><span class="hs-identifier hs-type">checkoutLicenseResponse_checkoutType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-type">CheckoutType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="checkoutLicenseResponse_checkoutType"><span class="annot"><span class="annottext">checkoutLicenseResponse_checkoutType :: (Maybe CheckoutType -&gt; f (Maybe CheckoutType))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_checkoutType"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_checkoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe CheckoutType)
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe CheckoutType -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe CheckoutType)
+     (Maybe CheckoutType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313674"><span class="annot"><span class="annottext">Maybe CheckoutType
+checkoutType :: Maybe CheckoutType
+$sel:checkoutType:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe CheckoutType
+</span><a href="#local-6989586621679313674"><span class="hs-identifier hs-var hs-var">checkoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CheckoutType
+</span><a href="#local-6989586621679313674"><span class="hs-identifier hs-var">checkoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313673"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313672"><span class="annot"><span class="annottext">Maybe CheckoutType
+</span><a href="#local-6989586621679313672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkoutType:CheckoutLicenseResponse' :: Maybe CheckoutType
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AcheckoutType%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">checkoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CheckoutType
+</span><a href="#local-6989586621679313672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | Date and time at which the license checkout expires.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_expiration"><span class="hs-identifier hs-type">checkoutLicenseResponse_expiration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="checkoutLicenseResponse_expiration"><span class="annot"><span class="annottext">checkoutLicenseResponse_expiration :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_expiration"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_expiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe Text)
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe Text -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313671"><span class="annot"><span class="annottext">Maybe Text
+expiration :: Maybe Text
+$sel:expiration:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313671"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313671"><span class="hs-identifier hs-var">expiration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313670"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiration:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3Aexpiration%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">expiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | Signed token.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_signedToken"><span class="hs-identifier hs-type">checkoutLicenseResponse_signedToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="checkoutLicenseResponse_signedToken"><span class="annot"><span class="annottext">checkoutLicenseResponse_signedToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_signedToken"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_signedToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe Text)
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe Text -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313668"><span class="annot"><span class="annottext">Maybe Text
+signedToken :: Maybe Text
+$sel:signedToken:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313668"><span class="hs-identifier hs-var hs-var">signedToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313668"><span class="hs-identifier hs-var">signedToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313667"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signedToken:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AsignedToken%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">signedToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | License consumption token.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_licenseConsumptionToken"><span class="hs-identifier hs-type">checkoutLicenseResponse_licenseConsumptionToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="checkoutLicenseResponse_licenseConsumptionToken"><span class="annot"><span class="annottext">checkoutLicenseResponse_licenseConsumptionToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_licenseConsumptionToken"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_licenseConsumptionToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe Text)
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe Text -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313665"><span class="annot"><span class="annottext">Maybe Text
+licenseConsumptionToken :: Maybe Text
+$sel:licenseConsumptionToken:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313665"><span class="hs-identifier hs-var hs-var">licenseConsumptionToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313665"><span class="hs-identifier hs-var">licenseConsumptionToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313664"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseConsumptionToken:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AlicenseConsumptionToken%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">licenseConsumptionToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | Node ID.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_nodeId"><span class="hs-identifier hs-type">checkoutLicenseResponse_nodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="checkoutLicenseResponse_nodeId"><span class="annot"><span class="annottext">checkoutLicenseResponse_nodeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_nodeId"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_nodeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe Text)
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe Text -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313662"><span class="annot"><span class="annottext">Maybe Text
+nodeId :: Maybe Text
+$sel:nodeId:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313662"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313662"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313661"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeId:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AnodeId%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">nodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | Date and time at which the license checkout is issued.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_issuedAt"><span class="hs-identifier hs-type">checkoutLicenseResponse_issuedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="checkoutLicenseResponse_issuedAt"><span class="annot"><span class="annottext">checkoutLicenseResponse_issuedAt :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_issuedAt"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_issuedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe Text)
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe Text -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313659"><span class="annot"><span class="annottext">Maybe Text
+issuedAt :: Maybe Text
+$sel:issuedAt:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313659"><span class="hs-identifier hs-var hs-var">issuedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313659"><span class="hs-identifier hs-var">issuedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313658"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuedAt:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AissuedAt%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">issuedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the checkout license.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_licenseArn"><span class="hs-identifier hs-type">checkoutLicenseResponse_licenseArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="checkoutLicenseResponse_licenseArn"><span class="annot"><span class="annottext">checkoutLicenseResponse_licenseArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_licenseArn"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_licenseArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Maybe Text)
+-&gt; (CheckoutLicenseResponse
+    -&gt; Maybe Text -&gt; CheckoutLicenseResponse)
+-&gt; Lens
+     CheckoutLicenseResponse
+     CheckoutLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313656"><span class="annot"><span class="annottext">Maybe Text
+licenseArn :: Maybe Text
+$sel:licenseArn:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313656"><span class="hs-identifier hs-var hs-var">licenseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313656"><span class="hs-identifier hs-var">licenseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313655"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseArn:CheckoutLicenseResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AlicenseArn%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">licenseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_httpStatus"><span class="hs-identifier hs-type">checkoutLicenseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-320"></span><span id="checkoutLicenseResponse_httpStatus"><span class="annot"><span class="annottext">checkoutLicenseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CheckoutLicenseResponse -&gt; f CheckoutLicenseResponse
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#checkoutLicenseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">checkoutLicenseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckoutLicenseResponse -&gt; Int)
+-&gt; (CheckoutLicenseResponse -&gt; Int -&gt; CheckoutLicenseResponse)
+-&gt; Lens CheckoutLicenseResponse CheckoutLicenseResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313653"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CheckoutLicenseResponse' :: CheckoutLicenseResponse -&gt; Int
+</span><a href="#local-6989586621679313653"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313653"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313652"><span class="annot"><span class="annottext">s :: CheckoutLicenseResponse
+</span><a href="#local-6989586621679313652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse%27"><span class="hs-identifier hs-type">CheckoutLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313651"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckoutLicenseResponse
+</span><a href="#local-6989586621679313652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckoutLicenseResponse' :: Int
+</span><a href="Amazonka.LicenseManager.CheckoutLicense.html#%24sel%3AhttpStatus%3ACheckoutLicenseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CheckoutLicense.html#CheckoutLicenseResponse"><span class="hs-identifier hs-type">CheckoutLicenseResponse</span></a></span></span><span>
+</span><span id="line-323"></span></pre></body></html>

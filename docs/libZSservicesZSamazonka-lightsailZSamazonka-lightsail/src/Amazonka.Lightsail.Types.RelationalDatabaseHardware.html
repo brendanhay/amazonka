@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.RelationalDatabaseHardware</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.RelationalDatabaseHardware</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes the hardware of a database.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRelationalDatabaseHardware' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679620422"><span id="local-6989586621679620423"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelationalDatabaseHardware"><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-var">RelationalDatabaseHardware</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationalDatabaseHardware%27"><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-var">RelationalDatabaseHardware'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of vCPUs for the database.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcpuCount%3ARelationalDatabaseHardware%27"><span class="annot"><span class="annottext">RelationalDatabaseHardware -&gt; Maybe Int
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AcpuCount%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The size of the disk for the database.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdiskSizeInGb%3ARelationalDatabaseHardware%27"><span class="annot"><span class="annottext">RelationalDatabaseHardware -&gt; Maybe Int
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The amount of RAM in GB for the database.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AramSizeInGb%3ARelationalDatabaseHardware%27"><span class="annot"><span class="annottext">RelationalDatabaseHardware -&gt; Maybe Double
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AramSizeInGb%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679620414"><span id="local-6989586621679620416"><span class="annot"><span class="annottext">RelationalDatabaseHardware -&gt; RelationalDatabaseHardware -&gt; Bool
+(RelationalDatabaseHardware -&gt; RelationalDatabaseHardware -&gt; Bool)
+-&gt; (RelationalDatabaseHardware
+    -&gt; RelationalDatabaseHardware -&gt; Bool)
+-&gt; Eq RelationalDatabaseHardware
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RelationalDatabaseHardware -&gt; RelationalDatabaseHardware -&gt; Bool
+$c/= :: RelationalDatabaseHardware -&gt; RelationalDatabaseHardware -&gt; Bool
+== :: RelationalDatabaseHardware -&gt; RelationalDatabaseHardware -&gt; Bool
+$c== :: RelationalDatabaseHardware -&gt; RelationalDatabaseHardware -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620405"><span id="local-6989586621679620407"><span id="local-6989586621679620409"><span id="local-6989586621679620411"><span class="annot"><span class="annottext">ReadPrec [RelationalDatabaseHardware]
+ReadPrec RelationalDatabaseHardware
+Int -&gt; ReadS RelationalDatabaseHardware
+ReadS [RelationalDatabaseHardware]
+(Int -&gt; ReadS RelationalDatabaseHardware)
+-&gt; ReadS [RelationalDatabaseHardware]
+-&gt; ReadPrec RelationalDatabaseHardware
+-&gt; ReadPrec [RelationalDatabaseHardware]
+-&gt; Read RelationalDatabaseHardware
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RelationalDatabaseHardware]
+$creadListPrec :: ReadPrec [RelationalDatabaseHardware]
+readPrec :: ReadPrec RelationalDatabaseHardware
+$creadPrec :: ReadPrec RelationalDatabaseHardware
+readList :: ReadS [RelationalDatabaseHardware]
+$creadList :: ReadS [RelationalDatabaseHardware]
+readsPrec :: Int -&gt; ReadS RelationalDatabaseHardware
+$creadsPrec :: Int -&gt; ReadS RelationalDatabaseHardware
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620398"><span id="local-6989586621679620400"><span id="local-6989586621679620402"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseHardware -&gt; ShowS
+[RelationalDatabaseHardware] -&gt; ShowS
+RelationalDatabaseHardware -&gt; String
+(Int -&gt; RelationalDatabaseHardware -&gt; ShowS)
+-&gt; (RelationalDatabaseHardware -&gt; String)
+-&gt; ([RelationalDatabaseHardware] -&gt; ShowS)
+-&gt; Show RelationalDatabaseHardware
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RelationalDatabaseHardware] -&gt; ShowS
+$cshowList :: [RelationalDatabaseHardware] -&gt; ShowS
+show :: RelationalDatabaseHardware -&gt; String
+$cshow :: RelationalDatabaseHardware -&gt; String
+showsPrec :: Int -&gt; RelationalDatabaseHardware -&gt; ShowS
+$cshowsPrec :: Int -&gt; RelationalDatabaseHardware -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RelationalDatabaseHardware -&gt; Rep RelationalDatabaseHardware x)
+-&gt; (forall x.
+    Rep RelationalDatabaseHardware x -&gt; RelationalDatabaseHardware)
+-&gt; Generic RelationalDatabaseHardware
+forall x.
+Rep RelationalDatabaseHardware x -&gt; RelationalDatabaseHardware
+forall x.
+RelationalDatabaseHardware -&gt; Rep RelationalDatabaseHardware x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RelationalDatabaseHardware x -&gt; RelationalDatabaseHardware
+$cfrom :: forall x.
+RelationalDatabaseHardware -&gt; Rep RelationalDatabaseHardware x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'RelationalDatabaseHardware' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'cpuCount', 'relationalDatabaseHardware_cpuCount' - The number of vCPUs for the database.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'diskSizeInGb', 'relationalDatabaseHardware_diskSizeInGb' - The size of the disk for the database.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'ramSizeInGb', 'relationalDatabaseHardware_ramSizeInGb' - The amount of RAM in GB for the database.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#newRelationalDatabaseHardware"><span class="hs-identifier hs-type">newRelationalDatabaseHardware</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span><span>
+</span><span id="line-54"></span><span id="newRelationalDatabaseHardware"><span class="annot"><span class="annottext">newRelationalDatabaseHardware :: RelationalDatabaseHardware
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#newRelationalDatabaseHardware"><span class="hs-identifier hs-var hs-var">newRelationalDatabaseHardware</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">RelationalDatabaseHardware' :: Maybe Int
+-&gt; Maybe Int -&gt; Maybe Double -&gt; RelationalDatabaseHardware
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-type">RelationalDatabaseHardware'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cpuCount:RelationalDatabaseHardware' :: Maybe Int
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AcpuCount%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskSizeInGb:RelationalDatabaseHardware' :: Maybe Int
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:ramSizeInGb:RelationalDatabaseHardware' :: Maybe Double
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AramSizeInGb%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The number of vCPUs for the database.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#relationalDatabaseHardware_cpuCount"><span class="hs-identifier hs-type">relationalDatabaseHardware_cpuCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="relationalDatabaseHardware_cpuCount"><span class="annot"><span class="annottext">relationalDatabaseHardware_cpuCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RelationalDatabaseHardware -&gt; f RelationalDatabaseHardware
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#relationalDatabaseHardware_cpuCount"><span class="hs-identifier hs-var hs-var">relationalDatabaseHardware_cpuCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseHardware -&gt; Maybe Int)
+-&gt; (RelationalDatabaseHardware
+    -&gt; Maybe Int -&gt; RelationalDatabaseHardware)
+-&gt; Lens
+     RelationalDatabaseHardware
+     RelationalDatabaseHardware
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-type">RelationalDatabaseHardware'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620389"><span class="annot"><span class="annottext">Maybe Int
+cpuCount :: Maybe Int
+$sel:cpuCount:RelationalDatabaseHardware' :: RelationalDatabaseHardware -&gt; Maybe Int
+</span><a href="#local-6989586621679620389"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620389"><span class="hs-identifier hs-var">cpuCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620388"><span class="annot"><span class="annottext">s :: RelationalDatabaseHardware
+</span><a href="#local-6989586621679620388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-type">RelationalDatabaseHardware'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620387"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseHardware
+</span><a href="#local-6989586621679620388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCount:RelationalDatabaseHardware' :: Maybe Int
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AcpuCount%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The size of the disk for the database.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#relationalDatabaseHardware_diskSizeInGb"><span class="hs-identifier hs-type">relationalDatabaseHardware_diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="relationalDatabaseHardware_diskSizeInGb"><span class="annot"><span class="annottext">relationalDatabaseHardware_diskSizeInGb :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RelationalDatabaseHardware -&gt; f RelationalDatabaseHardware
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#relationalDatabaseHardware_diskSizeInGb"><span class="hs-identifier hs-var hs-var">relationalDatabaseHardware_diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseHardware -&gt; Maybe Int)
+-&gt; (RelationalDatabaseHardware
+    -&gt; Maybe Int -&gt; RelationalDatabaseHardware)
+-&gt; Lens
+     RelationalDatabaseHardware
+     RelationalDatabaseHardware
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-type">RelationalDatabaseHardware'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620385"><span class="annot"><span class="annottext">Maybe Int
+diskSizeInGb :: Maybe Int
+$sel:diskSizeInGb:RelationalDatabaseHardware' :: RelationalDatabaseHardware -&gt; Maybe Int
+</span><a href="#local-6989586621679620385"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620385"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620384"><span class="annot"><span class="annottext">s :: RelationalDatabaseHardware
+</span><a href="#local-6989586621679620384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-type">RelationalDatabaseHardware'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620383"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseHardware
+</span><a href="#local-6989586621679620384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSizeInGb:RelationalDatabaseHardware' :: Maybe Int
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The amount of RAM in GB for the database.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#relationalDatabaseHardware_ramSizeInGb"><span class="hs-identifier hs-type">relationalDatabaseHardware_ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="relationalDatabaseHardware_ramSizeInGb"><span class="annot"><span class="annottext">relationalDatabaseHardware_ramSizeInGb :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; RelationalDatabaseHardware -&gt; f RelationalDatabaseHardware
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#relationalDatabaseHardware_ramSizeInGb"><span class="hs-identifier hs-var hs-var">relationalDatabaseHardware_ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseHardware -&gt; Maybe Double)
+-&gt; (RelationalDatabaseHardware
+    -&gt; Maybe Double -&gt; RelationalDatabaseHardware)
+-&gt; Lens
+     RelationalDatabaseHardware
+     RelationalDatabaseHardware
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-type">RelationalDatabaseHardware'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620381"><span class="annot"><span class="annottext">Maybe Double
+ramSizeInGb :: Maybe Double
+$sel:ramSizeInGb:RelationalDatabaseHardware' :: RelationalDatabaseHardware -&gt; Maybe Double
+</span><a href="#local-6989586621679620381"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620381"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620380"><span class="annot"><span class="annottext">s :: RelationalDatabaseHardware
+</span><a href="#local-6989586621679620380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-type">RelationalDatabaseHardware'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620379"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseHardware
+</span><a href="#local-6989586621679620380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ramSizeInGb:RelationalDatabaseHardware' :: Maybe Double
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#%24sel%3AramSizeInGb%3ARelationalDatabaseHardware%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620376"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679620374"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelationalDatabaseHardware
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RelationalDatabaseHardware)
+-&gt; Value
+-&gt; Parser RelationalDatabaseHardware
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RelationalDatabaseHardware&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679620371"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Int -&gt; Maybe Double -&gt; RelationalDatabaseHardware
+</span><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware%27"><span class="hs-identifier hs-var">RelationalDatabaseHardware'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Int -&gt; Maybe Double -&gt; RelationalDatabaseHardware)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Int -&gt; Maybe Double -&gt; RelationalDatabaseHardware)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cpuCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Double -&gt; RelationalDatabaseHardware)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Double -&gt; RelationalDatabaseHardware)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;diskSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; RelationalDatabaseHardware)
+-&gt; Parser (Maybe Double) -&gt; Parser RelationalDatabaseHardware
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ramSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620365"><span id="local-6989586621679620367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.RelationalDatabaseHardware.html#RelationalDatabaseHardware"><span class="hs-identifier hs-type">RelationalDatabaseHardware</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

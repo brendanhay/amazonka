@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CostExplorer.Types.Granularity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CostExplorer.Types.Granularity</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier">Granularity</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_DAILY"><span class="hs-identifier">Granularity_DAILY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_HOURLY"><span class="hs-identifier">Granularity_HOURLY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_MONTHLY"><span class="hs-identifier">Granularity_MONTHLY</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679329977"><span id="local-6989586621679329978"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Granularity"><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-var">Granularity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Granularity%27"><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity%27"><span class="hs-identifier hs-var">Granularity'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGranularity"><span class="annot"><span class="annottext">Granularity -&gt; Text
+</span><a href="Amazonka.CostExplorer.Types.Granularity.html#fromGranularity"><span class="hs-identifier hs-var hs-var">fromGranularity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329969"><span id="local-6989586621679329971"><span id="local-6989586621679329973"><span class="annot"><span class="annottext">Int -&gt; Granularity -&gt; ShowS
+[Granularity] -&gt; ShowS
+Granularity -&gt; String
+(Int -&gt; Granularity -&gt; ShowS)
+-&gt; (Granularity -&gt; String)
+-&gt; ([Granularity] -&gt; ShowS)
+-&gt; Show Granularity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Granularity] -&gt; ShowS
+$cshowList :: [Granularity] -&gt; ShowS
+show :: Granularity -&gt; String
+$cshow :: Granularity -&gt; String
+showsPrec :: Int -&gt; Granularity -&gt; ShowS
+$cshowsPrec :: Int -&gt; Granularity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679329960"><span id="local-6989586621679329962"><span id="local-6989586621679329964"><span id="local-6989586621679329966"><span class="annot"><span class="annottext">ReadPrec [Granularity]
+ReadPrec Granularity
+Int -&gt; ReadS Granularity
+ReadS [Granularity]
+(Int -&gt; ReadS Granularity)
+-&gt; ReadS [Granularity]
+-&gt; ReadPrec Granularity
+-&gt; ReadPrec [Granularity]
+-&gt; Read Granularity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Granularity]
+$creadListPrec :: ReadPrec [Granularity]
+readPrec :: ReadPrec Granularity
+$creadPrec :: ReadPrec Granularity
+readList :: ReadS [Granularity]
+$creadList :: ReadS [Granularity]
+readsPrec :: Int -&gt; ReadS Granularity
+$creadsPrec :: Int -&gt; ReadS Granularity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329955"><span id="local-6989586621679329957"><span class="annot"><span class="annottext">Granularity -&gt; Granularity -&gt; Bool
+(Granularity -&gt; Granularity -&gt; Bool)
+-&gt; (Granularity -&gt; Granularity -&gt; Bool) -&gt; Eq Granularity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Granularity -&gt; Granularity -&gt; Bool
+$c/= :: Granularity -&gt; Granularity -&gt; Bool
+== :: Granularity -&gt; Granularity -&gt; Bool
+$c== :: Granularity -&gt; Granularity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329939"><span id="local-6989586621679329941"><span id="local-6989586621679329943"><span id="local-6989586621679329945"><span id="local-6989586621679329947"><span id="local-6989586621679329949"><span id="local-6989586621679329951"><span class="annot"><span class="annottext">Eq Granularity
+Eq Granularity
+-&gt; (Granularity -&gt; Granularity -&gt; Ordering)
+-&gt; (Granularity -&gt; Granularity -&gt; Bool)
+-&gt; (Granularity -&gt; Granularity -&gt; Bool)
+-&gt; (Granularity -&gt; Granularity -&gt; Bool)
+-&gt; (Granularity -&gt; Granularity -&gt; Bool)
+-&gt; (Granularity -&gt; Granularity -&gt; Granularity)
+-&gt; (Granularity -&gt; Granularity -&gt; Granularity)
+-&gt; Ord Granularity
+Granularity -&gt; Granularity -&gt; Bool
+Granularity -&gt; Granularity -&gt; Ordering
+Granularity -&gt; Granularity -&gt; Granularity
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Granularity -&gt; Granularity -&gt; Granularity
+$cmin :: Granularity -&gt; Granularity -&gt; Granularity
+max :: Granularity -&gt; Granularity -&gt; Granularity
+$cmax :: Granularity -&gt; Granularity -&gt; Granularity
+&gt;= :: Granularity -&gt; Granularity -&gt; Bool
+$c&gt;= :: Granularity -&gt; Granularity -&gt; Bool
+&gt; :: Granularity -&gt; Granularity -&gt; Bool
+$c&gt; :: Granularity -&gt; Granularity -&gt; Bool
+&lt;= :: Granularity -&gt; Granularity -&gt; Bool
+$c&lt;= :: Granularity -&gt; Granularity -&gt; Bool
+&lt; :: Granularity -&gt; Granularity -&gt; Bool
+$c&lt; :: Granularity -&gt; Granularity -&gt; Bool
+compare :: Granularity -&gt; Granularity -&gt; Ordering
+$ccompare :: Granularity -&gt; Granularity -&gt; Ordering
+$cp1Ord :: Eq Granularity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Granularity -&gt; Rep Granularity x)
+-&gt; (forall x. Rep Granularity x -&gt; Granularity)
+-&gt; Generic Granularity
+forall x. Rep Granularity x -&gt; Granularity
+forall x. Granularity -&gt; Rep Granularity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Granularity x -&gt; Granularity
+$cfrom :: forall x. Granularity -&gt; Rep Granularity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329931"><span id="local-6989586621679329933"><span class="annot"><span class="annottext">Int -&gt; Granularity -&gt; Int
+Granularity -&gt; Int
+(Int -&gt; Granularity -&gt; Int)
+-&gt; (Granularity -&gt; Int) -&gt; Hashable Granularity
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Granularity -&gt; Int
+$chash :: Granularity -&gt; Int
+hashWithSalt :: Int -&gt; Granularity -&gt; Int
+$chashWithSalt :: Int -&gt; Granularity -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679329928"><span class="annot"><span class="annottext">Granularity -&gt; ()
+(Granularity -&gt; ()) -&gt; NFData Granularity
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Granularity -&gt; ()
+$crnf :: Granularity -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329925"><span class="annot"><span class="annottext">Text -&gt; Either String Granularity
+(Text -&gt; Either String Granularity) -&gt; FromText Granularity
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Granularity
+$cfromText :: Text -&gt; Either String Granularity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329922"><span class="annot"><span class="annottext">Granularity -&gt; Text
+(Granularity -&gt; Text) -&gt; ToText Granularity
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Granularity -&gt; Text
+$ctoText :: Granularity -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329919"><span class="annot"><span class="annottext">Granularity -&gt; ByteString
+(Granularity -&gt; ByteString) -&gt; ToByteString Granularity
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Granularity -&gt; ByteString
+$ctoBS :: Granularity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329916"><span class="annot"><span class="annottext">Granularity -&gt; ByteStringBuilder
+(Granularity -&gt; ByteStringBuilder) -&gt; ToLog Granularity
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Granularity -&gt; ByteStringBuilder
+$cbuild :: Granularity -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329913"><span class="annot"><span class="annottext">HeaderName -&gt; Granularity -&gt; [Header]
+(HeaderName -&gt; Granularity -&gt; [Header]) -&gt; ToHeader Granularity
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Granularity -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Granularity -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329910"><span class="annot"><span class="annottext">Granularity -&gt; QueryString
+(Granularity -&gt; QueryString) -&gt; ToQuery Granularity
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Granularity -&gt; QueryString
+$ctoQuery :: Granularity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329905"><span id="local-6989586621679329907"><span class="annot"><span class="annottext">Value -&gt; Parser [Granularity]
+Value -&gt; Parser Granularity
+(Value -&gt; Parser Granularity)
+-&gt; (Value -&gt; Parser [Granularity]) -&gt; FromJSON Granularity
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Granularity]
+$cparseJSONList :: Value -&gt; Parser [Granularity]
+parseJSON :: Value -&gt; Parser Granularity
+$cparseJSON :: Value -&gt; Parser Granularity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329900"><span id="local-6989586621679329902"><span class="annot"><span class="annottext">FromJSONKeyFunction [Granularity]
+FromJSONKeyFunction Granularity
+FromJSONKeyFunction Granularity
+-&gt; FromJSONKeyFunction [Granularity] -&gt; FromJSONKey Granularity
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Granularity]
+$cfromJSONKeyList :: FromJSONKeyFunction [Granularity]
+fromJSONKey :: FromJSONKeyFunction Granularity
+$cfromJSONKey :: FromJSONKeyFunction Granularity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329891"><span id="local-6989586621679329893"><span id="local-6989586621679329895"><span id="local-6989586621679329897"><span class="annot"><span class="annottext">[Granularity] -&gt; Encoding
+[Granularity] -&gt; Value
+Granularity -&gt; Encoding
+Granularity -&gt; Value
+(Granularity -&gt; Value)
+-&gt; (Granularity -&gt; Encoding)
+-&gt; ([Granularity] -&gt; Value)
+-&gt; ([Granularity] -&gt; Encoding)
+-&gt; ToJSON Granularity
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Granularity] -&gt; Encoding
+$ctoEncodingList :: [Granularity] -&gt; Encoding
+toJSONList :: [Granularity] -&gt; Value
+$ctoJSONList :: [Granularity] -&gt; Value
+toEncoding :: Granularity -&gt; Encoding
+$ctoEncoding :: Granularity -&gt; Encoding
+toJSON :: Granularity -&gt; Value
+$ctoJSON :: Granularity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329886"><span id="local-6989586621679329888"><span class="annot"><span class="annottext">ToJSONKeyFunction [Granularity]
+ToJSONKeyFunction Granularity
+ToJSONKeyFunction Granularity
+-&gt; ToJSONKeyFunction [Granularity] -&gt; ToJSONKey Granularity
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Granularity]
+$ctoJSONKeyList :: ToJSONKeyFunction [Granularity]
+toJSONKey :: ToJSONKeyFunction Granularity
+$ctoJSONKey :: ToJSONKeyFunction Granularity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329883"><span class="annot"><span class="annottext">[Node] -&gt; Either String Granularity
+([Node] -&gt; Either String Granularity) -&gt; FromXML Granularity
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Granularity
+$cparseXML :: [Node] -&gt; Either String Granularity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329880"><span class="annot"><span class="annottext">Granularity -&gt; XML
+(Granularity -&gt; XML) -&gt; ToXML Granularity
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Granularity -&gt; XML
+$ctoXML :: Granularity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_DAILY"><span class="hs-identifier hs-type">Granularity_DAILY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGranularity_DAILY"><span id="%24mGranularity_DAILY"><span id="Granularity_DAILY"><span class="annot"><span class="annottext">$bGranularity_DAILY :: Granularity
+$mGranularity_DAILY :: forall r. Granularity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostExplorer.Types.Granularity.html#%24bGranularity_DAILY"><span class="hs-identifier hs-var hs-var hs-var">Granularity_DAILY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity%27"><span class="hs-identifier hs-type">Granularity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAILY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_HOURLY"><span class="hs-identifier hs-type">Granularity_HOURLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGranularity_HOURLY"><span id="%24mGranularity_HOURLY"><span id="Granularity_HOURLY"><span class="annot"><span class="annottext">$bGranularity_HOURLY :: Granularity
+$mGranularity_HOURLY :: forall r. Granularity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostExplorer.Types.Granularity.html#%24bGranularity_HOURLY"><span class="hs-identifier hs-var hs-var hs-var">Granularity_HOURLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity%27"><span class="hs-identifier hs-type">Granularity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HOURLY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_MONTHLY"><span class="hs-identifier hs-type">Granularity_MONTHLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGranularity_MONTHLY"><span id="%24mGranularity_MONTHLY"><span id="Granularity_MONTHLY"><span class="annot"><span class="annottext">$bGranularity_MONTHLY :: Granularity
+$mGranularity_MONTHLY :: forall r. Granularity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostExplorer.Types.Granularity.html#%24bGranularity_MONTHLY"><span class="hs-identifier hs-var hs-var hs-var">Granularity_MONTHLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity%27"><span class="hs-identifier hs-type">Granularity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MONTHLY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_DAILY"><span class="hs-pragma hs-type">Granularity_DAILY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_HOURLY"><span class="hs-pragma hs-type">Granularity_HOURLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity_MONTHLY"><span class="hs-pragma hs-type">Granularity_MONTHLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Granularity.html#Granularity%27"><span class="hs-pragma hs-type">Granularity'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

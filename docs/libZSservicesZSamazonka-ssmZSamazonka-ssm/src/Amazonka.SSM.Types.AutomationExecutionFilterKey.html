@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.AutomationExecutionFilterKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.AutomationExecutionFilterKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_AutomationSubtype"><span class="hs-identifier">AutomationExecutionFilterKey_AutomationSubtype</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_AutomationType"><span class="hs-identifier">AutomationExecutionFilterKey_AutomationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_CurrentAction"><span class="hs-identifier">AutomationExecutionFilterKey_CurrentAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_DocumentNamePrefix"><span class="hs-identifier">AutomationExecutionFilterKey_DocumentNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ExecutionId"><span class="hs-identifier">AutomationExecutionFilterKey_ExecutionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ExecutionStatus"><span class="hs-identifier">AutomationExecutionFilterKey_ExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_OpsItemId"><span class="hs-identifier">AutomationExecutionFilterKey_OpsItemId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ParentExecutionId"><span class="hs-identifier">AutomationExecutionFilterKey_ParentExecutionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_StartTimeAfter"><span class="hs-identifier">AutomationExecutionFilterKey_StartTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_StartTimeBefore"><span class="hs-identifier">AutomationExecutionFilterKey_StartTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_TagKey"><span class="hs-identifier">AutomationExecutionFilterKey_TagKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_TargetResourceGroup"><span class="hs-identifier">AutomationExecutionFilterKey_TargetResourceGroup</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679788413"><span id="local-6989586621679788414"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutomationExecutionFilterKey"><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-var">AutomationExecutionFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationExecutionFilterKey%27"><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-var">AutomationExecutionFilterKey'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutomationExecutionFilterKey"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; Text
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#fromAutomationExecutionFilterKey"><span class="hs-identifier hs-var hs-var">fromAutomationExecutionFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788405"><span id="local-6989586621679788407"><span id="local-6989586621679788409"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionFilterKey -&gt; ShowS
+[AutomationExecutionFilterKey] -&gt; ShowS
+AutomationExecutionFilterKey -&gt; String
+(Int -&gt; AutomationExecutionFilterKey -&gt; ShowS)
+-&gt; (AutomationExecutionFilterKey -&gt; String)
+-&gt; ([AutomationExecutionFilterKey] -&gt; ShowS)
+-&gt; Show AutomationExecutionFilterKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutomationExecutionFilterKey] -&gt; ShowS
+$cshowList :: [AutomationExecutionFilterKey] -&gt; ShowS
+show :: AutomationExecutionFilterKey -&gt; String
+$cshow :: AutomationExecutionFilterKey -&gt; String
+showsPrec :: Int -&gt; AutomationExecutionFilterKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutomationExecutionFilterKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679788396"><span id="local-6989586621679788398"><span id="local-6989586621679788400"><span id="local-6989586621679788402"><span class="annot"><span class="annottext">ReadPrec [AutomationExecutionFilterKey]
+ReadPrec AutomationExecutionFilterKey
+Int -&gt; ReadS AutomationExecutionFilterKey
+ReadS [AutomationExecutionFilterKey]
+(Int -&gt; ReadS AutomationExecutionFilterKey)
+-&gt; ReadS [AutomationExecutionFilterKey]
+-&gt; ReadPrec AutomationExecutionFilterKey
+-&gt; ReadPrec [AutomationExecutionFilterKey]
+-&gt; Read AutomationExecutionFilterKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutomationExecutionFilterKey]
+$creadListPrec :: ReadPrec [AutomationExecutionFilterKey]
+readPrec :: ReadPrec AutomationExecutionFilterKey
+$creadPrec :: ReadPrec AutomationExecutionFilterKey
+readList :: ReadS [AutomationExecutionFilterKey]
+$creadList :: ReadS [AutomationExecutionFilterKey]
+readsPrec :: Int -&gt; ReadS AutomationExecutionFilterKey
+$creadsPrec :: Int -&gt; ReadS AutomationExecutionFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679788391"><span id="local-6989586621679788393"><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+(AutomationExecutionFilterKey
+ -&gt; AutomationExecutionFilterKey -&gt; Bool)
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; Bool)
+-&gt; Eq AutomationExecutionFilterKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+$c/= :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+== :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+$c== :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679788375"><span id="local-6989586621679788377"><span id="local-6989586621679788379"><span id="local-6989586621679788381"><span id="local-6989586621679788383"><span id="local-6989586621679788385"><span id="local-6989586621679788387"><span class="annot"><span class="annottext">Eq AutomationExecutionFilterKey
+Eq AutomationExecutionFilterKey
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; Ordering)
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; Bool)
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; Bool)
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; Bool)
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; Bool)
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilterKey)
+-&gt; (AutomationExecutionFilterKey
+    -&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilterKey)
+-&gt; Ord AutomationExecutionFilterKey
+AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Ordering
+AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilterKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilterKey
+$cmin :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilterKey
+max :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilterKey
+$cmax :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilterKey
+&gt;= :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+$c&gt;= :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+&gt; :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+$c&gt; :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+&lt;= :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+$c&lt;= :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+&lt; :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+$c&lt; :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Bool
+compare :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Ordering
+$ccompare :: AutomationExecutionFilterKey
+-&gt; AutomationExecutionFilterKey -&gt; Ordering
+$cp1Ord :: Eq AutomationExecutionFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AutomationExecutionFilterKey -&gt; Rep AutomationExecutionFilterKey x)
+-&gt; (forall x.
+    Rep AutomationExecutionFilterKey x -&gt; AutomationExecutionFilterKey)
+-&gt; Generic AutomationExecutionFilterKey
+forall x.
+Rep AutomationExecutionFilterKey x -&gt; AutomationExecutionFilterKey
+forall x.
+AutomationExecutionFilterKey -&gt; Rep AutomationExecutionFilterKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AutomationExecutionFilterKey x -&gt; AutomationExecutionFilterKey
+$cfrom :: forall x.
+AutomationExecutionFilterKey -&gt; Rep AutomationExecutionFilterKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788367"><span id="local-6989586621679788369"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionFilterKey -&gt; Int
+AutomationExecutionFilterKey -&gt; Int
+(Int -&gt; AutomationExecutionFilterKey -&gt; Int)
+-&gt; (AutomationExecutionFilterKey -&gt; Int)
+-&gt; Hashable AutomationExecutionFilterKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AutomationExecutionFilterKey -&gt; Int
+$chash :: AutomationExecutionFilterKey -&gt; Int
+hashWithSalt :: Int -&gt; AutomationExecutionFilterKey -&gt; Int
+$chashWithSalt :: Int -&gt; AutomationExecutionFilterKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679788364"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ()
+(AutomationExecutionFilterKey -&gt; ())
+-&gt; NFData AutomationExecutionFilterKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AutomationExecutionFilterKey -&gt; ()
+$crnf :: AutomationExecutionFilterKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679788361"><span class="annot"><span class="annottext">Text -&gt; Either String AutomationExecutionFilterKey
+(Text -&gt; Either String AutomationExecutionFilterKey)
+-&gt; FromText AutomationExecutionFilterKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AutomationExecutionFilterKey
+$cfromText :: Text -&gt; Either String AutomationExecutionFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679788358"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; Text
+(AutomationExecutionFilterKey -&gt; Text)
+-&gt; ToText AutomationExecutionFilterKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AutomationExecutionFilterKey -&gt; Text
+$ctoText :: AutomationExecutionFilterKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679788355"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ByteString
+(AutomationExecutionFilterKey -&gt; ByteString)
+-&gt; ToByteString AutomationExecutionFilterKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AutomationExecutionFilterKey -&gt; ByteString
+$ctoBS :: AutomationExecutionFilterKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679788352"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ByteStringBuilder
+(AutomationExecutionFilterKey -&gt; ByteStringBuilder)
+-&gt; ToLog AutomationExecutionFilterKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AutomationExecutionFilterKey -&gt; ByteStringBuilder
+$cbuild :: AutomationExecutionFilterKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679788349"><span class="annot"><span class="annottext">HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header]
+(HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header])
+-&gt; ToHeader AutomationExecutionFilterKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679788346"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; QueryString
+(AutomationExecutionFilterKey -&gt; QueryString)
+-&gt; ToQuery AutomationExecutionFilterKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AutomationExecutionFilterKey -&gt; QueryString
+$ctoQuery :: AutomationExecutionFilterKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679788341"><span id="local-6989586621679788343"><span class="annot"><span class="annottext">Value -&gt; Parser [AutomationExecutionFilterKey]
+Value -&gt; Parser AutomationExecutionFilterKey
+(Value -&gt; Parser AutomationExecutionFilterKey)
+-&gt; (Value -&gt; Parser [AutomationExecutionFilterKey])
+-&gt; FromJSON AutomationExecutionFilterKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AutomationExecutionFilterKey]
+$cparseJSONList :: Value -&gt; Parser [AutomationExecutionFilterKey]
+parseJSON :: Value -&gt; Parser AutomationExecutionFilterKey
+$cparseJSON :: Value -&gt; Parser AutomationExecutionFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679788336"><span id="local-6989586621679788338"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutomationExecutionFilterKey]
+FromJSONKeyFunction AutomationExecutionFilterKey
+FromJSONKeyFunction AutomationExecutionFilterKey
+-&gt; FromJSONKeyFunction [AutomationExecutionFilterKey]
+-&gt; FromJSONKey AutomationExecutionFilterKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AutomationExecutionFilterKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [AutomationExecutionFilterKey]
+fromJSONKey :: FromJSONKeyFunction AutomationExecutionFilterKey
+$cfromJSONKey :: FromJSONKeyFunction AutomationExecutionFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679788327"><span id="local-6989586621679788329"><span id="local-6989586621679788331"><span id="local-6989586621679788333"><span class="annot"><span class="annottext">[AutomationExecutionFilterKey] -&gt; Encoding
+[AutomationExecutionFilterKey] -&gt; Value
+AutomationExecutionFilterKey -&gt; Encoding
+AutomationExecutionFilterKey -&gt; Value
+(AutomationExecutionFilterKey -&gt; Value)
+-&gt; (AutomationExecutionFilterKey -&gt; Encoding)
+-&gt; ([AutomationExecutionFilterKey] -&gt; Value)
+-&gt; ([AutomationExecutionFilterKey] -&gt; Encoding)
+-&gt; ToJSON AutomationExecutionFilterKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AutomationExecutionFilterKey] -&gt; Encoding
+$ctoEncodingList :: [AutomationExecutionFilterKey] -&gt; Encoding
+toJSONList :: [AutomationExecutionFilterKey] -&gt; Value
+$ctoJSONList :: [AutomationExecutionFilterKey] -&gt; Value
+toEncoding :: AutomationExecutionFilterKey -&gt; Encoding
+$ctoEncoding :: AutomationExecutionFilterKey -&gt; Encoding
+toJSON :: AutomationExecutionFilterKey -&gt; Value
+$ctoJSON :: AutomationExecutionFilterKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679788322"><span id="local-6989586621679788324"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutomationExecutionFilterKey]
+ToJSONKeyFunction AutomationExecutionFilterKey
+ToJSONKeyFunction AutomationExecutionFilterKey
+-&gt; ToJSONKeyFunction [AutomationExecutionFilterKey]
+-&gt; ToJSONKey AutomationExecutionFilterKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AutomationExecutionFilterKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [AutomationExecutionFilterKey]
+toJSONKey :: ToJSONKeyFunction AutomationExecutionFilterKey
+$ctoJSONKey :: ToJSONKeyFunction AutomationExecutionFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679788319"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutomationExecutionFilterKey
+([Node] -&gt; Either String AutomationExecutionFilterKey)
+-&gt; FromXML AutomationExecutionFilterKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AutomationExecutionFilterKey
+$cparseXML :: [Node] -&gt; Either String AutomationExecutionFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679788316"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; XML
+(AutomationExecutionFilterKey -&gt; XML)
+-&gt; ToXML AutomationExecutionFilterKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AutomationExecutionFilterKey -&gt; XML
+$ctoXML :: AutomationExecutionFilterKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_AutomationSubtype"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_AutomationSubtype</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_AutomationSubtype"><span id="%24mAutomationExecutionFilterKey_AutomationSubtype"><span id="AutomationExecutionFilterKey_AutomationSubtype"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_AutomationSubtype :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_AutomationSubtype :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_AutomationSubtype"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_AutomationSubtype</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AutomationSubtype&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_AutomationType"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_AutomationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_AutomationType"><span id="%24mAutomationExecutionFilterKey_AutomationType"><span id="AutomationExecutionFilterKey_AutomationType"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_AutomationType :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_AutomationType :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_AutomationType"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_AutomationType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AutomationType&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_CurrentAction"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_CurrentAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_CurrentAction"><span id="%24mAutomationExecutionFilterKey_CurrentAction"><span id="AutomationExecutionFilterKey_CurrentAction"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_CurrentAction :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_CurrentAction :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_CurrentAction"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_CurrentAction</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentAction&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_DocumentNamePrefix"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_DocumentNamePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_DocumentNamePrefix"><span id="%24mAutomationExecutionFilterKey_DocumentNamePrefix"><span id="AutomationExecutionFilterKey_DocumentNamePrefix"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_DocumentNamePrefix :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_DocumentNamePrefix :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_DocumentNamePrefix"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_DocumentNamePrefix</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DocumentNamePrefix&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ExecutionId"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_ExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_ExecutionId"><span id="%24mAutomationExecutionFilterKey_ExecutionId"><span id="AutomationExecutionFilterKey_ExecutionId"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_ExecutionId :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_ExecutionId :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_ExecutionId"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_ExecutionId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ExecutionId&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ExecutionStatus"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_ExecutionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_ExecutionStatus"><span id="%24mAutomationExecutionFilterKey_ExecutionStatus"><span id="AutomationExecutionFilterKey_ExecutionStatus"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_ExecutionStatus :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_ExecutionStatus :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_ExecutionStatus"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_ExecutionStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ExecutionStatus&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_OpsItemId"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_OpsItemId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_OpsItemId"><span id="%24mAutomationExecutionFilterKey_OpsItemId"><span id="AutomationExecutionFilterKey_OpsItemId"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_OpsItemId :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_OpsItemId :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_OpsItemId"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_OpsItemId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OpsItemId&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ParentExecutionId"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_ParentExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_ParentExecutionId"><span id="%24mAutomationExecutionFilterKey_ParentExecutionId"><span id="AutomationExecutionFilterKey_ParentExecutionId"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_ParentExecutionId :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_ParentExecutionId :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_ParentExecutionId"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_ParentExecutionId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ParentExecutionId&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_StartTimeAfter"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_StartTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_StartTimeAfter"><span id="%24mAutomationExecutionFilterKey_StartTimeAfter"><span id="AutomationExecutionFilterKey_StartTimeAfter"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_StartTimeAfter :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_StartTimeAfter :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_StartTimeAfter"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_StartTimeAfter</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;StartTimeAfter&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_StartTimeBefore"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_StartTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_StartTimeBefore"><span id="%24mAutomationExecutionFilterKey_StartTimeBefore"><span id="AutomationExecutionFilterKey_StartTimeBefore"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_StartTimeBefore :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_StartTimeBefore :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_StartTimeBefore"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_StartTimeBefore</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;StartTimeBefore&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_TagKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_TagKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_TagKey"><span id="%24mAutomationExecutionFilterKey_TagKey"><span id="AutomationExecutionFilterKey_TagKey"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_TagKey :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_TagKey :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_TagKey"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_TagKey</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TagKey&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_TargetResourceGroup"><span class="hs-identifier hs-type">AutomationExecutionFilterKey_TargetResourceGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutomationExecutionFilterKey_TargetResourceGroup"><span id="%24mAutomationExecutionFilterKey_TargetResourceGroup"><span id="AutomationExecutionFilterKey_TargetResourceGroup"><span class="annot"><span class="annottext">$bAutomationExecutionFilterKey_TargetResourceGroup :: AutomationExecutionFilterKey
+$mAutomationExecutionFilterKey_TargetResourceGroup :: forall r.
+AutomationExecutionFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#%24bAutomationExecutionFilterKey_TargetResourceGroup"><span class="hs-identifier hs-var hs-var hs-var">AutomationExecutionFilterKey_TargetResourceGroup</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-type">AutomationExecutionFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TargetResourceGroup&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_AutomationSubtype"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_AutomationSubtype</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_AutomationType"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_AutomationType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_CurrentAction"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_CurrentAction</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_DocumentNamePrefix"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_DocumentNamePrefix</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ExecutionId"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_ExecutionId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ExecutionStatus"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_ExecutionStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_OpsItemId"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_OpsItemId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_ParentExecutionId"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_ParentExecutionId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_StartTimeAfter"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_StartTimeAfter</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_StartTimeBefore"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_StartTimeBefore</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_TagKey"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_TagKey</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey_TargetResourceGroup"><span class="hs-pragma hs-type">AutomationExecutionFilterKey_TargetResourceGroup</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-pragma hs-type">AutomationExecutionFilterKey'</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-121"></span></pre></body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeDeploy.Types.DeploymentTargetType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeDeploy.Types.DeploymentTargetType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier">DeploymentTargetType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_CloudFormationTarget"><span class="hs-identifier">DeploymentTargetType_CloudFormationTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_ECSTarget"><span class="hs-identifier">DeploymentTargetType_ECSTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_InstanceTarget"><span class="hs-identifier">DeploymentTargetType_InstanceTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_LambdaTarget"><span class="hs-identifier">DeploymentTargetType_LambdaTarget</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679306930"><span id="local-6989586621679306931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentTargetType"><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier hs-var">DeploymentTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentTargetType%27"><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType%27"><span class="hs-identifier hs-var">DeploymentTargetType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentTargetType"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; Text
+</span><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#fromDeploymentTargetType"><span class="hs-identifier hs-var hs-var">fromDeploymentTargetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306922"><span id="local-6989586621679306924"><span id="local-6989586621679306926"><span class="annot"><span class="annottext">Int -&gt; DeploymentTargetType -&gt; ShowS
+[DeploymentTargetType] -&gt; ShowS
+DeploymentTargetType -&gt; String
+(Int -&gt; DeploymentTargetType -&gt; ShowS)
+-&gt; (DeploymentTargetType -&gt; String)
+-&gt; ([DeploymentTargetType] -&gt; ShowS)
+-&gt; Show DeploymentTargetType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentTargetType] -&gt; ShowS
+$cshowList :: [DeploymentTargetType] -&gt; ShowS
+show :: DeploymentTargetType -&gt; String
+$cshow :: DeploymentTargetType -&gt; String
+showsPrec :: Int -&gt; DeploymentTargetType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentTargetType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306913"><span id="local-6989586621679306915"><span id="local-6989586621679306917"><span id="local-6989586621679306919"><span class="annot"><span class="annottext">ReadPrec [DeploymentTargetType]
+ReadPrec DeploymentTargetType
+Int -&gt; ReadS DeploymentTargetType
+ReadS [DeploymentTargetType]
+(Int -&gt; ReadS DeploymentTargetType)
+-&gt; ReadS [DeploymentTargetType]
+-&gt; ReadPrec DeploymentTargetType
+-&gt; ReadPrec [DeploymentTargetType]
+-&gt; Read DeploymentTargetType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentTargetType]
+$creadListPrec :: ReadPrec [DeploymentTargetType]
+readPrec :: ReadPrec DeploymentTargetType
+$creadPrec :: ReadPrec DeploymentTargetType
+readList :: ReadS [DeploymentTargetType]
+$creadList :: ReadS [DeploymentTargetType]
+readsPrec :: Int -&gt; ReadS DeploymentTargetType
+$creadsPrec :: Int -&gt; ReadS DeploymentTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679306908"><span id="local-6989586621679306910"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+(DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool)
+-&gt; (DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool)
+-&gt; Eq DeploymentTargetType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+$c/= :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+== :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+$c== :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679306892"><span id="local-6989586621679306894"><span id="local-6989586621679306896"><span id="local-6989586621679306898"><span id="local-6989586621679306900"><span id="local-6989586621679306902"><span id="local-6989586621679306904"><span class="annot"><span class="annottext">Eq DeploymentTargetType
+Eq DeploymentTargetType
+-&gt; (DeploymentTargetType -&gt; DeploymentTargetType -&gt; Ordering)
+-&gt; (DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool)
+-&gt; (DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool)
+-&gt; (DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool)
+-&gt; (DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool)
+-&gt; (DeploymentTargetType
+    -&gt; DeploymentTargetType -&gt; DeploymentTargetType)
+-&gt; (DeploymentTargetType
+    -&gt; DeploymentTargetType -&gt; DeploymentTargetType)
+-&gt; Ord DeploymentTargetType
+DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+DeploymentTargetType -&gt; DeploymentTargetType -&gt; Ordering
+DeploymentTargetType
+-&gt; DeploymentTargetType -&gt; DeploymentTargetType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentTargetType
+-&gt; DeploymentTargetType -&gt; DeploymentTargetType
+$cmin :: DeploymentTargetType
+-&gt; DeploymentTargetType -&gt; DeploymentTargetType
+max :: DeploymentTargetType
+-&gt; DeploymentTargetType -&gt; DeploymentTargetType
+$cmax :: DeploymentTargetType
+-&gt; DeploymentTargetType -&gt; DeploymentTargetType
+&gt;= :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+$c&gt;= :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+&gt; :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+$c&gt; :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+&lt;= :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+$c&lt;= :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+&lt; :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+$c&lt; :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Bool
+compare :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Ordering
+$ccompare :: DeploymentTargetType -&gt; DeploymentTargetType -&gt; Ordering
+$cp1Ord :: Eq DeploymentTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeploymentTargetType -&gt; Rep DeploymentTargetType x)
+-&gt; (forall x. Rep DeploymentTargetType x -&gt; DeploymentTargetType)
+-&gt; Generic DeploymentTargetType
+forall x. Rep DeploymentTargetType x -&gt; DeploymentTargetType
+forall x. DeploymentTargetType -&gt; Rep DeploymentTargetType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentTargetType x -&gt; DeploymentTargetType
+$cfrom :: forall x. DeploymentTargetType -&gt; Rep DeploymentTargetType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306884"><span id="local-6989586621679306886"><span class="annot"><span class="annottext">Int -&gt; DeploymentTargetType -&gt; Int
+DeploymentTargetType -&gt; Int
+(Int -&gt; DeploymentTargetType -&gt; Int)
+-&gt; (DeploymentTargetType -&gt; Int) -&gt; Hashable DeploymentTargetType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentTargetType -&gt; Int
+$chash :: DeploymentTargetType -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentTargetType -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentTargetType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306881"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; ()
+(DeploymentTargetType -&gt; ()) -&gt; NFData DeploymentTargetType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentTargetType -&gt; ()
+$crnf :: DeploymentTargetType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306878"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentTargetType
+(Text -&gt; Either String DeploymentTargetType)
+-&gt; FromText DeploymentTargetType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentTargetType
+$cfromText :: Text -&gt; Either String DeploymentTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306875"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; Text
+(DeploymentTargetType -&gt; Text) -&gt; ToText DeploymentTargetType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentTargetType -&gt; Text
+$ctoText :: DeploymentTargetType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306872"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; ByteString
+(DeploymentTargetType -&gt; ByteString)
+-&gt; ToByteString DeploymentTargetType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentTargetType -&gt; ByteString
+$ctoBS :: DeploymentTargetType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306869"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; ByteStringBuilder
+(DeploymentTargetType -&gt; ByteStringBuilder)
+-&gt; ToLog DeploymentTargetType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentTargetType -&gt; ByteStringBuilder
+$cbuild :: DeploymentTargetType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306866"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentTargetType -&gt; [Header]
+(HeaderName -&gt; DeploymentTargetType -&gt; [Header])
+-&gt; ToHeader DeploymentTargetType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentTargetType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentTargetType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306863"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; QueryString
+(DeploymentTargetType -&gt; QueryString)
+-&gt; ToQuery DeploymentTargetType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentTargetType -&gt; QueryString
+$ctoQuery :: DeploymentTargetType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306858"><span id="local-6989586621679306860"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentTargetType]
+Value -&gt; Parser DeploymentTargetType
+(Value -&gt; Parser DeploymentTargetType)
+-&gt; (Value -&gt; Parser [DeploymentTargetType])
+-&gt; FromJSON DeploymentTargetType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentTargetType]
+$cparseJSONList :: Value -&gt; Parser [DeploymentTargetType]
+parseJSON :: Value -&gt; Parser DeploymentTargetType
+$cparseJSON :: Value -&gt; Parser DeploymentTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306853"><span id="local-6989586621679306855"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentTargetType]
+FromJSONKeyFunction DeploymentTargetType
+FromJSONKeyFunction DeploymentTargetType
+-&gt; FromJSONKeyFunction [DeploymentTargetType]
+-&gt; FromJSONKey DeploymentTargetType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentTargetType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentTargetType]
+fromJSONKey :: FromJSONKeyFunction DeploymentTargetType
+$cfromJSONKey :: FromJSONKeyFunction DeploymentTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306844"><span id="local-6989586621679306846"><span id="local-6989586621679306848"><span id="local-6989586621679306850"><span class="annot"><span class="annottext">[DeploymentTargetType] -&gt; Encoding
+[DeploymentTargetType] -&gt; Value
+DeploymentTargetType -&gt; Encoding
+DeploymentTargetType -&gt; Value
+(DeploymentTargetType -&gt; Value)
+-&gt; (DeploymentTargetType -&gt; Encoding)
+-&gt; ([DeploymentTargetType] -&gt; Value)
+-&gt; ([DeploymentTargetType] -&gt; Encoding)
+-&gt; ToJSON DeploymentTargetType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentTargetType] -&gt; Encoding
+$ctoEncodingList :: [DeploymentTargetType] -&gt; Encoding
+toJSONList :: [DeploymentTargetType] -&gt; Value
+$ctoJSONList :: [DeploymentTargetType] -&gt; Value
+toEncoding :: DeploymentTargetType -&gt; Encoding
+$ctoEncoding :: DeploymentTargetType -&gt; Encoding
+toJSON :: DeploymentTargetType -&gt; Value
+$ctoJSON :: DeploymentTargetType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306839"><span id="local-6989586621679306841"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentTargetType]
+ToJSONKeyFunction DeploymentTargetType
+ToJSONKeyFunction DeploymentTargetType
+-&gt; ToJSONKeyFunction [DeploymentTargetType]
+-&gt; ToJSONKey DeploymentTargetType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentTargetType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentTargetType]
+toJSONKey :: ToJSONKeyFunction DeploymentTargetType
+$ctoJSONKey :: ToJSONKeyFunction DeploymentTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679306836"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentTargetType
+([Node] -&gt; Either String DeploymentTargetType)
+-&gt; FromXML DeploymentTargetType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentTargetType
+$cparseXML :: [Node] -&gt; Either String DeploymentTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679306833"><span class="annot"><span class="annottext">DeploymentTargetType -&gt; XML
+(DeploymentTargetType -&gt; XML) -&gt; ToXML DeploymentTargetType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentTargetType -&gt; XML
+$ctoXML :: DeploymentTargetType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_CloudFormationTarget"><span class="hs-identifier hs-type">DeploymentTargetType_CloudFormationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier hs-type">DeploymentTargetType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentTargetType_CloudFormationTarget"><span id="%24mDeploymentTargetType_CloudFormationTarget"><span id="DeploymentTargetType_CloudFormationTarget"><span class="annot"><span class="annottext">$bDeploymentTargetType_CloudFormationTarget :: DeploymentTargetType
+$mDeploymentTargetType_CloudFormationTarget :: forall r. DeploymentTargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#%24bDeploymentTargetType_CloudFormationTarget"><span class="hs-identifier hs-var hs-var hs-var">DeploymentTargetType_CloudFormationTarget</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType%27"><span class="hs-identifier hs-type">DeploymentTargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CloudFormationTarget&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_ECSTarget"><span class="hs-identifier hs-type">DeploymentTargetType_ECSTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier hs-type">DeploymentTargetType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentTargetType_ECSTarget"><span id="%24mDeploymentTargetType_ECSTarget"><span id="DeploymentTargetType_ECSTarget"><span class="annot"><span class="annottext">$bDeploymentTargetType_ECSTarget :: DeploymentTargetType
+$mDeploymentTargetType_ECSTarget :: forall r. DeploymentTargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#%24bDeploymentTargetType_ECSTarget"><span class="hs-identifier hs-var hs-var hs-var">DeploymentTargetType_ECSTarget</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType%27"><span class="hs-identifier hs-type">DeploymentTargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECSTarget&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_InstanceTarget"><span class="hs-identifier hs-type">DeploymentTargetType_InstanceTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier hs-type">DeploymentTargetType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentTargetType_InstanceTarget"><span id="%24mDeploymentTargetType_InstanceTarget"><span id="DeploymentTargetType_InstanceTarget"><span class="annot"><span class="annottext">$bDeploymentTargetType_InstanceTarget :: DeploymentTargetType
+$mDeploymentTargetType_InstanceTarget :: forall r. DeploymentTargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#%24bDeploymentTargetType_InstanceTarget"><span class="hs-identifier hs-var hs-var hs-var">DeploymentTargetType_InstanceTarget</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType%27"><span class="hs-identifier hs-type">DeploymentTargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InstanceTarget&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_LambdaTarget"><span class="hs-identifier hs-type">DeploymentTargetType_LambdaTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier hs-type">DeploymentTargetType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentTargetType_LambdaTarget"><span id="%24mDeploymentTargetType_LambdaTarget"><span id="DeploymentTargetType_LambdaTarget"><span class="annot"><span class="annottext">$bDeploymentTargetType_LambdaTarget :: DeploymentTargetType
+$mDeploymentTargetType_LambdaTarget :: forall r. DeploymentTargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#%24bDeploymentTargetType_LambdaTarget"><span class="hs-identifier hs-var hs-var hs-var">DeploymentTargetType_LambdaTarget</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType%27"><span class="hs-identifier hs-type">DeploymentTargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LambdaTarget&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_CloudFormationTarget"><span class="hs-pragma hs-type">DeploymentTargetType_CloudFormationTarget</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_ECSTarget"><span class="hs-pragma hs-type">DeploymentTargetType_ECSTarget</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_InstanceTarget"><span class="hs-pragma hs-type">DeploymentTargetType_InstanceTarget</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType_LambdaTarget"><span class="hs-pragma hs-type">DeploymentTargetType_LambdaTarget</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType%27"><span class="hs-pragma hs-type">DeploymentTargetType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

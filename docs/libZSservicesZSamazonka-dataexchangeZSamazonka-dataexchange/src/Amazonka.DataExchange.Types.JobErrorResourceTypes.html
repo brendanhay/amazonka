@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types.JobErrorResourceTypes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types.JobErrorResourceTypes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier">JobErrorResourceTypes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_ASSET"><span class="hs-identifier">JobErrorResourceTypes_ASSET</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_DATA_SET"><span class="hs-identifier">JobErrorResourceTypes_DATA_SET</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_REVISION"><span class="hs-identifier">JobErrorResourceTypes_REVISION</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The types of resource which the job error can apply to.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679235785"><span id="local-6989586621679235786"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobErrorResourceTypes"><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier hs-var">JobErrorResourceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobErrorResourceTypes%27"><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes%27"><span class="hs-identifier hs-var">JobErrorResourceTypes'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobErrorResourceTypes"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#fromJobErrorResourceTypes"><span class="hs-identifier hs-var hs-var">fromJobErrorResourceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235777"><span id="local-6989586621679235779"><span id="local-6989586621679235781"><span class="annot"><span class="annottext">Int -&gt; JobErrorResourceTypes -&gt; ShowS
+[JobErrorResourceTypes] -&gt; ShowS
+JobErrorResourceTypes -&gt; String
+(Int -&gt; JobErrorResourceTypes -&gt; ShowS)
+-&gt; (JobErrorResourceTypes -&gt; String)
+-&gt; ([JobErrorResourceTypes] -&gt; ShowS)
+-&gt; Show JobErrorResourceTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobErrorResourceTypes] -&gt; ShowS
+$cshowList :: [JobErrorResourceTypes] -&gt; ShowS
+show :: JobErrorResourceTypes -&gt; String
+$cshow :: JobErrorResourceTypes -&gt; String
+showsPrec :: Int -&gt; JobErrorResourceTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobErrorResourceTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235768"><span id="local-6989586621679235770"><span id="local-6989586621679235772"><span id="local-6989586621679235774"><span class="annot"><span class="annottext">ReadPrec [JobErrorResourceTypes]
+ReadPrec JobErrorResourceTypes
+Int -&gt; ReadS JobErrorResourceTypes
+ReadS [JobErrorResourceTypes]
+(Int -&gt; ReadS JobErrorResourceTypes)
+-&gt; ReadS [JobErrorResourceTypes]
+-&gt; ReadPrec JobErrorResourceTypes
+-&gt; ReadPrec [JobErrorResourceTypes]
+-&gt; Read JobErrorResourceTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobErrorResourceTypes]
+$creadListPrec :: ReadPrec [JobErrorResourceTypes]
+readPrec :: ReadPrec JobErrorResourceTypes
+$creadPrec :: ReadPrec JobErrorResourceTypes
+readList :: ReadS [JobErrorResourceTypes]
+$creadList :: ReadS [JobErrorResourceTypes]
+readsPrec :: Int -&gt; ReadS JobErrorResourceTypes
+$creadsPrec :: Int -&gt; ReadS JobErrorResourceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679235763"><span id="local-6989586621679235765"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+(JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool)
+-&gt; (JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool)
+-&gt; Eq JobErrorResourceTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+$c/= :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+== :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+$c== :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679235747"><span id="local-6989586621679235749"><span id="local-6989586621679235751"><span id="local-6989586621679235753"><span id="local-6989586621679235755"><span id="local-6989586621679235757"><span id="local-6989586621679235759"><span class="annot"><span class="annottext">Eq JobErrorResourceTypes
+Eq JobErrorResourceTypes
+-&gt; (JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Ordering)
+-&gt; (JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool)
+-&gt; (JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool)
+-&gt; (JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool)
+-&gt; (JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool)
+-&gt; (JobErrorResourceTypes
+    -&gt; JobErrorResourceTypes -&gt; JobErrorResourceTypes)
+-&gt; (JobErrorResourceTypes
+    -&gt; JobErrorResourceTypes -&gt; JobErrorResourceTypes)
+-&gt; Ord JobErrorResourceTypes
+JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Ordering
+JobErrorResourceTypes
+-&gt; JobErrorResourceTypes -&gt; JobErrorResourceTypes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JobErrorResourceTypes
+-&gt; JobErrorResourceTypes -&gt; JobErrorResourceTypes
+$cmin :: JobErrorResourceTypes
+-&gt; JobErrorResourceTypes -&gt; JobErrorResourceTypes
+max :: JobErrorResourceTypes
+-&gt; JobErrorResourceTypes -&gt; JobErrorResourceTypes
+$cmax :: JobErrorResourceTypes
+-&gt; JobErrorResourceTypes -&gt; JobErrorResourceTypes
+&gt;= :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+$c&gt;= :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+&gt; :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+$c&gt; :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+&lt;= :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+$c&lt;= :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+&lt; :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+$c&lt; :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Bool
+compare :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Ordering
+$ccompare :: JobErrorResourceTypes -&gt; JobErrorResourceTypes -&gt; Ordering
+$cp1Ord :: Eq JobErrorResourceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JobErrorResourceTypes -&gt; Rep JobErrorResourceTypes x)
+-&gt; (forall x. Rep JobErrorResourceTypes x -&gt; JobErrorResourceTypes)
+-&gt; Generic JobErrorResourceTypes
+forall x. Rep JobErrorResourceTypes x -&gt; JobErrorResourceTypes
+forall x. JobErrorResourceTypes -&gt; Rep JobErrorResourceTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobErrorResourceTypes x -&gt; JobErrorResourceTypes
+$cfrom :: forall x. JobErrorResourceTypes -&gt; Rep JobErrorResourceTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235739"><span id="local-6989586621679235741"><span class="annot"><span class="annottext">Int -&gt; JobErrorResourceTypes -&gt; Int
+JobErrorResourceTypes -&gt; Int
+(Int -&gt; JobErrorResourceTypes -&gt; Int)
+-&gt; (JobErrorResourceTypes -&gt; Int) -&gt; Hashable JobErrorResourceTypes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JobErrorResourceTypes -&gt; Int
+$chash :: JobErrorResourceTypes -&gt; Int
+hashWithSalt :: Int -&gt; JobErrorResourceTypes -&gt; Int
+$chashWithSalt :: Int -&gt; JobErrorResourceTypes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235736"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; ()
+(JobErrorResourceTypes -&gt; ()) -&gt; NFData JobErrorResourceTypes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JobErrorResourceTypes -&gt; ()
+$crnf :: JobErrorResourceTypes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235733"><span class="annot"><span class="annottext">Text -&gt; Either String JobErrorResourceTypes
+(Text -&gt; Either String JobErrorResourceTypes)
+-&gt; FromText JobErrorResourceTypes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JobErrorResourceTypes
+$cfromText :: Text -&gt; Either String JobErrorResourceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235730"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; Text
+(JobErrorResourceTypes -&gt; Text) -&gt; ToText JobErrorResourceTypes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JobErrorResourceTypes -&gt; Text
+$ctoText :: JobErrorResourceTypes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235727"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; ByteString
+(JobErrorResourceTypes -&gt; ByteString)
+-&gt; ToByteString JobErrorResourceTypes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JobErrorResourceTypes -&gt; ByteString
+$ctoBS :: JobErrorResourceTypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235724"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; ByteStringBuilder
+(JobErrorResourceTypes -&gt; ByteStringBuilder)
+-&gt; ToLog JobErrorResourceTypes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JobErrorResourceTypes -&gt; ByteStringBuilder
+$cbuild :: JobErrorResourceTypes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235721"><span class="annot"><span class="annottext">HeaderName -&gt; JobErrorResourceTypes -&gt; [Header]
+(HeaderName -&gt; JobErrorResourceTypes -&gt; [Header])
+-&gt; ToHeader JobErrorResourceTypes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JobErrorResourceTypes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JobErrorResourceTypes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235718"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; QueryString
+(JobErrorResourceTypes -&gt; QueryString)
+-&gt; ToQuery JobErrorResourceTypes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JobErrorResourceTypes -&gt; QueryString
+$ctoQuery :: JobErrorResourceTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235713"><span id="local-6989586621679235715"><span class="annot"><span class="annottext">Value -&gt; Parser [JobErrorResourceTypes]
+Value -&gt; Parser JobErrorResourceTypes
+(Value -&gt; Parser JobErrorResourceTypes)
+-&gt; (Value -&gt; Parser [JobErrorResourceTypes])
+-&gt; FromJSON JobErrorResourceTypes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JobErrorResourceTypes]
+$cparseJSONList :: Value -&gt; Parser [JobErrorResourceTypes]
+parseJSON :: Value -&gt; Parser JobErrorResourceTypes
+$cparseJSON :: Value -&gt; Parser JobErrorResourceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235708"><span id="local-6989586621679235710"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobErrorResourceTypes]
+FromJSONKeyFunction JobErrorResourceTypes
+FromJSONKeyFunction JobErrorResourceTypes
+-&gt; FromJSONKeyFunction [JobErrorResourceTypes]
+-&gt; FromJSONKey JobErrorResourceTypes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JobErrorResourceTypes]
+$cfromJSONKeyList :: FromJSONKeyFunction [JobErrorResourceTypes]
+fromJSONKey :: FromJSONKeyFunction JobErrorResourceTypes
+$cfromJSONKey :: FromJSONKeyFunction JobErrorResourceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235699"><span id="local-6989586621679235701"><span id="local-6989586621679235703"><span id="local-6989586621679235705"><span class="annot"><span class="annottext">[JobErrorResourceTypes] -&gt; Encoding
+[JobErrorResourceTypes] -&gt; Value
+JobErrorResourceTypes -&gt; Encoding
+JobErrorResourceTypes -&gt; Value
+(JobErrorResourceTypes -&gt; Value)
+-&gt; (JobErrorResourceTypes -&gt; Encoding)
+-&gt; ([JobErrorResourceTypes] -&gt; Value)
+-&gt; ([JobErrorResourceTypes] -&gt; Encoding)
+-&gt; ToJSON JobErrorResourceTypes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JobErrorResourceTypes] -&gt; Encoding
+$ctoEncodingList :: [JobErrorResourceTypes] -&gt; Encoding
+toJSONList :: [JobErrorResourceTypes] -&gt; Value
+$ctoJSONList :: [JobErrorResourceTypes] -&gt; Value
+toEncoding :: JobErrorResourceTypes -&gt; Encoding
+$ctoEncoding :: JobErrorResourceTypes -&gt; Encoding
+toJSON :: JobErrorResourceTypes -&gt; Value
+$ctoJSON :: JobErrorResourceTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235694"><span id="local-6989586621679235696"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobErrorResourceTypes]
+ToJSONKeyFunction JobErrorResourceTypes
+ToJSONKeyFunction JobErrorResourceTypes
+-&gt; ToJSONKeyFunction [JobErrorResourceTypes]
+-&gt; ToJSONKey JobErrorResourceTypes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JobErrorResourceTypes]
+$ctoJSONKeyList :: ToJSONKeyFunction [JobErrorResourceTypes]
+toJSONKey :: ToJSONKeyFunction JobErrorResourceTypes
+$ctoJSONKey :: ToJSONKeyFunction JobErrorResourceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235691"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobErrorResourceTypes
+([Node] -&gt; Either String JobErrorResourceTypes)
+-&gt; FromXML JobErrorResourceTypes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JobErrorResourceTypes
+$cparseXML :: [Node] -&gt; Either String JobErrorResourceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679235688"><span class="annot"><span class="annottext">JobErrorResourceTypes -&gt; XML
+(JobErrorResourceTypes -&gt; XML) -&gt; ToXML JobErrorResourceTypes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JobErrorResourceTypes -&gt; XML
+$ctoXML :: JobErrorResourceTypes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_ASSET"><span class="hs-identifier hs-type">JobErrorResourceTypes_ASSET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier hs-type">JobErrorResourceTypes</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobErrorResourceTypes_ASSET"><span id="%24mJobErrorResourceTypes_ASSET"><span id="JobErrorResourceTypes_ASSET"><span class="annot"><span class="annottext">$bJobErrorResourceTypes_ASSET :: JobErrorResourceTypes
+$mJobErrorResourceTypes_ASSET :: forall r.
+JobErrorResourceTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#%24bJobErrorResourceTypes_ASSET"><span class="hs-identifier hs-var hs-var hs-var">JobErrorResourceTypes_ASSET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes%27"><span class="hs-identifier hs-type">JobErrorResourceTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASSET&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_DATA_SET"><span class="hs-identifier hs-type">JobErrorResourceTypes_DATA_SET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier hs-type">JobErrorResourceTypes</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobErrorResourceTypes_DATA_SET"><span id="%24mJobErrorResourceTypes_DATA_SET"><span id="JobErrorResourceTypes_DATA_SET"><span class="annot"><span class="annottext">$bJobErrorResourceTypes_DATA_SET :: JobErrorResourceTypes
+$mJobErrorResourceTypes_DATA_SET :: forall r.
+JobErrorResourceTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#%24bJobErrorResourceTypes_DATA_SET"><span class="hs-identifier hs-var hs-var hs-var">JobErrorResourceTypes_DATA_SET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes%27"><span class="hs-identifier hs-type">JobErrorResourceTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATA_SET&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_REVISION"><span class="hs-identifier hs-type">JobErrorResourceTypes_REVISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier hs-type">JobErrorResourceTypes</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobErrorResourceTypes_REVISION"><span id="%24mJobErrorResourceTypes_REVISION"><span id="JobErrorResourceTypes_REVISION"><span class="annot"><span class="annottext">$bJobErrorResourceTypes_REVISION :: JobErrorResourceTypes
+$mJobErrorResourceTypes_REVISION :: forall r.
+JobErrorResourceTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#%24bJobErrorResourceTypes_REVISION"><span class="hs-identifier hs-var hs-var hs-var">JobErrorResourceTypes_REVISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes%27"><span class="hs-identifier hs-type">JobErrorResourceTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REVISION&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_ASSET"><span class="hs-pragma hs-type">JobErrorResourceTypes_ASSET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_DATA_SET"><span class="hs-pragma hs-type">JobErrorResourceTypes_DATA_SET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes_REVISION"><span class="hs-pragma hs-type">JobErrorResourceTypes_REVISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes%27"><span class="hs-pragma hs-type">JobErrorResourceTypes'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

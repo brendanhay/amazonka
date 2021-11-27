@@ -1,0 +1,800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.GetCampaignDateRangeKpi</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves (queries) pre-aggregated data for a standard metric that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- applies to a campaign.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.GetCampaignDateRangeKpi</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#newGetCampaignDateRangeKpi"><span class="hs-identifier">newGetCampaignDateRangeKpi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_startTime"><span class="hs-identifier">getCampaignDateRangeKpi_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_nextToken"><span class="hs-identifier">getCampaignDateRangeKpi_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_endTime"><span class="hs-identifier">getCampaignDateRangeKpi_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_pageSize"><span class="hs-identifier">getCampaignDateRangeKpi_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_applicationId"><span class="hs-identifier">getCampaignDateRangeKpi_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_kpiName"><span class="hs-identifier">getCampaignDateRangeKpi_kpiName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_campaignId"><span class="hs-identifier">getCampaignDateRangeKpi_campaignId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier">GetCampaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#newGetCampaignDateRangeKpiResponse"><span class="hs-identifier">newGetCampaignDateRangeKpiResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpiResponse_httpStatus"><span class="hs-identifier">getCampaignDateRangeKpiResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse"><span class="hs-identifier">getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetCampaignDateRangeKpi' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679632362"><span id="local-6989586621679632363"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCampaignDateRangeKpi"><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-var">GetCampaignDateRangeKpi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCampaignDateRangeKpi%27"><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">GetCampaignDateRangeKpi'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The first date and time to retrieve data for, as part of an inclusive</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- date range that filters the query results. This value should be in</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- extended ISO 8601 format and use Coordinated Universal Time (UTC), for</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- should also be fewer than 90 days from the current day.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstartTime%3AGetCampaignDateRangeKpi%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; Maybe POSIX
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AstartTime%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The string that specifies which page of results to return in a paginated</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCampaignDateRangeKpi%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AnextToken%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The last date and time to retrieve data for, as part of an inclusive</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- date range that filters the query results. This value should be in</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- extended ISO 8601 format and use Coordinated Universal Time (UTC), for</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AendTime%3AGetCampaignDateRangeKpi%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; Maybe POSIX
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AendTime%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3ApageSize%3AGetCampaignDateRangeKpi%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3ApageSize%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetCampaignDateRangeKpi%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AapplicationId%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- (KPI)/, to retrieve data for. This value describes the associated metric</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- and consists of two or more terms, which are comprised of lowercase</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- alphanumeric characters, separated by a hyphen. Examples are</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- email-open-rate and successful-delivery-rate. For a list of valid</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- values, see the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AkpiName%3AGetCampaignDateRangeKpi%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AkpiName%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var hs-var">kpiName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AcampaignId%3AGetCampaignDateRangeKpi%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AcampaignId%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632350"><span id="local-6989586621679632352"><span class="annot"><span class="annottext">GetCampaignDateRangeKpi -&gt; GetCampaignDateRangeKpi -&gt; Bool
+(GetCampaignDateRangeKpi -&gt; GetCampaignDateRangeKpi -&gt; Bool)
+-&gt; (GetCampaignDateRangeKpi -&gt; GetCampaignDateRangeKpi -&gt; Bool)
+-&gt; Eq GetCampaignDateRangeKpi
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCampaignDateRangeKpi -&gt; GetCampaignDateRangeKpi -&gt; Bool
+$c/= :: GetCampaignDateRangeKpi -&gt; GetCampaignDateRangeKpi -&gt; Bool
+== :: GetCampaignDateRangeKpi -&gt; GetCampaignDateRangeKpi -&gt; Bool
+$c== :: GetCampaignDateRangeKpi -&gt; GetCampaignDateRangeKpi -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632341"><span id="local-6989586621679632343"><span id="local-6989586621679632345"><span id="local-6989586621679632347"><span class="annot"><span class="annottext">ReadPrec [GetCampaignDateRangeKpi]
+ReadPrec GetCampaignDateRangeKpi
+Int -&gt; ReadS GetCampaignDateRangeKpi
+ReadS [GetCampaignDateRangeKpi]
+(Int -&gt; ReadS GetCampaignDateRangeKpi)
+-&gt; ReadS [GetCampaignDateRangeKpi]
+-&gt; ReadPrec GetCampaignDateRangeKpi
+-&gt; ReadPrec [GetCampaignDateRangeKpi]
+-&gt; Read GetCampaignDateRangeKpi
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCampaignDateRangeKpi]
+$creadListPrec :: ReadPrec [GetCampaignDateRangeKpi]
+readPrec :: ReadPrec GetCampaignDateRangeKpi
+$creadPrec :: ReadPrec GetCampaignDateRangeKpi
+readList :: ReadS [GetCampaignDateRangeKpi]
+$creadList :: ReadS [GetCampaignDateRangeKpi]
+readsPrec :: Int -&gt; ReadS GetCampaignDateRangeKpi
+$creadsPrec :: Int -&gt; ReadS GetCampaignDateRangeKpi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632334"><span id="local-6989586621679632336"><span id="local-6989586621679632338"><span class="annot"><span class="annottext">Int -&gt; GetCampaignDateRangeKpi -&gt; ShowS
+[GetCampaignDateRangeKpi] -&gt; ShowS
+GetCampaignDateRangeKpi -&gt; String
+(Int -&gt; GetCampaignDateRangeKpi -&gt; ShowS)
+-&gt; (GetCampaignDateRangeKpi -&gt; String)
+-&gt; ([GetCampaignDateRangeKpi] -&gt; ShowS)
+-&gt; Show GetCampaignDateRangeKpi
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCampaignDateRangeKpi] -&gt; ShowS
+$cshowList :: [GetCampaignDateRangeKpi] -&gt; ShowS
+show :: GetCampaignDateRangeKpi -&gt; String
+$cshow :: GetCampaignDateRangeKpi -&gt; String
+showsPrec :: Int -&gt; GetCampaignDateRangeKpi -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCampaignDateRangeKpi -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCampaignDateRangeKpi -&gt; Rep GetCampaignDateRangeKpi x)
+-&gt; (forall x.
+    Rep GetCampaignDateRangeKpi x -&gt; GetCampaignDateRangeKpi)
+-&gt; Generic GetCampaignDateRangeKpi
+forall x. Rep GetCampaignDateRangeKpi x -&gt; GetCampaignDateRangeKpi
+forall x. GetCampaignDateRangeKpi -&gt; Rep GetCampaignDateRangeKpi x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCampaignDateRangeKpi x -&gt; GetCampaignDateRangeKpi
+$cfrom :: forall x. GetCampaignDateRangeKpi -&gt; Rep GetCampaignDateRangeKpi x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'GetCampaignDateRangeKpi' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'startTime', 'getCampaignDateRangeKpi_startTime' - The first date and time to retrieve data for, as part of an inclusive</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- date range that filters the query results. This value should be in</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- extended ISO 8601 format and use Coordinated Universal Time (UTC), for</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- should also be fewer than 90 days from the current day.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'nextToken', 'getCampaignDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'endTime', 'getCampaignDateRangeKpi_endTime' - The last date and time to retrieve data for, as part of an inclusive</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- date range that filters the query results. This value should be in</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- extended ISO 8601 format and use Coordinated Universal Time (UTC), for</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'pageSize', 'getCampaignDateRangeKpi_pageSize' - The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'applicationId', 'getCampaignDateRangeKpi_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'kpiName', 'getCampaignDateRangeKpi_kpiName' - The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- (KPI)/, to retrieve data for. This value describes the associated metric</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- and consists of two or more terms, which are comprised of lowercase</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- alphanumeric characters, separated by a hyphen. Examples are</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- email-open-rate and successful-delivery-rate. For a list of valid</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- values, see the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'campaignId', 'getCampaignDateRangeKpi_campaignId' - The unique identifier for the campaign.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#newGetCampaignDateRangeKpi"><span class="hs-identifier hs-type">newGetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-comment">-- | 'kpiName'</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'campaignId'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span>
+</span><span id="line-140"></span><span id="newGetCampaignDateRangeKpi"><span class="annot"><span class="annottext">newGetCampaignDateRangeKpi :: Text -&gt; Text -&gt; Text -&gt; GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#newGetCampaignDateRangeKpi"><span class="hs-identifier hs-var hs-var">newGetCampaignDateRangeKpi</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679632329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632329"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679632328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632328"><span class="hs-identifier hs-var">pKpiName_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679632327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632327"><span class="hs-identifier hs-var">pCampaignId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:GetCampaignDateRangeKpi' :: Maybe POSIX
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AstartTime%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:GetCampaignDateRangeKpi' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AnextToken%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:GetCampaignDateRangeKpi' :: Maybe POSIX
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AendTime%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:pageSize:GetCampaignDateRangeKpi' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3ApageSize%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:GetCampaignDateRangeKpi' :: Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AapplicationId%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632329"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:kpiName:GetCampaignDateRangeKpi' :: Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AkpiName%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">kpiName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632328"><span class="hs-identifier hs-var">pKpiName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:campaignId:GetCampaignDateRangeKpi' :: Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AcampaignId%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632327"><span class="hs-identifier hs-var">pCampaignId_</span></a></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The first date and time to retrieve data for, as part of an inclusive</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- date range that filters the query results. This value should be in</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- extended ISO 8601 format and use Coordinated Universal Time (UTC), for</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- should also be fewer than 90 days from the current day.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_startTime"><span class="hs-identifier hs-type">getCampaignDateRangeKpi_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getCampaignDateRangeKpi_startTime"><span class="annot"><span class="annottext">getCampaignDateRangeKpi_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_startTime"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpi_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpi -&gt; Maybe POSIX)
+-&gt; (GetCampaignDateRangeKpi
+    -&gt; Maybe POSIX -&gt; GetCampaignDateRangeKpi)
+-&gt; Lens
+     GetCampaignDateRangeKpi
+     GetCampaignDateRangeKpi
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632324"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe POSIX
+</span><a href="#local-6989586621679632324"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632324"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632323"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632322"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:GetCampaignDateRangeKpi' :: Maybe POSIX
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AstartTime%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCampaignDateRangeKpi
+-&gt; f GetCampaignDateRangeKpi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The string that specifies which page of results to return in a paginated</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_nextToken"><span class="hs-identifier hs-type">getCampaignDateRangeKpi_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="getCampaignDateRangeKpi_nextToken"><span class="annot"><span class="annottext">getCampaignDateRangeKpi_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_nextToken"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpi_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpi -&gt; Maybe Text)
+-&gt; (GetCampaignDateRangeKpi
+    -&gt; Maybe Text -&gt; GetCampaignDateRangeKpi)
+-&gt; Lens
+     GetCampaignDateRangeKpi
+     GetCampaignDateRangeKpi
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632318"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe Text
+</span><a href="#local-6989586621679632318"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632318"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632317"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCampaignDateRangeKpi' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AnextToken%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The last date and time to retrieve data for, as part of an inclusive</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- date range that filters the query results. This value should be in</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- extended ISO 8601 format and use Coordinated Universal Time (UTC), for</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_endTime"><span class="hs-identifier hs-type">getCampaignDateRangeKpi_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="getCampaignDateRangeKpi_endTime"><span class="annot"><span class="annottext">getCampaignDateRangeKpi_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_endTime"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpi_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpi -&gt; Maybe POSIX)
+-&gt; (GetCampaignDateRangeKpi
+    -&gt; Maybe POSIX -&gt; GetCampaignDateRangeKpi)
+-&gt; Lens
+     GetCampaignDateRangeKpi
+     GetCampaignDateRangeKpi
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632315"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe POSIX
+</span><a href="#local-6989586621679632315"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632315"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632314"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632313"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:GetCampaignDateRangeKpi' :: Maybe POSIX
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AendTime%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCampaignDateRangeKpi
+-&gt; f GetCampaignDateRangeKpi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_pageSize"><span class="hs-identifier hs-type">getCampaignDateRangeKpi_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="getCampaignDateRangeKpi_pageSize"><span class="annot"><span class="annottext">getCampaignDateRangeKpi_pageSize :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_pageSize"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpi_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpi -&gt; Maybe Text)
+-&gt; (GetCampaignDateRangeKpi
+    -&gt; Maybe Text -&gt; GetCampaignDateRangeKpi)
+-&gt; Lens
+     GetCampaignDateRangeKpi
+     GetCampaignDateRangeKpi
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632312"><span class="annot"><span class="annottext">Maybe Text
+pageSize :: Maybe Text
+$sel:pageSize:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe Text
+</span><a href="#local-6989586621679632312"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632312"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632311"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632310"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:GetCampaignDateRangeKpi' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3ApageSize%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_applicationId"><span class="hs-identifier hs-type">getCampaignDateRangeKpi_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-185"></span><span id="getCampaignDateRangeKpi_applicationId"><span class="annot"><span class="annottext">getCampaignDateRangeKpi_applicationId :: (Text -&gt; f Text)
+-&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_applicationId"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpi_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpi -&gt; Text)
+-&gt; (GetCampaignDateRangeKpi -&gt; Text -&gt; GetCampaignDateRangeKpi)
+-&gt; Lens GetCampaignDateRangeKpi GetCampaignDateRangeKpi Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632309"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+</span><a href="#local-6989586621679632309"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632309"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632308"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632307"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetCampaignDateRangeKpi' :: Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AapplicationId%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- (KPI)/, to retrieve data for. This value describes the associated metric</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- and consists of two or more terms, which are comprised of lowercase</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- alphanumeric characters, separated by a hyphen. Examples are</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- email-open-rate and successful-delivery-rate. For a list of valid</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- values, see the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_kpiName"><span class="hs-identifier hs-type">getCampaignDateRangeKpi_kpiName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-195"></span><span id="getCampaignDateRangeKpi_kpiName"><span class="annot"><span class="annottext">getCampaignDateRangeKpi_kpiName :: (Text -&gt; f Text)
+-&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_kpiName"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpi_kpiName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpi -&gt; Text)
+-&gt; (GetCampaignDateRangeKpi -&gt; Text -&gt; GetCampaignDateRangeKpi)
+-&gt; Lens GetCampaignDateRangeKpi GetCampaignDateRangeKpi Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632306"><span class="annot"><span class="annottext">Text
+kpiName :: Text
+$sel:kpiName:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+</span><a href="#local-6989586621679632306"><span class="hs-identifier hs-var hs-var">kpiName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632306"><span class="hs-identifier hs-var">kpiName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632305"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632304"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kpiName:GetCampaignDateRangeKpi' :: Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AkpiName%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">kpiName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_campaignId"><span class="hs-identifier hs-type">getCampaignDateRangeKpi_campaignId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="getCampaignDateRangeKpi_campaignId"><span class="annot"><span class="annottext">getCampaignDateRangeKpi_campaignId :: (Text -&gt; f Text)
+-&gt; GetCampaignDateRangeKpi -&gt; f GetCampaignDateRangeKpi
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpi_campaignId"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpi_campaignId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpi -&gt; Text)
+-&gt; (GetCampaignDateRangeKpi -&gt; Text -&gt; GetCampaignDateRangeKpi)
+-&gt; Lens GetCampaignDateRangeKpi GetCampaignDateRangeKpi Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632303"><span class="annot"><span class="annottext">Text
+campaignId :: Text
+$sel:campaignId:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+</span><a href="#local-6989586621679632303"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632303"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632302"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpi
+</span><a href="#local-6989586621679632302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:GetCampaignDateRangeKpi' :: Text
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AcampaignId%3AGetCampaignDateRangeKpi%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-203"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse</span></a></span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679632297"><span class="annot"><span class="annottext">request :: GetCampaignDateRangeKpi -&gt; Request GetCampaignDateRangeKpi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetCampaignDateRangeKpi -&gt; Request GetCampaignDateRangeKpi
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679632293"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCampaignDateRangeKpi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCampaignDateRangeKpi)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetCampaignDateRangeKpi))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCampaignDateRangeKpi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCampaignDateRangeKpi)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632290"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632289"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679632289"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632288"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679632288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; CampaignDateRangeKpiResponse -&gt; GetCampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">GetCampaignDateRangeKpiResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; CampaignDateRangeKpiResponse -&gt; GetCampaignDateRangeKpiResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (CampaignDateRangeKpiResponse -&gt; GetCampaignDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632290"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (CampaignDateRangeKpiResponse -&gt; GetCampaignDateRangeKpiResponse)
+-&gt; Either String CampaignDateRangeKpiResponse
+-&gt; Either String GetCampaignDateRangeKpiResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String CampaignDateRangeKpiResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679632288"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632280"><span id="local-6989586621679632282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span></span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679632273"><span class="annot"><span class="annottext">toHeaders :: GetCampaignDateRangeKpi -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCampaignDateRangeKpi -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-225"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679632267"><span class="annot"><span class="annottext">toPath :: GetCampaignDateRangeKpi -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632259"><span id="local-6989586621679632260"><span id="local-6989586621679632261"><span id="local-6989586621679632262"><span id="local-6989586621679632263"><span id="local-6989586621679632264"><span id="local-6989586621679632265"><span class="annot"><span class="annottext">Maybe Text
+Maybe POSIX
+Text
+campaignId :: Text
+kpiName :: Text
+applicationId :: Text
+pageSize :: Maybe Text
+endTime :: Maybe POSIX
+nextToken :: Maybe Text
+startTime :: Maybe POSIX
+$sel:campaignId:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+$sel:kpiName:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+$sel:applicationId:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+$sel:pageSize:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe Text
+$sel:endTime:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe POSIX
+$sel:nextToken:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe Text
+$sel:startTime:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe POSIX
+</span><a href="#local-6989586621679632259"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632261"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/campaigns/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632259"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/kpis/daterange/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632260"><span class="hs-identifier hs-var">kpiName</span></a></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679632255"><span class="annot"><span class="annottext">toQuery :: GetCampaignDateRangeKpi -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpi%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632247"><span id="local-6989586621679632248"><span id="local-6989586621679632249"><span id="local-6989586621679632250"><span id="local-6989586621679632251"><span id="local-6989586621679632252"><span id="local-6989586621679632253"><span class="annot"><span class="annottext">Maybe Text
+Maybe POSIX
+Text
+campaignId :: Text
+kpiName :: Text
+applicationId :: Text
+pageSize :: Maybe Text
+endTime :: Maybe POSIX
+nextToken :: Maybe Text
+startTime :: Maybe POSIX
+$sel:campaignId:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+$sel:kpiName:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+$sel:applicationId:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Text
+$sel:pageSize:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe Text
+$sel:endTime:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe POSIX
+$sel:nextToken:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe Text
+$sel:startTime:GetCampaignDateRangeKpi' :: GetCampaignDateRangeKpi -&gt; Maybe POSIX
+</span><a href="#local-6989586621679632247"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;start-time&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632253"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632252"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;end-time&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679632251"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;page-size&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632250"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | /See:/ 'newGetCampaignDateRangeKpiResponse' smart constructor.</span><span>
+</span><span id="line-250"></span><span id="local-6989586621679632244"><span id="local-6989586621679632245"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCampaignDateRangeKpiResponse"><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-var">GetCampaignDateRangeKpiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCampaignDateRangeKpiResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">GetCampaignDateRangeKpiResponse'</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpiResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AhttpStatus%3AGetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AcampaignDateRangeKpiResponse%3AGetCampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">GetCampaignDateRangeKpiResponse -&gt; CampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AcampaignDateRangeKpiResponse%3AGetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632238"><span id="local-6989586621679632240"><span class="annot"><span class="annottext">GetCampaignDateRangeKpiResponse
+-&gt; GetCampaignDateRangeKpiResponse -&gt; Bool
+(GetCampaignDateRangeKpiResponse
+ -&gt; GetCampaignDateRangeKpiResponse -&gt; Bool)
+-&gt; (GetCampaignDateRangeKpiResponse
+    -&gt; GetCampaignDateRangeKpiResponse -&gt; Bool)
+-&gt; Eq GetCampaignDateRangeKpiResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCampaignDateRangeKpiResponse
+-&gt; GetCampaignDateRangeKpiResponse -&gt; Bool
+$c/= :: GetCampaignDateRangeKpiResponse
+-&gt; GetCampaignDateRangeKpiResponse -&gt; Bool
+== :: GetCampaignDateRangeKpiResponse
+-&gt; GetCampaignDateRangeKpiResponse -&gt; Bool
+$c== :: GetCampaignDateRangeKpiResponse
+-&gt; GetCampaignDateRangeKpiResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632230"><span id="local-6989586621679632232"><span id="local-6989586621679632234"><span id="local-6989586621679632236"><span class="annot"><span class="annottext">ReadPrec [GetCampaignDateRangeKpiResponse]
+ReadPrec GetCampaignDateRangeKpiResponse
+Int -&gt; ReadS GetCampaignDateRangeKpiResponse
+ReadS [GetCampaignDateRangeKpiResponse]
+(Int -&gt; ReadS GetCampaignDateRangeKpiResponse)
+-&gt; ReadS [GetCampaignDateRangeKpiResponse]
+-&gt; ReadPrec GetCampaignDateRangeKpiResponse
+-&gt; ReadPrec [GetCampaignDateRangeKpiResponse]
+-&gt; Read GetCampaignDateRangeKpiResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCampaignDateRangeKpiResponse]
+$creadListPrec :: ReadPrec [GetCampaignDateRangeKpiResponse]
+readPrec :: ReadPrec GetCampaignDateRangeKpiResponse
+$creadPrec :: ReadPrec GetCampaignDateRangeKpiResponse
+readList :: ReadS [GetCampaignDateRangeKpiResponse]
+$creadList :: ReadS [GetCampaignDateRangeKpiResponse]
+readsPrec :: Int -&gt; ReadS GetCampaignDateRangeKpiResponse
+$creadsPrec :: Int -&gt; ReadS GetCampaignDateRangeKpiResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632224"><span id="local-6989586621679632226"><span id="local-6989586621679632228"><span class="annot"><span class="annottext">Int -&gt; GetCampaignDateRangeKpiResponse -&gt; ShowS
+[GetCampaignDateRangeKpiResponse] -&gt; ShowS
+GetCampaignDateRangeKpiResponse -&gt; String
+(Int -&gt; GetCampaignDateRangeKpiResponse -&gt; ShowS)
+-&gt; (GetCampaignDateRangeKpiResponse -&gt; String)
+-&gt; ([GetCampaignDateRangeKpiResponse] -&gt; ShowS)
+-&gt; Show GetCampaignDateRangeKpiResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCampaignDateRangeKpiResponse] -&gt; ShowS
+$cshowList :: [GetCampaignDateRangeKpiResponse] -&gt; ShowS
+show :: GetCampaignDateRangeKpiResponse -&gt; String
+$cshow :: GetCampaignDateRangeKpiResponse -&gt; String
+showsPrec :: Int -&gt; GetCampaignDateRangeKpiResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCampaignDateRangeKpiResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCampaignDateRangeKpiResponse
+ -&gt; Rep GetCampaignDateRangeKpiResponse x)
+-&gt; (forall x.
+    Rep GetCampaignDateRangeKpiResponse x
+    -&gt; GetCampaignDateRangeKpiResponse)
+-&gt; Generic GetCampaignDateRangeKpiResponse
+forall x.
+Rep GetCampaignDateRangeKpiResponse x
+-&gt; GetCampaignDateRangeKpiResponse
+forall x.
+GetCampaignDateRangeKpiResponse
+-&gt; Rep GetCampaignDateRangeKpiResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCampaignDateRangeKpiResponse x
+-&gt; GetCampaignDateRangeKpiResponse
+$cfrom :: forall x.
+GetCampaignDateRangeKpiResponse
+-&gt; Rep GetCampaignDateRangeKpiResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- Create a value of 'GetCampaignDateRangeKpiResponse' with all optional fields omitted.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'httpStatus', 'getCampaignDateRangeKpiResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'campaignDateRangeKpiResponse', 'getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse' - Undocumented member.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#newGetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">newGetCampaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-comment">-- | 'campaignDateRangeKpiResponse'</span><span>
+</span><span id="line-272"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse</span></a></span><span>
+</span><span id="line-274"></span><span id="newGetCampaignDateRangeKpiResponse"><span class="annot"><span class="annottext">newGetCampaignDateRangeKpiResponse :: Int
+-&gt; CampaignDateRangeKpiResponse -&gt; GetCampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#newGetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-var hs-var">newGetCampaignDateRangeKpiResponse</span></a></span></span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679632221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679632220"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632220"><span class="hs-identifier hs-var">pCampaignDateRangeKpiResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpiResponse' :: Int
+-&gt; CampaignDateRangeKpiResponse -&gt; GetCampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse'</span></a></span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCampaignDateRangeKpiResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AhttpStatus%3AGetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">$sel:campaignDateRangeKpiResponse:GetCampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AcampaignDateRangeKpiResponse%3AGetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">campaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-281"></span><span>          </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632220"><span class="hs-identifier hs-var">pCampaignDateRangeKpiResponse_</span></a></span><span>
+</span><span id="line-282"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpiResponse_httpStatus"><span class="hs-identifier hs-type">getCampaignDateRangeKpiResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-286"></span><span id="getCampaignDateRangeKpiResponse_httpStatus"><span class="annot"><span class="annottext">getCampaignDateRangeKpiResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetCampaignDateRangeKpiResponse
+-&gt; f GetCampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpiResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpiResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpiResponse -&gt; Int)
+-&gt; (GetCampaignDateRangeKpiResponse
+    -&gt; Int -&gt; GetCampaignDateRangeKpiResponse)
+-&gt; Lens
+     GetCampaignDateRangeKpiResponse
+     GetCampaignDateRangeKpiResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632219"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCampaignDateRangeKpiResponse' :: GetCampaignDateRangeKpiResponse -&gt; Int
+</span><a href="#local-6989586621679632219"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632219"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632218"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCampaignDateRangeKpiResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AhttpStatus%3AGetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse"><span class="hs-identifier hs-type">getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span>
+</span><span id="line-290"></span><span id="getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse"><span class="annot"><span class="annottext">getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse :: (CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse)
+-&gt; GetCampaignDateRangeKpiResponse
+-&gt; f GetCampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse"><span class="hs-identifier hs-var hs-var">getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCampaignDateRangeKpiResponse -&gt; CampaignDateRangeKpiResponse)
+-&gt; (GetCampaignDateRangeKpiResponse
+    -&gt; CampaignDateRangeKpiResponse -&gt; GetCampaignDateRangeKpiResponse)
+-&gt; Lens
+     GetCampaignDateRangeKpiResponse
+     GetCampaignDateRangeKpiResponse
+     CampaignDateRangeKpiResponse
+     CampaignDateRangeKpiResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632216"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+campaignDateRangeKpiResponse :: CampaignDateRangeKpiResponse
+$sel:campaignDateRangeKpiResponse:GetCampaignDateRangeKpiResponse' :: GetCampaignDateRangeKpiResponse -&gt; CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632216"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632216"><span class="hs-identifier hs-var">campaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632215"><span class="annot"><span class="annottext">s :: GetCampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632214"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignDateRangeKpiResponse:GetCampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse
+</span><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#%24sel%3AcampaignDateRangeKpiResponse%3AGetCampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">campaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679632214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679632212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetCampaignDateRangeKpi.html#GetCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">GetCampaignDateRangeKpiResponse</span></a></span></span><span>
+</span><span id="line-295"></span></pre></body></html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.PolicyGrantingServiceAccess.html"><span class="hs-identifier">Amazonka.IAM.Types.PolicyGrantingServiceAccess</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains details about the permissions policies that are attached to the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- specified identity (user, group, or role).</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- This data type is used as a response element in the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- ListPoliciesGrantingServiceAccess operation.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newListPoliciesGrantingServiceAccessEntry' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679428046"><span id="local-6989586621679428047"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPoliciesGrantingServiceAccessEntry"><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-var">ListPoliciesGrantingServiceAccessEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPoliciesGrantingServiceAccessEntry%27"><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var">ListPoliciesGrantingServiceAccessEntry'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The namespace of the service that was accessed.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- To learn the service namespace of a service, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the /Service Authorization Reference/. Choose the name of the service</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- to view details for that service. In the first paragraph, find the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- service prefix. For example, @(service prefix: a4b)@. For more</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- information about service namespaces, see</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces&gt;</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- in the&#160;/Amazon Web Services General Reference/.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AserviceNamespace%3AListPoliciesGrantingServiceAccessEntry%27"><span class="annot"><span class="annottext">ListPoliciesGrantingServiceAccessEntry -&gt; Maybe Text
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#%24sel%3AserviceNamespace%3AListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The&#160;@PoliciesGrantingServiceAccess@ object that contains details about</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the policy.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Apolicies%3AListPoliciesGrantingServiceAccessEntry%27"><span class="annot"><span class="annottext">ListPoliciesGrantingServiceAccessEntry
+-&gt; Maybe [PolicyGrantingServiceAccess]
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#%24sel%3Apolicies%3AListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyGrantingServiceAccess.html#PolicyGrantingServiceAccess"><span class="hs-identifier hs-type">PolicyGrantingServiceAccess</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428039"><span id="local-6989586621679428041"><span class="annot"><span class="annottext">ListPoliciesGrantingServiceAccessEntry
+-&gt; ListPoliciesGrantingServiceAccessEntry -&gt; Bool
+(ListPoliciesGrantingServiceAccessEntry
+ -&gt; ListPoliciesGrantingServiceAccessEntry -&gt; Bool)
+-&gt; (ListPoliciesGrantingServiceAccessEntry
+    -&gt; ListPoliciesGrantingServiceAccessEntry -&gt; Bool)
+-&gt; Eq ListPoliciesGrantingServiceAccessEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPoliciesGrantingServiceAccessEntry
+-&gt; ListPoliciesGrantingServiceAccessEntry -&gt; Bool
+$c/= :: ListPoliciesGrantingServiceAccessEntry
+-&gt; ListPoliciesGrantingServiceAccessEntry -&gt; Bool
+== :: ListPoliciesGrantingServiceAccessEntry
+-&gt; ListPoliciesGrantingServiceAccessEntry -&gt; Bool
+$c== :: ListPoliciesGrantingServiceAccessEntry
+-&gt; ListPoliciesGrantingServiceAccessEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428030"><span id="local-6989586621679428032"><span id="local-6989586621679428034"><span id="local-6989586621679428036"><span class="annot"><span class="annottext">ReadPrec [ListPoliciesGrantingServiceAccessEntry]
+ReadPrec ListPoliciesGrantingServiceAccessEntry
+Int -&gt; ReadS ListPoliciesGrantingServiceAccessEntry
+ReadS [ListPoliciesGrantingServiceAccessEntry]
+(Int -&gt; ReadS ListPoliciesGrantingServiceAccessEntry)
+-&gt; ReadS [ListPoliciesGrantingServiceAccessEntry]
+-&gt; ReadPrec ListPoliciesGrantingServiceAccessEntry
+-&gt; ReadPrec [ListPoliciesGrantingServiceAccessEntry]
+-&gt; Read ListPoliciesGrantingServiceAccessEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPoliciesGrantingServiceAccessEntry]
+$creadListPrec :: ReadPrec [ListPoliciesGrantingServiceAccessEntry]
+readPrec :: ReadPrec ListPoliciesGrantingServiceAccessEntry
+$creadPrec :: ReadPrec ListPoliciesGrantingServiceAccessEntry
+readList :: ReadS [ListPoliciesGrantingServiceAccessEntry]
+$creadList :: ReadS [ListPoliciesGrantingServiceAccessEntry]
+readsPrec :: Int -&gt; ReadS ListPoliciesGrantingServiceAccessEntry
+$creadsPrec :: Int -&gt; ReadS ListPoliciesGrantingServiceAccessEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428023"><span id="local-6989586621679428025"><span id="local-6989586621679428027"><span class="annot"><span class="annottext">Int -&gt; ListPoliciesGrantingServiceAccessEntry -&gt; ShowS
+[ListPoliciesGrantingServiceAccessEntry] -&gt; ShowS
+ListPoliciesGrantingServiceAccessEntry -&gt; String
+(Int -&gt; ListPoliciesGrantingServiceAccessEntry -&gt; ShowS)
+-&gt; (ListPoliciesGrantingServiceAccessEntry -&gt; String)
+-&gt; ([ListPoliciesGrantingServiceAccessEntry] -&gt; ShowS)
+-&gt; Show ListPoliciesGrantingServiceAccessEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPoliciesGrantingServiceAccessEntry] -&gt; ShowS
+$cshowList :: [ListPoliciesGrantingServiceAccessEntry] -&gt; ShowS
+show :: ListPoliciesGrantingServiceAccessEntry -&gt; String
+$cshow :: ListPoliciesGrantingServiceAccessEntry -&gt; String
+showsPrec :: Int -&gt; ListPoliciesGrantingServiceAccessEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPoliciesGrantingServiceAccessEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPoliciesGrantingServiceAccessEntry
+ -&gt; Rep ListPoliciesGrantingServiceAccessEntry x)
+-&gt; (forall x.
+    Rep ListPoliciesGrantingServiceAccessEntry x
+    -&gt; ListPoliciesGrantingServiceAccessEntry)
+-&gt; Generic ListPoliciesGrantingServiceAccessEntry
+forall x.
+Rep ListPoliciesGrantingServiceAccessEntry x
+-&gt; ListPoliciesGrantingServiceAccessEntry
+forall x.
+ListPoliciesGrantingServiceAccessEntry
+-&gt; Rep ListPoliciesGrantingServiceAccessEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPoliciesGrantingServiceAccessEntry x
+-&gt; ListPoliciesGrantingServiceAccessEntry
+$cfrom :: forall x.
+ListPoliciesGrantingServiceAccessEntry
+-&gt; Rep ListPoliciesGrantingServiceAccessEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ListPoliciesGrantingServiceAccessEntry' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'serviceNamespace', 'listPoliciesGrantingServiceAccessEntry_serviceNamespace' - The namespace of the service that was accessed.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- To learn the service namespace of a service, see</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services&gt;</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- in the /Service Authorization Reference/. Choose the name of the service</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- to view details for that service. In the first paragraph, find the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- service prefix. For example, @(service prefix: a4b)@. For more</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- information about service namespaces, see</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces&gt;</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- in the&#160;/Amazon Web Services General Reference/.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'policies', 'listPoliciesGrantingServiceAccessEntry_policies' - The&#160;@PoliciesGrantingServiceAccess@ object that contains details about</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the policy.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#newListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">newListPoliciesGrantingServiceAccessEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span><span>
+</span><span id="line-75"></span><span id="newListPoliciesGrantingServiceAccessEntry"><span class="annot"><span class="annottext">newListPoliciesGrantingServiceAccessEntry :: ListPoliciesGrantingServiceAccessEntry
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#newListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-var hs-var">newListPoliciesGrantingServiceAccessEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ListPoliciesGrantingServiceAccessEntry' :: Maybe Text
+-&gt; Maybe [PolicyGrantingServiceAccess]
+-&gt; ListPoliciesGrantingServiceAccessEntry
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceNamespace:ListPoliciesGrantingServiceAccessEntry' :: Maybe Text
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#%24sel%3AserviceNamespace%3AListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:policies:ListPoliciesGrantingServiceAccessEntry' :: Maybe [PolicyGrantingServiceAccess]
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#%24sel%3Apolicies%3AListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyGrantingServiceAccess]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The namespace of the service that was accessed.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- To learn the service namespace of a service, see</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services&gt;</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- in the /Service Authorization Reference/. Choose the name of the service</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to view details for that service. In the first paragraph, find the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- service prefix. For example, @(service prefix: a4b)@. For more</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- information about service namespaces, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the&#160;/Amazon Web Services General Reference/.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#listPoliciesGrantingServiceAccessEntry_serviceNamespace"><span class="hs-identifier hs-type">listPoliciesGrantingServiceAccessEntry_serviceNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listPoliciesGrantingServiceAccessEntry_serviceNamespace"><span class="annot"><span class="annottext">listPoliciesGrantingServiceAccessEntry_serviceNamespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPoliciesGrantingServiceAccessEntry
+-&gt; f ListPoliciesGrantingServiceAccessEntry
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#listPoliciesGrantingServiceAccessEntry_serviceNamespace"><span class="hs-identifier hs-var hs-var">listPoliciesGrantingServiceAccessEntry_serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPoliciesGrantingServiceAccessEntry -&gt; Maybe Text)
+-&gt; (ListPoliciesGrantingServiceAccessEntry
+    -&gt; Maybe Text -&gt; ListPoliciesGrantingServiceAccessEntry)
+-&gt; Lens
+     ListPoliciesGrantingServiceAccessEntry
+     ListPoliciesGrantingServiceAccessEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428014"><span class="annot"><span class="annottext">Maybe Text
+serviceNamespace :: Maybe Text
+$sel:serviceNamespace:ListPoliciesGrantingServiceAccessEntry' :: ListPoliciesGrantingServiceAccessEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679428014"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428014"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428013"><span class="annot"><span class="annottext">s :: ListPoliciesGrantingServiceAccessEntry
+</span><a href="#local-6989586621679428013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428012"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPoliciesGrantingServiceAccessEntry
+</span><a href="#local-6989586621679428013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ListPoliciesGrantingServiceAccessEntry' :: Maybe Text
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#%24sel%3AserviceNamespace%3AListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The&#160;@PoliciesGrantingServiceAccess@ object that contains details about</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the policy.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#listPoliciesGrantingServiceAccessEntry_policies"><span class="hs-identifier hs-type">listPoliciesGrantingServiceAccessEntry_policies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.PolicyGrantingServiceAccess.html#PolicyGrantingServiceAccess"><span class="hs-identifier hs-type">PolicyGrantingServiceAccess</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listPoliciesGrantingServiceAccessEntry_policies"><span class="annot"><span class="annottext">listPoliciesGrantingServiceAccessEntry_policies :: (Maybe [PolicyGrantingServiceAccess]
+ -&gt; f (Maybe [PolicyGrantingServiceAccess]))
+-&gt; ListPoliciesGrantingServiceAccessEntry
+-&gt; f ListPoliciesGrantingServiceAccessEntry
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#listPoliciesGrantingServiceAccessEntry_policies"><span class="hs-identifier hs-var hs-var">listPoliciesGrantingServiceAccessEntry_policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPoliciesGrantingServiceAccessEntry
+ -&gt; Maybe [PolicyGrantingServiceAccess])
+-&gt; (ListPoliciesGrantingServiceAccessEntry
+    -&gt; Maybe [PolicyGrantingServiceAccess]
+    -&gt; ListPoliciesGrantingServiceAccessEntry)
+-&gt; Lens
+     ListPoliciesGrantingServiceAccessEntry
+     ListPoliciesGrantingServiceAccessEntry
+     (Maybe [PolicyGrantingServiceAccess])
+     (Maybe [PolicyGrantingServiceAccess])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428010"><span class="annot"><span class="annottext">Maybe [PolicyGrantingServiceAccess]
+policies :: Maybe [PolicyGrantingServiceAccess]
+$sel:policies:ListPoliciesGrantingServiceAccessEntry' :: ListPoliciesGrantingServiceAccessEntry
+-&gt; Maybe [PolicyGrantingServiceAccess]
+</span><a href="#local-6989586621679428010"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyGrantingServiceAccess]
+</span><a href="#local-6989586621679428010"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428009"><span class="annot"><span class="annottext">s :: ListPoliciesGrantingServiceAccessEntry
+</span><a href="#local-6989586621679428009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428008"><span class="annot"><span class="annottext">Maybe [PolicyGrantingServiceAccess]
+</span><a href="#local-6989586621679428008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPoliciesGrantingServiceAccessEntry
+</span><a href="#local-6989586621679428009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:ListPoliciesGrantingServiceAccessEntry' :: Maybe [PolicyGrantingServiceAccess]
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#%24sel%3Apolicies%3AListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyGrantingServiceAccess]
+</span><a href="#local-6989586621679428008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyGrantingServiceAccess]
+  -&gt; f (Maybe [PolicyGrantingServiceAccess]))
+ -&gt; ListPoliciesGrantingServiceAccessEntry
+ -&gt; f ListPoliciesGrantingServiceAccessEntry)
+-&gt; ((Maybe [PolicyGrantingServiceAccess]
+     -&gt; f (Maybe [PolicyGrantingServiceAccess]))
+    -&gt; Maybe [PolicyGrantingServiceAccess]
+    -&gt; f (Maybe [PolicyGrantingServiceAccess]))
+-&gt; (Maybe [PolicyGrantingServiceAccess]
+    -&gt; f (Maybe [PolicyGrantingServiceAccess]))
+-&gt; ListPoliciesGrantingServiceAccessEntry
+-&gt; f ListPoliciesGrantingServiceAccessEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PolicyGrantingServiceAccess]
+  [PolicyGrantingServiceAccess]
+  [PolicyGrantingServiceAccess]
+  [PolicyGrantingServiceAccess]
+-&gt; Iso
+     (Maybe [PolicyGrantingServiceAccess])
+     (Maybe [PolicyGrantingServiceAccess])
+     (Maybe [PolicyGrantingServiceAccess])
+     (Maybe [PolicyGrantingServiceAccess])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PolicyGrantingServiceAccess]
+  [PolicyGrantingServiceAccess]
+  [PolicyGrantingServiceAccess]
+  [PolicyGrantingServiceAccess]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679428002"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ListPoliciesGrantingServiceAccessEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679428000"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679428000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PolicyGrantingServiceAccess]
+-&gt; ListPoliciesGrantingServiceAccessEntry
+</span><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry%27"><span class="hs-identifier hs-var">ListPoliciesGrantingServiceAccessEntry'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PolicyGrantingServiceAccess]
+ -&gt; ListPoliciesGrantingServiceAccessEntry)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PolicyGrantingServiceAccess]
+      -&gt; ListPoliciesGrantingServiceAccessEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679428000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PolicyGrantingServiceAccess]
+   -&gt; ListPoliciesGrantingServiceAccessEntry)
+-&gt; Either String (Maybe [PolicyGrantingServiceAccess])
+-&gt; Either String ListPoliciesGrantingServiceAccessEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679428000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [PolicyGrantingServiceAccess]))
+-&gt; Either String (Maybe [PolicyGrantingServiceAccess])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PolicyGrantingServiceAccess])
+-&gt; [Node] -&gt; Either String (Maybe [PolicyGrantingServiceAccess])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PolicyGrantingServiceAccess]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679427991"><span id="local-6989586621679427993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679427988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry.html#ListPoliciesGrantingServiceAccessEntry"><span class="hs-identifier hs-type">ListPoliciesGrantingServiceAccessEntry</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

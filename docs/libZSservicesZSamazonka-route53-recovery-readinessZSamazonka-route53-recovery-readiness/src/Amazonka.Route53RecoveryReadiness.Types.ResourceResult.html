@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryReadiness.Types.ResourceResult</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types.ResourceResult</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html"><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types.Readiness</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Result with status for an individual resource.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceResult' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679199785"><span id="local-6989586621679199786"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceResult"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-var">ResourceResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceResult%27"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-var">ResourceResult'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the resource</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceArn%3AResourceResult%27"><span class="annot"><span class="annottext">ResourceResult -&gt; Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AresourceArn%3AResourceResult%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The component id of the resource</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcomponentId%3AResourceResult%27"><span class="annot"><span class="annottext">ResourceResult -&gt; Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AcomponentId%3AResourceResult%27"><span class="hs-identifier hs-var hs-var">componentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The readiness of the resource.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Areadiness%3AResourceResult%27"><span class="annot"><span class="annottext">ResourceResult -&gt; Readiness
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3Areadiness%3AResourceResult%27"><span class="hs-identifier hs-var hs-var">readiness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time the resource was last checked for readiness, in ISO-8601</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- format, UTC.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastCheckedTimestamp%3AResourceResult%27"><span class="annot"><span class="annottext">ResourceResult -&gt; POSIX
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AlastCheckedTimestamp%3AResourceResult%27"><span class="hs-identifier hs-var hs-var">lastCheckedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199776"><span id="local-6989586621679199778"><span class="annot"><span class="annottext">ResourceResult -&gt; ResourceResult -&gt; Bool
+(ResourceResult -&gt; ResourceResult -&gt; Bool)
+-&gt; (ResourceResult -&gt; ResourceResult -&gt; Bool) -&gt; Eq ResourceResult
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceResult -&gt; ResourceResult -&gt; Bool
+$c/= :: ResourceResult -&gt; ResourceResult -&gt; Bool
+== :: ResourceResult -&gt; ResourceResult -&gt; Bool
+$c== :: ResourceResult -&gt; ResourceResult -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199767"><span id="local-6989586621679199769"><span id="local-6989586621679199771"><span id="local-6989586621679199773"><span class="annot"><span class="annottext">ReadPrec [ResourceResult]
+ReadPrec ResourceResult
+Int -&gt; ReadS ResourceResult
+ReadS [ResourceResult]
+(Int -&gt; ReadS ResourceResult)
+-&gt; ReadS [ResourceResult]
+-&gt; ReadPrec ResourceResult
+-&gt; ReadPrec [ResourceResult]
+-&gt; Read ResourceResult
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceResult]
+$creadListPrec :: ReadPrec [ResourceResult]
+readPrec :: ReadPrec ResourceResult
+$creadPrec :: ReadPrec ResourceResult
+readList :: ReadS [ResourceResult]
+$creadList :: ReadS [ResourceResult]
+readsPrec :: Int -&gt; ReadS ResourceResult
+$creadsPrec :: Int -&gt; ReadS ResourceResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199760"><span id="local-6989586621679199762"><span id="local-6989586621679199764"><span class="annot"><span class="annottext">Int -&gt; ResourceResult -&gt; ShowS
+[ResourceResult] -&gt; ShowS
+ResourceResult -&gt; String
+(Int -&gt; ResourceResult -&gt; ShowS)
+-&gt; (ResourceResult -&gt; String)
+-&gt; ([ResourceResult] -&gt; ShowS)
+-&gt; Show ResourceResult
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceResult] -&gt; ShowS
+$cshowList :: [ResourceResult] -&gt; ShowS
+show :: ResourceResult -&gt; String
+$cshow :: ResourceResult -&gt; String
+showsPrec :: Int -&gt; ResourceResult -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResourceResult -&gt; Rep ResourceResult x)
+-&gt; (forall x. Rep ResourceResult x -&gt; ResourceResult)
+-&gt; Generic ResourceResult
+forall x. Rep ResourceResult x -&gt; ResourceResult
+forall x. ResourceResult -&gt; Rep ResourceResult x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceResult x -&gt; ResourceResult
+$cfrom :: forall x. ResourceResult -&gt; Rep ResourceResult x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'ResourceResult' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'resourceArn', 'resourceResult_resourceArn' - The ARN of the resource</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'componentId', 'resourceResult_componentId' - The component id of the resource</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'readiness', 'resourceResult_readiness' - The readiness of the resource.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'lastCheckedTimestamp', 'resourceResult_lastCheckedTimestamp' - The time the resource was last checked for readiness, in ISO-8601</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- format, UTC.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#newResourceResult"><span class="hs-identifier hs-type">newResourceResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'readiness'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'lastCheckedTimestamp'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span>
+</span><span id="line-65"></span><span id="newResourceResult"><span class="annot"><span class="annottext">newResourceResult :: Readiness -&gt; UTCTime -&gt; ResourceResult
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#newResourceResult"><span class="hs-identifier hs-var hs-var">newResourceResult</span></a></span></span><span> </span><span id="local-6989586621679199754"><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679199754"><span class="hs-identifier hs-var">pReadiness_</span></a></span></span><span> </span><span id="local-6989586621679199753"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679199753"><span class="hs-identifier hs-var">pLastCheckedTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">ResourceResult' :: Maybe Text -&gt; Maybe Text -&gt; Readiness -&gt; POSIX -&gt; ResourceResult
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:ResourceResult' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AresourceArn%3AResourceResult%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentId:ResourceResult' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AcomponentId%3AResourceResult%27"><span class="hs-identifier hs-var">componentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:readiness:ResourceResult' :: Readiness
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3Areadiness%3AResourceResult%27"><span class="hs-identifier hs-var">readiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679199754"><span class="hs-identifier hs-var">pReadiness_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastCheckedTimestamp:ResourceResult' :: POSIX
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AlastCheckedTimestamp%3AResourceResult%27"><span class="hs-identifier hs-var">lastCheckedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679199753"><span class="hs-identifier hs-var">pLastCheckedTimestamp_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the resource</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_resourceArn"><span class="hs-identifier hs-type">resourceResult_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="resourceResult_resourceArn"><span class="annot"><span class="annottext">resourceResult_resourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceResult -&gt; f ResourceResult
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_resourceArn"><span class="hs-identifier hs-var hs-var">resourceResult_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceResult -&gt; Maybe Text)
+-&gt; (ResourceResult -&gt; Maybe Text -&gt; ResourceResult)
+-&gt; Lens ResourceResult ResourceResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199747"><span class="annot"><span class="annottext">Maybe Text
+resourceArn :: Maybe Text
+$sel:resourceArn:ResourceResult' :: ResourceResult -&gt; Maybe Text
+</span><a href="#local-6989586621679199747"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199747"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199746"><span class="annot"><span class="annottext">s :: ResourceResult
+</span><a href="#local-6989586621679199746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199745"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceResult
+</span><a href="#local-6989586621679199746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ResourceResult' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AresourceArn%3AResourceResult%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The component id of the resource</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_componentId"><span class="hs-identifier hs-type">resourceResult_componentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="resourceResult_componentId"><span class="annot"><span class="annottext">resourceResult_componentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceResult -&gt; f ResourceResult
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_componentId"><span class="hs-identifier hs-var hs-var">resourceResult_componentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceResult -&gt; Maybe Text)
+-&gt; (ResourceResult -&gt; Maybe Text -&gt; ResourceResult)
+-&gt; Lens ResourceResult ResourceResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199743"><span class="annot"><span class="annottext">Maybe Text
+componentId :: Maybe Text
+$sel:componentId:ResourceResult' :: ResourceResult -&gt; Maybe Text
+</span><a href="#local-6989586621679199743"><span class="hs-identifier hs-var hs-var">componentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199743"><span class="hs-identifier hs-var">componentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199742"><span class="annot"><span class="annottext">s :: ResourceResult
+</span><a href="#local-6989586621679199742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceResult
+</span><a href="#local-6989586621679199742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentId:ResourceResult' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AcomponentId%3AResourceResult%27"><span class="hs-identifier hs-var">componentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The readiness of the resource.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_readiness"><span class="hs-identifier hs-type">resourceResult_readiness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span>
+</span><span id="line-84"></span><span id="resourceResult_readiness"><span class="annot"><span class="annottext">resourceResult_readiness :: (Readiness -&gt; f Readiness) -&gt; ResourceResult -&gt; f ResourceResult
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_readiness"><span class="hs-identifier hs-var hs-var">resourceResult_readiness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceResult -&gt; Readiness)
+-&gt; (ResourceResult -&gt; Readiness -&gt; ResourceResult)
+-&gt; Lens ResourceResult ResourceResult Readiness Readiness
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199739"><span class="annot"><span class="annottext">Readiness
+readiness :: Readiness
+$sel:readiness:ResourceResult' :: ResourceResult -&gt; Readiness
+</span><a href="#local-6989586621679199739"><span class="hs-identifier hs-var hs-var">readiness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679199739"><span class="hs-identifier hs-var">readiness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199738"><span class="annot"><span class="annottext">s :: ResourceResult
+</span><a href="#local-6989586621679199738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199737"><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679199737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceResult
+</span><a href="#local-6989586621679199738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readiness:ResourceResult' :: Readiness
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3Areadiness%3AResourceResult%27"><span class="hs-identifier hs-var">readiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679199737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The time the resource was last checked for readiness, in ISO-8601</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- format, UTC.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_lastCheckedTimestamp"><span class="hs-identifier hs-type">resourceResult_lastCheckedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-89"></span><span id="resourceResult_lastCheckedTimestamp"><span class="annot"><span class="annottext">resourceResult_lastCheckedTimestamp :: (UTCTime -&gt; f UTCTime) -&gt; ResourceResult -&gt; f ResourceResult
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#resourceResult_lastCheckedTimestamp"><span class="hs-identifier hs-var hs-var">resourceResult_lastCheckedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceResult -&gt; POSIX)
+-&gt; (ResourceResult -&gt; POSIX -&gt; ResourceResult)
+-&gt; Lens ResourceResult ResourceResult POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199735"><span class="annot"><span class="annottext">POSIX
+lastCheckedTimestamp :: POSIX
+$sel:lastCheckedTimestamp:ResourceResult' :: ResourceResult -&gt; POSIX
+</span><a href="#local-6989586621679199735"><span class="hs-identifier hs-var hs-var">lastCheckedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679199735"><span class="hs-identifier hs-var">lastCheckedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199734"><span class="annot"><span class="annottext">s :: ResourceResult
+</span><a href="#local-6989586621679199734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-type">ResourceResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199733"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679199733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceResult
+</span><a href="#local-6989586621679199734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastCheckedTimestamp:ResourceResult' :: POSIX
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#%24sel%3AlastCheckedTimestamp%3AResourceResult%27"><span class="hs-identifier hs-var">lastCheckedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679199733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ResourceResult -&gt; f ResourceResult)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ResourceResult
+-&gt; f ResourceResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199729"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679199727"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceResult)
+-&gt; Value
+-&gt; Parser ResourceResult
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceResult&quot;</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199724"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199724"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Readiness -&gt; POSIX -&gt; ResourceResult
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult%27"><span class="hs-identifier hs-var">ResourceResult'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Readiness -&gt; POSIX -&gt; ResourceResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Readiness -&gt; POSIX -&gt; ResourceResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Readiness -&gt; POSIX -&gt; ResourceResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Readiness -&gt; POSIX -&gt; ResourceResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Readiness -&gt; POSIX -&gt; ResourceResult)
+-&gt; Parser Readiness -&gt; Parser (POSIX -&gt; ResourceResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Readiness
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;readiness&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; ResourceResult)
+-&gt; Parser POSIX -&gt; Parser ResourceResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastCheckedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199717"><span id="local-6989586621679199719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.ResourceResult.html#ResourceResult"><span class="hs-identifier hs-type">ResourceResult</span></a></span></span><span>
+</span><span id="line-106"></span></pre></body></html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECRPublic.Types.RegistryCatalogData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECRPublic.Types.RegistryCatalogData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The metadata for a public registry.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRegistryCatalogData' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679192549"><span id="local-6989586621679192550"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegistryCatalogData"><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData"><span class="hs-identifier hs-var">RegistryCatalogData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistryCatalogData%27"><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData%27"><span class="hs-identifier hs-var">RegistryCatalogData'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The display name for a public registry. This appears on the Amazon ECR</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Public Gallery.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Only accounts that have the verified account badge can have a registry</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- display name.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdisplayName%3ARegistryCatalogData%27"><span class="annot"><span class="annottext">RegistryCatalogData -&gt; Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#%24sel%3AdisplayName%3ARegistryCatalogData%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192543"><span id="local-6989586621679192545"><span class="annot"><span class="annottext">RegistryCatalogData -&gt; RegistryCatalogData -&gt; Bool
+(RegistryCatalogData -&gt; RegistryCatalogData -&gt; Bool)
+-&gt; (RegistryCatalogData -&gt; RegistryCatalogData -&gt; Bool)
+-&gt; Eq RegistryCatalogData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegistryCatalogData -&gt; RegistryCatalogData -&gt; Bool
+$c/= :: RegistryCatalogData -&gt; RegistryCatalogData -&gt; Bool
+== :: RegistryCatalogData -&gt; RegistryCatalogData -&gt; Bool
+$c== :: RegistryCatalogData -&gt; RegistryCatalogData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192534"><span id="local-6989586621679192536"><span id="local-6989586621679192538"><span id="local-6989586621679192540"><span class="annot"><span class="annottext">ReadPrec [RegistryCatalogData]
+ReadPrec RegistryCatalogData
+Int -&gt; ReadS RegistryCatalogData
+ReadS [RegistryCatalogData]
+(Int -&gt; ReadS RegistryCatalogData)
+-&gt; ReadS [RegistryCatalogData]
+-&gt; ReadPrec RegistryCatalogData
+-&gt; ReadPrec [RegistryCatalogData]
+-&gt; Read RegistryCatalogData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegistryCatalogData]
+$creadListPrec :: ReadPrec [RegistryCatalogData]
+readPrec :: ReadPrec RegistryCatalogData
+$creadPrec :: ReadPrec RegistryCatalogData
+readList :: ReadS [RegistryCatalogData]
+$creadList :: ReadS [RegistryCatalogData]
+readsPrec :: Int -&gt; ReadS RegistryCatalogData
+$creadsPrec :: Int -&gt; ReadS RegistryCatalogData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192527"><span id="local-6989586621679192529"><span id="local-6989586621679192531"><span class="annot"><span class="annottext">Int -&gt; RegistryCatalogData -&gt; ShowS
+[RegistryCatalogData] -&gt; ShowS
+RegistryCatalogData -&gt; String
+(Int -&gt; RegistryCatalogData -&gt; ShowS)
+-&gt; (RegistryCatalogData -&gt; String)
+-&gt; ([RegistryCatalogData] -&gt; ShowS)
+-&gt; Show RegistryCatalogData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegistryCatalogData] -&gt; ShowS
+$cshowList :: [RegistryCatalogData] -&gt; ShowS
+show :: RegistryCatalogData -&gt; String
+$cshow :: RegistryCatalogData -&gt; String
+showsPrec :: Int -&gt; RegistryCatalogData -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegistryCatalogData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegistryCatalogData -&gt; Rep RegistryCatalogData x)
+-&gt; (forall x. Rep RegistryCatalogData x -&gt; RegistryCatalogData)
+-&gt; Generic RegistryCatalogData
+forall x. Rep RegistryCatalogData x -&gt; RegistryCatalogData
+forall x. RegistryCatalogData -&gt; Rep RegistryCatalogData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegistryCatalogData x -&gt; RegistryCatalogData
+$cfrom :: forall x. RegistryCatalogData -&gt; Rep RegistryCatalogData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'RegistryCatalogData' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'displayName', 'registryCatalogData_displayName' - The display name for a public registry. This appears on the Amazon ECR</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Public Gallery.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Only accounts that have the verified account badge can have a registry</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- display name.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#newRegistryCatalogData"><span class="hs-identifier hs-type">newRegistryCatalogData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData"><span class="hs-identifier hs-type">RegistryCatalogData</span></a></span><span>
+</span><span id="line-54"></span><span id="newRegistryCatalogData"><span class="annot"><span class="annottext">newRegistryCatalogData :: RegistryCatalogData
+</span><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#newRegistryCatalogData"><span class="hs-identifier hs-var hs-var">newRegistryCatalogData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">RegistryCatalogData' :: Maybe Text -&gt; RegistryCatalogData
+</span><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData%27"><span class="hs-identifier hs-type">RegistryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:RegistryCatalogData' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#%24sel%3AdisplayName%3ARegistryCatalogData%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The display name for a public registry. This appears on the Amazon ECR</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Public Gallery.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Only accounts that have the verified account badge can have a registry</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- display name.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#registryCatalogData_displayName"><span class="hs-identifier hs-type">registryCatalogData_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData"><span class="hs-identifier hs-type">RegistryCatalogData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="registryCatalogData_displayName"><span class="annot"><span class="annottext">registryCatalogData_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegistryCatalogData -&gt; f RegistryCatalogData
+</span><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#registryCatalogData_displayName"><span class="hs-identifier hs-var hs-var">registryCatalogData_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegistryCatalogData -&gt; Maybe Text)
+-&gt; (RegistryCatalogData -&gt; Maybe Text -&gt; RegistryCatalogData)
+-&gt; Lens
+     RegistryCatalogData RegistryCatalogData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData%27"><span class="hs-identifier hs-type">RegistryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192518"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:RegistryCatalogData' :: RegistryCatalogData -&gt; Maybe Text
+</span><a href="#local-6989586621679192518"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192518"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192517"><span class="annot"><span class="annottext">s :: RegistryCatalogData
+</span><a href="#local-6989586621679192517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData%27"><span class="hs-identifier hs-type">RegistryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryCatalogData
+</span><a href="#local-6989586621679192517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:RegistryCatalogData' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#%24sel%3AdisplayName%3ARegistryCatalogData%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData"><span class="hs-identifier hs-type">RegistryCatalogData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192513"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData"><span class="hs-identifier hs-type">RegistryCatalogData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679192511"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RegistryCatalogData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RegistryCatalogData)
+-&gt; Value
+-&gt; Parser RegistryCatalogData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RegistryCatalogData&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679192508"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; RegistryCatalogData
+</span><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData%27"><span class="hs-identifier hs-var">RegistryCatalogData'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; RegistryCatalogData)
+-&gt; Parser (Maybe Text) -&gt; Parser RegistryCatalogData
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192502"><span id="local-6989586621679192504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData"><span class="hs-identifier hs-type">RegistryCatalogData</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryCatalogData.html#RegistryCatalogData"><span class="hs-identifier hs-type">RegistryCatalogData</span></a></span></span><span>
+</span><span id="line-77"></span></pre></body></html>

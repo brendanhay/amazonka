@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudHSMV2.CopyBackupToRegion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Copy an AWS CloudHSM cluster backup to a different region.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudHSMV2.CopyBackupToRegion</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier">CopyBackupToRegion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#newCopyBackupToRegion"><span class="hs-identifier">newCopyBackupToRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_tagList"><span class="hs-identifier">copyBackupToRegion_tagList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_destinationRegion"><span class="hs-identifier">copyBackupToRegion_destinationRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_backupId"><span class="hs-identifier">copyBackupToRegion_backupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier">CopyBackupToRegionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#newCopyBackupToRegionResponse"><span class="hs-identifier">newCopyBackupToRegionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegionResponse_destinationBackup"><span class="hs-identifier">copyBackupToRegionResponse_destinationBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegionResponse_httpStatus"><span class="hs-identifier">copyBackupToRegionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.html"><span class="hs-identifier">Amazonka.CloudHSMV2.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCopyBackupToRegion' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679177987"><span id="local-6989586621679177988"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyBackupToRegion"><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-var">CopyBackupToRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyBackupToRegion%27"><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-var">CopyBackupToRegion'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tags to apply to the destination backup during creation. If you specify</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- tags, only these tags will be applied to the destination backup. If you</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- do not specify tags, the service copies tags from the source backup to</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the destination backup.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AtagList%3ACopyBackupToRegion%27"><span class="annot"><span class="annottext">CopyBackupToRegion -&gt; Maybe [Tag]
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AtagList%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The AWS region that will contain your copied CloudHSM cluster backup.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdestinationRegion%3ACopyBackupToRegion%27"><span class="annot"><span class="annottext">CopyBackupToRegion -&gt; Text
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AdestinationRegion%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the backup that will be copied to the destination region.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AbackupId%3ACopyBackupToRegion%27"><span class="annot"><span class="annottext">CopyBackupToRegion -&gt; Text
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AbackupId%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177979"><span id="local-6989586621679177981"><span class="annot"><span class="annottext">CopyBackupToRegion -&gt; CopyBackupToRegion -&gt; Bool
+(CopyBackupToRegion -&gt; CopyBackupToRegion -&gt; Bool)
+-&gt; (CopyBackupToRegion -&gt; CopyBackupToRegion -&gt; Bool)
+-&gt; Eq CopyBackupToRegion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CopyBackupToRegion -&gt; CopyBackupToRegion -&gt; Bool
+$c/= :: CopyBackupToRegion -&gt; CopyBackupToRegion -&gt; Bool
+== :: CopyBackupToRegion -&gt; CopyBackupToRegion -&gt; Bool
+$c== :: CopyBackupToRegion -&gt; CopyBackupToRegion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177970"><span id="local-6989586621679177972"><span id="local-6989586621679177974"><span id="local-6989586621679177976"><span class="annot"><span class="annottext">ReadPrec [CopyBackupToRegion]
+ReadPrec CopyBackupToRegion
+Int -&gt; ReadS CopyBackupToRegion
+ReadS [CopyBackupToRegion]
+(Int -&gt; ReadS CopyBackupToRegion)
+-&gt; ReadS [CopyBackupToRegion]
+-&gt; ReadPrec CopyBackupToRegion
+-&gt; ReadPrec [CopyBackupToRegion]
+-&gt; Read CopyBackupToRegion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CopyBackupToRegion]
+$creadListPrec :: ReadPrec [CopyBackupToRegion]
+readPrec :: ReadPrec CopyBackupToRegion
+$creadPrec :: ReadPrec CopyBackupToRegion
+readList :: ReadS [CopyBackupToRegion]
+$creadList :: ReadS [CopyBackupToRegion]
+readsPrec :: Int -&gt; ReadS CopyBackupToRegion
+$creadsPrec :: Int -&gt; ReadS CopyBackupToRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177963"><span id="local-6989586621679177965"><span id="local-6989586621679177967"><span class="annot"><span class="annottext">Int -&gt; CopyBackupToRegion -&gt; ShowS
+[CopyBackupToRegion] -&gt; ShowS
+CopyBackupToRegion -&gt; String
+(Int -&gt; CopyBackupToRegion -&gt; ShowS)
+-&gt; (CopyBackupToRegion -&gt; String)
+-&gt; ([CopyBackupToRegion] -&gt; ShowS)
+-&gt; Show CopyBackupToRegion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CopyBackupToRegion] -&gt; ShowS
+$cshowList :: [CopyBackupToRegion] -&gt; ShowS
+show :: CopyBackupToRegion -&gt; String
+$cshow :: CopyBackupToRegion -&gt; String
+showsPrec :: Int -&gt; CopyBackupToRegion -&gt; ShowS
+$cshowsPrec :: Int -&gt; CopyBackupToRegion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CopyBackupToRegion -&gt; Rep CopyBackupToRegion x)
+-&gt; (forall x. Rep CopyBackupToRegion x -&gt; CopyBackupToRegion)
+-&gt; Generic CopyBackupToRegion
+forall x. Rep CopyBackupToRegion x -&gt; CopyBackupToRegion
+forall x. CopyBackupToRegion -&gt; Rep CopyBackupToRegion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CopyBackupToRegion x -&gt; CopyBackupToRegion
+$cfrom :: forall x. CopyBackupToRegion -&gt; Rep CopyBackupToRegion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'CopyBackupToRegion' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'tagList', 'copyBackupToRegion_tagList' - Tags to apply to the destination backup during creation. If you specify</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- tags, only these tags will be applied to the destination backup. If you</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- do not specify tags, the service copies tags from the source backup to</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the destination backup.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'destinationRegion', 'copyBackupToRegion_destinationRegion' - The AWS region that will contain your copied CloudHSM cluster backup.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'backupId', 'copyBackupToRegion_backupId' - The ID of the backup that will be copied to the destination region.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#newCopyBackupToRegion"><span class="hs-identifier hs-type">newCopyBackupToRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'destinationRegion'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'backupId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span>
+</span><span id="line-87"></span><span id="newCopyBackupToRegion"><span class="annot"><span class="annottext">newCopyBackupToRegion :: Text -&gt; Text -&gt; CopyBackupToRegion
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#newCopyBackupToRegion"><span class="hs-identifier hs-var hs-var">newCopyBackupToRegion</span></a></span></span><span> </span><span id="local-6989586621679177958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177958"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span></span><span> </span><span id="local-6989586621679177957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177957"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">CopyBackupToRegion' :: Maybe [Tag] -&gt; Text -&gt; Text -&gt; CopyBackupToRegion
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagList:CopyBackupToRegion' :: Maybe [Tag]
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AtagList%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationRegion:CopyBackupToRegion' :: Text
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AdestinationRegion%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177958"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupId:CopyBackupToRegion' :: Text
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AbackupId%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177957"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Tags to apply to the destination backup during creation. If you specify</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- tags, only these tags will be applied to the destination backup. If you</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- do not specify tags, the service copies tags from the source backup to</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the destination backup.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_tagList"><span class="hs-identifier hs-type">copyBackupToRegion_tagList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="copyBackupToRegion_tagList"><span class="annot"><span class="annottext">copyBackupToRegion_tagList :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CopyBackupToRegion -&gt; f CopyBackupToRegion
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_tagList"><span class="hs-identifier hs-var hs-var">copyBackupToRegion_tagList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyBackupToRegion -&gt; Maybe [Tag])
+-&gt; (CopyBackupToRegion -&gt; Maybe [Tag] -&gt; CopyBackupToRegion)
+-&gt; Lens
+     CopyBackupToRegion CopyBackupToRegion (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177954"><span class="annot"><span class="annottext">Maybe [Tag]
+tagList :: Maybe [Tag]
+$sel:tagList:CopyBackupToRegion' :: CopyBackupToRegion -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177953"><span class="annot"><span class="annottext">s :: CopyBackupToRegion
+</span><a href="#local-6989586621679177953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177952"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679177952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyBackupToRegion
+</span><a href="#local-6989586621679177953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:CopyBackupToRegion' :: Maybe [Tag]
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AtagList%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679177952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CopyBackupToRegion -&gt; f CopyBackupToRegion)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CopyBackupToRegion
+-&gt; f CopyBackupToRegion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The AWS region that will contain your copied CloudHSM cluster backup.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_destinationRegion"><span class="hs-identifier hs-type">copyBackupToRegion_destinationRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="copyBackupToRegion_destinationRegion"><span class="annot"><span class="annottext">copyBackupToRegion_destinationRegion :: (Text -&gt; f Text) -&gt; CopyBackupToRegion -&gt; f CopyBackupToRegion
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_destinationRegion"><span class="hs-identifier hs-var hs-var">copyBackupToRegion_destinationRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyBackupToRegion -&gt; Text)
+-&gt; (CopyBackupToRegion -&gt; Text -&gt; CopyBackupToRegion)
+-&gt; Lens CopyBackupToRegion CopyBackupToRegion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177948"><span class="annot"><span class="annottext">Text
+destinationRegion :: Text
+$sel:destinationRegion:CopyBackupToRegion' :: CopyBackupToRegion -&gt; Text
+</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177947"><span class="annot"><span class="annottext">s :: CopyBackupToRegion
+</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177946"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyBackupToRegion
+</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRegion:CopyBackupToRegion' :: Text
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AdestinationRegion%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the backup that will be copied to the destination region.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_backupId"><span class="hs-identifier hs-type">copyBackupToRegion_backupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="copyBackupToRegion_backupId"><span class="annot"><span class="annottext">copyBackupToRegion_backupId :: (Text -&gt; f Text) -&gt; CopyBackupToRegion -&gt; f CopyBackupToRegion
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegion_backupId"><span class="hs-identifier hs-var hs-var">copyBackupToRegion_backupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyBackupToRegion -&gt; Text)
+-&gt; (CopyBackupToRegion -&gt; Text -&gt; CopyBackupToRegion)
+-&gt; Lens CopyBackupToRegion CopyBackupToRegion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177945"><span class="annot"><span class="annottext">Text
+backupId :: Text
+$sel:backupId:CopyBackupToRegion' :: CopyBackupToRegion -&gt; Text
+</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177944"><span class="annot"><span class="annottext">s :: CopyBackupToRegion
+</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyBackupToRegion
+</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:CopyBackupToRegion' :: Text
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AbackupId%3ACopyBackupToRegion%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-type">CopyBackupToRegionResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679177939"><span class="annot"><span class="annottext">request :: CopyBackupToRegion -&gt; Request CopyBackupToRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CopyBackupToRegion -&gt; Request CopyBackupToRegion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudHSMV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679177935"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CopyBackupToRegion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CopyBackupToRegion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CopyBackupToRegion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CopyBackupToRegion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CopyBackupToRegion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177932"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177932"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177931"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177930"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe DestinationBackup -&gt; Int -&gt; CopyBackupToRegionResponse
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse%27"><span class="hs-identifier hs-var">CopyBackupToRegionResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DestinationBackup -&gt; Int -&gt; CopyBackupToRegionResponse)
+-&gt; Either String (Maybe DestinationBackup)
+-&gt; Either String (Int -&gt; CopyBackupToRegionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DestinationBackup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationBackup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CopyBackupToRegionResponse)
+-&gt; Either String Int -&gt; Either String CopyBackupToRegionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177932"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177922"><span id="local-6989586621679177924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679177915"><span class="annot"><span class="annottext">toHeaders :: CopyBackupToRegion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CopyBackupToRegion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BaldrApiService.CopyBackupToRegion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-133"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177905"><span id="local-6989586621679177907"><span id="local-6989586621679177909"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679177903"><span class="annot"><span class="annottext">toJSON :: CopyBackupToRegion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion%27"><span class="hs-identifier hs-type">CopyBackupToRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177899"><span id="local-6989586621679177900"><span id="local-6989586621679177901"><span class="annot"><span class="annottext">Maybe [Tag]
+Text
+backupId :: Text
+destinationRegion :: Text
+tagList :: Maybe [Tag]
+$sel:backupId:CopyBackupToRegion' :: CopyBackupToRegion -&gt; Text
+$sel:destinationRegion:CopyBackupToRegion' :: CopyBackupToRegion -&gt; Text
+$sel:tagList:CopyBackupToRegion' :: CopyBackupToRegion -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679177899"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679177901"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177900"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177899"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679177893"><span class="annot"><span class="annottext">toPath :: CopyBackupToRegion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CopyBackupToRegion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegion"><span class="hs-identifier hs-type">CopyBackupToRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679177889"><span class="annot"><span class="annottext">toQuery :: CopyBackupToRegion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CopyBackupToRegion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newCopyBackupToRegionResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679177886"><span id="local-6989586621679177887"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyBackupToRegionResponse"><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-var">CopyBackupToRegionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyBackupToRegionResponse%27"><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse%27"><span class="hs-identifier hs-var">CopyBackupToRegionResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information on the backup that will be copied to the destination region,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- including CreateTimestamp, SourceBackup, SourceCluster, and Source</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- Region. CreateTimestamp of the destination backup will be the same as</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- that of the source backup.</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- You will need to use the @sourceBackupID@ returned in this operation to</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- use the DescribeBackups operation on the backup that will be copied to</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- the destination region.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AdestinationBackup%3ACopyBackupToRegionResponse%27"><span class="annot"><span class="annottext">CopyBackupToRegionResponse -&gt; Maybe DestinationBackup
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AdestinationBackup%3ACopyBackupToRegionResponse%27"><span class="hs-identifier hs-var hs-var">destinationBackup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.DestinationBackup.html#DestinationBackup"><span class="hs-identifier hs-type">DestinationBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACopyBackupToRegionResponse%27"><span class="annot"><span class="annottext">CopyBackupToRegionResponse -&gt; Int
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AhttpStatus%3ACopyBackupToRegionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177880"><span id="local-6989586621679177882"><span class="annot"><span class="annottext">CopyBackupToRegionResponse -&gt; CopyBackupToRegionResponse -&gt; Bool
+(CopyBackupToRegionResponse -&gt; CopyBackupToRegionResponse -&gt; Bool)
+-&gt; (CopyBackupToRegionResponse
+    -&gt; CopyBackupToRegionResponse -&gt; Bool)
+-&gt; Eq CopyBackupToRegionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CopyBackupToRegionResponse -&gt; CopyBackupToRegionResponse -&gt; Bool
+$c/= :: CopyBackupToRegionResponse -&gt; CopyBackupToRegionResponse -&gt; Bool
+== :: CopyBackupToRegionResponse -&gt; CopyBackupToRegionResponse -&gt; Bool
+$c== :: CopyBackupToRegionResponse -&gt; CopyBackupToRegionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177872"><span id="local-6989586621679177874"><span id="local-6989586621679177876"><span id="local-6989586621679177878"><span class="annot"><span class="annottext">ReadPrec [CopyBackupToRegionResponse]
+ReadPrec CopyBackupToRegionResponse
+Int -&gt; ReadS CopyBackupToRegionResponse
+ReadS [CopyBackupToRegionResponse]
+(Int -&gt; ReadS CopyBackupToRegionResponse)
+-&gt; ReadS [CopyBackupToRegionResponse]
+-&gt; ReadPrec CopyBackupToRegionResponse
+-&gt; ReadPrec [CopyBackupToRegionResponse]
+-&gt; Read CopyBackupToRegionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CopyBackupToRegionResponse]
+$creadListPrec :: ReadPrec [CopyBackupToRegionResponse]
+readPrec :: ReadPrec CopyBackupToRegionResponse
+$creadPrec :: ReadPrec CopyBackupToRegionResponse
+readList :: ReadS [CopyBackupToRegionResponse]
+$creadList :: ReadS [CopyBackupToRegionResponse]
+readsPrec :: Int -&gt; ReadS CopyBackupToRegionResponse
+$creadsPrec :: Int -&gt; ReadS CopyBackupToRegionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177866"><span id="local-6989586621679177868"><span id="local-6989586621679177870"><span class="annot"><span class="annottext">Int -&gt; CopyBackupToRegionResponse -&gt; ShowS
+[CopyBackupToRegionResponse] -&gt; ShowS
+CopyBackupToRegionResponse -&gt; String
+(Int -&gt; CopyBackupToRegionResponse -&gt; ShowS)
+-&gt; (CopyBackupToRegionResponse -&gt; String)
+-&gt; ([CopyBackupToRegionResponse] -&gt; ShowS)
+-&gt; Show CopyBackupToRegionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CopyBackupToRegionResponse] -&gt; ShowS
+$cshowList :: [CopyBackupToRegionResponse] -&gt; ShowS
+show :: CopyBackupToRegionResponse -&gt; String
+$cshow :: CopyBackupToRegionResponse -&gt; String
+showsPrec :: Int -&gt; CopyBackupToRegionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CopyBackupToRegionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CopyBackupToRegionResponse -&gt; Rep CopyBackupToRegionResponse x)
+-&gt; (forall x.
+    Rep CopyBackupToRegionResponse x -&gt; CopyBackupToRegionResponse)
+-&gt; Generic CopyBackupToRegionResponse
+forall x.
+Rep CopyBackupToRegionResponse x -&gt; CopyBackupToRegionResponse
+forall x.
+CopyBackupToRegionResponse -&gt; Rep CopyBackupToRegionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CopyBackupToRegionResponse x -&gt; CopyBackupToRegionResponse
+$cfrom :: forall x.
+CopyBackupToRegionResponse -&gt; Rep CopyBackupToRegionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'CopyBackupToRegionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'destinationBackup', 'copyBackupToRegionResponse_destinationBackup' - Information on the backup that will be copied to the destination region,</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- including CreateTimestamp, SourceBackup, SourceCluster, and Source</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Region. CreateTimestamp of the destination backup will be the same as</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- that of the source backup.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- You will need to use the @sourceBackupID@ returned in this operation to</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- use the DescribeBackups operation on the backup that will be copied to</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- the destination region.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'httpStatus', 'copyBackupToRegionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#newCopyBackupToRegionResponse"><span class="hs-identifier hs-type">newCopyBackupToRegionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-type">CopyBackupToRegionResponse</span></a></span><span>
+</span><span id="line-196"></span><span id="newCopyBackupToRegionResponse"><span class="annot"><span class="annottext">newCopyBackupToRegionResponse :: Int -&gt; CopyBackupToRegionResponse
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#newCopyBackupToRegionResponse"><span class="hs-identifier hs-var hs-var">newCopyBackupToRegionResponse</span></a></span></span><span> </span><span id="local-6989586621679177863"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177863"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">CopyBackupToRegionResponse' :: Maybe DestinationBackup -&gt; Int -&gt; CopyBackupToRegionResponse
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse%27"><span class="hs-identifier hs-type">CopyBackupToRegionResponse'</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationBackup:CopyBackupToRegionResponse' :: Maybe DestinationBackup
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AdestinationBackup%3ACopyBackupToRegionResponse%27"><span class="hs-identifier hs-var">destinationBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe DestinationBackup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CopyBackupToRegionResponse' :: Int
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AhttpStatus%3ACopyBackupToRegionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177863"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Information on the backup that will be copied to the destination region,</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- including CreateTimestamp, SourceBackup, SourceCluster, and Source</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Region. CreateTimestamp of the destination backup will be the same as</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- that of the source backup.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- You will need to use the @sourceBackupID@ returned in this operation to</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- use the DescribeBackups operation on the backup that will be copied to</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- the destination region.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegionResponse_destinationBackup"><span class="hs-identifier hs-type">copyBackupToRegionResponse_destinationBackup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-type">CopyBackupToRegionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.DestinationBackup.html#DestinationBackup"><span class="hs-identifier hs-type">DestinationBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="copyBackupToRegionResponse_destinationBackup"><span class="annot"><span class="annottext">copyBackupToRegionResponse_destinationBackup :: (Maybe DestinationBackup -&gt; f (Maybe DestinationBackup))
+-&gt; CopyBackupToRegionResponse -&gt; f CopyBackupToRegionResponse
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegionResponse_destinationBackup"><span class="hs-identifier hs-var hs-var">copyBackupToRegionResponse_destinationBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyBackupToRegionResponse -&gt; Maybe DestinationBackup)
+-&gt; (CopyBackupToRegionResponse
+    -&gt; Maybe DestinationBackup -&gt; CopyBackupToRegionResponse)
+-&gt; Lens
+     CopyBackupToRegionResponse
+     CopyBackupToRegionResponse
+     (Maybe DestinationBackup)
+     (Maybe DestinationBackup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse%27"><span class="hs-identifier hs-type">CopyBackupToRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177862"><span class="annot"><span class="annottext">Maybe DestinationBackup
+destinationBackup :: Maybe DestinationBackup
+$sel:destinationBackup:CopyBackupToRegionResponse' :: CopyBackupToRegionResponse -&gt; Maybe DestinationBackup
+</span><a href="#local-6989586621679177862"><span class="hs-identifier hs-var hs-var">destinationBackup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationBackup
+</span><a href="#local-6989586621679177862"><span class="hs-identifier hs-var">destinationBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177861"><span class="annot"><span class="annottext">s :: CopyBackupToRegionResponse
+</span><a href="#local-6989586621679177861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse%27"><span class="hs-identifier hs-type">CopyBackupToRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177860"><span class="annot"><span class="annottext">Maybe DestinationBackup
+</span><a href="#local-6989586621679177860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyBackupToRegionResponse
+</span><a href="#local-6989586621679177861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationBackup:CopyBackupToRegionResponse' :: Maybe DestinationBackup
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AdestinationBackup%3ACopyBackupToRegionResponse%27"><span class="hs-identifier hs-var">destinationBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationBackup
+</span><a href="#local-6989586621679177860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-type">CopyBackupToRegionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegionResponse_httpStatus"><span class="hs-identifier hs-type">copyBackupToRegionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-type">CopyBackupToRegionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="copyBackupToRegionResponse_httpStatus"><span class="annot"><span class="annottext">copyBackupToRegionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CopyBackupToRegionResponse -&gt; f CopyBackupToRegionResponse
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#copyBackupToRegionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">copyBackupToRegionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyBackupToRegionResponse -&gt; Int)
+-&gt; (CopyBackupToRegionResponse
+    -&gt; Int -&gt; CopyBackupToRegionResponse)
+-&gt; Lens
+     CopyBackupToRegionResponse CopyBackupToRegionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse%27"><span class="hs-identifier hs-type">CopyBackupToRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177859"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CopyBackupToRegionResponse' :: CopyBackupToRegionResponse -&gt; Int
+</span><a href="#local-6989586621679177859"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177859"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177858"><span class="annot"><span class="annottext">s :: CopyBackupToRegionResponse
+</span><a href="#local-6989586621679177858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse%27"><span class="hs-identifier hs-type">CopyBackupToRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177857"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyBackupToRegionResponse
+</span><a href="#local-6989586621679177858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyBackupToRegionResponse' :: Int
+</span><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#%24sel%3AhttpStatus%3ACopyBackupToRegionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-type">CopyBackupToRegionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.CopyBackupToRegion.html#CopyBackupToRegionResponse"><span class="hs-identifier hs-type">CopyBackupToRegionResponse</span></a></span></span><span>
+</span><span id="line-219"></span></pre></body></html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Snowball.Types.JobState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Snowball.Types.JobState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier">JobState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Cancelled"><span class="hs-identifier">JobState_Cancelled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Complete"><span class="hs-identifier">JobState_Complete</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InProgress"><span class="hs-identifier">JobState_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InTransitToAWS"><span class="hs-identifier">JobState_InTransitToAWS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InTransitToCustomer"><span class="hs-identifier">JobState_InTransitToCustomer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Listing"><span class="hs-identifier">JobState_Listing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_New"><span class="hs-identifier">JobState_New</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Pending"><span class="hs-identifier">JobState_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_PreparingAppliance"><span class="hs-identifier">JobState_PreparingAppliance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_PreparingShipment"><span class="hs-identifier">JobState_PreparingShipment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithAWS"><span class="hs-identifier">JobState_WithAWS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithAWSSortingFacility"><span class="hs-identifier">JobState_WithAWSSortingFacility</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithCustomer"><span class="hs-identifier">JobState_WithCustomer</span></a></span><span>
+</span><span id="line-36"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679223241"><span id="local-6989586621679223242"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobState"><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-var">JobState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobState%27"><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-var">JobState'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobState"><span class="annot"><span class="annottext">JobState -&gt; Text
+</span><a href="Amazonka.Snowball.Types.JobState.html#fromJobState"><span class="hs-identifier hs-var hs-var">fromJobState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223233"><span id="local-6989586621679223235"><span id="local-6989586621679223237"><span class="annot"><span class="annottext">Int -&gt; JobState -&gt; ShowS
+[JobState] -&gt; ShowS
+JobState -&gt; String
+(Int -&gt; JobState -&gt; ShowS)
+-&gt; (JobState -&gt; String) -&gt; ([JobState] -&gt; ShowS) -&gt; Show JobState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobState] -&gt; ShowS
+$cshowList :: [JobState] -&gt; ShowS
+show :: JobState -&gt; String
+$cshow :: JobState -&gt; String
+showsPrec :: Int -&gt; JobState -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679223224"><span id="local-6989586621679223226"><span id="local-6989586621679223228"><span id="local-6989586621679223230"><span class="annot"><span class="annottext">ReadPrec [JobState]
+ReadPrec JobState
+Int -&gt; ReadS JobState
+ReadS [JobState]
+(Int -&gt; ReadS JobState)
+-&gt; ReadS [JobState]
+-&gt; ReadPrec JobState
+-&gt; ReadPrec [JobState]
+-&gt; Read JobState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobState]
+$creadListPrec :: ReadPrec [JobState]
+readPrec :: ReadPrec JobState
+$creadPrec :: ReadPrec JobState
+readList :: ReadS [JobState]
+$creadList :: ReadS [JobState]
+readsPrec :: Int -&gt; ReadS JobState
+$creadsPrec :: Int -&gt; ReadS JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679223219"><span id="local-6989586621679223221"><span class="annot"><span class="annottext">JobState -&gt; JobState -&gt; Bool
+(JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool) -&gt; Eq JobState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobState -&gt; JobState -&gt; Bool
+$c/= :: JobState -&gt; JobState -&gt; Bool
+== :: JobState -&gt; JobState -&gt; Bool
+$c== :: JobState -&gt; JobState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679223203"><span id="local-6989586621679223205"><span id="local-6989586621679223207"><span id="local-6989586621679223209"><span id="local-6989586621679223211"><span id="local-6989586621679223213"><span id="local-6989586621679223215"><span class="annot"><span class="annottext">Eq JobState
+Eq JobState
+-&gt; (JobState -&gt; JobState -&gt; Ordering)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; JobState)
+-&gt; (JobState -&gt; JobState -&gt; JobState)
+-&gt; Ord JobState
+JobState -&gt; JobState -&gt; Bool
+JobState -&gt; JobState -&gt; Ordering
+JobState -&gt; JobState -&gt; JobState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JobState -&gt; JobState -&gt; JobState
+$cmin :: JobState -&gt; JobState -&gt; JobState
+max :: JobState -&gt; JobState -&gt; JobState
+$cmax :: JobState -&gt; JobState -&gt; JobState
+&gt;= :: JobState -&gt; JobState -&gt; Bool
+$c&gt;= :: JobState -&gt; JobState -&gt; Bool
+&gt; :: JobState -&gt; JobState -&gt; Bool
+$c&gt; :: JobState -&gt; JobState -&gt; Bool
+&lt;= :: JobState -&gt; JobState -&gt; Bool
+$c&lt;= :: JobState -&gt; JobState -&gt; Bool
+&lt; :: JobState -&gt; JobState -&gt; Bool
+$c&lt; :: JobState -&gt; JobState -&gt; Bool
+compare :: JobState -&gt; JobState -&gt; Ordering
+$ccompare :: JobState -&gt; JobState -&gt; Ordering
+$cp1Ord :: Eq JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JobState -&gt; Rep JobState x)
+-&gt; (forall x. Rep JobState x -&gt; JobState) -&gt; Generic JobState
+forall x. Rep JobState x -&gt; JobState
+forall x. JobState -&gt; Rep JobState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobState x -&gt; JobState
+$cfrom :: forall x. JobState -&gt; Rep JobState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223195"><span id="local-6989586621679223197"><span class="annot"><span class="annottext">Int -&gt; JobState -&gt; Int
+JobState -&gt; Int
+(Int -&gt; JobState -&gt; Int) -&gt; (JobState -&gt; Int) -&gt; Hashable JobState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JobState -&gt; Int
+$chash :: JobState -&gt; Int
+hashWithSalt :: Int -&gt; JobState -&gt; Int
+$chashWithSalt :: Int -&gt; JobState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679223192"><span class="annot"><span class="annottext">JobState -&gt; ()
+(JobState -&gt; ()) -&gt; NFData JobState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JobState -&gt; ()
+$crnf :: JobState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679223189"><span class="annot"><span class="annottext">Text -&gt; Either String JobState
+(Text -&gt; Either String JobState) -&gt; FromText JobState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JobState
+$cfromText :: Text -&gt; Either String JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679223186"><span class="annot"><span class="annottext">JobState -&gt; Text
+(JobState -&gt; Text) -&gt; ToText JobState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JobState -&gt; Text
+$ctoText :: JobState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679223183"><span class="annot"><span class="annottext">JobState -&gt; ByteString
+(JobState -&gt; ByteString) -&gt; ToByteString JobState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JobState -&gt; ByteString
+$ctoBS :: JobState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679223180"><span class="annot"><span class="annottext">JobState -&gt; ByteStringBuilder
+(JobState -&gt; ByteStringBuilder) -&gt; ToLog JobState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JobState -&gt; ByteStringBuilder
+$cbuild :: JobState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679223177"><span class="annot"><span class="annottext">HeaderName -&gt; JobState -&gt; [Header]
+(HeaderName -&gt; JobState -&gt; [Header]) -&gt; ToHeader JobState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JobState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JobState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679223174"><span class="annot"><span class="annottext">JobState -&gt; QueryString
+(JobState -&gt; QueryString) -&gt; ToQuery JobState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JobState -&gt; QueryString
+$ctoQuery :: JobState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679223169"><span id="local-6989586621679223171"><span class="annot"><span class="annottext">Value -&gt; Parser [JobState]
+Value -&gt; Parser JobState
+(Value -&gt; Parser JobState)
+-&gt; (Value -&gt; Parser [JobState]) -&gt; FromJSON JobState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JobState]
+$cparseJSONList :: Value -&gt; Parser [JobState]
+parseJSON :: Value -&gt; Parser JobState
+$cparseJSON :: Value -&gt; Parser JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679223164"><span id="local-6989586621679223166"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobState]
+FromJSONKeyFunction JobState
+FromJSONKeyFunction JobState
+-&gt; FromJSONKeyFunction [JobState] -&gt; FromJSONKey JobState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JobState]
+$cfromJSONKeyList :: FromJSONKeyFunction [JobState]
+fromJSONKey :: FromJSONKeyFunction JobState
+$cfromJSONKey :: FromJSONKeyFunction JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679223155"><span id="local-6989586621679223157"><span id="local-6989586621679223159"><span id="local-6989586621679223161"><span class="annot"><span class="annottext">[JobState] -&gt; Encoding
+[JobState] -&gt; Value
+JobState -&gt; Encoding
+JobState -&gt; Value
+(JobState -&gt; Value)
+-&gt; (JobState -&gt; Encoding)
+-&gt; ([JobState] -&gt; Value)
+-&gt; ([JobState] -&gt; Encoding)
+-&gt; ToJSON JobState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JobState] -&gt; Encoding
+$ctoEncodingList :: [JobState] -&gt; Encoding
+toJSONList :: [JobState] -&gt; Value
+$ctoJSONList :: [JobState] -&gt; Value
+toEncoding :: JobState -&gt; Encoding
+$ctoEncoding :: JobState -&gt; Encoding
+toJSON :: JobState -&gt; Value
+$ctoJSON :: JobState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679223150"><span id="local-6989586621679223152"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobState]
+ToJSONKeyFunction JobState
+ToJSONKeyFunction JobState
+-&gt; ToJSONKeyFunction [JobState] -&gt; ToJSONKey JobState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JobState]
+$ctoJSONKeyList :: ToJSONKeyFunction [JobState]
+toJSONKey :: ToJSONKeyFunction JobState
+$ctoJSONKey :: ToJSONKeyFunction JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679223147"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobState
+([Node] -&gt; Either String JobState) -&gt; FromXML JobState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JobState
+$cparseXML :: [Node] -&gt; Either String JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679223144"><span class="annot"><span class="annottext">JobState -&gt; XML
+(JobState -&gt; XML) -&gt; ToXML JobState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JobState -&gt; XML
+$ctoXML :: JobState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Cancelled"><span class="hs-identifier hs-type">JobState_Cancelled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Cancelled"><span id="%24mJobState_Cancelled"><span id="JobState_Cancelled"><span class="annot"><span class="annottext">$bJobState_Cancelled :: JobState
+$mJobState_Cancelled :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_Cancelled"><span class="hs-identifier hs-var hs-var hs-var">JobState_Cancelled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Cancelled&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Complete"><span class="hs-identifier hs-type">JobState_Complete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Complete"><span id="%24mJobState_Complete"><span id="JobState_Complete"><span class="annot"><span class="annottext">$bJobState_Complete :: JobState
+$mJobState_Complete :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_Complete"><span class="hs-identifier hs-var hs-var hs-var">JobState_Complete</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Complete&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InProgress"><span class="hs-identifier hs-type">JobState_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_InProgress"><span id="%24mJobState_InProgress"><span id="JobState_InProgress"><span class="annot"><span class="annottext">$bJobState_InProgress :: JobState
+$mJobState_InProgress :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_InProgress"><span class="hs-identifier hs-var hs-var hs-var">JobState_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InTransitToAWS"><span class="hs-identifier hs-type">JobState_InTransitToAWS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_InTransitToAWS"><span id="%24mJobState_InTransitToAWS"><span id="JobState_InTransitToAWS"><span class="annot"><span class="annottext">$bJobState_InTransitToAWS :: JobState
+$mJobState_InTransitToAWS :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_InTransitToAWS"><span class="hs-identifier hs-var hs-var hs-var">JobState_InTransitToAWS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InTransitToAWS&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InTransitToCustomer"><span class="hs-identifier hs-type">JobState_InTransitToCustomer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_InTransitToCustomer"><span id="%24mJobState_InTransitToCustomer"><span id="JobState_InTransitToCustomer"><span class="annot"><span class="annottext">$bJobState_InTransitToCustomer :: JobState
+$mJobState_InTransitToCustomer :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_InTransitToCustomer"><span class="hs-identifier hs-var hs-var hs-var">JobState_InTransitToCustomer</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InTransitToCustomer&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Listing"><span class="hs-identifier hs-type">JobState_Listing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Listing"><span id="%24mJobState_Listing"><span id="JobState_Listing"><span class="annot"><span class="annottext">$bJobState_Listing :: JobState
+$mJobState_Listing :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_Listing"><span class="hs-identifier hs-var hs-var hs-var">JobState_Listing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Listing&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_New"><span class="hs-identifier hs-type">JobState_New</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_New"><span id="%24mJobState_New"><span id="JobState_New"><span class="annot"><span class="annottext">$bJobState_New :: JobState
+$mJobState_New :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_New"><span class="hs-identifier hs-var hs-var hs-var">JobState_New</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;New&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Pending"><span class="hs-identifier hs-type">JobState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Pending"><span id="%24mJobState_Pending"><span id="JobState_Pending"><span class="annot"><span class="annottext">$bJobState_Pending :: JobState
+$mJobState_Pending :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_Pending"><span class="hs-identifier hs-var hs-var hs-var">JobState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_PreparingAppliance"><span class="hs-identifier hs-type">JobState_PreparingAppliance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_PreparingAppliance"><span id="%24mJobState_PreparingAppliance"><span id="JobState_PreparingAppliance"><span class="annot"><span class="annottext">$bJobState_PreparingAppliance :: JobState
+$mJobState_PreparingAppliance :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_PreparingAppliance"><span class="hs-identifier hs-var hs-var hs-var">JobState_PreparingAppliance</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PreparingAppliance&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_PreparingShipment"><span class="hs-identifier hs-type">JobState_PreparingShipment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_PreparingShipment"><span id="%24mJobState_PreparingShipment"><span id="JobState_PreparingShipment"><span class="annot"><span class="annottext">$bJobState_PreparingShipment :: JobState
+$mJobState_PreparingShipment :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_PreparingShipment"><span class="hs-identifier hs-var hs-var hs-var">JobState_PreparingShipment</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PreparingShipment&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithAWS"><span class="hs-identifier hs-type">JobState_WithAWS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_WithAWS"><span id="%24mJobState_WithAWS"><span id="JobState_WithAWS"><span class="annot"><span class="annottext">$bJobState_WithAWS :: JobState
+$mJobState_WithAWS :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_WithAWS"><span class="hs-identifier hs-var hs-var hs-var">JobState_WithAWS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WithAWS&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithAWSSortingFacility"><span class="hs-identifier hs-type">JobState_WithAWSSortingFacility</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_WithAWSSortingFacility"><span id="%24mJobState_WithAWSSortingFacility"><span id="JobState_WithAWSSortingFacility"><span class="annot"><span class="annottext">$bJobState_WithAWSSortingFacility :: JobState
+$mJobState_WithAWSSortingFacility :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_WithAWSSortingFacility"><span class="hs-identifier hs-var hs-var hs-var">JobState_WithAWSSortingFacility</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WithAWSSortingFacility&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithCustomer"><span class="hs-identifier hs-type">JobState_WithCustomer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_WithCustomer"><span id="%24mJobState_WithCustomer"><span id="JobState_WithCustomer"><span class="annot"><span class="annottext">$bJobState_WithCustomer :: JobState
+$mJobState_WithCustomer :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.JobState.html#%24bJobState_WithCustomer"><span class="hs-identifier hs-var hs-var hs-var">JobState_WithCustomer</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WithCustomer&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Cancelled"><span class="hs-pragma hs-type">JobState_Cancelled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Complete"><span class="hs-pragma hs-type">JobState_Complete</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InProgress"><span class="hs-pragma hs-type">JobState_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InTransitToAWS"><span class="hs-pragma hs-type">JobState_InTransitToAWS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_InTransitToCustomer"><span class="hs-pragma hs-type">JobState_InTransitToCustomer</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Listing"><span class="hs-pragma hs-type">JobState_Listing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_New"><span class="hs-pragma hs-type">JobState_New</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_Pending"><span class="hs-pragma hs-type">JobState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_PreparingAppliance"><span class="hs-pragma hs-type">JobState_PreparingAppliance</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_PreparingShipment"><span class="hs-pragma hs-type">JobState_PreparingShipment</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithAWS"><span class="hs-pragma hs-type">JobState_WithAWS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithAWSSortingFacility"><span class="hs-pragma hs-type">JobState_WithAWSSortingFacility</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState_WithCustomer"><span class="hs-pragma hs-type">JobState_WithCustomer</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.JobState.html#JobState%27"><span class="hs-pragma hs-type">JobState'</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-126"></span></pre></body></html>

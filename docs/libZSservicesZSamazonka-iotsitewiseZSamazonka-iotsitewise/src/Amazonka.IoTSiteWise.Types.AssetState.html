@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.Types.AssetState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.Types.AssetState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState"><span class="hs-identifier">AssetState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_ACTIVE"><span class="hs-identifier">AssetState_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_CREATING"><span class="hs-identifier">AssetState_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_DELETING"><span class="hs-identifier">AssetState_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_FAILED"><span class="hs-identifier">AssetState_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_UPDATING"><span class="hs-identifier">AssetState_UPDATING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679335225"><span id="local-6989586621679335226"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssetState"><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState"><span class="hs-identifier hs-var">AssetState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetState%27"><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState%27"><span class="hs-identifier hs-var">AssetState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssetState"><span class="annot"><span class="annottext">AssetState -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.Types.AssetState.html#fromAssetState"><span class="hs-identifier hs-var hs-var">fromAssetState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335217"><span id="local-6989586621679335219"><span id="local-6989586621679335221"><span class="annot"><span class="annottext">Int -&gt; AssetState -&gt; ShowS
+[AssetState] -&gt; ShowS
+AssetState -&gt; String
+(Int -&gt; AssetState -&gt; ShowS)
+-&gt; (AssetState -&gt; String)
+-&gt; ([AssetState] -&gt; ShowS)
+-&gt; Show AssetState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssetState] -&gt; ShowS
+$cshowList :: [AssetState] -&gt; ShowS
+show :: AssetState -&gt; String
+$cshow :: AssetState -&gt; String
+showsPrec :: Int -&gt; AssetState -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssetState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679335208"><span id="local-6989586621679335210"><span id="local-6989586621679335212"><span id="local-6989586621679335214"><span class="annot"><span class="annottext">ReadPrec [AssetState]
+ReadPrec AssetState
+Int -&gt; ReadS AssetState
+ReadS [AssetState]
+(Int -&gt; ReadS AssetState)
+-&gt; ReadS [AssetState]
+-&gt; ReadPrec AssetState
+-&gt; ReadPrec [AssetState]
+-&gt; Read AssetState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssetState]
+$creadListPrec :: ReadPrec [AssetState]
+readPrec :: ReadPrec AssetState
+$creadPrec :: ReadPrec AssetState
+readList :: ReadS [AssetState]
+$creadList :: ReadS [AssetState]
+readsPrec :: Int -&gt; ReadS AssetState
+$creadsPrec :: Int -&gt; ReadS AssetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679335203"><span id="local-6989586621679335205"><span class="annot"><span class="annottext">AssetState -&gt; AssetState -&gt; Bool
+(AssetState -&gt; AssetState -&gt; Bool)
+-&gt; (AssetState -&gt; AssetState -&gt; Bool) -&gt; Eq AssetState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssetState -&gt; AssetState -&gt; Bool
+$c/= :: AssetState -&gt; AssetState -&gt; Bool
+== :: AssetState -&gt; AssetState -&gt; Bool
+$c== :: AssetState -&gt; AssetState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679335187"><span id="local-6989586621679335189"><span id="local-6989586621679335191"><span id="local-6989586621679335193"><span id="local-6989586621679335195"><span id="local-6989586621679335197"><span id="local-6989586621679335199"><span class="annot"><span class="annottext">Eq AssetState
+Eq AssetState
+-&gt; (AssetState -&gt; AssetState -&gt; Ordering)
+-&gt; (AssetState -&gt; AssetState -&gt; Bool)
+-&gt; (AssetState -&gt; AssetState -&gt; Bool)
+-&gt; (AssetState -&gt; AssetState -&gt; Bool)
+-&gt; (AssetState -&gt; AssetState -&gt; Bool)
+-&gt; (AssetState -&gt; AssetState -&gt; AssetState)
+-&gt; (AssetState -&gt; AssetState -&gt; AssetState)
+-&gt; Ord AssetState
+AssetState -&gt; AssetState -&gt; Bool
+AssetState -&gt; AssetState -&gt; Ordering
+AssetState -&gt; AssetState -&gt; AssetState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssetState -&gt; AssetState -&gt; AssetState
+$cmin :: AssetState -&gt; AssetState -&gt; AssetState
+max :: AssetState -&gt; AssetState -&gt; AssetState
+$cmax :: AssetState -&gt; AssetState -&gt; AssetState
+&gt;= :: AssetState -&gt; AssetState -&gt; Bool
+$c&gt;= :: AssetState -&gt; AssetState -&gt; Bool
+&gt; :: AssetState -&gt; AssetState -&gt; Bool
+$c&gt; :: AssetState -&gt; AssetState -&gt; Bool
+&lt;= :: AssetState -&gt; AssetState -&gt; Bool
+$c&lt;= :: AssetState -&gt; AssetState -&gt; Bool
+&lt; :: AssetState -&gt; AssetState -&gt; Bool
+$c&lt; :: AssetState -&gt; AssetState -&gt; Bool
+compare :: AssetState -&gt; AssetState -&gt; Ordering
+$ccompare :: AssetState -&gt; AssetState -&gt; Ordering
+$cp1Ord :: Eq AssetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AssetState -&gt; Rep AssetState x)
+-&gt; (forall x. Rep AssetState x -&gt; AssetState) -&gt; Generic AssetState
+forall x. Rep AssetState x -&gt; AssetState
+forall x. AssetState -&gt; Rep AssetState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssetState x -&gt; AssetState
+$cfrom :: forall x. AssetState -&gt; Rep AssetState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335179"><span id="local-6989586621679335181"><span class="annot"><span class="annottext">Int -&gt; AssetState -&gt; Int
+AssetState -&gt; Int
+(Int -&gt; AssetState -&gt; Int)
+-&gt; (AssetState -&gt; Int) -&gt; Hashable AssetState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssetState -&gt; Int
+$chash :: AssetState -&gt; Int
+hashWithSalt :: Int -&gt; AssetState -&gt; Int
+$chashWithSalt :: Int -&gt; AssetState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679335176"><span class="annot"><span class="annottext">AssetState -&gt; ()
+(AssetState -&gt; ()) -&gt; NFData AssetState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssetState -&gt; ()
+$crnf :: AssetState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679335173"><span class="annot"><span class="annottext">Text -&gt; Either String AssetState
+(Text -&gt; Either String AssetState) -&gt; FromText AssetState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssetState
+$cfromText :: Text -&gt; Either String AssetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679335170"><span class="annot"><span class="annottext">AssetState -&gt; Text
+(AssetState -&gt; Text) -&gt; ToText AssetState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssetState -&gt; Text
+$ctoText :: AssetState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679335167"><span class="annot"><span class="annottext">AssetState -&gt; ByteString
+(AssetState -&gt; ByteString) -&gt; ToByteString AssetState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssetState -&gt; ByteString
+$ctoBS :: AssetState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679335164"><span class="annot"><span class="annottext">AssetState -&gt; ByteStringBuilder
+(AssetState -&gt; ByteStringBuilder) -&gt; ToLog AssetState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssetState -&gt; ByteStringBuilder
+$cbuild :: AssetState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679335161"><span class="annot"><span class="annottext">HeaderName -&gt; AssetState -&gt; [Header]
+(HeaderName -&gt; AssetState -&gt; [Header]) -&gt; ToHeader AssetState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssetState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssetState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679335158"><span class="annot"><span class="annottext">AssetState -&gt; QueryString
+(AssetState -&gt; QueryString) -&gt; ToQuery AssetState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssetState -&gt; QueryString
+$ctoQuery :: AssetState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679335153"><span id="local-6989586621679335155"><span class="annot"><span class="annottext">Value -&gt; Parser [AssetState]
+Value -&gt; Parser AssetState
+(Value -&gt; Parser AssetState)
+-&gt; (Value -&gt; Parser [AssetState]) -&gt; FromJSON AssetState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssetState]
+$cparseJSONList :: Value -&gt; Parser [AssetState]
+parseJSON :: Value -&gt; Parser AssetState
+$cparseJSON :: Value -&gt; Parser AssetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679335148"><span id="local-6989586621679335150"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssetState]
+FromJSONKeyFunction AssetState
+FromJSONKeyFunction AssetState
+-&gt; FromJSONKeyFunction [AssetState] -&gt; FromJSONKey AssetState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssetState]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssetState]
+fromJSONKey :: FromJSONKeyFunction AssetState
+$cfromJSONKey :: FromJSONKeyFunction AssetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679335139"><span id="local-6989586621679335141"><span id="local-6989586621679335143"><span id="local-6989586621679335145"><span class="annot"><span class="annottext">[AssetState] -&gt; Encoding
+[AssetState] -&gt; Value
+AssetState -&gt; Encoding
+AssetState -&gt; Value
+(AssetState -&gt; Value)
+-&gt; (AssetState -&gt; Encoding)
+-&gt; ([AssetState] -&gt; Value)
+-&gt; ([AssetState] -&gt; Encoding)
+-&gt; ToJSON AssetState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssetState] -&gt; Encoding
+$ctoEncodingList :: [AssetState] -&gt; Encoding
+toJSONList :: [AssetState] -&gt; Value
+$ctoJSONList :: [AssetState] -&gt; Value
+toEncoding :: AssetState -&gt; Encoding
+$ctoEncoding :: AssetState -&gt; Encoding
+toJSON :: AssetState -&gt; Value
+$ctoJSON :: AssetState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679335134"><span id="local-6989586621679335136"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssetState]
+ToJSONKeyFunction AssetState
+ToJSONKeyFunction AssetState
+-&gt; ToJSONKeyFunction [AssetState] -&gt; ToJSONKey AssetState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssetState]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssetState]
+toJSONKey :: ToJSONKeyFunction AssetState
+$ctoJSONKey :: ToJSONKeyFunction AssetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679335131"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssetState
+([Node] -&gt; Either String AssetState) -&gt; FromXML AssetState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssetState
+$cparseXML :: [Node] -&gt; Either String AssetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679335128"><span class="annot"><span class="annottext">AssetState -&gt; XML
+(AssetState -&gt; XML) -&gt; ToXML AssetState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssetState -&gt; XML
+$ctoXML :: AssetState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_ACTIVE"><span class="hs-identifier hs-type">AssetState_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState"><span class="hs-identifier hs-type">AssetState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssetState_ACTIVE"><span id="%24mAssetState_ACTIVE"><span id="AssetState_ACTIVE"><span class="annot"><span class="annottext">$bAssetState_ACTIVE :: AssetState
+$mAssetState_ACTIVE :: forall r. AssetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTSiteWise.Types.AssetState.html#%24bAssetState_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">AssetState_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState%27"><span class="hs-identifier hs-type">AssetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_CREATING"><span class="hs-identifier hs-type">AssetState_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState"><span class="hs-identifier hs-type">AssetState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssetState_CREATING"><span id="%24mAssetState_CREATING"><span id="AssetState_CREATING"><span class="annot"><span class="annottext">$bAssetState_CREATING :: AssetState
+$mAssetState_CREATING :: forall r. AssetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTSiteWise.Types.AssetState.html#%24bAssetState_CREATING"><span class="hs-identifier hs-var hs-var hs-var">AssetState_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState%27"><span class="hs-identifier hs-type">AssetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_DELETING"><span class="hs-identifier hs-type">AssetState_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState"><span class="hs-identifier hs-type">AssetState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssetState_DELETING"><span id="%24mAssetState_DELETING"><span id="AssetState_DELETING"><span class="annot"><span class="annottext">$bAssetState_DELETING :: AssetState
+$mAssetState_DELETING :: forall r. AssetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTSiteWise.Types.AssetState.html#%24bAssetState_DELETING"><span class="hs-identifier hs-var hs-var hs-var">AssetState_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState%27"><span class="hs-identifier hs-type">AssetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_FAILED"><span class="hs-identifier hs-type">AssetState_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState"><span class="hs-identifier hs-type">AssetState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssetState_FAILED"><span id="%24mAssetState_FAILED"><span id="AssetState_FAILED"><span class="annot"><span class="annottext">$bAssetState_FAILED :: AssetState
+$mAssetState_FAILED :: forall r. AssetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTSiteWise.Types.AssetState.html#%24bAssetState_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AssetState_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState%27"><span class="hs-identifier hs-type">AssetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_UPDATING"><span class="hs-identifier hs-type">AssetState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState"><span class="hs-identifier hs-type">AssetState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssetState_UPDATING"><span id="%24mAssetState_UPDATING"><span id="AssetState_UPDATING"><span class="annot"><span class="annottext">$bAssetState_UPDATING :: AssetState
+$mAssetState_UPDATING :: forall r. AssetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTSiteWise.Types.AssetState.html#%24bAssetState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">AssetState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState%27"><span class="hs-identifier hs-type">AssetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_ACTIVE"><span class="hs-pragma hs-type">AssetState_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_CREATING"><span class="hs-pragma hs-type">AssetState_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_DELETING"><span class="hs-pragma hs-type">AssetState_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_FAILED"><span class="hs-pragma hs-type">AssetState_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState_UPDATING"><span class="hs-pragma hs-type">AssetState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetState.html#AssetState%27"><span class="hs-pragma hs-type">AssetState'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite"><span class="hs-identifier">DefaultGatewayRouteRewrite</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite_DISABLED"><span class="hs-identifier">DefaultGatewayRouteRewrite_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite_ENABLED"><span class="hs-identifier">DefaultGatewayRouteRewrite_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679322990"><span id="local-6989586621679322991"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefaultGatewayRouteRewrite"><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite"><span class="hs-identifier hs-var">DefaultGatewayRouteRewrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultGatewayRouteRewrite%27"><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite%27"><span class="hs-identifier hs-var">DefaultGatewayRouteRewrite'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDefaultGatewayRouteRewrite"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#fromDefaultGatewayRouteRewrite"><span class="hs-identifier hs-var hs-var">fromDefaultGatewayRouteRewrite</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322982"><span id="local-6989586621679322984"><span id="local-6989586621679322986"><span class="annot"><span class="annottext">Int -&gt; DefaultGatewayRouteRewrite -&gt; ShowS
+[DefaultGatewayRouteRewrite] -&gt; ShowS
+DefaultGatewayRouteRewrite -&gt; String
+(Int -&gt; DefaultGatewayRouteRewrite -&gt; ShowS)
+-&gt; (DefaultGatewayRouteRewrite -&gt; String)
+-&gt; ([DefaultGatewayRouteRewrite] -&gt; ShowS)
+-&gt; Show DefaultGatewayRouteRewrite
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefaultGatewayRouteRewrite] -&gt; ShowS
+$cshowList :: [DefaultGatewayRouteRewrite] -&gt; ShowS
+show :: DefaultGatewayRouteRewrite -&gt; String
+$cshow :: DefaultGatewayRouteRewrite -&gt; String
+showsPrec :: Int -&gt; DefaultGatewayRouteRewrite -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefaultGatewayRouteRewrite -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679322973"><span id="local-6989586621679322975"><span id="local-6989586621679322977"><span id="local-6989586621679322979"><span class="annot"><span class="annottext">ReadPrec [DefaultGatewayRouteRewrite]
+ReadPrec DefaultGatewayRouteRewrite
+Int -&gt; ReadS DefaultGatewayRouteRewrite
+ReadS [DefaultGatewayRouteRewrite]
+(Int -&gt; ReadS DefaultGatewayRouteRewrite)
+-&gt; ReadS [DefaultGatewayRouteRewrite]
+-&gt; ReadPrec DefaultGatewayRouteRewrite
+-&gt; ReadPrec [DefaultGatewayRouteRewrite]
+-&gt; Read DefaultGatewayRouteRewrite
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefaultGatewayRouteRewrite]
+$creadListPrec :: ReadPrec [DefaultGatewayRouteRewrite]
+readPrec :: ReadPrec DefaultGatewayRouteRewrite
+$creadPrec :: ReadPrec DefaultGatewayRouteRewrite
+readList :: ReadS [DefaultGatewayRouteRewrite]
+$creadList :: ReadS [DefaultGatewayRouteRewrite]
+readsPrec :: Int -&gt; ReadS DefaultGatewayRouteRewrite
+$creadsPrec :: Int -&gt; ReadS DefaultGatewayRouteRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679322968"><span id="local-6989586621679322970"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+(DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool)
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; Bool)
+-&gt; Eq DefaultGatewayRouteRewrite
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+$c/= :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+== :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+$c== :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679322952"><span id="local-6989586621679322954"><span id="local-6989586621679322956"><span id="local-6989586621679322958"><span id="local-6989586621679322960"><span id="local-6989586621679322962"><span id="local-6989586621679322964"><span class="annot"><span class="annottext">Eq DefaultGatewayRouteRewrite
+Eq DefaultGatewayRouteRewrite
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; Ordering)
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; Bool)
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; Bool)
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; Bool)
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; Bool)
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite)
+-&gt; (DefaultGatewayRouteRewrite
+    -&gt; DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite)
+-&gt; Ord DefaultGatewayRouteRewrite
+DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; Ordering
+DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite
+$cmin :: DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite
+max :: DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite
+$cmax :: DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite
+&gt;= :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+$c&gt;= :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+&gt; :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+$c&gt; :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+&lt;= :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+$c&lt;= :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+&lt; :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+$c&lt; :: DefaultGatewayRouteRewrite -&gt; DefaultGatewayRouteRewrite -&gt; Bool
+compare :: DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; Ordering
+$ccompare :: DefaultGatewayRouteRewrite
+-&gt; DefaultGatewayRouteRewrite -&gt; Ordering
+$cp1Ord :: Eq DefaultGatewayRouteRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DefaultGatewayRouteRewrite -&gt; Rep DefaultGatewayRouteRewrite x)
+-&gt; (forall x.
+    Rep DefaultGatewayRouteRewrite x -&gt; DefaultGatewayRouteRewrite)
+-&gt; Generic DefaultGatewayRouteRewrite
+forall x.
+Rep DefaultGatewayRouteRewrite x -&gt; DefaultGatewayRouteRewrite
+forall x.
+DefaultGatewayRouteRewrite -&gt; Rep DefaultGatewayRouteRewrite x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DefaultGatewayRouteRewrite x -&gt; DefaultGatewayRouteRewrite
+$cfrom :: forall x.
+DefaultGatewayRouteRewrite -&gt; Rep DefaultGatewayRouteRewrite x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322944"><span id="local-6989586621679322946"><span class="annot"><span class="annottext">Int -&gt; DefaultGatewayRouteRewrite -&gt; Int
+DefaultGatewayRouteRewrite -&gt; Int
+(Int -&gt; DefaultGatewayRouteRewrite -&gt; Int)
+-&gt; (DefaultGatewayRouteRewrite -&gt; Int)
+-&gt; Hashable DefaultGatewayRouteRewrite
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DefaultGatewayRouteRewrite -&gt; Int
+$chash :: DefaultGatewayRouteRewrite -&gt; Int
+hashWithSalt :: Int -&gt; DefaultGatewayRouteRewrite -&gt; Int
+$chashWithSalt :: Int -&gt; DefaultGatewayRouteRewrite -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679322941"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; ()
+(DefaultGatewayRouteRewrite -&gt; ())
+-&gt; NFData DefaultGatewayRouteRewrite
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DefaultGatewayRouteRewrite -&gt; ()
+$crnf :: DefaultGatewayRouteRewrite -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679322938"><span class="annot"><span class="annottext">Text -&gt; Either String DefaultGatewayRouteRewrite
+(Text -&gt; Either String DefaultGatewayRouteRewrite)
+-&gt; FromText DefaultGatewayRouteRewrite
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DefaultGatewayRouteRewrite
+$cfromText :: Text -&gt; Either String DefaultGatewayRouteRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679322935"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; Text
+(DefaultGatewayRouteRewrite -&gt; Text)
+-&gt; ToText DefaultGatewayRouteRewrite
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DefaultGatewayRouteRewrite -&gt; Text
+$ctoText :: DefaultGatewayRouteRewrite -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679322932"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; ByteString
+(DefaultGatewayRouteRewrite -&gt; ByteString)
+-&gt; ToByteString DefaultGatewayRouteRewrite
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DefaultGatewayRouteRewrite -&gt; ByteString
+$ctoBS :: DefaultGatewayRouteRewrite -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679322929"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; ByteStringBuilder
+(DefaultGatewayRouteRewrite -&gt; ByteStringBuilder)
+-&gt; ToLog DefaultGatewayRouteRewrite
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DefaultGatewayRouteRewrite -&gt; ByteStringBuilder
+$cbuild :: DefaultGatewayRouteRewrite -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679322926"><span class="annot"><span class="annottext">HeaderName -&gt; DefaultGatewayRouteRewrite -&gt; [Header]
+(HeaderName -&gt; DefaultGatewayRouteRewrite -&gt; [Header])
+-&gt; ToHeader DefaultGatewayRouteRewrite
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DefaultGatewayRouteRewrite -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DefaultGatewayRouteRewrite -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679322923"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; QueryString
+(DefaultGatewayRouteRewrite -&gt; QueryString)
+-&gt; ToQuery DefaultGatewayRouteRewrite
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DefaultGatewayRouteRewrite -&gt; QueryString
+$ctoQuery :: DefaultGatewayRouteRewrite -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679322918"><span id="local-6989586621679322920"><span class="annot"><span class="annottext">Value -&gt; Parser [DefaultGatewayRouteRewrite]
+Value -&gt; Parser DefaultGatewayRouteRewrite
+(Value -&gt; Parser DefaultGatewayRouteRewrite)
+-&gt; (Value -&gt; Parser [DefaultGatewayRouteRewrite])
+-&gt; FromJSON DefaultGatewayRouteRewrite
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DefaultGatewayRouteRewrite]
+$cparseJSONList :: Value -&gt; Parser [DefaultGatewayRouteRewrite]
+parseJSON :: Value -&gt; Parser DefaultGatewayRouteRewrite
+$cparseJSON :: Value -&gt; Parser DefaultGatewayRouteRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679322913"><span id="local-6989586621679322915"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefaultGatewayRouteRewrite]
+FromJSONKeyFunction DefaultGatewayRouteRewrite
+FromJSONKeyFunction DefaultGatewayRouteRewrite
+-&gt; FromJSONKeyFunction [DefaultGatewayRouteRewrite]
+-&gt; FromJSONKey DefaultGatewayRouteRewrite
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DefaultGatewayRouteRewrite]
+$cfromJSONKeyList :: FromJSONKeyFunction [DefaultGatewayRouteRewrite]
+fromJSONKey :: FromJSONKeyFunction DefaultGatewayRouteRewrite
+$cfromJSONKey :: FromJSONKeyFunction DefaultGatewayRouteRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679322904"><span id="local-6989586621679322906"><span id="local-6989586621679322908"><span id="local-6989586621679322910"><span class="annot"><span class="annottext">[DefaultGatewayRouteRewrite] -&gt; Encoding
+[DefaultGatewayRouteRewrite] -&gt; Value
+DefaultGatewayRouteRewrite -&gt; Encoding
+DefaultGatewayRouteRewrite -&gt; Value
+(DefaultGatewayRouteRewrite -&gt; Value)
+-&gt; (DefaultGatewayRouteRewrite -&gt; Encoding)
+-&gt; ([DefaultGatewayRouteRewrite] -&gt; Value)
+-&gt; ([DefaultGatewayRouteRewrite] -&gt; Encoding)
+-&gt; ToJSON DefaultGatewayRouteRewrite
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DefaultGatewayRouteRewrite] -&gt; Encoding
+$ctoEncodingList :: [DefaultGatewayRouteRewrite] -&gt; Encoding
+toJSONList :: [DefaultGatewayRouteRewrite] -&gt; Value
+$ctoJSONList :: [DefaultGatewayRouteRewrite] -&gt; Value
+toEncoding :: DefaultGatewayRouteRewrite -&gt; Encoding
+$ctoEncoding :: DefaultGatewayRouteRewrite -&gt; Encoding
+toJSON :: DefaultGatewayRouteRewrite -&gt; Value
+$ctoJSON :: DefaultGatewayRouteRewrite -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679322899"><span id="local-6989586621679322901"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefaultGatewayRouteRewrite]
+ToJSONKeyFunction DefaultGatewayRouteRewrite
+ToJSONKeyFunction DefaultGatewayRouteRewrite
+-&gt; ToJSONKeyFunction [DefaultGatewayRouteRewrite]
+-&gt; ToJSONKey DefaultGatewayRouteRewrite
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DefaultGatewayRouteRewrite]
+$ctoJSONKeyList :: ToJSONKeyFunction [DefaultGatewayRouteRewrite]
+toJSONKey :: ToJSONKeyFunction DefaultGatewayRouteRewrite
+$ctoJSONKey :: ToJSONKeyFunction DefaultGatewayRouteRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679322896"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefaultGatewayRouteRewrite
+([Node] -&gt; Either String DefaultGatewayRouteRewrite)
+-&gt; FromXML DefaultGatewayRouteRewrite
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DefaultGatewayRouteRewrite
+$cparseXML :: [Node] -&gt; Either String DefaultGatewayRouteRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679322893"><span class="annot"><span class="annottext">DefaultGatewayRouteRewrite -&gt; XML
+(DefaultGatewayRouteRewrite -&gt; XML)
+-&gt; ToXML DefaultGatewayRouteRewrite
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DefaultGatewayRouteRewrite -&gt; XML
+$ctoXML :: DefaultGatewayRouteRewrite -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite_DISABLED"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDefaultGatewayRouteRewrite_DISABLED"><span id="%24mDefaultGatewayRouteRewrite_DISABLED"><span id="DefaultGatewayRouteRewrite_DISABLED"><span class="annot"><span class="annottext">$bDefaultGatewayRouteRewrite_DISABLED :: DefaultGatewayRouteRewrite
+$mDefaultGatewayRouteRewrite_DISABLED :: forall r.
+DefaultGatewayRouteRewrite -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#%24bDefaultGatewayRouteRewrite_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">DefaultGatewayRouteRewrite_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite%27"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite_ENABLED"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDefaultGatewayRouteRewrite_ENABLED"><span id="%24mDefaultGatewayRouteRewrite_ENABLED"><span id="DefaultGatewayRouteRewrite_ENABLED"><span class="annot"><span class="annottext">$bDefaultGatewayRouteRewrite_ENABLED :: DefaultGatewayRouteRewrite
+$mDefaultGatewayRouteRewrite_ENABLED :: forall r.
+DefaultGatewayRouteRewrite -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#%24bDefaultGatewayRouteRewrite_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">DefaultGatewayRouteRewrite_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite%27"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite_DISABLED"><span class="hs-pragma hs-type">DefaultGatewayRouteRewrite_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite_ENABLED"><span class="hs-pragma hs-type">DefaultGatewayRouteRewrite_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite%27"><span class="hs-pragma hs-type">DefaultGatewayRouteRewrite'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SNS.Types.PlatformApplication</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SNS.Types.PlatformApplication</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Platform application object.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPlatformApplication' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679191462"><span id="local-6989586621679191463"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlatformApplication"><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-var">PlatformApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformApplication%27"><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication%27"><span class="hs-identifier hs-var">PlatformApplication'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | PlatformApplicationArn for platform application object.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AplatformApplicationArn%3APlatformApplication%27"><span class="annot"><span class="annottext">PlatformApplication -&gt; Maybe Text
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#%24sel%3AplatformApplicationArn%3APlatformApplication%27"><span class="hs-identifier hs-var hs-var">platformApplicationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Attributes for platform application object.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aattributes%3APlatformApplication%27"><span class="annot"><span class="annottext">PlatformApplication -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#%24sel%3Aattributes%3APlatformApplication%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191455"><span id="local-6989586621679191457"><span class="annot"><span class="annottext">PlatformApplication -&gt; PlatformApplication -&gt; Bool
+(PlatformApplication -&gt; PlatformApplication -&gt; Bool)
+-&gt; (PlatformApplication -&gt; PlatformApplication -&gt; Bool)
+-&gt; Eq PlatformApplication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlatformApplication -&gt; PlatformApplication -&gt; Bool
+$c/= :: PlatformApplication -&gt; PlatformApplication -&gt; Bool
+== :: PlatformApplication -&gt; PlatformApplication -&gt; Bool
+$c== :: PlatformApplication -&gt; PlatformApplication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191446"><span id="local-6989586621679191448"><span id="local-6989586621679191450"><span id="local-6989586621679191452"><span class="annot"><span class="annottext">ReadPrec [PlatformApplication]
+ReadPrec PlatformApplication
+Int -&gt; ReadS PlatformApplication
+ReadS [PlatformApplication]
+(Int -&gt; ReadS PlatformApplication)
+-&gt; ReadS [PlatformApplication]
+-&gt; ReadPrec PlatformApplication
+-&gt; ReadPrec [PlatformApplication]
+-&gt; Read PlatformApplication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlatformApplication]
+$creadListPrec :: ReadPrec [PlatformApplication]
+readPrec :: ReadPrec PlatformApplication
+$creadPrec :: ReadPrec PlatformApplication
+readList :: ReadS [PlatformApplication]
+$creadList :: ReadS [PlatformApplication]
+readsPrec :: Int -&gt; ReadS PlatformApplication
+$creadsPrec :: Int -&gt; ReadS PlatformApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191439"><span id="local-6989586621679191441"><span id="local-6989586621679191443"><span class="annot"><span class="annottext">Int -&gt; PlatformApplication -&gt; ShowS
+[PlatformApplication] -&gt; ShowS
+PlatformApplication -&gt; String
+(Int -&gt; PlatformApplication -&gt; ShowS)
+-&gt; (PlatformApplication -&gt; String)
+-&gt; ([PlatformApplication] -&gt; ShowS)
+-&gt; Show PlatformApplication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlatformApplication] -&gt; ShowS
+$cshowList :: [PlatformApplication] -&gt; ShowS
+show :: PlatformApplication -&gt; String
+$cshow :: PlatformApplication -&gt; String
+showsPrec :: Int -&gt; PlatformApplication -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlatformApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PlatformApplication -&gt; Rep PlatformApplication x)
+-&gt; (forall x. Rep PlatformApplication x -&gt; PlatformApplication)
+-&gt; Generic PlatformApplication
+forall x. Rep PlatformApplication x -&gt; PlatformApplication
+forall x. PlatformApplication -&gt; Rep PlatformApplication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlatformApplication x -&gt; PlatformApplication
+$cfrom :: forall x. PlatformApplication -&gt; Rep PlatformApplication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'PlatformApplication' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'platformApplicationArn', 'platformApplication_platformApplicationArn' - PlatformApplicationArn for platform application object.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'attributes', 'platformApplication_attributes' - Attributes for platform application object.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#newPlatformApplication"><span class="hs-identifier hs-type">newPlatformApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span><span>
+</span><span id="line-50"></span><span id="newPlatformApplication"><span class="annot"><span class="annottext">newPlatformApplication :: PlatformApplication
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#newPlatformApplication"><span class="hs-identifier hs-var hs-var">newPlatformApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">PlatformApplication' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; PlatformApplication
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication%27"><span class="hs-identifier hs-type">PlatformApplication'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:platformApplicationArn:PlatformApplication' :: Maybe Text
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#%24sel%3AplatformApplicationArn%3APlatformApplication%27"><span class="hs-identifier hs-var">platformApplicationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:PlatformApplication' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#%24sel%3Aattributes%3APlatformApplication%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | PlatformApplicationArn for platform application object.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#platformApplication_platformApplicationArn"><span class="hs-identifier hs-type">platformApplication_platformApplicationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="platformApplication_platformApplicationArn"><span class="annot"><span class="annottext">platformApplication_platformApplicationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlatformApplication -&gt; f PlatformApplication
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#platformApplication_platformApplicationArn"><span class="hs-identifier hs-var hs-var">platformApplication_platformApplicationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlatformApplication -&gt; Maybe Text)
+-&gt; (PlatformApplication -&gt; Maybe Text -&gt; PlatformApplication)
+-&gt; Lens
+     PlatformApplication PlatformApplication (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication%27"><span class="hs-identifier hs-type">PlatformApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191430"><span class="annot"><span class="annottext">Maybe Text
+platformApplicationArn :: Maybe Text
+$sel:platformApplicationArn:PlatformApplication' :: PlatformApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679191430"><span class="hs-identifier hs-var hs-var">platformApplicationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191430"><span class="hs-identifier hs-var">platformApplicationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191429"><span class="annot"><span class="annottext">s :: PlatformApplication
+</span><a href="#local-6989586621679191429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication%27"><span class="hs-identifier hs-type">PlatformApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlatformApplication
+</span><a href="#local-6989586621679191429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformApplicationArn:PlatformApplication' :: Maybe Text
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#%24sel%3AplatformApplicationArn%3APlatformApplication%27"><span class="hs-identifier hs-var">platformApplicationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Attributes for platform application object.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#platformApplication_attributes"><span class="hs-identifier hs-type">platformApplication_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="platformApplication_attributes"><span class="annot"><span class="annottext">platformApplication_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; PlatformApplication -&gt; f PlatformApplication
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#platformApplication_attributes"><span class="hs-identifier hs-var hs-var">platformApplication_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlatformApplication -&gt; Maybe (HashMap Text Text))
+-&gt; (PlatformApplication
+    -&gt; Maybe (HashMap Text Text) -&gt; PlatformApplication)
+-&gt; Lens
+     PlatformApplication
+     PlatformApplication
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication%27"><span class="hs-identifier hs-type">PlatformApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191426"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:PlatformApplication' :: PlatformApplication -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679191426"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679191426"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191425"><span class="annot"><span class="annottext">s :: PlatformApplication
+</span><a href="#local-6989586621679191425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication%27"><span class="hs-identifier hs-type">PlatformApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191424"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679191424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlatformApplication
+</span><a href="#local-6989586621679191425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:PlatformApplication' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#%24sel%3Aattributes%3APlatformApplication%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679191424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; PlatformApplication -&gt; f PlatformApplication)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; PlatformApplication
+-&gt; f PlatformApplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679191418"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PlatformApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679191416"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679191416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; PlatformApplication
+</span><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication%27"><span class="hs-identifier hs-var">PlatformApplication'</span></a></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; PlatformApplication)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe (HashMap Text Text) -&gt; PlatformApplication)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679191416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlatformApplicationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe (HashMap Text Text) -&gt; PlatformApplication)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String PlatformApplication
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679191416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-70"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe (HashMap Text Text)))
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String (HashMap Text Text))
+-&gt; [Node] -&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap Text Text)
+forall k v.
+(Eq k, Hashable k, FromText k, FromXML v) =&gt;
+Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
+</span><span class="hs-identifier hs-var">Core.parseXMLMap</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191407"><span id="local-6989586621679191409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.PlatformApplication.html#PlatformApplication"><span class="hs-identifier hs-type">PlatformApplication</span></a></span></span><span>
+</span><span id="line-76"></span></pre></body></html>

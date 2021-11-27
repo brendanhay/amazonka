@@ -1,0 +1,1653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RobOMaker.Types.SimulationJob</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RobOMaker.Types.SimulationJob</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.ComputeResponse.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.ComputeResponse</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DataSource.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.DataSource</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FailureBehavior.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.FailureBehavior</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.LoggingConfig.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.LoggingConfig</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.NetworkInterface.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.NetworkInterface</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.OutputLocation.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.OutputLocation</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.RobotApplicationConfig.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.RobotApplicationConfig</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationApplicationConfig.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.SimulationApplicationConfig</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJobErrorCode.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJobStatus.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.SimulationJobStatus</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.VPCConfigResponse.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.VPCConfigResponse</span></a></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | Information about a simulation job.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newSimulationJob' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679373797"><span id="local-6989586621679373798"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimulationJob"><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-var">SimulationJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulationJob%27"><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-var">SimulationJob'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason why the simulation job failed.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfailureReason%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureReason%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The failure behavior the simulation job.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- [Continue]</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     Leaves the host running for its maximum timeout duration after a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     @4XX@ error code.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- [Fail]</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     Stop the simulation job and terminate the instance.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AfailureBehavior%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe FailureBehavior
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureBehavior%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">failureBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FailureBehavior.html#FailureBehavior"><span class="hs-identifier hs-type">FailureBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Status of the simulation job.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Astatus%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe SimulationJobStatus
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Astatus%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJobStatus.html#SimulationJobStatus"><span class="hs-identifier hs-type">SimulationJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the simulation job was</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AlastUpdatedAt%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the simulation job.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aarn%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Aarn%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A list of robot applications.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3ArobotApplications%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe (NonEmpty RobotApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3ArobotApplications%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">robotApplications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The failure code of the simulation job if it failed.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AfailureCode%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe SimulationJobErrorCode
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureCode%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Compute information for the simulation job</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Acompute%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe ComputeResponse
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Acompute%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">compute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.ComputeResponse.html#ComputeResponse"><span class="hs-identifier hs-type">ComputeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Information about a network interface.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnetworkInterface%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe NetworkInterface
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AnetworkInterface%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">networkInterface</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The data sources for the simulation job.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdataSources%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe [DataSource]
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AdataSources%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the simulation job.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aname%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Aname%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | VPC configuration information.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AvpcConfig%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe VPCConfigResponse
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AvpcConfig%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.VPCConfigResponse.html#VPCConfigResponse"><span class="hs-identifier hs-type">VPCConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Location for output files generated by the simulation job.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AoutputLocation%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe OutputLocation
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AoutputLocation%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A list of simulation applications.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsimulationApplications%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AsimulationApplications%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">simulationApplications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationApplicationConfig.html#SimulationApplicationConfig"><span class="hs-identifier hs-type">SimulationApplicationConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The simulation job execution duration in milliseconds.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsimulationTimeMillis%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe Integer
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AsimulationTimeMillis%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">simulationTimeMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A unique identifier for this @SimulationJob@ request.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AclientRequestToken%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the simulation job was</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- last started.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AlastStartedAt%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AlastStartedAt%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">lastStartedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The logging configuration.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AloggingConfig%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe LoggingConfig
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AloggingConfig%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">loggingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The IAM role that allows the simulation instance to call the AWS APIs</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- that are specified in its associated policies on your behalf. This is</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- how credentials are passed in to your simulation job.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AiamRole%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AiamRole%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The maximum simulation job duration in seconds. The value must be 8 days</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- (691,200 seconds) or less.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AmaxJobDurationInSeconds%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe Integer
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AmaxJobDurationInSeconds%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">maxJobDurationInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- simulation job.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Atags%3ASimulationJob%27"><span class="annot"><span class="annottext">SimulationJob -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Atags%3ASimulationJob%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373771"><span id="local-6989586621679373773"><span class="annot"><span class="annottext">SimulationJob -&gt; SimulationJob -&gt; Bool
+(SimulationJob -&gt; SimulationJob -&gt; Bool)
+-&gt; (SimulationJob -&gt; SimulationJob -&gt; Bool) -&gt; Eq SimulationJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SimulationJob -&gt; SimulationJob -&gt; Bool
+$c/= :: SimulationJob -&gt; SimulationJob -&gt; Bool
+== :: SimulationJob -&gt; SimulationJob -&gt; Bool
+$c== :: SimulationJob -&gt; SimulationJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373762"><span id="local-6989586621679373764"><span id="local-6989586621679373766"><span id="local-6989586621679373768"><span class="annot"><span class="annottext">ReadPrec [SimulationJob]
+ReadPrec SimulationJob
+Int -&gt; ReadS SimulationJob
+ReadS [SimulationJob]
+(Int -&gt; ReadS SimulationJob)
+-&gt; ReadS [SimulationJob]
+-&gt; ReadPrec SimulationJob
+-&gt; ReadPrec [SimulationJob]
+-&gt; Read SimulationJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SimulationJob]
+$creadListPrec :: ReadPrec [SimulationJob]
+readPrec :: ReadPrec SimulationJob
+$creadPrec :: ReadPrec SimulationJob
+readList :: ReadS [SimulationJob]
+$creadList :: ReadS [SimulationJob]
+readsPrec :: Int -&gt; ReadS SimulationJob
+$creadsPrec :: Int -&gt; ReadS SimulationJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373755"><span id="local-6989586621679373757"><span id="local-6989586621679373759"><span class="annot"><span class="annottext">Int -&gt; SimulationJob -&gt; ShowS
+[SimulationJob] -&gt; ShowS
+SimulationJob -&gt; String
+(Int -&gt; SimulationJob -&gt; ShowS)
+-&gt; (SimulationJob -&gt; String)
+-&gt; ([SimulationJob] -&gt; ShowS)
+-&gt; Show SimulationJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SimulationJob] -&gt; ShowS
+$cshowList :: [SimulationJob] -&gt; ShowS
+show :: SimulationJob -&gt; String
+$cshow :: SimulationJob -&gt; String
+showsPrec :: Int -&gt; SimulationJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; SimulationJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SimulationJob -&gt; Rep SimulationJob x)
+-&gt; (forall x. Rep SimulationJob x -&gt; SimulationJob)
+-&gt; Generic SimulationJob
+forall x. Rep SimulationJob x -&gt; SimulationJob
+forall x. SimulationJob -&gt; Rep SimulationJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SimulationJob x -&gt; SimulationJob
+$cfrom :: forall x. SimulationJob -&gt; Rep SimulationJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Create a value of 'SimulationJob' with all optional fields omitted.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'failureReason', 'simulationJob_failureReason' - The reason why the simulation job failed.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'failureBehavior', 'simulationJob_failureBehavior' - The failure behavior the simulation job.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- [Continue]</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     Leaves the host running for its maximum timeout duration after a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     @4XX@ error code.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- [Fail]</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     Stop the simulation job and terminate the instance.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'status', 'simulationJob_status' - Status of the simulation job.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'lastUpdatedAt', 'simulationJob_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation job was</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'arn', 'simulationJob_arn' - The Amazon Resource Name (ARN) of the simulation job.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'robotApplications', 'simulationJob_robotApplications' - A list of robot applications.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'failureCode', 'simulationJob_failureCode' - The failure code of the simulation job if it failed.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'compute', 'simulationJob_compute' - Compute information for the simulation job</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'networkInterface', 'simulationJob_networkInterface' - Information about a network interface.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'dataSources', 'simulationJob_dataSources' - The data sources for the simulation job.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'name', 'simulationJob_name' - The name of the simulation job.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'vpcConfig', 'simulationJob_vpcConfig' - VPC configuration information.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'outputLocation', 'simulationJob_outputLocation' - Location for output files generated by the simulation job.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'simulationApplications', 'simulationJob_simulationApplications' - A list of simulation applications.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'simulationTimeMillis', 'simulationJob_simulationTimeMillis' - The simulation job execution duration in milliseconds.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'clientRequestToken', 'simulationJob_clientRequestToken' - A unique identifier for this @SimulationJob@ request.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'lastStartedAt', 'simulationJob_lastStartedAt' - The time, in milliseconds since the epoch, when the simulation job was</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- last started.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'loggingConfig', 'simulationJob_loggingConfig' - The logging configuration.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'iamRole', 'simulationJob_iamRole' - The IAM role that allows the simulation instance to call the AWS APIs</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- that are specified in its associated policies on your behalf. This is</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- how credentials are passed in to your simulation job.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'maxJobDurationInSeconds', 'simulationJob_maxJobDurationInSeconds' - The maximum simulation job duration in seconds. The value must be 8 days</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- (691,200 seconds) or less.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'tags', 'simulationJob_tags' - A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- simulation job.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#newSimulationJob"><span class="hs-identifier hs-type">newSimulationJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span>
+</span><span id="line-163"></span><span id="newSimulationJob"><span class="annot"><span class="annottext">newSimulationJob :: SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#newSimulationJob"><span class="hs-identifier hs-var hs-var">newSimulationJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">SimulationJob' :: Maybe Text
+-&gt; Maybe FailureBehavior
+-&gt; Maybe SimulationJobStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty RobotApplicationConfig)
+-&gt; Maybe SimulationJobErrorCode
+-&gt; Maybe ComputeResponse
+-&gt; Maybe NetworkInterface
+-&gt; Maybe [DataSource]
+-&gt; Maybe Text
+-&gt; Maybe VPCConfigResponse
+-&gt; Maybe OutputLocation
+-&gt; Maybe (NonEmpty SimulationApplicationConfig)
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe LoggingConfig
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe (HashMap Text Text)
+-&gt; SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureReason%3ASimulationJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureBehavior:SimulationJob' :: Maybe FailureBehavior
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureBehavior%3ASimulationJob%27"><span class="hs-identifier hs-var">failureBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureBehavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:SimulationJob' :: Maybe SimulationJobStatus
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Astatus%3ASimulationJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimulationJobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:SimulationJob' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AlastUpdatedAt%3ASimulationJob%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Aarn%3ASimulationJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:robotApplications:SimulationJob' :: Maybe (NonEmpty RobotApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3ArobotApplications%3ASimulationJob%27"><span class="hs-identifier hs-var">robotApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty RobotApplicationConfig)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureCode:SimulationJob' :: Maybe SimulationJobErrorCode
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureCode%3ASimulationJob%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimulationJobErrorCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:compute:SimulationJob' :: Maybe ComputeResponse
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Acompute%3ASimulationJob%27"><span class="hs-identifier hs-var">compute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterface:SimulationJob' :: Maybe NetworkInterface
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AnetworkInterface%3ASimulationJob%27"><span class="hs-identifier hs-var">networkInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterface
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSources:SimulationJob' :: Maybe [DataSource]
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AdataSources%3ASimulationJob%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Aname%3ASimulationJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfig:SimulationJob' :: Maybe VPCConfigResponse
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AvpcConfig%3ASimulationJob%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VPCConfigResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputLocation:SimulationJob' :: Maybe OutputLocation
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AoutputLocation%3ASimulationJob%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:simulationApplications:SimulationJob' :: Maybe (NonEmpty SimulationApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AsimulationApplications%3ASimulationJob%27"><span class="hs-identifier hs-var">simulationApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SimulationApplicationConfig)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:simulationTimeMillis:SimulationJob' :: Maybe Integer
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AsimulationTimeMillis%3ASimulationJob%27"><span class="hs-identifier hs-var">simulationTimeMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AclientRequestToken%3ASimulationJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStartedAt:SimulationJob' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AlastStartedAt%3ASimulationJob%27"><span class="hs-identifier hs-var">lastStartedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:loggingConfig:SimulationJob' :: Maybe LoggingConfig
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AloggingConfig%3ASimulationJob%27"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRole:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AiamRole%3ASimulationJob%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxJobDurationInSeconds:SimulationJob' :: Maybe Integer
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AmaxJobDurationInSeconds%3ASimulationJob%27"><span class="hs-identifier hs-var">maxJobDurationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SimulationJob' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Atags%3ASimulationJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The reason why the simulation job failed.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_failureReason"><span class="hs-identifier hs-type">simulationJob_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="simulationJob_failureReason"><span class="annot"><span class="annottext">simulationJob_failureReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_failureReason"><span class="hs-identifier hs-var hs-var">simulationJob_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe Text)
+-&gt; (SimulationJob -&gt; Maybe Text -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373746"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:SimulationJob' :: SimulationJob -&gt; Maybe Text
+</span><a href="#local-6989586621679373746"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373746"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373745"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373744"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureReason%3ASimulationJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The failure behavior the simulation job.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- [Continue]</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     Leaves the host running for its maximum timeout duration after a</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     @4XX@ error code.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- [Fail]</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     Stop the simulation job and terminate the instance.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_failureBehavior"><span class="hs-identifier hs-type">simulationJob_failureBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FailureBehavior.html#FailureBehavior"><span class="hs-identifier hs-type">FailureBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="simulationJob_failureBehavior"><span class="annot"><span class="annottext">simulationJob_failureBehavior :: (Maybe FailureBehavior -&gt; f (Maybe FailureBehavior))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_failureBehavior"><span class="hs-identifier hs-var hs-var">simulationJob_failureBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe FailureBehavior)
+-&gt; (SimulationJob -&gt; Maybe FailureBehavior -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe FailureBehavior)
+     (Maybe FailureBehavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373742"><span class="annot"><span class="annottext">Maybe FailureBehavior
+failureBehavior :: Maybe FailureBehavior
+$sel:failureBehavior:SimulationJob' :: SimulationJob -&gt; Maybe FailureBehavior
+</span><a href="#local-6989586621679373742"><span class="hs-identifier hs-var hs-var">failureBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailureBehavior
+</span><a href="#local-6989586621679373742"><span class="hs-identifier hs-var">failureBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373741"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373740"><span class="annot"><span class="annottext">Maybe FailureBehavior
+</span><a href="#local-6989586621679373740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureBehavior:SimulationJob' :: Maybe FailureBehavior
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureBehavior%3ASimulationJob%27"><span class="hs-identifier hs-var">failureBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureBehavior
+</span><a href="#local-6989586621679373740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Status of the simulation job.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_status"><span class="hs-identifier hs-type">simulationJob_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJobStatus.html#SimulationJobStatus"><span class="hs-identifier hs-type">SimulationJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="simulationJob_status"><span class="annot"><span class="annottext">simulationJob_status :: (Maybe SimulationJobStatus -&gt; f (Maybe SimulationJobStatus))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_status"><span class="hs-identifier hs-var hs-var">simulationJob_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe SimulationJobStatus)
+-&gt; (SimulationJob -&gt; Maybe SimulationJobStatus -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe SimulationJobStatus)
+     (Maybe SimulationJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373738"><span class="annot"><span class="annottext">Maybe SimulationJobStatus
+status :: Maybe SimulationJobStatus
+$sel:status:SimulationJob' :: SimulationJob -&gt; Maybe SimulationJobStatus
+</span><a href="#local-6989586621679373738"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimulationJobStatus
+</span><a href="#local-6989586621679373738"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373737"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373736"><span class="annot"><span class="annottext">Maybe SimulationJobStatus
+</span><a href="#local-6989586621679373736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SimulationJob' :: Maybe SimulationJobStatus
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Astatus%3ASimulationJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimulationJobStatus
+</span><a href="#local-6989586621679373736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the simulation job was</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_lastUpdatedAt"><span class="hs-identifier hs-type">simulationJob_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="simulationJob_lastUpdatedAt"><span class="annot"><span class="annottext">simulationJob_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">simulationJob_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe POSIX)
+-&gt; (SimulationJob -&gt; Maybe POSIX -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373734"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:SimulationJob' :: SimulationJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679373734"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679373734"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373733"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373732"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679373732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:SimulationJob' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AlastUpdatedAt%3ASimulationJob%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679373732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SimulationJob -&gt; f SimulationJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SimulationJob
+-&gt; f SimulationJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the simulation job.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_arn"><span class="hs-identifier hs-type">simulationJob_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="simulationJob_arn"><span class="annot"><span class="annottext">simulationJob_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_arn"><span class="hs-identifier hs-var hs-var">simulationJob_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe Text)
+-&gt; (SimulationJob -&gt; Maybe Text -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373727"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:SimulationJob' :: SimulationJob -&gt; Maybe Text
+</span><a href="#local-6989586621679373727"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373727"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373726"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Aarn%3ASimulationJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | A list of robot applications.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_robotApplications"><span class="hs-identifier hs-type">simulationJob_robotApplications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="simulationJob_robotApplications"><span class="annot"><span class="annottext">simulationJob_robotApplications :: (Maybe (NonEmpty RobotApplicationConfig)
+ -&gt; f (Maybe (NonEmpty RobotApplicationConfig)))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_robotApplications"><span class="hs-identifier hs-var hs-var">simulationJob_robotApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe (NonEmpty RobotApplicationConfig))
+-&gt; (SimulationJob
+    -&gt; Maybe (NonEmpty RobotApplicationConfig) -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe (NonEmpty RobotApplicationConfig))
+     (Maybe (NonEmpty RobotApplicationConfig))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373723"><span class="annot"><span class="annottext">Maybe (NonEmpty RobotApplicationConfig)
+robotApplications :: Maybe (NonEmpty RobotApplicationConfig)
+$sel:robotApplications:SimulationJob' :: SimulationJob -&gt; Maybe (NonEmpty RobotApplicationConfig)
+</span><a href="#local-6989586621679373723"><span class="hs-identifier hs-var hs-var">robotApplications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty RobotApplicationConfig)
+</span><a href="#local-6989586621679373723"><span class="hs-identifier hs-var">robotApplications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373722"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373721"><span class="annot"><span class="annottext">Maybe (NonEmpty RobotApplicationConfig)
+</span><a href="#local-6989586621679373721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:robotApplications:SimulationJob' :: Maybe (NonEmpty RobotApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3ArobotApplications%3ASimulationJob%27"><span class="hs-identifier hs-var">robotApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty RobotApplicationConfig)
+</span><a href="#local-6989586621679373721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty RobotApplicationConfig)
+  -&gt; f (Maybe (NonEmpty RobotApplicationConfig)))
+ -&gt; SimulationJob -&gt; f SimulationJob)
+-&gt; ((Maybe (NonEmpty RobotApplicationConfig)
+     -&gt; f (Maybe (NonEmpty RobotApplicationConfig)))
+    -&gt; Maybe (NonEmpty RobotApplicationConfig)
+    -&gt; f (Maybe (NonEmpty RobotApplicationConfig)))
+-&gt; (Maybe (NonEmpty RobotApplicationConfig)
+    -&gt; f (Maybe (NonEmpty RobotApplicationConfig)))
+-&gt; SimulationJob
+-&gt; f SimulationJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty RobotApplicationConfig)
+  (NonEmpty RobotApplicationConfig)
+  (NonEmpty RobotApplicationConfig)
+  (NonEmpty RobotApplicationConfig)
+-&gt; Iso
+     (Maybe (NonEmpty RobotApplicationConfig))
+     (Maybe (NonEmpty RobotApplicationConfig))
+     (Maybe (NonEmpty RobotApplicationConfig))
+     (Maybe (NonEmpty RobotApplicationConfig))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty RobotApplicationConfig)
+  (NonEmpty RobotApplicationConfig)
+  (NonEmpty RobotApplicationConfig)
+  (NonEmpty RobotApplicationConfig)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The failure code of the simulation job if it failed.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_failureCode"><span class="hs-identifier hs-type">simulationJob_failureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="simulationJob_failureCode"><span class="annot"><span class="annottext">simulationJob_failureCode :: (Maybe SimulationJobErrorCode -&gt; f (Maybe SimulationJobErrorCode))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_failureCode"><span class="hs-identifier hs-var hs-var">simulationJob_failureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe SimulationJobErrorCode)
+-&gt; (SimulationJob -&gt; Maybe SimulationJobErrorCode -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe SimulationJobErrorCode)
+     (Maybe SimulationJobErrorCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373718"><span class="annot"><span class="annottext">Maybe SimulationJobErrorCode
+failureCode :: Maybe SimulationJobErrorCode
+$sel:failureCode:SimulationJob' :: SimulationJob -&gt; Maybe SimulationJobErrorCode
+</span><a href="#local-6989586621679373718"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimulationJobErrorCode
+</span><a href="#local-6989586621679373718"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373717"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373716"><span class="annot"><span class="annottext">Maybe SimulationJobErrorCode
+</span><a href="#local-6989586621679373716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:SimulationJob' :: Maybe SimulationJobErrorCode
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AfailureCode%3ASimulationJob%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimulationJobErrorCode
+</span><a href="#local-6989586621679373716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Compute information for the simulation job</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_compute"><span class="hs-identifier hs-type">simulationJob_compute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.ComputeResponse.html#ComputeResponse"><span class="hs-identifier hs-type">ComputeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="simulationJob_compute"><span class="annot"><span class="annottext">simulationJob_compute :: (Maybe ComputeResponse -&gt; f (Maybe ComputeResponse))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_compute"><span class="hs-identifier hs-var hs-var">simulationJob_compute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe ComputeResponse)
+-&gt; (SimulationJob -&gt; Maybe ComputeResponse -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe ComputeResponse)
+     (Maybe ComputeResponse)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373714"><span class="annot"><span class="annottext">Maybe ComputeResponse
+compute :: Maybe ComputeResponse
+$sel:compute:SimulationJob' :: SimulationJob -&gt; Maybe ComputeResponse
+</span><a href="#local-6989586621679373714"><span class="hs-identifier hs-var hs-var">compute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeResponse
+</span><a href="#local-6989586621679373714"><span class="hs-identifier hs-var">compute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373713"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373712"><span class="annot"><span class="annottext">Maybe ComputeResponse
+</span><a href="#local-6989586621679373712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compute:SimulationJob' :: Maybe ComputeResponse
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Acompute%3ASimulationJob%27"><span class="hs-identifier hs-var">compute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeResponse
+</span><a href="#local-6989586621679373712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Information about a network interface.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_networkInterface"><span class="hs-identifier hs-type">simulationJob_networkInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="simulationJob_networkInterface"><span class="annot"><span class="annottext">simulationJob_networkInterface :: (Maybe NetworkInterface -&gt; f (Maybe NetworkInterface))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_networkInterface"><span class="hs-identifier hs-var hs-var">simulationJob_networkInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe NetworkInterface)
+-&gt; (SimulationJob -&gt; Maybe NetworkInterface -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe NetworkInterface)
+     (Maybe NetworkInterface)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373710"><span class="annot"><span class="annottext">Maybe NetworkInterface
+networkInterface :: Maybe NetworkInterface
+$sel:networkInterface:SimulationJob' :: SimulationJob -&gt; Maybe NetworkInterface
+</span><a href="#local-6989586621679373710"><span class="hs-identifier hs-var hs-var">networkInterface</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterface
+</span><a href="#local-6989586621679373710"><span class="hs-identifier hs-var">networkInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373709"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373708"><span class="annot"><span class="annottext">Maybe NetworkInterface
+</span><a href="#local-6989586621679373708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterface:SimulationJob' :: Maybe NetworkInterface
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AnetworkInterface%3ASimulationJob%27"><span class="hs-identifier hs-var">networkInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterface
+</span><a href="#local-6989586621679373708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The data sources for the simulation job.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_dataSources"><span class="hs-identifier hs-type">simulationJob_dataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="simulationJob_dataSources"><span class="annot"><span class="annottext">simulationJob_dataSources :: (Maybe [DataSource] -&gt; f (Maybe [DataSource]))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_dataSources"><span class="hs-identifier hs-var hs-var">simulationJob_dataSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe [DataSource])
+-&gt; (SimulationJob -&gt; Maybe [DataSource] -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe [DataSource])
+     (Maybe [DataSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373706"><span class="annot"><span class="annottext">Maybe [DataSource]
+dataSources :: Maybe [DataSource]
+$sel:dataSources:SimulationJob' :: SimulationJob -&gt; Maybe [DataSource]
+</span><a href="#local-6989586621679373706"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><a href="#local-6989586621679373706"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373705"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373704"><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><a href="#local-6989586621679373704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSources:SimulationJob' :: Maybe [DataSource]
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AdataSources%3ASimulationJob%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><a href="#local-6989586621679373704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
+ -&gt; SimulationJob -&gt; f SimulationJob)
+-&gt; ((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
+    -&gt; Maybe [DataSource] -&gt; f (Maybe [DataSource]))
+-&gt; (Maybe [DataSource] -&gt; f (Maybe [DataSource]))
+-&gt; SimulationJob
+-&gt; f SimulationJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DataSource] [DataSource] [DataSource] [DataSource]
+-&gt; Iso
+     (Maybe [DataSource])
+     (Maybe [DataSource])
+     (Maybe [DataSource])
+     (Maybe [DataSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DataSource] [DataSource] [DataSource] [DataSource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The name of the simulation job.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_name"><span class="hs-identifier hs-type">simulationJob_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="simulationJob_name"><span class="annot"><span class="annottext">simulationJob_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_name"><span class="hs-identifier hs-var hs-var">simulationJob_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe Text)
+-&gt; (SimulationJob -&gt; Maybe Text -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373702"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:SimulationJob' :: SimulationJob -&gt; Maybe Text
+</span><a href="#local-6989586621679373702"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373702"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373701"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Aname%3ASimulationJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | VPC configuration information.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_vpcConfig"><span class="hs-identifier hs-type">simulationJob_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.VPCConfigResponse.html#VPCConfigResponse"><span class="hs-identifier hs-type">VPCConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="simulationJob_vpcConfig"><span class="annot"><span class="annottext">simulationJob_vpcConfig :: (Maybe VPCConfigResponse -&gt; f (Maybe VPCConfigResponse))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_vpcConfig"><span class="hs-identifier hs-var hs-var">simulationJob_vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe VPCConfigResponse)
+-&gt; (SimulationJob -&gt; Maybe VPCConfigResponse -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe VPCConfigResponse)
+     (Maybe VPCConfigResponse)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373698"><span class="annot"><span class="annottext">Maybe VPCConfigResponse
+vpcConfig :: Maybe VPCConfigResponse
+$sel:vpcConfig:SimulationJob' :: SimulationJob -&gt; Maybe VPCConfigResponse
+</span><a href="#local-6989586621679373698"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VPCConfigResponse
+</span><a href="#local-6989586621679373698"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373697"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373696"><span class="annot"><span class="annottext">Maybe VPCConfigResponse
+</span><a href="#local-6989586621679373696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:SimulationJob' :: Maybe VPCConfigResponse
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AvpcConfig%3ASimulationJob%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VPCConfigResponse
+</span><a href="#local-6989586621679373696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Location for output files generated by the simulation job.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_outputLocation"><span class="hs-identifier hs-type">simulationJob_outputLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="simulationJob_outputLocation"><span class="annot"><span class="annottext">simulationJob_outputLocation :: (Maybe OutputLocation -&gt; f (Maybe OutputLocation))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_outputLocation"><span class="hs-identifier hs-var hs-var">simulationJob_outputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe OutputLocation)
+-&gt; (SimulationJob -&gt; Maybe OutputLocation -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe OutputLocation)
+     (Maybe OutputLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373694"><span class="annot"><span class="annottext">Maybe OutputLocation
+outputLocation :: Maybe OutputLocation
+$sel:outputLocation:SimulationJob' :: SimulationJob -&gt; Maybe OutputLocation
+</span><a href="#local-6989586621679373694"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><a href="#local-6989586621679373694"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373693"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373692"><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><a href="#local-6989586621679373692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:SimulationJob' :: Maybe OutputLocation
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AoutputLocation%3ASimulationJob%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><a href="#local-6989586621679373692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | A list of simulation applications.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_simulationApplications"><span class="hs-identifier hs-type">simulationJob_simulationApplications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationApplicationConfig.html#SimulationApplicationConfig"><span class="hs-identifier hs-type">SimulationApplicationConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="simulationJob_simulationApplications"><span class="annot"><span class="annottext">simulationJob_simulationApplications :: (Maybe (NonEmpty SimulationApplicationConfig)
+ -&gt; f (Maybe (NonEmpty SimulationApplicationConfig)))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_simulationApplications"><span class="hs-identifier hs-var hs-var">simulationJob_simulationApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe (NonEmpty SimulationApplicationConfig))
+-&gt; (SimulationJob
+    -&gt; Maybe (NonEmpty SimulationApplicationConfig) -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe (NonEmpty SimulationApplicationConfig))
+     (Maybe (NonEmpty SimulationApplicationConfig))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373690"><span class="annot"><span class="annottext">Maybe (NonEmpty SimulationApplicationConfig)
+simulationApplications :: Maybe (NonEmpty SimulationApplicationConfig)
+$sel:simulationApplications:SimulationJob' :: SimulationJob -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+</span><a href="#local-6989586621679373690"><span class="hs-identifier hs-var hs-var">simulationApplications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SimulationApplicationConfig)
+</span><a href="#local-6989586621679373690"><span class="hs-identifier hs-var">simulationApplications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373689"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373688"><span class="annot"><span class="annottext">Maybe (NonEmpty SimulationApplicationConfig)
+</span><a href="#local-6989586621679373688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:simulationApplications:SimulationJob' :: Maybe (NonEmpty SimulationApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AsimulationApplications%3ASimulationJob%27"><span class="hs-identifier hs-var">simulationApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SimulationApplicationConfig)
+</span><a href="#local-6989586621679373688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty SimulationApplicationConfig)
+  -&gt; f (Maybe (NonEmpty SimulationApplicationConfig)))
+ -&gt; SimulationJob -&gt; f SimulationJob)
+-&gt; ((Maybe (NonEmpty SimulationApplicationConfig)
+     -&gt; f (Maybe (NonEmpty SimulationApplicationConfig)))
+    -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+    -&gt; f (Maybe (NonEmpty SimulationApplicationConfig)))
+-&gt; (Maybe (NonEmpty SimulationApplicationConfig)
+    -&gt; f (Maybe (NonEmpty SimulationApplicationConfig)))
+-&gt; SimulationJob
+-&gt; f SimulationJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SimulationApplicationConfig)
+  (NonEmpty SimulationApplicationConfig)
+  (NonEmpty SimulationApplicationConfig)
+  (NonEmpty SimulationApplicationConfig)
+-&gt; Iso
+     (Maybe (NonEmpty SimulationApplicationConfig))
+     (Maybe (NonEmpty SimulationApplicationConfig))
+     (Maybe (NonEmpty SimulationApplicationConfig))
+     (Maybe (NonEmpty SimulationApplicationConfig))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SimulationApplicationConfig)
+  (NonEmpty SimulationApplicationConfig)
+  (NonEmpty SimulationApplicationConfig)
+  (NonEmpty SimulationApplicationConfig)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The simulation job execution duration in milliseconds.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_simulationTimeMillis"><span class="hs-identifier hs-type">simulationJob_simulationTimeMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="simulationJob_simulationTimeMillis"><span class="annot"><span class="annottext">simulationJob_simulationTimeMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_simulationTimeMillis"><span class="hs-identifier hs-var hs-var">simulationJob_simulationTimeMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe Integer)
+-&gt; (SimulationJob -&gt; Maybe Integer -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373686"><span class="annot"><span class="annottext">Maybe Integer
+simulationTimeMillis :: Maybe Integer
+$sel:simulationTimeMillis:SimulationJob' :: SimulationJob -&gt; Maybe Integer
+</span><a href="#local-6989586621679373686"><span class="hs-identifier hs-var hs-var">simulationTimeMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373686"><span class="hs-identifier hs-var">simulationTimeMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373685"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373684"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:simulationTimeMillis:SimulationJob' :: Maybe Integer
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AsimulationTimeMillis%3ASimulationJob%27"><span class="hs-identifier hs-var">simulationTimeMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | A unique identifier for this @SimulationJob@ request.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_clientRequestToken"><span class="hs-identifier hs-type">simulationJob_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="simulationJob_clientRequestToken"><span class="annot"><span class="annottext">simulationJob_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_clientRequestToken"><span class="hs-identifier hs-var hs-var">simulationJob_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe Text)
+-&gt; (SimulationJob -&gt; Maybe Text -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373682"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:SimulationJob' :: SimulationJob -&gt; Maybe Text
+</span><a href="#local-6989586621679373682"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373682"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373681"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AclientRequestToken%3ASimulationJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the simulation job was</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- last started.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_lastStartedAt"><span class="hs-identifier hs-type">simulationJob_lastStartedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="simulationJob_lastStartedAt"><span class="annot"><span class="annottext">simulationJob_lastStartedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_lastStartedAt"><span class="hs-identifier hs-var hs-var">simulationJob_lastStartedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe POSIX)
+-&gt; (SimulationJob -&gt; Maybe POSIX -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373678"><span class="annot"><span class="annottext">Maybe POSIX
+lastStartedAt :: Maybe POSIX
+$sel:lastStartedAt:SimulationJob' :: SimulationJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679373678"><span class="hs-identifier hs-var hs-var">lastStartedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679373678"><span class="hs-identifier hs-var">lastStartedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373677"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373676"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679373676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStartedAt:SimulationJob' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AlastStartedAt%3ASimulationJob%27"><span class="hs-identifier hs-var">lastStartedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679373676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SimulationJob -&gt; f SimulationJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SimulationJob
+-&gt; f SimulationJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The logging configuration.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_loggingConfig"><span class="hs-identifier hs-type">simulationJob_loggingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="simulationJob_loggingConfig"><span class="annot"><span class="annottext">simulationJob_loggingConfig :: (Maybe LoggingConfig -&gt; f (Maybe LoggingConfig))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_loggingConfig"><span class="hs-identifier hs-var hs-var">simulationJob_loggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe LoggingConfig)
+-&gt; (SimulationJob -&gt; Maybe LoggingConfig -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe LoggingConfig)
+     (Maybe LoggingConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373674"><span class="annot"><span class="annottext">Maybe LoggingConfig
+loggingConfig :: Maybe LoggingConfig
+$sel:loggingConfig:SimulationJob' :: SimulationJob -&gt; Maybe LoggingConfig
+</span><a href="#local-6989586621679373674"><span class="hs-identifier hs-var hs-var">loggingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><a href="#local-6989586621679373674"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373673"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373672"><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><a href="#local-6989586621679373672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfig:SimulationJob' :: Maybe LoggingConfig
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AloggingConfig%3ASimulationJob%27"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><a href="#local-6989586621679373672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The IAM role that allows the simulation instance to call the AWS APIs</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- that are specified in its associated policies on your behalf. This is</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- how credentials are passed in to your simulation job.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_iamRole"><span class="hs-identifier hs-type">simulationJob_iamRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="simulationJob_iamRole"><span class="annot"><span class="annottext">simulationJob_iamRole :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_iamRole"><span class="hs-identifier hs-var hs-var">simulationJob_iamRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe Text)
+-&gt; (SimulationJob -&gt; Maybe Text -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373670"><span class="annot"><span class="annottext">Maybe Text
+iamRole :: Maybe Text
+$sel:iamRole:SimulationJob' :: SimulationJob -&gt; Maybe Text
+</span><a href="#local-6989586621679373670"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373670"><span class="hs-identifier hs-var">iamRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373669"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRole:SimulationJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AiamRole%3ASimulationJob%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The maximum simulation job duration in seconds. The value must be 8 days</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- (691,200 seconds) or less.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_maxJobDurationInSeconds"><span class="hs-identifier hs-type">simulationJob_maxJobDurationInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="simulationJob_maxJobDurationInSeconds"><span class="annot"><span class="annottext">simulationJob_maxJobDurationInSeconds :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_maxJobDurationInSeconds"><span class="hs-identifier hs-var hs-var">simulationJob_maxJobDurationInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe Integer)
+-&gt; (SimulationJob -&gt; Maybe Integer -&gt; SimulationJob)
+-&gt; Lens SimulationJob SimulationJob (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373666"><span class="annot"><span class="annottext">Maybe Integer
+maxJobDurationInSeconds :: Maybe Integer
+$sel:maxJobDurationInSeconds:SimulationJob' :: SimulationJob -&gt; Maybe Integer
+</span><a href="#local-6989586621679373666"><span class="hs-identifier hs-var hs-var">maxJobDurationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373666"><span class="hs-identifier hs-var">maxJobDurationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373665"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373664"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxJobDurationInSeconds:SimulationJob' :: Maybe Integer
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3AmaxJobDurationInSeconds%3ASimulationJob%27"><span class="hs-identifier hs-var">maxJobDurationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679373664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- simulation job.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_tags"><span class="hs-identifier hs-type">simulationJob_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="simulationJob_tags"><span class="annot"><span class="annottext">simulationJob_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SimulationJob -&gt; f SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#simulationJob_tags"><span class="hs-identifier hs-var hs-var">simulationJob_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimulationJob -&gt; Maybe (HashMap Text Text))
+-&gt; (SimulationJob -&gt; Maybe (HashMap Text Text) -&gt; SimulationJob)
+-&gt; Lens
+     SimulationJob
+     SimulationJob
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373662"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:SimulationJob' :: SimulationJob -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373662"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373662"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373661"><span class="annot"><span class="annottext">s :: SimulationJob
+</span><a href="#local-6989586621679373661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-type">SimulationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373660"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulationJob
+</span><a href="#local-6989586621679373661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SimulationJob' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#%24sel%3Atags%3ASimulationJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679373660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; SimulationJob -&gt; f SimulationJob)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SimulationJob
+-&gt; f SimulationJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373657"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679373655"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SimulationJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SimulationJob)
+-&gt; Value
+-&gt; Parser SimulationJob
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SimulationJob&quot;</span></span><span>
+</span><span id="line-289"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373652"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-290"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe FailureBehavior
+-&gt; Maybe SimulationJobStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty RobotApplicationConfig)
+-&gt; Maybe SimulationJobErrorCode
+-&gt; Maybe ComputeResponse
+-&gt; Maybe NetworkInterface
+-&gt; Maybe [DataSource]
+-&gt; Maybe Text
+-&gt; Maybe VPCConfigResponse
+-&gt; Maybe OutputLocation
+-&gt; Maybe (NonEmpty SimulationApplicationConfig)
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe LoggingConfig
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe (HashMap Text Text)
+-&gt; SimulationJob
+</span><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob%27"><span class="hs-identifier hs-var">SimulationJob'</span></a></span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe FailureBehavior
+ -&gt; Maybe SimulationJobStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty RobotApplicationConfig)
+ -&gt; Maybe SimulationJobErrorCode
+ -&gt; Maybe ComputeResponse
+ -&gt; Maybe NetworkInterface
+ -&gt; Maybe [DataSource]
+ -&gt; Maybe Text
+ -&gt; Maybe VPCConfigResponse
+ -&gt; Maybe OutputLocation
+ -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe LoggingConfig
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; SimulationJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FailureBehavior
+      -&gt; Maybe SimulationJobStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty RobotApplicationConfig)
+      -&gt; Maybe SimulationJobErrorCode
+      -&gt; Maybe ComputeResponse
+      -&gt; Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FailureBehavior
+   -&gt; Maybe SimulationJobStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty RobotApplicationConfig)
+   -&gt; Maybe SimulationJobErrorCode
+   -&gt; Maybe ComputeResponse
+   -&gt; Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe FailureBehavior)
+-&gt; Parser
+     (Maybe SimulationJobStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty RobotApplicationConfig)
+      -&gt; Maybe SimulationJobErrorCode
+      -&gt; Maybe ComputeResponse
+      -&gt; Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FailureBehavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SimulationJobStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty RobotApplicationConfig)
+   -&gt; Maybe SimulationJobErrorCode
+   -&gt; Maybe ComputeResponse
+   -&gt; Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe SimulationJobStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty RobotApplicationConfig)
+      -&gt; Maybe SimulationJobErrorCode
+      -&gt; Maybe ComputeResponse
+      -&gt; Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SimulationJobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty RobotApplicationConfig)
+   -&gt; Maybe SimulationJobErrorCode
+   -&gt; Maybe ComputeResponse
+   -&gt; Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty RobotApplicationConfig)
+      -&gt; Maybe SimulationJobErrorCode
+      -&gt; Maybe ComputeResponse
+      -&gt; Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty RobotApplicationConfig)
+   -&gt; Maybe SimulationJobErrorCode
+   -&gt; Maybe ComputeResponse
+   -&gt; Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty RobotApplicationConfig)
+      -&gt; Maybe SimulationJobErrorCode
+      -&gt; Maybe ComputeResponse
+      -&gt; Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty RobotApplicationConfig)
+   -&gt; Maybe SimulationJobErrorCode
+   -&gt; Maybe ComputeResponse
+   -&gt; Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe (NonEmpty RobotApplicationConfig))
+-&gt; Parser
+     (Maybe SimulationJobErrorCode
+      -&gt; Maybe ComputeResponse
+      -&gt; Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty RobotApplicationConfig))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;robotApplications&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SimulationJobErrorCode
+   -&gt; Maybe ComputeResponse
+   -&gt; Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe SimulationJobErrorCode)
+-&gt; Parser
+     (Maybe ComputeResponse
+      -&gt; Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SimulationJobErrorCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ComputeResponse
+   -&gt; Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe ComputeResponse)
+-&gt; Parser
+     (Maybe NetworkInterface
+      -&gt; Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComputeResponse)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;compute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkInterface
+   -&gt; Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe NetworkInterface)
+-&gt; Parser
+     (Maybe [DataSource]
+      -&gt; Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkInterface)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInterface&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [DataSource]
+   -&gt; Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe [DataSource])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DataSource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DataSource]))
+-&gt; Maybe [DataSource] -&gt; Parser (Maybe [DataSource])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe VPCConfigResponse
+      -&gt; Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VPCConfigResponse
+   -&gt; Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe VPCConfigResponse)
+-&gt; Parser
+     (Maybe OutputLocation
+      -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VPCConfigResponse)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OutputLocation
+   -&gt; Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe OutputLocation)
+-&gt; Parser
+     (Maybe (NonEmpty SimulationApplicationConfig)
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty SimulationApplicationConfig)
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe (NonEmpty SimulationApplicationConfig))
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (NonEmpty SimulationApplicationConfig))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;simulationApplications&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;simulationTimeMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe LoggingConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastStartedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LoggingConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; SimulationJob)
+-&gt; Parser (Maybe LoggingConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer -&gt; Maybe (HashMap Text Text) -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LoggingConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loggingConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer -&gt; Maybe (HashMap Text Text) -&gt; SimulationJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer -&gt; Maybe (HashMap Text Text) -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer -&gt; Maybe (HashMap Text Text) -&gt; SimulationJob)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; SimulationJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxJobDurationInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; SimulationJob)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser SimulationJob
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373645"><span id="local-6989586621679373647"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span></span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SimulationJob.html#SimulationJob"><span class="hs-identifier hs-type">SimulationJob</span></a></span></span><span>
+</span><span id="line-317"></span></pre></body></html>

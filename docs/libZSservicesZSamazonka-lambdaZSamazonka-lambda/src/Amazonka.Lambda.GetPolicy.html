@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.GetPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html resource-based IAM policy&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for a function, version, or alias.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.GetPolicy</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier">GetPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#newGetPolicy"><span class="hs-identifier">newGetPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicy_qualifier"><span class="hs-identifier">getPolicy_qualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicy_functionName"><span class="hs-identifier">getPolicy_functionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier">GetPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#newGetPolicyResponse"><span class="hs-identifier">newGetPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_policy"><span class="hs-identifier">getPolicyResponse_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_revisionId"><span class="hs-identifier">getPolicyResponse_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_httpStatus"><span class="hs-identifier">getPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.html"><span class="hs-identifier">Amazonka.Lambda.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetPolicy' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679306648"><span id="local-6989586621679306649"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPolicy"><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-var">GetPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPolicy%27"><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-var">GetPolicy'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify a version or alias to get the policy for that resource.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aqualifier%3AGetPolicy%27"><span class="annot"><span class="annottext">GetPolicy -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3Aqualifier%3AGetPolicy%27"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the Lambda function, version, or alias.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     (with alias).</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- You can append a version number or alias to any of the formats. The</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- length constraint applies only to the full ARN. If you specify only the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AfunctionName%3AGetPolicy%27"><span class="annot"><span class="annottext">GetPolicy -&gt; Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3AfunctionName%3AGetPolicy%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306641"><span id="local-6989586621679306643"><span class="annot"><span class="annottext">GetPolicy -&gt; GetPolicy -&gt; Bool
+(GetPolicy -&gt; GetPolicy -&gt; Bool)
+-&gt; (GetPolicy -&gt; GetPolicy -&gt; Bool) -&gt; Eq GetPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPolicy -&gt; GetPolicy -&gt; Bool
+$c/= :: GetPolicy -&gt; GetPolicy -&gt; Bool
+== :: GetPolicy -&gt; GetPolicy -&gt; Bool
+$c== :: GetPolicy -&gt; GetPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306632"><span id="local-6989586621679306634"><span id="local-6989586621679306636"><span id="local-6989586621679306638"><span class="annot"><span class="annottext">ReadPrec [GetPolicy]
+ReadPrec GetPolicy
+Int -&gt; ReadS GetPolicy
+ReadS [GetPolicy]
+(Int -&gt; ReadS GetPolicy)
+-&gt; ReadS [GetPolicy]
+-&gt; ReadPrec GetPolicy
+-&gt; ReadPrec [GetPolicy]
+-&gt; Read GetPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPolicy]
+$creadListPrec :: ReadPrec [GetPolicy]
+readPrec :: ReadPrec GetPolicy
+$creadPrec :: ReadPrec GetPolicy
+readList :: ReadS [GetPolicy]
+$creadList :: ReadS [GetPolicy]
+readsPrec :: Int -&gt; ReadS GetPolicy
+$creadsPrec :: Int -&gt; ReadS GetPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306625"><span id="local-6989586621679306627"><span id="local-6989586621679306629"><span class="annot"><span class="annottext">Int -&gt; GetPolicy -&gt; ShowS
+[GetPolicy] -&gt; ShowS
+GetPolicy -&gt; String
+(Int -&gt; GetPolicy -&gt; ShowS)
+-&gt; (GetPolicy -&gt; String)
+-&gt; ([GetPolicy] -&gt; ShowS)
+-&gt; Show GetPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPolicy] -&gt; ShowS
+$cshowList :: [GetPolicy] -&gt; ShowS
+show :: GetPolicy -&gt; String
+$cshow :: GetPolicy -&gt; String
+showsPrec :: Int -&gt; GetPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPolicy -&gt; Rep GetPolicy x)
+-&gt; (forall x. Rep GetPolicy x -&gt; GetPolicy) -&gt; Generic GetPolicy
+forall x. Rep GetPolicy x -&gt; GetPolicy
+forall x. GetPolicy -&gt; Rep GetPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPolicy x -&gt; GetPolicy
+$cfrom :: forall x. GetPolicy -&gt; Rep GetPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'GetPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'qualifier', 'getPolicy_qualifier' - Specify a version or alias to get the policy for that resource.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'functionName', 'getPolicy_functionName' - The name of the Lambda function, version, or alias.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     (with alias).</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- You can append a version number or alias to any of the formats. The</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- length constraint applies only to the full ARN. If you specify only the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#newGetPolicy"><span class="hs-identifier hs-type">newGetPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'functionName'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span>
+</span><span id="line-105"></span><span id="newGetPolicy"><span class="annot"><span class="annottext">newGetPolicy :: Text -&gt; GetPolicy
+</span><a href="Amazonka.Lambda.GetPolicy.html#newGetPolicy"><span class="hs-identifier hs-var hs-var">newGetPolicy</span></a></span></span><span> </span><span id="local-6989586621679306620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306620"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">GetPolicy' :: Maybe Text -&gt; Text -&gt; GetPolicy
+</span><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualifier:GetPolicy' :: Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3Aqualifier%3AGetPolicy%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionName:GetPolicy' :: Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3AfunctionName%3AGetPolicy%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306620"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Specify a version or alias to get the policy for that resource.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicy_qualifier"><span class="hs-identifier hs-type">getPolicy_qualifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="getPolicy_qualifier"><span class="annot"><span class="annottext">getPolicy_qualifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetPolicy -&gt; f GetPolicy
+</span><a href="Amazonka.Lambda.GetPolicy.html#getPolicy_qualifier"><span class="hs-identifier hs-var hs-var">getPolicy_qualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPolicy -&gt; Maybe Text)
+-&gt; (GetPolicy -&gt; Maybe Text -&gt; GetPolicy)
+-&gt; Lens GetPolicy GetPolicy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306617"><span class="annot"><span class="annottext">Maybe Text
+qualifier :: Maybe Text
+$sel:qualifier:GetPolicy' :: GetPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679306617"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306617"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306616"><span class="annot"><span class="annottext">s :: GetPolicy
+</span><a href="#local-6989586621679306616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306615"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicy
+</span><a href="#local-6989586621679306616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualifier:GetPolicy' :: Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3Aqualifier%3AGetPolicy%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The name of the Lambda function, version, or alias.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     (with alias).</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- You can append a version number or alias to any of the formats. The</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- length constraint applies only to the full ARN. If you specify only the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicy_functionName"><span class="hs-identifier hs-type">getPolicy_functionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="getPolicy_functionName"><span class="annot"><span class="annottext">getPolicy_functionName :: (Text -&gt; f Text) -&gt; GetPolicy -&gt; f GetPolicy
+</span><a href="Amazonka.Lambda.GetPolicy.html#getPolicy_functionName"><span class="hs-identifier hs-var hs-var">getPolicy_functionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPolicy -&gt; Text)
+-&gt; (GetPolicy -&gt; Text -&gt; GetPolicy)
+-&gt; Lens GetPolicy GetPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306614"><span class="annot"><span class="annottext">Text
+functionName :: Text
+$sel:functionName:GetPolicy' :: GetPolicy -&gt; Text
+</span><a href="#local-6989586621679306614"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306614"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306613"><span class="annot"><span class="annottext">s :: GetPolicy
+</span><a href="#local-6989586621679306613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicy
+</span><a href="#local-6989586621679306613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:GetPolicy' :: Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3AfunctionName%3AGetPolicy%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679306608"><span class="annot"><span class="annottext">request :: GetPolicy -&gt; Request GetPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPolicy -&gt; Request GetPolicy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679306604"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306601"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306600"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306600"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306599"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetPolicyResponse
+</span><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-var">GetPolicyResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPolicyResponse)
+-&gt; Either String Int -&gt; Either String GetPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306601"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306591"><span id="local-6989586621679306593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679306584"><span class="annot"><span class="annottext">toHeaders :: GetPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679306579"><span class="annot"><span class="annottext">toPath :: GetPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306576"><span id="local-6989586621679306577"><span class="annot"><span class="annottext">Maybe Text
+Text
+functionName :: Text
+qualifier :: Maybe Text
+$sel:functionName:GetPolicy' :: GetPolicy -&gt; Text
+$sel:qualifier:GetPolicy' :: GetPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679306576"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2015-03-31/functions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306576"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/policy&quot;</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679306572"><span class="annot"><span class="annottext">toQuery :: GetPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306569"><span id="local-6989586621679306570"><span class="annot"><span class="annottext">Maybe Text
+Text
+functionName :: Text
+qualifier :: Maybe Text
+$sel:functionName:GetPolicy' :: GetPolicy -&gt; Text
+$sel:qualifier:GetPolicy' :: GetPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679306569"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Qualifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306570"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newGetPolicyResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679306566"><span id="local-6989586621679306567"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPolicyResponse"><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-var">GetPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPolicyResponse%27"><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-var">GetPolicyResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource-based policy.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Apolicy%3AGetPolicyResponse%27"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3Apolicy%3AGetPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the current revision of the policy.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3ArevisionId%3AGetPolicyResponse%27"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3ArevisionId%3AGetPolicyResponse%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; Int
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306559"><span id="local-6989586621679306561"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
+(GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool)
+-&gt; (GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool)
+-&gt; Eq GetPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
+$c/= :: GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
+== :: GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
+$c== :: GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306551"><span id="local-6989586621679306553"><span id="local-6989586621679306555"><span id="local-6989586621679306557"><span class="annot"><span class="annottext">ReadPrec [GetPolicyResponse]
+ReadPrec GetPolicyResponse
+Int -&gt; ReadS GetPolicyResponse
+ReadS [GetPolicyResponse]
+(Int -&gt; ReadS GetPolicyResponse)
+-&gt; ReadS [GetPolicyResponse]
+-&gt; ReadPrec GetPolicyResponse
+-&gt; ReadPrec [GetPolicyResponse]
+-&gt; Read GetPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPolicyResponse]
+$creadListPrec :: ReadPrec [GetPolicyResponse]
+readPrec :: ReadPrec GetPolicyResponse
+$creadPrec :: ReadPrec GetPolicyResponse
+readList :: ReadS [GetPolicyResponse]
+$creadList :: ReadS [GetPolicyResponse]
+readsPrec :: Int -&gt; ReadS GetPolicyResponse
+$creadsPrec :: Int -&gt; ReadS GetPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306545"><span id="local-6989586621679306547"><span id="local-6989586621679306549"><span class="annot"><span class="annottext">Int -&gt; GetPolicyResponse -&gt; ShowS
+[GetPolicyResponse] -&gt; ShowS
+GetPolicyResponse -&gt; String
+(Int -&gt; GetPolicyResponse -&gt; ShowS)
+-&gt; (GetPolicyResponse -&gt; String)
+-&gt; ([GetPolicyResponse] -&gt; ShowS)
+-&gt; Show GetPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPolicyResponse] -&gt; ShowS
+$cshowList :: [GetPolicyResponse] -&gt; ShowS
+show :: GetPolicyResponse -&gt; String
+$cshow :: GetPolicyResponse -&gt; String
+showsPrec :: Int -&gt; GetPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPolicyResponse -&gt; Rep GetPolicyResponse x)
+-&gt; (forall x. Rep GetPolicyResponse x -&gt; GetPolicyResponse)
+-&gt; Generic GetPolicyResponse
+forall x. Rep GetPolicyResponse x -&gt; GetPolicyResponse
+forall x. GetPolicyResponse -&gt; Rep GetPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPolicyResponse x -&gt; GetPolicyResponse
+$cfrom :: forall x. GetPolicyResponse -&gt; Rep GetPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'GetPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'policy', 'getPolicyResponse_policy' - The resource-based policy.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'revisionId', 'getPolicyResponse_revisionId' - A unique identifier for the current revision of the policy.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#newGetPolicyResponse"><span class="hs-identifier hs-type">newGetPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newGetPolicyResponse"><span class="annot"><span class="annottext">newGetPolicyResponse :: Int -&gt; GetPolicyResponse
+</span><a href="Amazonka.Lambda.GetPolicy.html#newGetPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679306542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">GetPolicyResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetPolicyResponse
+</span><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:GetPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3Apolicy%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionId:GetPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3ArevisionId%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPolicyResponse' :: Int
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The resource-based policy.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_policy"><span class="hs-identifier hs-type">getPolicyResponse_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="getPolicyResponse_policy"><span class="annot"><span class="annottext">getPolicyResponse_policy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPolicyResponse -&gt; f GetPolicyResponse
+</span><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_policy"><span class="hs-identifier hs-var hs-var">getPolicyResponse_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPolicyResponse -&gt; Maybe Text)
+-&gt; (GetPolicyResponse -&gt; Maybe Text -&gt; GetPolicyResponse)
+-&gt; Lens
+     GetPolicyResponse GetPolicyResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306541"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:GetPolicyResponse' :: GetPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679306541"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306541"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306540"><span class="annot"><span class="annottext">s :: GetPolicyResponse
+</span><a href="#local-6989586621679306540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306539"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicyResponse
+</span><a href="#local-6989586621679306540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3Apolicy%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | A unique identifier for the current revision of the policy.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_revisionId"><span class="hs-identifier hs-type">getPolicyResponse_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="getPolicyResponse_revisionId"><span class="annot"><span class="annottext">getPolicyResponse_revisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPolicyResponse -&gt; f GetPolicyResponse
+</span><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_revisionId"><span class="hs-identifier hs-var hs-var">getPolicyResponse_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPolicyResponse -&gt; Maybe Text)
+-&gt; (GetPolicyResponse -&gt; Maybe Text -&gt; GetPolicyResponse)
+-&gt; Lens
+     GetPolicyResponse GetPolicyResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306538"><span class="annot"><span class="annottext">Maybe Text
+revisionId :: Maybe Text
+$sel:revisionId:GetPolicyResponse' :: GetPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679306538"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306538"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306537"><span class="annot"><span class="annottext">s :: GetPolicyResponse
+</span><a href="#local-6989586621679306537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicyResponse
+</span><a href="#local-6989586621679306537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:GetPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3ArevisionId%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span id="getPolicyResponse_httpStatus"><span class="annot"><span class="annottext">getPolicyResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetPolicyResponse -&gt; f GetPolicyResponse
+</span><a href="Amazonka.Lambda.GetPolicy.html#getPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPolicyResponse -&gt; Int)
+-&gt; (GetPolicyResponse -&gt; Int -&gt; GetPolicyResponse)
+-&gt; Lens GetPolicyResponse GetPolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306535"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPolicyResponse' :: GetPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679306535"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306535"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306534"><span class="annot"><span class="annottext">s :: GetPolicyResponse
+</span><a href="#local-6989586621679306534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306533"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicyResponse
+</span><a href="#local-6989586621679306534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPolicyResponse' :: Int
+</span><a href="Amazonka.Lambda.GetPolicy.html#%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306531"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Amazonka.SageMakerRuntime</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2017-05-13@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- The Amazon SageMaker runtime API.</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMakerRuntime</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ServiceUnavailable</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Types.html#_ServiceUnavailable"><span class="hs-identifier">_ServiceUnavailable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ModelError</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Types.html#_ModelError"><span class="hs-identifier">_ModelError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InternalFailure</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Types.html#_InternalFailure"><span class="hs-identifier">_InternalFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ValidationError</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Types.html#_ValidationError"><span class="hs-identifier">_ValidationError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvokeEndpointAsync</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpointAsync.html#InvokeEndpointAsync"><span class="hs-identifier">InvokeEndpointAsync</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpointAsync.html#InvokeEndpointAsync%27"><span class="hs-identifier">InvokeEndpointAsync'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpointAsync.html#newInvokeEndpointAsync"><span class="hs-identifier">newInvokeEndpointAsync</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpointAsync.html#InvokeEndpointAsyncResponse"><span class="hs-identifier">InvokeEndpointAsyncResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpointAsync.html#InvokeEndpointAsyncResponse%27"><span class="hs-identifier">InvokeEndpointAsyncResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpointAsync.html#newInvokeEndpointAsyncResponse"><span class="hs-identifier">newInvokeEndpointAsyncResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvokeEndpoint</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier">InvokeEndpoint'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpoint"><span class="hs-identifier">newInvokeEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier">InvokeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier">InvokeEndpointResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpointResponse"><span class="hs-identifier">newInvokeEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html"><span class="hs-identifier">Amazonka.SageMakerRuntime.InvokeEndpoint</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpointAsync.html"><span class="hs-identifier">Amazonka.SageMakerRuntime.InvokeEndpointAsync</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Lens.html"><span class="hs-identifier">Amazonka.SageMakerRuntime.Lens</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Types.html"><span class="hs-identifier">Amazonka.SageMakerRuntime.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Waiters.html"><span class="hs-identifier">Amazonka.SageMakerRuntime.Waiters</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- by 'SageMakerRuntime'.</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-88"></span></pre></body></html>

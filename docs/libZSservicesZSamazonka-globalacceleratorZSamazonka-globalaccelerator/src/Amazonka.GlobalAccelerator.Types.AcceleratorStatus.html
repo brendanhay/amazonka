@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GlobalAccelerator.Types.AcceleratorStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GlobalAccelerator.Types.AcceleratorStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus"><span class="hs-identifier">AcceleratorStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus_DEPLOYED"><span class="hs-identifier">AcceleratorStatus_DEPLOYED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus_IN_PROGRESS"><span class="hs-identifier">AcceleratorStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679234876"><span id="local-6989586621679234877"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AcceleratorStatus"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus"><span class="hs-identifier hs-var">AcceleratorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceleratorStatus%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus%27"><span class="hs-identifier hs-var">AcceleratorStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAcceleratorStatus"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; Text
+</span><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#fromAcceleratorStatus"><span class="hs-identifier hs-var hs-var">fromAcceleratorStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234868"><span id="local-6989586621679234870"><span id="local-6989586621679234872"><span class="annot"><span class="annottext">Int -&gt; AcceleratorStatus -&gt; ShowS
+[AcceleratorStatus] -&gt; ShowS
+AcceleratorStatus -&gt; String
+(Int -&gt; AcceleratorStatus -&gt; ShowS)
+-&gt; (AcceleratorStatus -&gt; String)
+-&gt; ([AcceleratorStatus] -&gt; ShowS)
+-&gt; Show AcceleratorStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceleratorStatus] -&gt; ShowS
+$cshowList :: [AcceleratorStatus] -&gt; ShowS
+show :: AcceleratorStatus -&gt; String
+$cshow :: AcceleratorStatus -&gt; String
+showsPrec :: Int -&gt; AcceleratorStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceleratorStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679234859"><span id="local-6989586621679234861"><span id="local-6989586621679234863"><span id="local-6989586621679234865"><span class="annot"><span class="annottext">ReadPrec [AcceleratorStatus]
+ReadPrec AcceleratorStatus
+Int -&gt; ReadS AcceleratorStatus
+ReadS [AcceleratorStatus]
+(Int -&gt; ReadS AcceleratorStatus)
+-&gt; ReadS [AcceleratorStatus]
+-&gt; ReadPrec AcceleratorStatus
+-&gt; ReadPrec [AcceleratorStatus]
+-&gt; Read AcceleratorStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceleratorStatus]
+$creadListPrec :: ReadPrec [AcceleratorStatus]
+readPrec :: ReadPrec AcceleratorStatus
+$creadPrec :: ReadPrec AcceleratorStatus
+readList :: ReadS [AcceleratorStatus]
+$creadList :: ReadS [AcceleratorStatus]
+readsPrec :: Int -&gt; ReadS AcceleratorStatus
+$creadsPrec :: Int -&gt; ReadS AcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679234854"><span id="local-6989586621679234856"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+(AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool)
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool)
+-&gt; Eq AcceleratorStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+$c/= :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+== :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+$c== :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679234838"><span id="local-6989586621679234840"><span id="local-6989586621679234842"><span id="local-6989586621679234844"><span id="local-6989586621679234846"><span id="local-6989586621679234848"><span id="local-6989586621679234850"><span class="annot"><span class="annottext">Eq AcceleratorStatus
+Eq AcceleratorStatus
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; Ordering)
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool)
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool)
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool)
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool)
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; AcceleratorStatus)
+-&gt; (AcceleratorStatus -&gt; AcceleratorStatus -&gt; AcceleratorStatus)
+-&gt; Ord AcceleratorStatus
+AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+AcceleratorStatus -&gt; AcceleratorStatus -&gt; Ordering
+AcceleratorStatus -&gt; AcceleratorStatus -&gt; AcceleratorStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; AcceleratorStatus
+$cmin :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; AcceleratorStatus
+max :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; AcceleratorStatus
+$cmax :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; AcceleratorStatus
+&gt;= :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+$c&gt;= :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+&gt; :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+$c&gt; :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+&lt;= :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+$c&lt;= :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+&lt; :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+$c&lt; :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Bool
+compare :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Ordering
+$ccompare :: AcceleratorStatus -&gt; AcceleratorStatus -&gt; Ordering
+$cp1Ord :: Eq AcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AcceleratorStatus -&gt; Rep AcceleratorStatus x)
+-&gt; (forall x. Rep AcceleratorStatus x -&gt; AcceleratorStatus)
+-&gt; Generic AcceleratorStatus
+forall x. Rep AcceleratorStatus x -&gt; AcceleratorStatus
+forall x. AcceleratorStatus -&gt; Rep AcceleratorStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AcceleratorStatus x -&gt; AcceleratorStatus
+$cfrom :: forall x. AcceleratorStatus -&gt; Rep AcceleratorStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234830"><span id="local-6989586621679234832"><span class="annot"><span class="annottext">Int -&gt; AcceleratorStatus -&gt; Int
+AcceleratorStatus -&gt; Int
+(Int -&gt; AcceleratorStatus -&gt; Int)
+-&gt; (AcceleratorStatus -&gt; Int) -&gt; Hashable AcceleratorStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AcceleratorStatus -&gt; Int
+$chash :: AcceleratorStatus -&gt; Int
+hashWithSalt :: Int -&gt; AcceleratorStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AcceleratorStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679234827"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; ()
+(AcceleratorStatus -&gt; ()) -&gt; NFData AcceleratorStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AcceleratorStatus -&gt; ()
+$crnf :: AcceleratorStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679234824"><span class="annot"><span class="annottext">Text -&gt; Either String AcceleratorStatus
+(Text -&gt; Either String AcceleratorStatus)
+-&gt; FromText AcceleratorStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AcceleratorStatus
+$cfromText :: Text -&gt; Either String AcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679234821"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; Text
+(AcceleratorStatus -&gt; Text) -&gt; ToText AcceleratorStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AcceleratorStatus -&gt; Text
+$ctoText :: AcceleratorStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679234818"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; ByteString
+(AcceleratorStatus -&gt; ByteString) -&gt; ToByteString AcceleratorStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AcceleratorStatus -&gt; ByteString
+$ctoBS :: AcceleratorStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679234815"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; ByteStringBuilder
+(AcceleratorStatus -&gt; ByteStringBuilder) -&gt; ToLog AcceleratorStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AcceleratorStatus -&gt; ByteStringBuilder
+$cbuild :: AcceleratorStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679234812"><span class="annot"><span class="annottext">HeaderName -&gt; AcceleratorStatus -&gt; [Header]
+(HeaderName -&gt; AcceleratorStatus -&gt; [Header])
+-&gt; ToHeader AcceleratorStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AcceleratorStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AcceleratorStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679234809"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; QueryString
+(AcceleratorStatus -&gt; QueryString) -&gt; ToQuery AcceleratorStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AcceleratorStatus -&gt; QueryString
+$ctoQuery :: AcceleratorStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679234804"><span id="local-6989586621679234806"><span class="annot"><span class="annottext">Value -&gt; Parser [AcceleratorStatus]
+Value -&gt; Parser AcceleratorStatus
+(Value -&gt; Parser AcceleratorStatus)
+-&gt; (Value -&gt; Parser [AcceleratorStatus])
+-&gt; FromJSON AcceleratorStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AcceleratorStatus]
+$cparseJSONList :: Value -&gt; Parser [AcceleratorStatus]
+parseJSON :: Value -&gt; Parser AcceleratorStatus
+$cparseJSON :: Value -&gt; Parser AcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679234799"><span id="local-6989586621679234801"><span class="annot"><span class="annottext">FromJSONKeyFunction [AcceleratorStatus]
+FromJSONKeyFunction AcceleratorStatus
+FromJSONKeyFunction AcceleratorStatus
+-&gt; FromJSONKeyFunction [AcceleratorStatus]
+-&gt; FromJSONKey AcceleratorStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AcceleratorStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AcceleratorStatus]
+fromJSONKey :: FromJSONKeyFunction AcceleratorStatus
+$cfromJSONKey :: FromJSONKeyFunction AcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679234790"><span id="local-6989586621679234792"><span id="local-6989586621679234794"><span id="local-6989586621679234796"><span class="annot"><span class="annottext">[AcceleratorStatus] -&gt; Encoding
+[AcceleratorStatus] -&gt; Value
+AcceleratorStatus -&gt; Encoding
+AcceleratorStatus -&gt; Value
+(AcceleratorStatus -&gt; Value)
+-&gt; (AcceleratorStatus -&gt; Encoding)
+-&gt; ([AcceleratorStatus] -&gt; Value)
+-&gt; ([AcceleratorStatus] -&gt; Encoding)
+-&gt; ToJSON AcceleratorStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AcceleratorStatus] -&gt; Encoding
+$ctoEncodingList :: [AcceleratorStatus] -&gt; Encoding
+toJSONList :: [AcceleratorStatus] -&gt; Value
+$ctoJSONList :: [AcceleratorStatus] -&gt; Value
+toEncoding :: AcceleratorStatus -&gt; Encoding
+$ctoEncoding :: AcceleratorStatus -&gt; Encoding
+toJSON :: AcceleratorStatus -&gt; Value
+$ctoJSON :: AcceleratorStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679234785"><span id="local-6989586621679234787"><span class="annot"><span class="annottext">ToJSONKeyFunction [AcceleratorStatus]
+ToJSONKeyFunction AcceleratorStatus
+ToJSONKeyFunction AcceleratorStatus
+-&gt; ToJSONKeyFunction [AcceleratorStatus]
+-&gt; ToJSONKey AcceleratorStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AcceleratorStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AcceleratorStatus]
+toJSONKey :: ToJSONKeyFunction AcceleratorStatus
+$ctoJSONKey :: ToJSONKeyFunction AcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679234782"><span class="annot"><span class="annottext">[Node] -&gt; Either String AcceleratorStatus
+([Node] -&gt; Either String AcceleratorStatus)
+-&gt; FromXML AcceleratorStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AcceleratorStatus
+$cparseXML :: [Node] -&gt; Either String AcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679234779"><span class="annot"><span class="annottext">AcceleratorStatus -&gt; XML
+(AcceleratorStatus -&gt; XML) -&gt; ToXML AcceleratorStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AcceleratorStatus -&gt; XML
+$ctoXML :: AcceleratorStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus_DEPLOYED"><span class="hs-identifier hs-type">AcceleratorStatus_DEPLOYED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus"><span class="hs-identifier hs-type">AcceleratorStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAcceleratorStatus_DEPLOYED"><span id="%24mAcceleratorStatus_DEPLOYED"><span id="AcceleratorStatus_DEPLOYED"><span class="annot"><span class="annottext">$bAcceleratorStatus_DEPLOYED :: AcceleratorStatus
+$mAcceleratorStatus_DEPLOYED :: forall r. AcceleratorStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#%24bAcceleratorStatus_DEPLOYED"><span class="hs-identifier hs-var hs-var hs-var">AcceleratorStatus_DEPLOYED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus%27"><span class="hs-identifier hs-type">AcceleratorStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEPLOYED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus_IN_PROGRESS"><span class="hs-identifier hs-type">AcceleratorStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus"><span class="hs-identifier hs-type">AcceleratorStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAcceleratorStatus_IN_PROGRESS"><span id="%24mAcceleratorStatus_IN_PROGRESS"><span id="AcceleratorStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bAcceleratorStatus_IN_PROGRESS :: AcceleratorStatus
+$mAcceleratorStatus_IN_PROGRESS :: forall r. AcceleratorStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#%24bAcceleratorStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AcceleratorStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus%27"><span class="hs-identifier hs-type">AcceleratorStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus_DEPLOYED"><span class="hs-pragma hs-type">AcceleratorStatus_DEPLOYED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus_IN_PROGRESS"><span class="hs-pragma hs-type">AcceleratorStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus%27"><span class="hs-pragma hs-type">AcceleratorStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

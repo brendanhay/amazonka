@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.GetDestination</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about a destination.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.GetDestination</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier">GetDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#newGetDestination"><span class="hs-identifier">newGetDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestination_name"><span class="hs-identifier">getDestination_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier">GetDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#newGetDestinationResponse"><span class="hs-identifier">newGetDestinationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_expressionType"><span class="hs-identifier">getDestinationResponse_expressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_arn"><span class="hs-identifier">getDestinationResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_name"><span class="hs-identifier">getDestinationResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_expression"><span class="hs-identifier">getDestinationResponse_expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_description"><span class="hs-identifier">getDestinationResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_roleArn"><span class="hs-identifier">getDestinationResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_httpStatus"><span class="hs-identifier">getDestinationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.html"><span class="hs-identifier">Amazonka.IoTWireless.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetDestination' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679287570"><span id="local-6989586621679287571"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDestination"><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-var">GetDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDestination%27"><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination%27"><span class="hs-identifier hs-var">GetDestination'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the resource to get.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3AGetDestination%27"><span class="annot"><span class="annottext">GetDestination -&gt; Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aname%3AGetDestination%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287564"><span id="local-6989586621679287566"><span class="annot"><span class="annottext">GetDestination -&gt; GetDestination -&gt; Bool
+(GetDestination -&gt; GetDestination -&gt; Bool)
+-&gt; (GetDestination -&gt; GetDestination -&gt; Bool) -&gt; Eq GetDestination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDestination -&gt; GetDestination -&gt; Bool
+$c/= :: GetDestination -&gt; GetDestination -&gt; Bool
+== :: GetDestination -&gt; GetDestination -&gt; Bool
+$c== :: GetDestination -&gt; GetDestination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287555"><span id="local-6989586621679287557"><span id="local-6989586621679287559"><span id="local-6989586621679287561"><span class="annot"><span class="annottext">ReadPrec [GetDestination]
+ReadPrec GetDestination
+Int -&gt; ReadS GetDestination
+ReadS [GetDestination]
+(Int -&gt; ReadS GetDestination)
+-&gt; ReadS [GetDestination]
+-&gt; ReadPrec GetDestination
+-&gt; ReadPrec [GetDestination]
+-&gt; Read GetDestination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDestination]
+$creadListPrec :: ReadPrec [GetDestination]
+readPrec :: ReadPrec GetDestination
+$creadPrec :: ReadPrec GetDestination
+readList :: ReadS [GetDestination]
+$creadList :: ReadS [GetDestination]
+readsPrec :: Int -&gt; ReadS GetDestination
+$creadsPrec :: Int -&gt; ReadS GetDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287548"><span id="local-6989586621679287550"><span id="local-6989586621679287552"><span class="annot"><span class="annottext">Int -&gt; GetDestination -&gt; ShowS
+[GetDestination] -&gt; ShowS
+GetDestination -&gt; String
+(Int -&gt; GetDestination -&gt; ShowS)
+-&gt; (GetDestination -&gt; String)
+-&gt; ([GetDestination] -&gt; ShowS)
+-&gt; Show GetDestination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDestination] -&gt; ShowS
+$cshowList :: [GetDestination] -&gt; ShowS
+show :: GetDestination -&gt; String
+$cshow :: GetDestination -&gt; String
+showsPrec :: Int -&gt; GetDestination -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDestination -&gt; Rep GetDestination x)
+-&gt; (forall x. Rep GetDestination x -&gt; GetDestination)
+-&gt; Generic GetDestination
+forall x. Rep GetDestination x -&gt; GetDestination
+forall x. GetDestination -&gt; Rep GetDestination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDestination x -&gt; GetDestination
+$cfrom :: forall x. GetDestination -&gt; Rep GetDestination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'GetDestination' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'getDestination_name' - The name of the resource to get.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#newGetDestination"><span class="hs-identifier hs-type">newGetDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span>
+</span><span id="line-74"></span><span id="newGetDestination"><span class="annot"><span class="annottext">newGetDestination :: Text -&gt; GetDestination
+</span><a href="Amazonka.IoTWireless.GetDestination.html#newGetDestination"><span class="hs-identifier hs-var hs-var">newGetDestination</span></a></span></span><span> </span><span id="local-6989586621679287543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287543"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetDestination' :: Text -&gt; GetDestination
+</span><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination%27"><span class="hs-identifier hs-type">GetDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDestination' :: Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aname%3AGetDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287543"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the resource to get.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestination_name"><span class="hs-identifier hs-type">getDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="getDestination_name"><span class="annot"><span class="annottext">getDestination_name :: (Text -&gt; f Text) -&gt; GetDestination -&gt; f GetDestination
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestination_name"><span class="hs-identifier hs-var hs-var">getDestination_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestination -&gt; Text)
+-&gt; (GetDestination -&gt; Text -&gt; GetDestination)
+-&gt; Lens GetDestination GetDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination%27"><span class="hs-identifier hs-type">GetDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287540"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetDestination' :: GetDestination -&gt; Text
+</span><a href="#local-6989586621679287540"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287540"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287539"><span class="annot"><span class="annottext">s :: GetDestination
+</span><a href="#local-6989586621679287539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination%27"><span class="hs-identifier hs-type">GetDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestination
+</span><a href="#local-6989586621679287539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDestination' :: Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aname%3AGetDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679287534"><span class="annot"><span class="annottext">request :: GetDestination -&gt; Request GetDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDestination -&gt; Request GetDestination
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679287530"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDestination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDestination)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDestination))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDestination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDestination)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287527"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287527"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287526"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679287526"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287525"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExpressionType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-var">GetDestinationResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExpressionType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetDestinationResponse)
+-&gt; Either String (Maybe ExpressionType)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetDestinationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ExpressionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpressionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetDestinationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetDestinationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetDestinationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Expression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetDestinationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetDestinationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDestinationResponse)
+-&gt; Either String Int -&gt; Either String GetDestinationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287527"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287517"><span id="local-6989586621679287519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679287510"><span class="annot"><span class="annottext">toHeaders :: GetDestination -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDestination -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679287505"><span class="annot"><span class="annottext">toPath :: GetDestination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination%27"><span class="hs-identifier hs-type">GetDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287503"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetDestination' :: GetDestination -&gt; Text
+</span><a href="#local-6989586621679287503"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/destinations/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287503"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestination"><span class="hs-identifier hs-type">GetDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679287499"><span class="annot"><span class="annottext">toQuery :: GetDestination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDestination -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newGetDestinationResponse' smart constructor.</span><span>
+</span><span id="line-114"></span><span id="local-6989586621679287496"><span id="local-6989586621679287497"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDestinationResponse"><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-var">GetDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDestinationResponse%27"><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-var">GetDestinationResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of value in @Expression@.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AexpressionType%3AGetDestinationResponse%27"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; Maybe ExpressionType
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AexpressionType%3AGetDestinationResponse%27"><span class="hs-identifier hs-var hs-var">expressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Aarn%3AGetDestinationResponse%27"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aarn%3AGetDestinationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The name of the resource.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Aname%3AGetDestinationResponse%27"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aname%3AGetDestinationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The rule name or topic rule to send messages to.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3Aexpression%3AGetDestinationResponse%27"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aexpression%3AGetDestinationResponse%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The description of the resource.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3Adescription%3AGetDestinationResponse%27"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Adescription%3AGetDestinationResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM Role that authorizes the destination.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AroleArn%3AGetDestinationResponse%27"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AroleArn%3AGetDestinationResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDestinationResponse%27"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; Int
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AhttpStatus%3AGetDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287485"><span id="local-6989586621679287487"><span class="annot"><span class="annottext">GetDestinationResponse -&gt; GetDestinationResponse -&gt; Bool
+(GetDestinationResponse -&gt; GetDestinationResponse -&gt; Bool)
+-&gt; (GetDestinationResponse -&gt; GetDestinationResponse -&gt; Bool)
+-&gt; Eq GetDestinationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDestinationResponse -&gt; GetDestinationResponse -&gt; Bool
+$c/= :: GetDestinationResponse -&gt; GetDestinationResponse -&gt; Bool
+== :: GetDestinationResponse -&gt; GetDestinationResponse -&gt; Bool
+$c== :: GetDestinationResponse -&gt; GetDestinationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287477"><span id="local-6989586621679287479"><span id="local-6989586621679287481"><span id="local-6989586621679287483"><span class="annot"><span class="annottext">ReadPrec [GetDestinationResponse]
+ReadPrec GetDestinationResponse
+Int -&gt; ReadS GetDestinationResponse
+ReadS [GetDestinationResponse]
+(Int -&gt; ReadS GetDestinationResponse)
+-&gt; ReadS [GetDestinationResponse]
+-&gt; ReadPrec GetDestinationResponse
+-&gt; ReadPrec [GetDestinationResponse]
+-&gt; Read GetDestinationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDestinationResponse]
+$creadListPrec :: ReadPrec [GetDestinationResponse]
+readPrec :: ReadPrec GetDestinationResponse
+$creadPrec :: ReadPrec GetDestinationResponse
+readList :: ReadS [GetDestinationResponse]
+$creadList :: ReadS [GetDestinationResponse]
+readsPrec :: Int -&gt; ReadS GetDestinationResponse
+$creadsPrec :: Int -&gt; ReadS GetDestinationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287471"><span id="local-6989586621679287473"><span id="local-6989586621679287475"><span class="annot"><span class="annottext">Int -&gt; GetDestinationResponse -&gt; ShowS
+[GetDestinationResponse] -&gt; ShowS
+GetDestinationResponse -&gt; String
+(Int -&gt; GetDestinationResponse -&gt; ShowS)
+-&gt; (GetDestinationResponse -&gt; String)
+-&gt; ([GetDestinationResponse] -&gt; ShowS)
+-&gt; Show GetDestinationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDestinationResponse] -&gt; ShowS
+$cshowList :: [GetDestinationResponse] -&gt; ShowS
+show :: GetDestinationResponse -&gt; String
+$cshow :: GetDestinationResponse -&gt; String
+showsPrec :: Int -&gt; GetDestinationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDestinationResponse -&gt; Rep GetDestinationResponse x)
+-&gt; (forall x.
+    Rep GetDestinationResponse x -&gt; GetDestinationResponse)
+-&gt; Generic GetDestinationResponse
+forall x. Rep GetDestinationResponse x -&gt; GetDestinationResponse
+forall x. GetDestinationResponse -&gt; Rep GetDestinationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDestinationResponse x -&gt; GetDestinationResponse
+$cfrom :: forall x. GetDestinationResponse -&gt; Rep GetDestinationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'GetDestinationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'expressionType', 'getDestinationResponse_expressionType' - The type of value in @Expression@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'arn', 'getDestinationResponse_arn' - The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'name', 'getDestinationResponse_name' - The name of the resource.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'expression', 'getDestinationResponse_expression' - The rule name or topic rule to send messages to.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'description', 'getDestinationResponse_description' - The description of the resource.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'roleArn', 'getDestinationResponse_roleArn' - The ARN of the IAM Role that authorizes the destination.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'getDestinationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#newGetDestinationResponse"><span class="hs-identifier hs-type">newGetDestinationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetDestinationResponse"><span class="annot"><span class="annottext">newGetDestinationResponse :: Int -&gt; GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#newGetDestinationResponse"><span class="hs-identifier hs-var hs-var">newGetDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679287468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetDestinationResponse' :: Maybe ExpressionType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expressionType:GetDestinationResponse' :: Maybe ExpressionType
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AexpressionType%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">expressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExpressionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aarn%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aname%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:expression:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aexpression%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Adescription%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AroleArn%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDestinationResponse' :: Int
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AhttpStatus%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The type of value in @Expression@.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_expressionType"><span class="hs-identifier hs-type">getDestinationResponse_expressionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="getDestinationResponse_expressionType"><span class="annot"><span class="annottext">getDestinationResponse_expressionType :: (Maybe ExpressionType -&gt; f (Maybe ExpressionType))
+-&gt; GetDestinationResponse -&gt; f GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_expressionType"><span class="hs-identifier hs-var hs-var">getDestinationResponse_expressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestinationResponse -&gt; Maybe ExpressionType)
+-&gt; (GetDestinationResponse
+    -&gt; Maybe ExpressionType -&gt; GetDestinationResponse)
+-&gt; Lens
+     GetDestinationResponse
+     GetDestinationResponse
+     (Maybe ExpressionType)
+     (Maybe ExpressionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287467"><span class="annot"><span class="annottext">Maybe ExpressionType
+expressionType :: Maybe ExpressionType
+$sel:expressionType:GetDestinationResponse' :: GetDestinationResponse -&gt; Maybe ExpressionType
+</span><a href="#local-6989586621679287467"><span class="hs-identifier hs-var hs-var">expressionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExpressionType
+</span><a href="#local-6989586621679287467"><span class="hs-identifier hs-var">expressionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287466"><span class="annot"><span class="annottext">s :: GetDestinationResponse
+</span><a href="#local-6989586621679287466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287465"><span class="annot"><span class="annottext">Maybe ExpressionType
+</span><a href="#local-6989586621679287465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestinationResponse
+</span><a href="#local-6989586621679287466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionType:GetDestinationResponse' :: Maybe ExpressionType
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AexpressionType%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">expressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExpressionType
+</span><a href="#local-6989586621679287465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_arn"><span class="hs-identifier hs-type">getDestinationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="getDestinationResponse_arn"><span class="annot"><span class="annottext">getDestinationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDestinationResponse -&gt; f GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_arn"><span class="hs-identifier hs-var hs-var">getDestinationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestinationResponse -&gt; Maybe Text)
+-&gt; (GetDestinationResponse -&gt; Maybe Text -&gt; GetDestinationResponse)
+-&gt; Lens
+     GetDestinationResponse
+     GetDestinationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287464"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:GetDestinationResponse' :: GetDestinationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679287464"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287464"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287463"><span class="annot"><span class="annottext">s :: GetDestinationResponse
+</span><a href="#local-6989586621679287463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestinationResponse
+</span><a href="#local-6989586621679287463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aarn%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The name of the resource.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_name"><span class="hs-identifier hs-type">getDestinationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="getDestinationResponse_name"><span class="annot"><span class="annottext">getDestinationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDestinationResponse -&gt; f GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_name"><span class="hs-identifier hs-var hs-var">getDestinationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestinationResponse -&gt; Maybe Text)
+-&gt; (GetDestinationResponse -&gt; Maybe Text -&gt; GetDestinationResponse)
+-&gt; Lens
+     GetDestinationResponse
+     GetDestinationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287461"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetDestinationResponse' :: GetDestinationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679287461"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287461"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287460"><span class="annot"><span class="annottext">s :: GetDestinationResponse
+</span><a href="#local-6989586621679287460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestinationResponse
+</span><a href="#local-6989586621679287460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aname%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The rule name or topic rule to send messages to.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_expression"><span class="hs-identifier hs-type">getDestinationResponse_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="getDestinationResponse_expression"><span class="annot"><span class="annottext">getDestinationResponse_expression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDestinationResponse -&gt; f GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_expression"><span class="hs-identifier hs-var hs-var">getDestinationResponse_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestinationResponse -&gt; Maybe Text)
+-&gt; (GetDestinationResponse -&gt; Maybe Text -&gt; GetDestinationResponse)
+-&gt; Lens
+     GetDestinationResponse
+     GetDestinationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287458"><span class="annot"><span class="annottext">Maybe Text
+expression :: Maybe Text
+$sel:expression:GetDestinationResponse' :: GetDestinationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679287458"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287458"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287457"><span class="annot"><span class="annottext">s :: GetDestinationResponse
+</span><a href="#local-6989586621679287457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestinationResponse
+</span><a href="#local-6989586621679287457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Aexpression%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The description of the resource.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_description"><span class="hs-identifier hs-type">getDestinationResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="getDestinationResponse_description"><span class="annot"><span class="annottext">getDestinationResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDestinationResponse -&gt; f GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_description"><span class="hs-identifier hs-var hs-var">getDestinationResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestinationResponse -&gt; Maybe Text)
+-&gt; (GetDestinationResponse -&gt; Maybe Text -&gt; GetDestinationResponse)
+-&gt; Lens
+     GetDestinationResponse
+     GetDestinationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287455"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:GetDestinationResponse' :: GetDestinationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679287455"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287455"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287454"><span class="annot"><span class="annottext">s :: GetDestinationResponse
+</span><a href="#local-6989586621679287454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287453"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestinationResponse
+</span><a href="#local-6989586621679287454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3Adescription%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The ARN of the IAM Role that authorizes the destination.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_roleArn"><span class="hs-identifier hs-type">getDestinationResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="getDestinationResponse_roleArn"><span class="annot"><span class="annottext">getDestinationResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDestinationResponse -&gt; f GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_roleArn"><span class="hs-identifier hs-var hs-var">getDestinationResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestinationResponse -&gt; Maybe Text)
+-&gt; (GetDestinationResponse -&gt; Maybe Text -&gt; GetDestinationResponse)
+-&gt; Lens
+     GetDestinationResponse
+     GetDestinationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287452"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:GetDestinationResponse' :: GetDestinationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679287452"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287452"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287451"><span class="annot"><span class="annottext">s :: GetDestinationResponse
+</span><a href="#local-6989586621679287451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287450"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestinationResponse
+</span><a href="#local-6989586621679287451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:GetDestinationResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AroleArn%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_httpStatus"><span class="hs-identifier hs-type">getDestinationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="getDestinationResponse_httpStatus"><span class="annot"><span class="annottext">getDestinationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDestinationResponse -&gt; f GetDestinationResponse
+</span><a href="Amazonka.IoTWireless.GetDestination.html#getDestinationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDestinationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDestinationResponse -&gt; Int)
+-&gt; (GetDestinationResponse -&gt; Int -&gt; GetDestinationResponse)
+-&gt; Lens GetDestinationResponse GetDestinationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287449"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDestinationResponse' :: GetDestinationResponse -&gt; Int
+</span><a href="#local-6989586621679287449"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287449"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287448"><span class="annot"><span class="annottext">s :: GetDestinationResponse
+</span><a href="#local-6989586621679287448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse%27"><span class="hs-identifier hs-type">GetDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDestinationResponse
+</span><a href="#local-6989586621679287448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDestinationResponse' :: Int
+</span><a href="Amazonka.IoTWireless.GetDestination.html#%24sel%3AhttpStatus%3AGetDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.GetDestination.html#GetDestinationResponse"><span class="hs-identifier hs-type">GetDestinationResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

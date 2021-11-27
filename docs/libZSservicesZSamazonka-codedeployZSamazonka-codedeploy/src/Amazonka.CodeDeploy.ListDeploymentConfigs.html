@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeDeploy.ListDeploymentConfigs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the deployment configurations with the IAM user or AWS account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeDeploy.ListDeploymentConfigs</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#newListDeploymentConfigs"><span class="hs-identifier">newListDeploymentConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigs_nextToken"><span class="hs-identifier">listDeploymentConfigs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier">ListDeploymentConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#newListDeploymentConfigsResponse"><span class="hs-identifier">newListDeploymentConfigsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_nextToken"><span class="hs-identifier">listDeploymentConfigsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_deploymentConfigsList"><span class="hs-identifier">listDeploymentConfigsResponse_deploymentConfigsList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_httpStatus"><span class="hs-identifier">listDeploymentConfigsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.html"><span class="hs-identifier">Amazonka.CodeDeploy.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Represents the input of a @ListDeploymentConfigs@ operation.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newListDeploymentConfigs' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679320905"><span id="local-6989586621679320906"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeploymentConfigs"><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-var">ListDeploymentConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeploymentConfigs%27"><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs%27"><span class="hs-identifier hs-var">ListDeploymentConfigs'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier returned from the previous @ListDeploymentConfigs@ call.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- It can be used to return the next set of deployment configurations in</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the list.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListDeploymentConfigs%27"><span class="annot"><span class="annottext">ListDeploymentConfigs -&gt; Maybe Text
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AnextToken%3AListDeploymentConfigs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320899"><span id="local-6989586621679320901"><span class="annot"><span class="annottext">ListDeploymentConfigs -&gt; ListDeploymentConfigs -&gt; Bool
+(ListDeploymentConfigs -&gt; ListDeploymentConfigs -&gt; Bool)
+-&gt; (ListDeploymentConfigs -&gt; ListDeploymentConfigs -&gt; Bool)
+-&gt; Eq ListDeploymentConfigs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDeploymentConfigs -&gt; ListDeploymentConfigs -&gt; Bool
+$c/= :: ListDeploymentConfigs -&gt; ListDeploymentConfigs -&gt; Bool
+== :: ListDeploymentConfigs -&gt; ListDeploymentConfigs -&gt; Bool
+$c== :: ListDeploymentConfigs -&gt; ListDeploymentConfigs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320890"><span id="local-6989586621679320892"><span id="local-6989586621679320894"><span id="local-6989586621679320896"><span class="annot"><span class="annottext">ReadPrec [ListDeploymentConfigs]
+ReadPrec ListDeploymentConfigs
+Int -&gt; ReadS ListDeploymentConfigs
+ReadS [ListDeploymentConfigs]
+(Int -&gt; ReadS ListDeploymentConfigs)
+-&gt; ReadS [ListDeploymentConfigs]
+-&gt; ReadPrec ListDeploymentConfigs
+-&gt; ReadPrec [ListDeploymentConfigs]
+-&gt; Read ListDeploymentConfigs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDeploymentConfigs]
+$creadListPrec :: ReadPrec [ListDeploymentConfigs]
+readPrec :: ReadPrec ListDeploymentConfigs
+$creadPrec :: ReadPrec ListDeploymentConfigs
+readList :: ReadS [ListDeploymentConfigs]
+$creadList :: ReadS [ListDeploymentConfigs]
+readsPrec :: Int -&gt; ReadS ListDeploymentConfigs
+$creadsPrec :: Int -&gt; ReadS ListDeploymentConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320883"><span id="local-6989586621679320885"><span id="local-6989586621679320887"><span class="annot"><span class="annottext">Int -&gt; ListDeploymentConfigs -&gt; ShowS
+[ListDeploymentConfigs] -&gt; ShowS
+ListDeploymentConfigs -&gt; String
+(Int -&gt; ListDeploymentConfigs -&gt; ShowS)
+-&gt; (ListDeploymentConfigs -&gt; String)
+-&gt; ([ListDeploymentConfigs] -&gt; ShowS)
+-&gt; Show ListDeploymentConfigs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDeploymentConfigs] -&gt; ShowS
+$cshowList :: [ListDeploymentConfigs] -&gt; ShowS
+show :: ListDeploymentConfigs -&gt; String
+$cshow :: ListDeploymentConfigs -&gt; String
+showsPrec :: Int -&gt; ListDeploymentConfigs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDeploymentConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDeploymentConfigs -&gt; Rep ListDeploymentConfigs x)
+-&gt; (forall x. Rep ListDeploymentConfigs x -&gt; ListDeploymentConfigs)
+-&gt; Generic ListDeploymentConfigs
+forall x. Rep ListDeploymentConfigs x -&gt; ListDeploymentConfigs
+forall x. ListDeploymentConfigs -&gt; Rep ListDeploymentConfigs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDeploymentConfigs x -&gt; ListDeploymentConfigs
+$cfrom :: forall x. ListDeploymentConfigs -&gt; Rep ListDeploymentConfigs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ListDeploymentConfigs' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'nextToken', 'listDeploymentConfigs_nextToken' - An identifier returned from the previous @ListDeploymentConfigs@ call.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- It can be used to return the next set of deployment configurations in</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the list.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#newListDeploymentConfigs"><span class="hs-identifier hs-type">newListDeploymentConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span>
+</span><span id="line-76"></span><span id="newListDeploymentConfigs"><span class="annot"><span class="annottext">newListDeploymentConfigs :: ListDeploymentConfigs
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#newListDeploymentConfigs"><span class="hs-identifier hs-var hs-var">newListDeploymentConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ListDeploymentConfigs' :: Maybe Text -&gt; ListDeploymentConfigs
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs%27"><span class="hs-identifier hs-type">ListDeploymentConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentConfigs' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AnextToken%3AListDeploymentConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | An identifier returned from the previous @ListDeploymentConfigs@ call.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- It can be used to return the next set of deployment configurations in</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the list.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigs_nextToken"><span class="hs-identifier hs-type">listDeploymentConfigs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="listDeploymentConfigs_nextToken"><span class="annot"><span class="annottext">listDeploymentConfigs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDeploymentConfigs -&gt; f ListDeploymentConfigs
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigs_nextToken"><span class="hs-identifier hs-var hs-var">listDeploymentConfigs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeploymentConfigs -&gt; Maybe Text)
+-&gt; (ListDeploymentConfigs -&gt; Maybe Text -&gt; ListDeploymentConfigs)
+-&gt; Lens
+     ListDeploymentConfigs
+     ListDeploymentConfigs
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs%27"><span class="hs-identifier hs-type">ListDeploymentConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320877"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDeploymentConfigs' :: ListDeploymentConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621679320877"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320877"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320876"><span class="annot"><span class="annottext">s :: ListDeploymentConfigs
+</span><a href="#local-6989586621679320876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs%27"><span class="hs-identifier hs-type">ListDeploymentConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320875"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentConfigs
+</span><a href="#local-6989586621679320876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentConfigs' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AnextToken%3AListDeploymentConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679320871"><span class="annot"><span class="annottext">page :: ListDeploymentConfigs
+-&gt; AWSResponse ListDeploymentConfigs -&gt; Maybe ListDeploymentConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679320869"><span class="annot"><span class="annottext">ListDeploymentConfigs
+</span><a href="#local-6989586621679320869"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679320868"><span class="annot"><span class="annottext">AWSResponse ListDeploymentConfigs
+</span><a href="#local-6989586621679320868"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-88"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeploymentConfigs
+ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320868"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">ListDeploymentConfigsResponse
+-&gt; Getting (First Text) ListDeploymentConfigsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDeploymentConfigsResponse
+-&gt; Const (First Text) ListDeploymentConfigsResponse
+Lens' ListDeploymentConfigsResponse (Maybe Text)
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_nextToken"><span class="hs-identifier hs-var">listDeploymentConfigsResponse_nextToken</span></a></span><span>
+</span><span id="line-90"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDeploymentConfigsResponse
+ -&gt; Const (First Text) ListDeploymentConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDeploymentConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-91"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDeploymentConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-94"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeploymentConfigs
+ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320868"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">ListDeploymentConfigsResponse
+-&gt; Getting (First [Text]) ListDeploymentConfigsResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListDeploymentConfigsResponse
+-&gt; Const (First [Text]) ListDeploymentConfigsResponse
+Lens' ListDeploymentConfigsResponse (Maybe [Text])
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_deploymentConfigsList"><span class="hs-identifier hs-var">listDeploymentConfigsResponse_deploymentConfigsList</span></a></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListDeploymentConfigsResponse
+ -&gt; Const (First [Text]) ListDeploymentConfigsResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListDeploymentConfigsResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-97"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDeploymentConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">ListDeploymentConfigs -&gt; Maybe ListDeploymentConfigs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListDeploymentConfigs -&gt; Maybe ListDeploymentConfigs)
+-&gt; ListDeploymentConfigs -&gt; Maybe ListDeploymentConfigs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">ListDeploymentConfigs
+</span><a href="#local-6989586621679320869"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">ListDeploymentConfigs
+-&gt; (ListDeploymentConfigs -&gt; ListDeploymentConfigs)
+-&gt; ListDeploymentConfigs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListDeploymentConfigs -&gt; Identity ListDeploymentConfigs
+Lens
+  ListDeploymentConfigs
+  ListDeploymentConfigs
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigs_nextToken"><span class="hs-identifier hs-var">listDeploymentConfigs_nextToken</span></a></span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListDeploymentConfigs -&gt; Identity ListDeploymentConfigs)
+-&gt; Maybe Text -&gt; ListDeploymentConfigs -&gt; ListDeploymentConfigs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeploymentConfigs
+ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320868"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">ListDeploymentConfigsResponse
+-&gt; Getting (First Text) ListDeploymentConfigsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDeploymentConfigsResponse
+-&gt; Const (First Text) ListDeploymentConfigsResponse
+Lens' ListDeploymentConfigsResponse (Maybe Text)
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_nextToken"><span class="hs-identifier hs-var">listDeploymentConfigsResponse_nextToken</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDeploymentConfigsResponse
+ -&gt; Const (First Text) ListDeploymentConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDeploymentConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679320858"><span class="annot"><span class="annottext">request :: ListDeploymentConfigs -&gt; Request ListDeploymentConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDeploymentConfigs -&gt; Request ListDeploymentConfigs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679320854"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDeploymentConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDeploymentConfigs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDeploymentConfigs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDeploymentConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDeploymentConfigs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320851"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320851"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320850"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679320850"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320849"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDeploymentConfigsResponse
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">ListDeploymentConfigsResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text] -&gt; Int -&gt; ListDeploymentConfigsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Text] -&gt; Int -&gt; ListDeploymentConfigsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Text] -&gt; Int -&gt; ListDeploymentConfigsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; ListDeploymentConfigsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentConfigsList&quot;</span></span><span>
+</span><span id="line-118"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDeploymentConfigsResponse)
+-&gt; Either String Int -&gt; Either String ListDeploymentConfigsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320851"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320840"><span id="local-6989586621679320842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679320833"><span class="annot"><span class="annottext">toHeaders :: ListDeploymentConfigs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDeploymentConfigs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeDeploy_20141006.ListDeploymentConfigs&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320823"><span id="local-6989586621679320825"><span id="local-6989586621679320827"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679320821"><span class="annot"><span class="annottext">toJSON :: ListDeploymentConfigs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs%27"><span class="hs-identifier hs-type">ListDeploymentConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320819"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDeploymentConfigs' :: ListDeploymentConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621679320819"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320819"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679320813"><span class="annot"><span class="annottext">toPath :: ListDeploymentConfigs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDeploymentConfigs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigs"><span class="hs-identifier hs-type">ListDeploymentConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679320809"><span class="annot"><span class="annottext">toQuery :: ListDeploymentConfigs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDeploymentConfigs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Represents the output of a @ListDeploymentConfigs@ operation.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newListDeploymentConfigsResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679320806"><span id="local-6989586621679320807"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeploymentConfigsResponse"><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-var">ListDeploymentConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeploymentConfigsResponse%27"><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">ListDeploymentConfigsResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- returned. It can be used in a subsequent list deployment configurations</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- call to return the next set of deployment configurations in the list.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AnextToken%3AListDeploymentConfigsResponse%27"><span class="annot"><span class="annottext">ListDeploymentConfigsResponse -&gt; Maybe Text
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AnextToken%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | A list of deployment configurations, including built-in configurations</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- such as @CodeDeployDefault.OneAtATime@.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AdeploymentConfigsList%3AListDeploymentConfigsResponse%27"><span class="annot"><span class="annottext">ListDeploymentConfigsResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AdeploymentConfigsList%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var hs-var">deploymentConfigsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDeploymentConfigsResponse%27"><span class="annot"><span class="annottext">ListDeploymentConfigsResponse -&gt; Int
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AhttpStatus%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320799"><span id="local-6989586621679320801"><span class="annot"><span class="annottext">ListDeploymentConfigsResponse
+-&gt; ListDeploymentConfigsResponse -&gt; Bool
+(ListDeploymentConfigsResponse
+ -&gt; ListDeploymentConfigsResponse -&gt; Bool)
+-&gt; (ListDeploymentConfigsResponse
+    -&gt; ListDeploymentConfigsResponse -&gt; Bool)
+-&gt; Eq ListDeploymentConfigsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDeploymentConfigsResponse
+-&gt; ListDeploymentConfigsResponse -&gt; Bool
+$c/= :: ListDeploymentConfigsResponse
+-&gt; ListDeploymentConfigsResponse -&gt; Bool
+== :: ListDeploymentConfigsResponse
+-&gt; ListDeploymentConfigsResponse -&gt; Bool
+$c== :: ListDeploymentConfigsResponse
+-&gt; ListDeploymentConfigsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320791"><span id="local-6989586621679320793"><span id="local-6989586621679320795"><span id="local-6989586621679320797"><span class="annot"><span class="annottext">ReadPrec [ListDeploymentConfigsResponse]
+ReadPrec ListDeploymentConfigsResponse
+Int -&gt; ReadS ListDeploymentConfigsResponse
+ReadS [ListDeploymentConfigsResponse]
+(Int -&gt; ReadS ListDeploymentConfigsResponse)
+-&gt; ReadS [ListDeploymentConfigsResponse]
+-&gt; ReadPrec ListDeploymentConfigsResponse
+-&gt; ReadPrec [ListDeploymentConfigsResponse]
+-&gt; Read ListDeploymentConfigsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDeploymentConfigsResponse]
+$creadListPrec :: ReadPrec [ListDeploymentConfigsResponse]
+readPrec :: ReadPrec ListDeploymentConfigsResponse
+$creadPrec :: ReadPrec ListDeploymentConfigsResponse
+readList :: ReadS [ListDeploymentConfigsResponse]
+$creadList :: ReadS [ListDeploymentConfigsResponse]
+readsPrec :: Int -&gt; ReadS ListDeploymentConfigsResponse
+$creadsPrec :: Int -&gt; ReadS ListDeploymentConfigsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320785"><span id="local-6989586621679320787"><span id="local-6989586621679320789"><span class="annot"><span class="annottext">Int -&gt; ListDeploymentConfigsResponse -&gt; ShowS
+[ListDeploymentConfigsResponse] -&gt; ShowS
+ListDeploymentConfigsResponse -&gt; String
+(Int -&gt; ListDeploymentConfigsResponse -&gt; ShowS)
+-&gt; (ListDeploymentConfigsResponse -&gt; String)
+-&gt; ([ListDeploymentConfigsResponse] -&gt; ShowS)
+-&gt; Show ListDeploymentConfigsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDeploymentConfigsResponse] -&gt; ShowS
+$cshowList :: [ListDeploymentConfigsResponse] -&gt; ShowS
+show :: ListDeploymentConfigsResponse -&gt; String
+$cshow :: ListDeploymentConfigsResponse -&gt; String
+showsPrec :: Int -&gt; ListDeploymentConfigsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDeploymentConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDeploymentConfigsResponse
+ -&gt; Rep ListDeploymentConfigsResponse x)
+-&gt; (forall x.
+    Rep ListDeploymentConfigsResponse x
+    -&gt; ListDeploymentConfigsResponse)
+-&gt; Generic ListDeploymentConfigsResponse
+forall x.
+Rep ListDeploymentConfigsResponse x
+-&gt; ListDeploymentConfigsResponse
+forall x.
+ListDeploymentConfigsResponse
+-&gt; Rep ListDeploymentConfigsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDeploymentConfigsResponse x
+-&gt; ListDeploymentConfigsResponse
+$cfrom :: forall x.
+ListDeploymentConfigsResponse
+-&gt; Rep ListDeploymentConfigsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'ListDeploymentConfigsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'nextToken', 'listDeploymentConfigsResponse_nextToken' - If a large amount of information is returned, an identifier is also</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- returned. It can be used in a subsequent list deployment configurations</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- call to return the next set of deployment configurations in the list.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'deploymentConfigsList', 'listDeploymentConfigsResponse_deploymentConfigsList' - A list of deployment configurations, including built-in configurations</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- such as @CodeDeployDefault.OneAtATime@.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'httpStatus', 'listDeploymentConfigsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#newListDeploymentConfigsResponse"><span class="hs-identifier hs-type">newListDeploymentConfigsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span>
+</span><span id="line-191"></span><span id="newListDeploymentConfigsResponse"><span class="annot"><span class="annottext">newListDeploymentConfigsResponse :: Int -&gt; ListDeploymentConfigsResponse
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#newListDeploymentConfigsResponse"><span class="hs-identifier hs-var hs-var">newListDeploymentConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621679320782"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">ListDeploymentConfigsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDeploymentConfigsResponse
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentConfigsResponse' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AnextToken%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentConfigsList:ListDeploymentConfigsResponse' :: Maybe [Text]
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AdeploymentConfigsList%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">deploymentConfigsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeploymentConfigsResponse' :: Int
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AhttpStatus%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- returned. It can be used in a subsequent list deployment configurations</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- call to return the next set of deployment configurations in the list.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_nextToken"><span class="hs-identifier hs-type">listDeploymentConfigsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="listDeploymentConfigsResponse_nextToken"><span class="annot"><span class="annottext">listDeploymentConfigsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDeploymentConfigsResponse -&gt; f ListDeploymentConfigsResponse
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDeploymentConfigsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeploymentConfigsResponse -&gt; Maybe Text)
+-&gt; (ListDeploymentConfigsResponse
+    -&gt; Maybe Text -&gt; ListDeploymentConfigsResponse)
+-&gt; Lens' ListDeploymentConfigsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320781"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDeploymentConfigsResponse' :: ListDeploymentConfigsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320781"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320781"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320780"><span class="annot"><span class="annottext">s :: ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320779"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentConfigsResponse' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AnextToken%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A list of deployment configurations, including built-in configurations</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- such as @CodeDeployDefault.OneAtATime@.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_deploymentConfigsList"><span class="hs-identifier hs-type">listDeploymentConfigsResponse_deploymentConfigsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="listDeploymentConfigsResponse_deploymentConfigsList"><span class="annot"><span class="annottext">listDeploymentConfigsResponse_deploymentConfigsList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListDeploymentConfigsResponse -&gt; f ListDeploymentConfigsResponse
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_deploymentConfigsList"><span class="hs-identifier hs-var hs-var">listDeploymentConfigsResponse_deploymentConfigsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeploymentConfigsResponse -&gt; Maybe [Text])
+-&gt; (ListDeploymentConfigsResponse
+    -&gt; Maybe [Text] -&gt; ListDeploymentConfigsResponse)
+-&gt; Lens' ListDeploymentConfigsResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320778"><span class="annot"><span class="annottext">Maybe [Text]
+deploymentConfigsList :: Maybe [Text]
+$sel:deploymentConfigsList:ListDeploymentConfigsResponse' :: ListDeploymentConfigsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679320778"><span class="hs-identifier hs-var hs-var">deploymentConfigsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679320778"><span class="hs-identifier hs-var">deploymentConfigsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320777"><span class="annot"><span class="annottext">s :: ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320776"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679320776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentConfigsList:ListDeploymentConfigsResponse' :: Maybe [Text]
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AdeploymentConfigsList%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">deploymentConfigsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679320776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListDeploymentConfigsResponse
+ -&gt; f ListDeploymentConfigsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListDeploymentConfigsResponse
+-&gt; f ListDeploymentConfigsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listDeploymentConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span id="listDeploymentConfigsResponse_httpStatus"><span class="annot"><span class="annottext">listDeploymentConfigsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListDeploymentConfigsResponse -&gt; f ListDeploymentConfigsResponse
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#listDeploymentConfigsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listDeploymentConfigsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeploymentConfigsResponse -&gt; Int)
+-&gt; (ListDeploymentConfigsResponse
+    -&gt; Int -&gt; ListDeploymentConfigsResponse)
+-&gt; Lens
+     ListDeploymentConfigsResponse ListDeploymentConfigsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320773"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListDeploymentConfigsResponse' :: ListDeploymentConfigsResponse -&gt; Int
+</span><a href="#local-6989586621679320773"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320773"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320772"><span class="annot"><span class="annottext">s :: ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse%27"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320771"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentConfigsResponse
+</span><a href="#local-6989586621679320772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeploymentConfigsResponse' :: Int
+</span><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#%24sel%3AhttpStatus%3AListDeploymentConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.ListDeploymentConfigs.html#ListDeploymentConfigsResponse"><span class="hs-identifier hs-type">ListDeploymentConfigsResponse</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

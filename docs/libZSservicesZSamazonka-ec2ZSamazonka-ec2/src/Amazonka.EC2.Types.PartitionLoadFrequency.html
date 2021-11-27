@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.PartitionLoadFrequency</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.PartitionLoadFrequency</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier">PartitionLoadFrequency</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Daily"><span class="hs-identifier">PartitionLoadFrequency_Daily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Monthly"><span class="hs-identifier">PartitionLoadFrequency_Monthly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_None"><span class="hs-identifier">PartitionLoadFrequency_None</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Weekly"><span class="hs-identifier">PartitionLoadFrequency_Weekly</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681131560"><span id="local-6989586621681131561"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartitionLoadFrequency"><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier hs-var">PartitionLoadFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionLoadFrequency%27"><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-identifier hs-var">PartitionLoadFrequency'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPartitionLoadFrequency"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; Text
+</span><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#fromPartitionLoadFrequency"><span class="hs-identifier hs-var hs-var">fromPartitionLoadFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131552"><span id="local-6989586621681131554"><span id="local-6989586621681131556"><span class="annot"><span class="annottext">Int -&gt; PartitionLoadFrequency -&gt; ShowS
+[PartitionLoadFrequency] -&gt; ShowS
+PartitionLoadFrequency -&gt; String
+(Int -&gt; PartitionLoadFrequency -&gt; ShowS)
+-&gt; (PartitionLoadFrequency -&gt; String)
+-&gt; ([PartitionLoadFrequency] -&gt; ShowS)
+-&gt; Show PartitionLoadFrequency
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PartitionLoadFrequency] -&gt; ShowS
+$cshowList :: [PartitionLoadFrequency] -&gt; ShowS
+show :: PartitionLoadFrequency -&gt; String
+$cshow :: PartitionLoadFrequency -&gt; String
+showsPrec :: Int -&gt; PartitionLoadFrequency -&gt; ShowS
+$cshowsPrec :: Int -&gt; PartitionLoadFrequency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681131543"><span id="local-6989586621681131545"><span id="local-6989586621681131547"><span id="local-6989586621681131549"><span class="annot"><span class="annottext">ReadPrec [PartitionLoadFrequency]
+ReadPrec PartitionLoadFrequency
+Int -&gt; ReadS PartitionLoadFrequency
+ReadS [PartitionLoadFrequency]
+(Int -&gt; ReadS PartitionLoadFrequency)
+-&gt; ReadS [PartitionLoadFrequency]
+-&gt; ReadPrec PartitionLoadFrequency
+-&gt; ReadPrec [PartitionLoadFrequency]
+-&gt; Read PartitionLoadFrequency
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PartitionLoadFrequency]
+$creadListPrec :: ReadPrec [PartitionLoadFrequency]
+readPrec :: ReadPrec PartitionLoadFrequency
+$creadPrec :: ReadPrec PartitionLoadFrequency
+readList :: ReadS [PartitionLoadFrequency]
+$creadList :: ReadS [PartitionLoadFrequency]
+readsPrec :: Int -&gt; ReadS PartitionLoadFrequency
+$creadsPrec :: Int -&gt; ReadS PartitionLoadFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681131538"><span id="local-6989586621681131540"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+(PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
+-&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
+-&gt; Eq PartitionLoadFrequency
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+$c/= :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+== :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+$c== :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681131522"><span id="local-6989586621681131524"><span id="local-6989586621681131526"><span id="local-6989586621681131528"><span id="local-6989586621681131530"><span id="local-6989586621681131532"><span id="local-6989586621681131534"><span class="annot"><span class="annottext">Eq PartitionLoadFrequency
+Eq PartitionLoadFrequency
+-&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Ordering)
+-&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
+-&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
+-&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
+-&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
+-&gt; (PartitionLoadFrequency
+    -&gt; PartitionLoadFrequency -&gt; PartitionLoadFrequency)
+-&gt; (PartitionLoadFrequency
+    -&gt; PartitionLoadFrequency -&gt; PartitionLoadFrequency)
+-&gt; Ord PartitionLoadFrequency
+PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Ordering
+PartitionLoadFrequency
+-&gt; PartitionLoadFrequency -&gt; PartitionLoadFrequency
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PartitionLoadFrequency
+-&gt; PartitionLoadFrequency -&gt; PartitionLoadFrequency
+$cmin :: PartitionLoadFrequency
+-&gt; PartitionLoadFrequency -&gt; PartitionLoadFrequency
+max :: PartitionLoadFrequency
+-&gt; PartitionLoadFrequency -&gt; PartitionLoadFrequency
+$cmax :: PartitionLoadFrequency
+-&gt; PartitionLoadFrequency -&gt; PartitionLoadFrequency
+&gt;= :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+$c&gt;= :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+&gt; :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+$c&gt; :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+&lt;= :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+$c&lt;= :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+&lt; :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+$c&lt; :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+compare :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Ordering
+$ccompare :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Ordering
+$cp1Ord :: Eq PartitionLoadFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PartitionLoadFrequency -&gt; Rep PartitionLoadFrequency x)
+-&gt; (forall x.
+    Rep PartitionLoadFrequency x -&gt; PartitionLoadFrequency)
+-&gt; Generic PartitionLoadFrequency
+forall x. Rep PartitionLoadFrequency x -&gt; PartitionLoadFrequency
+forall x. PartitionLoadFrequency -&gt; Rep PartitionLoadFrequency x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PartitionLoadFrequency x -&gt; PartitionLoadFrequency
+$cfrom :: forall x. PartitionLoadFrequency -&gt; Rep PartitionLoadFrequency x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131514"><span id="local-6989586621681131516"><span class="annot"><span class="annottext">Int -&gt; PartitionLoadFrequency -&gt; Int
+PartitionLoadFrequency -&gt; Int
+(Int -&gt; PartitionLoadFrequency -&gt; Int)
+-&gt; (PartitionLoadFrequency -&gt; Int)
+-&gt; Hashable PartitionLoadFrequency
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PartitionLoadFrequency -&gt; Int
+$chash :: PartitionLoadFrequency -&gt; Int
+hashWithSalt :: Int -&gt; PartitionLoadFrequency -&gt; Int
+$chashWithSalt :: Int -&gt; PartitionLoadFrequency -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681131511"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ()
+(PartitionLoadFrequency -&gt; ()) -&gt; NFData PartitionLoadFrequency
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PartitionLoadFrequency -&gt; ()
+$crnf :: PartitionLoadFrequency -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681131508"><span class="annot"><span class="annottext">Text -&gt; Either String PartitionLoadFrequency
+(Text -&gt; Either String PartitionLoadFrequency)
+-&gt; FromText PartitionLoadFrequency
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PartitionLoadFrequency
+$cfromText :: Text -&gt; Either String PartitionLoadFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681131505"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; Text
+(PartitionLoadFrequency -&gt; Text) -&gt; ToText PartitionLoadFrequency
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PartitionLoadFrequency -&gt; Text
+$ctoText :: PartitionLoadFrequency -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681131502"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ByteString
+(PartitionLoadFrequency -&gt; ByteString)
+-&gt; ToByteString PartitionLoadFrequency
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PartitionLoadFrequency -&gt; ByteString
+$ctoBS :: PartitionLoadFrequency -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681131499"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ByteStringBuilder
+(PartitionLoadFrequency -&gt; ByteStringBuilder)
+-&gt; ToLog PartitionLoadFrequency
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PartitionLoadFrequency -&gt; ByteStringBuilder
+$cbuild :: PartitionLoadFrequency -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681131496"><span class="annot"><span class="annottext">HeaderName -&gt; PartitionLoadFrequency -&gt; [Header]
+(HeaderName -&gt; PartitionLoadFrequency -&gt; [Header])
+-&gt; ToHeader PartitionLoadFrequency
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PartitionLoadFrequency -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PartitionLoadFrequency -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681131493"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; QueryString
+(PartitionLoadFrequency -&gt; QueryString)
+-&gt; ToQuery PartitionLoadFrequency
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PartitionLoadFrequency -&gt; QueryString
+$ctoQuery :: PartitionLoadFrequency -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681131488"><span id="local-6989586621681131490"><span class="annot"><span class="annottext">Value -&gt; Parser [PartitionLoadFrequency]
+Value -&gt; Parser PartitionLoadFrequency
+(Value -&gt; Parser PartitionLoadFrequency)
+-&gt; (Value -&gt; Parser [PartitionLoadFrequency])
+-&gt; FromJSON PartitionLoadFrequency
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PartitionLoadFrequency]
+$cparseJSONList :: Value -&gt; Parser [PartitionLoadFrequency]
+parseJSON :: Value -&gt; Parser PartitionLoadFrequency
+$cparseJSON :: Value -&gt; Parser PartitionLoadFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681131483"><span id="local-6989586621681131485"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartitionLoadFrequency]
+FromJSONKeyFunction PartitionLoadFrequency
+FromJSONKeyFunction PartitionLoadFrequency
+-&gt; FromJSONKeyFunction [PartitionLoadFrequency]
+-&gt; FromJSONKey PartitionLoadFrequency
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PartitionLoadFrequency]
+$cfromJSONKeyList :: FromJSONKeyFunction [PartitionLoadFrequency]
+fromJSONKey :: FromJSONKeyFunction PartitionLoadFrequency
+$cfromJSONKey :: FromJSONKeyFunction PartitionLoadFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681131474"><span id="local-6989586621681131476"><span id="local-6989586621681131478"><span id="local-6989586621681131480"><span class="annot"><span class="annottext">[PartitionLoadFrequency] -&gt; Encoding
+[PartitionLoadFrequency] -&gt; Value
+PartitionLoadFrequency -&gt; Encoding
+PartitionLoadFrequency -&gt; Value
+(PartitionLoadFrequency -&gt; Value)
+-&gt; (PartitionLoadFrequency -&gt; Encoding)
+-&gt; ([PartitionLoadFrequency] -&gt; Value)
+-&gt; ([PartitionLoadFrequency] -&gt; Encoding)
+-&gt; ToJSON PartitionLoadFrequency
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PartitionLoadFrequency] -&gt; Encoding
+$ctoEncodingList :: [PartitionLoadFrequency] -&gt; Encoding
+toJSONList :: [PartitionLoadFrequency] -&gt; Value
+$ctoJSONList :: [PartitionLoadFrequency] -&gt; Value
+toEncoding :: PartitionLoadFrequency -&gt; Encoding
+$ctoEncoding :: PartitionLoadFrequency -&gt; Encoding
+toJSON :: PartitionLoadFrequency -&gt; Value
+$ctoJSON :: PartitionLoadFrequency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681131469"><span id="local-6989586621681131471"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartitionLoadFrequency]
+ToJSONKeyFunction PartitionLoadFrequency
+ToJSONKeyFunction PartitionLoadFrequency
+-&gt; ToJSONKeyFunction [PartitionLoadFrequency]
+-&gt; ToJSONKey PartitionLoadFrequency
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PartitionLoadFrequency]
+$ctoJSONKeyList :: ToJSONKeyFunction [PartitionLoadFrequency]
+toJSONKey :: ToJSONKeyFunction PartitionLoadFrequency
+$ctoJSONKey :: ToJSONKeyFunction PartitionLoadFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681131466"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartitionLoadFrequency
+([Node] -&gt; Either String PartitionLoadFrequency)
+-&gt; FromXML PartitionLoadFrequency
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PartitionLoadFrequency
+$cparseXML :: [Node] -&gt; Either String PartitionLoadFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681131463"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; XML
+(PartitionLoadFrequency -&gt; XML) -&gt; ToXML PartitionLoadFrequency
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PartitionLoadFrequency -&gt; XML
+$ctoXML :: PartitionLoadFrequency -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Daily"><span class="hs-identifier hs-type">PartitionLoadFrequency_Daily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier hs-type">PartitionLoadFrequency</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionLoadFrequency_Daily"><span id="%24mPartitionLoadFrequency_Daily"><span id="PartitionLoadFrequency_Daily"><span class="annot"><span class="annottext">$bPartitionLoadFrequency_Daily :: PartitionLoadFrequency
+$mPartitionLoadFrequency_Daily :: forall r.
+PartitionLoadFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#%24bPartitionLoadFrequency_Daily"><span class="hs-identifier hs-var hs-var hs-var">PartitionLoadFrequency_Daily</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-identifier hs-type">PartitionLoadFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;daily&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Monthly"><span class="hs-identifier hs-type">PartitionLoadFrequency_Monthly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier hs-type">PartitionLoadFrequency</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionLoadFrequency_Monthly"><span id="%24mPartitionLoadFrequency_Monthly"><span id="PartitionLoadFrequency_Monthly"><span class="annot"><span class="annottext">$bPartitionLoadFrequency_Monthly :: PartitionLoadFrequency
+$mPartitionLoadFrequency_Monthly :: forall r.
+PartitionLoadFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#%24bPartitionLoadFrequency_Monthly"><span class="hs-identifier hs-var hs-var hs-var">PartitionLoadFrequency_Monthly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-identifier hs-type">PartitionLoadFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;monthly&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_None"><span class="hs-identifier hs-type">PartitionLoadFrequency_None</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier hs-type">PartitionLoadFrequency</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionLoadFrequency_None"><span id="%24mPartitionLoadFrequency_None"><span id="PartitionLoadFrequency_None"><span class="annot"><span class="annottext">$bPartitionLoadFrequency_None :: PartitionLoadFrequency
+$mPartitionLoadFrequency_None :: forall r.
+PartitionLoadFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#%24bPartitionLoadFrequency_None"><span class="hs-identifier hs-var hs-var hs-var">PartitionLoadFrequency_None</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-identifier hs-type">PartitionLoadFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;none&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Weekly"><span class="hs-identifier hs-type">PartitionLoadFrequency_Weekly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier hs-type">PartitionLoadFrequency</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionLoadFrequency_Weekly"><span id="%24mPartitionLoadFrequency_Weekly"><span id="PartitionLoadFrequency_Weekly"><span class="annot"><span class="annottext">$bPartitionLoadFrequency_Weekly :: PartitionLoadFrequency
+$mPartitionLoadFrequency_Weekly :: forall r.
+PartitionLoadFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#%24bPartitionLoadFrequency_Weekly"><span class="hs-identifier hs-var hs-var hs-var">PartitionLoadFrequency_Weekly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-identifier hs-type">PartitionLoadFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;weekly&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Daily"><span class="hs-pragma hs-type">PartitionLoadFrequency_Daily</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Monthly"><span class="hs-pragma hs-type">PartitionLoadFrequency_Monthly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_None"><span class="hs-pragma hs-type">PartitionLoadFrequency_None</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency_Weekly"><span class="hs-pragma hs-type">PartitionLoadFrequency_Weekly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-pragma hs-type">PartitionLoadFrequency'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

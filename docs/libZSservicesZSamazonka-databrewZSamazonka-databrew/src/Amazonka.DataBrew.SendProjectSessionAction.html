@@ -1,0 +1,805 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.SendProjectSessionAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Performs a recipe step within an interactive DataBrew session that\'s</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- currently open.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.SendProjectSessionAction</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier">SendProjectSessionAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#newSendProjectSessionAction"><span class="hs-identifier">newSendProjectSessionAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_stepIndex"><span class="hs-identifier">sendProjectSessionAction_stepIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_preview"><span class="hs-identifier">sendProjectSessionAction_preview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_clientSessionId"><span class="hs-identifier">sendProjectSessionAction_clientSessionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_recipeStep"><span class="hs-identifier">sendProjectSessionAction_recipeStep</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_viewFrame"><span class="hs-identifier">sendProjectSessionAction_viewFrame</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_name"><span class="hs-identifier">sendProjectSessionAction_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier">SendProjectSessionActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#newSendProjectSessionActionResponse"><span class="hs-identifier">newSendProjectSessionActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_actionId"><span class="hs-identifier">sendProjectSessionActionResponse_actionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_result"><span class="hs-identifier">sendProjectSessionActionResponse_result</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_httpStatus"><span class="hs-identifier">sendProjectSessionActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_name"><span class="hs-identifier">sendProjectSessionActionResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.html"><span class="hs-identifier">Amazonka.DataBrew.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newSendProjectSessionAction' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679302301"><span id="local-6989586621679302302"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendProjectSessionAction"><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-var">SendProjectSessionAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendProjectSessionAction%27"><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-var">SendProjectSessionAction'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The index from which to preview a step. This index is used to preview</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the result of steps that have already been applied, so that the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- resulting view frame is from earlier in the view frame stack.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AstepIndex%3ASendProjectSessionAction%27"><span class="annot"><span class="annottext">SendProjectSessionAction -&gt; Maybe Natural
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AstepIndex%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var hs-var">stepIndex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | If true, the result of the recipe step will be returned, but not</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Apreview%3ASendProjectSessionAction%27"><span class="annot"><span class="annottext">SendProjectSessionAction -&gt; Maybe Bool
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Apreview%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var hs-var">preview</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A unique identifier for an interactive session that\'s currently open</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- and ready for work. The action will be performed on this session.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AclientSessionId%3ASendProjectSessionAction%27"><span class="annot"><span class="annottext">SendProjectSessionAction -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AclientSessionId%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var hs-var">clientSessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3ArecipeStep%3ASendProjectSessionAction%27"><span class="annot"><span class="annottext">SendProjectSessionAction -&gt; Maybe RecipeStep
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3ArecipeStep%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var hs-var">recipeStep</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.RecipeStep.html#RecipeStep"><span class="hs-identifier hs-type">RecipeStep</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AviewFrame%3ASendProjectSessionAction%27"><span class="annot"><span class="annottext">SendProjectSessionAction -&gt; Maybe ViewFrame
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AviewFrame%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var hs-var">viewFrame</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.ViewFrame.html#ViewFrame"><span class="hs-identifier hs-type">ViewFrame</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The name of the project to apply the action to.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aname%3ASendProjectSessionAction%27"><span class="annot"><span class="annottext">SendProjectSessionAction -&gt; Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aname%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302290"><span id="local-6989586621679302292"><span class="annot"><span class="annottext">SendProjectSessionAction -&gt; SendProjectSessionAction -&gt; Bool
+(SendProjectSessionAction -&gt; SendProjectSessionAction -&gt; Bool)
+-&gt; (SendProjectSessionAction -&gt; SendProjectSessionAction -&gt; Bool)
+-&gt; Eq SendProjectSessionAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendProjectSessionAction -&gt; SendProjectSessionAction -&gt; Bool
+$c/= :: SendProjectSessionAction -&gt; SendProjectSessionAction -&gt; Bool
+== :: SendProjectSessionAction -&gt; SendProjectSessionAction -&gt; Bool
+$c== :: SendProjectSessionAction -&gt; SendProjectSessionAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302281"><span id="local-6989586621679302283"><span id="local-6989586621679302285"><span id="local-6989586621679302287"><span class="annot"><span class="annottext">ReadPrec [SendProjectSessionAction]
+ReadPrec SendProjectSessionAction
+Int -&gt; ReadS SendProjectSessionAction
+ReadS [SendProjectSessionAction]
+(Int -&gt; ReadS SendProjectSessionAction)
+-&gt; ReadS [SendProjectSessionAction]
+-&gt; ReadPrec SendProjectSessionAction
+-&gt; ReadPrec [SendProjectSessionAction]
+-&gt; Read SendProjectSessionAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendProjectSessionAction]
+$creadListPrec :: ReadPrec [SendProjectSessionAction]
+readPrec :: ReadPrec SendProjectSessionAction
+$creadPrec :: ReadPrec SendProjectSessionAction
+readList :: ReadS [SendProjectSessionAction]
+$creadList :: ReadS [SendProjectSessionAction]
+readsPrec :: Int -&gt; ReadS SendProjectSessionAction
+$creadsPrec :: Int -&gt; ReadS SendProjectSessionAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302274"><span id="local-6989586621679302276"><span id="local-6989586621679302278"><span class="annot"><span class="annottext">Int -&gt; SendProjectSessionAction -&gt; ShowS
+[SendProjectSessionAction] -&gt; ShowS
+SendProjectSessionAction -&gt; String
+(Int -&gt; SendProjectSessionAction -&gt; ShowS)
+-&gt; (SendProjectSessionAction -&gt; String)
+-&gt; ([SendProjectSessionAction] -&gt; ShowS)
+-&gt; Show SendProjectSessionAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendProjectSessionAction] -&gt; ShowS
+$cshowList :: [SendProjectSessionAction] -&gt; ShowS
+show :: SendProjectSessionAction -&gt; String
+$cshow :: SendProjectSessionAction -&gt; String
+showsPrec :: Int -&gt; SendProjectSessionAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendProjectSessionAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SendProjectSessionAction -&gt; Rep SendProjectSessionAction x)
+-&gt; (forall x.
+    Rep SendProjectSessionAction x -&gt; SendProjectSessionAction)
+-&gt; Generic SendProjectSessionAction
+forall x.
+Rep SendProjectSessionAction x -&gt; SendProjectSessionAction
+forall x.
+SendProjectSessionAction -&gt; Rep SendProjectSessionAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SendProjectSessionAction x -&gt; SendProjectSessionAction
+$cfrom :: forall x.
+SendProjectSessionAction -&gt; Rep SendProjectSessionAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'SendProjectSessionAction' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'stepIndex', 'sendProjectSessionAction_stepIndex' - The index from which to preview a step. This index is used to preview</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the result of steps that have already been applied, so that the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- resulting view frame is from earlier in the view frame stack.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'preview', 'sendProjectSessionAction_preview' - If true, the result of the recipe step will be returned, but not</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'clientSessionId', 'sendProjectSessionAction_clientSessionId' - A unique identifier for an interactive session that\'s currently open</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- and ready for work. The action will be performed on this session.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'recipeStep', 'sendProjectSessionAction_recipeStep' - Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'viewFrame', 'sendProjectSessionAction_viewFrame' - Undocumented member.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'name', 'sendProjectSessionAction_name' - The name of the project to apply the action to.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#newSendProjectSessionAction"><span class="hs-identifier hs-type">newSendProjectSessionAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span>
+</span><span id="line-103"></span><span id="newSendProjectSessionAction"><span class="annot"><span class="annottext">newSendProjectSessionAction :: Text -&gt; SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#newSendProjectSessionAction"><span class="hs-identifier hs-var hs-var">newSendProjectSessionAction</span></a></span></span><span> </span><span id="local-6989586621679302269"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302269"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">SendProjectSessionAction' :: Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe RecipeStep
+-&gt; Maybe ViewFrame
+-&gt; Text
+-&gt; SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stepIndex:SendProjectSessionAction' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AstepIndex%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">stepIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:preview:SendProjectSessionAction' :: Maybe Bool
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Apreview%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">preview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientSessionId:SendProjectSessionAction' :: Maybe Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AclientSessionId%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">clientSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:recipeStep:SendProjectSessionAction' :: Maybe RecipeStep
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3ArecipeStep%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">recipeStep</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecipeStep
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:viewFrame:SendProjectSessionAction' :: Maybe ViewFrame
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AviewFrame%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">viewFrame</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ViewFrame
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:SendProjectSessionAction' :: Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aname%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302269"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The index from which to preview a step. This index is used to preview</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the result of steps that have already been applied, so that the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- resulting view frame is from earlier in the view frame stack.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_stepIndex"><span class="hs-identifier hs-type">sendProjectSessionAction_stepIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="sendProjectSessionAction_stepIndex"><span class="annot"><span class="annottext">sendProjectSessionAction_stepIndex :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SendProjectSessionAction -&gt; f SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_stepIndex"><span class="hs-identifier hs-var hs-var">sendProjectSessionAction_stepIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionAction -&gt; Maybe Natural)
+-&gt; (SendProjectSessionAction
+    -&gt; Maybe Natural -&gt; SendProjectSessionAction)
+-&gt; Lens
+     SendProjectSessionAction
+     SendProjectSessionAction
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302266"><span class="annot"><span class="annottext">Maybe Natural
+stepIndex :: Maybe Natural
+$sel:stepIndex:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Natural
+</span><a href="#local-6989586621679302266"><span class="hs-identifier hs-var hs-var">stepIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679302266"><span class="hs-identifier hs-var">stepIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302265"><span class="annot"><span class="annottext">s :: SendProjectSessionAction
+</span><a href="#local-6989586621679302265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302264"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679302264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionAction
+</span><a href="#local-6989586621679302265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepIndex:SendProjectSessionAction' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AstepIndex%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">stepIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679302264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | If true, the result of the recipe step will be returned, but not</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_preview"><span class="hs-identifier hs-type">sendProjectSessionAction_preview</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="sendProjectSessionAction_preview"><span class="annot"><span class="annottext">sendProjectSessionAction_preview :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; SendProjectSessionAction -&gt; f SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_preview"><span class="hs-identifier hs-var hs-var">sendProjectSessionAction_preview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionAction -&gt; Maybe Bool)
+-&gt; (SendProjectSessionAction
+    -&gt; Maybe Bool -&gt; SendProjectSessionAction)
+-&gt; Lens
+     SendProjectSessionAction
+     SendProjectSessionAction
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302263"><span class="annot"><span class="annottext">Maybe Bool
+preview :: Maybe Bool
+$sel:preview:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Bool
+</span><a href="#local-6989586621679302263"><span class="hs-identifier hs-var hs-var">preview</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302263"><span class="hs-identifier hs-var">preview</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302262"><span class="annot"><span class="annottext">s :: SendProjectSessionAction
+</span><a href="#local-6989586621679302262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302261"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionAction
+</span><a href="#local-6989586621679302262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preview:SendProjectSessionAction' :: Maybe Bool
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Apreview%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">preview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A unique identifier for an interactive session that\'s currently open</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- and ready for work. The action will be performed on this session.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_clientSessionId"><span class="hs-identifier hs-type">sendProjectSessionAction_clientSessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="sendProjectSessionAction_clientSessionId"><span class="annot"><span class="annottext">sendProjectSessionAction_clientSessionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SendProjectSessionAction -&gt; f SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_clientSessionId"><span class="hs-identifier hs-var hs-var">sendProjectSessionAction_clientSessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionAction -&gt; Maybe Text)
+-&gt; (SendProjectSessionAction
+    -&gt; Maybe Text -&gt; SendProjectSessionAction)
+-&gt; Lens
+     SendProjectSessionAction
+     SendProjectSessionAction
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302260"><span class="annot"><span class="annottext">Maybe Text
+clientSessionId :: Maybe Text
+$sel:clientSessionId:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Text
+</span><a href="#local-6989586621679302260"><span class="hs-identifier hs-var hs-var">clientSessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302260"><span class="hs-identifier hs-var">clientSessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302259"><span class="annot"><span class="annottext">s :: SendProjectSessionAction
+</span><a href="#local-6989586621679302259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionAction
+</span><a href="#local-6989586621679302259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSessionId:SendProjectSessionAction' :: Maybe Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AclientSessionId%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">clientSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_recipeStep"><span class="hs-identifier hs-type">sendProjectSessionAction_recipeStep</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.RecipeStep.html#RecipeStep"><span class="hs-identifier hs-type">RecipeStep</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="sendProjectSessionAction_recipeStep"><span class="annot"><span class="annottext">sendProjectSessionAction_recipeStep :: (Maybe RecipeStep -&gt; f (Maybe RecipeStep))
+-&gt; SendProjectSessionAction -&gt; f SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_recipeStep"><span class="hs-identifier hs-var hs-var">sendProjectSessionAction_recipeStep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionAction -&gt; Maybe RecipeStep)
+-&gt; (SendProjectSessionAction
+    -&gt; Maybe RecipeStep -&gt; SendProjectSessionAction)
+-&gt; Lens
+     SendProjectSessionAction
+     SendProjectSessionAction
+     (Maybe RecipeStep)
+     (Maybe RecipeStep)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302257"><span class="annot"><span class="annottext">Maybe RecipeStep
+recipeStep :: Maybe RecipeStep
+$sel:recipeStep:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe RecipeStep
+</span><a href="#local-6989586621679302257"><span class="hs-identifier hs-var hs-var">recipeStep</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecipeStep
+</span><a href="#local-6989586621679302257"><span class="hs-identifier hs-var">recipeStep</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302256"><span class="annot"><span class="annottext">s :: SendProjectSessionAction
+</span><a href="#local-6989586621679302256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302255"><span class="annot"><span class="annottext">Maybe RecipeStep
+</span><a href="#local-6989586621679302255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionAction
+</span><a href="#local-6989586621679302256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recipeStep:SendProjectSessionAction' :: Maybe RecipeStep
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3ArecipeStep%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">recipeStep</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecipeStep
+</span><a href="#local-6989586621679302255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_viewFrame"><span class="hs-identifier hs-type">sendProjectSessionAction_viewFrame</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.ViewFrame.html#ViewFrame"><span class="hs-identifier hs-type">ViewFrame</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="sendProjectSessionAction_viewFrame"><span class="annot"><span class="annottext">sendProjectSessionAction_viewFrame :: (Maybe ViewFrame -&gt; f (Maybe ViewFrame))
+-&gt; SendProjectSessionAction -&gt; f SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_viewFrame"><span class="hs-identifier hs-var hs-var">sendProjectSessionAction_viewFrame</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionAction -&gt; Maybe ViewFrame)
+-&gt; (SendProjectSessionAction
+    -&gt; Maybe ViewFrame -&gt; SendProjectSessionAction)
+-&gt; Lens
+     SendProjectSessionAction
+     SendProjectSessionAction
+     (Maybe ViewFrame)
+     (Maybe ViewFrame)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302254"><span class="annot"><span class="annottext">Maybe ViewFrame
+viewFrame :: Maybe ViewFrame
+$sel:viewFrame:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe ViewFrame
+</span><a href="#local-6989586621679302254"><span class="hs-identifier hs-var hs-var">viewFrame</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ViewFrame
+</span><a href="#local-6989586621679302254"><span class="hs-identifier hs-var">viewFrame</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302253"><span class="annot"><span class="annottext">s :: SendProjectSessionAction
+</span><a href="#local-6989586621679302253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302252"><span class="annot"><span class="annottext">Maybe ViewFrame
+</span><a href="#local-6989586621679302252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionAction
+</span><a href="#local-6989586621679302253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:viewFrame:SendProjectSessionAction' :: Maybe ViewFrame
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AviewFrame%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">viewFrame</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ViewFrame
+</span><a href="#local-6989586621679302252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The name of the project to apply the action to.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_name"><span class="hs-identifier hs-type">sendProjectSessionAction_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="sendProjectSessionAction_name"><span class="annot"><span class="annottext">sendProjectSessionAction_name :: (Text -&gt; f Text)
+-&gt; SendProjectSessionAction -&gt; f SendProjectSessionAction
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionAction_name"><span class="hs-identifier hs-var hs-var">sendProjectSessionAction_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionAction -&gt; Text)
+-&gt; (SendProjectSessionAction -&gt; Text -&gt; SendProjectSessionAction)
+-&gt; Lens SendProjectSessionAction SendProjectSessionAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302251"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Text
+</span><a href="#local-6989586621679302251"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302251"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302250"><span class="annot"><span class="annottext">s :: SendProjectSessionAction
+</span><a href="#local-6989586621679302250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionAction
+</span><a href="#local-6989586621679302250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SendProjectSessionAction' :: Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aname%3ASendProjectSessionAction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679302245"><span class="annot"><span class="annottext">request :: SendProjectSessionAction -&gt; Request SendProjectSessionAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; SendProjectSessionAction -&gt; Request SendProjectSessionAction
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataBrew.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679302241"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SendProjectSessionAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SendProjectSessionAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SendProjectSessionAction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SendProjectSessionAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SendProjectSessionAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302238"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302237"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302237"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302236"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302236"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text -&gt; Int -&gt; Text -&gt; SendProjectSessionActionResponse
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">SendProjectSessionActionResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text -&gt; Int -&gt; Text -&gt; SendProjectSessionActionResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; Text -&gt; SendProjectSessionActionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; Text -&gt; SendProjectSessionActionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; Text -&gt; SendProjectSessionActionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Result&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; Text -&gt; SendProjectSessionActionResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; SendProjectSessionActionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302238"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; SendProjectSessionActionResponse)
+-&gt; Either String Text
+-&gt; Either String SendProjectSessionActionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302227"><span id="local-6989586621679302229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679302220"><span class="annot"><span class="annottext">toHeaders :: SendProjectSessionAction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendProjectSessionAction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302210"><span id="local-6989586621679302212"><span id="local-6989586621679302214"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679302208"><span class="annot"><span class="annottext">toJSON :: SendProjectSessionAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302201"><span id="local-6989586621679302202"><span id="local-6989586621679302203"><span id="local-6989586621679302204"><span id="local-6989586621679302205"><span id="local-6989586621679302206"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+Maybe RecipeStep
+Maybe ViewFrame
+Text
+name :: Text
+viewFrame :: Maybe ViewFrame
+recipeStep :: Maybe RecipeStep
+clientSessionId :: Maybe Text
+preview :: Maybe Bool
+stepIndex :: Maybe Natural
+$sel:name:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Text
+$sel:viewFrame:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe ViewFrame
+$sel:recipeStep:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe RecipeStep
+$sel:clientSessionId:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Text
+$sel:preview:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Bool
+$sel:stepIndex:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Natural
+</span><a href="#local-6989586621679302201"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StepIndex&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679302206"><span class="hs-identifier hs-var">stepIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Preview&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302205"><span class="hs-identifier hs-var">preview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientSessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302204"><span class="hs-identifier hs-var">clientSessionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecipeStep&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RecipeStep -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RecipeStep -&gt; Pair) -&gt; Maybe RecipeStep -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RecipeStep
+</span><a href="#local-6989586621679302203"><span class="hs-identifier hs-var">recipeStep</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ViewFrame&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ViewFrame -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ViewFrame -&gt; Pair) -&gt; Maybe ViewFrame -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ViewFrame
+</span><a href="#local-6989586621679302202"><span class="hs-identifier hs-var">viewFrame</span></a></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679302195"><span class="annot"><span class="annottext">toPath :: SendProjectSessionAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction%27"><span class="hs-identifier hs-type">SendProjectSessionAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302188"><span id="local-6989586621679302189"><span id="local-6989586621679302190"><span id="local-6989586621679302191"><span id="local-6989586621679302192"><span id="local-6989586621679302193"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+Maybe RecipeStep
+Maybe ViewFrame
+Text
+name :: Text
+viewFrame :: Maybe ViewFrame
+recipeStep :: Maybe RecipeStep
+clientSessionId :: Maybe Text
+preview :: Maybe Bool
+stepIndex :: Maybe Natural
+$sel:name:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Text
+$sel:viewFrame:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe ViewFrame
+$sel:recipeStep:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe RecipeStep
+$sel:clientSessionId:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Text
+$sel:preview:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Bool
+$sel:stepIndex:SendProjectSessionAction' :: SendProjectSessionAction -&gt; Maybe Natural
+</span><a href="#local-6989586621679302188"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/projects/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302188"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sendProjectSessionAction&quot;</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionAction"><span class="hs-identifier hs-type">SendProjectSessionAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679302184"><span class="annot"><span class="annottext">toQuery :: SendProjectSessionAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SendProjectSessionAction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newSendProjectSessionActionResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679302181"><span id="local-6989586621679302182"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendProjectSessionActionResponse"><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-var">SendProjectSessionActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendProjectSessionActionResponse%27"><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">SendProjectSessionActionResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the action that was performed.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AactionId%3ASendProjectSessionActionResponse%27"><span class="annot"><span class="annottext">SendProjectSessionActionResponse -&gt; Maybe Int
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AactionId%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | A message indicating the result of performing the action.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3Aresult%3ASendProjectSessionActionResponse%27"><span class="annot"><span class="annottext">SendProjectSessionActionResponse -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aresult%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendProjectSessionActionResponse%27"><span class="annot"><span class="annottext">SendProjectSessionActionResponse -&gt; Int
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AhttpStatus%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The name of the project that was affected by the action.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3Aname%3ASendProjectSessionActionResponse%27"><span class="annot"><span class="annottext">SendProjectSessionActionResponse -&gt; Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aname%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302173"><span id="local-6989586621679302175"><span class="annot"><span class="annottext">SendProjectSessionActionResponse
+-&gt; SendProjectSessionActionResponse -&gt; Bool
+(SendProjectSessionActionResponse
+ -&gt; SendProjectSessionActionResponse -&gt; Bool)
+-&gt; (SendProjectSessionActionResponse
+    -&gt; SendProjectSessionActionResponse -&gt; Bool)
+-&gt; Eq SendProjectSessionActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendProjectSessionActionResponse
+-&gt; SendProjectSessionActionResponse -&gt; Bool
+$c/= :: SendProjectSessionActionResponse
+-&gt; SendProjectSessionActionResponse -&gt; Bool
+== :: SendProjectSessionActionResponse
+-&gt; SendProjectSessionActionResponse -&gt; Bool
+$c== :: SendProjectSessionActionResponse
+-&gt; SendProjectSessionActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302165"><span id="local-6989586621679302167"><span id="local-6989586621679302169"><span id="local-6989586621679302171"><span class="annot"><span class="annottext">ReadPrec [SendProjectSessionActionResponse]
+ReadPrec SendProjectSessionActionResponse
+Int -&gt; ReadS SendProjectSessionActionResponse
+ReadS [SendProjectSessionActionResponse]
+(Int -&gt; ReadS SendProjectSessionActionResponse)
+-&gt; ReadS [SendProjectSessionActionResponse]
+-&gt; ReadPrec SendProjectSessionActionResponse
+-&gt; ReadPrec [SendProjectSessionActionResponse]
+-&gt; Read SendProjectSessionActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendProjectSessionActionResponse]
+$creadListPrec :: ReadPrec [SendProjectSessionActionResponse]
+readPrec :: ReadPrec SendProjectSessionActionResponse
+$creadPrec :: ReadPrec SendProjectSessionActionResponse
+readList :: ReadS [SendProjectSessionActionResponse]
+$creadList :: ReadS [SendProjectSessionActionResponse]
+readsPrec :: Int -&gt; ReadS SendProjectSessionActionResponse
+$creadsPrec :: Int -&gt; ReadS SendProjectSessionActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302159"><span id="local-6989586621679302161"><span id="local-6989586621679302163"><span class="annot"><span class="annottext">Int -&gt; SendProjectSessionActionResponse -&gt; ShowS
+[SendProjectSessionActionResponse] -&gt; ShowS
+SendProjectSessionActionResponse -&gt; String
+(Int -&gt; SendProjectSessionActionResponse -&gt; ShowS)
+-&gt; (SendProjectSessionActionResponse -&gt; String)
+-&gt; ([SendProjectSessionActionResponse] -&gt; ShowS)
+-&gt; Show SendProjectSessionActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendProjectSessionActionResponse] -&gt; ShowS
+$cshowList :: [SendProjectSessionActionResponse] -&gt; ShowS
+show :: SendProjectSessionActionResponse -&gt; String
+$cshow :: SendProjectSessionActionResponse -&gt; String
+showsPrec :: Int -&gt; SendProjectSessionActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendProjectSessionActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SendProjectSessionActionResponse
+ -&gt; Rep SendProjectSessionActionResponse x)
+-&gt; (forall x.
+    Rep SendProjectSessionActionResponse x
+    -&gt; SendProjectSessionActionResponse)
+-&gt; Generic SendProjectSessionActionResponse
+forall x.
+Rep SendProjectSessionActionResponse x
+-&gt; SendProjectSessionActionResponse
+forall x.
+SendProjectSessionActionResponse
+-&gt; Rep SendProjectSessionActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SendProjectSessionActionResponse x
+-&gt; SendProjectSessionActionResponse
+$cfrom :: forall x.
+SendProjectSessionActionResponse
+-&gt; Rep SendProjectSessionActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Create a value of 'SendProjectSessionActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'actionId', 'sendProjectSessionActionResponse_actionId' - A unique identifier for the action that was performed.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'result', 'sendProjectSessionActionResponse_result' - A message indicating the result of performing the action.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'httpStatus', 'sendProjectSessionActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'name', 'sendProjectSessionActionResponse_name' - The name of the project that was affected by the action.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#newSendProjectSessionActionResponse"><span class="hs-identifier hs-type">newSendProjectSessionActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span>
+</span><span id="line-230"></span><span id="newSendProjectSessionActionResponse"><span class="annot"><span class="annottext">newSendProjectSessionActionResponse :: Int -&gt; Text -&gt; SendProjectSessionActionResponse
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#newSendProjectSessionActionResponse"><span class="hs-identifier hs-var hs-var">newSendProjectSessionActionResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679302156"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679302155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302155"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">SendProjectSessionActionResponse' :: Maybe Int
+-&gt; Maybe Text -&gt; Int -&gt; Text -&gt; SendProjectSessionActionResponse
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionId:SendProjectSessionActionResponse' :: Maybe Int
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AactionId%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">$sel:result:SendProjectSessionActionResponse' :: Maybe Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aresult%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:SendProjectSessionActionResponse' :: Int
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AhttpStatus%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:SendProjectSessionActionResponse' :: Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aname%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302155"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | A unique identifier for the action that was performed.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_actionId"><span class="hs-identifier hs-type">sendProjectSessionActionResponse_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="sendProjectSessionActionResponse_actionId"><span class="annot"><span class="annottext">sendProjectSessionActionResponse_actionId :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SendProjectSessionActionResponse
+-&gt; f SendProjectSessionActionResponse
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_actionId"><span class="hs-identifier hs-var hs-var">sendProjectSessionActionResponse_actionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionActionResponse -&gt; Maybe Int)
+-&gt; (SendProjectSessionActionResponse
+    -&gt; Maybe Int -&gt; SendProjectSessionActionResponse)
+-&gt; Lens
+     SendProjectSessionActionResponse
+     SendProjectSessionActionResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302154"><span class="annot"><span class="annottext">Maybe Int
+actionId :: Maybe Int
+$sel:actionId:SendProjectSessionActionResponse' :: SendProjectSessionActionResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679302154"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679302154"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302153"><span class="annot"><span class="annottext">s :: SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302152"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679302152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:SendProjectSessionActionResponse' :: Maybe Int
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AactionId%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679302152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | A message indicating the result of performing the action.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_result"><span class="hs-identifier hs-type">sendProjectSessionActionResponse_result</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="sendProjectSessionActionResponse_result"><span class="annot"><span class="annottext">sendProjectSessionActionResponse_result :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SendProjectSessionActionResponse
+-&gt; f SendProjectSessionActionResponse
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_result"><span class="hs-identifier hs-var hs-var">sendProjectSessionActionResponse_result</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionActionResponse -&gt; Maybe Text)
+-&gt; (SendProjectSessionActionResponse
+    -&gt; Maybe Text -&gt; SendProjectSessionActionResponse)
+-&gt; Lens
+     SendProjectSessionActionResponse
+     SendProjectSessionActionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302151"><span class="annot"><span class="annottext">Maybe Text
+result :: Maybe Text
+$sel:result:SendProjectSessionActionResponse' :: SendProjectSessionActionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679302151"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302151"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302150"><span class="annot"><span class="annottext">s :: SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:SendProjectSessionActionResponse' :: Maybe Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aresult%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_httpStatus"><span class="hs-identifier hs-type">sendProjectSessionActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-251"></span><span id="sendProjectSessionActionResponse_httpStatus"><span class="annot"><span class="annottext">sendProjectSessionActionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SendProjectSessionActionResponse
+-&gt; f SendProjectSessionActionResponse
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">sendProjectSessionActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionActionResponse -&gt; Int)
+-&gt; (SendProjectSessionActionResponse
+    -&gt; Int -&gt; SendProjectSessionActionResponse)
+-&gt; Lens
+     SendProjectSessionActionResponse
+     SendProjectSessionActionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302148"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SendProjectSessionActionResponse' :: SendProjectSessionActionResponse -&gt; Int
+</span><a href="#local-6989586621679302148"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302148"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302147"><span class="annot"><span class="annottext">s :: SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302146"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendProjectSessionActionResponse' :: Int
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3AhttpStatus%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The name of the project that was affected by the action.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_name"><span class="hs-identifier hs-type">sendProjectSessionActionResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-255"></span><span id="sendProjectSessionActionResponse_name"><span class="annot"><span class="annottext">sendProjectSessionActionResponse_name :: (Text -&gt; f Text)
+-&gt; SendProjectSessionActionResponse
+-&gt; f SendProjectSessionActionResponse
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#sendProjectSessionActionResponse_name"><span class="hs-identifier hs-var hs-var">sendProjectSessionActionResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendProjectSessionActionResponse -&gt; Text)
+-&gt; (SendProjectSessionActionResponse
+    -&gt; Text -&gt; SendProjectSessionActionResponse)
+-&gt; Lens
+     SendProjectSessionActionResponse
+     SendProjectSessionActionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302145"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:SendProjectSessionActionResponse' :: SendProjectSessionActionResponse -&gt; Text
+</span><a href="#local-6989586621679302145"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302145"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302144"><span class="annot"><span class="annottext">s :: SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse%27"><span class="hs-identifier hs-type">SendProjectSessionActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendProjectSessionActionResponse
+</span><a href="#local-6989586621679302144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SendProjectSessionActionResponse' :: Text
+</span><a href="Amazonka.DataBrew.SendProjectSessionAction.html#%24sel%3Aname%3ASendProjectSessionActionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679302141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.SendProjectSessionAction.html#SendProjectSessionActionResponse"><span class="hs-identifier hs-type">SendProjectSessionActionResponse</span></a></span></span><span>
+</span><span id="line-260"></span></pre></body></html>

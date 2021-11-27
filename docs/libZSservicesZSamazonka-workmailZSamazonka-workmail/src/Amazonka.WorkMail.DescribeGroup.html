@@ -1,0 +1,761 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkMail.DescribeGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the data available for the group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkMail.DescribeGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier">DescribeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#newDescribeGroup"><span class="hs-identifier">newDescribeGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroup_organizationId"><span class="hs-identifier">describeGroup_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroup_groupId"><span class="hs-identifier">describeGroup_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier">DescribeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#newDescribeGroupResponse"><span class="hs-identifier">newDescribeGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_email"><span class="hs-identifier">describeGroupResponse_email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_state"><span class="hs-identifier">describeGroupResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_disabledDate"><span class="hs-identifier">describeGroupResponse_disabledDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_name"><span class="hs-identifier">describeGroupResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_groupId"><span class="hs-identifier">describeGroupResponse_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_enabledDate"><span class="hs-identifier">describeGroupResponse_enabledDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_httpStatus"><span class="hs-identifier">describeGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.html"><span class="hs-identifier">Amazonka.WorkMail.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeGroup' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679292113"><span id="local-6989586621679292114"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGroup"><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-var">DescribeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGroup%27"><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup%27"><span class="hs-identifier hs-var">DescribeGroup'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the organization under which the group exists.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AorganizationId%3ADescribeGroup%27"><span class="annot"><span class="annottext">DescribeGroup -&gt; Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AorganizationId%3ADescribeGroup%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The identifier for the group to be described.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AgroupId%3ADescribeGroup%27"><span class="annot"><span class="annottext">DescribeGroup -&gt; Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AgroupId%3ADescribeGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292106"><span id="local-6989586621679292108"><span class="annot"><span class="annottext">DescribeGroup -&gt; DescribeGroup -&gt; Bool
+(DescribeGroup -&gt; DescribeGroup -&gt; Bool)
+-&gt; (DescribeGroup -&gt; DescribeGroup -&gt; Bool) -&gt; Eq DescribeGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGroup -&gt; DescribeGroup -&gt; Bool
+$c/= :: DescribeGroup -&gt; DescribeGroup -&gt; Bool
+== :: DescribeGroup -&gt; DescribeGroup -&gt; Bool
+$c== :: DescribeGroup -&gt; DescribeGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292097"><span id="local-6989586621679292099"><span id="local-6989586621679292101"><span id="local-6989586621679292103"><span class="annot"><span class="annottext">ReadPrec [DescribeGroup]
+ReadPrec DescribeGroup
+Int -&gt; ReadS DescribeGroup
+ReadS [DescribeGroup]
+(Int -&gt; ReadS DescribeGroup)
+-&gt; ReadS [DescribeGroup]
+-&gt; ReadPrec DescribeGroup
+-&gt; ReadPrec [DescribeGroup]
+-&gt; Read DescribeGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGroup]
+$creadListPrec :: ReadPrec [DescribeGroup]
+readPrec :: ReadPrec DescribeGroup
+$creadPrec :: ReadPrec DescribeGroup
+readList :: ReadS [DescribeGroup]
+$creadList :: ReadS [DescribeGroup]
+readsPrec :: Int -&gt; ReadS DescribeGroup
+$creadsPrec :: Int -&gt; ReadS DescribeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292090"><span id="local-6989586621679292092"><span id="local-6989586621679292094"><span class="annot"><span class="annottext">Int -&gt; DescribeGroup -&gt; ShowS
+[DescribeGroup] -&gt; ShowS
+DescribeGroup -&gt; String
+(Int -&gt; DescribeGroup -&gt; ShowS)
+-&gt; (DescribeGroup -&gt; String)
+-&gt; ([DescribeGroup] -&gt; ShowS)
+-&gt; Show DescribeGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGroup] -&gt; ShowS
+$cshowList :: [DescribeGroup] -&gt; ShowS
+show :: DescribeGroup -&gt; String
+$cshow :: DescribeGroup -&gt; String
+showsPrec :: Int -&gt; DescribeGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeGroup -&gt; Rep DescribeGroup x)
+-&gt; (forall x. Rep DescribeGroup x -&gt; DescribeGroup)
+-&gt; Generic DescribeGroup
+forall x. Rep DescribeGroup x -&gt; DescribeGroup
+forall x. DescribeGroup -&gt; Rep DescribeGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeGroup x -&gt; DescribeGroup
+$cfrom :: forall x. DescribeGroup -&gt; Rep DescribeGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeGroup' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'organizationId', 'describeGroup_organizationId' - The identifier for the organization under which the group exists.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'groupId', 'describeGroup_groupId' - The identifier for the group to be described.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#newDescribeGroup"><span class="hs-identifier hs-type">newDescribeGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'groupId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span>
+</span><span id="line-81"></span><span id="newDescribeGroup"><span class="annot"><span class="annottext">newDescribeGroup :: Text -&gt; Text -&gt; DescribeGroup
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#newDescribeGroup"><span class="hs-identifier hs-var hs-var">newDescribeGroup</span></a></span></span><span> </span><span id="local-6989586621679292085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292085"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679292084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292084"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DescribeGroup' :: Text -&gt; Text -&gt; DescribeGroup
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup%27"><span class="hs-identifier hs-type">DescribeGroup'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:DescribeGroup' :: Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AorganizationId%3ADescribeGroup%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292085"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:DescribeGroup' :: Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AgroupId%3ADescribeGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292084"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The identifier for the organization under which the group exists.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroup_organizationId"><span class="hs-identifier hs-type">describeGroup_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="describeGroup_organizationId"><span class="annot"><span class="annottext">describeGroup_organizationId :: (Text -&gt; f Text) -&gt; DescribeGroup -&gt; f DescribeGroup
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroup_organizationId"><span class="hs-identifier hs-var hs-var">describeGroup_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroup -&gt; Text)
+-&gt; (DescribeGroup -&gt; Text -&gt; DescribeGroup)
+-&gt; Lens DescribeGroup DescribeGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup%27"><span class="hs-identifier hs-type">DescribeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292081"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:DescribeGroup' :: DescribeGroup -&gt; Text
+</span><a href="#local-6989586621679292081"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292081"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292080"><span class="annot"><span class="annottext">s :: DescribeGroup
+</span><a href="#local-6989586621679292080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup%27"><span class="hs-identifier hs-type">DescribeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292079"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroup
+</span><a href="#local-6989586621679292080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeGroup' :: Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AorganizationId%3ADescribeGroup%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The identifier for the group to be described.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroup_groupId"><span class="hs-identifier hs-type">describeGroup_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="describeGroup_groupId"><span class="annot"><span class="annottext">describeGroup_groupId :: (Text -&gt; f Text) -&gt; DescribeGroup -&gt; f DescribeGroup
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroup_groupId"><span class="hs-identifier hs-var hs-var">describeGroup_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroup -&gt; Text)
+-&gt; (DescribeGroup -&gt; Text -&gt; DescribeGroup)
+-&gt; Lens DescribeGroup DescribeGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup%27"><span class="hs-identifier hs-type">DescribeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292078"><span class="annot"><span class="annottext">Text
+groupId :: Text
+$sel:groupId:DescribeGroup' :: DescribeGroup -&gt; Text
+</span><a href="#local-6989586621679292078"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292078"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292077"><span class="annot"><span class="annottext">s :: DescribeGroup
+</span><a href="#local-6989586621679292077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup%27"><span class="hs-identifier hs-type">DescribeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroup
+</span><a href="#local-6989586621679292077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:DescribeGroup' :: Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AgroupId%3ADescribeGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679292072"><span class="annot"><span class="annottext">request :: DescribeGroup -&gt; Request DescribeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeGroup -&gt; Request DescribeGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679292068"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679292064"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679292064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679292063"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe EntityState
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-var">DescribeGroupResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe EntityState
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Int
+ -&gt; DescribeGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe EntityState
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Email&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe EntityState
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeGroupResponse)
+-&gt; Either String (Maybe EntityState)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EntityState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeGroupResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; DescribeGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisabledDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; DescribeGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; DescribeGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; DescribeGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe POSIX -&gt; Int -&gt; DescribeGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; DescribeGroupResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; DescribeGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnabledDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeGroupResponse)
+-&gt; Either String Int -&gt; Either String DescribeGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292055"><span id="local-6989586621679292057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679292048"><span class="annot"><span class="annottext">toHeaders :: DescribeGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.DescribeGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292038"><span id="local-6989586621679292040"><span id="local-6989586621679292042"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679292036"><span class="annot"><span class="annottext">toJSON :: DescribeGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup%27"><span class="hs-identifier hs-type">DescribeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292033"><span id="local-6989586621679292034"><span class="annot"><span class="annottext">Text
+groupId :: Text
+organizationId :: Text
+$sel:groupId:DescribeGroup' :: DescribeGroup -&gt; Text
+$sel:organizationId:DescribeGroup' :: DescribeGroup -&gt; Text
+</span><a href="#local-6989586621679292033"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292034"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292033"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679292027"><span class="annot"><span class="annottext">toPath :: DescribeGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroup"><span class="hs-identifier hs-type">DescribeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679292023"><span class="annot"><span class="annottext">toQuery :: DescribeGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDescribeGroupResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679292020"><span id="local-6989586621679292021"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGroupResponse"><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-var">DescribeGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGroupResponse%27"><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-var">DescribeGroupResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email of the described group.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Aemail%3ADescribeGroupResponse%27"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Aemail%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The state of the user: enabled (registered to Amazon WorkMail) or</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- disabled (deregistered or never registered to WorkMail).</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3Astate%3ADescribeGroupResponse%27"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; Maybe EntityState
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Astate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.EntityState.html#EntityState"><span class="hs-identifier hs-type">EntityState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The date and time when a user was deregistered from WorkMail, in UNIX</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AdisabledDate%3ADescribeGroupResponse%27"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AdisabledDate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var hs-var">disabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The name of the described group.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3Aname%3ADescribeGroupResponse%27"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Aname%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The identifier of the described group.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AgroupId%3ADescribeGroupResponse%27"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AgroupId%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The date and time when a user was registered to WorkMail, in UNIX epoch</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- time format.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AenabledDate%3ADescribeGroupResponse%27"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AenabledDate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var hs-var">enabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeGroupResponse%27"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; Int
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AhttpStatus%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292009"><span id="local-6989586621679292011"><span class="annot"><span class="annottext">DescribeGroupResponse -&gt; DescribeGroupResponse -&gt; Bool
+(DescribeGroupResponse -&gt; DescribeGroupResponse -&gt; Bool)
+-&gt; (DescribeGroupResponse -&gt; DescribeGroupResponse -&gt; Bool)
+-&gt; Eq DescribeGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGroupResponse -&gt; DescribeGroupResponse -&gt; Bool
+$c/= :: DescribeGroupResponse -&gt; DescribeGroupResponse -&gt; Bool
+== :: DescribeGroupResponse -&gt; DescribeGroupResponse -&gt; Bool
+$c== :: DescribeGroupResponse -&gt; DescribeGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292001"><span id="local-6989586621679292003"><span id="local-6989586621679292005"><span id="local-6989586621679292007"><span class="annot"><span class="annottext">ReadPrec [DescribeGroupResponse]
+ReadPrec DescribeGroupResponse
+Int -&gt; ReadS DescribeGroupResponse
+ReadS [DescribeGroupResponse]
+(Int -&gt; ReadS DescribeGroupResponse)
+-&gt; ReadS [DescribeGroupResponse]
+-&gt; ReadPrec DescribeGroupResponse
+-&gt; ReadPrec [DescribeGroupResponse]
+-&gt; Read DescribeGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGroupResponse]
+$creadListPrec :: ReadPrec [DescribeGroupResponse]
+readPrec :: ReadPrec DescribeGroupResponse
+$creadPrec :: ReadPrec DescribeGroupResponse
+readList :: ReadS [DescribeGroupResponse]
+$creadList :: ReadS [DescribeGroupResponse]
+readsPrec :: Int -&gt; ReadS DescribeGroupResponse
+$creadsPrec :: Int -&gt; ReadS DescribeGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291995"><span id="local-6989586621679291997"><span id="local-6989586621679291999"><span class="annot"><span class="annottext">Int -&gt; DescribeGroupResponse -&gt; ShowS
+[DescribeGroupResponse] -&gt; ShowS
+DescribeGroupResponse -&gt; String
+(Int -&gt; DescribeGroupResponse -&gt; ShowS)
+-&gt; (DescribeGroupResponse -&gt; String)
+-&gt; ([DescribeGroupResponse] -&gt; ShowS)
+-&gt; Show DescribeGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGroupResponse] -&gt; ShowS
+$cshowList :: [DescribeGroupResponse] -&gt; ShowS
+show :: DescribeGroupResponse -&gt; String
+$cshow :: DescribeGroupResponse -&gt; String
+showsPrec :: Int -&gt; DescribeGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeGroupResponse -&gt; Rep DescribeGroupResponse x)
+-&gt; (forall x. Rep DescribeGroupResponse x -&gt; DescribeGroupResponse)
+-&gt; Generic DescribeGroupResponse
+forall x. Rep DescribeGroupResponse x -&gt; DescribeGroupResponse
+forall x. DescribeGroupResponse -&gt; Rep DescribeGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeGroupResponse x -&gt; DescribeGroupResponse
+$cfrom :: forall x. DescribeGroupResponse -&gt; Rep DescribeGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'DescribeGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'email', 'describeGroupResponse_email' - The email of the described group.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'state', 'describeGroupResponse_state' - The state of the user: enabled (registered to Amazon WorkMail) or</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- disabled (deregistered or never registered to WorkMail).</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'disabledDate', 'describeGroupResponse_disabledDate' - The date and time when a user was deregistered from WorkMail, in UNIX</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'name', 'describeGroupResponse_name' - The name of the described group.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'groupId', 'describeGroupResponse_groupId' - The identifier of the described group.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'enabledDate', 'describeGroupResponse_enabledDate' - The date and time when a user was registered to WorkMail, in UNIX epoch</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- time format.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'describeGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#newDescribeGroupResponse"><span class="hs-identifier hs-type">newDescribeGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newDescribeGroupResponse"><span class="annot"><span class="annottext">newDescribeGroupResponse :: Int -&gt; DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#newDescribeGroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679291992"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">DescribeGroupResponse' :: Maybe Text
+-&gt; Maybe EntityState
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:email:DescribeGroupResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Aemail%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:DescribeGroupResponse' :: Maybe EntityState
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Astate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:disabledDate:DescribeGroupResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AdisabledDate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">disabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeGroupResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Aname%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:DescribeGroupResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AgroupId%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabledDate:DescribeGroupResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AenabledDate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">enabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGroupResponse' :: Int
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AhttpStatus%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The email of the described group.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_email"><span class="hs-identifier hs-type">describeGroupResponse_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="describeGroupResponse_email"><span class="annot"><span class="annottext">describeGroupResponse_email :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_email"><span class="hs-identifier hs-var hs-var">describeGroupResponse_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroupResponse -&gt; Maybe Text)
+-&gt; (DescribeGroupResponse -&gt; Maybe Text -&gt; DescribeGroupResponse)
+-&gt; Lens
+     DescribeGroupResponse
+     DescribeGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291991"><span class="annot"><span class="annottext">Maybe Text
+email :: Maybe Text
+$sel:email:DescribeGroupResponse' :: DescribeGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291991"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291991"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291990"><span class="annot"><span class="annottext">s :: DescribeGroupResponse
+</span><a href="#local-6989586621679291990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291989"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupResponse
+</span><a href="#local-6989586621679291990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:DescribeGroupResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Aemail%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The state of the user: enabled (registered to Amazon WorkMail) or</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- disabled (deregistered or never registered to WorkMail).</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_state"><span class="hs-identifier hs-type">describeGroupResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.EntityState.html#EntityState"><span class="hs-identifier hs-type">EntityState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="describeGroupResponse_state"><span class="annot"><span class="annottext">describeGroupResponse_state :: (Maybe EntityState -&gt; f (Maybe EntityState))
+-&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_state"><span class="hs-identifier hs-var hs-var">describeGroupResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroupResponse -&gt; Maybe EntityState)
+-&gt; (DescribeGroupResponse
+    -&gt; Maybe EntityState -&gt; DescribeGroupResponse)
+-&gt; Lens
+     DescribeGroupResponse
+     DescribeGroupResponse
+     (Maybe EntityState)
+     (Maybe EntityState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291988"><span class="annot"><span class="annottext">Maybe EntityState
+state :: Maybe EntityState
+$sel:state:DescribeGroupResponse' :: DescribeGroupResponse -&gt; Maybe EntityState
+</span><a href="#local-6989586621679291988"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679291988"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291987"><span class="annot"><span class="annottext">s :: DescribeGroupResponse
+</span><a href="#local-6989586621679291987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291986"><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679291986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupResponse
+</span><a href="#local-6989586621679291987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:DescribeGroupResponse' :: Maybe EntityState
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Astate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679291986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The date and time when a user was deregistered from WorkMail, in UNIX</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_disabledDate"><span class="hs-identifier hs-type">describeGroupResponse_disabledDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="describeGroupResponse_disabledDate"><span class="annot"><span class="annottext">describeGroupResponse_disabledDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_disabledDate"><span class="hs-identifier hs-var hs-var">describeGroupResponse_disabledDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroupResponse -&gt; Maybe POSIX)
+-&gt; (DescribeGroupResponse -&gt; Maybe POSIX -&gt; DescribeGroupResponse)
+-&gt; Lens
+     DescribeGroupResponse
+     DescribeGroupResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291985"><span class="annot"><span class="annottext">Maybe POSIX
+disabledDate :: Maybe POSIX
+$sel:disabledDate:DescribeGroupResponse' :: DescribeGroupResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679291985"><span class="hs-identifier hs-var hs-var">disabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291985"><span class="hs-identifier hs-var">disabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291984"><span class="annot"><span class="annottext">s :: DescribeGroupResponse
+</span><a href="#local-6989586621679291984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291983"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupResponse
+</span><a href="#local-6989586621679291984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabledDate:DescribeGroupResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AdisabledDate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">disabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeGroupResponse
+-&gt; f DescribeGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The name of the described group.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_name"><span class="hs-identifier hs-type">describeGroupResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="describeGroupResponse_name"><span class="annot"><span class="annottext">describeGroupResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_name"><span class="hs-identifier hs-var hs-var">describeGroupResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroupResponse -&gt; Maybe Text)
+-&gt; (DescribeGroupResponse -&gt; Maybe Text -&gt; DescribeGroupResponse)
+-&gt; Lens
+     DescribeGroupResponse
+     DescribeGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291979"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DescribeGroupResponse' :: DescribeGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291979"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291979"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291978"><span class="annot"><span class="annottext">s :: DescribeGroupResponse
+</span><a href="#local-6989586621679291978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupResponse
+</span><a href="#local-6989586621679291978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeGroupResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3Aname%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The identifier of the described group.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_groupId"><span class="hs-identifier hs-type">describeGroupResponse_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="describeGroupResponse_groupId"><span class="annot"><span class="annottext">describeGroupResponse_groupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_groupId"><span class="hs-identifier hs-var hs-var">describeGroupResponse_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroupResponse -&gt; Maybe Text)
+-&gt; (DescribeGroupResponse -&gt; Maybe Text -&gt; DescribeGroupResponse)
+-&gt; Lens
+     DescribeGroupResponse
+     DescribeGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291976"><span class="annot"><span class="annottext">Maybe Text
+groupId :: Maybe Text
+$sel:groupId:DescribeGroupResponse' :: DescribeGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291976"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291976"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291975"><span class="annot"><span class="annottext">s :: DescribeGroupResponse
+</span><a href="#local-6989586621679291975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupResponse
+</span><a href="#local-6989586621679291975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:DescribeGroupResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AgroupId%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The date and time when a user was registered to WorkMail, in UNIX epoch</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- time format.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_enabledDate"><span class="hs-identifier hs-type">describeGroupResponse_enabledDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="describeGroupResponse_enabledDate"><span class="annot"><span class="annottext">describeGroupResponse_enabledDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_enabledDate"><span class="hs-identifier hs-var hs-var">describeGroupResponse_enabledDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroupResponse -&gt; Maybe POSIX)
+-&gt; (DescribeGroupResponse -&gt; Maybe POSIX -&gt; DescribeGroupResponse)
+-&gt; Lens
+     DescribeGroupResponse
+     DescribeGroupResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291973"><span class="annot"><span class="annottext">Maybe POSIX
+enabledDate :: Maybe POSIX
+$sel:enabledDate:DescribeGroupResponse' :: DescribeGroupResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679291973"><span class="hs-identifier hs-var hs-var">enabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291973"><span class="hs-identifier hs-var">enabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291972"><span class="annot"><span class="annottext">s :: DescribeGroupResponse
+</span><a href="#local-6989586621679291972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291971"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupResponse
+</span><a href="#local-6989586621679291972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabledDate:DescribeGroupResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AenabledDate%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">enabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeGroupResponse
+-&gt; f DescribeGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_httpStatus"><span class="hs-identifier hs-type">describeGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="describeGroupResponse_httpStatus"><span class="annot"><span class="annottext">describeGroupResponse_httpStatus :: (Int -&gt; f Int) -&gt; DescribeGroupResponse -&gt; f DescribeGroupResponse
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#describeGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGroupResponse -&gt; Int)
+-&gt; (DescribeGroupResponse -&gt; Int -&gt; DescribeGroupResponse)
+-&gt; Lens DescribeGroupResponse DescribeGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291970"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeGroupResponse' :: DescribeGroupResponse -&gt; Int
+</span><a href="#local-6989586621679291970"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291970"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291969"><span class="annot"><span class="annottext">s :: DescribeGroupResponse
+</span><a href="#local-6989586621679291969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse%27"><span class="hs-identifier hs-type">DescribeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291968"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupResponse
+</span><a href="#local-6989586621679291969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGroupResponse' :: Int
+</span><a href="Amazonka.WorkMail.DescribeGroup.html#%24sel%3AhttpStatus%3ADescribeGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeGroup.html#DescribeGroupResponse"><span class="hs-identifier hs-type">DescribeGroupResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

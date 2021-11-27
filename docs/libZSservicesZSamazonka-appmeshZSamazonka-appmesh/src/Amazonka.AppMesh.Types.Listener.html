@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.Listener</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.Listener</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HealthCheckPolicy.html"><span class="hs-identifier">Amazonka.AppMesh.Types.HealthCheckPolicy</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ListenerTimeout.html"><span class="hs-identifier">Amazonka.AppMesh.Types.ListenerTimeout</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ListenerTls.html"><span class="hs-identifier">Amazonka.AppMesh.Types.ListenerTls</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.OutlierDetection.html"><span class="hs-identifier">Amazonka.AppMesh.Types.OutlierDetection</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortMapping.html"><span class="hs-identifier">Amazonka.AppMesh.Types.PortMapping</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeConnectionPool.html"><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualNodeConnectionPool</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | An object that represents a listener for a virtual node.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newListener' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679339723"><span id="local-6989586621679339724"></span></span><span class="hs-keyword">data</span><span> </span><span id="Listener"><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-var">Listener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Listener%27"><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The health check information for the listener.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AhealthCheck%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe HealthCheckPolicy
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AhealthCheck%3AListener%27"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HealthCheckPolicy.html#HealthCheckPolicy"><span class="hs-identifier hs-type">HealthCheckPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The connection pool information for the listener.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AconnectionPool%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe VirtualNodeConnectionPool
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AconnectionPool%3AListener%27"><span class="hs-identifier hs-var hs-var">connectionPool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A reference to an object that represents the Transport Layer Security</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- (TLS) properties for a listener.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Atls%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe ListenerTls
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3Atls%3AListener%27"><span class="hs-identifier hs-var hs-var">tls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ListenerTls.html#ListenerTls"><span class="hs-identifier hs-type">ListenerTls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The outlier detection information for the listener.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AoutlierDetection%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe OutlierDetection
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AoutlierDetection%3AListener%27"><span class="hs-identifier hs-var hs-var">outlierDetection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.OutlierDetection.html#OutlierDetection"><span class="hs-identifier hs-type">OutlierDetection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An object that represents timeouts for different protocols.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atimeout%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe ListenerTimeout
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3Atimeout%3AListener%27"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The port mapping information for the listener.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AportMapping%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; PortMapping
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AportMapping%3AListener%27"><span class="hs-identifier hs-var hs-var">portMapping</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortMapping.html#PortMapping"><span class="hs-identifier hs-type">PortMapping</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339712"><span id="local-6989586621679339714"><span class="annot"><span class="annottext">Listener -&gt; Listener -&gt; Bool
+(Listener -&gt; Listener -&gt; Bool)
+-&gt; (Listener -&gt; Listener -&gt; Bool) -&gt; Eq Listener
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Listener -&gt; Listener -&gt; Bool
+$c/= :: Listener -&gt; Listener -&gt; Bool
+== :: Listener -&gt; Listener -&gt; Bool
+$c== :: Listener -&gt; Listener -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339703"><span id="local-6989586621679339705"><span id="local-6989586621679339707"><span id="local-6989586621679339709"><span class="annot"><span class="annottext">ReadPrec [Listener]
+ReadPrec Listener
+Int -&gt; ReadS Listener
+ReadS [Listener]
+(Int -&gt; ReadS Listener)
+-&gt; ReadS [Listener]
+-&gt; ReadPrec Listener
+-&gt; ReadPrec [Listener]
+-&gt; Read Listener
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Listener]
+$creadListPrec :: ReadPrec [Listener]
+readPrec :: ReadPrec Listener
+$creadPrec :: ReadPrec Listener
+readList :: ReadS [Listener]
+$creadList :: ReadS [Listener]
+readsPrec :: Int -&gt; ReadS Listener
+$creadsPrec :: Int -&gt; ReadS Listener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339696"><span id="local-6989586621679339698"><span id="local-6989586621679339700"><span class="annot"><span class="annottext">Int -&gt; Listener -&gt; ShowS
+[Listener] -&gt; ShowS
+Listener -&gt; String
+(Int -&gt; Listener -&gt; ShowS)
+-&gt; (Listener -&gt; String) -&gt; ([Listener] -&gt; ShowS) -&gt; Show Listener
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Listener] -&gt; ShowS
+$cshowList :: [Listener] -&gt; ShowS
+show :: Listener -&gt; String
+$cshow :: Listener -&gt; String
+showsPrec :: Int -&gt; Listener -&gt; ShowS
+$cshowsPrec :: Int -&gt; Listener -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Listener -&gt; Rep Listener x)
+-&gt; (forall x. Rep Listener x -&gt; Listener) -&gt; Generic Listener
+forall x. Rep Listener x -&gt; Listener
+forall x. Listener -&gt; Rep Listener x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Listener x -&gt; Listener
+$cfrom :: forall x. Listener -&gt; Rep Listener x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'Listener' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'healthCheck', 'listener_healthCheck' - The health check information for the listener.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'connectionPool', 'listener_connectionPool' - The connection pool information for the listener.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'tls', 'listener_tls' - A reference to an object that represents the Transport Layer Security</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- (TLS) properties for a listener.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'outlierDetection', 'listener_outlierDetection' - The outlier detection information for the listener.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'timeout', 'listener_timeout' - An object that represents timeouts for different protocols.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'portMapping', 'listener_portMapping' - The port mapping information for the listener.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#newListener"><span class="hs-identifier hs-type">newListener</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'portMapping'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortMapping.html#PortMapping"><span class="hs-identifier hs-type">PortMapping</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span>
+</span><span id="line-76"></span><span id="newListener"><span class="annot"><span class="annottext">newListener :: PortMapping -&gt; Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#newListener"><span class="hs-identifier hs-var hs-var">newListener</span></a></span></span><span> </span><span id="local-6989586621679339690"><span class="annot"><span class="annottext">PortMapping
+</span><a href="#local-6989586621679339690"><span class="hs-identifier hs-var">pPortMapping_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">Listener' :: Maybe HealthCheckPolicy
+-&gt; Maybe VirtualNodeConnectionPool
+-&gt; Maybe ListenerTls
+-&gt; Maybe OutlierDetection
+-&gt; Maybe ListenerTimeout
+-&gt; PortMapping
+-&gt; Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:healthCheck:Listener' :: Maybe HealthCheckPolicy
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AhealthCheck%3AListener%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionPool:Listener' :: Maybe VirtualNodeConnectionPool
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AconnectionPool%3AListener%27"><span class="hs-identifier hs-var">connectionPool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeConnectionPool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:tls:Listener' :: Maybe ListenerTls
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3Atls%3AListener%27"><span class="hs-identifier hs-var">tls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTls
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:outlierDetection:Listener' :: Maybe OutlierDetection
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AoutlierDetection%3AListener%27"><span class="hs-identifier hs-var">outlierDetection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutlierDetection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeout:Listener' :: Maybe ListenerTimeout
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3Atimeout%3AListener%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTimeout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:portMapping:Listener' :: PortMapping
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AportMapping%3AListener%27"><span class="hs-identifier hs-var">portMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortMapping
+</span><a href="#local-6989586621679339690"><span class="hs-identifier hs-var">pPortMapping_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The health check information for the listener.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#listener_healthCheck"><span class="hs-identifier hs-type">listener_healthCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HealthCheckPolicy.html#HealthCheckPolicy"><span class="hs-identifier hs-type">HealthCheckPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listener_healthCheck"><span class="annot"><span class="annottext">listener_healthCheck :: (Maybe HealthCheckPolicy -&gt; f (Maybe HealthCheckPolicy))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#listener_healthCheck"><span class="hs-identifier hs-var hs-var">listener_healthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe HealthCheckPolicy)
+-&gt; (Listener -&gt; Maybe HealthCheckPolicy -&gt; Listener)
+-&gt; Lens
+     Listener
+     Listener
+     (Maybe HealthCheckPolicy)
+     (Maybe HealthCheckPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339686"><span class="annot"><span class="annottext">Maybe HealthCheckPolicy
+healthCheck :: Maybe HealthCheckPolicy
+$sel:healthCheck:Listener' :: Listener -&gt; Maybe HealthCheckPolicy
+</span><a href="#local-6989586621679339686"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckPolicy
+</span><a href="#local-6989586621679339686"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339685"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679339685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339684"><span class="annot"><span class="annottext">Maybe HealthCheckPolicy
+</span><a href="#local-6989586621679339684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679339685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:Listener' :: Maybe HealthCheckPolicy
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AhealthCheck%3AListener%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckPolicy
+</span><a href="#local-6989586621679339684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The connection pool information for the listener.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#listener_connectionPool"><span class="hs-identifier hs-type">listener_connectionPool</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="listener_connectionPool"><span class="annot"><span class="annottext">listener_connectionPool :: (Maybe VirtualNodeConnectionPool
+ -&gt; f (Maybe VirtualNodeConnectionPool))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#listener_connectionPool"><span class="hs-identifier hs-var hs-var">listener_connectionPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe VirtualNodeConnectionPool)
+-&gt; (Listener -&gt; Maybe VirtualNodeConnectionPool -&gt; Listener)
+-&gt; Lens
+     Listener
+     Listener
+     (Maybe VirtualNodeConnectionPool)
+     (Maybe VirtualNodeConnectionPool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339682"><span class="annot"><span class="annottext">Maybe VirtualNodeConnectionPool
+connectionPool :: Maybe VirtualNodeConnectionPool
+$sel:connectionPool:Listener' :: Listener -&gt; Maybe VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339682"><span class="hs-identifier hs-var hs-var">connectionPool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339682"><span class="hs-identifier hs-var">connectionPool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339681"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679339681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339680"><span class="annot"><span class="annottext">Maybe VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679339681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionPool:Listener' :: Maybe VirtualNodeConnectionPool
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AconnectionPool%3AListener%27"><span class="hs-identifier hs-var">connectionPool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | A reference to an object that represents the Transport Layer Security</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- (TLS) properties for a listener.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#listener_tls"><span class="hs-identifier hs-type">listener_tls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ListenerTls.html#ListenerTls"><span class="hs-identifier hs-type">ListenerTls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listener_tls"><span class="annot"><span class="annottext">listener_tls :: (Maybe ListenerTls -&gt; f (Maybe ListenerTls))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#listener_tls"><span class="hs-identifier hs-var hs-var">listener_tls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe ListenerTls)
+-&gt; (Listener -&gt; Maybe ListenerTls -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe ListenerTls) (Maybe ListenerTls)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339678"><span class="annot"><span class="annottext">Maybe ListenerTls
+tls :: Maybe ListenerTls
+$sel:tls:Listener' :: Listener -&gt; Maybe ListenerTls
+</span><a href="#local-6989586621679339678"><span class="hs-identifier hs-var hs-var">tls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTls
+</span><a href="#local-6989586621679339678"><span class="hs-identifier hs-var">tls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339677"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679339677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339676"><span class="annot"><span class="annottext">Maybe ListenerTls
+</span><a href="#local-6989586621679339676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679339677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tls:Listener' :: Maybe ListenerTls
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3Atls%3AListener%27"><span class="hs-identifier hs-var">tls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTls
+</span><a href="#local-6989586621679339676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The outlier detection information for the listener.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#listener_outlierDetection"><span class="hs-identifier hs-type">listener_outlierDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.OutlierDetection.html#OutlierDetection"><span class="hs-identifier hs-type">OutlierDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listener_outlierDetection"><span class="annot"><span class="annottext">listener_outlierDetection :: (Maybe OutlierDetection -&gt; f (Maybe OutlierDetection))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#listener_outlierDetection"><span class="hs-identifier hs-var hs-var">listener_outlierDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe OutlierDetection)
+-&gt; (Listener -&gt; Maybe OutlierDetection -&gt; Listener)
+-&gt; Lens
+     Listener Listener (Maybe OutlierDetection) (Maybe OutlierDetection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339674"><span class="annot"><span class="annottext">Maybe OutlierDetection
+outlierDetection :: Maybe OutlierDetection
+$sel:outlierDetection:Listener' :: Listener -&gt; Maybe OutlierDetection
+</span><a href="#local-6989586621679339674"><span class="hs-identifier hs-var hs-var">outlierDetection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutlierDetection
+</span><a href="#local-6989586621679339674"><span class="hs-identifier hs-var">outlierDetection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339673"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679339673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339672"><span class="annot"><span class="annottext">Maybe OutlierDetection
+</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679339673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outlierDetection:Listener' :: Maybe OutlierDetection
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AoutlierDetection%3AListener%27"><span class="hs-identifier hs-var">outlierDetection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutlierDetection
+</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | An object that represents timeouts for different protocols.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#listener_timeout"><span class="hs-identifier hs-type">listener_timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listener_timeout"><span class="annot"><span class="annottext">listener_timeout :: (Maybe ListenerTimeout -&gt; f (Maybe ListenerTimeout))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#listener_timeout"><span class="hs-identifier hs-var hs-var">listener_timeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe ListenerTimeout)
+-&gt; (Listener -&gt; Maybe ListenerTimeout -&gt; Listener)
+-&gt; Lens
+     Listener Listener (Maybe ListenerTimeout) (Maybe ListenerTimeout)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339670"><span class="annot"><span class="annottext">Maybe ListenerTimeout
+timeout :: Maybe ListenerTimeout
+$sel:timeout:Listener' :: Listener -&gt; Maybe ListenerTimeout
+</span><a href="#local-6989586621679339670"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTimeout
+</span><a href="#local-6989586621679339670"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339669"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679339669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339668"><span class="annot"><span class="annottext">Maybe ListenerTimeout
+</span><a href="#local-6989586621679339668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679339669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:Listener' :: Maybe ListenerTimeout
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3Atimeout%3AListener%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTimeout
+</span><a href="#local-6989586621679339668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The port mapping information for the listener.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#listener_portMapping"><span class="hs-identifier hs-type">listener_portMapping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortMapping.html#PortMapping"><span class="hs-identifier hs-type">PortMapping</span></a></span><span>
+</span><span id="line-109"></span><span id="listener_portMapping"><span class="annot"><span class="annottext">listener_portMapping :: (PortMapping -&gt; f PortMapping) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#listener_portMapping"><span class="hs-identifier hs-var hs-var">listener_portMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; PortMapping)
+-&gt; (Listener -&gt; PortMapping -&gt; Listener)
+-&gt; Lens Listener Listener PortMapping PortMapping
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339666"><span class="annot"><span class="annottext">PortMapping
+portMapping :: PortMapping
+$sel:portMapping:Listener' :: Listener -&gt; PortMapping
+</span><a href="#local-6989586621679339666"><span class="hs-identifier hs-var hs-var">portMapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortMapping
+</span><a href="#local-6989586621679339666"><span class="hs-identifier hs-var">portMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339665"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679339665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339664"><span class="annot"><span class="annottext">PortMapping
+</span><a href="#local-6989586621679339664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679339665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portMapping:Listener' :: PortMapping
+</span><a href="Amazonka.AppMesh.Types.Listener.html#%24sel%3AportMapping%3AListener%27"><span class="hs-identifier hs-var">portMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortMapping
+</span><a href="#local-6989586621679339664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339661"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679339659"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Listener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Listener) -&gt; Value -&gt; Parser Listener
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Listener&quot;</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339656"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe HealthCheckPolicy
+-&gt; Maybe VirtualNodeConnectionPool
+-&gt; Maybe ListenerTls
+-&gt; Maybe OutlierDetection
+-&gt; Maybe ListenerTimeout
+-&gt; PortMapping
+-&gt; Listener
+</span><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HealthCheckPolicy
+ -&gt; Maybe VirtualNodeConnectionPool
+ -&gt; Maybe ListenerTls
+ -&gt; Maybe OutlierDetection
+ -&gt; Maybe ListenerTimeout
+ -&gt; PortMapping
+ -&gt; Listener)
+-&gt; Parser (Maybe HealthCheckPolicy)
+-&gt; Parser
+     (Maybe VirtualNodeConnectionPool
+      -&gt; Maybe ListenerTls
+      -&gt; Maybe OutlierDetection
+      -&gt; Maybe ListenerTimeout
+      -&gt; PortMapping
+      -&gt; Listener)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HealthCheckPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;healthCheck&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualNodeConnectionPool
+   -&gt; Maybe ListenerTls
+   -&gt; Maybe OutlierDetection
+   -&gt; Maybe ListenerTimeout
+   -&gt; PortMapping
+   -&gt; Listener)
+-&gt; Parser (Maybe VirtualNodeConnectionPool)
+-&gt; Parser
+     (Maybe ListenerTls
+      -&gt; Maybe OutlierDetection
+      -&gt; Maybe ListenerTimeout
+      -&gt; PortMapping
+      -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualNodeConnectionPool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionPool&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ListenerTls
+   -&gt; Maybe OutlierDetection
+   -&gt; Maybe ListenerTimeout
+   -&gt; PortMapping
+   -&gt; Listener)
+-&gt; Parser (Maybe ListenerTls)
+-&gt; Parser
+     (Maybe OutlierDetection
+      -&gt; Maybe ListenerTimeout -&gt; PortMapping -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ListenerTls)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tls&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OutlierDetection
+   -&gt; Maybe ListenerTimeout -&gt; PortMapping -&gt; Listener)
+-&gt; Parser (Maybe OutlierDetection)
+-&gt; Parser (Maybe ListenerTimeout -&gt; PortMapping -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutlierDetection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outlierDetection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ListenerTimeout -&gt; PortMapping -&gt; Listener)
+-&gt; Parser (Maybe ListenerTimeout)
+-&gt; Parser (PortMapping -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ListenerTimeout)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (PortMapping -&gt; Listener)
+-&gt; Parser PortMapping -&gt; Parser Listener
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PortMapping
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portMapping&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339649"><span id="local-6989586621679339651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339638"><span id="local-6989586621679339640"><span id="local-6989586621679339642"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679339636"><span class="annot"><span class="annottext">toJSON :: Listener -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339629"><span id="local-6989586621679339630"><span id="local-6989586621679339631"><span id="local-6989586621679339632"><span id="local-6989586621679339633"><span id="local-6989586621679339634"><span class="annot"><span class="annottext">Maybe OutlierDetection
+Maybe HealthCheckPolicy
+Maybe ListenerTimeout
+Maybe ListenerTls
+Maybe VirtualNodeConnectionPool
+PortMapping
+portMapping :: PortMapping
+timeout :: Maybe ListenerTimeout
+outlierDetection :: Maybe OutlierDetection
+tls :: Maybe ListenerTls
+connectionPool :: Maybe VirtualNodeConnectionPool
+healthCheck :: Maybe HealthCheckPolicy
+$sel:portMapping:Listener' :: Listener -&gt; PortMapping
+$sel:timeout:Listener' :: Listener -&gt; Maybe ListenerTimeout
+$sel:outlierDetection:Listener' :: Listener -&gt; Maybe OutlierDetection
+$sel:tls:Listener' :: Listener -&gt; Maybe ListenerTls
+$sel:connectionPool:Listener' :: Listener -&gt; Maybe VirtualNodeConnectionPool
+$sel:healthCheck:Listener' :: Listener -&gt; Maybe HealthCheckPolicy
+</span><a href="#local-6989586621679339629"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;healthCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HealthCheckPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HealthCheckPolicy -&gt; Pair)
+-&gt; Maybe HealthCheckPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckPolicy
+</span><a href="#local-6989586621679339634"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionPool&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualNodeConnectionPool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(VirtualNodeConnectionPool -&gt; Pair)
+-&gt; Maybe VirtualNodeConnectionPool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339633"><span class="hs-identifier hs-var">connectionPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListenerTls -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ListenerTls -&gt; Pair) -&gt; Maybe ListenerTls -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTls
+</span><a href="#local-6989586621679339632"><span class="hs-identifier hs-var">tls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outlierDetection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutlierDetection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(OutlierDetection -&gt; Pair) -&gt; Maybe OutlierDetection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OutlierDetection
+</span><a href="#local-6989586621679339631"><span class="hs-identifier hs-var">outlierDetection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListenerTimeout -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ListenerTimeout -&gt; Pair) -&gt; Maybe ListenerTimeout -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListenerTimeout
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portMapping&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PortMapping -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PortMapping
+</span><a href="#local-6989586621679339629"><span class="hs-identifier hs-var">portMapping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span></pre></body></html>

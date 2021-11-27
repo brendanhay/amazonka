@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.CodeStarNotifications.Types.DetailType
+module Amazonka.CodeStarNotifications.Types.DetailType
 newtype DetailType
 DetailType' :: Text -> DetailType
 [fromDetailType] :: DetailType -> Text
 pattern DetailType_BASIC :: DetailType
 pattern DetailType_FULL :: DetailType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance GHC.Classes.Ord Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance GHC.Classes.Ord Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.DetailType.DetailType
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.DetailType.DetailType
 
 
-module Network.AWS.CodeStarNotifications.Types.EventTypeSummary
+module Amazonka.CodeStarNotifications.Types.EventTypeSummary
 
 -- | Returns information about an event that has triggered a notification
 --   rule.
@@ -88,43 +88,43 @@ eventTypeSummary_eventTypeId :: Lens' EventTypeSummary (Maybe Text)
 
 -- | The name of the service for which the event applies.
 eventTypeSummary_serviceName :: Lens' EventTypeSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.EventTypeSummary.EventTypeSummary
 
 
-module Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName
+module Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName
 newtype ListEventTypesFilterName
 ListEventTypesFilterName' :: Text -> ListEventTypesFilterName
 [fromListEventTypesFilterName] :: ListEventTypesFilterName -> Text
 pattern ListEventTypesFilterName_RESOURCE_TYPE :: ListEventTypesFilterName
 pattern ListEventTypesFilterName_SERVICE_NAME :: ListEventTypesFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance GHC.Classes.Ord Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance GHC.Classes.Ord Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName.ListEventTypesFilterName
 
 
-module Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter
+module Amazonka.CodeStarNotifications.Types.ListEventTypesFilter
 
 -- | Information about a filter to apply to the list of returned event
 --   types. You can filter by resource type or service name.
@@ -165,16 +165,16 @@ listEventTypesFilter_name :: Lens' ListEventTypesFilter ListEventTypesFilterName
 -- | The name of the resource type (for example, pipeline) or service name
 --   (for example, CodePipeline) that you want to filter by.
 listEventTypesFilter_value :: Lens' ListEventTypesFilter Text
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.ListEventTypesFilter
 
 
-module Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName
+module Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName
 newtype ListNotificationRulesFilterName
 ListNotificationRulesFilterName' :: Text -> ListNotificationRulesFilterName
 [fromListNotificationRulesFilterName] :: ListNotificationRulesFilterName -> Text
@@ -182,28 +182,28 @@ pattern ListNotificationRulesFilterName_CREATED_BY :: ListNotificationRulesFilte
 pattern ListNotificationRulesFilterName_EVENT_TYPE_ID :: ListNotificationRulesFilterName
 pattern ListNotificationRulesFilterName_RESOURCE :: ListNotificationRulesFilterName
 pattern ListNotificationRulesFilterName_TARGET_ADDRESS :: ListNotificationRulesFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance GHC.Classes.Ord Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance GHC.Classes.Ord Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.ListNotificationRulesFilterName
 
 
-module Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter
+module Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter
 
 -- | Information about a filter to apply to the list of returned
 --   notification rules. You can filter by event type, owner, resource, or
@@ -252,44 +252,44 @@ listNotificationRulesFilter_name :: Lens' ListNotificationRulesFilter ListNotifi
 --   <i>RESOURCE</i> in Name, you might specify the ARN of a pipeline in
 --   AWS CodePipeline for the value.
 listNotificationRulesFilter_value :: Lens' ListNotificationRulesFilter Text
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.ListNotificationRulesFilter
 
 
-module Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName
+module Amazonka.CodeStarNotifications.Types.ListTargetsFilterName
 newtype ListTargetsFilterName
 ListTargetsFilterName' :: Text -> ListTargetsFilterName
 [fromListTargetsFilterName] :: ListTargetsFilterName -> Text
 pattern ListTargetsFilterName_TARGET_ADDRESS :: ListTargetsFilterName
 pattern ListTargetsFilterName_TARGET_STATUS :: ListTargetsFilterName
 pattern ListTargetsFilterName_TARGET_TYPE :: ListTargetsFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance GHC.Classes.Ord Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance GHC.Classes.Ord Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.ListTargetsFilterName.ListTargetsFilterName
 
 
-module Network.AWS.CodeStarNotifications.Types.ListTargetsFilter
+module Amazonka.CodeStarNotifications.Types.ListTargetsFilter
 
 -- | Information about a filter to apply to the list of returned targets.
 --   You can filter by target type, address, or status. For example, to
@@ -341,43 +341,43 @@ listTargetsFilter_name :: Lens' ListTargetsFilter ListTargetsFilterName
 --   you could specify an Amazon Resource Name (ARN) for a topic as the
 --   value.
 listTargetsFilter_value :: Lens' ListTargetsFilter Text
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.ListTargetsFilter.ListTargetsFilter
 
 
-module Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus
+module Amazonka.CodeStarNotifications.Types.NotificationRuleStatus
 newtype NotificationRuleStatus
 NotificationRuleStatus' :: Text -> NotificationRuleStatus
 [fromNotificationRuleStatus] :: NotificationRuleStatus -> Text
 pattern NotificationRuleStatus_DISABLED :: NotificationRuleStatus
 pattern NotificationRuleStatus_ENABLED :: NotificationRuleStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance GHC.Classes.Ord Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance GHC.Classes.Ord Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.NotificationRuleStatus.NotificationRuleStatus
 
 
-module Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary
+module Amazonka.CodeStarNotifications.Types.NotificationRuleSummary
 
 -- | Information about a specified notification rule.
 --   
@@ -414,16 +414,16 @@ notificationRuleSummary_arn :: Lens' NotificationRuleSummary (Maybe Text)
 
 -- | The unique ID of the notification rule.
 notificationRuleSummary_id :: Lens' NotificationRuleSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.NotificationRuleSummary.NotificationRuleSummary
 
 
-module Network.AWS.CodeStarNotifications.Types.Target
+module Amazonka.CodeStarNotifications.Types.Target
 
 -- | Information about the SNS topics associated with a notification rule.
 --   
@@ -457,15 +457,15 @@ target_targetType :: Lens' Target (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the SNS topic.
 target_targetAddress :: Lens' Target (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.Target.Target
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.Target.Target
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.Target.Target
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.Target.Target
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.Target.Target
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.Target.Target
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.Target.Target
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.Target.Target
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.Target.Target
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.Target.Target
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.Target.Target
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.Target.Target
 
 
-module Network.AWS.CodeStarNotifications.Types.TargetStatus
+module Amazonka.CodeStarNotifications.Types.TargetStatus
 newtype TargetStatus
 TargetStatus' :: Text -> TargetStatus
 [fromTargetStatus] :: TargetStatus -> Text
@@ -474,28 +474,28 @@ pattern TargetStatus_DEACTIVATED :: TargetStatus
 pattern TargetStatus_INACTIVE :: TargetStatus
 pattern TargetStatus_PENDING :: TargetStatus
 pattern TargetStatus_UNREACHABLE :: TargetStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance GHC.Classes.Ord Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance GHC.Classes.Ord Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.TargetStatus.TargetStatus
 
 
-module Network.AWS.CodeStarNotifications.Types.TargetSummary
+module Amazonka.CodeStarNotifications.Types.TargetSummary
 
 -- | Information about the targets specified for a notification rule.
 --   
@@ -540,15 +540,15 @@ targetSummary_targetAddress :: Lens' TargetSummary (Maybe Text)
 
 -- | The status of the target.
 targetSummary_targetStatus :: Lens' TargetSummary (Maybe TargetStatus)
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Types.TargetSummary.TargetSummary
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Types.TargetSummary.TargetSummary
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Types.TargetSummary.TargetSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarNotifications.Types.TargetSummary.TargetSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Types.TargetSummary.TargetSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Types.TargetSummary.TargetSummary
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Types.TargetSummary.TargetSummary
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Types.TargetSummary.TargetSummary
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Types.TargetSummary.TargetSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarNotifications.Types.TargetSummary.TargetSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Types.TargetSummary.TargetSummary
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Types.TargetSummary.TargetSummary
 
 
-module Network.AWS.CodeStarNotifications.Types
+module Amazonka.CodeStarNotifications.Types
 
 -- | API version <tt>2019-10-15</tt> of the Amazon CodeStar Notifications
 --   SDK configuration.
@@ -931,7 +931,7 @@ targetSummary_targetStatus :: Lens' TargetSummary (Maybe TargetStatus)
 
 
 -- | Associates a set of provided tags with a notification rule.
-module Network.AWS.CodeStarNotifications.TagResource
+module Amazonka.CodeStarNotifications.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -999,28 +999,28 @@ tagResourceResponse_tags :: Lens' TagResourceResponse (Maybe (HashMap Text Text)
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.TagResource.TagResource
+instance GHC.Show.Show Amazonka.CodeStarNotifications.TagResource.TagResource
+instance GHC.Read.Read Amazonka.CodeStarNotifications.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.TagResource.TagResource
 
 
 -- | Creates an association between a notification rule and an SNS topic so
 --   that the associated target can receive notifications when the events
 --   described in the rule are triggered.
-module Network.AWS.CodeStarNotifications.Subscribe
+module Amazonka.CodeStarNotifications.Subscribe
 
 -- | <i>See:</i> <a>newSubscribe</a> smart constructor.
 data Subscribe
@@ -1100,27 +1100,27 @@ subscribeResponse_arn :: Lens' SubscribeResponse (Maybe Text)
 
 -- | The response's http status code.
 subscribeResponse_httpStatus :: Lens' SubscribeResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Subscribe.SubscribeResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Subscribe.SubscribeResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Subscribe.SubscribeResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Subscribe.SubscribeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Subscribe.SubscribeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.Subscribe.Subscribe
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Subscribe.Subscribe
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Subscribe.SubscribeResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Subscribe.SubscribeResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Subscribe.SubscribeResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Subscribe.SubscribeResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Subscribe.SubscribeResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.Subscribe.Subscribe
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Subscribe.Subscribe
 
 
 -- | Returns a list of the notification rule targets for an AWS account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeStarNotifications.ListTargets
+module Amazonka.CodeStarNotifications.ListTargets
 
 -- | <i>See:</i> <a>newListTargets</a> smart constructor.
 data ListTargets
@@ -1228,26 +1228,26 @@ listTargetsResponse_targets :: Lens' ListTargetsResponse (Maybe [TargetSummary])
 
 -- | The response's http status code.
 listTargetsResponse_httpStatus :: Lens' ListTargetsResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListTargets.ListTargetsResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListTargets.ListTargetsResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListTargets.ListTargetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListTargets.ListTargetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.ListTargets.ListTargets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.ListTargets.ListTargets
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance GHC.Read.Read Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListTargets.ListTargetsResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListTargets.ListTargetsResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListTargets.ListTargetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListTargets.ListTargetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.ListTargets.ListTargets
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.ListTargets.ListTargets
 
 
 -- | Returns a list of the tags associated with a notification rule.
-module Network.AWS.CodeStarNotifications.ListTagsForResource
+module Amazonka.CodeStarNotifications.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1305,28 +1305,28 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a list of the notification rules for an AWS account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeStarNotifications.ListNotificationRules
+module Amazonka.CodeStarNotifications.ListNotificationRules
 
 -- | <i>See:</i> <a>newListNotificationRules</a> smart constructor.
 data ListNotificationRules
@@ -1440,30 +1440,30 @@ listNotificationRulesResponse_notificationRules :: Lens' ListNotificationRulesRe
 
 -- | The response's http status code.
 listNotificationRulesResponse_httpStatus :: Lens' ListNotificationRulesResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance GHC.Read.Read Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRulesResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.ListNotificationRules.ListNotificationRules
 
 
 -- | Returns information about the event types available for configuring
 --   notifications.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeStarNotifications.ListEventTypes
+module Amazonka.CodeStarNotifications.ListEventTypes
 
 -- | <i>See:</i> <a>newListEventTypes</a> smart constructor.
 data ListEventTypes
@@ -1563,27 +1563,27 @@ listEventTypesResponse_nextToken :: Lens' ListEventTypesResponse (Maybe Text)
 
 -- | The response's http status code.
 listEventTypesResponse_httpStatus :: Lens' ListEventTypesResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance GHC.Read.Read Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypesResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.ListEventTypes.ListEventTypes
 
 
 -- | Returns information about a specified notification rule.
-module Network.AWS.CodeStarNotifications.DescribeNotificationRule
+module Amazonka.CodeStarNotifications.DescribeNotificationRule
 
 -- | <i>See:</i> <a>newDescribeNotificationRule</a> smart constructor.
 data DescribeNotificationRule
@@ -1767,25 +1767,25 @@ describeNotificationRuleResponse_httpStatus :: Lens' DescribeNotificationRuleRes
 
 -- | The Amazon Resource Name (ARN) of the notification rule.
 describeNotificationRuleResponse_arn :: Lens' DescribeNotificationRuleResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance GHC.Show.Show Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance GHC.Read.Read Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRuleResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.DescribeNotificationRule.DescribeNotificationRule
 
 
 -- | Deletes a specified target for notifications.
-module Network.AWS.CodeStarNotifications.DeleteTarget
+module Amazonka.CodeStarNotifications.DeleteTarget
 
 -- | <i>See:</i> <a>newDeleteTarget</a> smart constructor.
 data DeleteTarget
@@ -1852,25 +1852,25 @@ newDeleteTargetResponse :: Int -> DeleteTargetResponse
 
 -- | The response's http status code.
 deleteTargetResponse_httpStatus :: Lens' DeleteTargetResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance GHC.Show.Show Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.DeleteTarget.DeleteTargetResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.DeleteTarget.DeleteTarget
 
 
 -- | Deletes a notification rule for a resource.
-module Network.AWS.CodeStarNotifications.DeleteNotificationRule
+module Amazonka.CodeStarNotifications.DeleteNotificationRule
 
 -- | <i>See:</i> <a>newDeleteNotificationRule</a> smart constructor.
 data DeleteNotificationRule
@@ -1932,28 +1932,28 @@ deleteNotificationRuleResponse_arn :: Lens' DeleteNotificationRuleResponse (Mayb
 
 -- | The response's http status code.
 deleteNotificationRuleResponse_httpStatus :: Lens' DeleteNotificationRuleResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance GHC.Show.Show Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance GHC.Read.Read Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRuleResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.DeleteNotificationRule.DeleteNotificationRule
 
 
 -- | Creates a notification rule for a resource. The rule specifies the
 --   events you want notifications about and the targets (such as SNS
 --   topics) where you want to receive them.
-module Network.AWS.CodeStarNotifications.CreateNotificationRule
+module Amazonka.CodeStarNotifications.CreateNotificationRule
 
 -- | <i>See:</i> <a>newCreateNotificationRule</a> smart constructor.
 data CreateNotificationRule
@@ -2138,27 +2138,27 @@ createNotificationRuleResponse_arn :: Lens' CreateNotificationRuleResponse (Mayb
 
 -- | The response's http status code.
 createNotificationRuleResponse_httpStatus :: Lens' CreateNotificationRuleResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance GHC.Show.Show Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRuleResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.CreateNotificationRule.CreateNotificationRule
 
 
 -- | Removes an association between a notification rule and an Amazon SNS
 --   topic so that subscribers to that topic stop receiving notifications
 --   when the events described in the rule are triggered.
-module Network.AWS.CodeStarNotifications.Unsubscribe
+module Amazonka.CodeStarNotifications.Unsubscribe
 
 -- | <i>See:</i> <a>newUnsubscribe</a> smart constructor.
 data Unsubscribe
@@ -2227,26 +2227,26 @@ unsubscribeResponse_httpStatus :: Lens' UnsubscribeResponse Int
 -- | The Amazon Resource Name (ARN) of the the notification rule from which
 --   you have removed a subscription.
 unsubscribeResponse_arn :: Lens' UnsubscribeResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Unsubscribe.UnsubscribeResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.Unsubscribe.Unsubscribe
 
 
 -- | Removes the association between one or more provided tags and a
 --   notification rule.
-module Network.AWS.CodeStarNotifications.UntagResource
+module Amazonka.CodeStarNotifications.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2306,22 +2306,22 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.UntagResource.UntagResource
 
 
 -- | Updates a notification rule for a resource. You can change the events
@@ -2330,7 +2330,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.UntagR
 --   
 --   To add or remove tags for a notification rule, you must use
 --   TagResource and UntagResource.
-module Network.AWS.CodeStarNotifications.UpdateNotificationRule
+module Amazonka.CodeStarNotifications.UpdateNotificationRule
 
 -- | <i>See:</i> <a>newUpdateNotificationRule</a> smart constructor.
 data UpdateNotificationRule
@@ -2447,24 +2447,24 @@ newUpdateNotificationRuleResponse :: Int -> UpdateNotificationRuleResponse
 
 -- | The response's http status code.
 updateNotificationRuleResponse_httpStatus :: Lens' UpdateNotificationRuleResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance GHC.Generics.Generic Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
-instance GHC.Show.Show Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
-instance GHC.Read.Read Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance Control.DeepSeq.NFData Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance GHC.Show.Show Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance GHC.Generics.Generic Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
+instance GHC.Show.Show Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
+instance GHC.Read.Read Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
+instance GHC.Classes.Eq Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRuleResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance Control.DeepSeq.NFData Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarNotifications.UpdateNotificationRule.UpdateNotificationRule
 
 
-module Network.AWS.CodeStarNotifications.Lens
+module Amazonka.CodeStarNotifications.Lens
 
 -- | The status of the notification rule. The default value is ENABLED. If
 --   the status is set to DISABLED, notifications aren't sent for the
@@ -2813,7 +2813,7 @@ targetSummary_targetAddress :: Lens' TargetSummary (Maybe Text)
 targetSummary_targetStatus :: Lens' TargetSummary (Maybe TargetStatus)
 
 
-module Network.AWS.CodeStarNotifications.Waiters
+module Amazonka.CodeStarNotifications.Waiters
 
 
 -- | Derived from API version <tt>2019-10-15</tt> of the AWS service
@@ -2869,7 +2869,7 @@ module Network.AWS.CodeStarNotifications.Waiters
 --   
 --   For information about how to use AWS CodeStar Notifications, see link
 --   in the CodeStarNotifications User Guide.
-module Network.AWS.CodeStarNotifications
+module Amazonka.CodeStarNotifications
 
 -- | API version <tt>2019-10-15</tt> of the Amazon CodeStar Notifications
 --   SDK configuration.

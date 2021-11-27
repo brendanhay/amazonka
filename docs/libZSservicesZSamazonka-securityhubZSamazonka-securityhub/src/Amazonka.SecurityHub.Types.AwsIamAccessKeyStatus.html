@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus"><span class="hs-identifier">AwsIamAccessKeyStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus_Active"><span class="hs-identifier">AwsIamAccessKeyStatus_Active</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus_Inactive"><span class="hs-identifier">AwsIamAccessKeyStatus_Inactive</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679958652"><span id="local-6989586621679958653"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AwsIamAccessKeyStatus"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus"><span class="hs-identifier hs-var">AwsIamAccessKeyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsIamAccessKeyStatus%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus%27"><span class="hs-identifier hs-var">AwsIamAccessKeyStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAwsIamAccessKeyStatus"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#fromAwsIamAccessKeyStatus"><span class="hs-identifier hs-var hs-var">fromAwsIamAccessKeyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958644"><span id="local-6989586621679958646"><span id="local-6989586621679958648"><span class="annot"><span class="annottext">Int -&gt; AwsIamAccessKeyStatus -&gt; ShowS
+[AwsIamAccessKeyStatus] -&gt; ShowS
+AwsIamAccessKeyStatus -&gt; String
+(Int -&gt; AwsIamAccessKeyStatus -&gt; ShowS)
+-&gt; (AwsIamAccessKeyStatus -&gt; String)
+-&gt; ([AwsIamAccessKeyStatus] -&gt; ShowS)
+-&gt; Show AwsIamAccessKeyStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsIamAccessKeyStatus] -&gt; ShowS
+$cshowList :: [AwsIamAccessKeyStatus] -&gt; ShowS
+show :: AwsIamAccessKeyStatus -&gt; String
+$cshow :: AwsIamAccessKeyStatus -&gt; String
+showsPrec :: Int -&gt; AwsIamAccessKeyStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsIamAccessKeyStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679958635"><span id="local-6989586621679958637"><span id="local-6989586621679958639"><span id="local-6989586621679958641"><span class="annot"><span class="annottext">ReadPrec [AwsIamAccessKeyStatus]
+ReadPrec AwsIamAccessKeyStatus
+Int -&gt; ReadS AwsIamAccessKeyStatus
+ReadS [AwsIamAccessKeyStatus]
+(Int -&gt; ReadS AwsIamAccessKeyStatus)
+-&gt; ReadS [AwsIamAccessKeyStatus]
+-&gt; ReadPrec AwsIamAccessKeyStatus
+-&gt; ReadPrec [AwsIamAccessKeyStatus]
+-&gt; Read AwsIamAccessKeyStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsIamAccessKeyStatus]
+$creadListPrec :: ReadPrec [AwsIamAccessKeyStatus]
+readPrec :: ReadPrec AwsIamAccessKeyStatus
+$creadPrec :: ReadPrec AwsIamAccessKeyStatus
+readList :: ReadS [AwsIamAccessKeyStatus]
+$creadList :: ReadS [AwsIamAccessKeyStatus]
+readsPrec :: Int -&gt; ReadS AwsIamAccessKeyStatus
+$creadsPrec :: Int -&gt; ReadS AwsIamAccessKeyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679958630"><span id="local-6989586621679958632"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+(AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool)
+-&gt; (AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool)
+-&gt; Eq AwsIamAccessKeyStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+$c/= :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+== :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+$c== :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679958614"><span id="local-6989586621679958616"><span id="local-6989586621679958618"><span id="local-6989586621679958620"><span id="local-6989586621679958622"><span id="local-6989586621679958624"><span id="local-6989586621679958626"><span class="annot"><span class="annottext">Eq AwsIamAccessKeyStatus
+Eq AwsIamAccessKeyStatus
+-&gt; (AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Ordering)
+-&gt; (AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool)
+-&gt; (AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool)
+-&gt; (AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool)
+-&gt; (AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool)
+-&gt; (AwsIamAccessKeyStatus
+    -&gt; AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus)
+-&gt; (AwsIamAccessKeyStatus
+    -&gt; AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus)
+-&gt; Ord AwsIamAccessKeyStatus
+AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Ordering
+AwsIamAccessKeyStatus
+-&gt; AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AwsIamAccessKeyStatus
+-&gt; AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus
+$cmin :: AwsIamAccessKeyStatus
+-&gt; AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus
+max :: AwsIamAccessKeyStatus
+-&gt; AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus
+$cmax :: AwsIamAccessKeyStatus
+-&gt; AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus
+&gt;= :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+$c&gt;= :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+&gt; :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+$c&gt; :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+&lt;= :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+$c&lt;= :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+&lt; :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+$c&lt; :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Bool
+compare :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Ordering
+$ccompare :: AwsIamAccessKeyStatus -&gt; AwsIamAccessKeyStatus -&gt; Ordering
+$cp1Ord :: Eq AwsIamAccessKeyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AwsIamAccessKeyStatus -&gt; Rep AwsIamAccessKeyStatus x)
+-&gt; (forall x. Rep AwsIamAccessKeyStatus x -&gt; AwsIamAccessKeyStatus)
+-&gt; Generic AwsIamAccessKeyStatus
+forall x. Rep AwsIamAccessKeyStatus x -&gt; AwsIamAccessKeyStatus
+forall x. AwsIamAccessKeyStatus -&gt; Rep AwsIamAccessKeyStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsIamAccessKeyStatus x -&gt; AwsIamAccessKeyStatus
+$cfrom :: forall x. AwsIamAccessKeyStatus -&gt; Rep AwsIamAccessKeyStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958606"><span id="local-6989586621679958608"><span class="annot"><span class="annottext">Int -&gt; AwsIamAccessKeyStatus -&gt; Int
+AwsIamAccessKeyStatus -&gt; Int
+(Int -&gt; AwsIamAccessKeyStatus -&gt; Int)
+-&gt; (AwsIamAccessKeyStatus -&gt; Int) -&gt; Hashable AwsIamAccessKeyStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AwsIamAccessKeyStatus -&gt; Int
+$chash :: AwsIamAccessKeyStatus -&gt; Int
+hashWithSalt :: Int -&gt; AwsIamAccessKeyStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AwsIamAccessKeyStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679958603"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; ()
+(AwsIamAccessKeyStatus -&gt; ()) -&gt; NFData AwsIamAccessKeyStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AwsIamAccessKeyStatus -&gt; ()
+$crnf :: AwsIamAccessKeyStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679958600"><span class="annot"><span class="annottext">Text -&gt; Either String AwsIamAccessKeyStatus
+(Text -&gt; Either String AwsIamAccessKeyStatus)
+-&gt; FromText AwsIamAccessKeyStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AwsIamAccessKeyStatus
+$cfromText :: Text -&gt; Either String AwsIamAccessKeyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679958597"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; Text
+(AwsIamAccessKeyStatus -&gt; Text) -&gt; ToText AwsIamAccessKeyStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AwsIamAccessKeyStatus -&gt; Text
+$ctoText :: AwsIamAccessKeyStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679958594"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; ByteString
+(AwsIamAccessKeyStatus -&gt; ByteString)
+-&gt; ToByteString AwsIamAccessKeyStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AwsIamAccessKeyStatus -&gt; ByteString
+$ctoBS :: AwsIamAccessKeyStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679958591"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; ByteStringBuilder
+(AwsIamAccessKeyStatus -&gt; ByteStringBuilder)
+-&gt; ToLog AwsIamAccessKeyStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AwsIamAccessKeyStatus -&gt; ByteStringBuilder
+$cbuild :: AwsIamAccessKeyStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679958588"><span class="annot"><span class="annottext">HeaderName -&gt; AwsIamAccessKeyStatus -&gt; [Header]
+(HeaderName -&gt; AwsIamAccessKeyStatus -&gt; [Header])
+-&gt; ToHeader AwsIamAccessKeyStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AwsIamAccessKeyStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AwsIamAccessKeyStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679958585"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; QueryString
+(AwsIamAccessKeyStatus -&gt; QueryString)
+-&gt; ToQuery AwsIamAccessKeyStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AwsIamAccessKeyStatus -&gt; QueryString
+$ctoQuery :: AwsIamAccessKeyStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679958580"><span id="local-6989586621679958582"><span class="annot"><span class="annottext">Value -&gt; Parser [AwsIamAccessKeyStatus]
+Value -&gt; Parser AwsIamAccessKeyStatus
+(Value -&gt; Parser AwsIamAccessKeyStatus)
+-&gt; (Value -&gt; Parser [AwsIamAccessKeyStatus])
+-&gt; FromJSON AwsIamAccessKeyStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AwsIamAccessKeyStatus]
+$cparseJSONList :: Value -&gt; Parser [AwsIamAccessKeyStatus]
+parseJSON :: Value -&gt; Parser AwsIamAccessKeyStatus
+$cparseJSON :: Value -&gt; Parser AwsIamAccessKeyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679958575"><span id="local-6989586621679958577"><span class="annot"><span class="annottext">FromJSONKeyFunction [AwsIamAccessKeyStatus]
+FromJSONKeyFunction AwsIamAccessKeyStatus
+FromJSONKeyFunction AwsIamAccessKeyStatus
+-&gt; FromJSONKeyFunction [AwsIamAccessKeyStatus]
+-&gt; FromJSONKey AwsIamAccessKeyStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AwsIamAccessKeyStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AwsIamAccessKeyStatus]
+fromJSONKey :: FromJSONKeyFunction AwsIamAccessKeyStatus
+$cfromJSONKey :: FromJSONKeyFunction AwsIamAccessKeyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679958566"><span id="local-6989586621679958568"><span id="local-6989586621679958570"><span id="local-6989586621679958572"><span class="annot"><span class="annottext">[AwsIamAccessKeyStatus] -&gt; Encoding
+[AwsIamAccessKeyStatus] -&gt; Value
+AwsIamAccessKeyStatus -&gt; Encoding
+AwsIamAccessKeyStatus -&gt; Value
+(AwsIamAccessKeyStatus -&gt; Value)
+-&gt; (AwsIamAccessKeyStatus -&gt; Encoding)
+-&gt; ([AwsIamAccessKeyStatus] -&gt; Value)
+-&gt; ([AwsIamAccessKeyStatus] -&gt; Encoding)
+-&gt; ToJSON AwsIamAccessKeyStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AwsIamAccessKeyStatus] -&gt; Encoding
+$ctoEncodingList :: [AwsIamAccessKeyStatus] -&gt; Encoding
+toJSONList :: [AwsIamAccessKeyStatus] -&gt; Value
+$ctoJSONList :: [AwsIamAccessKeyStatus] -&gt; Value
+toEncoding :: AwsIamAccessKeyStatus -&gt; Encoding
+$ctoEncoding :: AwsIamAccessKeyStatus -&gt; Encoding
+toJSON :: AwsIamAccessKeyStatus -&gt; Value
+$ctoJSON :: AwsIamAccessKeyStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679958561"><span id="local-6989586621679958563"><span class="annot"><span class="annottext">ToJSONKeyFunction [AwsIamAccessKeyStatus]
+ToJSONKeyFunction AwsIamAccessKeyStatus
+ToJSONKeyFunction AwsIamAccessKeyStatus
+-&gt; ToJSONKeyFunction [AwsIamAccessKeyStatus]
+-&gt; ToJSONKey AwsIamAccessKeyStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AwsIamAccessKeyStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AwsIamAccessKeyStatus]
+toJSONKey :: ToJSONKeyFunction AwsIamAccessKeyStatus
+$ctoJSONKey :: ToJSONKeyFunction AwsIamAccessKeyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679958558"><span class="annot"><span class="annottext">[Node] -&gt; Either String AwsIamAccessKeyStatus
+([Node] -&gt; Either String AwsIamAccessKeyStatus)
+-&gt; FromXML AwsIamAccessKeyStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AwsIamAccessKeyStatus
+$cparseXML :: [Node] -&gt; Either String AwsIamAccessKeyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679958555"><span class="annot"><span class="annottext">AwsIamAccessKeyStatus -&gt; XML
+(AwsIamAccessKeyStatus -&gt; XML) -&gt; ToXML AwsIamAccessKeyStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AwsIamAccessKeyStatus -&gt; XML
+$ctoXML :: AwsIamAccessKeyStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus_Active"><span class="hs-identifier hs-type">AwsIamAccessKeyStatus_Active</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus"><span class="hs-identifier hs-type">AwsIamAccessKeyStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAwsIamAccessKeyStatus_Active"><span id="%24mAwsIamAccessKeyStatus_Active"><span id="AwsIamAccessKeyStatus_Active"><span class="annot"><span class="annottext">$bAwsIamAccessKeyStatus_Active :: AwsIamAccessKeyStatus
+$mAwsIamAccessKeyStatus_Active :: forall r.
+AwsIamAccessKeyStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#%24bAwsIamAccessKeyStatus_Active"><span class="hs-identifier hs-var hs-var hs-var">AwsIamAccessKeyStatus_Active</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus%27"><span class="hs-identifier hs-type">AwsIamAccessKeyStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Active&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus_Inactive"><span class="hs-identifier hs-type">AwsIamAccessKeyStatus_Inactive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus"><span class="hs-identifier hs-type">AwsIamAccessKeyStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAwsIamAccessKeyStatus_Inactive"><span id="%24mAwsIamAccessKeyStatus_Inactive"><span id="AwsIamAccessKeyStatus_Inactive"><span class="annot"><span class="annottext">$bAwsIamAccessKeyStatus_Inactive :: AwsIamAccessKeyStatus
+$mAwsIamAccessKeyStatus_Inactive :: forall r.
+AwsIamAccessKeyStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#%24bAwsIamAccessKeyStatus_Inactive"><span class="hs-identifier hs-var hs-var hs-var">AwsIamAccessKeyStatus_Inactive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus%27"><span class="hs-identifier hs-type">AwsIamAccessKeyStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Inactive&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus_Active"><span class="hs-pragma hs-type">AwsIamAccessKeyStatus_Active</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus_Inactive"><span class="hs-pragma hs-type">AwsIamAccessKeyStatus_Inactive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus.html#AwsIamAccessKeyStatus%27"><span class="hs-pragma hs-type">AwsIamAccessKeyStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

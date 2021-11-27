@@ -1,0 +1,769 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LakeFormation.ListPermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of the principal permissions on the resource, filtered by</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the permissions of the caller. For example, if you are granted an ALTER</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- permission, you are able to see only the principal permissions for</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- ALTER.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns only those permissions that have been explicitly</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- granted.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- For information about permissions, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LakeFormation.ListPermissions</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier">ListPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#newListPermissions"><span class="hs-identifier">newListPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_resourceType"><span class="hs-identifier">listPermissions_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_catalogId"><span class="hs-identifier">listPermissions_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_nextToken"><span class="hs-identifier">listPermissions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_principal"><span class="hs-identifier">listPermissions_principal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_resource"><span class="hs-identifier">listPermissions_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_maxResults"><span class="hs-identifier">listPermissions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier">ListPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#newListPermissionsResponse"><span class="hs-identifier">newListPermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_nextToken"><span class="hs-identifier">listPermissionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_principalResourcePermissions"><span class="hs-identifier">listPermissionsResponse_principalResourcePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_httpStatus"><span class="hs-identifier">listPermissionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.html"><span class="hs-identifier">Amazonka.LakeFormation.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newListPermissions' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679202478"><span id="local-6989586621679202479"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPermissions"><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-var">ListPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPermissions%27"><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-var">ListPermissions'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies a resource type to filter the permissions returned.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AresourceType%3AListPermissions%27"><span class="annot"><span class="annottext">ListPermissions -&gt; Maybe DataLakeResourceType
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AresourceType%3AListPermissions%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLakeResourceType.html#DataLakeResourceType"><span class="hs-identifier hs-type">DataLakeResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AcatalogId%3AListPermissions%27"><span class="annot"><span class="annottext">ListPermissions -&gt; Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AcatalogId%3AListPermissions%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A continuation token, if this is not the first call to retrieve this</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AnextToken%3AListPermissions%27"><span class="annot"><span class="annottext">ListPermissions -&gt; Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AnextToken%3AListPermissions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Specifies a principal to filter the permissions returned.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aprincipal%3AListPermissions%27"><span class="annot"><span class="annottext">ListPermissions -&gt; Maybe DataLakePrincipal
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3Aprincipal%3AListPermissions%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A resource where you will get a list of the principal permissions.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- This operation does not support getting privileges on a table with</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- columns. Instead, call this operation on the table, and the operation</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- returns the table and the table w columns.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Aresource%3AListPermissions%27"><span class="annot"><span class="annottext">ListPermissions -&gt; Maybe Resource
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3Aresource%3AListPermissions%27"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPermissions%27"><span class="annot"><span class="annottext">ListPermissions -&gt; Maybe Natural
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AmaxResults%3AListPermissions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202467"><span id="local-6989586621679202469"><span class="annot"><span class="annottext">ListPermissions -&gt; ListPermissions -&gt; Bool
+(ListPermissions -&gt; ListPermissions -&gt; Bool)
+-&gt; (ListPermissions -&gt; ListPermissions -&gt; Bool)
+-&gt; Eq ListPermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPermissions -&gt; ListPermissions -&gt; Bool
+$c/= :: ListPermissions -&gt; ListPermissions -&gt; Bool
+== :: ListPermissions -&gt; ListPermissions -&gt; Bool
+$c== :: ListPermissions -&gt; ListPermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202458"><span id="local-6989586621679202460"><span id="local-6989586621679202462"><span id="local-6989586621679202464"><span class="annot"><span class="annottext">ReadPrec [ListPermissions]
+ReadPrec ListPermissions
+Int -&gt; ReadS ListPermissions
+ReadS [ListPermissions]
+(Int -&gt; ReadS ListPermissions)
+-&gt; ReadS [ListPermissions]
+-&gt; ReadPrec ListPermissions
+-&gt; ReadPrec [ListPermissions]
+-&gt; Read ListPermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPermissions]
+$creadListPrec :: ReadPrec [ListPermissions]
+readPrec :: ReadPrec ListPermissions
+$creadPrec :: ReadPrec ListPermissions
+readList :: ReadS [ListPermissions]
+$creadList :: ReadS [ListPermissions]
+readsPrec :: Int -&gt; ReadS ListPermissions
+$creadsPrec :: Int -&gt; ReadS ListPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202451"><span id="local-6989586621679202453"><span id="local-6989586621679202455"><span class="annot"><span class="annottext">Int -&gt; ListPermissions -&gt; ShowS
+[ListPermissions] -&gt; ShowS
+ListPermissions -&gt; String
+(Int -&gt; ListPermissions -&gt; ShowS)
+-&gt; (ListPermissions -&gt; String)
+-&gt; ([ListPermissions] -&gt; ShowS)
+-&gt; Show ListPermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPermissions] -&gt; ShowS
+$cshowList :: [ListPermissions] -&gt; ShowS
+show :: ListPermissions -&gt; String
+$cshow :: ListPermissions -&gt; String
+showsPrec :: Int -&gt; ListPermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPermissions -&gt; Rep ListPermissions x)
+-&gt; (forall x. Rep ListPermissions x -&gt; ListPermissions)
+-&gt; Generic ListPermissions
+forall x. Rep ListPermissions x -&gt; ListPermissions
+forall x. ListPermissions -&gt; Rep ListPermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPermissions x -&gt; ListPermissions
+$cfrom :: forall x. ListPermissions -&gt; Rep ListPermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Create a value of 'ListPermissions' with all optional fields omitted.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'resourceType', 'listPermissions_resourceType' - Specifies a resource type to filter the permissions returned.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'catalogId', 'listPermissions_catalogId' - The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'nextToken', 'listPermissions_nextToken' - A continuation token, if this is not the first call to retrieve this</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'principal', 'listPermissions_principal' - Specifies a principal to filter the permissions returned.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'resource', 'listPermissions_resource' - A resource where you will get a list of the principal permissions.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- This operation does not support getting privileges on a table with</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- columns. Instead, call this operation on the table, and the operation</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- returns the table and the table w columns.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'maxResults', 'listPermissions_maxResults' - The maximum number of results to return.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#newListPermissions"><span class="hs-identifier hs-type">newListPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span>
+</span><span id="line-118"></span><span id="newListPermissions"><span class="annot"><span class="annottext">newListPermissions :: ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#newListPermissions"><span class="hs-identifier hs-var hs-var">newListPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">ListPermissions' :: Maybe DataLakeResourceType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DataLakePrincipal
+-&gt; Maybe Resource
+-&gt; Maybe Natural
+-&gt; ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:ListPermissions' :: Maybe DataLakeResourceType
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AresourceType%3AListPermissions%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakeResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogId:ListPermissions' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AcatalogId%3AListPermissions%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissions' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AnextToken%3AListPermissions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:principal:ListPermissions' :: Maybe DataLakePrincipal
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3Aprincipal%3AListPermissions%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:resource:ListPermissions' :: Maybe Resource
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3Aresource%3AListPermissions%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Resource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPermissions' :: Maybe Natural
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AmaxResults%3AListPermissions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Specifies a resource type to filter the permissions returned.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_resourceType"><span class="hs-identifier hs-type">listPermissions_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLakeResourceType.html#DataLakeResourceType"><span class="hs-identifier hs-type">DataLakeResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listPermissions_resourceType"><span class="annot"><span class="annottext">listPermissions_resourceType :: (Maybe DataLakeResourceType -&gt; f (Maybe DataLakeResourceType))
+-&gt; ListPermissions -&gt; f ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_resourceType"><span class="hs-identifier hs-var hs-var">listPermissions_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissions -&gt; Maybe DataLakeResourceType)
+-&gt; (ListPermissions
+    -&gt; Maybe DataLakeResourceType -&gt; ListPermissions)
+-&gt; Lens
+     ListPermissions
+     ListPermissions
+     (Maybe DataLakeResourceType)
+     (Maybe DataLakeResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202444"><span class="annot"><span class="annottext">Maybe DataLakeResourceType
+resourceType :: Maybe DataLakeResourceType
+$sel:resourceType:ListPermissions' :: ListPermissions -&gt; Maybe DataLakeResourceType
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakeResourceType
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202443"><span class="annot"><span class="annottext">s :: ListPermissions
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202442"><span class="annot"><span class="annottext">Maybe DataLakeResourceType
+</span><a href="#local-6989586621679202442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissions
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ListPermissions' :: Maybe DataLakeResourceType
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AresourceType%3AListPermissions%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakeResourceType
+</span><a href="#local-6989586621679202442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_catalogId"><span class="hs-identifier hs-type">listPermissions_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listPermissions_catalogId"><span class="annot"><span class="annottext">listPermissions_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPermissions -&gt; f ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_catalogId"><span class="hs-identifier hs-var hs-var">listPermissions_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissions -&gt; Maybe Text)
+-&gt; (ListPermissions -&gt; Maybe Text -&gt; ListPermissions)
+-&gt; Lens ListPermissions ListPermissions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202441"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:ListPermissions' :: ListPermissions -&gt; Maybe Text
+</span><a href="#local-6989586621679202441"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202441"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202440"><span class="annot"><span class="annottext">s :: ListPermissions
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202439"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissions
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:ListPermissions' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AcatalogId%3AListPermissions%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A continuation token, if this is not the first call to retrieve this</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_nextToken"><span class="hs-identifier hs-type">listPermissions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="listPermissions_nextToken"><span class="annot"><span class="annottext">listPermissions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPermissions -&gt; f ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_nextToken"><span class="hs-identifier hs-var hs-var">listPermissions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissions -&gt; Maybe Text)
+-&gt; (ListPermissions -&gt; Maybe Text -&gt; ListPermissions)
+-&gt; Lens ListPermissions ListPermissions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202438"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPermissions' :: ListPermissions -&gt; Maybe Text
+</span><a href="#local-6989586621679202438"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202438"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202437"><span class="annot"><span class="annottext">s :: ListPermissions
+</span><a href="#local-6989586621679202437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202436"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissions
+</span><a href="#local-6989586621679202437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissions' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AnextToken%3AListPermissions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Specifies a principal to filter the permissions returned.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_principal"><span class="hs-identifier hs-type">listPermissions_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="listPermissions_principal"><span class="annot"><span class="annottext">listPermissions_principal :: (Maybe DataLakePrincipal -&gt; f (Maybe DataLakePrincipal))
+-&gt; ListPermissions -&gt; f ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_principal"><span class="hs-identifier hs-var hs-var">listPermissions_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissions -&gt; Maybe DataLakePrincipal)
+-&gt; (ListPermissions -&gt; Maybe DataLakePrincipal -&gt; ListPermissions)
+-&gt; Lens
+     ListPermissions
+     ListPermissions
+     (Maybe DataLakePrincipal)
+     (Maybe DataLakePrincipal)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202435"><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+principal :: Maybe DataLakePrincipal
+$sel:principal:ListPermissions' :: ListPermissions -&gt; Maybe DataLakePrincipal
+</span><a href="#local-6989586621679202435"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+</span><a href="#local-6989586621679202435"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202434"><span class="annot"><span class="annottext">s :: ListPermissions
+</span><a href="#local-6989586621679202434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202433"><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+</span><a href="#local-6989586621679202433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissions
+</span><a href="#local-6989586621679202434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:ListPermissions' :: Maybe DataLakePrincipal
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3Aprincipal%3AListPermissions%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+</span><a href="#local-6989586621679202433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | A resource where you will get a list of the principal permissions.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- This operation does not support getting privileges on a table with</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- columns. Instead, call this operation on the table, and the operation</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- returns the table and the table w columns.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_resource"><span class="hs-identifier hs-type">listPermissions_resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="listPermissions_resource"><span class="annot"><span class="annottext">listPermissions_resource :: (Maybe Resource -&gt; f (Maybe Resource))
+-&gt; ListPermissions -&gt; f ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_resource"><span class="hs-identifier hs-var hs-var">listPermissions_resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissions -&gt; Maybe Resource)
+-&gt; (ListPermissions -&gt; Maybe Resource -&gt; ListPermissions)
+-&gt; Lens
+     ListPermissions ListPermissions (Maybe Resource) (Maybe Resource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202432"><span class="annot"><span class="annottext">Maybe Resource
+resource :: Maybe Resource
+$sel:resource:ListPermissions' :: ListPermissions -&gt; Maybe Resource
+</span><a href="#local-6989586621679202432"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Resource
+</span><a href="#local-6989586621679202432"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202431"><span class="annot"><span class="annottext">s :: ListPermissions
+</span><a href="#local-6989586621679202431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202430"><span class="annot"><span class="annottext">Maybe Resource
+</span><a href="#local-6989586621679202430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissions
+</span><a href="#local-6989586621679202431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:ListPermissions' :: Maybe Resource
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3Aresource%3AListPermissions%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Resource
+</span><a href="#local-6989586621679202430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_maxResults"><span class="hs-identifier hs-type">listPermissions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="listPermissions_maxResults"><span class="annot"><span class="annottext">listPermissions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPermissions -&gt; f ListPermissions
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissions_maxResults"><span class="hs-identifier hs-var hs-var">listPermissions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissions -&gt; Maybe Natural)
+-&gt; (ListPermissions -&gt; Maybe Natural -&gt; ListPermissions)
+-&gt; Lens
+     ListPermissions ListPermissions (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202429"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPermissions' :: ListPermissions -&gt; Maybe Natural
+</span><a href="#local-6989586621679202429"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202429"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202428"><span class="annot"><span class="annottext">s :: ListPermissions
+</span><a href="#local-6989586621679202428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202427"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissions
+</span><a href="#local-6989586621679202428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPermissions' :: Maybe Natural
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AmaxResults%3AListPermissions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679202423"><span class="annot"><span class="annottext">request :: ListPermissions -&gt; Request ListPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPermissions -&gt; Request ListPermissions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LakeFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679202419"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListPermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListPermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202416"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202415"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202415"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202414"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PrincipalResourcePermissions]
+-&gt; Int
+-&gt; ListPermissionsResponse
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-var">ListPermissionsResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PrincipalResourcePermissions]
+ -&gt; Int
+ -&gt; ListPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PrincipalResourcePermissions]
+      -&gt; Int -&gt; ListPermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PrincipalResourcePermissions]
+   -&gt; Int -&gt; ListPermissionsResponse)
+-&gt; Either String (Maybe [PrincipalResourcePermissions])
+-&gt; Either String (Int -&gt; ListPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [PrincipalResourcePermissions]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrincipalResourcePermissions&quot;</span></span><span>
+</span><span id="line-171"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PrincipalResourcePermissions]))
+-&gt; Maybe [PrincipalResourcePermissions]
+-&gt; Either String (Maybe [PrincipalResourcePermissions])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalResourcePermissions]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPermissionsResponse)
+-&gt; Either String Int -&gt; Either String ListPermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202416"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202405"><span id="local-6989586621679202407"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679202398"><span class="annot"><span class="annottext">toHeaders :: ListPermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLakeFormation.ListPermissions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-187"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202388"><span id="local-6989586621679202390"><span id="local-6989586621679202392"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679202386"><span class="annot"><span class="annottext">toJSON :: ListPermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions%27"><span class="hs-identifier hs-type">ListPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202379"><span id="local-6989586621679202380"><span id="local-6989586621679202381"><span id="local-6989586621679202382"><span id="local-6989586621679202383"><span id="local-6989586621679202384"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe DataLakePrincipal
+Maybe DataLakeResourceType
+Maybe Resource
+maxResults :: Maybe Natural
+resource :: Maybe Resource
+principal :: Maybe DataLakePrincipal
+nextToken :: Maybe Text
+catalogId :: Maybe Text
+resourceType :: Maybe DataLakeResourceType
+$sel:maxResults:ListPermissions' :: ListPermissions -&gt; Maybe Natural
+$sel:resource:ListPermissions' :: ListPermissions -&gt; Maybe Resource
+$sel:principal:ListPermissions' :: ListPermissions -&gt; Maybe DataLakePrincipal
+$sel:nextToken:ListPermissions' :: ListPermissions -&gt; Maybe Text
+$sel:catalogId:ListPermissions' :: ListPermissions -&gt; Maybe Text
+$sel:resourceType:ListPermissions' :: ListPermissions -&gt; Maybe DataLakeResourceType
+</span><a href="#local-6989586621679202379"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataLakeResourceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DataLakeResourceType -&gt; Pair)
+-&gt; Maybe DataLakeResourceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataLakeResourceType
+</span><a href="#local-6989586621679202384"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202383"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202382"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataLakePrincipal -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DataLakePrincipal -&gt; Pair)
+-&gt; Maybe DataLakePrincipal -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+</span><a href="#local-6989586621679202381"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Resource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Resource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Pair) -&gt; Maybe Resource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Resource
+</span><a href="#local-6989586621679202380"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202379"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679202373"><span class="annot"><span class="annottext">toPath :: ListPermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPermissions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissions"><span class="hs-identifier hs-type">ListPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679202369"><span class="annot"><span class="annottext">toQuery :: ListPermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | /See:/ 'newListPermissionsResponse' smart constructor.</span><span>
+</span><span id="line-215"></span><span id="local-6989586621679202366"><span id="local-6989586621679202367"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPermissionsResponse"><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-var">ListPermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPermissionsResponse%27"><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-var">ListPermissionsResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is not the first call to retrieve this</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AnextToken%3AListPermissionsResponse%27"><span class="annot"><span class="annottext">ListPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AnextToken%3AListPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | A list of principals and their permissions on the resource for the</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- specified principal and resource types.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AprincipalResourcePermissions%3AListPermissionsResponse%27"><span class="annot"><span class="annottext">ListPermissionsResponse -&gt; Maybe [PrincipalResourcePermissions]
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AprincipalResourcePermissions%3AListPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">principalResourcePermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LakeFormation.Types.PrincipalResourcePermissions.html#PrincipalResourcePermissions"><span class="hs-identifier hs-type">PrincipalResourcePermissions</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPermissionsResponse%27"><span class="annot"><span class="annottext">ListPermissionsResponse -&gt; Int
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AhttpStatus%3AListPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202359"><span id="local-6989586621679202361"><span class="annot"><span class="annottext">ListPermissionsResponse -&gt; ListPermissionsResponse -&gt; Bool
+(ListPermissionsResponse -&gt; ListPermissionsResponse -&gt; Bool)
+-&gt; (ListPermissionsResponse -&gt; ListPermissionsResponse -&gt; Bool)
+-&gt; Eq ListPermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPermissionsResponse -&gt; ListPermissionsResponse -&gt; Bool
+$c/= :: ListPermissionsResponse -&gt; ListPermissionsResponse -&gt; Bool
+== :: ListPermissionsResponse -&gt; ListPermissionsResponse -&gt; Bool
+$c== :: ListPermissionsResponse -&gt; ListPermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202351"><span id="local-6989586621679202353"><span id="local-6989586621679202355"><span id="local-6989586621679202357"><span class="annot"><span class="annottext">ReadPrec [ListPermissionsResponse]
+ReadPrec ListPermissionsResponse
+Int -&gt; ReadS ListPermissionsResponse
+ReadS [ListPermissionsResponse]
+(Int -&gt; ReadS ListPermissionsResponse)
+-&gt; ReadS [ListPermissionsResponse]
+-&gt; ReadPrec ListPermissionsResponse
+-&gt; ReadPrec [ListPermissionsResponse]
+-&gt; Read ListPermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPermissionsResponse]
+$creadListPrec :: ReadPrec [ListPermissionsResponse]
+readPrec :: ReadPrec ListPermissionsResponse
+$creadPrec :: ReadPrec ListPermissionsResponse
+readList :: ReadS [ListPermissionsResponse]
+$creadList :: ReadS [ListPermissionsResponse]
+readsPrec :: Int -&gt; ReadS ListPermissionsResponse
+$creadsPrec :: Int -&gt; ReadS ListPermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202345"><span id="local-6989586621679202347"><span id="local-6989586621679202349"><span class="annot"><span class="annottext">Int -&gt; ListPermissionsResponse -&gt; ShowS
+[ListPermissionsResponse] -&gt; ShowS
+ListPermissionsResponse -&gt; String
+(Int -&gt; ListPermissionsResponse -&gt; ShowS)
+-&gt; (ListPermissionsResponse -&gt; String)
+-&gt; ([ListPermissionsResponse] -&gt; ShowS)
+-&gt; Show ListPermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPermissionsResponse] -&gt; ShowS
+$cshowList :: [ListPermissionsResponse] -&gt; ShowS
+show :: ListPermissionsResponse -&gt; String
+$cshow :: ListPermissionsResponse -&gt; String
+showsPrec :: Int -&gt; ListPermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPermissionsResponse -&gt; Rep ListPermissionsResponse x)
+-&gt; (forall x.
+    Rep ListPermissionsResponse x -&gt; ListPermissionsResponse)
+-&gt; Generic ListPermissionsResponse
+forall x. Rep ListPermissionsResponse x -&gt; ListPermissionsResponse
+forall x. ListPermissionsResponse -&gt; Rep ListPermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPermissionsResponse x -&gt; ListPermissionsResponse
+$cfrom :: forall x. ListPermissionsResponse -&gt; Rep ListPermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Create a value of 'ListPermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'nextToken', 'listPermissionsResponse_nextToken' - A continuation token, if this is not the first call to retrieve this</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'principalResourcePermissions', 'listPermissionsResponse_principalResourcePermissions' - A list of principals and their permissions on the resource for the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- specified principal and resource types.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'listPermissionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#newListPermissionsResponse"><span class="hs-identifier hs-type">newListPermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newListPermissionsResponse"><span class="annot"><span class="annottext">newListPermissionsResponse :: Int -&gt; ListPermissionsResponse
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#newListPermissionsResponse"><span class="hs-identifier hs-var hs-var">newListPermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679202342"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202342"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">ListPermissionsResponse' :: Maybe Text
+-&gt; Maybe [PrincipalResourcePermissions]
+-&gt; Int
+-&gt; ListPermissionsResponse
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-type">ListPermissionsResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AnextToken%3AListPermissionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalResourcePermissions:ListPermissionsResponse' :: Maybe [PrincipalResourcePermissions]
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AprincipalResourcePermissions%3AListPermissionsResponse%27"><span class="hs-identifier hs-var">principalResourcePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalResourcePermissions]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPermissionsResponse' :: Int
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AhttpStatus%3AListPermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202342"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | A continuation token, if this is not the first call to retrieve this</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_nextToken"><span class="hs-identifier hs-type">listPermissionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="listPermissionsResponse_nextToken"><span class="annot"><span class="annottext">listPermissionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPermissionsResponse -&gt; f ListPermissionsResponse
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPermissionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionsResponse -&gt; Maybe Text)
+-&gt; (ListPermissionsResponse
+    -&gt; Maybe Text -&gt; ListPermissionsResponse)
+-&gt; Lens
+     ListPermissionsResponse
+     ListPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-type">ListPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202341"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPermissionsResponse' :: ListPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679202341"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202341"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202340"><span class="annot"><span class="annottext">s :: ListPermissionsResponse
+</span><a href="#local-6989586621679202340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-type">ListPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionsResponse
+</span><a href="#local-6989586621679202340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AnextToken%3AListPermissionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | A list of principals and their permissions on the resource for the</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- specified principal and resource types.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_principalResourcePermissions"><span class="hs-identifier hs-type">listPermissionsResponse_principalResourcePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LakeFormation.Types.PrincipalResourcePermissions.html#PrincipalResourcePermissions"><span class="hs-identifier hs-type">PrincipalResourcePermissions</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="listPermissionsResponse_principalResourcePermissions"><span class="annot"><span class="annottext">listPermissionsResponse_principalResourcePermissions :: (Maybe [PrincipalResourcePermissions]
+ -&gt; f (Maybe [PrincipalResourcePermissions]))
+-&gt; ListPermissionsResponse -&gt; f ListPermissionsResponse
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_principalResourcePermissions"><span class="hs-identifier hs-var hs-var">listPermissionsResponse_principalResourcePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionsResponse -&gt; Maybe [PrincipalResourcePermissions])
+-&gt; (ListPermissionsResponse
+    -&gt; Maybe [PrincipalResourcePermissions] -&gt; ListPermissionsResponse)
+-&gt; Lens
+     ListPermissionsResponse
+     ListPermissionsResponse
+     (Maybe [PrincipalResourcePermissions])
+     (Maybe [PrincipalResourcePermissions])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-type">ListPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202338"><span class="annot"><span class="annottext">Maybe [PrincipalResourcePermissions]
+principalResourcePermissions :: Maybe [PrincipalResourcePermissions]
+$sel:principalResourcePermissions:ListPermissionsResponse' :: ListPermissionsResponse -&gt; Maybe [PrincipalResourcePermissions]
+</span><a href="#local-6989586621679202338"><span class="hs-identifier hs-var hs-var">principalResourcePermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalResourcePermissions]
+</span><a href="#local-6989586621679202338"><span class="hs-identifier hs-var">principalResourcePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202337"><span class="annot"><span class="annottext">s :: ListPermissionsResponse
+</span><a href="#local-6989586621679202337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-type">ListPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202336"><span class="annot"><span class="annottext">Maybe [PrincipalResourcePermissions]
+</span><a href="#local-6989586621679202336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionsResponse
+</span><a href="#local-6989586621679202337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalResourcePermissions:ListPermissionsResponse' :: Maybe [PrincipalResourcePermissions]
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AprincipalResourcePermissions%3AListPermissionsResponse%27"><span class="hs-identifier hs-var">principalResourcePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalResourcePermissions]
+</span><a href="#local-6989586621679202336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalResourcePermissions]
+  -&gt; f (Maybe [PrincipalResourcePermissions]))
+ -&gt; ListPermissionsResponse -&gt; f ListPermissionsResponse)
+-&gt; ((Maybe [PrincipalResourcePermissions]
+     -&gt; f (Maybe [PrincipalResourcePermissions]))
+    -&gt; Maybe [PrincipalResourcePermissions]
+    -&gt; f (Maybe [PrincipalResourcePermissions]))
+-&gt; (Maybe [PrincipalResourcePermissions]
+    -&gt; f (Maybe [PrincipalResourcePermissions]))
+-&gt; ListPermissionsResponse
+-&gt; f ListPermissionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalResourcePermissions]
+  [PrincipalResourcePermissions]
+  [PrincipalResourcePermissions]
+  [PrincipalResourcePermissions]
+-&gt; Iso
+     (Maybe [PrincipalResourcePermissions])
+     (Maybe [PrincipalResourcePermissions])
+     (Maybe [PrincipalResourcePermissions])
+     (Maybe [PrincipalResourcePermissions])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalResourcePermissions]
+  [PrincipalResourcePermissions]
+  [PrincipalResourcePermissions]
+  [PrincipalResourcePermissions]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_httpStatus"><span class="hs-identifier hs-type">listPermissionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-266"></span><span id="listPermissionsResponse_httpStatus"><span class="annot"><span class="annottext">listPermissionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPermissionsResponse -&gt; f ListPermissionsResponse
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#listPermissionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPermissionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionsResponse -&gt; Int)
+-&gt; (ListPermissionsResponse -&gt; Int -&gt; ListPermissionsResponse)
+-&gt; Lens ListPermissionsResponse ListPermissionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-type">ListPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202332"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPermissionsResponse' :: ListPermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679202332"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202332"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202331"><span class="annot"><span class="annottext">s :: ListPermissionsResponse
+</span><a href="#local-6989586621679202331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse%27"><span class="hs-identifier hs-type">ListPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202330"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionsResponse
+</span><a href="#local-6989586621679202331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPermissionsResponse' :: Int
+</span><a href="Amazonka.LakeFormation.ListPermissions.html#%24sel%3AhttpStatus%3AListPermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.ListPermissions.html#ListPermissionsResponse"><span class="hs-identifier hs-type">ListPermissionsResponse</span></a></span></span><span>
+</span><span id="line-269"></span></pre></body></html>

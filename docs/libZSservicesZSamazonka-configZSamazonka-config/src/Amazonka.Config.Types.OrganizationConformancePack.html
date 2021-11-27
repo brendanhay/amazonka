@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.OrganizationConformancePack</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.OrganizationConformancePack</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConformancePackInputParameter.html"><span class="hs-identifier">Amazonka.Config.Types.ConformancePackInputParameter</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An organization conformance pack that has information about conformance</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- packs that Config creates in member accounts.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newOrganizationConformancePack' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679402201"><span id="local-6989586621679402202"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationConformancePack"><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-var">OrganizationConformancePack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationConformancePack%27"><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-var">OrganizationConformancePack'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- templates.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeliveryS3Bucket%3AOrganizationConformancePack%27"><span class="annot"><span class="annottext">OrganizationConformancePack -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AdeliveryS3Bucket%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">deliveryS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Any folder structure you want to add to an Amazon S3 bucket.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdeliveryS3KeyPrefix%3AOrganizationConformancePack%27"><span class="annot"><span class="annottext">OrganizationConformancePack -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AdeliveryS3KeyPrefix%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">deliveryS3KeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A list of @ConformancePackInputParameter@ objects.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AconformancePackInputParameters%3AOrganizationConformancePack%27"><span class="annot"><span class="annottext">OrganizationConformancePack
+-&gt; Maybe [ConformancePackInputParameter]
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AconformancePackInputParameters%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">conformancePackInputParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Config.Types.ConformancePackInputParameter.html#ConformancePackInputParameter"><span class="hs-identifier hs-type">ConformancePackInputParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A comma-separated list of accounts excluded from organization</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- conformance pack.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AexcludedAccounts%3AOrganizationConformancePack%27"><span class="annot"><span class="annottext">OrganizationConformancePack -&gt; Maybe [Text]
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AexcludedAccounts%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">excludedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name you assign to an organization conformance pack.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AorganizationConformancePackName%3AOrganizationConformancePack%27"><span class="annot"><span class="annottext">OrganizationConformancePack -&gt; Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AorganizationConformancePackName%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">organizationConformancePackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of organization conformance pack.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AorganizationConformancePackArn%3AOrganizationConformancePack%27"><span class="annot"><span class="annottext">OrganizationConformancePack -&gt; Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AorganizationConformancePackArn%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">organizationConformancePackArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Last time when organization conformation pack was updated.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AOrganizationConformancePack%27"><span class="annot"><span class="annottext">OrganizationConformancePack -&gt; POSIX
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AlastUpdateTime%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402189"><span id="local-6989586621679402191"><span class="annot"><span class="annottext">OrganizationConformancePack -&gt; OrganizationConformancePack -&gt; Bool
+(OrganizationConformancePack
+ -&gt; OrganizationConformancePack -&gt; Bool)
+-&gt; (OrganizationConformancePack
+    -&gt; OrganizationConformancePack -&gt; Bool)
+-&gt; Eq OrganizationConformancePack
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OrganizationConformancePack -&gt; OrganizationConformancePack -&gt; Bool
+$c/= :: OrganizationConformancePack -&gt; OrganizationConformancePack -&gt; Bool
+== :: OrganizationConformancePack -&gt; OrganizationConformancePack -&gt; Bool
+$c== :: OrganizationConformancePack -&gt; OrganizationConformancePack -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402180"><span id="local-6989586621679402182"><span id="local-6989586621679402184"><span id="local-6989586621679402186"><span class="annot"><span class="annottext">ReadPrec [OrganizationConformancePack]
+ReadPrec OrganizationConformancePack
+Int -&gt; ReadS OrganizationConformancePack
+ReadS [OrganizationConformancePack]
+(Int -&gt; ReadS OrganizationConformancePack)
+-&gt; ReadS [OrganizationConformancePack]
+-&gt; ReadPrec OrganizationConformancePack
+-&gt; ReadPrec [OrganizationConformancePack]
+-&gt; Read OrganizationConformancePack
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OrganizationConformancePack]
+$creadListPrec :: ReadPrec [OrganizationConformancePack]
+readPrec :: ReadPrec OrganizationConformancePack
+$creadPrec :: ReadPrec OrganizationConformancePack
+readList :: ReadS [OrganizationConformancePack]
+$creadList :: ReadS [OrganizationConformancePack]
+readsPrec :: Int -&gt; ReadS OrganizationConformancePack
+$creadsPrec :: Int -&gt; ReadS OrganizationConformancePack
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402173"><span id="local-6989586621679402175"><span id="local-6989586621679402177"><span class="annot"><span class="annottext">Int -&gt; OrganizationConformancePack -&gt; ShowS
+[OrganizationConformancePack] -&gt; ShowS
+OrganizationConformancePack -&gt; String
+(Int -&gt; OrganizationConformancePack -&gt; ShowS)
+-&gt; (OrganizationConformancePack -&gt; String)
+-&gt; ([OrganizationConformancePack] -&gt; ShowS)
+-&gt; Show OrganizationConformancePack
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OrganizationConformancePack] -&gt; ShowS
+$cshowList :: [OrganizationConformancePack] -&gt; ShowS
+show :: OrganizationConformancePack -&gt; String
+$cshow :: OrganizationConformancePack -&gt; String
+showsPrec :: Int -&gt; OrganizationConformancePack -&gt; ShowS
+$cshowsPrec :: Int -&gt; OrganizationConformancePack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ OrganizationConformancePack -&gt; Rep OrganizationConformancePack x)
+-&gt; (forall x.
+    Rep OrganizationConformancePack x -&gt; OrganizationConformancePack)
+-&gt; Generic OrganizationConformancePack
+forall x.
+Rep OrganizationConformancePack x -&gt; OrganizationConformancePack
+forall x.
+OrganizationConformancePack -&gt; Rep OrganizationConformancePack x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep OrganizationConformancePack x -&gt; OrganizationConformancePack
+$cfrom :: forall x.
+OrganizationConformancePack -&gt; Rep OrganizationConformancePack x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'OrganizationConformancePack' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'deliveryS3Bucket', 'organizationConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- templates.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'deliveryS3KeyPrefix', 'organizationConformancePack_deliveryS3KeyPrefix' - Any folder structure you want to add to an Amazon S3 bucket.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'conformancePackInputParameters', 'organizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'excludedAccounts', 'organizationConformancePack_excludedAccounts' - A comma-separated list of accounts excluded from organization</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- conformance pack.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'organizationConformancePackName', 'organizationConformancePack_organizationConformancePackName' - The name you assign to an organization conformance pack.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'organizationConformancePackArn', 'organizationConformancePack_organizationConformancePackArn' - Amazon Resource Name (ARN) of organization conformance pack.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'lastUpdateTime', 'organizationConformancePack_lastUpdateTime' - Last time when organization conformation pack was updated.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#newOrganizationConformancePack"><span class="hs-identifier hs-type">newOrganizationConformancePack</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'organizationConformancePackName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'organizationConformancePackArn'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'lastUpdateTime'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span>
+</span><span id="line-90"></span><span id="newOrganizationConformancePack"><span class="annot"><span class="annottext">newOrganizationConformancePack :: Text -&gt; Text -&gt; UTCTime -&gt; OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#newOrganizationConformancePack"><span class="hs-identifier hs-var hs-var">newOrganizationConformancePack</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679402167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402167"><span class="hs-identifier hs-var">pOrganizationConformancePackName_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679402166"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402166"><span class="hs-identifier hs-var">pOrganizationConformancePackArn_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679402165"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679402165"><span class="hs-identifier hs-var">pLastUpdateTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">OrganizationConformancePack' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [ConformancePackInputParameter]
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryS3Bucket:OrganizationConformancePack' :: Maybe Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AdeliveryS3Bucket%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryS3KeyPrefix:OrganizationConformancePack' :: Maybe Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AdeliveryS3KeyPrefix%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:conformancePackInputParameters:OrganizationConformancePack' :: Maybe [ConformancePackInputParameter]
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AconformancePackInputParameters%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:excludedAccounts:OrganizationConformancePack' :: Maybe [Text]
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AexcludedAccounts%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationConformancePackName:OrganizationConformancePack' :: Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AorganizationConformancePackName%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402167"><span class="hs-identifier hs-var">pOrganizationConformancePackName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationConformancePackArn:OrganizationConformancePack' :: Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AorganizationConformancePackArn%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">organizationConformancePackArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402166"><span class="hs-identifier hs-var">pOrganizationConformancePackArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:OrganizationConformancePack' :: POSIX
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AlastUpdateTime%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679402165"><span class="hs-identifier hs-var">pLastUpdateTime_</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- templates.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_deliveryS3Bucket"><span class="hs-identifier hs-type">organizationConformancePack_deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="organizationConformancePack_deliveryS3Bucket"><span class="annot"><span class="annottext">organizationConformancePack_deliveryS3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_deliveryS3Bucket"><span class="hs-identifier hs-var hs-var">organizationConformancePack_deliveryS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConformancePack -&gt; Maybe Text)
+-&gt; (OrganizationConformancePack
+    -&gt; Maybe Text -&gt; OrganizationConformancePack)
+-&gt; Lens
+     OrganizationConformancePack
+     OrganizationConformancePack
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402159"><span class="annot"><span class="annottext">Maybe Text
+deliveryS3Bucket :: Maybe Text
+$sel:deliveryS3Bucket:OrganizationConformancePack' :: OrganizationConformancePack -&gt; Maybe Text
+</span><a href="#local-6989586621679402159"><span class="hs-identifier hs-var hs-var">deliveryS3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402159"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402158"><span class="annot"><span class="annottext">s :: OrganizationConformancePack
+</span><a href="#local-6989586621679402158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConformancePack
+</span><a href="#local-6989586621679402158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryS3Bucket:OrganizationConformancePack' :: Maybe Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AdeliveryS3Bucket%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Any folder structure you want to add to an Amazon S3 bucket.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_deliveryS3KeyPrefix"><span class="hs-identifier hs-type">organizationConformancePack_deliveryS3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="organizationConformancePack_deliveryS3KeyPrefix"><span class="annot"><span class="annottext">organizationConformancePack_deliveryS3KeyPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_deliveryS3KeyPrefix"><span class="hs-identifier hs-var hs-var">organizationConformancePack_deliveryS3KeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConformancePack -&gt; Maybe Text)
+-&gt; (OrganizationConformancePack
+    -&gt; Maybe Text -&gt; OrganizationConformancePack)
+-&gt; Lens
+     OrganizationConformancePack
+     OrganizationConformancePack
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402155"><span class="annot"><span class="annottext">Maybe Text
+deliveryS3KeyPrefix :: Maybe Text
+$sel:deliveryS3KeyPrefix:OrganizationConformancePack' :: OrganizationConformancePack -&gt; Maybe Text
+</span><a href="#local-6989586621679402155"><span class="hs-identifier hs-var hs-var">deliveryS3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402155"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402154"><span class="annot"><span class="annottext">s :: OrganizationConformancePack
+</span><a href="#local-6989586621679402154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConformancePack
+</span><a href="#local-6989586621679402154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryS3KeyPrefix:OrganizationConformancePack' :: Maybe Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AdeliveryS3KeyPrefix%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A list of @ConformancePackInputParameter@ objects.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_conformancePackInputParameters"><span class="hs-identifier hs-type">organizationConformancePack_conformancePackInputParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Config.Types.ConformancePackInputParameter.html#ConformancePackInputParameter"><span class="hs-identifier hs-type">ConformancePackInputParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="organizationConformancePack_conformancePackInputParameters"><span class="annot"><span class="annottext">organizationConformancePack_conformancePackInputParameters :: (Maybe [ConformancePackInputParameter]
+ -&gt; f (Maybe [ConformancePackInputParameter]))
+-&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_conformancePackInputParameters"><span class="hs-identifier hs-var hs-var">organizationConformancePack_conformancePackInputParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConformancePack
+ -&gt; Maybe [ConformancePackInputParameter])
+-&gt; (OrganizationConformancePack
+    -&gt; Maybe [ConformancePackInputParameter]
+    -&gt; OrganizationConformancePack)
+-&gt; Lens
+     OrganizationConformancePack
+     OrganizationConformancePack
+     (Maybe [ConformancePackInputParameter])
+     (Maybe [ConformancePackInputParameter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402151"><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+conformancePackInputParameters :: Maybe [ConformancePackInputParameter]
+$sel:conformancePackInputParameters:OrganizationConformancePack' :: OrganizationConformancePack
+-&gt; Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679402151"><span class="hs-identifier hs-var hs-var">conformancePackInputParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679402151"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402150"><span class="annot"><span class="annottext">s :: OrganizationConformancePack
+</span><a href="#local-6989586621679402150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402149"><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679402149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConformancePack
+</span><a href="#local-6989586621679402150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackInputParameters:OrganizationConformancePack' :: Maybe [ConformancePackInputParameter]
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AconformancePackInputParameters%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679402149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConformancePackInputParameter]
+  -&gt; f (Maybe [ConformancePackInputParameter]))
+ -&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack)
+-&gt; ((Maybe [ConformancePackInputParameter]
+     -&gt; f (Maybe [ConformancePackInputParameter]))
+    -&gt; Maybe [ConformancePackInputParameter]
+    -&gt; f (Maybe [ConformancePackInputParameter]))
+-&gt; (Maybe [ConformancePackInputParameter]
+    -&gt; f (Maybe [ConformancePackInputParameter]))
+-&gt; OrganizationConformancePack
+-&gt; f OrganizationConformancePack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConformancePackInputParameter]
+  [ConformancePackInputParameter]
+  [ConformancePackInputParameter]
+  [ConformancePackInputParameter]
+-&gt; Iso
+     (Maybe [ConformancePackInputParameter])
+     (Maybe [ConformancePackInputParameter])
+     (Maybe [ConformancePackInputParameter])
+     (Maybe [ConformancePackInputParameter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConformancePackInputParameter]
+  [ConformancePackInputParameter]
+  [ConformancePackInputParameter]
+  [ConformancePackInputParameter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | A comma-separated list of accounts excluded from organization</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- conformance pack.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_excludedAccounts"><span class="hs-identifier hs-type">organizationConformancePack_excludedAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="organizationConformancePack_excludedAccounts"><span class="annot"><span class="annottext">organizationConformancePack_excludedAccounts :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_excludedAccounts"><span class="hs-identifier hs-var hs-var">organizationConformancePack_excludedAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConformancePack -&gt; Maybe [Text])
+-&gt; (OrganizationConformancePack
+    -&gt; Maybe [Text] -&gt; OrganizationConformancePack)
+-&gt; Lens
+     OrganizationConformancePack
+     OrganizationConformancePack
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402144"><span class="annot"><span class="annottext">Maybe [Text]
+excludedAccounts :: Maybe [Text]
+$sel:excludedAccounts:OrganizationConformancePack' :: OrganizationConformancePack -&gt; Maybe [Text]
+</span><a href="#local-6989586621679402144"><span class="hs-identifier hs-var hs-var">excludedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679402144"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402143"><span class="annot"><span class="annottext">s :: OrganizationConformancePack
+</span><a href="#local-6989586621679402143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402142"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679402142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConformancePack
+</span><a href="#local-6989586621679402143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludedAccounts:OrganizationConformancePack' :: Maybe [Text]
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AexcludedAccounts%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679402142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; OrganizationConformancePack
+-&gt; f OrganizationConformancePack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The name you assign to an organization conformance pack.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_organizationConformancePackName"><span class="hs-identifier hs-type">organizationConformancePack_organizationConformancePackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="organizationConformancePack_organizationConformancePackName"><span class="annot"><span class="annottext">organizationConformancePack_organizationConformancePackName :: (Text -&gt; f Text)
+-&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_organizationConformancePackName"><span class="hs-identifier hs-var hs-var">organizationConformancePack_organizationConformancePackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConformancePack -&gt; Text)
+-&gt; (OrganizationConformancePack
+    -&gt; Text -&gt; OrganizationConformancePack)
+-&gt; Lens
+     OrganizationConformancePack OrganizationConformancePack Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402140"><span class="annot"><span class="annottext">Text
+organizationConformancePackName :: Text
+$sel:organizationConformancePackName:OrganizationConformancePack' :: OrganizationConformancePack -&gt; Text
+</span><a href="#local-6989586621679402140"><span class="hs-identifier hs-var hs-var">organizationConformancePackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402140"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402139"><span class="annot"><span class="annottext">s :: OrganizationConformancePack
+</span><a href="#local-6989586621679402139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConformancePack
+</span><a href="#local-6989586621679402139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackName:OrganizationConformancePack' :: Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AorganizationConformancePackName%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of organization conformance pack.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_organizationConformancePackArn"><span class="hs-identifier hs-type">organizationConformancePack_organizationConformancePackArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="organizationConformancePack_organizationConformancePackArn"><span class="annot"><span class="annottext">organizationConformancePack_organizationConformancePackArn :: (Text -&gt; f Text)
+-&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_organizationConformancePackArn"><span class="hs-identifier hs-var hs-var">organizationConformancePack_organizationConformancePackArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConformancePack -&gt; Text)
+-&gt; (OrganizationConformancePack
+    -&gt; Text -&gt; OrganizationConformancePack)
+-&gt; Lens
+     OrganizationConformancePack OrganizationConformancePack Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402136"><span class="annot"><span class="annottext">Text
+organizationConformancePackArn :: Text
+$sel:organizationConformancePackArn:OrganizationConformancePack' :: OrganizationConformancePack -&gt; Text
+</span><a href="#local-6989586621679402136"><span class="hs-identifier hs-var hs-var">organizationConformancePackArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402136"><span class="hs-identifier hs-var">organizationConformancePackArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402135"><span class="annot"><span class="annottext">s :: OrganizationConformancePack
+</span><a href="#local-6989586621679402135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConformancePack
+</span><a href="#local-6989586621679402135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackArn:OrganizationConformancePack' :: Text
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AorganizationConformancePackArn%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">organizationConformancePackArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Last time when organization conformation pack was updated.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_lastUpdateTime"><span class="hs-identifier hs-type">organizationConformancePack_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-141"></span><span id="organizationConformancePack_lastUpdateTime"><span class="annot"><span class="annottext">organizationConformancePack_lastUpdateTime :: (UTCTime -&gt; f UTCTime)
+-&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#organizationConformancePack_lastUpdateTime"><span class="hs-identifier hs-var hs-var">organizationConformancePack_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConformancePack -&gt; POSIX)
+-&gt; (OrganizationConformancePack
+    -&gt; POSIX -&gt; OrganizationConformancePack)
+-&gt; Lens
+     OrganizationConformancePack OrganizationConformancePack POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402132"><span class="annot"><span class="annottext">POSIX
+lastUpdateTime :: POSIX
+$sel:lastUpdateTime:OrganizationConformancePack' :: OrganizationConformancePack -&gt; POSIX
+</span><a href="#local-6989586621679402132"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679402132"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402131"><span class="annot"><span class="annottext">s :: OrganizationConformancePack
+</span><a href="#local-6989586621679402131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-type">OrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402130"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679402130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConformancePack
+</span><a href="#local-6989586621679402131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:OrganizationConformancePack' :: POSIX
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#%24sel%3AlastUpdateTime%3AOrganizationConformancePack%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679402130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; OrganizationConformancePack -&gt; f OrganizationConformancePack)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; OrganizationConformancePack
+-&gt; f OrganizationConformancePack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402127"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679402125"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationConformancePack
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser OrganizationConformancePack)
+-&gt; Value
+-&gt; Parser OrganizationConformancePack
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;OrganizationConformancePack&quot;</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679402122"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [ConformancePackInputParameter]
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; OrganizationConformancePack
+</span><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack%27"><span class="hs-identifier hs-var">OrganizationConformancePack'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [ConformancePackInputParameter]
+ -&gt; Maybe [Text]
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; OrganizationConformancePack)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [ConformancePackInputParameter]
+      -&gt; Maybe [Text]
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; OrganizationConformancePack)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryS3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [ConformancePackInputParameter]
+   -&gt; Maybe [Text]
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; OrganizationConformancePack)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [ConformancePackInputParameter]
+      -&gt; Maybe [Text]
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; OrganizationConformancePack)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryS3KeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ConformancePackInputParameter]
+   -&gt; Maybe [Text]
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; OrganizationConformancePack)
+-&gt; Parser (Maybe [ConformancePackInputParameter])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Text -&gt; Text -&gt; POSIX -&gt; OrganizationConformancePack)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [ConformancePackInputParameter]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConformancePackInputParameters&quot;</span></span><span>
+</span><span id="line-152"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ConformancePackInputParameter]))
+-&gt; Maybe [ConformancePackInputParameter]
+-&gt; Parser (Maybe [ConformancePackInputParameter])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Text -&gt; Text -&gt; POSIX -&gt; OrganizationConformancePack)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Text -&gt; Text -&gt; POSIX -&gt; OrganizationConformancePack)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExcludedAccounts&quot;</span></span><span>
+</span><span id="line-155"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; POSIX -&gt; OrganizationConformancePack)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; POSIX -&gt; OrganizationConformancePack)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationConformancePackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; OrganizationConformancePack)
+-&gt; Parser Text -&gt; Parser (POSIX -&gt; OrganizationConformancePack)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationConformancePackArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; OrganizationConformancePack)
+-&gt; Parser POSIX -&gt; Parser OrganizationConformancePack
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402114"><span id="local-6989586621679402116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

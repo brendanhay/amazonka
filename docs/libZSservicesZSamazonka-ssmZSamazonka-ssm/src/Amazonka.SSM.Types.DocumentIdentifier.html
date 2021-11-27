@@ -1,0 +1,1111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.DocumentIdentifier</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.DocumentIdentifier</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentFormat.html"><span class="hs-identifier">Amazonka.SSM.Types.DocumentFormat</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentRequires.html"><span class="hs-identifier">Amazonka.SSM.Types.DocumentRequires</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentType.html"><span class="hs-identifier">Amazonka.SSM.Types.DocumentType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PlatformType.html"><span class="hs-identifier">Amazonka.SSM.Types.PlatformType</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html"><span class="hs-identifier">Amazonka.SSM.Types.ReviewStatus</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Tag.html"><span class="hs-identifier">Amazonka.SSM.Types.Tag</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Describes the name of a SSM document.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newDocumentIdentifier' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679817178"><span id="local-6989586621679817179"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentIdentifier"><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-var">DocumentIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentIdentifier%27"><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-var">DocumentIdentifier'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The document type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdocumentType%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe DocumentType
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentType%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">documentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentType.html#DocumentType"><span class="hs-identifier hs-type">DocumentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | An optional field specifying the version of the artifact associated with</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the document. For example, \&quot;Release 12, Update 6\&quot;. This value is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- unique across all versions of a document, and can\'t be changed.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AversionName%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AversionName%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The schema version.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AschemaVersion%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AschemaVersion%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The current status of a document review.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AreviewStatus%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe ReviewStatus
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AreviewStatus%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">reviewStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier hs-type">ReviewStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The target type which defines the kinds of resources the document can</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- run on. For example, @\/AWS::EC2::Instance@. For a list of valid</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- resource types, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtargetType%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AtargetType%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services user account that created the document.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aowner%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aowner%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The operating system platform.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AplatformTypes%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe [PlatformType]
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AplatformTypes%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">platformTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-type">PlatformType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The date the SSM document was created.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AcreatedDate%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe POSIX
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AcreatedDate%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The document format, either JSON or YAML.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdocumentFormat%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe DocumentFormat
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentFormat%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">documentFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentFormat.html#DocumentFormat"><span class="hs-identifier hs-type">DocumentFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the SSM document.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aname%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aname%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The document version.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdocumentVersion%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentVersion%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The user in your organization who created the document.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aauthor%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aauthor%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">author</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | An optional field where you can specify a friendly name for the SSM</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- document. This value can differ for each version of the document. If you</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- want to update this value, see UpdateDocument.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdisplayName%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdisplayName%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A list of SSM documents required by a document. For example, an</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @ApplicationConfiguration@ document requires an</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @ApplicationConfigurationSchema@ document.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Arequires%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe (NonEmpty DocumentRequires)
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Arequires%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">requires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentRequires.html#DocumentRequires"><span class="hs-identifier hs-type">DocumentRequires</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The tags, or metadata, that have been applied to the document.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atags%3ADocumentIdentifier%27"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; Maybe [Tag]
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Atags%3ADocumentIdentifier%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679817158"><span id="local-6989586621679817160"><span class="annot"><span class="annottext">DocumentIdentifier -&gt; DocumentIdentifier -&gt; Bool
+(DocumentIdentifier -&gt; DocumentIdentifier -&gt; Bool)
+-&gt; (DocumentIdentifier -&gt; DocumentIdentifier -&gt; Bool)
+-&gt; Eq DocumentIdentifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentIdentifier -&gt; DocumentIdentifier -&gt; Bool
+$c/= :: DocumentIdentifier -&gt; DocumentIdentifier -&gt; Bool
+== :: DocumentIdentifier -&gt; DocumentIdentifier -&gt; Bool
+$c== :: DocumentIdentifier -&gt; DocumentIdentifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679817149"><span id="local-6989586621679817151"><span id="local-6989586621679817153"><span id="local-6989586621679817155"><span class="annot"><span class="annottext">ReadPrec [DocumentIdentifier]
+ReadPrec DocumentIdentifier
+Int -&gt; ReadS DocumentIdentifier
+ReadS [DocumentIdentifier]
+(Int -&gt; ReadS DocumentIdentifier)
+-&gt; ReadS [DocumentIdentifier]
+-&gt; ReadPrec DocumentIdentifier
+-&gt; ReadPrec [DocumentIdentifier]
+-&gt; Read DocumentIdentifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DocumentIdentifier]
+$creadListPrec :: ReadPrec [DocumentIdentifier]
+readPrec :: ReadPrec DocumentIdentifier
+$creadPrec :: ReadPrec DocumentIdentifier
+readList :: ReadS [DocumentIdentifier]
+$creadList :: ReadS [DocumentIdentifier]
+readsPrec :: Int -&gt; ReadS DocumentIdentifier
+$creadsPrec :: Int -&gt; ReadS DocumentIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679817142"><span id="local-6989586621679817144"><span id="local-6989586621679817146"><span class="annot"><span class="annottext">Int -&gt; DocumentIdentifier -&gt; ShowS
+[DocumentIdentifier] -&gt; ShowS
+DocumentIdentifier -&gt; String
+(Int -&gt; DocumentIdentifier -&gt; ShowS)
+-&gt; (DocumentIdentifier -&gt; String)
+-&gt; ([DocumentIdentifier] -&gt; ShowS)
+-&gt; Show DocumentIdentifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentIdentifier] -&gt; ShowS
+$cshowList :: [DocumentIdentifier] -&gt; ShowS
+show :: DocumentIdentifier -&gt; String
+$cshow :: DocumentIdentifier -&gt; String
+showsPrec :: Int -&gt; DocumentIdentifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DocumentIdentifier -&gt; Rep DocumentIdentifier x)
+-&gt; (forall x. Rep DocumentIdentifier x -&gt; DocumentIdentifier)
+-&gt; Generic DocumentIdentifier
+forall x. Rep DocumentIdentifier x -&gt; DocumentIdentifier
+forall x. DocumentIdentifier -&gt; Rep DocumentIdentifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DocumentIdentifier x -&gt; DocumentIdentifier
+$cfrom :: forall x. DocumentIdentifier -&gt; Rep DocumentIdentifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'DocumentIdentifier' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'documentType', 'documentIdentifier_documentType' - The document type.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'versionName', 'documentIdentifier_versionName' - An optional field specifying the version of the artifact associated with</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the document. For example, \&quot;Release 12, Update 6\&quot;. This value is</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- unique across all versions of a document, and can\'t be changed.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'schemaVersion', 'documentIdentifier_schemaVersion' - The schema version.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'reviewStatus', 'documentIdentifier_reviewStatus' - The current status of a document review.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'targetType', 'documentIdentifier_targetType' - The target type which defines the kinds of resources the document can</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- run on. For example, @\/AWS::EC2::Instance@. For a list of valid</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- resource types, see</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'owner', 'documentIdentifier_owner' - The Amazon Web Services user account that created the document.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'platformTypes', 'documentIdentifier_platformTypes' - The operating system platform.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'createdDate', 'documentIdentifier_createdDate' - The date the SSM document was created.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'documentFormat', 'documentIdentifier_documentFormat' - The document format, either JSON or YAML.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'name', 'documentIdentifier_name' - The name of the SSM document.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'documentVersion', 'documentIdentifier_documentVersion' - The document version.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'author', 'documentIdentifier_author' - The user in your organization who created the document.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'displayName', 'documentIdentifier_displayName' - An optional field where you can specify a friendly name for the SSM</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- document. This value can differ for each version of the document. If you</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- want to update this value, see UpdateDocument.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'requires', 'documentIdentifier_requires' - A list of SSM documents required by a document. For example, an</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @ApplicationConfiguration@ document requires an</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @ApplicationConfigurationSchema@ document.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'tags', 'documentIdentifier_tags' - The tags, or metadata, that have been applied to the document.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#newDocumentIdentifier"><span class="hs-identifier hs-type">newDocumentIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span>
+</span><span id="line-128"></span><span id="newDocumentIdentifier"><span class="annot"><span class="annottext">newDocumentIdentifier :: DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#newDocumentIdentifier"><span class="hs-identifier hs-var hs-var">newDocumentIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">DocumentIdentifier' :: Maybe DocumentType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReviewStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [PlatformType]
+-&gt; Maybe POSIX
+-&gt; Maybe DocumentFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty DocumentRequires)
+-&gt; Maybe [Tag]
+-&gt; DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documentType:DocumentIdentifier' :: Maybe DocumentType
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentType%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">documentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionName:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AversionName%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">versionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaVersion:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AschemaVersion%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:reviewStatus:DocumentIdentifier' :: Maybe ReviewStatus
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AreviewStatus%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">reviewStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AtargetType%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aowner%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformTypes:DocumentIdentifier' :: Maybe [PlatformType]
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AplatformTypes%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">platformTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:DocumentIdentifier' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AcreatedDate%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentFormat:DocumentIdentifier' :: Maybe DocumentFormat
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentFormat%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">documentFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aname%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentVersion:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentVersion%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:author:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aauthor%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">author</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdisplayName%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:requires:DocumentIdentifier' :: Maybe (NonEmpty DocumentRequires)
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Arequires%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">requires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:DocumentIdentifier' :: Maybe [Tag]
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Atags%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The document type.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_documentType"><span class="hs-identifier hs-type">documentIdentifier_documentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentType.html#DocumentType"><span class="hs-identifier hs-type">DocumentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="documentIdentifier_documentType"><span class="annot"><span class="annottext">documentIdentifier_documentType :: (Maybe DocumentType -&gt; f (Maybe DocumentType))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_documentType"><span class="hs-identifier hs-var hs-var">documentIdentifier_documentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe DocumentType)
+-&gt; (DocumentIdentifier -&gt; Maybe DocumentType -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier
+     DocumentIdentifier
+     (Maybe DocumentType)
+     (Maybe DocumentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817133"><span class="annot"><span class="annottext">Maybe DocumentType
+documentType :: Maybe DocumentType
+$sel:documentType:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe DocumentType
+</span><a href="#local-6989586621679817133"><span class="hs-identifier hs-var hs-var">documentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
+</span><a href="#local-6989586621679817133"><span class="hs-identifier hs-var">documentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817132"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817131"><span class="annot"><span class="annottext">Maybe DocumentType
+</span><a href="#local-6989586621679817131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentType:DocumentIdentifier' :: Maybe DocumentType
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentType%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">documentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
+</span><a href="#local-6989586621679817131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | An optional field specifying the version of the artifact associated with</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the document. For example, \&quot;Release 12, Update 6\&quot;. This value is</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- unique across all versions of a document, and can\'t be changed.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_versionName"><span class="hs-identifier hs-type">documentIdentifier_versionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="documentIdentifier_versionName"><span class="annot"><span class="annottext">documentIdentifier_versionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_versionName"><span class="hs-identifier hs-var hs-var">documentIdentifier_versionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817129"><span class="annot"><span class="annottext">Maybe Text
+versionName :: Maybe Text
+$sel:versionName:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817129"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817129"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817128"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionName:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AversionName%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">versionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The schema version.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_schemaVersion"><span class="hs-identifier hs-type">documentIdentifier_schemaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="documentIdentifier_schemaVersion"><span class="annot"><span class="annottext">documentIdentifier_schemaVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_schemaVersion"><span class="hs-identifier hs-var hs-var">documentIdentifier_schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817125"><span class="annot"><span class="annottext">Maybe Text
+schemaVersion :: Maybe Text
+$sel:schemaVersion:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817125"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817125"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817124"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AschemaVersion%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The current status of a document review.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_reviewStatus"><span class="hs-identifier hs-type">documentIdentifier_reviewStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier hs-type">ReviewStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="documentIdentifier_reviewStatus"><span class="annot"><span class="annottext">documentIdentifier_reviewStatus :: (Maybe ReviewStatus -&gt; f (Maybe ReviewStatus))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_reviewStatus"><span class="hs-identifier hs-var hs-var">documentIdentifier_reviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe ReviewStatus)
+-&gt; (DocumentIdentifier -&gt; Maybe ReviewStatus -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier
+     DocumentIdentifier
+     (Maybe ReviewStatus)
+     (Maybe ReviewStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817121"><span class="annot"><span class="annottext">Maybe ReviewStatus
+reviewStatus :: Maybe ReviewStatus
+$sel:reviewStatus:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe ReviewStatus
+</span><a href="#local-6989586621679817121"><span class="hs-identifier hs-var hs-var">reviewStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewStatus
+</span><a href="#local-6989586621679817121"><span class="hs-identifier hs-var">reviewStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817120"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817119"><span class="annot"><span class="annottext">Maybe ReviewStatus
+</span><a href="#local-6989586621679817119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewStatus:DocumentIdentifier' :: Maybe ReviewStatus
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AreviewStatus%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">reviewStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewStatus
+</span><a href="#local-6989586621679817119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The target type which defines the kinds of resources the document can</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- run on. For example, @\/AWS::EC2::Instance@. For a list of valid</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- resource types, see</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_targetType"><span class="hs-identifier hs-type">documentIdentifier_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="documentIdentifier_targetType"><span class="annot"><span class="annottext">documentIdentifier_targetType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_targetType"><span class="hs-identifier hs-var hs-var">documentIdentifier_targetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817117"><span class="annot"><span class="annottext">Maybe Text
+targetType :: Maybe Text
+$sel:targetType:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817117"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817117"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817116"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AtargetType%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The Amazon Web Services user account that created the document.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_owner"><span class="hs-identifier hs-type">documentIdentifier_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="documentIdentifier_owner"><span class="annot"><span class="annottext">documentIdentifier_owner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_owner"><span class="hs-identifier hs-var hs-var">documentIdentifier_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817113"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817113"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817113"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817112"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aowner%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The operating system platform.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_platformTypes"><span class="hs-identifier hs-type">documentIdentifier_platformTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-type">PlatformType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="documentIdentifier_platformTypes"><span class="annot"><span class="annottext">documentIdentifier_platformTypes :: (Maybe [PlatformType] -&gt; f (Maybe [PlatformType]))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_platformTypes"><span class="hs-identifier hs-var hs-var">documentIdentifier_platformTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe [PlatformType])
+-&gt; (DocumentIdentifier
+    -&gt; Maybe [PlatformType] -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier
+     DocumentIdentifier
+     (Maybe [PlatformType])
+     (Maybe [PlatformType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817109"><span class="annot"><span class="annottext">Maybe [PlatformType]
+platformTypes :: Maybe [PlatformType]
+$sel:platformTypes:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe [PlatformType]
+</span><a href="#local-6989586621679817109"><span class="hs-identifier hs-var hs-var">platformTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformType]
+</span><a href="#local-6989586621679817109"><span class="hs-identifier hs-var">platformTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817108"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817107"><span class="annot"><span class="annottext">Maybe [PlatformType]
+</span><a href="#local-6989586621679817107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformTypes:DocumentIdentifier' :: Maybe [PlatformType]
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AplatformTypes%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">platformTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformType]
+</span><a href="#local-6989586621679817107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlatformType] -&gt; f (Maybe [PlatformType]))
+ -&gt; DocumentIdentifier -&gt; f DocumentIdentifier)
+-&gt; ((Maybe [PlatformType] -&gt; f (Maybe [PlatformType]))
+    -&gt; Maybe [PlatformType] -&gt; f (Maybe [PlatformType]))
+-&gt; (Maybe [PlatformType] -&gt; f (Maybe [PlatformType]))
+-&gt; DocumentIdentifier
+-&gt; f DocumentIdentifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PlatformType] [PlatformType] [PlatformType] [PlatformType]
+-&gt; Iso
+     (Maybe [PlatformType])
+     (Maybe [PlatformType])
+     (Maybe [PlatformType])
+     (Maybe [PlatformType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PlatformType] [PlatformType] [PlatformType] [PlatformType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The date the SSM document was created.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_createdDate"><span class="hs-identifier hs-type">documentIdentifier_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="documentIdentifier_createdDate"><span class="annot"><span class="annottext">documentIdentifier_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_createdDate"><span class="hs-identifier hs-var hs-var">documentIdentifier_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe POSIX)
+-&gt; (DocumentIdentifier -&gt; Maybe POSIX -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817102"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe POSIX
+</span><a href="#local-6989586621679817102"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679817102"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817101"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817100"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679817100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:DocumentIdentifier' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AcreatedDate%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679817100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DocumentIdentifier -&gt; f DocumentIdentifier)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DocumentIdentifier
+-&gt; f DocumentIdentifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The document format, either JSON or YAML.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_documentFormat"><span class="hs-identifier hs-type">documentIdentifier_documentFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentFormat.html#DocumentFormat"><span class="hs-identifier hs-type">DocumentFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="documentIdentifier_documentFormat"><span class="annot"><span class="annottext">documentIdentifier_documentFormat :: (Maybe DocumentFormat -&gt; f (Maybe DocumentFormat))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_documentFormat"><span class="hs-identifier hs-var hs-var">documentIdentifier_documentFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe DocumentFormat)
+-&gt; (DocumentIdentifier
+    -&gt; Maybe DocumentFormat -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier
+     DocumentIdentifier
+     (Maybe DocumentFormat)
+     (Maybe DocumentFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817097"><span class="annot"><span class="annottext">Maybe DocumentFormat
+documentFormat :: Maybe DocumentFormat
+$sel:documentFormat:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe DocumentFormat
+</span><a href="#local-6989586621679817097"><span class="hs-identifier hs-var hs-var">documentFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
+</span><a href="#local-6989586621679817097"><span class="hs-identifier hs-var">documentFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817096"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817095"><span class="annot"><span class="annottext">Maybe DocumentFormat
+</span><a href="#local-6989586621679817095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentFormat:DocumentIdentifier' :: Maybe DocumentFormat
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentFormat%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">documentFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
+</span><a href="#local-6989586621679817095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The name of the SSM document.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_name"><span class="hs-identifier hs-type">documentIdentifier_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="documentIdentifier_name"><span class="annot"><span class="annottext">documentIdentifier_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_name"><span class="hs-identifier hs-var hs-var">documentIdentifier_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817093"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817093"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817093"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817092"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aname%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The document version.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_documentVersion"><span class="hs-identifier hs-type">documentIdentifier_documentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="documentIdentifier_documentVersion"><span class="annot"><span class="annottext">documentIdentifier_documentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_documentVersion"><span class="hs-identifier hs-var hs-var">documentIdentifier_documentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817089"><span class="annot"><span class="annottext">Maybe Text
+documentVersion :: Maybe Text
+$sel:documentVersion:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817089"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817089"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817088"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdocumentVersion%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The user in your organization who created the document.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_author"><span class="hs-identifier hs-type">documentIdentifier_author</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="documentIdentifier_author"><span class="annot"><span class="annottext">documentIdentifier_author :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_author"><span class="hs-identifier hs-var hs-var">documentIdentifier_author</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817085"><span class="annot"><span class="annottext">Maybe Text
+author :: Maybe Text
+$sel:author:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817085"><span class="hs-identifier hs-var hs-var">author</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817085"><span class="hs-identifier hs-var">author</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817084"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:author:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Aauthor%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">author</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | An optional field where you can specify a friendly name for the SSM</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- document. This value can differ for each version of the document. If you</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- want to update this value, see UpdateDocument.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_displayName"><span class="hs-identifier hs-type">documentIdentifier_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="documentIdentifier_displayName"><span class="annot"><span class="annottext">documentIdentifier_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_displayName"><span class="hs-identifier hs-var hs-var">documentIdentifier_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe Text)
+-&gt; (DocumentIdentifier -&gt; Maybe Text -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817081"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679817081"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817081"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817080"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817079"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:DocumentIdentifier' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3AdisplayName%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | A list of SSM documents required by a document. For example, an</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- @ApplicationConfiguration@ document requires an</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @ApplicationConfigurationSchema@ document.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_requires"><span class="hs-identifier hs-type">documentIdentifier_requires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentRequires.html#DocumentRequires"><span class="hs-identifier hs-type">DocumentRequires</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="documentIdentifier_requires"><span class="annot"><span class="annottext">documentIdentifier_requires :: (Maybe (NonEmpty DocumentRequires)
+ -&gt; f (Maybe (NonEmpty DocumentRequires)))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_requires"><span class="hs-identifier hs-var hs-var">documentIdentifier_requires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe (NonEmpty DocumentRequires))
+-&gt; (DocumentIdentifier
+    -&gt; Maybe (NonEmpty DocumentRequires) -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier
+     DocumentIdentifier
+     (Maybe (NonEmpty DocumentRequires))
+     (Maybe (NonEmpty DocumentRequires))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817077"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+requires :: Maybe (NonEmpty DocumentRequires)
+$sel:requires:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679817077"><span class="hs-identifier hs-var hs-var">requires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679817077"><span class="hs-identifier hs-var">requires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817076"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817075"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679817075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requires:DocumentIdentifier' :: Maybe (NonEmpty DocumentRequires)
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Arequires%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">requires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679817075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DocumentRequires)
+  -&gt; f (Maybe (NonEmpty DocumentRequires)))
+ -&gt; DocumentIdentifier -&gt; f DocumentIdentifier)
+-&gt; ((Maybe (NonEmpty DocumentRequires)
+     -&gt; f (Maybe (NonEmpty DocumentRequires)))
+    -&gt; Maybe (NonEmpty DocumentRequires)
+    -&gt; f (Maybe (NonEmpty DocumentRequires)))
+-&gt; (Maybe (NonEmpty DocumentRequires)
+    -&gt; f (Maybe (NonEmpty DocumentRequires)))
+-&gt; DocumentIdentifier
+-&gt; f DocumentIdentifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DocumentRequires)
+  (NonEmpty DocumentRequires)
+  (NonEmpty DocumentRequires)
+  (NonEmpty DocumentRequires)
+-&gt; Iso
+     (Maybe (NonEmpty DocumentRequires))
+     (Maybe (NonEmpty DocumentRequires))
+     (Maybe (NonEmpty DocumentRequires))
+     (Maybe (NonEmpty DocumentRequires))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DocumentRequires)
+  (NonEmpty DocumentRequires)
+  (NonEmpty DocumentRequires)
+  (NonEmpty DocumentRequires)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The tags, or metadata, that have been applied to the document.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_tags"><span class="hs-identifier hs-type">documentIdentifier_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="documentIdentifier_tags"><span class="annot"><span class="annottext">documentIdentifier_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; DocumentIdentifier -&gt; f DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#documentIdentifier_tags"><span class="hs-identifier hs-var hs-var">documentIdentifier_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentIdentifier -&gt; Maybe [Tag])
+-&gt; (DocumentIdentifier -&gt; Maybe [Tag] -&gt; DocumentIdentifier)
+-&gt; Lens
+     DocumentIdentifier DocumentIdentifier (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817073"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:DocumentIdentifier' :: DocumentIdentifier -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679817073"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679817073"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817072"><span class="annot"><span class="annottext">s :: DocumentIdentifier
+</span><a href="#local-6989586621679817072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-type">DocumentIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817071"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679817071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentIdentifier
+</span><a href="#local-6989586621679817072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DocumentIdentifier' :: Maybe [Tag]
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#%24sel%3Atags%3ADocumentIdentifier%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679817071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; DocumentIdentifier -&gt; f DocumentIdentifier)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; DocumentIdentifier
+-&gt; f DocumentIdentifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817068"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679817066"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DocumentIdentifier)
+-&gt; Value
+-&gt; Parser DocumentIdentifier
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DocumentIdentifier&quot;</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679817063"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe DocumentType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReviewStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [PlatformType]
+-&gt; Maybe POSIX
+-&gt; Maybe DocumentFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty DocumentRequires)
+-&gt; Maybe [Tag]
+-&gt; DocumentIdentifier
+</span><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier%27"><span class="hs-identifier hs-var">DocumentIdentifier'</span></a></span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DocumentType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ReviewStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [PlatformType]
+ -&gt; Maybe POSIX
+ -&gt; Maybe DocumentFormat
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty DocumentRequires)
+ -&gt; Maybe [Tag]
+ -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe DocumentType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ReviewStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [PlatformType]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ReviewStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [PlatformType]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ReviewStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [PlatformType]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ReviewStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [PlatformType]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ReviewStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [PlatformType]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReviewStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [PlatformType]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe ReviewStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [PlatformType]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReviewStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReviewStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [PlatformType]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [PlatformType]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [PlatformType]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [PlatformType]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [PlatformType]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe [PlatformType])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PlatformType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlatformTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PlatformType]))
+-&gt; Maybe [PlatformType] -&gt; Parser (Maybe [PlatformType])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe DocumentFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DocumentFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe DocumentFormat)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag]
+      -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Author&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag]
+   -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty DocumentRequires)
+      -&gt; Maybe [Tag] -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty DocumentRequires)
+   -&gt; Maybe [Tag] -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe (NonEmpty DocumentRequires))
+-&gt; Parser (Maybe [Tag] -&gt; DocumentIdentifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty DocumentRequires))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Requires&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; DocumentIdentifier)
+-&gt; Parser (Maybe [Tag]) -&gt; Parser DocumentIdentifier
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817056"><span id="local-6989586621679817058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span></span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentIdentifier.html#DocumentIdentifier"><span class="hs-identifier hs-type">DocumentIdentifier</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

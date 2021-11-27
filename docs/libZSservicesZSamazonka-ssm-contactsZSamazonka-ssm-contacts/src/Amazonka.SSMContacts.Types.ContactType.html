@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSMContacts.Types.ContactType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSMContacts.Types.ContactType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType"><span class="hs-identifier">ContactType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType_ESCALATION"><span class="hs-identifier">ContactType_ESCALATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType_PERSONAL"><span class="hs-identifier">ContactType_PERSONAL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679195910"><span id="local-6989586621679195911"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactType"><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType"><span class="hs-identifier hs-var">ContactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactType%27"><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType%27"><span class="hs-identifier hs-var">ContactType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContactType"><span class="annot"><span class="annottext">ContactType -&gt; Text
+</span><a href="Amazonka.SSMContacts.Types.ContactType.html#fromContactType"><span class="hs-identifier hs-var hs-var">fromContactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195902"><span id="local-6989586621679195904"><span id="local-6989586621679195906"><span class="annot"><span class="annottext">Int -&gt; ContactType -&gt; ShowS
+[ContactType] -&gt; ShowS
+ContactType -&gt; String
+(Int -&gt; ContactType -&gt; ShowS)
+-&gt; (ContactType -&gt; String)
+-&gt; ([ContactType] -&gt; ShowS)
+-&gt; Show ContactType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactType] -&gt; ShowS
+$cshowList :: [ContactType] -&gt; ShowS
+show :: ContactType -&gt; String
+$cshow :: ContactType -&gt; String
+showsPrec :: Int -&gt; ContactType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679195893"><span id="local-6989586621679195895"><span id="local-6989586621679195897"><span id="local-6989586621679195899"><span class="annot"><span class="annottext">ReadPrec [ContactType]
+ReadPrec ContactType
+Int -&gt; ReadS ContactType
+ReadS [ContactType]
+(Int -&gt; ReadS ContactType)
+-&gt; ReadS [ContactType]
+-&gt; ReadPrec ContactType
+-&gt; ReadPrec [ContactType]
+-&gt; Read ContactType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContactType]
+$creadListPrec :: ReadPrec [ContactType]
+readPrec :: ReadPrec ContactType
+$creadPrec :: ReadPrec ContactType
+readList :: ReadS [ContactType]
+$creadList :: ReadS [ContactType]
+readsPrec :: Int -&gt; ReadS ContactType
+$creadsPrec :: Int -&gt; ReadS ContactType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679195888"><span id="local-6989586621679195890"><span class="annot"><span class="annottext">ContactType -&gt; ContactType -&gt; Bool
+(ContactType -&gt; ContactType -&gt; Bool)
+-&gt; (ContactType -&gt; ContactType -&gt; Bool) -&gt; Eq ContactType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactType -&gt; ContactType -&gt; Bool
+$c/= :: ContactType -&gt; ContactType -&gt; Bool
+== :: ContactType -&gt; ContactType -&gt; Bool
+$c== :: ContactType -&gt; ContactType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679195872"><span id="local-6989586621679195874"><span id="local-6989586621679195876"><span id="local-6989586621679195878"><span id="local-6989586621679195880"><span id="local-6989586621679195882"><span id="local-6989586621679195884"><span class="annot"><span class="annottext">Eq ContactType
+Eq ContactType
+-&gt; (ContactType -&gt; ContactType -&gt; Ordering)
+-&gt; (ContactType -&gt; ContactType -&gt; Bool)
+-&gt; (ContactType -&gt; ContactType -&gt; Bool)
+-&gt; (ContactType -&gt; ContactType -&gt; Bool)
+-&gt; (ContactType -&gt; ContactType -&gt; Bool)
+-&gt; (ContactType -&gt; ContactType -&gt; ContactType)
+-&gt; (ContactType -&gt; ContactType -&gt; ContactType)
+-&gt; Ord ContactType
+ContactType -&gt; ContactType -&gt; Bool
+ContactType -&gt; ContactType -&gt; Ordering
+ContactType -&gt; ContactType -&gt; ContactType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContactType -&gt; ContactType -&gt; ContactType
+$cmin :: ContactType -&gt; ContactType -&gt; ContactType
+max :: ContactType -&gt; ContactType -&gt; ContactType
+$cmax :: ContactType -&gt; ContactType -&gt; ContactType
+&gt;= :: ContactType -&gt; ContactType -&gt; Bool
+$c&gt;= :: ContactType -&gt; ContactType -&gt; Bool
+&gt; :: ContactType -&gt; ContactType -&gt; Bool
+$c&gt; :: ContactType -&gt; ContactType -&gt; Bool
+&lt;= :: ContactType -&gt; ContactType -&gt; Bool
+$c&lt;= :: ContactType -&gt; ContactType -&gt; Bool
+&lt; :: ContactType -&gt; ContactType -&gt; Bool
+$c&lt; :: ContactType -&gt; ContactType -&gt; Bool
+compare :: ContactType -&gt; ContactType -&gt; Ordering
+$ccompare :: ContactType -&gt; ContactType -&gt; Ordering
+$cp1Ord :: Eq ContactType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContactType -&gt; Rep ContactType x)
+-&gt; (forall x. Rep ContactType x -&gt; ContactType)
+-&gt; Generic ContactType
+forall x. Rep ContactType x -&gt; ContactType
+forall x. ContactType -&gt; Rep ContactType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactType x -&gt; ContactType
+$cfrom :: forall x. ContactType -&gt; Rep ContactType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195864"><span id="local-6989586621679195866"><span class="annot"><span class="annottext">Int -&gt; ContactType -&gt; Int
+ContactType -&gt; Int
+(Int -&gt; ContactType -&gt; Int)
+-&gt; (ContactType -&gt; Int) -&gt; Hashable ContactType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContactType -&gt; Int
+$chash :: ContactType -&gt; Int
+hashWithSalt :: Int -&gt; ContactType -&gt; Int
+$chashWithSalt :: Int -&gt; ContactType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679195861"><span class="annot"><span class="annottext">ContactType -&gt; ()
+(ContactType -&gt; ()) -&gt; NFData ContactType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContactType -&gt; ()
+$crnf :: ContactType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679195858"><span class="annot"><span class="annottext">Text -&gt; Either String ContactType
+(Text -&gt; Either String ContactType) -&gt; FromText ContactType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContactType
+$cfromText :: Text -&gt; Either String ContactType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679195855"><span class="annot"><span class="annottext">ContactType -&gt; Text
+(ContactType -&gt; Text) -&gt; ToText ContactType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContactType -&gt; Text
+$ctoText :: ContactType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679195852"><span class="annot"><span class="annottext">ContactType -&gt; ByteString
+(ContactType -&gt; ByteString) -&gt; ToByteString ContactType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContactType -&gt; ByteString
+$ctoBS :: ContactType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679195849"><span class="annot"><span class="annottext">ContactType -&gt; ByteStringBuilder
+(ContactType -&gt; ByteStringBuilder) -&gt; ToLog ContactType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContactType -&gt; ByteStringBuilder
+$cbuild :: ContactType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679195846"><span class="annot"><span class="annottext">HeaderName -&gt; ContactType -&gt; [Header]
+(HeaderName -&gt; ContactType -&gt; [Header]) -&gt; ToHeader ContactType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContactType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContactType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679195843"><span class="annot"><span class="annottext">ContactType -&gt; QueryString
+(ContactType -&gt; QueryString) -&gt; ToQuery ContactType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContactType -&gt; QueryString
+$ctoQuery :: ContactType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679195838"><span id="local-6989586621679195840"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactType]
+Value -&gt; Parser ContactType
+(Value -&gt; Parser ContactType)
+-&gt; (Value -&gt; Parser [ContactType]) -&gt; FromJSON ContactType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContactType]
+$cparseJSONList :: Value -&gt; Parser [ContactType]
+parseJSON :: Value -&gt; Parser ContactType
+$cparseJSON :: Value -&gt; Parser ContactType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679195833"><span id="local-6989586621679195835"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactType]
+FromJSONKeyFunction ContactType
+FromJSONKeyFunction ContactType
+-&gt; FromJSONKeyFunction [ContactType] -&gt; FromJSONKey ContactType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContactType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContactType]
+fromJSONKey :: FromJSONKeyFunction ContactType
+$cfromJSONKey :: FromJSONKeyFunction ContactType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679195824"><span id="local-6989586621679195826"><span id="local-6989586621679195828"><span id="local-6989586621679195830"><span class="annot"><span class="annottext">[ContactType] -&gt; Encoding
+[ContactType] -&gt; Value
+ContactType -&gt; Encoding
+ContactType -&gt; Value
+(ContactType -&gt; Value)
+-&gt; (ContactType -&gt; Encoding)
+-&gt; ([ContactType] -&gt; Value)
+-&gt; ([ContactType] -&gt; Encoding)
+-&gt; ToJSON ContactType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContactType] -&gt; Encoding
+$ctoEncodingList :: [ContactType] -&gt; Encoding
+toJSONList :: [ContactType] -&gt; Value
+$ctoJSONList :: [ContactType] -&gt; Value
+toEncoding :: ContactType -&gt; Encoding
+$ctoEncoding :: ContactType -&gt; Encoding
+toJSON :: ContactType -&gt; Value
+$ctoJSON :: ContactType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679195819"><span id="local-6989586621679195821"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactType]
+ToJSONKeyFunction ContactType
+ToJSONKeyFunction ContactType
+-&gt; ToJSONKeyFunction [ContactType] -&gt; ToJSONKey ContactType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContactType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContactType]
+toJSONKey :: ToJSONKeyFunction ContactType
+$ctoJSONKey :: ToJSONKeyFunction ContactType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679195816"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactType
+([Node] -&gt; Either String ContactType) -&gt; FromXML ContactType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContactType
+$cparseXML :: [Node] -&gt; Either String ContactType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679195813"><span class="annot"><span class="annottext">ContactType -&gt; XML
+(ContactType -&gt; XML) -&gt; ToXML ContactType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContactType -&gt; XML
+$ctoXML :: ContactType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType_ESCALATION"><span class="hs-identifier hs-type">ContactType_ESCALATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType"><span class="hs-identifier hs-type">ContactType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactType_ESCALATION"><span id="%24mContactType_ESCALATION"><span id="ContactType_ESCALATION"><span class="annot"><span class="annottext">$bContactType_ESCALATION :: ContactType
+$mContactType_ESCALATION :: forall r. ContactType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMContacts.Types.ContactType.html#%24bContactType_ESCALATION"><span class="hs-identifier hs-var hs-var hs-var">ContactType_ESCALATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType%27"><span class="hs-identifier hs-type">ContactType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ESCALATION&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType_PERSONAL"><span class="hs-identifier hs-type">ContactType_PERSONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType"><span class="hs-identifier hs-type">ContactType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactType_PERSONAL"><span id="%24mContactType_PERSONAL"><span id="ContactType_PERSONAL"><span class="annot"><span class="annottext">$bContactType_PERSONAL :: ContactType
+$mContactType_PERSONAL :: forall r. ContactType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMContacts.Types.ContactType.html#%24bContactType_PERSONAL"><span class="hs-identifier hs-var hs-var hs-var">ContactType_PERSONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType%27"><span class="hs-identifier hs-type">ContactType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERSONAL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType_ESCALATION"><span class="hs-pragma hs-type">ContactType_ESCALATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType_PERSONAL"><span class="hs-pragma hs-type">ContactType_PERSONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactType.html#ContactType%27"><span class="hs-pragma hs-type">ContactType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

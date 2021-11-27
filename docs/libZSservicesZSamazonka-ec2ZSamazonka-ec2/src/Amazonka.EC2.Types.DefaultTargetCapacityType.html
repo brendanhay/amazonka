@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.DefaultTargetCapacityType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.DefaultTargetCapacityType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType"><span class="hs-identifier">DefaultTargetCapacityType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType_On_demand"><span class="hs-identifier">DefaultTargetCapacityType_On_demand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType_Spot"><span class="hs-identifier">DefaultTargetCapacityType_Spot</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681097877"><span id="local-6989586621681097878"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefaultTargetCapacityType"><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType"><span class="hs-identifier hs-var">DefaultTargetCapacityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultTargetCapacityType%27"><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType%27"><span class="hs-identifier hs-var">DefaultTargetCapacityType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDefaultTargetCapacityType"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; Text
+</span><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#fromDefaultTargetCapacityType"><span class="hs-identifier hs-var hs-var">fromDefaultTargetCapacityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681097869"><span id="local-6989586621681097871"><span id="local-6989586621681097873"><span class="annot"><span class="annottext">Int -&gt; DefaultTargetCapacityType -&gt; ShowS
+[DefaultTargetCapacityType] -&gt; ShowS
+DefaultTargetCapacityType -&gt; String
+(Int -&gt; DefaultTargetCapacityType -&gt; ShowS)
+-&gt; (DefaultTargetCapacityType -&gt; String)
+-&gt; ([DefaultTargetCapacityType] -&gt; ShowS)
+-&gt; Show DefaultTargetCapacityType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefaultTargetCapacityType] -&gt; ShowS
+$cshowList :: [DefaultTargetCapacityType] -&gt; ShowS
+show :: DefaultTargetCapacityType -&gt; String
+$cshow :: DefaultTargetCapacityType -&gt; String
+showsPrec :: Int -&gt; DefaultTargetCapacityType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefaultTargetCapacityType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681097860"><span id="local-6989586621681097862"><span id="local-6989586621681097864"><span id="local-6989586621681097866"><span class="annot"><span class="annottext">ReadPrec [DefaultTargetCapacityType]
+ReadPrec DefaultTargetCapacityType
+Int -&gt; ReadS DefaultTargetCapacityType
+ReadS [DefaultTargetCapacityType]
+(Int -&gt; ReadS DefaultTargetCapacityType)
+-&gt; ReadS [DefaultTargetCapacityType]
+-&gt; ReadPrec DefaultTargetCapacityType
+-&gt; ReadPrec [DefaultTargetCapacityType]
+-&gt; Read DefaultTargetCapacityType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefaultTargetCapacityType]
+$creadListPrec :: ReadPrec [DefaultTargetCapacityType]
+readPrec :: ReadPrec DefaultTargetCapacityType
+$creadPrec :: ReadPrec DefaultTargetCapacityType
+readList :: ReadS [DefaultTargetCapacityType]
+$creadList :: ReadS [DefaultTargetCapacityType]
+readsPrec :: Int -&gt; ReadS DefaultTargetCapacityType
+$creadsPrec :: Int -&gt; ReadS DefaultTargetCapacityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681097855"><span id="local-6989586621681097857"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+(DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool)
+-&gt; (DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool)
+-&gt; Eq DefaultTargetCapacityType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+$c/= :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+== :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+$c== :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681097839"><span id="local-6989586621681097841"><span id="local-6989586621681097843"><span id="local-6989586621681097845"><span id="local-6989586621681097847"><span id="local-6989586621681097849"><span id="local-6989586621681097851"><span class="annot"><span class="annottext">Eq DefaultTargetCapacityType
+Eq DefaultTargetCapacityType
+-&gt; (DefaultTargetCapacityType
+    -&gt; DefaultTargetCapacityType -&gt; Ordering)
+-&gt; (DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool)
+-&gt; (DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool)
+-&gt; (DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool)
+-&gt; (DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool)
+-&gt; (DefaultTargetCapacityType
+    -&gt; DefaultTargetCapacityType -&gt; DefaultTargetCapacityType)
+-&gt; (DefaultTargetCapacityType
+    -&gt; DefaultTargetCapacityType -&gt; DefaultTargetCapacityType)
+-&gt; Ord DefaultTargetCapacityType
+DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Ordering
+DefaultTargetCapacityType
+-&gt; DefaultTargetCapacityType -&gt; DefaultTargetCapacityType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DefaultTargetCapacityType
+-&gt; DefaultTargetCapacityType -&gt; DefaultTargetCapacityType
+$cmin :: DefaultTargetCapacityType
+-&gt; DefaultTargetCapacityType -&gt; DefaultTargetCapacityType
+max :: DefaultTargetCapacityType
+-&gt; DefaultTargetCapacityType -&gt; DefaultTargetCapacityType
+$cmax :: DefaultTargetCapacityType
+-&gt; DefaultTargetCapacityType -&gt; DefaultTargetCapacityType
+&gt;= :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+$c&gt;= :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+&gt; :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+$c&gt; :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+&lt;= :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+$c&lt;= :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+&lt; :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+$c&lt; :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Bool
+compare :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Ordering
+$ccompare :: DefaultTargetCapacityType -&gt; DefaultTargetCapacityType -&gt; Ordering
+$cp1Ord :: Eq DefaultTargetCapacityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DefaultTargetCapacityType -&gt; Rep DefaultTargetCapacityType x)
+-&gt; (forall x.
+    Rep DefaultTargetCapacityType x -&gt; DefaultTargetCapacityType)
+-&gt; Generic DefaultTargetCapacityType
+forall x.
+Rep DefaultTargetCapacityType x -&gt; DefaultTargetCapacityType
+forall x.
+DefaultTargetCapacityType -&gt; Rep DefaultTargetCapacityType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DefaultTargetCapacityType x -&gt; DefaultTargetCapacityType
+$cfrom :: forall x.
+DefaultTargetCapacityType -&gt; Rep DefaultTargetCapacityType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681097831"><span id="local-6989586621681097833"><span class="annot"><span class="annottext">Int -&gt; DefaultTargetCapacityType -&gt; Int
+DefaultTargetCapacityType -&gt; Int
+(Int -&gt; DefaultTargetCapacityType -&gt; Int)
+-&gt; (DefaultTargetCapacityType -&gt; Int)
+-&gt; Hashable DefaultTargetCapacityType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DefaultTargetCapacityType -&gt; Int
+$chash :: DefaultTargetCapacityType -&gt; Int
+hashWithSalt :: Int -&gt; DefaultTargetCapacityType -&gt; Int
+$chashWithSalt :: Int -&gt; DefaultTargetCapacityType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681097828"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; ()
+(DefaultTargetCapacityType -&gt; ())
+-&gt; NFData DefaultTargetCapacityType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DefaultTargetCapacityType -&gt; ()
+$crnf :: DefaultTargetCapacityType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681097825"><span class="annot"><span class="annottext">Text -&gt; Either String DefaultTargetCapacityType
+(Text -&gt; Either String DefaultTargetCapacityType)
+-&gt; FromText DefaultTargetCapacityType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DefaultTargetCapacityType
+$cfromText :: Text -&gt; Either String DefaultTargetCapacityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681097822"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; Text
+(DefaultTargetCapacityType -&gt; Text)
+-&gt; ToText DefaultTargetCapacityType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DefaultTargetCapacityType -&gt; Text
+$ctoText :: DefaultTargetCapacityType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681097819"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; ByteString
+(DefaultTargetCapacityType -&gt; ByteString)
+-&gt; ToByteString DefaultTargetCapacityType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DefaultTargetCapacityType -&gt; ByteString
+$ctoBS :: DefaultTargetCapacityType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681097816"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; ByteStringBuilder
+(DefaultTargetCapacityType -&gt; ByteStringBuilder)
+-&gt; ToLog DefaultTargetCapacityType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DefaultTargetCapacityType -&gt; ByteStringBuilder
+$cbuild :: DefaultTargetCapacityType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681097813"><span class="annot"><span class="annottext">HeaderName -&gt; DefaultTargetCapacityType -&gt; [Header]
+(HeaderName -&gt; DefaultTargetCapacityType -&gt; [Header])
+-&gt; ToHeader DefaultTargetCapacityType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DefaultTargetCapacityType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DefaultTargetCapacityType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681097810"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; QueryString
+(DefaultTargetCapacityType -&gt; QueryString)
+-&gt; ToQuery DefaultTargetCapacityType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DefaultTargetCapacityType -&gt; QueryString
+$ctoQuery :: DefaultTargetCapacityType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681097805"><span id="local-6989586621681097807"><span class="annot"><span class="annottext">Value -&gt; Parser [DefaultTargetCapacityType]
+Value -&gt; Parser DefaultTargetCapacityType
+(Value -&gt; Parser DefaultTargetCapacityType)
+-&gt; (Value -&gt; Parser [DefaultTargetCapacityType])
+-&gt; FromJSON DefaultTargetCapacityType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DefaultTargetCapacityType]
+$cparseJSONList :: Value -&gt; Parser [DefaultTargetCapacityType]
+parseJSON :: Value -&gt; Parser DefaultTargetCapacityType
+$cparseJSON :: Value -&gt; Parser DefaultTargetCapacityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681097800"><span id="local-6989586621681097802"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefaultTargetCapacityType]
+FromJSONKeyFunction DefaultTargetCapacityType
+FromJSONKeyFunction DefaultTargetCapacityType
+-&gt; FromJSONKeyFunction [DefaultTargetCapacityType]
+-&gt; FromJSONKey DefaultTargetCapacityType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DefaultTargetCapacityType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DefaultTargetCapacityType]
+fromJSONKey :: FromJSONKeyFunction DefaultTargetCapacityType
+$cfromJSONKey :: FromJSONKeyFunction DefaultTargetCapacityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681097791"><span id="local-6989586621681097793"><span id="local-6989586621681097795"><span id="local-6989586621681097797"><span class="annot"><span class="annottext">[DefaultTargetCapacityType] -&gt; Encoding
+[DefaultTargetCapacityType] -&gt; Value
+DefaultTargetCapacityType -&gt; Encoding
+DefaultTargetCapacityType -&gt; Value
+(DefaultTargetCapacityType -&gt; Value)
+-&gt; (DefaultTargetCapacityType -&gt; Encoding)
+-&gt; ([DefaultTargetCapacityType] -&gt; Value)
+-&gt; ([DefaultTargetCapacityType] -&gt; Encoding)
+-&gt; ToJSON DefaultTargetCapacityType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DefaultTargetCapacityType] -&gt; Encoding
+$ctoEncodingList :: [DefaultTargetCapacityType] -&gt; Encoding
+toJSONList :: [DefaultTargetCapacityType] -&gt; Value
+$ctoJSONList :: [DefaultTargetCapacityType] -&gt; Value
+toEncoding :: DefaultTargetCapacityType -&gt; Encoding
+$ctoEncoding :: DefaultTargetCapacityType -&gt; Encoding
+toJSON :: DefaultTargetCapacityType -&gt; Value
+$ctoJSON :: DefaultTargetCapacityType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681097786"><span id="local-6989586621681097788"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefaultTargetCapacityType]
+ToJSONKeyFunction DefaultTargetCapacityType
+ToJSONKeyFunction DefaultTargetCapacityType
+-&gt; ToJSONKeyFunction [DefaultTargetCapacityType]
+-&gt; ToJSONKey DefaultTargetCapacityType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DefaultTargetCapacityType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DefaultTargetCapacityType]
+toJSONKey :: ToJSONKeyFunction DefaultTargetCapacityType
+$ctoJSONKey :: ToJSONKeyFunction DefaultTargetCapacityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681097783"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefaultTargetCapacityType
+([Node] -&gt; Either String DefaultTargetCapacityType)
+-&gt; FromXML DefaultTargetCapacityType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DefaultTargetCapacityType
+$cparseXML :: [Node] -&gt; Either String DefaultTargetCapacityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681097780"><span class="annot"><span class="annottext">DefaultTargetCapacityType -&gt; XML
+(DefaultTargetCapacityType -&gt; XML)
+-&gt; ToXML DefaultTargetCapacityType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DefaultTargetCapacityType -&gt; XML
+$ctoXML :: DefaultTargetCapacityType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType_On_demand"><span class="hs-identifier hs-type">DefaultTargetCapacityType_On_demand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType"><span class="hs-identifier hs-type">DefaultTargetCapacityType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDefaultTargetCapacityType_On_demand"><span id="%24mDefaultTargetCapacityType_On_demand"><span id="DefaultTargetCapacityType_On_demand"><span class="annot"><span class="annottext">$bDefaultTargetCapacityType_On_demand :: DefaultTargetCapacityType
+$mDefaultTargetCapacityType_On_demand :: forall r.
+DefaultTargetCapacityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#%24bDefaultTargetCapacityType_On_demand"><span class="hs-identifier hs-var hs-var hs-var">DefaultTargetCapacityType_On_demand</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType%27"><span class="hs-identifier hs-type">DefaultTargetCapacityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;on-demand&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType_Spot"><span class="hs-identifier hs-type">DefaultTargetCapacityType_Spot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType"><span class="hs-identifier hs-type">DefaultTargetCapacityType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDefaultTargetCapacityType_Spot"><span id="%24mDefaultTargetCapacityType_Spot"><span id="DefaultTargetCapacityType_Spot"><span class="annot"><span class="annottext">$bDefaultTargetCapacityType_Spot :: DefaultTargetCapacityType
+$mDefaultTargetCapacityType_Spot :: forall r.
+DefaultTargetCapacityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#%24bDefaultTargetCapacityType_Spot"><span class="hs-identifier hs-var hs-var hs-var">DefaultTargetCapacityType_Spot</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType%27"><span class="hs-identifier hs-type">DefaultTargetCapacityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;spot&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType_On_demand"><span class="hs-pragma hs-type">DefaultTargetCapacityType_On_demand</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType_Spot"><span class="hs-pragma hs-type">DefaultTargetCapacityType_Spot</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.DefaultTargetCapacityType.html#DefaultTargetCapacityType%27"><span class="hs-pragma hs-type">DefaultTargetCapacityType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

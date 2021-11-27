@@ -1,0 +1,782 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.SearchRooms</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Searches rooms and lists the ones that meet a set of filter and sort</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- criteria.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.SearchRooms</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier">SearchRooms</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#newSearchRooms"><span class="hs-identifier">newSearchRooms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_filters"><span class="hs-identifier">searchRooms_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_sortCriteria"><span class="hs-identifier">searchRooms_sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_nextToken"><span class="hs-identifier">searchRooms_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_maxResults"><span class="hs-identifier">searchRooms_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier">SearchRoomsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#newSearchRoomsResponse"><span class="hs-identifier">newSearchRoomsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_rooms"><span class="hs-identifier">searchRoomsResponse_rooms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_nextToken"><span class="hs-identifier">searchRoomsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_totalCount"><span class="hs-identifier">searchRoomsResponse_totalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_httpStatus"><span class="hs-identifier">searchRoomsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newSearchRooms' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679377474"><span id="local-6989586621679377475"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchRooms"><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-var">SearchRooms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchRooms%27"><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-var">SearchRooms'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filters to use to list a specified set of rooms. The supported</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- filter keys are RoomName and ProfileName.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Afilters%3ASearchRooms%27"><span class="annot"><span class="annottext">SearchRooms -&gt; Maybe [Filter]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3Afilters%3ASearchRooms%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The sort order to use in listing the specified set of rooms. The</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- supported sort keys are RoomName and ProfileName.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsortCriteria%3ASearchRooms%27"><span class="annot"><span class="annottext">SearchRooms -&gt; Maybe [Sort]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AsortCriteria%3ASearchRooms%27"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- specified by @MaxResults@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchRooms%27"><span class="annot"><span class="annottext">SearchRooms -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AnextToken%3ASearchRooms%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchRooms%27"><span class="annot"><span class="annottext">SearchRooms -&gt; Maybe Natural
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AmaxResults%3ASearchRooms%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377465"><span id="local-6989586621679377467"><span class="annot"><span class="annottext">SearchRooms -&gt; SearchRooms -&gt; Bool
+(SearchRooms -&gt; SearchRooms -&gt; Bool)
+-&gt; (SearchRooms -&gt; SearchRooms -&gt; Bool) -&gt; Eq SearchRooms
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchRooms -&gt; SearchRooms -&gt; Bool
+$c/= :: SearchRooms -&gt; SearchRooms -&gt; Bool
+== :: SearchRooms -&gt; SearchRooms -&gt; Bool
+$c== :: SearchRooms -&gt; SearchRooms -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377456"><span id="local-6989586621679377458"><span id="local-6989586621679377460"><span id="local-6989586621679377462"><span class="annot"><span class="annottext">ReadPrec [SearchRooms]
+ReadPrec SearchRooms
+Int -&gt; ReadS SearchRooms
+ReadS [SearchRooms]
+(Int -&gt; ReadS SearchRooms)
+-&gt; ReadS [SearchRooms]
+-&gt; ReadPrec SearchRooms
+-&gt; ReadPrec [SearchRooms]
+-&gt; Read SearchRooms
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchRooms]
+$creadListPrec :: ReadPrec [SearchRooms]
+readPrec :: ReadPrec SearchRooms
+$creadPrec :: ReadPrec SearchRooms
+readList :: ReadS [SearchRooms]
+$creadList :: ReadS [SearchRooms]
+readsPrec :: Int -&gt; ReadS SearchRooms
+$creadsPrec :: Int -&gt; ReadS SearchRooms
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377449"><span id="local-6989586621679377451"><span id="local-6989586621679377453"><span class="annot"><span class="annottext">Int -&gt; SearchRooms -&gt; ShowS
+[SearchRooms] -&gt; ShowS
+SearchRooms -&gt; String
+(Int -&gt; SearchRooms -&gt; ShowS)
+-&gt; (SearchRooms -&gt; String)
+-&gt; ([SearchRooms] -&gt; ShowS)
+-&gt; Show SearchRooms
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchRooms] -&gt; ShowS
+$cshowList :: [SearchRooms] -&gt; ShowS
+show :: SearchRooms -&gt; String
+$cshow :: SearchRooms -&gt; String
+showsPrec :: Int -&gt; SearchRooms -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchRooms -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchRooms -&gt; Rep SearchRooms x)
+-&gt; (forall x. Rep SearchRooms x -&gt; SearchRooms)
+-&gt; Generic SearchRooms
+forall x. Rep SearchRooms x -&gt; SearchRooms
+forall x. SearchRooms -&gt; Rep SearchRooms x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchRooms x -&gt; SearchRooms
+$cfrom :: forall x. SearchRooms -&gt; Rep SearchRooms x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'SearchRooms' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'filters', 'searchRooms_filters' - The filters to use to list a specified set of rooms. The supported</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- filter keys are RoomName and ProfileName.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'sortCriteria', 'searchRooms_sortCriteria' - The sort order to use in listing the specified set of rooms. The</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- supported sort keys are RoomName and ProfileName.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'nextToken', 'searchRooms_nextToken' - An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- specified by @MaxResults@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maxResults', 'searchRooms_maxResults' - The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#newSearchRooms"><span class="hs-identifier hs-type">newSearchRooms</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span>
+</span><span id="line-101"></span><span id="newSearchRooms"><span class="annot"><span class="annottext">newSearchRooms :: SearchRooms
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#newSearchRooms"><span class="hs-identifier hs-var hs-var">newSearchRooms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">SearchRooms' :: Maybe [Filter]
+-&gt; Maybe [Sort] -&gt; Maybe Text -&gt; Maybe Natural -&gt; SearchRooms
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:SearchRooms' :: Maybe [Filter]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3Afilters%3ASearchRooms%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchRooms' :: Maybe [Sort]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AsortCriteria%3ASearchRooms%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchRooms' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AnextToken%3ASearchRooms%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchRooms' :: Maybe Natural
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AmaxResults%3ASearchRooms%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The filters to use to list a specified set of rooms. The supported</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- filter keys are RoomName and ProfileName.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_filters"><span class="hs-identifier hs-type">searchRooms_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="searchRooms_filters"><span class="annot"><span class="annottext">searchRooms_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; SearchRooms -&gt; f SearchRooms
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_filters"><span class="hs-identifier hs-var hs-var">searchRooms_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRooms -&gt; Maybe [Filter])
+-&gt; (SearchRooms -&gt; Maybe [Filter] -&gt; SearchRooms)
+-&gt; Lens SearchRooms SearchRooms (Maybe [Filter]) (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377443"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:SearchRooms' :: SearchRooms -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679377443"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377443"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377442"><span class="annot"><span class="annottext">s :: SearchRooms
+</span><a href="#local-6989586621679377442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377441"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRooms
+</span><a href="#local-6989586621679377442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchRooms' :: Maybe [Filter]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3Afilters%3ASearchRooms%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; SearchRooms -&gt; f SearchRooms)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; SearchRooms
+-&gt; f SearchRooms
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The sort order to use in listing the specified set of rooms. The</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- supported sort keys are RoomName and ProfileName.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_sortCriteria"><span class="hs-identifier hs-type">searchRooms_sortCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="searchRooms_sortCriteria"><span class="annot"><span class="annottext">searchRooms_sortCriteria :: (Maybe [Sort] -&gt; f (Maybe [Sort])) -&gt; SearchRooms -&gt; f SearchRooms
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_sortCriteria"><span class="hs-identifier hs-var hs-var">searchRooms_sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRooms -&gt; Maybe [Sort])
+-&gt; (SearchRooms -&gt; Maybe [Sort] -&gt; SearchRooms)
+-&gt; Lens SearchRooms SearchRooms (Maybe [Sort]) (Maybe [Sort])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377437"><span class="annot"><span class="annottext">Maybe [Sort]
+sortCriteria :: Maybe [Sort]
+$sel:sortCriteria:SearchRooms' :: SearchRooms -&gt; Maybe [Sort]
+</span><a href="#local-6989586621679377437"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377437"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377436"><span class="annot"><span class="annottext">s :: SearchRooms
+</span><a href="#local-6989586621679377436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377435"><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRooms
+</span><a href="#local-6989586621679377436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchRooms' :: Maybe [Sort]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AsortCriteria%3ASearchRooms%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Sort] -&gt; f (Maybe [Sort]))
+ -&gt; SearchRooms -&gt; f SearchRooms)
+-&gt; ((Maybe [Sort] -&gt; f (Maybe [Sort]))
+    -&gt; Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; (Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; SearchRooms
+-&gt; f SearchRooms
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
+-&gt; Iso (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- specified by @MaxResults@.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_nextToken"><span class="hs-identifier hs-type">searchRooms_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="searchRooms_nextToken"><span class="annot"><span class="annottext">searchRooms_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SearchRooms -&gt; f SearchRooms
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_nextToken"><span class="hs-identifier hs-var hs-var">searchRooms_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRooms -&gt; Maybe Text)
+-&gt; (SearchRooms -&gt; Maybe Text -&gt; SearchRooms)
+-&gt; Lens SearchRooms SearchRooms (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377434"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchRooms' :: SearchRooms -&gt; Maybe Text
+</span><a href="#local-6989586621679377434"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377434"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377433"><span class="annot"><span class="annottext">s :: SearchRooms
+</span><a href="#local-6989586621679377433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377432"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRooms
+</span><a href="#local-6989586621679377433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchRooms' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AnextToken%3ASearchRooms%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_maxResults"><span class="hs-identifier hs-type">searchRooms_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="searchRooms_maxResults"><span class="annot"><span class="annottext">searchRooms_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchRooms -&gt; f SearchRooms
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_maxResults"><span class="hs-identifier hs-var hs-var">searchRooms_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRooms -&gt; Maybe Natural)
+-&gt; (SearchRooms -&gt; Maybe Natural -&gt; SearchRooms)
+-&gt; Lens SearchRooms SearchRooms (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377431"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchRooms' :: SearchRooms -&gt; Maybe Natural
+</span><a href="#local-6989586621679377431"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377431"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377430"><span class="annot"><span class="annottext">s :: SearchRooms
+</span><a href="#local-6989586621679377430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377429"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRooms
+</span><a href="#local-6989586621679377430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchRooms' :: Maybe Natural
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AmaxResults%3ASearchRooms%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679377425"><span class="annot"><span class="annottext">page :: SearchRooms -&gt; AWSResponse SearchRooms -&gt; Maybe SearchRooms
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679377423"><span class="annot"><span class="annottext">SearchRooms
+</span><a href="#local-6989586621679377423"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679377422"><span class="annot"><span class="annottext">AWSResponse SearchRooms
+</span><a href="#local-6989586621679377422"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchRooms
+SearchRoomsResponse
+</span><a href="#local-6989586621679377422"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">SearchRoomsResponse
+-&gt; Getting (First Text) SearchRoomsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchRoomsResponse -&gt; Const (First Text) SearchRoomsResponse
+Lens' SearchRoomsResponse (Maybe Text)
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_nextToken"><span class="hs-identifier hs-var">searchRoomsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchRoomsResponse -&gt; Const (First Text) SearchRoomsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchRoomsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-137"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchRooms
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [RoomData] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-140"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchRooms
+SearchRoomsResponse
+</span><a href="#local-6989586621679377422"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">SearchRoomsResponse
+-&gt; Getting (First [RoomData]) SearchRoomsResponse [RoomData]
+-&gt; Maybe [RoomData]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [RoomData] -&gt; Const (First [RoomData]) (Maybe [RoomData]))
+-&gt; SearchRoomsResponse
+-&gt; Const (First [RoomData]) SearchRoomsResponse
+Lens' SearchRoomsResponse (Maybe [RoomData])
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_rooms"><span class="hs-identifier hs-var">searchRoomsResponse_rooms</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [RoomData] -&gt; Const (First [RoomData]) (Maybe [RoomData]))
+ -&gt; SearchRoomsResponse
+ -&gt; Const (First [RoomData]) SearchRoomsResponse)
+-&gt; (([RoomData] -&gt; Const (First [RoomData]) [RoomData])
+    -&gt; Maybe [RoomData] -&gt; Const (First [RoomData]) (Maybe [RoomData]))
+-&gt; Getting (First [RoomData]) SearchRoomsResponse [RoomData]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RoomData] -&gt; Const (First [RoomData]) [RoomData])
+-&gt; Maybe [RoomData] -&gt; Const (First [RoomData]) (Maybe [RoomData])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-142"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchRooms
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">SearchRooms -&gt; Maybe SearchRooms
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(SearchRooms -&gt; Maybe SearchRooms)
+-&gt; SearchRooms -&gt; Maybe SearchRooms
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">SearchRooms
+</span><a href="#local-6989586621679377423"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">SearchRooms -&gt; (SearchRooms -&gt; SearchRooms) -&gt; SearchRooms
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; SearchRooms -&gt; Identity SearchRooms
+Lens SearchRooms SearchRooms (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRooms_nextToken"><span class="hs-identifier hs-var">searchRooms_nextToken</span></a></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; SearchRooms -&gt; Identity SearchRooms)
+-&gt; Maybe Text -&gt; SearchRooms -&gt; SearchRooms
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchRooms
+SearchRoomsResponse
+</span><a href="#local-6989586621679377422"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">SearchRoomsResponse
+-&gt; Getting (First Text) SearchRoomsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchRoomsResponse -&gt; Const (First Text) SearchRoomsResponse
+Lens' SearchRoomsResponse (Maybe Text)
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_nextToken"><span class="hs-identifier hs-var">searchRoomsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchRoomsResponse -&gt; Const (First Text) SearchRoomsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchRoomsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679377413"><span class="annot"><span class="annottext">request :: SearchRooms -&gt; Request SearchRooms
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchRooms -&gt; Request SearchRooms
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679377409"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchRooms
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchRooms)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchRooms))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchRooms
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchRooms)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377406"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679377405"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679377405"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679377404"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RoomData]
+-&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; SearchRoomsResponse
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-var">SearchRoomsResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RoomData]
+ -&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; SearchRoomsResponse)
+-&gt; Either String (Maybe [RoomData])
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Int -&gt; Int -&gt; SearchRoomsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RoomData]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rooms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RoomData]))
+-&gt; Maybe [RoomData] -&gt; Either String (Maybe [RoomData])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RoomData]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Int -&gt; Int -&gt; SearchRoomsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; Int -&gt; SearchRoomsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Int -&gt; SearchRoomsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Int -&gt; SearchRoomsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchRoomsResponse)
+-&gt; Either String Int -&gt; Either String SearchRoomsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377406"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377395"><span id="local-6989586621679377397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679377388"><span class="annot"><span class="annottext">toHeaders :: SearchRooms -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchRooms -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.SearchRooms&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-175"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-179"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377378"><span id="local-6989586621679377380"><span id="local-6989586621679377382"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679377376"><span class="annot"><span class="annottext">toJSON :: SearchRooms -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms%27"><span class="hs-identifier hs-type">SearchRooms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377371"><span id="local-6989586621679377372"><span id="local-6989586621679377373"><span id="local-6989586621679377374"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Filter]
+Maybe [Sort]
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+sortCriteria :: Maybe [Sort]
+filters :: Maybe [Filter]
+$sel:maxResults:SearchRooms' :: SearchRooms -&gt; Maybe Natural
+$sel:nextToken:SearchRooms' :: SearchRooms -&gt; Maybe Text
+$sel:sortCriteria:SearchRooms' :: SearchRooms -&gt; Maybe [Sort]
+$sel:filters:SearchRooms' :: SearchRooms -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679377371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Filter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377374"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Sort] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Sort] -&gt; Pair) -&gt; Maybe [Sort] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377373"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377372"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377371"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679377365"><span class="annot"><span class="annottext">toPath :: SearchRooms -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchRooms -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRooms"><span class="hs-identifier hs-type">SearchRooms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679377361"><span class="annot"><span class="annottext">toQuery :: SearchRooms -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchRooms -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newSearchRoomsResponse' smart constructor.</span><span>
+</span><span id="line-201"></span><span id="local-6989586621679377358"><span id="local-6989586621679377359"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchRoomsResponse"><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-var">SearchRoomsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchRoomsResponse%27"><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-var">SearchRoomsResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rooms that meet the specified set of filter criteria, in sort order.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3Arooms%3ASearchRoomsResponse%27"><span class="annot"><span class="annottext">SearchRoomsResponse -&gt; Maybe [RoomData]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3Arooms%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var hs-var">rooms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchRoomsResponse%27"><span class="annot"><span class="annottext">SearchRoomsResponse -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AnextToken%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | The total number of rooms returned.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AtotalCount%3ASearchRoomsResponse%27"><span class="annot"><span class="annottext">SearchRoomsResponse -&gt; Maybe Int
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AtotalCount%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchRoomsResponse%27"><span class="annot"><span class="annottext">SearchRoomsResponse -&gt; Int
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AhttpStatus%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377350"><span id="local-6989586621679377352"><span class="annot"><span class="annottext">SearchRoomsResponse -&gt; SearchRoomsResponse -&gt; Bool
+(SearchRoomsResponse -&gt; SearchRoomsResponse -&gt; Bool)
+-&gt; (SearchRoomsResponse -&gt; SearchRoomsResponse -&gt; Bool)
+-&gt; Eq SearchRoomsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchRoomsResponse -&gt; SearchRoomsResponse -&gt; Bool
+$c/= :: SearchRoomsResponse -&gt; SearchRoomsResponse -&gt; Bool
+== :: SearchRoomsResponse -&gt; SearchRoomsResponse -&gt; Bool
+$c== :: SearchRoomsResponse -&gt; SearchRoomsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377342"><span id="local-6989586621679377344"><span id="local-6989586621679377346"><span id="local-6989586621679377348"><span class="annot"><span class="annottext">ReadPrec [SearchRoomsResponse]
+ReadPrec SearchRoomsResponse
+Int -&gt; ReadS SearchRoomsResponse
+ReadS [SearchRoomsResponse]
+(Int -&gt; ReadS SearchRoomsResponse)
+-&gt; ReadS [SearchRoomsResponse]
+-&gt; ReadPrec SearchRoomsResponse
+-&gt; ReadPrec [SearchRoomsResponse]
+-&gt; Read SearchRoomsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchRoomsResponse]
+$creadListPrec :: ReadPrec [SearchRoomsResponse]
+readPrec :: ReadPrec SearchRoomsResponse
+$creadPrec :: ReadPrec SearchRoomsResponse
+readList :: ReadS [SearchRoomsResponse]
+$creadList :: ReadS [SearchRoomsResponse]
+readsPrec :: Int -&gt; ReadS SearchRoomsResponse
+$creadsPrec :: Int -&gt; ReadS SearchRoomsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377336"><span id="local-6989586621679377338"><span id="local-6989586621679377340"><span class="annot"><span class="annottext">Int -&gt; SearchRoomsResponse -&gt; ShowS
+[SearchRoomsResponse] -&gt; ShowS
+SearchRoomsResponse -&gt; String
+(Int -&gt; SearchRoomsResponse -&gt; ShowS)
+-&gt; (SearchRoomsResponse -&gt; String)
+-&gt; ([SearchRoomsResponse] -&gt; ShowS)
+-&gt; Show SearchRoomsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchRoomsResponse] -&gt; ShowS
+$cshowList :: [SearchRoomsResponse] -&gt; ShowS
+show :: SearchRoomsResponse -&gt; String
+$cshow :: SearchRoomsResponse -&gt; String
+showsPrec :: Int -&gt; SearchRoomsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchRoomsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchRoomsResponse -&gt; Rep SearchRoomsResponse x)
+-&gt; (forall x. Rep SearchRoomsResponse x -&gt; SearchRoomsResponse)
+-&gt; Generic SearchRoomsResponse
+forall x. Rep SearchRoomsResponse x -&gt; SearchRoomsResponse
+forall x. SearchRoomsResponse -&gt; Rep SearchRoomsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchRoomsResponse x -&gt; SearchRoomsResponse
+$cfrom :: forall x. SearchRoomsResponse -&gt; Rep SearchRoomsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Create a value of 'SearchRoomsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'rooms', 'searchRoomsResponse_rooms' - The rooms that meet the specified set of filter criteria, in sort order.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'nextToken', 'searchRoomsResponse_nextToken' - The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'totalCount', 'searchRoomsResponse_totalCount' - The total number of rooms returned.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'searchRoomsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#newSearchRoomsResponse"><span class="hs-identifier hs-type">newSearchRoomsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span>
+</span><span id="line-232"></span><span id="newSearchRoomsResponse"><span class="annot"><span class="annottext">newSearchRoomsResponse :: Int -&gt; SearchRoomsResponse
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#newSearchRoomsResponse"><span class="hs-identifier hs-var hs-var">newSearchRoomsResponse</span></a></span></span><span> </span><span id="local-6989586621679377333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377333"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">SearchRoomsResponse' :: Maybe [RoomData]
+-&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; SearchRoomsResponse
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rooms:SearchRoomsResponse' :: Maybe [RoomData]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3Arooms%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">rooms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoomData]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchRoomsResponse' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AnextToken%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalCount:SearchRoomsResponse' :: Maybe Int
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AtotalCount%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchRoomsResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AhttpStatus%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377333"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The rooms that meet the specified set of filter criteria, in sort order.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_rooms"><span class="hs-identifier hs-type">searchRoomsResponse_rooms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.RoomData.html#RoomData"><span class="hs-identifier hs-type">RoomData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="searchRoomsResponse_rooms"><span class="annot"><span class="annottext">searchRoomsResponse_rooms :: (Maybe [RoomData] -&gt; f (Maybe [RoomData]))
+-&gt; SearchRoomsResponse -&gt; f SearchRoomsResponse
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_rooms"><span class="hs-identifier hs-var hs-var">searchRoomsResponse_rooms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRoomsResponse -&gt; Maybe [RoomData])
+-&gt; (SearchRoomsResponse -&gt; Maybe [RoomData] -&gt; SearchRoomsResponse)
+-&gt; Lens' SearchRoomsResponse (Maybe [RoomData])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377332"><span class="annot"><span class="annottext">Maybe [RoomData]
+rooms :: Maybe [RoomData]
+$sel:rooms:SearchRoomsResponse' :: SearchRoomsResponse -&gt; Maybe [RoomData]
+</span><a href="#local-6989586621679377332"><span class="hs-identifier hs-var hs-var">rooms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoomData]
+</span><a href="#local-6989586621679377332"><span class="hs-identifier hs-var">rooms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377331"><span class="annot"><span class="annottext">s :: SearchRoomsResponse
+</span><a href="#local-6989586621679377331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377330"><span class="annot"><span class="annottext">Maybe [RoomData]
+</span><a href="#local-6989586621679377330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRoomsResponse
+</span><a href="#local-6989586621679377331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rooms:SearchRoomsResponse' :: Maybe [RoomData]
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3Arooms%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">rooms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoomData]
+</span><a href="#local-6989586621679377330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoomData] -&gt; f (Maybe [RoomData]))
+ -&gt; SearchRoomsResponse -&gt; f SearchRoomsResponse)
+-&gt; ((Maybe [RoomData] -&gt; f (Maybe [RoomData]))
+    -&gt; Maybe [RoomData] -&gt; f (Maybe [RoomData]))
+-&gt; (Maybe [RoomData] -&gt; f (Maybe [RoomData]))
+-&gt; SearchRoomsResponse
+-&gt; f SearchRoomsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoomData] [RoomData] [RoomData] [RoomData]
+-&gt; Iso
+     (Maybe [RoomData])
+     (Maybe [RoomData])
+     (Maybe [RoomData])
+     (Maybe [RoomData])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoomData] [RoomData] [RoomData] [RoomData]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_nextToken"><span class="hs-identifier hs-type">searchRoomsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="searchRoomsResponse_nextToken"><span class="annot"><span class="annottext">searchRoomsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchRoomsResponse -&gt; f SearchRoomsResponse
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchRoomsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRoomsResponse -&gt; Maybe Text)
+-&gt; (SearchRoomsResponse -&gt; Maybe Text -&gt; SearchRoomsResponse)
+-&gt; Lens' SearchRoomsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377329"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchRoomsResponse' :: SearchRoomsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679377329"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377329"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377328"><span class="annot"><span class="annottext">s :: SearchRoomsResponse
+</span><a href="#local-6989586621679377328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRoomsResponse
+</span><a href="#local-6989586621679377328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchRoomsResponse' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AnextToken%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The total number of rooms returned.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_totalCount"><span class="hs-identifier hs-type">searchRoomsResponse_totalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="searchRoomsResponse_totalCount"><span class="annot"><span class="annottext">searchRoomsResponse_totalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SearchRoomsResponse -&gt; f SearchRoomsResponse
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_totalCount"><span class="hs-identifier hs-var hs-var">searchRoomsResponse_totalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRoomsResponse -&gt; Maybe Int)
+-&gt; (SearchRoomsResponse -&gt; Maybe Int -&gt; SearchRoomsResponse)
+-&gt; Lens
+     SearchRoomsResponse SearchRoomsResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377326"><span class="annot"><span class="annottext">Maybe Int
+totalCount :: Maybe Int
+$sel:totalCount:SearchRoomsResponse' :: SearchRoomsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679377326"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679377326"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377325"><span class="annot"><span class="annottext">s :: SearchRoomsResponse
+</span><a href="#local-6989586621679377325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377324"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679377324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRoomsResponse
+</span><a href="#local-6989586621679377325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:SearchRoomsResponse' :: Maybe Int
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AtotalCount%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679377324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_httpStatus"><span class="hs-identifier hs-type">searchRoomsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-254"></span><span id="searchRoomsResponse_httpStatus"><span class="annot"><span class="annottext">searchRoomsResponse_httpStatus :: (Int -&gt; f Int) -&gt; SearchRoomsResponse -&gt; f SearchRoomsResponse
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#searchRoomsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">searchRoomsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRoomsResponse -&gt; Int)
+-&gt; (SearchRoomsResponse -&gt; Int -&gt; SearchRoomsResponse)
+-&gt; Lens SearchRoomsResponse SearchRoomsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377323"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SearchRoomsResponse' :: SearchRoomsResponse -&gt; Int
+</span><a href="#local-6989586621679377323"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377323"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377322"><span class="annot"><span class="annottext">s :: SearchRoomsResponse
+</span><a href="#local-6989586621679377322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse%27"><span class="hs-identifier hs-type">SearchRoomsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRoomsResponse
+</span><a href="#local-6989586621679377322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchRoomsResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.SearchRooms.html#%24sel%3AhttpStatus%3ASearchRoomsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.SearchRooms.html#SearchRoomsResponse"><span class="hs-identifier hs-type">SearchRoomsResponse</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

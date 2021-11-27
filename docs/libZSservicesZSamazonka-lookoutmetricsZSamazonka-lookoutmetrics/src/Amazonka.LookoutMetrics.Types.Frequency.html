@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutMetrics.Types.Frequency</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutMetrics.Types.Frequency</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier">Frequency</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_P1D"><span class="hs-identifier">Frequency_P1D</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT10M"><span class="hs-identifier">Frequency_PT10M</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT1H"><span class="hs-identifier">Frequency_PT1H</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT5M"><span class="hs-identifier">Frequency_PT5M</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679222745"><span id="local-6989586621679222746"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Frequency"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier hs-var">Frequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Frequency%27"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency%27"><span class="hs-identifier hs-var">Frequency'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFrequency"><span class="annot"><span class="annottext">Frequency -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.Frequency.html#fromFrequency"><span class="hs-identifier hs-var hs-var">fromFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679222737"><span id="local-6989586621679222739"><span id="local-6989586621679222741"><span class="annot"><span class="annottext">Int -&gt; Frequency -&gt; ShowS
+[Frequency] -&gt; ShowS
+Frequency -&gt; String
+(Int -&gt; Frequency -&gt; ShowS)
+-&gt; (Frequency -&gt; String)
+-&gt; ([Frequency] -&gt; ShowS)
+-&gt; Show Frequency
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Frequency] -&gt; ShowS
+$cshowList :: [Frequency] -&gt; ShowS
+show :: Frequency -&gt; String
+$cshow :: Frequency -&gt; String
+showsPrec :: Int -&gt; Frequency -&gt; ShowS
+$cshowsPrec :: Int -&gt; Frequency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679222728"><span id="local-6989586621679222730"><span id="local-6989586621679222732"><span id="local-6989586621679222734"><span class="annot"><span class="annottext">ReadPrec [Frequency]
+ReadPrec Frequency
+Int -&gt; ReadS Frequency
+ReadS [Frequency]
+(Int -&gt; ReadS Frequency)
+-&gt; ReadS [Frequency]
+-&gt; ReadPrec Frequency
+-&gt; ReadPrec [Frequency]
+-&gt; Read Frequency
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Frequency]
+$creadListPrec :: ReadPrec [Frequency]
+readPrec :: ReadPrec Frequency
+$creadPrec :: ReadPrec Frequency
+readList :: ReadS [Frequency]
+$creadList :: ReadS [Frequency]
+readsPrec :: Int -&gt; ReadS Frequency
+$creadsPrec :: Int -&gt; ReadS Frequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679222723"><span id="local-6989586621679222725"><span class="annot"><span class="annottext">Frequency -&gt; Frequency -&gt; Bool
+(Frequency -&gt; Frequency -&gt; Bool)
+-&gt; (Frequency -&gt; Frequency -&gt; Bool) -&gt; Eq Frequency
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Frequency -&gt; Frequency -&gt; Bool
+$c/= :: Frequency -&gt; Frequency -&gt; Bool
+== :: Frequency -&gt; Frequency -&gt; Bool
+$c== :: Frequency -&gt; Frequency -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679222707"><span id="local-6989586621679222709"><span id="local-6989586621679222711"><span id="local-6989586621679222713"><span id="local-6989586621679222715"><span id="local-6989586621679222717"><span id="local-6989586621679222719"><span class="annot"><span class="annottext">Eq Frequency
+Eq Frequency
+-&gt; (Frequency -&gt; Frequency -&gt; Ordering)
+-&gt; (Frequency -&gt; Frequency -&gt; Bool)
+-&gt; (Frequency -&gt; Frequency -&gt; Bool)
+-&gt; (Frequency -&gt; Frequency -&gt; Bool)
+-&gt; (Frequency -&gt; Frequency -&gt; Bool)
+-&gt; (Frequency -&gt; Frequency -&gt; Frequency)
+-&gt; (Frequency -&gt; Frequency -&gt; Frequency)
+-&gt; Ord Frequency
+Frequency -&gt; Frequency -&gt; Bool
+Frequency -&gt; Frequency -&gt; Ordering
+Frequency -&gt; Frequency -&gt; Frequency
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Frequency -&gt; Frequency -&gt; Frequency
+$cmin :: Frequency -&gt; Frequency -&gt; Frequency
+max :: Frequency -&gt; Frequency -&gt; Frequency
+$cmax :: Frequency -&gt; Frequency -&gt; Frequency
+&gt;= :: Frequency -&gt; Frequency -&gt; Bool
+$c&gt;= :: Frequency -&gt; Frequency -&gt; Bool
+&gt; :: Frequency -&gt; Frequency -&gt; Bool
+$c&gt; :: Frequency -&gt; Frequency -&gt; Bool
+&lt;= :: Frequency -&gt; Frequency -&gt; Bool
+$c&lt;= :: Frequency -&gt; Frequency -&gt; Bool
+&lt; :: Frequency -&gt; Frequency -&gt; Bool
+$c&lt; :: Frequency -&gt; Frequency -&gt; Bool
+compare :: Frequency -&gt; Frequency -&gt; Ordering
+$ccompare :: Frequency -&gt; Frequency -&gt; Ordering
+$cp1Ord :: Eq Frequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Frequency -&gt; Rep Frequency x)
+-&gt; (forall x. Rep Frequency x -&gt; Frequency) -&gt; Generic Frequency
+forall x. Rep Frequency x -&gt; Frequency
+forall x. Frequency -&gt; Rep Frequency x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Frequency x -&gt; Frequency
+$cfrom :: forall x. Frequency -&gt; Rep Frequency x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679222699"><span id="local-6989586621679222701"><span class="annot"><span class="annottext">Int -&gt; Frequency -&gt; Int
+Frequency -&gt; Int
+(Int -&gt; Frequency -&gt; Int)
+-&gt; (Frequency -&gt; Int) -&gt; Hashable Frequency
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Frequency -&gt; Int
+$chash :: Frequency -&gt; Int
+hashWithSalt :: Int -&gt; Frequency -&gt; Int
+$chashWithSalt :: Int -&gt; Frequency -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679222696"><span class="annot"><span class="annottext">Frequency -&gt; ()
+(Frequency -&gt; ()) -&gt; NFData Frequency
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Frequency -&gt; ()
+$crnf :: Frequency -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679222693"><span class="annot"><span class="annottext">Text -&gt; Either String Frequency
+(Text -&gt; Either String Frequency) -&gt; FromText Frequency
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Frequency
+$cfromText :: Text -&gt; Either String Frequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679222690"><span class="annot"><span class="annottext">Frequency -&gt; Text
+(Frequency -&gt; Text) -&gt; ToText Frequency
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Frequency -&gt; Text
+$ctoText :: Frequency -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679222687"><span class="annot"><span class="annottext">Frequency -&gt; ByteString
+(Frequency -&gt; ByteString) -&gt; ToByteString Frequency
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Frequency -&gt; ByteString
+$ctoBS :: Frequency -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679222684"><span class="annot"><span class="annottext">Frequency -&gt; ByteStringBuilder
+(Frequency -&gt; ByteStringBuilder) -&gt; ToLog Frequency
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Frequency -&gt; ByteStringBuilder
+$cbuild :: Frequency -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679222681"><span class="annot"><span class="annottext">HeaderName -&gt; Frequency -&gt; [Header]
+(HeaderName -&gt; Frequency -&gt; [Header]) -&gt; ToHeader Frequency
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Frequency -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Frequency -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679222678"><span class="annot"><span class="annottext">Frequency -&gt; QueryString
+(Frequency -&gt; QueryString) -&gt; ToQuery Frequency
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Frequency -&gt; QueryString
+$ctoQuery :: Frequency -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679222673"><span id="local-6989586621679222675"><span class="annot"><span class="annottext">Value -&gt; Parser [Frequency]
+Value -&gt; Parser Frequency
+(Value -&gt; Parser Frequency)
+-&gt; (Value -&gt; Parser [Frequency]) -&gt; FromJSON Frequency
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Frequency]
+$cparseJSONList :: Value -&gt; Parser [Frequency]
+parseJSON :: Value -&gt; Parser Frequency
+$cparseJSON :: Value -&gt; Parser Frequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679222668"><span id="local-6989586621679222670"><span class="annot"><span class="annottext">FromJSONKeyFunction [Frequency]
+FromJSONKeyFunction Frequency
+FromJSONKeyFunction Frequency
+-&gt; FromJSONKeyFunction [Frequency] -&gt; FromJSONKey Frequency
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Frequency]
+$cfromJSONKeyList :: FromJSONKeyFunction [Frequency]
+fromJSONKey :: FromJSONKeyFunction Frequency
+$cfromJSONKey :: FromJSONKeyFunction Frequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679222659"><span id="local-6989586621679222661"><span id="local-6989586621679222663"><span id="local-6989586621679222665"><span class="annot"><span class="annottext">[Frequency] -&gt; Encoding
+[Frequency] -&gt; Value
+Frequency -&gt; Encoding
+Frequency -&gt; Value
+(Frequency -&gt; Value)
+-&gt; (Frequency -&gt; Encoding)
+-&gt; ([Frequency] -&gt; Value)
+-&gt; ([Frequency] -&gt; Encoding)
+-&gt; ToJSON Frequency
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Frequency] -&gt; Encoding
+$ctoEncodingList :: [Frequency] -&gt; Encoding
+toJSONList :: [Frequency] -&gt; Value
+$ctoJSONList :: [Frequency] -&gt; Value
+toEncoding :: Frequency -&gt; Encoding
+$ctoEncoding :: Frequency -&gt; Encoding
+toJSON :: Frequency -&gt; Value
+$ctoJSON :: Frequency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679222654"><span id="local-6989586621679222656"><span class="annot"><span class="annottext">ToJSONKeyFunction [Frequency]
+ToJSONKeyFunction Frequency
+ToJSONKeyFunction Frequency
+-&gt; ToJSONKeyFunction [Frequency] -&gt; ToJSONKey Frequency
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Frequency]
+$ctoJSONKeyList :: ToJSONKeyFunction [Frequency]
+toJSONKey :: ToJSONKeyFunction Frequency
+$ctoJSONKey :: ToJSONKeyFunction Frequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679222651"><span class="annot"><span class="annottext">[Node] -&gt; Either String Frequency
+([Node] -&gt; Either String Frequency) -&gt; FromXML Frequency
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Frequency
+$cparseXML :: [Node] -&gt; Either String Frequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679222648"><span class="annot"><span class="annottext">Frequency -&gt; XML
+(Frequency -&gt; XML) -&gt; ToXML Frequency
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Frequency -&gt; XML
+$ctoXML :: Frequency -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_P1D"><span class="hs-identifier hs-type">Frequency_P1D</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier hs-type">Frequency</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFrequency_P1D"><span id="%24mFrequency_P1D"><span id="Frequency_P1D"><span class="annot"><span class="annottext">$bFrequency_P1D :: Frequency
+$mFrequency_P1D :: forall r. Frequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutMetrics.Types.Frequency.html#%24bFrequency_P1D"><span class="hs-identifier hs-var hs-var hs-var">Frequency_P1D</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency%27"><span class="hs-identifier hs-type">Frequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;P1D&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT10M"><span class="hs-identifier hs-type">Frequency_PT10M</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier hs-type">Frequency</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFrequency_PT10M"><span id="%24mFrequency_PT10M"><span id="Frequency_PT10M"><span class="annot"><span class="annottext">$bFrequency_PT10M :: Frequency
+$mFrequency_PT10M :: forall r. Frequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutMetrics.Types.Frequency.html#%24bFrequency_PT10M"><span class="hs-identifier hs-var hs-var hs-var">Frequency_PT10M</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency%27"><span class="hs-identifier hs-type">Frequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT10M&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT1H"><span class="hs-identifier hs-type">Frequency_PT1H</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier hs-type">Frequency</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFrequency_PT1H"><span id="%24mFrequency_PT1H"><span id="Frequency_PT1H"><span class="annot"><span class="annottext">$bFrequency_PT1H :: Frequency
+$mFrequency_PT1H :: forall r. Frequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutMetrics.Types.Frequency.html#%24bFrequency_PT1H"><span class="hs-identifier hs-var hs-var hs-var">Frequency_PT1H</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency%27"><span class="hs-identifier hs-type">Frequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT1H&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT5M"><span class="hs-identifier hs-type">Frequency_PT5M</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier hs-type">Frequency</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFrequency_PT5M"><span id="%24mFrequency_PT5M"><span id="Frequency_PT5M"><span class="annot"><span class="annottext">$bFrequency_PT5M :: Frequency
+$mFrequency_PT5M :: forall r. Frequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutMetrics.Types.Frequency.html#%24bFrequency_PT5M"><span class="hs-identifier hs-var hs-var hs-var">Frequency_PT5M</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency%27"><span class="hs-identifier hs-type">Frequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PT5M&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_P1D"><span class="hs-pragma hs-type">Frequency_P1D</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT10M"><span class="hs-pragma hs-type">Frequency_PT10M</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT1H"><span class="hs-pragma hs-type">Frequency_PT1H</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency_PT5M"><span class="hs-pragma hs-type">Frequency_PT5M</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.Frequency.html#Frequency%27"><span class="hs-pragma hs-type">Frequency'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

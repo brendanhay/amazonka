@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.StaticSourcesSupportValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.StaticSourcesSupportValue</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue"><span class="hs-identifier">StaticSourcesSupportValue</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue_Disable"><span class="hs-identifier">StaticSourcesSupportValue_Disable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue_Enable"><span class="hs-identifier">StaticSourcesSupportValue_Enable</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681153155"><span id="local-6989586621681153156"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StaticSourcesSupportValue"><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue"><span class="hs-identifier hs-var">StaticSourcesSupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StaticSourcesSupportValue%27"><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue%27"><span class="hs-identifier hs-var">StaticSourcesSupportValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStaticSourcesSupportValue"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; Text
+</span><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#fromStaticSourcesSupportValue"><span class="hs-identifier hs-var hs-var">fromStaticSourcesSupportValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681153147"><span id="local-6989586621681153149"><span id="local-6989586621681153151"><span class="annot"><span class="annottext">Int -&gt; StaticSourcesSupportValue -&gt; ShowS
+[StaticSourcesSupportValue] -&gt; ShowS
+StaticSourcesSupportValue -&gt; String
+(Int -&gt; StaticSourcesSupportValue -&gt; ShowS)
+-&gt; (StaticSourcesSupportValue -&gt; String)
+-&gt; ([StaticSourcesSupportValue] -&gt; ShowS)
+-&gt; Show StaticSourcesSupportValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StaticSourcesSupportValue] -&gt; ShowS
+$cshowList :: [StaticSourcesSupportValue] -&gt; ShowS
+show :: StaticSourcesSupportValue -&gt; String
+$cshow :: StaticSourcesSupportValue -&gt; String
+showsPrec :: Int -&gt; StaticSourcesSupportValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; StaticSourcesSupportValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681153138"><span id="local-6989586621681153140"><span id="local-6989586621681153142"><span id="local-6989586621681153144"><span class="annot"><span class="annottext">ReadPrec [StaticSourcesSupportValue]
+ReadPrec StaticSourcesSupportValue
+Int -&gt; ReadS StaticSourcesSupportValue
+ReadS [StaticSourcesSupportValue]
+(Int -&gt; ReadS StaticSourcesSupportValue)
+-&gt; ReadS [StaticSourcesSupportValue]
+-&gt; ReadPrec StaticSourcesSupportValue
+-&gt; ReadPrec [StaticSourcesSupportValue]
+-&gt; Read StaticSourcesSupportValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StaticSourcesSupportValue]
+$creadListPrec :: ReadPrec [StaticSourcesSupportValue]
+readPrec :: ReadPrec StaticSourcesSupportValue
+$creadPrec :: ReadPrec StaticSourcesSupportValue
+readList :: ReadS [StaticSourcesSupportValue]
+$creadList :: ReadS [StaticSourcesSupportValue]
+readsPrec :: Int -&gt; ReadS StaticSourcesSupportValue
+$creadsPrec :: Int -&gt; ReadS StaticSourcesSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681153133"><span id="local-6989586621681153135"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+(StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool)
+-&gt; (StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool)
+-&gt; Eq StaticSourcesSupportValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+$c/= :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+== :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+$c== :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681153117"><span id="local-6989586621681153119"><span id="local-6989586621681153121"><span id="local-6989586621681153123"><span id="local-6989586621681153125"><span id="local-6989586621681153127"><span id="local-6989586621681153129"><span class="annot"><span class="annottext">Eq StaticSourcesSupportValue
+Eq StaticSourcesSupportValue
+-&gt; (StaticSourcesSupportValue
+    -&gt; StaticSourcesSupportValue -&gt; Ordering)
+-&gt; (StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool)
+-&gt; (StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool)
+-&gt; (StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool)
+-&gt; (StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool)
+-&gt; (StaticSourcesSupportValue
+    -&gt; StaticSourcesSupportValue -&gt; StaticSourcesSupportValue)
+-&gt; (StaticSourcesSupportValue
+    -&gt; StaticSourcesSupportValue -&gt; StaticSourcesSupportValue)
+-&gt; Ord StaticSourcesSupportValue
+StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Ordering
+StaticSourcesSupportValue
+-&gt; StaticSourcesSupportValue -&gt; StaticSourcesSupportValue
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StaticSourcesSupportValue
+-&gt; StaticSourcesSupportValue -&gt; StaticSourcesSupportValue
+$cmin :: StaticSourcesSupportValue
+-&gt; StaticSourcesSupportValue -&gt; StaticSourcesSupportValue
+max :: StaticSourcesSupportValue
+-&gt; StaticSourcesSupportValue -&gt; StaticSourcesSupportValue
+$cmax :: StaticSourcesSupportValue
+-&gt; StaticSourcesSupportValue -&gt; StaticSourcesSupportValue
+&gt;= :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+$c&gt;= :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+&gt; :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+$c&gt; :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+&lt;= :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+$c&lt;= :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+&lt; :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+$c&lt; :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Bool
+compare :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Ordering
+$ccompare :: StaticSourcesSupportValue -&gt; StaticSourcesSupportValue -&gt; Ordering
+$cp1Ord :: Eq StaticSourcesSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ StaticSourcesSupportValue -&gt; Rep StaticSourcesSupportValue x)
+-&gt; (forall x.
+    Rep StaticSourcesSupportValue x -&gt; StaticSourcesSupportValue)
+-&gt; Generic StaticSourcesSupportValue
+forall x.
+Rep StaticSourcesSupportValue x -&gt; StaticSourcesSupportValue
+forall x.
+StaticSourcesSupportValue -&gt; Rep StaticSourcesSupportValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StaticSourcesSupportValue x -&gt; StaticSourcesSupportValue
+$cfrom :: forall x.
+StaticSourcesSupportValue -&gt; Rep StaticSourcesSupportValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681153109"><span id="local-6989586621681153111"><span class="annot"><span class="annottext">Int -&gt; StaticSourcesSupportValue -&gt; Int
+StaticSourcesSupportValue -&gt; Int
+(Int -&gt; StaticSourcesSupportValue -&gt; Int)
+-&gt; (StaticSourcesSupportValue -&gt; Int)
+-&gt; Hashable StaticSourcesSupportValue
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StaticSourcesSupportValue -&gt; Int
+$chash :: StaticSourcesSupportValue -&gt; Int
+hashWithSalt :: Int -&gt; StaticSourcesSupportValue -&gt; Int
+$chashWithSalt :: Int -&gt; StaticSourcesSupportValue -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681153106"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; ()
+(StaticSourcesSupportValue -&gt; ())
+-&gt; NFData StaticSourcesSupportValue
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StaticSourcesSupportValue -&gt; ()
+$crnf :: StaticSourcesSupportValue -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681153103"><span class="annot"><span class="annottext">Text -&gt; Either String StaticSourcesSupportValue
+(Text -&gt; Either String StaticSourcesSupportValue)
+-&gt; FromText StaticSourcesSupportValue
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StaticSourcesSupportValue
+$cfromText :: Text -&gt; Either String StaticSourcesSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681153100"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; Text
+(StaticSourcesSupportValue -&gt; Text)
+-&gt; ToText StaticSourcesSupportValue
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StaticSourcesSupportValue -&gt; Text
+$ctoText :: StaticSourcesSupportValue -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681153097"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; ByteString
+(StaticSourcesSupportValue -&gt; ByteString)
+-&gt; ToByteString StaticSourcesSupportValue
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StaticSourcesSupportValue -&gt; ByteString
+$ctoBS :: StaticSourcesSupportValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681153094"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; ByteStringBuilder
+(StaticSourcesSupportValue -&gt; ByteStringBuilder)
+-&gt; ToLog StaticSourcesSupportValue
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StaticSourcesSupportValue -&gt; ByteStringBuilder
+$cbuild :: StaticSourcesSupportValue -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681153091"><span class="annot"><span class="annottext">HeaderName -&gt; StaticSourcesSupportValue -&gt; [Header]
+(HeaderName -&gt; StaticSourcesSupportValue -&gt; [Header])
+-&gt; ToHeader StaticSourcesSupportValue
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StaticSourcesSupportValue -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StaticSourcesSupportValue -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681153088"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; QueryString
+(StaticSourcesSupportValue -&gt; QueryString)
+-&gt; ToQuery StaticSourcesSupportValue
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StaticSourcesSupportValue -&gt; QueryString
+$ctoQuery :: StaticSourcesSupportValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681153083"><span id="local-6989586621681153085"><span class="annot"><span class="annottext">Value -&gt; Parser [StaticSourcesSupportValue]
+Value -&gt; Parser StaticSourcesSupportValue
+(Value -&gt; Parser StaticSourcesSupportValue)
+-&gt; (Value -&gt; Parser [StaticSourcesSupportValue])
+-&gt; FromJSON StaticSourcesSupportValue
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StaticSourcesSupportValue]
+$cparseJSONList :: Value -&gt; Parser [StaticSourcesSupportValue]
+parseJSON :: Value -&gt; Parser StaticSourcesSupportValue
+$cparseJSON :: Value -&gt; Parser StaticSourcesSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681153078"><span id="local-6989586621681153080"><span class="annot"><span class="annottext">FromJSONKeyFunction [StaticSourcesSupportValue]
+FromJSONKeyFunction StaticSourcesSupportValue
+FromJSONKeyFunction StaticSourcesSupportValue
+-&gt; FromJSONKeyFunction [StaticSourcesSupportValue]
+-&gt; FromJSONKey StaticSourcesSupportValue
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StaticSourcesSupportValue]
+$cfromJSONKeyList :: FromJSONKeyFunction [StaticSourcesSupportValue]
+fromJSONKey :: FromJSONKeyFunction StaticSourcesSupportValue
+$cfromJSONKey :: FromJSONKeyFunction StaticSourcesSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681153069"><span id="local-6989586621681153071"><span id="local-6989586621681153073"><span id="local-6989586621681153075"><span class="annot"><span class="annottext">[StaticSourcesSupportValue] -&gt; Encoding
+[StaticSourcesSupportValue] -&gt; Value
+StaticSourcesSupportValue -&gt; Encoding
+StaticSourcesSupportValue -&gt; Value
+(StaticSourcesSupportValue -&gt; Value)
+-&gt; (StaticSourcesSupportValue -&gt; Encoding)
+-&gt; ([StaticSourcesSupportValue] -&gt; Value)
+-&gt; ([StaticSourcesSupportValue] -&gt; Encoding)
+-&gt; ToJSON StaticSourcesSupportValue
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StaticSourcesSupportValue] -&gt; Encoding
+$ctoEncodingList :: [StaticSourcesSupportValue] -&gt; Encoding
+toJSONList :: [StaticSourcesSupportValue] -&gt; Value
+$ctoJSONList :: [StaticSourcesSupportValue] -&gt; Value
+toEncoding :: StaticSourcesSupportValue -&gt; Encoding
+$ctoEncoding :: StaticSourcesSupportValue -&gt; Encoding
+toJSON :: StaticSourcesSupportValue -&gt; Value
+$ctoJSON :: StaticSourcesSupportValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681153064"><span id="local-6989586621681153066"><span class="annot"><span class="annottext">ToJSONKeyFunction [StaticSourcesSupportValue]
+ToJSONKeyFunction StaticSourcesSupportValue
+ToJSONKeyFunction StaticSourcesSupportValue
+-&gt; ToJSONKeyFunction [StaticSourcesSupportValue]
+-&gt; ToJSONKey StaticSourcesSupportValue
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StaticSourcesSupportValue]
+$ctoJSONKeyList :: ToJSONKeyFunction [StaticSourcesSupportValue]
+toJSONKey :: ToJSONKeyFunction StaticSourcesSupportValue
+$ctoJSONKey :: ToJSONKeyFunction StaticSourcesSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681153061"><span class="annot"><span class="annottext">[Node] -&gt; Either String StaticSourcesSupportValue
+([Node] -&gt; Either String StaticSourcesSupportValue)
+-&gt; FromXML StaticSourcesSupportValue
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StaticSourcesSupportValue
+$cparseXML :: [Node] -&gt; Either String StaticSourcesSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681153058"><span class="annot"><span class="annottext">StaticSourcesSupportValue -&gt; XML
+(StaticSourcesSupportValue -&gt; XML)
+-&gt; ToXML StaticSourcesSupportValue
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StaticSourcesSupportValue -&gt; XML
+$ctoXML :: StaticSourcesSupportValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue_Disable"><span class="hs-identifier hs-type">StaticSourcesSupportValue_Disable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue"><span class="hs-identifier hs-type">StaticSourcesSupportValue</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStaticSourcesSupportValue_Disable"><span id="%24mStaticSourcesSupportValue_Disable"><span id="StaticSourcesSupportValue_Disable"><span class="annot"><span class="annottext">$bStaticSourcesSupportValue_Disable :: StaticSourcesSupportValue
+$mStaticSourcesSupportValue_Disable :: forall r.
+StaticSourcesSupportValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#%24bStaticSourcesSupportValue_Disable"><span class="hs-identifier hs-var hs-var hs-var">StaticSourcesSupportValue_Disable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue%27"><span class="hs-identifier hs-type">StaticSourcesSupportValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disable&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue_Enable"><span class="hs-identifier hs-type">StaticSourcesSupportValue_Enable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue"><span class="hs-identifier hs-type">StaticSourcesSupportValue</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStaticSourcesSupportValue_Enable"><span id="%24mStaticSourcesSupportValue_Enable"><span id="StaticSourcesSupportValue_Enable"><span class="annot"><span class="annottext">$bStaticSourcesSupportValue_Enable :: StaticSourcesSupportValue
+$mStaticSourcesSupportValue_Enable :: forall r.
+StaticSourcesSupportValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#%24bStaticSourcesSupportValue_Enable"><span class="hs-identifier hs-var hs-var hs-var">StaticSourcesSupportValue_Enable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue%27"><span class="hs-identifier hs-type">StaticSourcesSupportValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;enable&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue_Disable"><span class="hs-pragma hs-type">StaticSourcesSupportValue_Disable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue_Enable"><span class="hs-pragma hs-type">StaticSourcesSupportValue_Enable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.StaticSourcesSupportValue.html#StaticSourcesSupportValue%27"><span class="hs-pragma hs-type">StaticSourcesSupportValue'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

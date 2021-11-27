@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.RAM.Types.Principal
+module Amazonka.RAM.Types.Principal
 
 -- | Describes a principal for use with Resource Access Manager.
 --   
@@ -74,43 +74,43 @@ principal_external :: Lens' Principal (Maybe Bool)
 
 -- | The ID of the principal.
 principal_id :: Lens' Principal (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.Principal.Principal
-instance GHC.Show.Show Network.AWS.RAM.Types.Principal.Principal
-instance GHC.Read.Read Network.AWS.RAM.Types.Principal.Principal
-instance GHC.Classes.Eq Network.AWS.RAM.Types.Principal.Principal
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.Principal.Principal
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.Principal.Principal
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.Principal.Principal
+instance GHC.Generics.Generic Amazonka.RAM.Types.Principal.Principal
+instance GHC.Show.Show Amazonka.RAM.Types.Principal.Principal
+instance GHC.Read.Read Amazonka.RAM.Types.Principal.Principal
+instance GHC.Classes.Eq Amazonka.RAM.Types.Principal.Principal
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.Principal.Principal
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.Principal.Principal
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.Principal.Principal
 
 
-module Network.AWS.RAM.Types.ResourceOwner
+module Amazonka.RAM.Types.ResourceOwner
 newtype ResourceOwner
 ResourceOwner' :: Text -> ResourceOwner
 [fromResourceOwner] :: ResourceOwner -> Text
 pattern ResourceOwner_OTHER_ACCOUNTS :: ResourceOwner
 pattern ResourceOwner_SELF :: ResourceOwner
-instance Network.AWS.Data.XML.ToXML Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Network.AWS.Data.XML.FromXML Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Network.AWS.Data.Log.ToLog Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Network.AWS.Data.Text.ToText Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Network.AWS.Data.Text.FromText Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance GHC.Classes.Ord Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.XML.ToXML Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.XML.FromXML Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.Headers.ToHeader Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.Log.ToLog Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.Text.ToText Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Amazonka.Data.Text.FromText Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance GHC.Classes.Ord Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceOwner.ResourceOwner
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceOwner.ResourceOwner
 
 
-module Network.AWS.RAM.Types.ResourceShareAssociationStatus
+module Amazonka.RAM.Types.ResourceShareAssociationStatus
 newtype ResourceShareAssociationStatus
 ResourceShareAssociationStatus' :: Text -> ResourceShareAssociationStatus
 [fromResourceShareAssociationStatus] :: ResourceShareAssociationStatus -> Text
@@ -119,55 +119,55 @@ pattern ResourceShareAssociationStatus_ASSOCIATING :: ResourceShareAssociationSt
 pattern ResourceShareAssociationStatus_DISASSOCIATED :: ResourceShareAssociationStatus
 pattern ResourceShareAssociationStatus_DISASSOCIATING :: ResourceShareAssociationStatus
 pattern ResourceShareAssociationStatus_FAILED :: ResourceShareAssociationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance GHC.Classes.Ord Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.Text.ToText Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Amazonka.Data.Text.FromText Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance GHC.Classes.Ord Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShareAssociationStatus.ResourceShareAssociationStatus
 
 
-module Network.AWS.RAM.Types.ResourceShareAssociationType
+module Amazonka.RAM.Types.ResourceShareAssociationType
 newtype ResourceShareAssociationType
 ResourceShareAssociationType' :: Text -> ResourceShareAssociationType
 [fromResourceShareAssociationType] :: ResourceShareAssociationType -> Text
 pattern ResourceShareAssociationType_PRINCIPAL :: ResourceShareAssociationType
 pattern ResourceShareAssociationType_RESOURCE :: ResourceShareAssociationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Network.AWS.Data.Text.ToText Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Network.AWS.Data.Text.FromText Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance GHC.Classes.Ord Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.XML.ToXML Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.XML.FromXML Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.Log.ToLog Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.Text.ToText Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Amazonka.Data.Text.FromText Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance GHC.Classes.Ord Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShareAssociationType.ResourceShareAssociationType
 
 
-module Network.AWS.RAM.Types.ResourceShareAssociation
+module Amazonka.RAM.Types.ResourceShareAssociation
 
 -- | Describes an association with a resource share.
 --   
@@ -309,44 +309,44 @@ resourceShareAssociation_associationType :: Lens' ResourceShareAssociation (Mayb
 
 -- | A message about the status of the association.
 resourceShareAssociation_statusMessage :: Lens' ResourceShareAssociation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShareAssociation.ResourceShareAssociation
 
 
-module Network.AWS.RAM.Types.ResourceShareFeatureSet
+module Amazonka.RAM.Types.ResourceShareFeatureSet
 newtype ResourceShareFeatureSet
 ResourceShareFeatureSet' :: Text -> ResourceShareFeatureSet
 [fromResourceShareFeatureSet] :: ResourceShareFeatureSet -> Text
 pattern ResourceShareFeatureSet_CREATED_FROM_POLICY :: ResourceShareFeatureSet
 pattern ResourceShareFeatureSet_PROMOTING_TO_STANDARD :: ResourceShareFeatureSet
 pattern ResourceShareFeatureSet_STANDARD :: ResourceShareFeatureSet
-instance Network.AWS.Data.XML.ToXML Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Network.AWS.Data.XML.FromXML Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Network.AWS.Data.Log.ToLog Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Network.AWS.Data.Text.ToText Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Network.AWS.Data.Text.FromText Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance GHC.Classes.Ord Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.XML.ToXML Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.XML.FromXML Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.Headers.ToHeader Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.Log.ToLog Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.Text.ToText Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Amazonka.Data.Text.FromText Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance GHC.Classes.Ord Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShareFeatureSet.ResourceShareFeatureSet
 
 
-module Network.AWS.RAM.Types.ResourceShareInvitationStatus
+module Amazonka.RAM.Types.ResourceShareInvitationStatus
 newtype ResourceShareInvitationStatus
 ResourceShareInvitationStatus' :: Text -> ResourceShareInvitationStatus
 [fromResourceShareInvitationStatus] :: ResourceShareInvitationStatus -> Text
@@ -354,28 +354,28 @@ pattern ResourceShareInvitationStatus_ACCEPTED :: ResourceShareInvitationStatus
 pattern ResourceShareInvitationStatus_EXPIRED :: ResourceShareInvitationStatus
 pattern ResourceShareInvitationStatus_PENDING :: ResourceShareInvitationStatus
 pattern ResourceShareInvitationStatus_REJECTED :: ResourceShareInvitationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance GHC.Classes.Ord Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.Text.ToText Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Amazonka.Data.Text.FromText Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance GHC.Classes.Ord Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShareInvitationStatus.ResourceShareInvitationStatus
 
 
-module Network.AWS.RAM.Types.ResourceShareInvitation
+module Amazonka.RAM.Types.ResourceShareInvitation
 
 -- | Describes an invitation to join a resource share.
 --   
@@ -488,16 +488,16 @@ resourceShareInvitation_invitationTimestamp :: Lens' ResourceShareInvitation (Ma
 
 -- | The Amazon Resource Name (ARN) of the invitation.
 resourceShareInvitation_resourceShareInvitationArn :: Lens' ResourceShareInvitation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShareInvitation.ResourceShareInvitation
 
 
-module Network.AWS.RAM.Types.ResourceSharePermissionDetail
+module Amazonka.RAM.Types.ResourceSharePermissionDetail
 
 -- | Information about an RAM permission.
 --   
@@ -618,16 +618,16 @@ resourceSharePermissionDetail_isResourceTypeDefault :: Lens' ResourceSharePermis
 --   The <tt>actions</tt> list the API actions to which the principal is
 --   granted or denied access.
 resourceSharePermissionDetail_permission :: Lens' ResourceSharePermissionDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceSharePermissionDetail.ResourceSharePermissionDetail
 
 
-module Network.AWS.RAM.Types.ResourceSharePermissionSummary
+module Amazonka.RAM.Types.ResourceSharePermissionSummary
 
 -- | Information about a permission that is associated with a resource
 --   share.
@@ -742,16 +742,16 @@ resourceSharePermissionSummary_version :: Lens' ResourceSharePermissionSummary (
 -- | Specifies whether the version of the permission is set to the default
 --   version for this resource type.
 resourceSharePermissionSummary_isResourceTypeDefault :: Lens' ResourceSharePermissionSummary (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceSharePermissionSummary.ResourceSharePermissionSummary
 
 
-module Network.AWS.RAM.Types.ResourceShareStatus
+module Amazonka.RAM.Types.ResourceShareStatus
 newtype ResourceShareStatus
 ResourceShareStatus' :: Text -> ResourceShareStatus
 [fromResourceShareStatus] :: ResourceShareStatus -> Text
@@ -760,28 +760,28 @@ pattern ResourceShareStatus_DELETED :: ResourceShareStatus
 pattern ResourceShareStatus_DELETING :: ResourceShareStatus
 pattern ResourceShareStatus_FAILED :: ResourceShareStatus
 pattern ResourceShareStatus_PENDING :: ResourceShareStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance GHC.Classes.Ord Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.XML.ToXML Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.XML.FromXML Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.Log.ToLog Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.Text.ToText Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Amazonka.Data.Text.FromText Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance GHC.Classes.Ord Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShareStatus.ResourceShareStatus
 
 
-module Network.AWS.RAM.Types.ResourceStatus
+module Amazonka.RAM.Types.ResourceStatus
 newtype ResourceStatus
 ResourceStatus' :: Text -> ResourceStatus
 [fromResourceStatus] :: ResourceStatus -> Text
@@ -790,28 +790,28 @@ pattern ResourceStatus_LIMIT_EXCEEDED :: ResourceStatus
 pattern ResourceStatus_PENDING :: ResourceStatus
 pattern ResourceStatus_UNAVAILABLE :: ResourceStatus
 pattern ResourceStatus_ZONAL_RESOURCE_INACCESSIBLE :: ResourceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance GHC.Classes.Ord Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.Text.ToText Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Amazonka.Data.Text.FromText Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance GHC.Classes.Ord Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceStatus.ResourceStatus
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceStatus.ResourceStatus
 
 
-module Network.AWS.RAM.Types.Resource
+module Amazonka.RAM.Types.Resource
 
 -- | Describes a resource associated with a resource share.
 --   
@@ -903,16 +903,16 @@ resource_statusMessage :: Lens' Resource (Maybe Text)
 
 -- | The resource type.
 resource_type :: Lens' Resource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.RAM.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.RAM.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.RAM.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.RAM.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.RAM.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.RAM.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.RAM.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.Resource.Resource
 
 
-module Network.AWS.RAM.Types.ServiceNameAndResourceType
+module Amazonka.RAM.Types.ServiceNameAndResourceType
 
 -- | Information about the shareable resource types and the Amazon Web
 --   Services services to which they belong.
@@ -952,16 +952,16 @@ serviceNameAndResourceType_resourceType :: Lens' ServiceNameAndResourceType (May
 -- | The name of the Amazon Web Services services to which the resources
 --   belong.
 serviceNameAndResourceType_serviceName :: Lens' ServiceNameAndResourceType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
-instance GHC.Show.Show Network.AWS.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
-instance GHC.Read.Read Network.AWS.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
+instance GHC.Generics.Generic Amazonka.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
+instance GHC.Show.Show Amazonka.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
+instance GHC.Read.Read Amazonka.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
+instance GHC.Classes.Eq Amazonka.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ServiceNameAndResourceType.ServiceNameAndResourceType
 
 
-module Network.AWS.RAM.Types.Tag
+module Amazonka.RAM.Types.Tag
 
 -- | Information about a tag.
 --   
@@ -993,17 +993,17 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key of the tag.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.RAM.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.RAM.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.RAM.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.RAM.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.RAM.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.RAM.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.RAM.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.Tag.Tag
 
 
-module Network.AWS.RAM.Types.ResourceShare
+module Amazonka.RAM.Types.ResourceShare
 
 -- | Describes a resource share.
 --   
@@ -1164,16 +1164,16 @@ resourceShare_featureSet :: Lens' ResourceShare (Maybe ResourceShareFeatureSet)
 
 -- | The tags for the resource share.
 resourceShare_tags :: Lens' ResourceShare (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.RAM.Types.ResourceShare.ResourceShare
-instance GHC.Show.Show Network.AWS.RAM.Types.ResourceShare.ResourceShare
-instance GHC.Read.Read Network.AWS.RAM.Types.ResourceShare.ResourceShare
-instance GHC.Classes.Eq Network.AWS.RAM.Types.ResourceShare.ResourceShare
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RAM.Types.ResourceShare.ResourceShare
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.ResourceShare.ResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.ResourceShare.ResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.Types.ResourceShare.ResourceShare
+instance GHC.Show.Show Amazonka.RAM.Types.ResourceShare.ResourceShare
+instance GHC.Read.Read Amazonka.RAM.Types.ResourceShare.ResourceShare
+instance GHC.Classes.Eq Amazonka.RAM.Types.ResourceShare.ResourceShare
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RAM.Types.ResourceShare.ResourceShare
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.ResourceShare.ResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.ResourceShare.ResourceShare
 
 
-module Network.AWS.RAM.Types.TagFilter
+module Amazonka.RAM.Types.TagFilter
 
 -- | Used to filter information based on tags.
 --   
@@ -1206,16 +1206,16 @@ tagFilter_tagValues :: Lens' TagFilter (Maybe [Text])
 
 -- | The tag key.
 tagFilter_tagKey :: Lens' TagFilter (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RAM.Types.TagFilter.TagFilter
-instance GHC.Show.Show Network.AWS.RAM.Types.TagFilter.TagFilter
-instance GHC.Read.Read Network.AWS.RAM.Types.TagFilter.TagFilter
-instance GHC.Classes.Eq Network.AWS.RAM.Types.TagFilter.TagFilter
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.Types.TagFilter.TagFilter
-instance Control.DeepSeq.NFData Network.AWS.RAM.Types.TagFilter.TagFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.Types.TagFilter.TagFilter
+instance GHC.Generics.Generic Amazonka.RAM.Types.TagFilter.TagFilter
+instance GHC.Show.Show Amazonka.RAM.Types.TagFilter.TagFilter
+instance GHC.Read.Read Amazonka.RAM.Types.TagFilter.TagFilter
+instance GHC.Classes.Eq Amazonka.RAM.Types.TagFilter.TagFilter
+instance Data.Hashable.Class.Hashable Amazonka.RAM.Types.TagFilter.TagFilter
+instance Control.DeepSeq.NFData Amazonka.RAM.Types.TagFilter.TagFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.Types.TagFilter.TagFilter
 
 
-module Network.AWS.RAM.Types
+module Amazonka.RAM.Types
 
 -- | API version <tt>2018-01-04</tt> of the Amazon Resource Access Manager
 --   SDK configuration.
@@ -2244,7 +2244,7 @@ tagFilter_tagKey :: Lens' TagFilter (Maybe Text)
 
 
 -- | Adds the specified tags to the specified resource share that you own.
-module Network.AWS.RAM.TagResource
+module Amazonka.RAM.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2301,27 +2301,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.RAM.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.RAM.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.RAM.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.RAM.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.RAM.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.RAM.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.RAM.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.RAM.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.RAM.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.RAM.TagResource.TagResource
+instance GHC.Show.Show Amazonka.RAM.TagResource.TagResource
+instance GHC.Read.Read Amazonka.RAM.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.RAM.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.RAM.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.RAM.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.RAM.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.RAM.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.RAM.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.RAM.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.TagResource.TagResource
 
 
 -- | Rejects an invitation to a resource share from another Amazon Web
 --   Services account.
-module Network.AWS.RAM.RejectResourceShareInvitation
+module Amazonka.RAM.RejectResourceShareInvitation
 
 -- | <i>See:</i> <a>newRejectResourceShareInvitation</a> smart constructor.
 data RejectResourceShareInvitation
@@ -2408,22 +2408,22 @@ rejectResourceShareInvitationResponse_resourceShareInvitation :: Lens' RejectRes
 
 -- | The response's http status code.
 rejectResourceShareInvitationResponse_httpStatus :: Lens' RejectResourceShareInvitationResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance GHC.Show.Show Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance GHC.Read.Read Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance GHC.Classes.Eq Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance GHC.Generics.Generic Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
-instance GHC.Show.Show Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
-instance GHC.Read.Read Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
-instance GHC.Classes.Eq Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance GHC.Generics.Generic Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance GHC.Show.Show Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance GHC.Read.Read Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance GHC.Classes.Eq Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance GHC.Generics.Generic Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
+instance GHC.Show.Show Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
+instance GHC.Read.Read Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
+instance GHC.Classes.Eq Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance Control.DeepSeq.NFData Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitationResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance Control.DeepSeq.NFData Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.RejectResourceShareInvitation.RejectResourceShareInvitation
 
 
 -- | Resource shares that were created by attaching a policy to a resource
@@ -2437,7 +2437,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.RejectResourceShareInvit
 --   <li>Visible to all principals that it is shared with.</li>
 --   <li>Modifiable in RAM.</li>
 --   </ul>
-module Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy
+module Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
 
 -- | <i>See:</i> <a>newPromoteResourceShareCreatedFromPolicy</a> smart
 --   constructor.
@@ -2499,29 +2499,29 @@ promoteResourceShareCreatedFromPolicyResponse_returnValue :: Lens' PromoteResour
 
 -- | The response's http status code.
 promoteResourceShareCreatedFromPolicyResponse_httpStatus :: Lens' PromoteResourceShareCreatedFromPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance GHC.Show.Show Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance GHC.Read.Read Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance GHC.Classes.Eq Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance GHC.Generics.Generic Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
-instance GHC.Show.Show Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
-instance GHC.Read.Read Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
-instance GHC.Classes.Eq Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance Control.DeepSeq.NFData Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance Control.DeepSeq.NFData Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance GHC.Generics.Generic Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance GHC.Show.Show Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance GHC.Read.Read Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance GHC.Classes.Eq Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance GHC.Generics.Generic Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
+instance GHC.Show.Show Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
+instance GHC.Read.Read Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
+instance GHC.Classes.Eq Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance Control.DeepSeq.NFData Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance Control.DeepSeq.NFData Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.PromoteResourceShareCreatedFromPolicy.PromoteResourceShareCreatedFromPolicy
 
 
 -- | Lists the resources that you added to a resource shares or the
 --   resources that are shared with you.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RAM.ListResources
+module Amazonka.RAM.ListResources
 
 -- | <i>See:</i> <a>newListResources</a> smart constructor.
 data ListResources
@@ -2714,27 +2714,27 @@ listResourcesResponse_nextToken :: Lens' ListResourcesResponse (Maybe Text)
 
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens' ListResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.ListResources.ListResources
-instance GHC.Show.Show Network.AWS.RAM.ListResources.ListResources
-instance GHC.Read.Read Network.AWS.RAM.ListResources.ListResources
-instance GHC.Classes.Eq Network.AWS.RAM.ListResources.ListResources
-instance GHC.Generics.Generic Network.AWS.RAM.ListResources.ListResourcesResponse
-instance GHC.Show.Show Network.AWS.RAM.ListResources.ListResourcesResponse
-instance GHC.Read.Read Network.AWS.RAM.ListResources.ListResourcesResponse
-instance GHC.Classes.Eq Network.AWS.RAM.ListResources.ListResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListResources.ListResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RAM.ListResources.ListResources
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListResources.ListResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.ListResources.ListResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.ListResources.ListResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.ListResources.ListResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.RAM.ListResources.ListResources
+instance GHC.Show.Show Amazonka.RAM.ListResources.ListResources
+instance GHC.Read.Read Amazonka.RAM.ListResources.ListResources
+instance GHC.Classes.Eq Amazonka.RAM.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.RAM.ListResources.ListResourcesResponse
+instance GHC.Show.Show Amazonka.RAM.ListResources.ListResourcesResponse
+instance GHC.Read.Read Amazonka.RAM.ListResources.ListResourcesResponse
+instance GHC.Classes.Eq Amazonka.RAM.ListResources.ListResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.RAM.ListResources.ListResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.RAM.ListResources.ListResources
+instance Data.Hashable.Class.Hashable Amazonka.RAM.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.RAM.ListResources.ListResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.ListResources.ListResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.ListResources.ListResources
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.ListResources.ListResources
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.ListResources.ListResources
 
 
 -- | Lists the shareable resource types supported by RAM.
-module Network.AWS.RAM.ListResourceTypes
+module Amazonka.RAM.ListResourceTypes
 
 -- | <i>See:</i> <a>newListResourceTypes</a> smart constructor.
 data ListResourceTypes
@@ -2821,26 +2821,26 @@ listResourceTypesResponse_resourceTypes :: Lens' ListResourceTypesResponse (Mayb
 
 -- | The response's http status code.
 listResourceTypesResponse_httpStatus :: Lens' ListResourceTypesResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance GHC.Show.Show Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance GHC.Read.Read Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance GHC.Classes.Eq Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance GHC.Generics.Generic Network.AWS.RAM.ListResourceTypes.ListResourceTypesResponse
-instance GHC.Show.Show Network.AWS.RAM.ListResourceTypes.ListResourceTypesResponse
-instance GHC.Read.Read Network.AWS.RAM.ListResourceTypes.ListResourceTypesResponse
-instance GHC.Classes.Eq Network.AWS.RAM.ListResourceTypes.ListResourceTypesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListResourceTypes.ListResourceTypesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.ListResourceTypes.ListResourceTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.ListResourceTypes.ListResourceTypes
+instance GHC.Generics.Generic Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance GHC.Show.Show Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance GHC.Read.Read Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance GHC.Classes.Eq Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance GHC.Generics.Generic Amazonka.RAM.ListResourceTypes.ListResourceTypesResponse
+instance GHC.Show.Show Amazonka.RAM.ListResourceTypes.ListResourceTypesResponse
+instance GHC.Read.Read Amazonka.RAM.ListResourceTypes.ListResourceTypesResponse
+instance GHC.Classes.Eq Amazonka.RAM.ListResourceTypes.ListResourceTypesResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance Control.DeepSeq.NFData Amazonka.RAM.ListResourceTypes.ListResourceTypesResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance Control.DeepSeq.NFData Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.ListResourceTypes.ListResourceTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.ListResourceTypes.ListResourceTypes
 
 
 -- | Lists the RAM permissions that are associated with a resource share.
-module Network.AWS.RAM.ListResourceSharePermissions
+module Amazonka.RAM.ListResourceSharePermissions
 
 -- | <i>See:</i> <a>newListResourceSharePermissions</a> smart constructor.
 data ListResourceSharePermissions
@@ -2938,29 +2938,29 @@ listResourceSharePermissionsResponse_permissions :: Lens' ListResourceSharePermi
 
 -- | The response's http status code.
 listResourceSharePermissionsResponse_httpStatus :: Lens' ListResourceSharePermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance GHC.Show.Show Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance GHC.Read.Read Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance GHC.Classes.Eq Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance GHC.Generics.Generic Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
-instance GHC.Show.Show Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
-instance GHC.Read.Read Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
-instance GHC.Classes.Eq Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance GHC.Generics.Generic Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance GHC.Show.Show Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance GHC.Read.Read Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance GHC.Classes.Eq Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance GHC.Generics.Generic Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
+instance GHC.Show.Show Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
+instance GHC.Read.Read Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
+instance GHC.Classes.Eq Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance Control.DeepSeq.NFData Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance Control.DeepSeq.NFData Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.ListResourceSharePermissions.ListResourceSharePermissions
 
 
 -- | Lists the principals that you have shared resources with or that have
 --   shared resources with you.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RAM.ListPrincipals
+module Amazonka.RAM.ListPrincipals
 
 -- | <i>See:</i> <a>newListPrincipals</a> smart constructor.
 data ListPrincipals
@@ -3152,27 +3152,27 @@ listPrincipalsResponse_nextToken :: Lens' ListPrincipalsResponse (Maybe Text)
 
 -- | The response's http status code.
 listPrincipalsResponse_httpStatus :: Lens' ListPrincipalsResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance GHC.Show.Show Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance GHC.Read.Read Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance GHC.Classes.Eq Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance GHC.Generics.Generic Network.AWS.RAM.ListPrincipals.ListPrincipalsResponse
-instance GHC.Show.Show Network.AWS.RAM.ListPrincipals.ListPrincipalsResponse
-instance GHC.Read.Read Network.AWS.RAM.ListPrincipals.ListPrincipalsResponse
-instance GHC.Classes.Eq Network.AWS.RAM.ListPrincipals.ListPrincipalsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListPrincipals.ListPrincipalsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.ListPrincipals.ListPrincipals
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.ListPrincipals.ListPrincipals
+instance GHC.Generics.Generic Amazonka.RAM.ListPrincipals.ListPrincipals
+instance GHC.Show.Show Amazonka.RAM.ListPrincipals.ListPrincipals
+instance GHC.Read.Read Amazonka.RAM.ListPrincipals.ListPrincipals
+instance GHC.Classes.Eq Amazonka.RAM.ListPrincipals.ListPrincipals
+instance GHC.Generics.Generic Amazonka.RAM.ListPrincipals.ListPrincipalsResponse
+instance GHC.Show.Show Amazonka.RAM.ListPrincipals.ListPrincipalsResponse
+instance GHC.Read.Read Amazonka.RAM.ListPrincipals.ListPrincipalsResponse
+instance GHC.Classes.Eq Amazonka.RAM.ListPrincipals.ListPrincipalsResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.ListPrincipals.ListPrincipals
+instance Control.DeepSeq.NFData Amazonka.RAM.ListPrincipals.ListPrincipalsResponse
+instance Amazonka.Pager.AWSPager Amazonka.RAM.ListPrincipals.ListPrincipals
+instance Data.Hashable.Class.Hashable Amazonka.RAM.ListPrincipals.ListPrincipals
+instance Control.DeepSeq.NFData Amazonka.RAM.ListPrincipals.ListPrincipals
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.ListPrincipals.ListPrincipals
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.ListPrincipals.ListPrincipals
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.ListPrincipals.ListPrincipals
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.ListPrincipals.ListPrincipals
 
 
 -- | Lists the RAM permissions.
-module Network.AWS.RAM.ListPermissions
+module Amazonka.RAM.ListPermissions
 
 -- | <i>See:</i> <a>newListPermissions</a> smart constructor.
 data ListPermissions
@@ -3274,27 +3274,27 @@ listPermissionsResponse_permissions :: Lens' ListPermissionsResponse (Maybe [Res
 
 -- | The response's http status code.
 listPermissionsResponse_httpStatus :: Lens' ListPermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.ListPermissions.ListPermissions
-instance GHC.Show.Show Network.AWS.RAM.ListPermissions.ListPermissions
-instance GHC.Read.Read Network.AWS.RAM.ListPermissions.ListPermissions
-instance GHC.Classes.Eq Network.AWS.RAM.ListPermissions.ListPermissions
-instance GHC.Generics.Generic Network.AWS.RAM.ListPermissions.ListPermissionsResponse
-instance GHC.Show.Show Network.AWS.RAM.ListPermissions.ListPermissionsResponse
-instance GHC.Read.Read Network.AWS.RAM.ListPermissions.ListPermissionsResponse
-instance GHC.Classes.Eq Network.AWS.RAM.ListPermissions.ListPermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.ListPermissions.ListPermissions
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListPermissions.ListPermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.ListPermissions.ListPermissions
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListPermissions.ListPermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.ListPermissions.ListPermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.ListPermissions.ListPermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.ListPermissions.ListPermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.ListPermissions.ListPermissions
+instance GHC.Generics.Generic Amazonka.RAM.ListPermissions.ListPermissions
+instance GHC.Show.Show Amazonka.RAM.ListPermissions.ListPermissions
+instance GHC.Read.Read Amazonka.RAM.ListPermissions.ListPermissions
+instance GHC.Classes.Eq Amazonka.RAM.ListPermissions.ListPermissions
+instance GHC.Generics.Generic Amazonka.RAM.ListPermissions.ListPermissionsResponse
+instance GHC.Show.Show Amazonka.RAM.ListPermissions.ListPermissionsResponse
+instance GHC.Read.Read Amazonka.RAM.ListPermissions.ListPermissionsResponse
+instance GHC.Classes.Eq Amazonka.RAM.ListPermissions.ListPermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.ListPermissions.ListPermissions
+instance Control.DeepSeq.NFData Amazonka.RAM.ListPermissions.ListPermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.ListPermissions.ListPermissions
+instance Control.DeepSeq.NFData Amazonka.RAM.ListPermissions.ListPermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.ListPermissions.ListPermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.ListPermissions.ListPermissions
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.ListPermissions.ListPermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.ListPermissions.ListPermissions
 
 
 -- | Lists the resources in a resource share that is shared with you but
 --   that the invitation is still pending for.
-module Network.AWS.RAM.ListPendingInvitationResources
+module Amazonka.RAM.ListPendingInvitationResources
 
 -- | <i>See:</i> <a>newListPendingInvitationResources</a> smart
 --   constructor.
@@ -3394,29 +3394,29 @@ listPendingInvitationResourcesResponse_nextToken :: Lens' ListPendingInvitationR
 
 -- | The response's http status code.
 listPendingInvitationResourcesResponse_httpStatus :: Lens' ListPendingInvitationResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance GHC.Show.Show Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance GHC.Read.Read Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance GHC.Classes.Eq Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance GHC.Generics.Generic Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
-instance GHC.Show.Show Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
-instance GHC.Read.Read Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
-instance GHC.Classes.Eq Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance Control.DeepSeq.NFData Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance GHC.Generics.Generic Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance GHC.Show.Show Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance GHC.Read.Read Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance GHC.Classes.Eq Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance GHC.Generics.Generic Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
+instance GHC.Show.Show Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
+instance GHC.Read.Read Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
+instance GHC.Classes.Eq Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance Control.DeepSeq.NFData Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance Control.DeepSeq.NFData Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.ListPendingInvitationResources.ListPendingInvitationResources
 
 
 -- | Gets the resource shares that you own or the resource shares that are
 --   shared with you.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RAM.GetResourceShares
+module Amazonka.RAM.GetResourceShares
 
 -- | <i>See:</i> <a>newGetResourceShares</a> smart constructor.
 data GetResourceShares
@@ -3563,29 +3563,29 @@ getResourceSharesResponse_nextToken :: Lens' GetResourceSharesResponse (Maybe Te
 
 -- | The response's http status code.
 getResourceSharesResponse_httpStatus :: Lens' GetResourceSharesResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance GHC.Show.Show Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance GHC.Read.Read Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourceShares.GetResourceSharesResponse
-instance GHC.Show.Show Network.AWS.RAM.GetResourceShares.GetResourceSharesResponse
-instance GHC.Read.Read Network.AWS.RAM.GetResourceShares.GetResourceSharesResponse
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourceShares.GetResourceSharesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourceShares.GetResourceSharesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.GetResourceShares.GetResourceShares
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.GetResourceShares.GetResourceShares
+instance GHC.Generics.Generic Amazonka.RAM.GetResourceShares.GetResourceShares
+instance GHC.Show.Show Amazonka.RAM.GetResourceShares.GetResourceShares
+instance GHC.Read.Read Amazonka.RAM.GetResourceShares.GetResourceShares
+instance GHC.Classes.Eq Amazonka.RAM.GetResourceShares.GetResourceShares
+instance GHC.Generics.Generic Amazonka.RAM.GetResourceShares.GetResourceSharesResponse
+instance GHC.Show.Show Amazonka.RAM.GetResourceShares.GetResourceSharesResponse
+instance GHC.Read.Read Amazonka.RAM.GetResourceShares.GetResourceSharesResponse
+instance GHC.Classes.Eq Amazonka.RAM.GetResourceShares.GetResourceSharesResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.GetResourceShares.GetResourceShares
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourceShares.GetResourceSharesResponse
+instance Amazonka.Pager.AWSPager Amazonka.RAM.GetResourceShares.GetResourceShares
+instance Data.Hashable.Class.Hashable Amazonka.RAM.GetResourceShares.GetResourceShares
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourceShares.GetResourceShares
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.GetResourceShares.GetResourceShares
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.GetResourceShares.GetResourceShares
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.GetResourceShares.GetResourceShares
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.GetResourceShares.GetResourceShares
 
 
 -- | Gets the invitations that you have received for resource shares.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RAM.GetResourceShareInvitations
+module Amazonka.RAM.GetResourceShareInvitations
 
 -- | <i>See:</i> <a>newGetResourceShareInvitations</a> smart constructor.
 data GetResourceShareInvitations
@@ -3694,29 +3694,29 @@ getResourceShareInvitationsResponse_nextToken :: Lens' GetResourceShareInvitatio
 
 -- | The response's http status code.
 getResourceShareInvitationsResponse_httpStatus :: Lens' GetResourceShareInvitationsResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance GHC.Show.Show Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance GHC.Read.Read Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
-instance GHC.Show.Show Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
-instance GHC.Read.Read Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance GHC.Generics.Generic Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance GHC.Show.Show Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance GHC.Read.Read Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance GHC.Classes.Eq Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance GHC.Generics.Generic Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
+instance GHC.Show.Show Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
+instance GHC.Read.Read Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
+instance GHC.Classes.Eq Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance Data.Hashable.Class.Hashable Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.GetResourceShareInvitations.GetResourceShareInvitations
 
 
 -- | Gets the resources or principals for the resource shares that you own.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RAM.GetResourceShareAssociations
+module Amazonka.RAM.GetResourceShareAssociations
 
 -- | <i>See:</i> <a>newGetResourceShareAssociations</a> smart constructor.
 data GetResourceShareAssociations
@@ -3870,30 +3870,30 @@ getResourceShareAssociationsResponse_nextToken :: Lens' GetResourceShareAssociat
 
 -- | The response's http status code.
 getResourceShareAssociationsResponse_httpStatus :: Lens' GetResourceShareAssociationsResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance GHC.Show.Show Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance GHC.Read.Read Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
-instance GHC.Show.Show Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
-instance GHC.Read.Read Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance GHC.Generics.Generic Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance GHC.Show.Show Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance GHC.Read.Read Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance GHC.Classes.Eq Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance GHC.Generics.Generic Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
+instance GHC.Show.Show Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
+instance GHC.Read.Read Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
+instance GHC.Classes.Eq Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance Data.Hashable.Class.Hashable Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.GetResourceShareAssociations.GetResourceShareAssociations
 
 
 -- | Gets the policies for the specified resources that you own and have
 --   shared.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RAM.GetResourcePolicies
+module Amazonka.RAM.GetResourcePolicies
 
 -- | <i>See:</i> <a>newGetResourcePolicies</a> smart constructor.
 data GetResourcePolicies
@@ -3999,27 +3999,27 @@ getResourcePoliciesResponse_policies :: Lens' GetResourcePoliciesResponse (Maybe
 
 -- | The response's http status code.
 getResourcePoliciesResponse_httpStatus :: Lens' GetResourcePoliciesResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance GHC.Show.Show Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance GHC.Read.Read Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance GHC.Generics.Generic Network.AWS.RAM.GetResourcePolicies.GetResourcePoliciesResponse
-instance GHC.Show.Show Network.AWS.RAM.GetResourcePolicies.GetResourcePoliciesResponse
-instance GHC.Read.Read Network.AWS.RAM.GetResourcePolicies.GetResourcePoliciesResponse
-instance GHC.Classes.Eq Network.AWS.RAM.GetResourcePolicies.GetResourcePoliciesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourcePolicies.GetResourcePoliciesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.GetResourcePolicies.GetResourcePolicies
+instance GHC.Generics.Generic Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance GHC.Show.Show Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance GHC.Read.Read Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance GHC.Classes.Eq Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance GHC.Generics.Generic Amazonka.RAM.GetResourcePolicies.GetResourcePoliciesResponse
+instance GHC.Show.Show Amazonka.RAM.GetResourcePolicies.GetResourcePoliciesResponse
+instance GHC.Read.Read Amazonka.RAM.GetResourcePolicies.GetResourcePoliciesResponse
+instance GHC.Classes.Eq Amazonka.RAM.GetResourcePolicies.GetResourcePoliciesResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourcePolicies.GetResourcePoliciesResponse
+instance Amazonka.Pager.AWSPager Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance Data.Hashable.Class.Hashable Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance Control.DeepSeq.NFData Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.GetResourcePolicies.GetResourcePolicies
 
 
 -- | Gets the contents of an RAM permission in JSON format.
-module Network.AWS.RAM.GetPermission
+module Amazonka.RAM.GetPermission
 
 -- | <i>See:</i> <a>newGetPermission</a> smart constructor.
 data GetPermission
@@ -4088,28 +4088,28 @@ getPermissionResponse_permission :: Lens' GetPermissionResponse (Maybe ResourceS
 
 -- | The response's http status code.
 getPermissionResponse_httpStatus :: Lens' GetPermissionResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.GetPermission.GetPermission
-instance GHC.Show.Show Network.AWS.RAM.GetPermission.GetPermission
-instance GHC.Read.Read Network.AWS.RAM.GetPermission.GetPermission
-instance GHC.Classes.Eq Network.AWS.RAM.GetPermission.GetPermission
-instance GHC.Generics.Generic Network.AWS.RAM.GetPermission.GetPermissionResponse
-instance GHC.Show.Show Network.AWS.RAM.GetPermission.GetPermissionResponse
-instance GHC.Read.Read Network.AWS.RAM.GetPermission.GetPermissionResponse
-instance GHC.Classes.Eq Network.AWS.RAM.GetPermission.GetPermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.GetPermission.GetPermission
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetPermission.GetPermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.GetPermission.GetPermission
-instance Control.DeepSeq.NFData Network.AWS.RAM.GetPermission.GetPermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.GetPermission.GetPermission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.GetPermission.GetPermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.GetPermission.GetPermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.GetPermission.GetPermission
+instance GHC.Generics.Generic Amazonka.RAM.GetPermission.GetPermission
+instance GHC.Show.Show Amazonka.RAM.GetPermission.GetPermission
+instance GHC.Read.Read Amazonka.RAM.GetPermission.GetPermission
+instance GHC.Classes.Eq Amazonka.RAM.GetPermission.GetPermission
+instance GHC.Generics.Generic Amazonka.RAM.GetPermission.GetPermissionResponse
+instance GHC.Show.Show Amazonka.RAM.GetPermission.GetPermissionResponse
+instance GHC.Read.Read Amazonka.RAM.GetPermission.GetPermissionResponse
+instance GHC.Classes.Eq Amazonka.RAM.GetPermission.GetPermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.GetPermission.GetPermission
+instance Control.DeepSeq.NFData Amazonka.RAM.GetPermission.GetPermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.GetPermission.GetPermission
+instance Control.DeepSeq.NFData Amazonka.RAM.GetPermission.GetPermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.GetPermission.GetPermission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.GetPermission.GetPermission
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.GetPermission.GetPermission
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.GetPermission.GetPermission
 
 
 -- | Enables resource sharing within your organization in Organizations.
 --   
 --   The caller must be the master account for the organization.
-module Network.AWS.RAM.EnableSharingWithAwsOrganization
+module Amazonka.RAM.EnableSharingWithAwsOrganization
 
 -- | <i>See:</i> <a>newEnableSharingWithAwsOrganization</a> smart
 --   constructor.
@@ -4157,26 +4157,26 @@ enableSharingWithAwsOrganizationResponse_returnValue :: Lens' EnableSharingWithA
 
 -- | The response's http status code.
 enableSharingWithAwsOrganizationResponse_httpStatus :: Lens' EnableSharingWithAwsOrganizationResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance GHC.Show.Show Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance GHC.Read.Read Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance GHC.Classes.Eq Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance GHC.Generics.Generic Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
-instance GHC.Show.Show Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
-instance GHC.Read.Read Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance Control.DeepSeq.NFData Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance Control.DeepSeq.NFData Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance GHC.Generics.Generic Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance GHC.Show.Show Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance GHC.Read.Read Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance GHC.Classes.Eq Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance GHC.Generics.Generic Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
+instance GHC.Show.Show Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
+instance GHC.Read.Read Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
+instance GHC.Classes.Eq Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance Control.DeepSeq.NFData Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance Control.DeepSeq.NFData Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.EnableSharingWithAwsOrganization.EnableSharingWithAwsOrganization
 
 
 -- | Disassociates an RAM permission from a resource share.
-module Network.AWS.RAM.DisassociateResourceSharePermission
+module Amazonka.RAM.DisassociateResourceSharePermission
 
 -- | <i>See:</i> <a>newDisassociateResourceSharePermission</a> smart
 --   constructor.
@@ -4276,27 +4276,27 @@ disassociateResourceSharePermissionResponse_returnValue :: Lens' DisassociateRes
 
 -- | The response's http status code.
 disassociateResourceSharePermissionResponse_httpStatus :: Lens' DisassociateResourceSharePermissionResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance GHC.Show.Show Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance GHC.Read.Read Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance GHC.Classes.Eq Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance GHC.Generics.Generic Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
-instance GHC.Show.Show Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
-instance GHC.Read.Read Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
-instance GHC.Classes.Eq Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance Control.DeepSeq.NFData Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance Control.DeepSeq.NFData Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance GHC.Generics.Generic Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance GHC.Show.Show Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance GHC.Read.Read Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance GHC.Classes.Eq Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance GHC.Generics.Generic Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
+instance GHC.Show.Show Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
+instance GHC.Read.Read Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
+instance GHC.Classes.Eq Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance Control.DeepSeq.NFData Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance Control.DeepSeq.NFData Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.DisassociateResourceSharePermission.DisassociateResourceSharePermission
 
 
 -- | Disassociates the specified principals or resources from the specified
 --   resource share.
-module Network.AWS.RAM.DisassociateResourceShare
+module Amazonka.RAM.DisassociateResourceShare
 
 -- | <i>See:</i> <a>newDisassociateResourceShare</a> smart constructor.
 data DisassociateResourceShare
@@ -4402,26 +4402,26 @@ disassociateResourceShareResponse_resourceShareAssociations :: Lens' Disassociat
 
 -- | The response's http status code.
 disassociateResourceShareResponse_httpStatus :: Lens' DisassociateResourceShareResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance GHC.Show.Show Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance GHC.Read.Read Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance GHC.Classes.Eq Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance GHC.Generics.Generic Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
-instance GHC.Show.Show Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
-instance GHC.Read.Read Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
-instance GHC.Classes.Eq Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance GHC.Show.Show Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance GHC.Read.Read Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance GHC.Classes.Eq Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
+instance GHC.Show.Show Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
+instance GHC.Read.Read Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
+instance GHC.Classes.Eq Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.DisassociateResourceShare.DisassociateResourceShare
 
 
 -- | Deletes the specified resource share.
-module Network.AWS.RAM.DeleteResourceShare
+module Amazonka.RAM.DeleteResourceShare
 
 -- | <i>See:</i> <a>newDeleteResourceShare</a> smart constructor.
 data DeleteResourceShare
@@ -4505,21 +4505,21 @@ deleteResourceShareResponse_returnValue :: Lens' DeleteResourceShareResponse (Ma
 
 -- | The response's http status code.
 deleteResourceShareResponse_httpStatus :: Lens' DeleteResourceShareResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance GHC.Show.Show Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance GHC.Read.Read Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance GHC.Classes.Eq Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance GHC.Generics.Generic Network.AWS.RAM.DeleteResourceShare.DeleteResourceShareResponse
-instance GHC.Show.Show Network.AWS.RAM.DeleteResourceShare.DeleteResourceShareResponse
-instance GHC.Read.Read Network.AWS.RAM.DeleteResourceShare.DeleteResourceShareResponse
-instance GHC.Classes.Eq Network.AWS.RAM.DeleteResourceShare.DeleteResourceShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.DeleteResourceShare.DeleteResourceShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.DeleteResourceShare.DeleteResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance GHC.Show.Show Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance GHC.Read.Read Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance GHC.Classes.Eq Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.DeleteResourceShare.DeleteResourceShareResponse
+instance GHC.Show.Show Amazonka.RAM.DeleteResourceShare.DeleteResourceShareResponse
+instance GHC.Read.Read Amazonka.RAM.DeleteResourceShare.DeleteResourceShareResponse
+instance GHC.Classes.Eq Amazonka.RAM.DeleteResourceShare.DeleteResourceShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.DeleteResourceShare.DeleteResourceShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.DeleteResourceShare.DeleteResourceShare
 
 
 -- | Creates a resource share. You must provide a list of the Amazon
@@ -4531,7 +4531,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.DeleteResourceShare.Dele
 --   the Amazon Web Services account that created the resource. Sharing
 --   doesn't change any permissions or quotas that apply to the resource in
 --   the account that created it.
-module Network.AWS.RAM.CreateResourceShare
+module Amazonka.RAM.CreateResourceShare
 
 -- | <i>See:</i> <a>newCreateResourceShare</a> smart constructor.
 data CreateResourceShare
@@ -4719,26 +4719,26 @@ createResourceShareResponse_resourceShare :: Lens' CreateResourceShareResponse (
 
 -- | The response's http status code.
 createResourceShareResponse_httpStatus :: Lens' CreateResourceShareResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance GHC.Show.Show Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance GHC.Read.Read Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance GHC.Classes.Eq Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance GHC.Generics.Generic Network.AWS.RAM.CreateResourceShare.CreateResourceShareResponse
-instance GHC.Show.Show Network.AWS.RAM.CreateResourceShare.CreateResourceShareResponse
-instance GHC.Read.Read Network.AWS.RAM.CreateResourceShare.CreateResourceShareResponse
-instance GHC.Classes.Eq Network.AWS.RAM.CreateResourceShare.CreateResourceShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.CreateResourceShare.CreateResourceShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.CreateResourceShare.CreateResourceShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.CreateResourceShare.CreateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance GHC.Show.Show Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance GHC.Read.Read Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance GHC.Classes.Eq Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.CreateResourceShare.CreateResourceShareResponse
+instance GHC.Show.Show Amazonka.RAM.CreateResourceShare.CreateResourceShareResponse
+instance GHC.Read.Read Amazonka.RAM.CreateResourceShare.CreateResourceShareResponse
+instance GHC.Classes.Eq Amazonka.RAM.CreateResourceShare.CreateResourceShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.CreateResourceShare.CreateResourceShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.CreateResourceShare.CreateResourceShare
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.CreateResourceShare.CreateResourceShare
 
 
 -- | Associates a permission with a resource share.
-module Network.AWS.RAM.AssociateResourceSharePermission
+module Amazonka.RAM.AssociateResourceSharePermission
 
 -- | <i>See:</i> <a>newAssociateResourceSharePermission</a> smart
 --   constructor.
@@ -4869,27 +4869,27 @@ associateResourceSharePermissionResponse_returnValue :: Lens' AssociateResourceS
 
 -- | The response's http status code.
 associateResourceSharePermissionResponse_httpStatus :: Lens' AssociateResourceSharePermissionResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance GHC.Show.Show Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance GHC.Read.Read Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance GHC.Classes.Eq Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance GHC.Generics.Generic Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
-instance GHC.Show.Show Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
-instance GHC.Read.Read Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
-instance GHC.Classes.Eq Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance Control.DeepSeq.NFData Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance Control.DeepSeq.NFData Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance GHC.Generics.Generic Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance GHC.Show.Show Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance GHC.Read.Read Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance GHC.Classes.Eq Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance GHC.Generics.Generic Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
+instance GHC.Show.Show Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
+instance GHC.Read.Read Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
+instance GHC.Classes.Eq Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance Control.DeepSeq.NFData Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance Control.DeepSeq.NFData Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.AssociateResourceSharePermission.AssociateResourceSharePermission
 
 
 -- | Associates the specified resource share with the specified principals
 --   and resources.
-module Network.AWS.RAM.AssociateResourceShare
+module Amazonka.RAM.AssociateResourceShare
 
 -- | <i>See:</i> <a>newAssociateResourceShare</a> smart constructor.
 data AssociateResourceShare
@@ -5035,27 +5035,27 @@ associateResourceShareResponse_resourceShareAssociations :: Lens' AssociateResou
 
 -- | The response's http status code.
 associateResourceShareResponse_httpStatus :: Lens' AssociateResourceShareResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance GHC.Show.Show Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance GHC.Read.Read Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance GHC.Classes.Eq Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance GHC.Generics.Generic Network.AWS.RAM.AssociateResourceShare.AssociateResourceShareResponse
-instance GHC.Show.Show Network.AWS.RAM.AssociateResourceShare.AssociateResourceShareResponse
-instance GHC.Read.Read Network.AWS.RAM.AssociateResourceShare.AssociateResourceShareResponse
-instance GHC.Classes.Eq Network.AWS.RAM.AssociateResourceShare.AssociateResourceShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.AssociateResourceShare.AssociateResourceShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.AssociateResourceShare.AssociateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance GHC.Show.Show Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance GHC.Read.Read Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance GHC.Classes.Eq Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.AssociateResourceShare.AssociateResourceShareResponse
+instance GHC.Show.Show Amazonka.RAM.AssociateResourceShare.AssociateResourceShareResponse
+instance GHC.Read.Read Amazonka.RAM.AssociateResourceShare.AssociateResourceShareResponse
+instance GHC.Classes.Eq Amazonka.RAM.AssociateResourceShare.AssociateResourceShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.AssociateResourceShare.AssociateResourceShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.AssociateResourceShare.AssociateResourceShare
 
 
 -- | Accepts an invitation to a resource share from another Amazon Web
 --   Services account.
-module Network.AWS.RAM.AcceptResourceShareInvitation
+module Amazonka.RAM.AcceptResourceShareInvitation
 
 -- | <i>See:</i> <a>newAcceptResourceShareInvitation</a> smart constructor.
 data AcceptResourceShareInvitation
@@ -5142,27 +5142,27 @@ acceptResourceShareInvitationResponse_resourceShareInvitation :: Lens' AcceptRes
 
 -- | The response's http status code.
 acceptResourceShareInvitationResponse_httpStatus :: Lens' AcceptResourceShareInvitationResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance GHC.Show.Show Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance GHC.Read.Read Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance GHC.Classes.Eq Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance GHC.Generics.Generic Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
-instance GHC.Show.Show Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
-instance GHC.Read.Read Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
-instance GHC.Classes.Eq Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance GHC.Generics.Generic Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance GHC.Show.Show Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance GHC.Read.Read Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance GHC.Classes.Eq Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance GHC.Generics.Generic Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
+instance GHC.Show.Show Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
+instance GHC.Read.Read Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
+instance GHC.Classes.Eq Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance Control.DeepSeq.NFData Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitationResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance Control.DeepSeq.NFData Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.AcceptResourceShareInvitation.AcceptResourceShareInvitation
 
 
 -- | Removes the specified tags from the specified resource share that you
 --   own.
-module Network.AWS.RAM.UntagResource
+module Amazonka.RAM.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -5220,26 +5220,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.RAM.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.RAM.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.RAM.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.RAM.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.RAM.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.RAM.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.RAM.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.RAM.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.RAM.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.RAM.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.RAM.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.RAM.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.RAM.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.RAM.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.RAM.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.RAM.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.RAM.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.RAM.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.RAM.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.UntagResource.UntagResource
 
 
 -- | Updates the specified resource share that you own.
-module Network.AWS.RAM.UpdateResourceShare
+module Amazonka.RAM.UpdateResourceShare
 
 -- | <i>See:</i> <a>newUpdateResourceShare</a> smart constructor.
 data UpdateResourceShare
@@ -5345,25 +5345,25 @@ updateResourceShareResponse_resourceShare :: Lens' UpdateResourceShareResponse (
 
 -- | The response's http status code.
 updateResourceShareResponse_httpStatus :: Lens' UpdateResourceShareResponse Int
-instance GHC.Generics.Generic Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance GHC.Show.Show Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance GHC.Read.Read Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance GHC.Classes.Eq Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance GHC.Generics.Generic Network.AWS.RAM.UpdateResourceShare.UpdateResourceShareResponse
-instance GHC.Show.Show Network.AWS.RAM.UpdateResourceShare.UpdateResourceShareResponse
-instance GHC.Read.Read Network.AWS.RAM.UpdateResourceShare.UpdateResourceShareResponse
-instance GHC.Classes.Eq Network.AWS.RAM.UpdateResourceShare.UpdateResourceShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.UpdateResourceShare.UpdateResourceShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance Control.DeepSeq.NFData Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RAM.UpdateResourceShare.UpdateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance GHC.Show.Show Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance GHC.Read.Read Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance GHC.Classes.Eq Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance GHC.Generics.Generic Amazonka.RAM.UpdateResourceShare.UpdateResourceShareResponse
+instance GHC.Show.Show Amazonka.RAM.UpdateResourceShare.UpdateResourceShareResponse
+instance GHC.Read.Read Amazonka.RAM.UpdateResourceShare.UpdateResourceShareResponse
+instance GHC.Classes.Eq Amazonka.RAM.UpdateResourceShare.UpdateResourceShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.UpdateResourceShare.UpdateResourceShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance Control.DeepSeq.NFData Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance Amazonka.Data.Path.ToPath Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
+instance Amazonka.Data.Query.ToQuery Amazonka.RAM.UpdateResourceShare.UpdateResourceShare
 
 
-module Network.AWS.RAM.Lens
+module Amazonka.RAM.Lens
 
 -- | The Amazon Resource Name (ARN) of the resource share to promote.
 promoteResourceShareCreatedFromPolicy_resourceShareArn :: Lens' PromoteResourceShareCreatedFromPolicy Text
@@ -6198,7 +6198,7 @@ tagFilter_tagValues :: Lens' TagFilter (Maybe [Text])
 tagFilter_tagKey :: Lens' TagFilter (Maybe Text)
 
 
-module Network.AWS.RAM.Waiters
+module Amazonka.RAM.Waiters
 
 
 -- | Derived from API version <tt>2018-01-04</tt> of the AWS service
@@ -6220,7 +6220,7 @@ module Network.AWS.RAM.Waiters
 --   <li><a>Resource Access Manager product page</a></li>
 --   <li><a>Resource Access Manager User Guide</a></li>
 --   </ul>
-module Network.AWS.RAM
+module Amazonka.RAM
 
 -- | API version <tt>2018-01-04</tt> of the Amazon Resource Access Manager
 --   SDK configuration.

@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataPipeline.Types.OperatorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataPipeline.Types.OperatorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType"><span class="hs-identifier">OperatorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_BETWEEN"><span class="hs-identifier">OperatorType_BETWEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_EQ"><span class="hs-identifier">OperatorType_EQ</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_GE"><span class="hs-identifier">OperatorType_GE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_LE"><span class="hs-identifier">OperatorType_LE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_REF_EQ"><span class="hs-identifier">OperatorType_REF_EQ</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679174898"><span id="local-6989586621679174899"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OperatorType"><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-var">OperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperatorType%27"><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType%27"><span class="hs-identifier hs-var">OperatorType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOperatorType"><span class="annot"><span class="annottext">OperatorType -&gt; Text
+</span><a href="Amazonka.DataPipeline.Types.OperatorType.html#fromOperatorType"><span class="hs-identifier hs-var hs-var">fromOperatorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174890"><span id="local-6989586621679174892"><span id="local-6989586621679174894"><span class="annot"><span class="annottext">Int -&gt; OperatorType -&gt; ShowS
+[OperatorType] -&gt; ShowS
+OperatorType -&gt; String
+(Int -&gt; OperatorType -&gt; ShowS)
+-&gt; (OperatorType -&gt; String)
+-&gt; ([OperatorType] -&gt; ShowS)
+-&gt; Show OperatorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OperatorType] -&gt; ShowS
+$cshowList :: [OperatorType] -&gt; ShowS
+show :: OperatorType -&gt; String
+$cshow :: OperatorType -&gt; String
+showsPrec :: Int -&gt; OperatorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; OperatorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679174881"><span id="local-6989586621679174883"><span id="local-6989586621679174885"><span id="local-6989586621679174887"><span class="annot"><span class="annottext">ReadPrec [OperatorType]
+ReadPrec OperatorType
+Int -&gt; ReadS OperatorType
+ReadS [OperatorType]
+(Int -&gt; ReadS OperatorType)
+-&gt; ReadS [OperatorType]
+-&gt; ReadPrec OperatorType
+-&gt; ReadPrec [OperatorType]
+-&gt; Read OperatorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OperatorType]
+$creadListPrec :: ReadPrec [OperatorType]
+readPrec :: ReadPrec OperatorType
+$creadPrec :: ReadPrec OperatorType
+readList :: ReadS [OperatorType]
+$creadList :: ReadS [OperatorType]
+readsPrec :: Int -&gt; ReadS OperatorType
+$creadsPrec :: Int -&gt; ReadS OperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679174876"><span id="local-6989586621679174878"><span class="annot"><span class="annottext">OperatorType -&gt; OperatorType -&gt; Bool
+(OperatorType -&gt; OperatorType -&gt; Bool)
+-&gt; (OperatorType -&gt; OperatorType -&gt; Bool) -&gt; Eq OperatorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OperatorType -&gt; OperatorType -&gt; Bool
+$c/= :: OperatorType -&gt; OperatorType -&gt; Bool
+== :: OperatorType -&gt; OperatorType -&gt; Bool
+$c== :: OperatorType -&gt; OperatorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679174860"><span id="local-6989586621679174862"><span id="local-6989586621679174864"><span id="local-6989586621679174866"><span id="local-6989586621679174868"><span id="local-6989586621679174870"><span id="local-6989586621679174872"><span class="annot"><span class="annottext">Eq OperatorType
+Eq OperatorType
+-&gt; (OperatorType -&gt; OperatorType -&gt; Ordering)
+-&gt; (OperatorType -&gt; OperatorType -&gt; Bool)
+-&gt; (OperatorType -&gt; OperatorType -&gt; Bool)
+-&gt; (OperatorType -&gt; OperatorType -&gt; Bool)
+-&gt; (OperatorType -&gt; OperatorType -&gt; Bool)
+-&gt; (OperatorType -&gt; OperatorType -&gt; OperatorType)
+-&gt; (OperatorType -&gt; OperatorType -&gt; OperatorType)
+-&gt; Ord OperatorType
+OperatorType -&gt; OperatorType -&gt; Bool
+OperatorType -&gt; OperatorType -&gt; Ordering
+OperatorType -&gt; OperatorType -&gt; OperatorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OperatorType -&gt; OperatorType -&gt; OperatorType
+$cmin :: OperatorType -&gt; OperatorType -&gt; OperatorType
+max :: OperatorType -&gt; OperatorType -&gt; OperatorType
+$cmax :: OperatorType -&gt; OperatorType -&gt; OperatorType
+&gt;= :: OperatorType -&gt; OperatorType -&gt; Bool
+$c&gt;= :: OperatorType -&gt; OperatorType -&gt; Bool
+&gt; :: OperatorType -&gt; OperatorType -&gt; Bool
+$c&gt; :: OperatorType -&gt; OperatorType -&gt; Bool
+&lt;= :: OperatorType -&gt; OperatorType -&gt; Bool
+$c&lt;= :: OperatorType -&gt; OperatorType -&gt; Bool
+&lt; :: OperatorType -&gt; OperatorType -&gt; Bool
+$c&lt; :: OperatorType -&gt; OperatorType -&gt; Bool
+compare :: OperatorType -&gt; OperatorType -&gt; Ordering
+$ccompare :: OperatorType -&gt; OperatorType -&gt; Ordering
+$cp1Ord :: Eq OperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OperatorType -&gt; Rep OperatorType x)
+-&gt; (forall x. Rep OperatorType x -&gt; OperatorType)
+-&gt; Generic OperatorType
+forall x. Rep OperatorType x -&gt; OperatorType
+forall x. OperatorType -&gt; Rep OperatorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OperatorType x -&gt; OperatorType
+$cfrom :: forall x. OperatorType -&gt; Rep OperatorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174852"><span id="local-6989586621679174854"><span class="annot"><span class="annottext">Int -&gt; OperatorType -&gt; Int
+OperatorType -&gt; Int
+(Int -&gt; OperatorType -&gt; Int)
+-&gt; (OperatorType -&gt; Int) -&gt; Hashable OperatorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OperatorType -&gt; Int
+$chash :: OperatorType -&gt; Int
+hashWithSalt :: Int -&gt; OperatorType -&gt; Int
+$chashWithSalt :: Int -&gt; OperatorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679174849"><span class="annot"><span class="annottext">OperatorType -&gt; ()
+(OperatorType -&gt; ()) -&gt; NFData OperatorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OperatorType -&gt; ()
+$crnf :: OperatorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679174846"><span class="annot"><span class="annottext">Text -&gt; Either String OperatorType
+(Text -&gt; Either String OperatorType) -&gt; FromText OperatorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OperatorType
+$cfromText :: Text -&gt; Either String OperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679174843"><span class="annot"><span class="annottext">OperatorType -&gt; Text
+(OperatorType -&gt; Text) -&gt; ToText OperatorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OperatorType -&gt; Text
+$ctoText :: OperatorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679174840"><span class="annot"><span class="annottext">OperatorType -&gt; ByteString
+(OperatorType -&gt; ByteString) -&gt; ToByteString OperatorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OperatorType -&gt; ByteString
+$ctoBS :: OperatorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679174837"><span class="annot"><span class="annottext">OperatorType -&gt; ByteStringBuilder
+(OperatorType -&gt; ByteStringBuilder) -&gt; ToLog OperatorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OperatorType -&gt; ByteStringBuilder
+$cbuild :: OperatorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679174834"><span class="annot"><span class="annottext">HeaderName -&gt; OperatorType -&gt; [Header]
+(HeaderName -&gt; OperatorType -&gt; [Header]) -&gt; ToHeader OperatorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OperatorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OperatorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679174831"><span class="annot"><span class="annottext">OperatorType -&gt; QueryString
+(OperatorType -&gt; QueryString) -&gt; ToQuery OperatorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OperatorType -&gt; QueryString
+$ctoQuery :: OperatorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679174826"><span id="local-6989586621679174828"><span class="annot"><span class="annottext">Value -&gt; Parser [OperatorType]
+Value -&gt; Parser OperatorType
+(Value -&gt; Parser OperatorType)
+-&gt; (Value -&gt; Parser [OperatorType]) -&gt; FromJSON OperatorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OperatorType]
+$cparseJSONList :: Value -&gt; Parser [OperatorType]
+parseJSON :: Value -&gt; Parser OperatorType
+$cparseJSON :: Value -&gt; Parser OperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679174821"><span id="local-6989586621679174823"><span class="annot"><span class="annottext">FromJSONKeyFunction [OperatorType]
+FromJSONKeyFunction OperatorType
+FromJSONKeyFunction OperatorType
+-&gt; FromJSONKeyFunction [OperatorType] -&gt; FromJSONKey OperatorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OperatorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [OperatorType]
+fromJSONKey :: FromJSONKeyFunction OperatorType
+$cfromJSONKey :: FromJSONKeyFunction OperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679174812"><span id="local-6989586621679174814"><span id="local-6989586621679174816"><span id="local-6989586621679174818"><span class="annot"><span class="annottext">[OperatorType] -&gt; Encoding
+[OperatorType] -&gt; Value
+OperatorType -&gt; Encoding
+OperatorType -&gt; Value
+(OperatorType -&gt; Value)
+-&gt; (OperatorType -&gt; Encoding)
+-&gt; ([OperatorType] -&gt; Value)
+-&gt; ([OperatorType] -&gt; Encoding)
+-&gt; ToJSON OperatorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OperatorType] -&gt; Encoding
+$ctoEncodingList :: [OperatorType] -&gt; Encoding
+toJSONList :: [OperatorType] -&gt; Value
+$ctoJSONList :: [OperatorType] -&gt; Value
+toEncoding :: OperatorType -&gt; Encoding
+$ctoEncoding :: OperatorType -&gt; Encoding
+toJSON :: OperatorType -&gt; Value
+$ctoJSON :: OperatorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679174807"><span id="local-6989586621679174809"><span class="annot"><span class="annottext">ToJSONKeyFunction [OperatorType]
+ToJSONKeyFunction OperatorType
+ToJSONKeyFunction OperatorType
+-&gt; ToJSONKeyFunction [OperatorType] -&gt; ToJSONKey OperatorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OperatorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [OperatorType]
+toJSONKey :: ToJSONKeyFunction OperatorType
+$ctoJSONKey :: ToJSONKeyFunction OperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679174804"><span class="annot"><span class="annottext">[Node] -&gt; Either String OperatorType
+([Node] -&gt; Either String OperatorType) -&gt; FromXML OperatorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OperatorType
+$cparseXML :: [Node] -&gt; Either String OperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679174801"><span class="annot"><span class="annottext">OperatorType -&gt; XML
+(OperatorType -&gt; XML) -&gt; ToXML OperatorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OperatorType -&gt; XML
+$ctoXML :: OperatorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_BETWEEN"><span class="hs-identifier hs-type">OperatorType_BETWEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-type">OperatorType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperatorType_BETWEEN"><span id="%24mOperatorType_BETWEEN"><span id="OperatorType_BETWEEN"><span class="annot"><span class="annottext">$bOperatorType_BETWEEN :: OperatorType
+$mOperatorType_BETWEEN :: forall r. OperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataPipeline.Types.OperatorType.html#%24bOperatorType_BETWEEN"><span class="hs-identifier hs-var hs-var hs-var">OperatorType_BETWEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType%27"><span class="hs-identifier hs-type">OperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BETWEEN&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_EQ"><span class="hs-identifier hs-type">OperatorType_EQ</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-type">OperatorType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperatorType_EQ"><span id="%24mOperatorType_EQ"><span id="OperatorType_EQ"><span class="annot"><span class="annottext">$bOperatorType_EQ :: OperatorType
+$mOperatorType_EQ :: forall r. OperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataPipeline.Types.OperatorType.html#%24bOperatorType_EQ"><span class="hs-identifier hs-var hs-var hs-var">OperatorType_EQ</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType%27"><span class="hs-identifier hs-type">OperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQ&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_GE"><span class="hs-identifier hs-type">OperatorType_GE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-type">OperatorType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperatorType_GE"><span id="%24mOperatorType_GE"><span id="OperatorType_GE"><span class="annot"><span class="annottext">$bOperatorType_GE :: OperatorType
+$mOperatorType_GE :: forall r. OperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataPipeline.Types.OperatorType.html#%24bOperatorType_GE"><span class="hs-identifier hs-var hs-var hs-var">OperatorType_GE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType%27"><span class="hs-identifier hs-type">OperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_LE"><span class="hs-identifier hs-type">OperatorType_LE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-type">OperatorType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperatorType_LE"><span id="%24mOperatorType_LE"><span id="OperatorType_LE"><span class="annot"><span class="annottext">$bOperatorType_LE :: OperatorType
+$mOperatorType_LE :: forall r. OperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataPipeline.Types.OperatorType.html#%24bOperatorType_LE"><span class="hs-identifier hs-var hs-var hs-var">OperatorType_LE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType%27"><span class="hs-identifier hs-type">OperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LE&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_REF_EQ"><span class="hs-identifier hs-type">OperatorType_REF_EQ</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-type">OperatorType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperatorType_REF_EQ"><span id="%24mOperatorType_REF_EQ"><span id="OperatorType_REF_EQ"><span class="annot"><span class="annottext">$bOperatorType_REF_EQ :: OperatorType
+$mOperatorType_REF_EQ :: forall r. OperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataPipeline.Types.OperatorType.html#%24bOperatorType_REF_EQ"><span class="hs-identifier hs-var hs-var hs-var">OperatorType_REF_EQ</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType%27"><span class="hs-identifier hs-type">OperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REF_EQ&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_BETWEEN"><span class="hs-pragma hs-type">OperatorType_BETWEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_EQ"><span class="hs-pragma hs-type">OperatorType_EQ</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_GE"><span class="hs-pragma hs-type">OperatorType_GE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_LE"><span class="hs-pragma hs-type">OperatorType_LE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType_REF_EQ"><span class="hs-pragma hs-type">OperatorType_REF_EQ</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.Types.OperatorType.html#OperatorType%27"><span class="hs-pragma hs-type">OperatorType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

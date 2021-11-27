@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Backup.Types.ConditionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Backup.Types.ConditionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType"><span class="hs-identifier">ConditionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType_STRINGEQUALS"><span class="hs-identifier">ConditionType_STRINGEQUALS</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679306132"><span id="local-6989586621679306133"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConditionType"><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType"><span class="hs-identifier hs-var">ConditionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConditionType%27"><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType%27"><span class="hs-identifier hs-var">ConditionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConditionType"><span class="annot"><span class="annottext">ConditionType -&gt; Text
+</span><a href="Amazonka.Backup.Types.ConditionType.html#fromConditionType"><span class="hs-identifier hs-var hs-var">fromConditionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306124"><span id="local-6989586621679306126"><span id="local-6989586621679306128"><span class="annot"><span class="annottext">Int -&gt; ConditionType -&gt; ShowS
+[ConditionType] -&gt; ShowS
+ConditionType -&gt; String
+(Int -&gt; ConditionType -&gt; ShowS)
+-&gt; (ConditionType -&gt; String)
+-&gt; ([ConditionType] -&gt; ShowS)
+-&gt; Show ConditionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConditionType] -&gt; ShowS
+$cshowList :: [ConditionType] -&gt; ShowS
+show :: ConditionType -&gt; String
+$cshow :: ConditionType -&gt; String
+showsPrec :: Int -&gt; ConditionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConditionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679306115"><span id="local-6989586621679306117"><span id="local-6989586621679306119"><span id="local-6989586621679306121"><span class="annot"><span class="annottext">ReadPrec [ConditionType]
+ReadPrec ConditionType
+Int -&gt; ReadS ConditionType
+ReadS [ConditionType]
+(Int -&gt; ReadS ConditionType)
+-&gt; ReadS [ConditionType]
+-&gt; ReadPrec ConditionType
+-&gt; ReadPrec [ConditionType]
+-&gt; Read ConditionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConditionType]
+$creadListPrec :: ReadPrec [ConditionType]
+readPrec :: ReadPrec ConditionType
+$creadPrec :: ReadPrec ConditionType
+readList :: ReadS [ConditionType]
+$creadList :: ReadS [ConditionType]
+readsPrec :: Int -&gt; ReadS ConditionType
+$creadsPrec :: Int -&gt; ReadS ConditionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679306110"><span id="local-6989586621679306112"><span class="annot"><span class="annottext">ConditionType -&gt; ConditionType -&gt; Bool
+(ConditionType -&gt; ConditionType -&gt; Bool)
+-&gt; (ConditionType -&gt; ConditionType -&gt; Bool) -&gt; Eq ConditionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConditionType -&gt; ConditionType -&gt; Bool
+$c/= :: ConditionType -&gt; ConditionType -&gt; Bool
+== :: ConditionType -&gt; ConditionType -&gt; Bool
+$c== :: ConditionType -&gt; ConditionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306094"><span id="local-6989586621679306096"><span id="local-6989586621679306098"><span id="local-6989586621679306100"><span id="local-6989586621679306102"><span id="local-6989586621679306104"><span id="local-6989586621679306106"><span class="annot"><span class="annottext">Eq ConditionType
+Eq ConditionType
+-&gt; (ConditionType -&gt; ConditionType -&gt; Ordering)
+-&gt; (ConditionType -&gt; ConditionType -&gt; Bool)
+-&gt; (ConditionType -&gt; ConditionType -&gt; Bool)
+-&gt; (ConditionType -&gt; ConditionType -&gt; Bool)
+-&gt; (ConditionType -&gt; ConditionType -&gt; Bool)
+-&gt; (ConditionType -&gt; ConditionType -&gt; ConditionType)
+-&gt; (ConditionType -&gt; ConditionType -&gt; ConditionType)
+-&gt; Ord ConditionType
+ConditionType -&gt; ConditionType -&gt; Bool
+ConditionType -&gt; ConditionType -&gt; Ordering
+ConditionType -&gt; ConditionType -&gt; ConditionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConditionType -&gt; ConditionType -&gt; ConditionType
+$cmin :: ConditionType -&gt; ConditionType -&gt; ConditionType
+max :: ConditionType -&gt; ConditionType -&gt; ConditionType
+$cmax :: ConditionType -&gt; ConditionType -&gt; ConditionType
+&gt;= :: ConditionType -&gt; ConditionType -&gt; Bool
+$c&gt;= :: ConditionType -&gt; ConditionType -&gt; Bool
+&gt; :: ConditionType -&gt; ConditionType -&gt; Bool
+$c&gt; :: ConditionType -&gt; ConditionType -&gt; Bool
+&lt;= :: ConditionType -&gt; ConditionType -&gt; Bool
+$c&lt;= :: ConditionType -&gt; ConditionType -&gt; Bool
+&lt; :: ConditionType -&gt; ConditionType -&gt; Bool
+$c&lt; :: ConditionType -&gt; ConditionType -&gt; Bool
+compare :: ConditionType -&gt; ConditionType -&gt; Ordering
+$ccompare :: ConditionType -&gt; ConditionType -&gt; Ordering
+$cp1Ord :: Eq ConditionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConditionType -&gt; Rep ConditionType x)
+-&gt; (forall x. Rep ConditionType x -&gt; ConditionType)
+-&gt; Generic ConditionType
+forall x. Rep ConditionType x -&gt; ConditionType
+forall x. ConditionType -&gt; Rep ConditionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConditionType x -&gt; ConditionType
+$cfrom :: forall x. ConditionType -&gt; Rep ConditionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306086"><span id="local-6989586621679306088"><span class="annot"><span class="annottext">Int -&gt; ConditionType -&gt; Int
+ConditionType -&gt; Int
+(Int -&gt; ConditionType -&gt; Int)
+-&gt; (ConditionType -&gt; Int) -&gt; Hashable ConditionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConditionType -&gt; Int
+$chash :: ConditionType -&gt; Int
+hashWithSalt :: Int -&gt; ConditionType -&gt; Int
+$chashWithSalt :: Int -&gt; ConditionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679306083"><span class="annot"><span class="annottext">ConditionType -&gt; ()
+(ConditionType -&gt; ()) -&gt; NFData ConditionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConditionType -&gt; ()
+$crnf :: ConditionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306080"><span class="annot"><span class="annottext">Text -&gt; Either String ConditionType
+(Text -&gt; Either String ConditionType) -&gt; FromText ConditionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConditionType
+$cfromText :: Text -&gt; Either String ConditionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306077"><span class="annot"><span class="annottext">ConditionType -&gt; Text
+(ConditionType -&gt; Text) -&gt; ToText ConditionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConditionType -&gt; Text
+$ctoText :: ConditionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306074"><span class="annot"><span class="annottext">ConditionType -&gt; ByteString
+(ConditionType -&gt; ByteString) -&gt; ToByteString ConditionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConditionType -&gt; ByteString
+$ctoBS :: ConditionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306071"><span class="annot"><span class="annottext">ConditionType -&gt; ByteStringBuilder
+(ConditionType -&gt; ByteStringBuilder) -&gt; ToLog ConditionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConditionType -&gt; ByteStringBuilder
+$cbuild :: ConditionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306068"><span class="annot"><span class="annottext">HeaderName -&gt; ConditionType -&gt; [Header]
+(HeaderName -&gt; ConditionType -&gt; [Header]) -&gt; ToHeader ConditionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConditionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConditionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306065"><span class="annot"><span class="annottext">ConditionType -&gt; QueryString
+(ConditionType -&gt; QueryString) -&gt; ToQuery ConditionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConditionType -&gt; QueryString
+$ctoQuery :: ConditionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306060"><span id="local-6989586621679306062"><span class="annot"><span class="annottext">Value -&gt; Parser [ConditionType]
+Value -&gt; Parser ConditionType
+(Value -&gt; Parser ConditionType)
+-&gt; (Value -&gt; Parser [ConditionType]) -&gt; FromJSON ConditionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConditionType]
+$cparseJSONList :: Value -&gt; Parser [ConditionType]
+parseJSON :: Value -&gt; Parser ConditionType
+$cparseJSON :: Value -&gt; Parser ConditionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306055"><span id="local-6989586621679306057"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConditionType]
+FromJSONKeyFunction ConditionType
+FromJSONKeyFunction ConditionType
+-&gt; FromJSONKeyFunction [ConditionType] -&gt; FromJSONKey ConditionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConditionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConditionType]
+fromJSONKey :: FromJSONKeyFunction ConditionType
+$cfromJSONKey :: FromJSONKeyFunction ConditionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306046"><span id="local-6989586621679306048"><span id="local-6989586621679306050"><span id="local-6989586621679306052"><span class="annot"><span class="annottext">[ConditionType] -&gt; Encoding
+[ConditionType] -&gt; Value
+ConditionType -&gt; Encoding
+ConditionType -&gt; Value
+(ConditionType -&gt; Value)
+-&gt; (ConditionType -&gt; Encoding)
+-&gt; ([ConditionType] -&gt; Value)
+-&gt; ([ConditionType] -&gt; Encoding)
+-&gt; ToJSON ConditionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConditionType] -&gt; Encoding
+$ctoEncodingList :: [ConditionType] -&gt; Encoding
+toJSONList :: [ConditionType] -&gt; Value
+$ctoJSONList :: [ConditionType] -&gt; Value
+toEncoding :: ConditionType -&gt; Encoding
+$ctoEncoding :: ConditionType -&gt; Encoding
+toJSON :: ConditionType -&gt; Value
+$ctoJSON :: ConditionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306041"><span id="local-6989586621679306043"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConditionType]
+ToJSONKeyFunction ConditionType
+ToJSONKeyFunction ConditionType
+-&gt; ToJSONKeyFunction [ConditionType] -&gt; ToJSONKey ConditionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConditionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConditionType]
+toJSONKey :: ToJSONKeyFunction ConditionType
+$ctoJSONKey :: ToJSONKeyFunction ConditionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306038"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConditionType
+([Node] -&gt; Either String ConditionType) -&gt; FromXML ConditionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConditionType
+$cparseXML :: [Node] -&gt; Either String ConditionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306035"><span class="annot"><span class="annottext">ConditionType -&gt; XML
+(ConditionType -&gt; XML) -&gt; ToXML ConditionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConditionType -&gt; XML
+$ctoXML :: ConditionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType_STRINGEQUALS"><span class="hs-identifier hs-type">ConditionType_STRINGEQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType"><span class="hs-identifier hs-type">ConditionType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConditionType_STRINGEQUALS"><span id="%24mConditionType_STRINGEQUALS"><span id="ConditionType_STRINGEQUALS"><span class="annot"><span class="annottext">$bConditionType_STRINGEQUALS :: ConditionType
+$mConditionType_STRINGEQUALS :: forall r. ConditionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Backup.Types.ConditionType.html#%24bConditionType_STRINGEQUALS"><span class="hs-identifier hs-var hs-var hs-var">ConditionType_STRINGEQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType%27"><span class="hs-identifier hs-type">ConditionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRINGEQUALS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType_STRINGEQUALS"><span class="hs-pragma hs-type">ConditionType_STRINGEQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.Types.ConditionType.html#ConditionType%27"><span class="hs-pragma hs-type">ConditionType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

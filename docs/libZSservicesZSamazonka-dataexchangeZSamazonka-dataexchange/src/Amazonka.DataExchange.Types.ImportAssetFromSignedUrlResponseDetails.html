@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The details in the response for an import request, including the signed</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- URL and other information.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newImportAssetFromSignedUrlResponseDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679235213"><span id="local-6989586621679235214"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportAssetFromSignedUrlResponseDetails"><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-var">ImportAssetFromSignedUrlResponseDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportAssetFromSignedUrlResponseDetails%27"><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">ImportAssetFromSignedUrlResponseDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The signed URL.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsignedUrl%3AImportAssetFromSignedUrlResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails -&gt; Maybe Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AsignedUrl%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var hs-var">signedUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time and date at which the signed URL expires, in ISO 8601 format.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsignedUrlExpiresAt%3AImportAssetFromSignedUrlResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails -&gt; Maybe POSIX
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AsignedUrlExpiresAt%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var hs-var">signedUrlExpiresAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- of the file at that location.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Amd5Hash%3AImportAssetFromSignedUrlResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails -&gt; Maybe Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3Amd5Hash%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var hs-var">md5Hash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the data set associated with this import job.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdataSetId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AdataSetId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name for the asset associated with this import job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AassetName%3AImportAssetFromSignedUrlResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AassetName%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var hs-var">assetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the revision associated with this import</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3ArevisionId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3ArevisionId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235202"><span id="local-6989586621679235204"><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails
+-&gt; ImportAssetFromSignedUrlResponseDetails -&gt; Bool
+(ImportAssetFromSignedUrlResponseDetails
+ -&gt; ImportAssetFromSignedUrlResponseDetails -&gt; Bool)
+-&gt; (ImportAssetFromSignedUrlResponseDetails
+    -&gt; ImportAssetFromSignedUrlResponseDetails -&gt; Bool)
+-&gt; Eq ImportAssetFromSignedUrlResponseDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportAssetFromSignedUrlResponseDetails
+-&gt; ImportAssetFromSignedUrlResponseDetails -&gt; Bool
+$c/= :: ImportAssetFromSignedUrlResponseDetails
+-&gt; ImportAssetFromSignedUrlResponseDetails -&gt; Bool
+== :: ImportAssetFromSignedUrlResponseDetails
+-&gt; ImportAssetFromSignedUrlResponseDetails -&gt; Bool
+$c== :: ImportAssetFromSignedUrlResponseDetails
+-&gt; ImportAssetFromSignedUrlResponseDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235193"><span id="local-6989586621679235195"><span id="local-6989586621679235197"><span id="local-6989586621679235199"><span class="annot"><span class="annottext">ReadPrec [ImportAssetFromSignedUrlResponseDetails]
+ReadPrec ImportAssetFromSignedUrlResponseDetails
+Int -&gt; ReadS ImportAssetFromSignedUrlResponseDetails
+ReadS [ImportAssetFromSignedUrlResponseDetails]
+(Int -&gt; ReadS ImportAssetFromSignedUrlResponseDetails)
+-&gt; ReadS [ImportAssetFromSignedUrlResponseDetails]
+-&gt; ReadPrec ImportAssetFromSignedUrlResponseDetails
+-&gt; ReadPrec [ImportAssetFromSignedUrlResponseDetails]
+-&gt; Read ImportAssetFromSignedUrlResponseDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportAssetFromSignedUrlResponseDetails]
+$creadListPrec :: ReadPrec [ImportAssetFromSignedUrlResponseDetails]
+readPrec :: ReadPrec ImportAssetFromSignedUrlResponseDetails
+$creadPrec :: ReadPrec ImportAssetFromSignedUrlResponseDetails
+readList :: ReadS [ImportAssetFromSignedUrlResponseDetails]
+$creadList :: ReadS [ImportAssetFromSignedUrlResponseDetails]
+readsPrec :: Int -&gt; ReadS ImportAssetFromSignedUrlResponseDetails
+$creadsPrec :: Int -&gt; ReadS ImportAssetFromSignedUrlResponseDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235186"><span id="local-6989586621679235188"><span id="local-6989586621679235190"><span class="annot"><span class="annottext">Int -&gt; ImportAssetFromSignedUrlResponseDetails -&gt; ShowS
+[ImportAssetFromSignedUrlResponseDetails] -&gt; ShowS
+ImportAssetFromSignedUrlResponseDetails -&gt; String
+(Int -&gt; ImportAssetFromSignedUrlResponseDetails -&gt; ShowS)
+-&gt; (ImportAssetFromSignedUrlResponseDetails -&gt; String)
+-&gt; ([ImportAssetFromSignedUrlResponseDetails] -&gt; ShowS)
+-&gt; Show ImportAssetFromSignedUrlResponseDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportAssetFromSignedUrlResponseDetails] -&gt; ShowS
+$cshowList :: [ImportAssetFromSignedUrlResponseDetails] -&gt; ShowS
+show :: ImportAssetFromSignedUrlResponseDetails -&gt; String
+$cshow :: ImportAssetFromSignedUrlResponseDetails -&gt; String
+showsPrec :: Int -&gt; ImportAssetFromSignedUrlResponseDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportAssetFromSignedUrlResponseDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ImportAssetFromSignedUrlResponseDetails
+ -&gt; Rep ImportAssetFromSignedUrlResponseDetails x)
+-&gt; (forall x.
+    Rep ImportAssetFromSignedUrlResponseDetails x
+    -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Generic ImportAssetFromSignedUrlResponseDetails
+forall x.
+Rep ImportAssetFromSignedUrlResponseDetails x
+-&gt; ImportAssetFromSignedUrlResponseDetails
+forall x.
+ImportAssetFromSignedUrlResponseDetails
+-&gt; Rep ImportAssetFromSignedUrlResponseDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ImportAssetFromSignedUrlResponseDetails x
+-&gt; ImportAssetFromSignedUrlResponseDetails
+$cfrom :: forall x.
+ImportAssetFromSignedUrlResponseDetails
+-&gt; Rep ImportAssetFromSignedUrlResponseDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'ImportAssetFromSignedUrlResponseDetails' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'signedUrl', 'importAssetFromSignedUrlResponseDetails_signedUrl' - The signed URL.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'signedUrlExpiresAt', 'importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt' - The time and date at which the signed URL expires, in ISO 8601 format.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'md5Hash', 'importAssetFromSignedUrlResponseDetails_md5Hash' - The Base64-encoded Md5 hash for the asset, used to ensure the integrity</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- of the file at that location.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'dataSetId', 'importAssetFromSignedUrlResponseDetails_dataSetId' - The unique identifier for the data set associated with this import job.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'assetName', 'importAssetFromSignedUrlResponseDetails_assetName' - The name for the asset associated with this import job.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'revisionId', 'importAssetFromSignedUrlResponseDetails_revisionId' - The unique identifier for the revision associated with this import</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#newImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">newImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'dataSetId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'assetName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'revisionId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span>
+</span><span id="line-77"></span><span id="newImportAssetFromSignedUrlResponseDetails"><span class="annot"><span class="annottext">newImportAssetFromSignedUrlResponseDetails :: Text -&gt; Text -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#newImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-var hs-var">newImportAssetFromSignedUrlResponseDetails</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679235180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235180"><span class="hs-identifier hs-var">pDataSetId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679235179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235179"><span class="hs-identifier hs-var">pAssetName_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679235178"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235178"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:signedUrl:ImportAssetFromSignedUrlResponseDetails' :: Maybe Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AsignedUrl%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">signedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:signedUrlExpiresAt:ImportAssetFromSignedUrlResponseDetails' :: Maybe POSIX
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AsignedUrlExpiresAt%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">signedUrlExpiresAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:md5Hash:ImportAssetFromSignedUrlResponseDetails' :: Maybe Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3Amd5Hash%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">md5Hash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSetId:ImportAssetFromSignedUrlResponseDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AdataSetId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235180"><span class="hs-identifier hs-var">pDataSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:assetName:ImportAssetFromSignedUrlResponseDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AassetName%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">assetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235179"><span class="hs-identifier hs-var">pAssetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:revisionId:ImportAssetFromSignedUrlResponseDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3ArevisionId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235178"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The signed URL.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_signedUrl"><span class="hs-identifier hs-type">importAssetFromSignedUrlResponseDetails_signedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="importAssetFromSignedUrlResponseDetails_signedUrl"><span class="annot"><span class="annottext">importAssetFromSignedUrlResponseDetails_signedUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportAssetFromSignedUrlResponseDetails
+-&gt; f ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_signedUrl"><span class="hs-identifier hs-var hs-var">importAssetFromSignedUrlResponseDetails_signedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetFromSignedUrlResponseDetails -&gt; Maybe Text)
+-&gt; (ImportAssetFromSignedUrlResponseDetails
+    -&gt; Maybe Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Lens
+     ImportAssetFromSignedUrlResponseDetails
+     ImportAssetFromSignedUrlResponseDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235174"><span class="annot"><span class="annottext">Maybe Text
+signedUrl :: Maybe Text
+$sel:signedUrl:ImportAssetFromSignedUrlResponseDetails' :: ImportAssetFromSignedUrlResponseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679235174"><span class="hs-identifier hs-var hs-var">signedUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235174"><span class="hs-identifier hs-var">signedUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235173"><span class="annot"><span class="annottext">s :: ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signedUrl:ImportAssetFromSignedUrlResponseDetails' :: Maybe Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AsignedUrl%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">signedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The time and date at which the signed URL expires, in ISO 8601 format.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt"><span class="hs-identifier hs-type">importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt"><span class="annot"><span class="annottext">importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ImportAssetFromSignedUrlResponseDetails
+-&gt; f ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt"><span class="hs-identifier hs-var hs-var">importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetFromSignedUrlResponseDetails -&gt; Maybe POSIX)
+-&gt; (ImportAssetFromSignedUrlResponseDetails
+    -&gt; Maybe POSIX -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Lens
+     ImportAssetFromSignedUrlResponseDetails
+     ImportAssetFromSignedUrlResponseDetails
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235170"><span class="annot"><span class="annottext">Maybe POSIX
+signedUrlExpiresAt :: Maybe POSIX
+$sel:signedUrlExpiresAt:ImportAssetFromSignedUrlResponseDetails' :: ImportAssetFromSignedUrlResponseDetails -&gt; Maybe POSIX
+</span><a href="#local-6989586621679235170"><span class="hs-identifier hs-var hs-var">signedUrlExpiresAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679235170"><span class="hs-identifier hs-var">signedUrlExpiresAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235169"><span class="annot"><span class="annottext">s :: ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235168"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679235168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signedUrlExpiresAt:ImportAssetFromSignedUrlResponseDetails' :: Maybe POSIX
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AsignedUrlExpiresAt%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">signedUrlExpiresAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679235168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ImportAssetFromSignedUrlResponseDetails
+ -&gt; f ImportAssetFromSignedUrlResponseDetails)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ImportAssetFromSignedUrlResponseDetails
+-&gt; f ImportAssetFromSignedUrlResponseDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- of the file at that location.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_md5Hash"><span class="hs-identifier hs-type">importAssetFromSignedUrlResponseDetails_md5Hash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="importAssetFromSignedUrlResponseDetails_md5Hash"><span class="annot"><span class="annottext">importAssetFromSignedUrlResponseDetails_md5Hash :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportAssetFromSignedUrlResponseDetails
+-&gt; f ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_md5Hash"><span class="hs-identifier hs-var hs-var">importAssetFromSignedUrlResponseDetails_md5Hash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetFromSignedUrlResponseDetails -&gt; Maybe Text)
+-&gt; (ImportAssetFromSignedUrlResponseDetails
+    -&gt; Maybe Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Lens
+     ImportAssetFromSignedUrlResponseDetails
+     ImportAssetFromSignedUrlResponseDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235163"><span class="annot"><span class="annottext">Maybe Text
+md5Hash :: Maybe Text
+$sel:md5Hash:ImportAssetFromSignedUrlResponseDetails' :: ImportAssetFromSignedUrlResponseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679235163"><span class="hs-identifier hs-var hs-var">md5Hash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235163"><span class="hs-identifier hs-var">md5Hash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235162"><span class="annot"><span class="annottext">s :: ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:md5Hash:ImportAssetFromSignedUrlResponseDetails' :: Maybe Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3Amd5Hash%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">md5Hash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The unique identifier for the data set associated with this import job.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_dataSetId"><span class="hs-identifier hs-type">importAssetFromSignedUrlResponseDetails_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="importAssetFromSignedUrlResponseDetails_dataSetId"><span class="annot"><span class="annottext">importAssetFromSignedUrlResponseDetails_dataSetId :: (Text -&gt; f Text)
+-&gt; ImportAssetFromSignedUrlResponseDetails
+-&gt; f ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_dataSetId"><span class="hs-identifier hs-var hs-var">importAssetFromSignedUrlResponseDetails_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetFromSignedUrlResponseDetails -&gt; Text)
+-&gt; (ImportAssetFromSignedUrlResponseDetails
+    -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Lens
+     ImportAssetFromSignedUrlResponseDetails
+     ImportAssetFromSignedUrlResponseDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235159"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+$sel:dataSetId:ImportAssetFromSignedUrlResponseDetails' :: ImportAssetFromSignedUrlResponseDetails -&gt; Text
+</span><a href="#local-6989586621679235159"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235159"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235158"><span class="annot"><span class="annottext">s :: ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:ImportAssetFromSignedUrlResponseDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AdataSetId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name for the asset associated with this import job.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_assetName"><span class="hs-identifier hs-type">importAssetFromSignedUrlResponseDetails_assetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="importAssetFromSignedUrlResponseDetails_assetName"><span class="annot"><span class="annottext">importAssetFromSignedUrlResponseDetails_assetName :: (Text -&gt; f Text)
+-&gt; ImportAssetFromSignedUrlResponseDetails
+-&gt; f ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_assetName"><span class="hs-identifier hs-var hs-var">importAssetFromSignedUrlResponseDetails_assetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetFromSignedUrlResponseDetails -&gt; Text)
+-&gt; (ImportAssetFromSignedUrlResponseDetails
+    -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Lens
+     ImportAssetFromSignedUrlResponseDetails
+     ImportAssetFromSignedUrlResponseDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235155"><span class="annot"><span class="annottext">Text
+assetName :: Text
+$sel:assetName:ImportAssetFromSignedUrlResponseDetails' :: ImportAssetFromSignedUrlResponseDetails -&gt; Text
+</span><a href="#local-6989586621679235155"><span class="hs-identifier hs-var hs-var">assetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235155"><span class="hs-identifier hs-var">assetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235154"><span class="annot"><span class="annottext">s :: ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetName:ImportAssetFromSignedUrlResponseDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3AassetName%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">assetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The unique identifier for the revision associated with this import</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_revisionId"><span class="hs-identifier hs-type">importAssetFromSignedUrlResponseDetails_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="importAssetFromSignedUrlResponseDetails_revisionId"><span class="annot"><span class="annottext">importAssetFromSignedUrlResponseDetails_revisionId :: (Text -&gt; f Text)
+-&gt; ImportAssetFromSignedUrlResponseDetails
+-&gt; f ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_revisionId"><span class="hs-identifier hs-var hs-var">importAssetFromSignedUrlResponseDetails_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetFromSignedUrlResponseDetails -&gt; Text)
+-&gt; (ImportAssetFromSignedUrlResponseDetails
+    -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Lens
+     ImportAssetFromSignedUrlResponseDetails
+     ImportAssetFromSignedUrlResponseDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235151"><span class="annot"><span class="annottext">Text
+revisionId :: Text
+$sel:revisionId:ImportAssetFromSignedUrlResponseDetails' :: ImportAssetFromSignedUrlResponseDetails -&gt; Text
+</span><a href="#local-6989586621679235151"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235151"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235150"><span class="annot"><span class="annottext">s :: ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235149"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetFromSignedUrlResponseDetails
+</span><a href="#local-6989586621679235150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ImportAssetFromSignedUrlResponseDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#%24sel%3ArevisionId%3AImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679235146"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679235144"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportAssetFromSignedUrlResponseDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ImportAssetFromSignedUrlResponseDetails)
+-&gt; Value
+-&gt; Parser ImportAssetFromSignedUrlResponseDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ImportAssetFromSignedUrlResponseDetails&quot;</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235141"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ImportAssetFromSignedUrlResponseDetails
+</span><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails%27"><span class="hs-identifier hs-var">ImportAssetFromSignedUrlResponseDetails'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ImportAssetFromSignedUrlResponseDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SignedUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text -&gt; Text -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SignedUrlExpiresAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text -&gt; Text -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Md5Hash&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ImportAssetFromSignedUrlResponseDetails)
+-&gt; Parser Text -&gt; Parser ImportAssetFromSignedUrlResponseDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679235134"><span id="local-6989586621679235136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679235131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier hs-type">ImportAssetFromSignedUrlResponseDetails</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

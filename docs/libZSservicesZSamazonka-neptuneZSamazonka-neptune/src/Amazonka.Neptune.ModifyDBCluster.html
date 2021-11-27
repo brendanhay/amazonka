@@ -1,0 +1,1247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Neptune.ModifyDBCluster</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modify a setting for a DB cluster. You can change one or more database</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- configuration parameters by specifying these parameters and the new</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- values in the request.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Neptune.ModifyDBCluster</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#newModifyDBCluster"><span class="hs-identifier">newModifyDBCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_engineVersion"><span class="hs-identifier">modifyDBCluster_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_deletionProtection"><span class="hs-identifier">modifyDBCluster_deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_masterUserPassword"><span class="hs-identifier">modifyDBCluster_masterUserPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_cloudwatchLogsExportConfiguration"><span class="hs-identifier">modifyDBCluster_cloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_preferredMaintenanceWindow"><span class="hs-identifier">modifyDBCluster_preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_preferredBackupWindow"><span class="hs-identifier">modifyDBCluster_preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_backupRetentionPeriod"><span class="hs-identifier">modifyDBCluster_backupRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_vpcSecurityGroupIds"><span class="hs-identifier">modifyDBCluster_vpcSecurityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_dbClusterParameterGroupName"><span class="hs-identifier">modifyDBCluster_dbClusterParameterGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_applyImmediately"><span class="hs-identifier">modifyDBCluster_applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_optionGroupName"><span class="hs-identifier">modifyDBCluster_optionGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_copyTagsToSnapshot"><span class="hs-identifier">modifyDBCluster_copyTagsToSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_newDBClusterIdentifier"><span class="hs-identifier">modifyDBCluster_newDBClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_port"><span class="hs-identifier">modifyDBCluster_port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_enableIAMDatabaseAuthentication"><span class="hs-identifier">modifyDBCluster_enableIAMDatabaseAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_dbClusterIdentifier"><span class="hs-identifier">modifyDBCluster_dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier">ModifyDBClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#newModifyDBClusterResponse"><span class="hs-identifier">newModifyDBClusterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBClusterResponse_dbCluster"><span class="hs-identifier">modifyDBClusterResponse_dbCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBClusterResponse_httpStatus"><span class="hs-identifier">modifyDBClusterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.html"><span class="hs-identifier">Amazonka.Neptune.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newModifyDBCluster' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679405365"><span id="local-6989586621679405366"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBCluster"><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-var">ModifyDBCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBCluster%27"><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-var">ModifyDBCluster'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version number of the database engine to which you want to upgrade.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- during the next maintenance window unless the @ApplyImmediately@</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- parameter is set to true.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- For a list of valid engine versions, see</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune&gt;,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- or call</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions&gt;.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AengineVersion%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AengineVersion%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the DB cluster has deletion protection</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- enabled. The database can\'t be deleted when deletion protection is</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- enabled. By default, deletion protection is disabled.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AdeletionProtection%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdeletionProtection%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Not supported by Neptune.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AmasterUserPassword%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AmasterUserPassword%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The configuration setting for the log types to be enabled for export to</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- CloudWatch Logs for a specific DB cluster.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AcloudwatchLogsExportConfiguration%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe CloudwatchLogsExportConfiguration
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AcloudwatchLogsExportConfiguration%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">cloudwatchLogsExportConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The weekly time range during which system maintenance can occur, in</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Universal Coordinated Time (UTC).</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Format: @ddd:hh24:mi-ddd:hh24:mi@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- block of time for each Amazon Region, occurring on a random day of the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- week.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 30-minute window.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3ApreferredMaintenanceWindow%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3ApreferredMaintenanceWindow%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The daily time range during which automated backups are created if</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- automated backups are enabled, using the @BackupRetentionPeriod@</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- block of time for each Amazon Region.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   Must be in the format @hh24:mi-hh24:mi@.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   Must be in Universal Coordinated Time (UTC).</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   Must not conflict with the preferred maintenance window.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3ApreferredBackupWindow%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3ApreferredBackupWindow%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">preferredBackupWindow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The number of days for which automated backups are retained. You must</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- specify a minimum value of 1.</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- Default: 1</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   Must be a value from 1 to 35</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AbackupRetentionPeriod%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AbackupRetentionPeriod%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">backupRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | A list of VPC security groups that the DB cluster will belong to.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AvpcSecurityGroupIds%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe [Text]
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AvpcSecurityGroupIds%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The name of the DB cluster parameter group to use for the DB cluster.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AdbClusterParameterGroupName%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbClusterParameterGroupName%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">dbClusterParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | A value that specifies whether the modifications in this request and any</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- pending modifications are asynchronously applied as soon as possible,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- regardless of the @PreferredMaintenanceWindow@ setting for the DB</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- cluster. If this parameter is set to @false@, changes to the DB cluster</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- are applied during the next maintenance window.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- The @ApplyImmediately@ parameter only affects @NewDBClusterIdentifier@</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- values. If you set the @ApplyImmediately@ parameter value to false, then</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- changes to @NewDBClusterIdentifier@ values are applied during the next</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- maintenance window. All other changes are applied immediately,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- regardless of the value of the @ApplyImmediately@ parameter.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AapplyImmediately%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AapplyImmediately%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | /Not supported by Neptune./</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AoptionGroupName%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AoptionGroupName%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | /If set to @true@, tags are copied to any snapshot of the DB cluster</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- that is created./</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AcopyTagsToSnapshot%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AcopyTagsToSnapshot%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">copyTagsToSnapshot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The new DB cluster identifier for the DB cluster when renaming a DB</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- cluster. This value is stored as a lowercase string.</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   The first character must be a letter</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- -   Cannot end with a hyphen or contain two consecutive hyphens</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AnewDBClusterIdentifier%27%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AnewDBClusterIdentifier%27%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">newDBClusterIdentifier'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The port number on which the DB cluster accepts connections.</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- Constraints: Value must be @1150-65535@</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- Default: The same port as the original DB cluster.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Aport%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3Aport%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | True to enable mapping of Amazon Identity and Access Management (IAM)</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- accounts to database accounts, and otherwise false.</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AenableIAMDatabaseAuthentication%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AenableIAMDatabaseAuthentication%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">enableIAMDatabaseAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The DB cluster identifier for the cluster being modified. This parameter</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- is not case-sensitive.</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- -   Must match the identifier of an existing DBCluster.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3AModifyDBCluster%27"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbClusterIdentifier%3AModifyDBCluster%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405344"><span id="local-6989586621679405346"><span class="annot"><span class="annottext">ModifyDBCluster -&gt; ModifyDBCluster -&gt; Bool
+(ModifyDBCluster -&gt; ModifyDBCluster -&gt; Bool)
+-&gt; (ModifyDBCluster -&gt; ModifyDBCluster -&gt; Bool)
+-&gt; Eq ModifyDBCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyDBCluster -&gt; ModifyDBCluster -&gt; Bool
+$c/= :: ModifyDBCluster -&gt; ModifyDBCluster -&gt; Bool
+== :: ModifyDBCluster -&gt; ModifyDBCluster -&gt; Bool
+$c== :: ModifyDBCluster -&gt; ModifyDBCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405335"><span id="local-6989586621679405337"><span id="local-6989586621679405339"><span id="local-6989586621679405341"><span class="annot"><span class="annottext">ReadPrec [ModifyDBCluster]
+ReadPrec ModifyDBCluster
+Int -&gt; ReadS ModifyDBCluster
+ReadS [ModifyDBCluster]
+(Int -&gt; ReadS ModifyDBCluster)
+-&gt; ReadS [ModifyDBCluster]
+-&gt; ReadPrec ModifyDBCluster
+-&gt; ReadPrec [ModifyDBCluster]
+-&gt; Read ModifyDBCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyDBCluster]
+$creadListPrec :: ReadPrec [ModifyDBCluster]
+readPrec :: ReadPrec ModifyDBCluster
+$creadPrec :: ReadPrec ModifyDBCluster
+readList :: ReadS [ModifyDBCluster]
+$creadList :: ReadS [ModifyDBCluster]
+readsPrec :: Int -&gt; ReadS ModifyDBCluster
+$creadsPrec :: Int -&gt; ReadS ModifyDBCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405328"><span id="local-6989586621679405330"><span id="local-6989586621679405332"><span class="annot"><span class="annottext">Int -&gt; ModifyDBCluster -&gt; ShowS
+[ModifyDBCluster] -&gt; ShowS
+ModifyDBCluster -&gt; String
+(Int -&gt; ModifyDBCluster -&gt; ShowS)
+-&gt; (ModifyDBCluster -&gt; String)
+-&gt; ([ModifyDBCluster] -&gt; ShowS)
+-&gt; Show ModifyDBCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyDBCluster] -&gt; ShowS
+$cshowList :: [ModifyDBCluster] -&gt; ShowS
+show :: ModifyDBCluster -&gt; String
+$cshow :: ModifyDBCluster -&gt; String
+showsPrec :: Int -&gt; ModifyDBCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyDBCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyDBCluster -&gt; Rep ModifyDBCluster x)
+-&gt; (forall x. Rep ModifyDBCluster x -&gt; ModifyDBCluster)
+-&gt; Generic ModifyDBCluster
+forall x. Rep ModifyDBCluster x -&gt; ModifyDBCluster
+forall x. ModifyDBCluster -&gt; Rep ModifyDBCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyDBCluster x -&gt; ModifyDBCluster
+$cfrom :: forall x. ModifyDBCluster -&gt; Rep ModifyDBCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'ModifyDBCluster' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'engineVersion', 'modifyDBCluster_engineVersion' - The version number of the database engine to which you want to upgrade.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- during the next maintenance window unless the @ApplyImmediately@</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- parameter is set to true.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- For a list of valid engine versions, see</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune&gt;,</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- or call</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions&gt;.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'deletionProtection', 'modifyDBCluster_deletionProtection' - A value that indicates whether the DB cluster has deletion protection</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- enabled. The database can\'t be deleted when deletion protection is</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- enabled. By default, deletion protection is disabled.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'masterUserPassword', 'modifyDBCluster_masterUserPassword' - Not supported by Neptune.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'cloudwatchLogsExportConfiguration', 'modifyDBCluster_cloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- CloudWatch Logs for a specific DB cluster.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'preferredMaintenanceWindow', 'modifyDBCluster_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Universal Coordinated Time (UTC).</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Format: @ddd:hh24:mi-ddd:hh24:mi@</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- block of time for each Amazon Region, occurring on a random day of the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- week.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Constraints: Minimum 30-minute window.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'preferredBackupWindow', 'modifyDBCluster_preferredBackupWindow' - The daily time range during which automated backups are created if</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- automated backups are enabled, using the @BackupRetentionPeriod@</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- block of time for each Amazon Region.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- -   Must be in the format @hh24:mi-hh24:mi@.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- -   Must be in Universal Coordinated Time (UTC).</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   Must not conflict with the preferred maintenance window.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'backupRetentionPeriod', 'modifyDBCluster_backupRetentionPeriod' - The number of days for which automated backups are retained. You must</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- specify a minimum value of 1.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- Default: 1</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   Must be a value from 1 to 35</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'vpcSecurityGroupIds', 'modifyDBCluster_vpcSecurityGroupIds' - A list of VPC security groups that the DB cluster will belong to.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'dbClusterParameterGroupName', 'modifyDBCluster_dbClusterParameterGroupName' - The name of the DB cluster parameter group to use for the DB cluster.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'applyImmediately', 'modifyDBCluster_applyImmediately' - A value that specifies whether the modifications in this request and any</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- pending modifications are asynchronously applied as soon as possible,</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- regardless of the @PreferredMaintenanceWindow@ setting for the DB</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- cluster. If this parameter is set to @false@, changes to the DB cluster</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- are applied during the next maintenance window.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- The @ApplyImmediately@ parameter only affects @NewDBClusterIdentifier@</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- values. If you set the @ApplyImmediately@ parameter value to false, then</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- changes to @NewDBClusterIdentifier@ values are applied during the next</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- maintenance window. All other changes are applied immediately,</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- regardless of the value of the @ApplyImmediately@ parameter.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'optionGroupName', 'modifyDBCluster_optionGroupName' - /Not supported by Neptune./</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'copyTagsToSnapshot', 'modifyDBCluster_copyTagsToSnapshot' - /If set to @true@, tags are copied to any snapshot of the DB cluster</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- that is created./</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'newDBClusterIdentifier'', 'modifyDBCluster_newDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- cluster. This value is stored as a lowercase string.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -   The first character must be a letter</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   Cannot end with a hyphen or contain two consecutive hyphens</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'port', 'modifyDBCluster_port' - The port number on which the DB cluster accepts connections.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- Constraints: Value must be @1150-65535@</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- Default: The same port as the original DB cluster.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'enableIAMDatabaseAuthentication', 'modifyDBCluster_enableIAMDatabaseAuthentication' - True to enable mapping of Amazon Identity and Access Management (IAM)</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- accounts to database accounts, and otherwise false.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- 'dbClusterIdentifier', 'modifyDBCluster_dbClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- is not case-sensitive.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- -   Must match the identifier of an existing DBCluster.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#newModifyDBCluster"><span class="hs-identifier hs-type">newModifyDBCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-303"></span><span>  </span><span class="hs-comment">-- | 'dbClusterIdentifier'</span><span>
+</span><span id="line-304"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-305"></span><span>  </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span>
+</span><span id="line-306"></span><span id="newModifyDBCluster"><span class="annot"><span class="annottext">newModifyDBCluster :: Text -&gt; ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#newModifyDBCluster"><span class="hs-identifier hs-var hs-var">newModifyDBCluster</span></a></span></span><span> </span><span id="local-6989586621679405323"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405323"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBCluster' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe CloudwatchLogsExportConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AengineVersion%3AModifyDBCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>      </span><span class="annot"><span class="annottext">$sel:deletionProtection:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdeletionProtection%3AModifyDBCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">$sel:masterUserPassword:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AmasterUserPassword%3AModifyDBCluster%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudwatchLogsExportConfiguration:ModifyDBCluster' :: Maybe CloudwatchLogsExportConfiguration
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AcloudwatchLogsExportConfiguration%3AModifyDBCluster%27"><span class="hs-identifier hs-var">cloudwatchLogsExportConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsExportConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3ApreferredMaintenanceWindow%3AModifyDBCluster%27"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>      </span><span class="annot"><span class="annottext">$sel:preferredBackupWindow:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3ApreferredBackupWindow%3AModifyDBCluster%27"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupRetentionPeriod:ModifyDBCluster' :: Maybe Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AbackupRetentionPeriod%3AModifyDBCluster%27"><span class="hs-identifier hs-var">backupRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:ModifyDBCluster' :: Maybe [Text]
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AvpcSecurityGroupIds%3AModifyDBCluster%27"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterParameterGroupName:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbClusterParameterGroupName%3AModifyDBCluster%27"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>      </span><span class="annot"><span class="annottext">$sel:applyImmediately:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AapplyImmediately%3AModifyDBCluster%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AoptionGroupName%3AModifyDBCluster%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>      </span><span class="annot"><span class="annottext">$sel:copyTagsToSnapshot:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AcopyTagsToSnapshot%3AModifyDBCluster%27"><span class="hs-identifier hs-var">copyTagsToSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>      </span><span class="annot"><span class="annottext">$sel:newDBClusterIdentifier':ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AnewDBClusterIdentifier%27%3AModifyDBCluster%27"><span class="hs-identifier hs-var">newDBClusterIdentifier'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:ModifyDBCluster' :: Maybe Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3Aport%3AModifyDBCluster%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableIAMDatabaseAuthentication:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AenableIAMDatabaseAuthentication%3AModifyDBCluster%27"><span class="hs-identifier hs-var">enableIAMDatabaseAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:ModifyDBCluster' :: Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbClusterIdentifier%3AModifyDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405323"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The version number of the database engine to which you want to upgrade.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- during the next maintenance window unless the @ApplyImmediately@</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- parameter is set to true.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- For a list of valid engine versions, see</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune&gt;,</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- or call</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions&gt;.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_engineVersion"><span class="hs-identifier hs-type">modifyDBCluster_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span id="modifyDBCluster_engineVersion"><span class="annot"><span class="annottext">modifyDBCluster_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_engineVersion"><span class="hs-identifier hs-var hs-var">modifyDBCluster_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Text)
+-&gt; (ModifyDBCluster -&gt; Maybe Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405320"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405320"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405320"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405319"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405318"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AengineVersion%3AModifyDBCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- | A value that indicates whether the DB cluster has deletion protection</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- enabled. The database can\'t be deleted when deletion protection is</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- enabled. By default, deletion protection is disabled.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_deletionProtection"><span class="hs-identifier hs-type">modifyDBCluster_deletionProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span id="modifyDBCluster_deletionProtection"><span class="annot"><span class="annottext">modifyDBCluster_deletionProtection :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_deletionProtection"><span class="hs-identifier hs-var hs-var">modifyDBCluster_deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Bool)
+-&gt; (ModifyDBCluster -&gt; Maybe Bool -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405317"><span class="annot"><span class="annottext">Maybe Bool
+deletionProtection :: Maybe Bool
+$sel:deletionProtection:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679405317"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405317"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405316"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405315"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionProtection:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdeletionProtection%3AModifyDBCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | Not supported by Neptune.</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_masterUserPassword"><span class="hs-identifier hs-type">modifyDBCluster_masterUserPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span id="modifyDBCluster_masterUserPassword"><span class="annot"><span class="annottext">modifyDBCluster_masterUserPassword :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_masterUserPassword"><span class="hs-identifier hs-var hs-var">modifyDBCluster_masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Text)
+-&gt; (ModifyDBCluster -&gt; Maybe Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405314"><span class="annot"><span class="annottext">Maybe Text
+masterUserPassword :: Maybe Text
+$sel:masterUserPassword:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405314"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405314"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405313"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterUserPassword:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AmasterUserPassword%3AModifyDBCluster%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | The configuration setting for the log types to be enabled for export to</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- CloudWatch Logs for a specific DB cluster.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_cloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">modifyDBCluster_cloudwatchLogsExportConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span id="modifyDBCluster_cloudwatchLogsExportConfiguration"><span class="annot"><span class="annottext">modifyDBCluster_cloudwatchLogsExportConfiguration :: (Maybe CloudwatchLogsExportConfiguration
+ -&gt; f (Maybe CloudwatchLogsExportConfiguration))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_cloudwatchLogsExportConfiguration"><span class="hs-identifier hs-var hs-var">modifyDBCluster_cloudwatchLogsExportConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe CloudwatchLogsExportConfiguration)
+-&gt; (ModifyDBCluster
+    -&gt; Maybe CloudwatchLogsExportConfiguration -&gt; ModifyDBCluster)
+-&gt; Lens
+     ModifyDBCluster
+     ModifyDBCluster
+     (Maybe CloudwatchLogsExportConfiguration)
+     (Maybe CloudwatchLogsExportConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405311"><span class="annot"><span class="annottext">Maybe CloudwatchLogsExportConfiguration
+cloudwatchLogsExportConfiguration :: Maybe CloudwatchLogsExportConfiguration
+$sel:cloudwatchLogsExportConfiguration:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679405311"><span class="hs-identifier hs-var hs-var">cloudwatchLogsExportConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679405311"><span class="hs-identifier hs-var">cloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405310"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405309"><span class="annot"><span class="annottext">Maybe CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679405309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchLogsExportConfiguration:ModifyDBCluster' :: Maybe CloudwatchLogsExportConfiguration
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AcloudwatchLogsExportConfiguration%3AModifyDBCluster%27"><span class="hs-identifier hs-var">cloudwatchLogsExportConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679405309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | The weekly time range during which system maintenance can occur, in</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- Universal Coordinated Time (UTC).</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- Format: @ddd:hh24:mi-ddd:hh24:mi@</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- block of time for each Amazon Region, occurring on a random day of the</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- week.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- Constraints: Minimum 30-minute window.</span><span>
+</span><span id="line-365"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_preferredMaintenanceWindow"><span class="hs-identifier hs-type">modifyDBCluster_preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-366"></span><span id="modifyDBCluster_preferredMaintenanceWindow"><span class="annot"><span class="annottext">modifyDBCluster_preferredMaintenanceWindow :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_preferredMaintenanceWindow"><span class="hs-identifier hs-var hs-var">modifyDBCluster_preferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Text)
+-&gt; (ModifyDBCluster -&gt; Maybe Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405308"><span class="annot"><span class="annottext">Maybe Text
+preferredMaintenanceWindow :: Maybe Text
+$sel:preferredMaintenanceWindow:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405308"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405308"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405307"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3ApreferredMaintenanceWindow%3AModifyDBCluster%27"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- | The daily time range during which automated backups are created if</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- automated backups are enabled, using the @BackupRetentionPeriod@</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- The default is a 30-minute window selected at random from an 8-hour</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- block of time for each Amazon Region.</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- -   Must be in the format @hh24:mi-hh24:mi@.</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- -   Must be in Universal Coordinated Time (UTC).</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- -   Must not conflict with the preferred maintenance window.</span><span>
+</span><span id="line-382"></span><span class="hs-comment">--</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- -   Must be at least 30 minutes.</span><span>
+</span><span id="line-384"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_preferredBackupWindow"><span class="hs-identifier hs-type">modifyDBCluster_preferredBackupWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span id="modifyDBCluster_preferredBackupWindow"><span class="annot"><span class="annottext">modifyDBCluster_preferredBackupWindow :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_preferredBackupWindow"><span class="hs-identifier hs-var hs-var">modifyDBCluster_preferredBackupWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Text)
+-&gt; (ModifyDBCluster -&gt; Maybe Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405305"><span class="annot"><span class="annottext">Maybe Text
+preferredBackupWindow :: Maybe Text
+$sel:preferredBackupWindow:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405305"><span class="hs-identifier hs-var hs-var">preferredBackupWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405305"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405304"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredBackupWindow:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3ApreferredBackupWindow%3AModifyDBCluster%27"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- | The number of days for which automated backups are retained. You must</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- specify a minimum value of 1.</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- Default: 1</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- -   Must be a value from 1 to 35</span><span>
+</span><span id="line-395"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_backupRetentionPeriod"><span class="hs-identifier hs-type">modifyDBCluster_backupRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span id="modifyDBCluster_backupRetentionPeriod"><span class="annot"><span class="annottext">modifyDBCluster_backupRetentionPeriod :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_backupRetentionPeriod"><span class="hs-identifier hs-var hs-var">modifyDBCluster_backupRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Int)
+-&gt; (ModifyDBCluster -&gt; Maybe Int -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405302"><span class="annot"><span class="annottext">Maybe Int
+backupRetentionPeriod :: Maybe Int
+$sel:backupRetentionPeriod:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Int
+</span><a href="#local-6989586621679405302"><span class="hs-identifier hs-var hs-var">backupRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405302"><span class="hs-identifier hs-var">backupRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405301"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405300"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupRetentionPeriod:ModifyDBCluster' :: Maybe Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AbackupRetentionPeriod%3AModifyDBCluster%27"><span class="hs-identifier hs-var">backupRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- | A list of VPC security groups that the DB cluster will belong to.</span><span>
+</span><span id="line-399"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_vpcSecurityGroupIds"><span class="hs-identifier hs-type">modifyDBCluster_vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span id="modifyDBCluster_vpcSecurityGroupIds"><span class="annot"><span class="annottext">modifyDBCluster_vpcSecurityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_vpcSecurityGroupIds"><span class="hs-identifier hs-var hs-var">modifyDBCluster_vpcSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe [Text])
+-&gt; (ModifyDBCluster -&gt; Maybe [Text] -&gt; ModifyDBCluster)
+-&gt; Lens
+     ModifyDBCluster ModifyDBCluster (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405299"><span class="annot"><span class="annottext">Maybe [Text]
+vpcSecurityGroupIds :: Maybe [Text]
+$sel:vpcSecurityGroupIds:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe [Text]
+</span><a href="#local-6989586621679405299"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679405299"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405298"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405297"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679405297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:ModifyDBCluster' :: Maybe [Text]
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AvpcSecurityGroupIds%3AModifyDBCluster%27"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679405297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ModifyDBCluster -&gt; f ModifyDBCluster)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ModifyDBCluster
+-&gt; f ModifyDBCluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- | The name of the DB cluster parameter group to use for the DB cluster.</span><span>
+</span><span id="line-403"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_dbClusterParameterGroupName"><span class="hs-identifier hs-type">modifyDBCluster_dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-404"></span><span id="modifyDBCluster_dbClusterParameterGroupName"><span class="annot"><span class="annottext">modifyDBCluster_dbClusterParameterGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_dbClusterParameterGroupName"><span class="hs-identifier hs-var hs-var">modifyDBCluster_dbClusterParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Text)
+-&gt; (ModifyDBCluster -&gt; Maybe Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405293"><span class="annot"><span class="annottext">Maybe Text
+dbClusterParameterGroupName :: Maybe Text
+$sel:dbClusterParameterGroupName:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405293"><span class="hs-identifier hs-var hs-var">dbClusterParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405293"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405292"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterParameterGroupName:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbClusterParameterGroupName%3AModifyDBCluster%27"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- | A value that specifies whether the modifications in this request and any</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- pending modifications are asynchronously applied as soon as possible,</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- regardless of the @PreferredMaintenanceWindow@ setting for the DB</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- cluster. If this parameter is set to @false@, changes to the DB cluster</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- are applied during the next maintenance window.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- The @ApplyImmediately@ parameter only affects @NewDBClusterIdentifier@</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- values. If you set the @ApplyImmediately@ parameter value to false, then</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- changes to @NewDBClusterIdentifier@ values are applied during the next</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- maintenance window. All other changes are applied immediately,</span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- regardless of the value of the @ApplyImmediately@ parameter.</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--</span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-419"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_applyImmediately"><span class="hs-identifier hs-type">modifyDBCluster_applyImmediately</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span id="modifyDBCluster_applyImmediately"><span class="annot"><span class="annottext">modifyDBCluster_applyImmediately :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_applyImmediately"><span class="hs-identifier hs-var hs-var">modifyDBCluster_applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Bool)
+-&gt; (ModifyDBCluster -&gt; Maybe Bool -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405290"><span class="annot"><span class="annottext">Maybe Bool
+applyImmediately :: Maybe Bool
+$sel:applyImmediately:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679405290"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405290"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405289"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405288"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AapplyImmediately%3AModifyDBCluster%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | /Not supported by Neptune./</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_optionGroupName"><span class="hs-identifier hs-type">modifyDBCluster_optionGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-424"></span><span id="modifyDBCluster_optionGroupName"><span class="annot"><span class="annottext">modifyDBCluster_optionGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_optionGroupName"><span class="hs-identifier hs-var hs-var">modifyDBCluster_optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Text)
+-&gt; (ModifyDBCluster -&gt; Maybe Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405287"><span class="annot"><span class="annottext">Maybe Text
+optionGroupName :: Maybe Text
+$sel:optionGroupName:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405287"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405287"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405286"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AoptionGroupName%3AModifyDBCluster%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- | /If set to @true@, tags are copied to any snapshot of the DB cluster</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- that is created./</span><span>
+</span><span id="line-428"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_copyTagsToSnapshot"><span class="hs-identifier hs-type">modifyDBCluster_copyTagsToSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-429"></span><span id="modifyDBCluster_copyTagsToSnapshot"><span class="annot"><span class="annottext">modifyDBCluster_copyTagsToSnapshot :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_copyTagsToSnapshot"><span class="hs-identifier hs-var hs-var">modifyDBCluster_copyTagsToSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Bool)
+-&gt; (ModifyDBCluster -&gt; Maybe Bool -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405284"><span class="annot"><span class="annottext">Maybe Bool
+copyTagsToSnapshot :: Maybe Bool
+$sel:copyTagsToSnapshot:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679405284"><span class="hs-identifier hs-var hs-var">copyTagsToSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405284"><span class="hs-identifier hs-var">copyTagsToSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405283"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405282"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyTagsToSnapshot:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AcopyTagsToSnapshot%3AModifyDBCluster%27"><span class="hs-identifier hs-var">copyTagsToSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- | The new DB cluster identifier for the DB cluster when renaming a DB</span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- cluster. This value is stored as a lowercase string.</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
+</span><span id="line-437"></span><span class="hs-comment">--</span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- -   The first character must be a letter</span><span>
+</span><span id="line-439"></span><span class="hs-comment">--</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- -   Cannot end with a hyphen or contain two consecutive hyphens</span><span>
+</span><span id="line-441"></span><span class="hs-comment">--</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
+</span><span id="line-443"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_newDBClusterIdentifier"><span class="hs-identifier hs-type">modifyDBCluster_newDBClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span id="modifyDBCluster_newDBClusterIdentifier"><span class="annot"><span class="annottext">modifyDBCluster_newDBClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_newDBClusterIdentifier"><span class="hs-identifier hs-var hs-var">modifyDBCluster_newDBClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Text)
+-&gt; (ModifyDBCluster -&gt; Maybe Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405281"><span class="annot"><span class="annottext">Maybe Text
+newDBClusterIdentifier' :: Maybe Text
+$sel:newDBClusterIdentifier':ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405281"><span class="hs-identifier hs-var hs-var">newDBClusterIdentifier'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405281"><span class="hs-identifier hs-var">newDBClusterIdentifier'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405280"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newDBClusterIdentifier':ModifyDBCluster' :: Maybe Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AnewDBClusterIdentifier%27%3AModifyDBCluster%27"><span class="hs-identifier hs-var">newDBClusterIdentifier'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-445"></span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- | The port number on which the DB cluster accepts connections.</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- Constraints: Value must be @1150-65535@</span><span>
+</span><span id="line-449"></span><span class="hs-comment">--</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- Default: The same port as the original DB cluster.</span><span>
+</span><span id="line-451"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_port"><span class="hs-identifier hs-type">modifyDBCluster_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span id="modifyDBCluster_port"><span class="annot"><span class="annottext">modifyDBCluster_port :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_port"><span class="hs-identifier hs-var hs-var">modifyDBCluster_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Int)
+-&gt; (ModifyDBCluster -&gt; Maybe Int -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405278"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Int
+</span><a href="#local-6989586621679405278"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405278"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405277"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405276"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:ModifyDBCluster' :: Maybe Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3Aport%3AModifyDBCluster%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- | True to enable mapping of Amazon Identity and Access Management (IAM)</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- accounts to database accounts, and otherwise false.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-458"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_enableIAMDatabaseAuthentication"><span class="hs-identifier hs-type">modifyDBCluster_enableIAMDatabaseAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-459"></span><span id="modifyDBCluster_enableIAMDatabaseAuthentication"><span class="annot"><span class="annottext">modifyDBCluster_enableIAMDatabaseAuthentication :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_enableIAMDatabaseAuthentication"><span class="hs-identifier hs-var hs-var">modifyDBCluster_enableIAMDatabaseAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Maybe Bool)
+-&gt; (ModifyDBCluster -&gt; Maybe Bool -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405275"><span class="annot"><span class="annottext">Maybe Bool
+enableIAMDatabaseAuthentication :: Maybe Bool
+$sel:enableIAMDatabaseAuthentication:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679405275"><span class="hs-identifier hs-var hs-var">enableIAMDatabaseAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405275"><span class="hs-identifier hs-var">enableIAMDatabaseAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405274"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405273"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableIAMDatabaseAuthentication:ModifyDBCluster' :: Maybe Bool
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AenableIAMDatabaseAuthentication%3AModifyDBCluster%27"><span class="hs-identifier hs-var">enableIAMDatabaseAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- | The DB cluster identifier for the cluster being modified. This parameter</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- is not case-sensitive.</span><span>
+</span><span id="line-463"></span><span class="hs-comment">--</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-465"></span><span class="hs-comment">--</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- -   Must match the identifier of an existing DBCluster.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_dbClusterIdentifier"><span class="hs-identifier hs-type">modifyDBCluster_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-468"></span><span id="modifyDBCluster_dbClusterIdentifier"><span class="annot"><span class="annottext">modifyDBCluster_dbClusterIdentifier :: (Text -&gt; f Text) -&gt; ModifyDBCluster -&gt; f ModifyDBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBCluster_dbClusterIdentifier"><span class="hs-identifier hs-var hs-var">modifyDBCluster_dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBCluster -&gt; Text)
+-&gt; (ModifyDBCluster -&gt; Text -&gt; ModifyDBCluster)
+-&gt; Lens ModifyDBCluster ModifyDBCluster Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405272"><span class="annot"><span class="annottext">Text
+dbClusterIdentifier :: Text
+$sel:dbClusterIdentifier:ModifyDBCluster' :: ModifyDBCluster -&gt; Text
+</span><a href="#local-6989586621679405272"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405272"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405271"><span class="annot"><span class="annottext">s :: ModifyDBCluster
+</span><a href="#local-6989586621679405271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405270"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBCluster
+</span><a href="#local-6989586621679405271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:ModifyDBCluster' :: Text
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbClusterIdentifier%3AModifyDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-471"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-472"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-473"></span><span>      </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-type">ModifyDBClusterResponse</span></a></span><span>
+</span><span id="line-474"></span><span>  </span><span id="local-6989586621679405266"><span class="annot"><span class="annottext">request :: ModifyDBCluster -&gt; Request ModifyDBCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyDBCluster -&gt; Request ModifyDBCluster
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Neptune.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-475"></span><span>  </span><span id="local-6989586621679405262"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyDBCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyDBCluster)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-476"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ModifyDBCluster))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyDBCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyDBCluster)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-477"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifyDBClusterResult&quot;</span></span><span>
+</span><span id="line-478"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405259"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679405259"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679405258"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679405258"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679405257"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405257"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-479"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBCluster -&gt; Int -&gt; ModifyDBClusterResponse
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse%27"><span class="hs-identifier hs-var">ModifyDBClusterResponse'</span></a></span><span>
+</span><span id="line-480"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBCluster -&gt; Int -&gt; ModifyDBClusterResponse)
+-&gt; Either String (Maybe DBCluster)
+-&gt; Either String (Int -&gt; ModifyDBClusterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405257"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBCluster)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBCluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-481"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyDBClusterResponse)
+-&gt; Either String Int -&gt; Either String ModifyDBClusterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679405259"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-482"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-483"></span><span>
+</span><span id="line-484"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405249"><span id="local-6989586621679405251"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span></span></span><span>
+</span><span id="line-485"></span><span>
+</span><span id="line-486"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span></span><span>
+</span><span id="line-487"></span><span>
+</span><span id="line-488"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-489"></span><span>  </span><span id="local-6989586621679405242"><span class="annot"><span class="annottext">toHeaders :: ModifyDBCluster -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyDBCluster -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-492"></span><span>  </span><span id="local-6989586621679405237"><span class="annot"><span class="annottext">toPath :: ModifyDBCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyDBCluster -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-493"></span><span>
+</span><span id="line-494"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster"><span class="hs-identifier hs-type">ModifyDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-495"></span><span>  </span><span id="local-6989586621679405233"><span class="annot"><span class="annottext">toQuery :: ModifyDBCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBCluster%27"><span class="hs-identifier hs-type">ModifyDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405216"><span id="local-6989586621679405217"><span id="local-6989586621679405218"><span id="local-6989586621679405219"><span id="local-6989586621679405220"><span id="local-6989586621679405221"><span id="local-6989586621679405222"><span id="local-6989586621679405223"><span id="local-6989586621679405224"><span id="local-6989586621679405225"><span id="local-6989586621679405226"><span id="local-6989586621679405227"><span id="local-6989586621679405228"><span id="local-6989586621679405229"><span id="local-6989586621679405230"><span id="local-6989586621679405231"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Text]
+Maybe Text
+Maybe CloudwatchLogsExportConfiguration
+Text
+dbClusterIdentifier :: Text
+enableIAMDatabaseAuthentication :: Maybe Bool
+port :: Maybe Int
+newDBClusterIdentifier' :: Maybe Text
+copyTagsToSnapshot :: Maybe Bool
+optionGroupName :: Maybe Text
+applyImmediately :: Maybe Bool
+dbClusterParameterGroupName :: Maybe Text
+vpcSecurityGroupIds :: Maybe [Text]
+backupRetentionPeriod :: Maybe Int
+preferredBackupWindow :: Maybe Text
+preferredMaintenanceWindow :: Maybe Text
+cloudwatchLogsExportConfiguration :: Maybe CloudwatchLogsExportConfiguration
+masterUserPassword :: Maybe Text
+deletionProtection :: Maybe Bool
+engineVersion :: Maybe Text
+$sel:dbClusterIdentifier:ModifyDBCluster' :: ModifyDBCluster -&gt; Text
+$sel:enableIAMDatabaseAuthentication:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+$sel:port:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Int
+$sel:newDBClusterIdentifier':ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+$sel:copyTagsToSnapshot:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+$sel:optionGroupName:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+$sel:applyImmediately:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+$sel:dbClusterParameterGroupName:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+$sel:vpcSecurityGroupIds:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe [Text]
+$sel:backupRetentionPeriod:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Int
+$sel:preferredBackupWindow:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+$sel:preferredMaintenanceWindow:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+$sel:cloudwatchLogsExportConfiguration:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe CloudwatchLogsExportConfiguration
+$sel:masterUserPassword:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+$sel:deletionProtection:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Bool
+$sel:engineVersion:ModifyDBCluster' :: ModifyDBCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679405216"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-496"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-497"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-498"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyDBCluster&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-499"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-500"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-501"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405231"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-502"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeletionProtection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405230"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-503"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MasterUserPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405229"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-504"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CloudwatchLogsExportConfiguration&quot;</span></span><span>
+</span><span id="line-505"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe CloudwatchLogsExportConfiguration -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679405228"><span class="hs-identifier hs-var">cloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-506"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PreferredMaintenanceWindow&quot;</span></span><span>
+</span><span id="line-507"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405227"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-508"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PreferredBackupWindow&quot;</span></span><span>
+</span><span id="line-509"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405226"><span class="hs-identifier hs-var">preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-510"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BackupRetentionPeriod&quot;</span></span><span>
+</span><span id="line-511"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405225"><span class="hs-identifier hs-var">backupRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-512"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcSecurityGroupIds&quot;</span></span><span>
+</span><span id="line-513"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-514"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcSecurityGroupId&quot;</span></span><span>
+</span><span id="line-515"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679405224"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span>
+</span><span id="line-516"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-517"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterParameterGroupName&quot;</span></span><span>
+</span><span id="line-518"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405223"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-519"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplyImmediately&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405222"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-520"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OptionGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405221"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-521"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CopyTagsToSnapshot&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405220"><span class="hs-identifier hs-var">copyTagsToSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-522"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NewDBClusterIdentifier&quot;</span></span><span>
+</span><span id="line-523"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405219"><span class="hs-identifier hs-var">newDBClusterIdentifier'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-524"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Port&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679405218"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-525"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnableIAMDatabaseAuthentication&quot;</span></span><span>
+</span><span id="line-526"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405217"><span class="hs-identifier hs-var">enableIAMDatabaseAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-527"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405216"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span>
+</span><span id="line-528"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-529"></span><span>
+</span><span id="line-530"></span><span class="hs-comment">-- | /See:/ 'newModifyDBClusterResponse' smart constructor.</span><span>
+</span><span id="line-531"></span><span id="local-6989586621679405212"><span id="local-6989586621679405213"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBClusterResponse"><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-var">ModifyDBClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBClusterResponse%27"><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse%27"><span class="hs-identifier hs-var">ModifyDBClusterResponse'</span></a></span></span><span>
+</span><span id="line-532"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbCluster%3AModifyDBClusterResponse%27"><span class="annot"><span class="annottext">ModifyDBClusterResponse -&gt; Maybe DBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbCluster%3AModifyDBClusterResponse%27"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.DBCluster.html#DBCluster"><span class="hs-identifier hs-type">DBCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-533"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-534"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyDBClusterResponse%27"><span class="annot"><span class="annottext">ModifyDBClusterResponse -&gt; Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AhttpStatus%3AModifyDBClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-535"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-536"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405206"><span id="local-6989586621679405208"><span class="annot"><span class="annottext">ModifyDBClusterResponse -&gt; ModifyDBClusterResponse -&gt; Bool
+(ModifyDBClusterResponse -&gt; ModifyDBClusterResponse -&gt; Bool)
+-&gt; (ModifyDBClusterResponse -&gt; ModifyDBClusterResponse -&gt; Bool)
+-&gt; Eq ModifyDBClusterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyDBClusterResponse -&gt; ModifyDBClusterResponse -&gt; Bool
+$c/= :: ModifyDBClusterResponse -&gt; ModifyDBClusterResponse -&gt; Bool
+== :: ModifyDBClusterResponse -&gt; ModifyDBClusterResponse -&gt; Bool
+$c== :: ModifyDBClusterResponse -&gt; ModifyDBClusterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405198"><span id="local-6989586621679405200"><span id="local-6989586621679405202"><span id="local-6989586621679405204"><span class="annot"><span class="annottext">ReadPrec [ModifyDBClusterResponse]
+ReadPrec ModifyDBClusterResponse
+Int -&gt; ReadS ModifyDBClusterResponse
+ReadS [ModifyDBClusterResponse]
+(Int -&gt; ReadS ModifyDBClusterResponse)
+-&gt; ReadS [ModifyDBClusterResponse]
+-&gt; ReadPrec ModifyDBClusterResponse
+-&gt; ReadPrec [ModifyDBClusterResponse]
+-&gt; Read ModifyDBClusterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyDBClusterResponse]
+$creadListPrec :: ReadPrec [ModifyDBClusterResponse]
+readPrec :: ReadPrec ModifyDBClusterResponse
+$creadPrec :: ReadPrec ModifyDBClusterResponse
+readList :: ReadS [ModifyDBClusterResponse]
+$creadList :: ReadS [ModifyDBClusterResponse]
+readsPrec :: Int -&gt; ReadS ModifyDBClusterResponse
+$creadsPrec :: Int -&gt; ReadS ModifyDBClusterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405192"><span id="local-6989586621679405194"><span id="local-6989586621679405196"><span class="annot"><span class="annottext">Int -&gt; ModifyDBClusterResponse -&gt; ShowS
+[ModifyDBClusterResponse] -&gt; ShowS
+ModifyDBClusterResponse -&gt; String
+(Int -&gt; ModifyDBClusterResponse -&gt; ShowS)
+-&gt; (ModifyDBClusterResponse -&gt; String)
+-&gt; ([ModifyDBClusterResponse] -&gt; ShowS)
+-&gt; Show ModifyDBClusterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyDBClusterResponse] -&gt; ShowS
+$cshowList :: [ModifyDBClusterResponse] -&gt; ShowS
+show :: ModifyDBClusterResponse -&gt; String
+$cshow :: ModifyDBClusterResponse -&gt; String
+showsPrec :: Int -&gt; ModifyDBClusterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyDBClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyDBClusterResponse -&gt; Rep ModifyDBClusterResponse x)
+-&gt; (forall x.
+    Rep ModifyDBClusterResponse x -&gt; ModifyDBClusterResponse)
+-&gt; Generic ModifyDBClusterResponse
+forall x. Rep ModifyDBClusterResponse x -&gt; ModifyDBClusterResponse
+forall x. ModifyDBClusterResponse -&gt; Rep ModifyDBClusterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyDBClusterResponse x -&gt; ModifyDBClusterResponse
+$cfrom :: forall x. ModifyDBClusterResponse -&gt; Rep ModifyDBClusterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-537"></span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-539"></span><span class="hs-comment">-- Create a value of 'ModifyDBClusterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-540"></span><span class="hs-comment">--</span><span>
+</span><span id="line-541"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-542"></span><span class="hs-comment">--</span><span>
+</span><span id="line-543"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-544"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-545"></span><span class="hs-comment">--</span><span>
+</span><span id="line-546"></span><span class="hs-comment">-- 'dbCluster', 'modifyDBClusterResponse_dbCluster' - Undocumented member.</span><span>
+</span><span id="line-547"></span><span class="hs-comment">--</span><span>
+</span><span id="line-548"></span><span class="hs-comment">-- 'httpStatus', 'modifyDBClusterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-549"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#newModifyDBClusterResponse"><span class="hs-identifier hs-type">newModifyDBClusterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-550"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-551"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-552"></span><span>  </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-type">ModifyDBClusterResponse</span></a></span><span>
+</span><span id="line-553"></span><span id="newModifyDBClusterResponse"><span class="annot"><span class="annottext">newModifyDBClusterResponse :: Int -&gt; ModifyDBClusterResponse
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#newModifyDBClusterResponse"><span class="hs-identifier hs-var hs-var">newModifyDBClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679405189"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679405189"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-554"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBClusterResponse' :: Maybe DBCluster -&gt; Int -&gt; ModifyDBClusterResponse
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse%27"><span class="hs-identifier hs-type">ModifyDBClusterResponse'</span></a></span><span>
+</span><span id="line-555"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbCluster:ModifyDBClusterResponse' :: Maybe DBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbCluster%3AModifyDBClusterResponse%27"><span class="hs-identifier hs-var">dbCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-556"></span><span>        </span><span class="annot"><span class="annottext">Maybe DBCluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-557"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBClusterResponse' :: Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AhttpStatus%3AModifyDBClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679405189"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-558"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-559"></span><span>
+</span><span id="line-560"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-561"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBClusterResponse_dbCluster"><span class="hs-identifier hs-type">modifyDBClusterResponse_dbCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-type">ModifyDBClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.DBCluster.html#DBCluster"><span class="hs-identifier hs-type">DBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-562"></span><span id="modifyDBClusterResponse_dbCluster"><span class="annot"><span class="annottext">modifyDBClusterResponse_dbCluster :: (Maybe DBCluster -&gt; f (Maybe DBCluster))
+-&gt; ModifyDBClusterResponse -&gt; f ModifyDBClusterResponse
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBClusterResponse_dbCluster"><span class="hs-identifier hs-var hs-var">modifyDBClusterResponse_dbCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBClusterResponse -&gt; Maybe DBCluster)
+-&gt; (ModifyDBClusterResponse
+    -&gt; Maybe DBCluster -&gt; ModifyDBClusterResponse)
+-&gt; Lens
+     ModifyDBClusterResponse
+     ModifyDBClusterResponse
+     (Maybe DBCluster)
+     (Maybe DBCluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse%27"><span class="hs-identifier hs-type">ModifyDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405188"><span class="annot"><span class="annottext">Maybe DBCluster
+dbCluster :: Maybe DBCluster
+$sel:dbCluster:ModifyDBClusterResponse' :: ModifyDBClusterResponse -&gt; Maybe DBCluster
+</span><a href="#local-6989586621679405188"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679405188"><span class="hs-identifier hs-var">dbCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405187"><span class="annot"><span class="annottext">s :: ModifyDBClusterResponse
+</span><a href="#local-6989586621679405187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse%27"><span class="hs-identifier hs-type">ModifyDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405186"><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679405186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBClusterResponse
+</span><a href="#local-6989586621679405187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbCluster:ModifyDBClusterResponse' :: Maybe DBCluster
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AdbCluster%3AModifyDBClusterResponse%27"><span class="hs-identifier hs-var">dbCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679405186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-type">ModifyDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-563"></span><span>
+</span><span id="line-564"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-565"></span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBClusterResponse_httpStatus"><span class="hs-identifier hs-type">modifyDBClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-type">ModifyDBClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-566"></span><span id="modifyDBClusterResponse_httpStatus"><span class="annot"><span class="annottext">modifyDBClusterResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyDBClusterResponse -&gt; f ModifyDBClusterResponse
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#modifyDBClusterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyDBClusterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBClusterResponse -&gt; Int)
+-&gt; (ModifyDBClusterResponse -&gt; Int -&gt; ModifyDBClusterResponse)
+-&gt; Lens ModifyDBClusterResponse ModifyDBClusterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse%27"><span class="hs-identifier hs-type">ModifyDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405185"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyDBClusterResponse' :: ModifyDBClusterResponse -&gt; Int
+</span><a href="#local-6989586621679405185"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679405185"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405184"><span class="annot"><span class="annottext">s :: ModifyDBClusterResponse
+</span><a href="#local-6989586621679405184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse%27"><span class="hs-identifier hs-type">ModifyDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679405183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBClusterResponse
+</span><a href="#local-6989586621679405184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBClusterResponse' :: Int
+</span><a href="Amazonka.Neptune.ModifyDBCluster.html#%24sel%3AhttpStatus%3AModifyDBClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679405183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-type">ModifyDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-567"></span><span>
+</span><span id="line-568"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.ModifyDBCluster.html#ModifyDBClusterResponse"><span class="hs-identifier hs-type">ModifyDBClusterResponse</span></a></span></span><span>
+</span><span id="line-569"></span></pre></body></html>

@@ -1,0 +1,1226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SWF.StartWorkflowExecution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts an execution of the workflow type in the specified domain using</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the provided @workflowId@ and input data.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This action returns the newly started workflow execution.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- __Access Control__</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- You can use IAM policies to control this action\'s access to Amazon SWF</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- resources as follows:</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   Use a @Resource@ element with the domain name to limit the action to</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     only specified domains.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   Use an @Action@ element to allow or deny permission to call this</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     action.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   Constrain the following parameters by using a @Condition@ element</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     with the appropriate keys.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     -   @tagList.member.0@: The key is @swf:tagList.member.0@.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     -   @tagList.member.1@: The key is @swf:tagList.member.1@.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     -   @tagList.member.2@: The key is @swf:tagList.member.2@.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     -   @tagList.member.3@: The key is @swf:tagList.member.3@.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     -   @tagList.member.4@: The key is @swf:tagList.member.4@.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     -   @taskList@: String constraint. The key is @swf:taskList.name@.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     -   @workflowType.name@: String constraint. The key is</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--         @swf:workflowType.name@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     -   @workflowType.version@: String constraint. The key is</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--         @swf:workflowType.version@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- If the caller doesn\'t have sufficient permissions to invoke the action,</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- or the parameter values fall outside the specified constraints, the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- action fails. The associated event attribute\'s @cause@ parameter is set</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- to @OPERATION_NOT_PERMITTED@. For details and example IAM policies, see</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows&gt;</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.StartWorkflowExecution</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#newStartWorkflowExecution"><span class="hs-identifier">newStartWorkflowExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_tagList"><span class="hs-identifier">startWorkflowExecution_tagList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskStartToCloseTimeout"><span class="hs-identifier">startWorkflowExecution_taskStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_lambdaRole"><span class="hs-identifier">startWorkflowExecution_lambdaRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_input"><span class="hs-identifier">startWorkflowExecution_input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_executionStartToCloseTimeout"><span class="hs-identifier">startWorkflowExecution_executionStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskList"><span class="hs-identifier">startWorkflowExecution_taskList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskPriority"><span class="hs-identifier">startWorkflowExecution_taskPriority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_childPolicy"><span class="hs-identifier">startWorkflowExecution_childPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_domain"><span class="hs-identifier">startWorkflowExecution_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_workflowId"><span class="hs-identifier">startWorkflowExecution_workflowId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_workflowType"><span class="hs-identifier">startWorkflowExecution_workflowType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier">StartWorkflowExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#newStartWorkflowExecutionResponse"><span class="hs-identifier">newStartWorkflowExecutionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecutionResponse_runId"><span class="hs-identifier">startWorkflowExecutionResponse_runId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecutionResponse_httpStatus"><span class="hs-identifier">startWorkflowExecutionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.html"><span class="hs-identifier">Amazonka.SWF.Types</span></a></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | /See:/ 'newStartWorkflowExecution' smart constructor.</span><span>
+</span><span id="line-102"></span><span id="local-6989586621679359112"><span id="local-6989586621679359113"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartWorkflowExecution"><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-var">StartWorkflowExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartWorkflowExecution%27"><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-var">StartWorkflowExecution'</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of tags to associate with the workflow execution. You can</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- specify a maximum of 5 tags. You can list workflow executions with a</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- specific tag by calling ListOpenWorkflowExecutions or</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- ListClosedWorkflowExecutions and specifying a TagFilter.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AtagList%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe [Text]
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtagList%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum duration of decision tasks for this workflow</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- execution. This parameter overrides the @defaultTaskStartToCloseTimout@</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- specified when registering the workflow type using RegisterWorkflowType.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- A task start-to-close timeout for this workflow execution must be</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- specified either as a default for the workflow type or through this</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- parameter. If neither this parameter is set nor a default task</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- start-to-close timeout was specified at registration time then a fault</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- is returned.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AtaskStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">taskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The IAM role to attach to this workflow execution.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- Executions of this workflow type need IAM roles to invoke Lambda</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- functions. If you don\'t attach an IAM role, any attempt to schedule a</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- Lambda task fails. This results in a @ScheduleLambdaFunctionFailed@</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- history event. For more information, see</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html&gt;</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AlambdaRole%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AlambdaRole%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">lambdaRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The input for the workflow execution. This is a free form string which</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- should be meaningful to the workflow you are starting. This @input@ is</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- made available to the new workflow execution in the</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- @WorkflowExecutionStarted@ history event.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3Ainput%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3Ainput%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The total duration for this workflow execution. This overrides the</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- defaultExecutionStartToCloseTimeout specified when registering the</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- workflow type.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds; an integer greater than or equal</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- to @0@. Exceeding this limit causes the workflow execution to time out.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- Unlike some of the other timeout parameters in Amazon SWF, you cannot</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- specify a value of \&quot;NONE\&quot; for this timeout; there is a one-year max</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- limit on the time that a workflow execution can run.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- An execution start-to-close timeout must be specified either through</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- this parameter or as a default when the workflow type is registered. If</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- neither this parameter nor a default execution start-to-close timeout is</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- specified, a fault is returned.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AexecutionStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AexecutionStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">executionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The task list to use for the decision tasks generated for this workflow</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- execution. This overrides the @defaultTaskList@ specified when</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- registering the workflow type.</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- A task list for this workflow execution must be specified either as a</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- default for the workflow type or through this parameter. If neither this</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- parameter is set nor a default task list was specified at registration</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- time then a fault is returned.</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AtaskList%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe TaskList
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskList%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">taskList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.TaskList.html#TaskList"><span class="hs-identifier hs-type">TaskList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The task priority to use for this workflow execution. This overrides any</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- default priority that was assigned when the workflow type was</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- registered. If not set, then the default task priority for the workflow</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- type is used. Valid values are integers that range from Java\'s</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- Higher numbers indicate higher priority.</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- For more information about setting task priority, see</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority&gt;</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AtaskPriority%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskPriority%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">taskPriority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | If set, specifies the policy to use for the child workflow executions of</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- this workflow execution if it is terminated, by calling the</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- TerminateWorkflowExecution action explicitly or due to an expired</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- timeout. This policy overrides the default child policy specified when</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- registering the workflow type using RegisterWorkflowType.</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- The supported child policies are:</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- -   @TERMINATE@ &#8211; The child executions are terminated.</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- -   @REQUEST_CANCEL@ &#8211; A request to cancel is attempted for each child</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--     execution by recording a @WorkflowExecutionCancelRequested@ event in</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">--     its history. It is up to the decider to take appropriate actions</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">--     when it receives an execution history with this event.</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- -   @ABANDON@ &#8211; No action is taken. The child executions continue to</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">--     run.</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- A child policy for this workflow execution must be specified either as a</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- default for the workflow type or through this parameter. If neither this</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- parameter is set nor a default child policy was specified at</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- registration time then a fault is returned.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AchildPolicy%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Maybe ChildPolicy
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AchildPolicy%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">childPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildPolicy.html#ChildPolicy"><span class="hs-identifier hs-type">ChildPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The name of the domain in which the workflow execution is created.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3Adomain%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3Adomain%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The user defined identifier associated with the workflow execution. You</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- can use this to associate a custom identifier with the workflow</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- execution. You may specify the same identifier if a workflow execution</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- is logically a /restart/ of a previous execution. You cannot have two</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- open workflow executions with the same @workflowId@ at the same time</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- within the same domain.</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AworkflowId%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AworkflowId%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The type of the workflow to start.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AworkflowType%3AStartWorkflowExecution%27"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; WorkflowType
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AworkflowType%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359096"><span id="local-6989586621679359098"><span class="annot"><span class="annottext">StartWorkflowExecution -&gt; StartWorkflowExecution -&gt; Bool
+(StartWorkflowExecution -&gt; StartWorkflowExecution -&gt; Bool)
+-&gt; (StartWorkflowExecution -&gt; StartWorkflowExecution -&gt; Bool)
+-&gt; Eq StartWorkflowExecution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartWorkflowExecution -&gt; StartWorkflowExecution -&gt; Bool
+$c/= :: StartWorkflowExecution -&gt; StartWorkflowExecution -&gt; Bool
+== :: StartWorkflowExecution -&gt; StartWorkflowExecution -&gt; Bool
+$c== :: StartWorkflowExecution -&gt; StartWorkflowExecution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359087"><span id="local-6989586621679359089"><span id="local-6989586621679359091"><span id="local-6989586621679359093"><span class="annot"><span class="annottext">ReadPrec [StartWorkflowExecution]
+ReadPrec StartWorkflowExecution
+Int -&gt; ReadS StartWorkflowExecution
+ReadS [StartWorkflowExecution]
+(Int -&gt; ReadS StartWorkflowExecution)
+-&gt; ReadS [StartWorkflowExecution]
+-&gt; ReadPrec StartWorkflowExecution
+-&gt; ReadPrec [StartWorkflowExecution]
+-&gt; Read StartWorkflowExecution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartWorkflowExecution]
+$creadListPrec :: ReadPrec [StartWorkflowExecution]
+readPrec :: ReadPrec StartWorkflowExecution
+$creadPrec :: ReadPrec StartWorkflowExecution
+readList :: ReadS [StartWorkflowExecution]
+$creadList :: ReadS [StartWorkflowExecution]
+readsPrec :: Int -&gt; ReadS StartWorkflowExecution
+$creadsPrec :: Int -&gt; ReadS StartWorkflowExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359080"><span id="local-6989586621679359082"><span id="local-6989586621679359084"><span class="annot"><span class="annottext">Int -&gt; StartWorkflowExecution -&gt; ShowS
+[StartWorkflowExecution] -&gt; ShowS
+StartWorkflowExecution -&gt; String
+(Int -&gt; StartWorkflowExecution -&gt; ShowS)
+-&gt; (StartWorkflowExecution -&gt; String)
+-&gt; ([StartWorkflowExecution] -&gt; ShowS)
+-&gt; Show StartWorkflowExecution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartWorkflowExecution] -&gt; ShowS
+$cshowList :: [StartWorkflowExecution] -&gt; ShowS
+show :: StartWorkflowExecution -&gt; String
+$cshow :: StartWorkflowExecution -&gt; String
+showsPrec :: Int -&gt; StartWorkflowExecution -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartWorkflowExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartWorkflowExecution -&gt; Rep StartWorkflowExecution x)
+-&gt; (forall x.
+    Rep StartWorkflowExecution x -&gt; StartWorkflowExecution)
+-&gt; Generic StartWorkflowExecution
+forall x. Rep StartWorkflowExecution x -&gt; StartWorkflowExecution
+forall x. StartWorkflowExecution -&gt; Rep StartWorkflowExecution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartWorkflowExecution x -&gt; StartWorkflowExecution
+$cfrom :: forall x. StartWorkflowExecution -&gt; Rep StartWorkflowExecution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'StartWorkflowExecution' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'tagList', 'startWorkflowExecution_tagList' - The list of tags to associate with the workflow execution. You can</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- specify a maximum of 5 tags. You can list workflow executions with a</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- specific tag by calling ListOpenWorkflowExecutions or</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- ListClosedWorkflowExecutions and specifying a TagFilter.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'taskStartToCloseTimeout', 'startWorkflowExecution_taskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for this workflow</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- execution. This parameter overrides the @defaultTaskStartToCloseTimout@</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- specified when registering the workflow type using RegisterWorkflowType.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- A task start-to-close timeout for this workflow execution must be</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- specified either as a default for the workflow type or through this</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- parameter. If neither this parameter is set nor a default task</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- start-to-close timeout was specified at registration time then a fault</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- is returned.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'lambdaRole', 'startWorkflowExecution_lambdaRole' - The IAM role to attach to this workflow execution.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Executions of this workflow type need IAM roles to invoke Lambda</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- functions. If you don\'t attach an IAM role, any attempt to schedule a</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Lambda task fails. This results in a @ScheduleLambdaFunctionFailed@</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- history event. For more information, see</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html&gt;</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'input', 'startWorkflowExecution_input' - The input for the workflow execution. This is a free form string which</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- should be meaningful to the workflow you are starting. This @input@ is</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- made available to the new workflow execution in the</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- @WorkflowExecutionStarted@ history event.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'executionStartToCloseTimeout', 'startWorkflowExecution_executionStartToCloseTimeout' - The total duration for this workflow execution. This overrides the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- defaultExecutionStartToCloseTimeout specified when registering the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- workflow type.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- The duration is specified in seconds; an integer greater than or equal</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- to @0@. Exceeding this limit causes the workflow execution to time out.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Unlike some of the other timeout parameters in Amazon SWF, you cannot</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- specify a value of \&quot;NONE\&quot; for this timeout; there is a one-year max</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- limit on the time that a workflow execution can run.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- An execution start-to-close timeout must be specified either through</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- this parameter or as a default when the workflow type is registered. If</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- neither this parameter nor a default execution start-to-close timeout is</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- specified, a fault is returned.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'taskList', 'startWorkflowExecution_taskList' - The task list to use for the decision tasks generated for this workflow</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- execution. This overrides the @defaultTaskList@ specified when</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- registering the workflow type.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- A task list for this workflow execution must be specified either as a</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- default for the workflow type or through this parameter. If neither this</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- parameter is set nor a default task list was specified at registration</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- time then a fault is returned.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- 'taskPriority', 'startWorkflowExecution_taskPriority' - The task priority to use for this workflow execution. This overrides any</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- default priority that was assigned when the workflow type was</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- registered. If not set, then the default task priority for the workflow</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- type is used. Valid values are integers that range from Java\'s</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- Higher numbers indicate higher priority.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- For more information about setting task priority, see</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority&gt;</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- 'childPolicy', 'startWorkflowExecution_childPolicy' - If set, specifies the policy to use for the child workflow executions of</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- this workflow execution if it is terminated, by calling the</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- TerminateWorkflowExecution action explicitly or due to an expired</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- timeout. This policy overrides the default child policy specified when</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- registering the workflow type using RegisterWorkflowType.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- The supported child policies are:</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   @TERMINATE@ &#8211; The child executions are terminated.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- -   @REQUEST_CANCEL@ &#8211; A request to cancel is attempted for each child</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     execution by recording a @WorkflowExecutionCancelRequested@ event in</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     its history. It is up to the decider to take appropriate actions</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     when it receives an execution history with this event.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- -   @ABANDON@ &#8211; No action is taken. The child executions continue to</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     run.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- A child policy for this workflow execution must be specified either as a</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- default for the workflow type or through this parameter. If neither this</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- parameter is set nor a default child policy was specified at</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- registration time then a fault is returned.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- 'domain', 'startWorkflowExecution_domain' - The name of the domain in which the workflow execution is created.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- 'workflowId', 'startWorkflowExecution_workflowId' - The user defined identifier associated with the workflow execution. You</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- can use this to associate a custom identifier with the workflow</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- execution. You may specify the same identifier if a workflow execution</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- is logically a /restart/ of a previous execution. You cannot have two</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- open workflow executions with the same @workflowId@ at the same time</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- within the same domain.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- 'workflowType', 'startWorkflowExecution_workflowType' - The type of the workflow to start.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#newStartWorkflowExecution"><span class="hs-identifier hs-type">newStartWorkflowExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-336"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-337"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-338"></span><span>  </span><span class="hs-comment">-- | 'workflowId'</span><span>
+</span><span id="line-339"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-340"></span><span>  </span><span class="hs-comment">-- | 'workflowType'</span><span>
+</span><span id="line-341"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-342"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span>
+</span><span id="line-343"></span><span id="newStartWorkflowExecution"><span class="annot"><span class="annottext">newStartWorkflowExecution :: Text -&gt; Text -&gt; WorkflowType -&gt; StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#newStartWorkflowExecution"><span class="hs-identifier hs-var hs-var">newStartWorkflowExecution</span></a></span></span><span>
+</span><span id="line-344"></span><span>  </span><span id="local-6989586621679359075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359075"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
+</span><span id="line-345"></span><span>  </span><span id="local-6989586621679359074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359074"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span></span><span>
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621679359073"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679359073"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><span class="annottext">StartWorkflowExecution' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TaskList
+-&gt; Maybe Text
+-&gt; Maybe ChildPolicy
+-&gt; Text
+-&gt; Text
+-&gt; WorkflowType
+-&gt; StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span>
+</span><span id="line-348"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagList:StartWorkflowExecution' :: Maybe [Text]
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtagList%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskStartToCloseTimeout:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>        </span><span class="annot"><span class="annottext">$sel:lambdaRole:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AlambdaRole%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>        </span><span class="annot"><span class="annottext">$sel:input:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3Ainput%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionStartToCloseTimeout:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AexecutionStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskList:StartWorkflowExecution' :: Maybe TaskList
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskList%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">taskList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskPriority:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskPriority%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">taskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>        </span><span class="annot"><span class="annottext">$sel:childPolicy:StartWorkflowExecution' :: Maybe ChildPolicy
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AchildPolicy%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">childPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>        </span><span class="annot"><span class="annottext">$sel:domain:StartWorkflowExecution' :: Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3Adomain%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359075"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowId:StartWorkflowExecution' :: Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AworkflowId%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359074"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowType:StartWorkflowExecution' :: WorkflowType
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AworkflowType%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679359073"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span>
+</span><span id="line-359"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-360"></span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- | The list of tags to associate with the workflow execution. You can</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- specify a maximum of 5 tags. You can list workflow executions with a</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- specific tag by calling ListOpenWorkflowExecutions or</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- ListClosedWorkflowExecutions and specifying a TagFilter.</span><span>
+</span><span id="line-365"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_tagList"><span class="hs-identifier hs-type">startWorkflowExecution_tagList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-366"></span><span id="startWorkflowExecution_tagList"><span class="annot"><span class="annottext">startWorkflowExecution_tagList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_tagList"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_tagList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe [Text])
+-&gt; (StartWorkflowExecution
+    -&gt; Maybe [Text] -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359070"><span class="annot"><span class="annottext">Maybe [Text]
+tagList :: Maybe [Text]
+$sel:tagList:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe [Text]
+</span><a href="#local-6989586621679359070"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679359070"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359069"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359068"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679359068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:StartWorkflowExecution' :: Maybe [Text]
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtagList%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679359068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; StartWorkflowExecution
+-&gt; f StartWorkflowExecution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- | Specifies the maximum duration of decision tasks for this workflow</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- execution. This parameter overrides the @defaultTaskStartToCloseTimout@</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- specified when registering the workflow type using RegisterWorkflowType.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- A task start-to-close timeout for this workflow execution must be</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- specified either as a default for the workflow type or through this</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- parameter. If neither this parameter is set nor a default task</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- start-to-close timeout was specified at registration time then a fault</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- is returned.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskStartToCloseTimeout"><span class="hs-identifier hs-type">startWorkflowExecution_taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span id="startWorkflowExecution_taskStartToCloseTimeout"><span class="annot"><span class="annottext">startWorkflowExecution_taskStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_taskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe Text)
+-&gt; (StartWorkflowExecution -&gt; Maybe Text -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359064"><span class="annot"><span class="annottext">Maybe Text
+taskStartToCloseTimeout :: Maybe Text
+$sel:taskStartToCloseTimeout:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679359064"><span class="hs-identifier hs-var hs-var">taskStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359064"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359063"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359062"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartToCloseTimeout:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- | The IAM role to attach to this workflow execution.</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- Executions of this workflow type need IAM roles to invoke Lambda</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- functions. If you don\'t attach an IAM role, any attempt to schedule a</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- Lambda task fails. This results in a @ScheduleLambdaFunctionFailed@</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- history event. For more information, see</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html&gt;</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-391"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_lambdaRole"><span class="hs-identifier hs-type">startWorkflowExecution_lambdaRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span id="startWorkflowExecution_lambdaRole"><span class="annot"><span class="annottext">startWorkflowExecution_lambdaRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_lambdaRole"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_lambdaRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe Text)
+-&gt; (StartWorkflowExecution -&gt; Maybe Text -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359061"><span class="annot"><span class="annottext">Maybe Text
+lambdaRole :: Maybe Text
+$sel:lambdaRole:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679359061"><span class="hs-identifier hs-var hs-var">lambdaRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359061"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359060"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaRole:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AlambdaRole%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- | The input for the workflow execution. This is a free form string which</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- should be meaningful to the workflow you are starting. This @input@ is</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- made available to the new workflow execution in the</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- @WorkflowExecutionStarted@ history event.</span><span>
+</span><span id="line-398"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_input"><span class="hs-identifier hs-type">startWorkflowExecution_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span id="startWorkflowExecution_input"><span class="annot"><span class="annottext">startWorkflowExecution_input :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_input"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe Text)
+-&gt; (StartWorkflowExecution -&gt; Maybe Text -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359058"><span class="annot"><span class="annottext">Maybe Text
+input :: Maybe Text
+$sel:input:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679359058"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359058"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359057"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359056"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3Ainput%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- | The total duration for this workflow execution. This overrides the</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- defaultExecutionStartToCloseTimeout specified when registering the</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- workflow type.</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- The duration is specified in seconds; an integer greater than or equal</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- to @0@. Exceeding this limit causes the workflow execution to time out.</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- Unlike some of the other timeout parameters in Amazon SWF, you cannot</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- specify a value of \&quot;NONE\&quot; for this timeout; there is a one-year max</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- limit on the time that a workflow execution can run.</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- An execution start-to-close timeout must be specified either through</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- this parameter or as a default when the workflow type is registered. If</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- neither this parameter nor a default execution start-to-close timeout is</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- specified, a fault is returned.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_executionStartToCloseTimeout"><span class="hs-identifier hs-type">startWorkflowExecution_executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span id="startWorkflowExecution_executionStartToCloseTimeout"><span class="annot"><span class="annottext">startWorkflowExecution_executionStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_executionStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_executionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe Text)
+-&gt; (StartWorkflowExecution -&gt; Maybe Text -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359055"><span class="annot"><span class="annottext">Maybe Text
+executionStartToCloseTimeout :: Maybe Text
+$sel:executionStartToCloseTimeout:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679359055"><span class="hs-identifier hs-var hs-var">executionStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359055"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359054"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359053"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionStartToCloseTimeout:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AexecutionStartToCloseTimeout%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | The task list to use for the decision tasks generated for this workflow</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- execution. This overrides the @defaultTaskList@ specified when</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- registering the workflow type.</span><span>
+</span><span id="line-421"></span><span class="hs-comment">--</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- A task list for this workflow execution must be specified either as a</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- default for the workflow type or through this parameter. If neither this</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- parameter is set nor a default task list was specified at registration</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- time then a fault is returned.</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-431"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskList"><span class="hs-identifier hs-type">startWorkflowExecution_taskList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.TaskList.html#TaskList"><span class="hs-identifier hs-type">TaskList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-432"></span><span id="startWorkflowExecution_taskList"><span class="annot"><span class="annottext">startWorkflowExecution_taskList :: (Maybe TaskList -&gt; f (Maybe TaskList))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskList"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_taskList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe TaskList)
+-&gt; (StartWorkflowExecution
+    -&gt; Maybe TaskList -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe TaskList)
+     (Maybe TaskList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359052"><span class="annot"><span class="annottext">Maybe TaskList
+taskList :: Maybe TaskList
+$sel:taskList:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe TaskList
+</span><a href="#local-6989586621679359052"><span class="hs-identifier hs-var hs-var">taskList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679359052"><span class="hs-identifier hs-var">taskList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359051"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359050"><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679359050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskList:StartWorkflowExecution' :: Maybe TaskList
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskList%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">taskList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679359050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-433"></span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- | The task priority to use for this workflow execution. This overrides any</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- default priority that was assigned when the workflow type was</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- registered. If not set, then the default task priority for the workflow</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- type is used. Valid values are integers that range from Java\'s</span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- Higher numbers indicate higher priority.</span><span>
+</span><span id="line-440"></span><span class="hs-comment">--</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- For more information about setting task priority, see</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority&gt;</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-444"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskPriority"><span class="hs-identifier hs-type">startWorkflowExecution_taskPriority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-445"></span><span id="startWorkflowExecution_taskPriority"><span class="annot"><span class="annottext">startWorkflowExecution_taskPriority :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_taskPriority"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_taskPriority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe Text)
+-&gt; (StartWorkflowExecution -&gt; Maybe Text -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359049"><span class="annot"><span class="annottext">Maybe Text
+taskPriority :: Maybe Text
+$sel:taskPriority:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679359049"><span class="hs-identifier hs-var hs-var">taskPriority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359049"><span class="hs-identifier hs-var">taskPriority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359048"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskPriority:StartWorkflowExecution' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AtaskPriority%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">taskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-446"></span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- | If set, specifies the policy to use for the child workflow executions of</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- this workflow execution if it is terminated, by calling the</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- TerminateWorkflowExecution action explicitly or due to an expired</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- timeout. This policy overrides the default child policy specified when</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- registering the workflow type using RegisterWorkflowType.</span><span>
+</span><span id="line-452"></span><span class="hs-comment">--</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- The supported child policies are:</span><span>
+</span><span id="line-454"></span><span class="hs-comment">--</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- -   @TERMINATE@ &#8211; The child executions are terminated.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- -   @REQUEST_CANCEL@ &#8211; A request to cancel is attempted for each child</span><span>
+</span><span id="line-458"></span><span class="hs-comment">--     execution by recording a @WorkflowExecutionCancelRequested@ event in</span><span>
+</span><span id="line-459"></span><span class="hs-comment">--     its history. It is up to the decider to take appropriate actions</span><span>
+</span><span id="line-460"></span><span class="hs-comment">--     when it receives an execution history with this event.</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- -   @ABANDON@ &#8211; No action is taken. The child executions continue to</span><span>
+</span><span id="line-463"></span><span class="hs-comment">--     run.</span><span>
+</span><span id="line-464"></span><span class="hs-comment">--</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- A child policy for this workflow execution must be specified either as a</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- default for the workflow type or through this parameter. If neither this</span><span>
+</span><span id="line-467"></span><span class="hs-comment">-- parameter is set nor a default child policy was specified at</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- registration time then a fault is returned.</span><span>
+</span><span id="line-469"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_childPolicy"><span class="hs-identifier hs-type">startWorkflowExecution_childPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildPolicy.html#ChildPolicy"><span class="hs-identifier hs-type">ChildPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-470"></span><span id="startWorkflowExecution_childPolicy"><span class="annot"><span class="annottext">startWorkflowExecution_childPolicy :: (Maybe ChildPolicy -&gt; f (Maybe ChildPolicy))
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_childPolicy"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_childPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Maybe ChildPolicy)
+-&gt; (StartWorkflowExecution
+    -&gt; Maybe ChildPolicy -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     (Maybe ChildPolicy)
+     (Maybe ChildPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359046"><span class="annot"><span class="annottext">Maybe ChildPolicy
+childPolicy :: Maybe ChildPolicy
+$sel:childPolicy:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe ChildPolicy
+</span><a href="#local-6989586621679359046"><span class="hs-identifier hs-var hs-var">childPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679359046"><span class="hs-identifier hs-var">childPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359045"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359044"><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679359044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childPolicy:StartWorkflowExecution' :: Maybe ChildPolicy
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AchildPolicy%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">childPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679359044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- | The name of the domain in which the workflow execution is created.</span><span>
+</span><span id="line-473"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_domain"><span class="hs-identifier hs-type">startWorkflowExecution_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-474"></span><span id="startWorkflowExecution_domain"><span class="annot"><span class="annottext">startWorkflowExecution_domain :: (Text -&gt; f Text)
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_domain"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Text)
+-&gt; (StartWorkflowExecution -&gt; Text -&gt; StartWorkflowExecution)
+-&gt; Lens StartWorkflowExecution StartWorkflowExecution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359043"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Text
+</span><a href="#local-6989586621679359043"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359043"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359042"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359041"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:StartWorkflowExecution' :: Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3Adomain%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-475"></span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- | The user defined identifier associated with the workflow execution. You</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- can use this to associate a custom identifier with the workflow</span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- execution. You may specify the same identifier if a workflow execution</span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- is logically a /restart/ of a previous execution. You cannot have two</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- open workflow executions with the same @workflowId@ at the same time</span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- within the same domain.</span><span>
+</span><span id="line-482"></span><span class="hs-comment">--</span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-487"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_workflowId"><span class="hs-identifier hs-type">startWorkflowExecution_workflowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-488"></span><span id="startWorkflowExecution_workflowId"><span class="annot"><span class="annottext">startWorkflowExecution_workflowId :: (Text -&gt; f Text)
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_workflowId"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_workflowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; Text)
+-&gt; (StartWorkflowExecution -&gt; Text -&gt; StartWorkflowExecution)
+-&gt; Lens StartWorkflowExecution StartWorkflowExecution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359040"><span class="annot"><span class="annottext">Text
+workflowId :: Text
+$sel:workflowId:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Text
+</span><a href="#local-6989586621679359040"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359040"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359039"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359038"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowId:StartWorkflowExecution' :: Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AworkflowId%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-489"></span><span>
+</span><span id="line-490"></span><span class="hs-comment">-- | The type of the workflow to start.</span><span>
+</span><span id="line-491"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_workflowType"><span class="hs-identifier hs-type">startWorkflowExecution_workflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
+</span><span id="line-492"></span><span id="startWorkflowExecution_workflowType"><span class="annot"><span class="annottext">startWorkflowExecution_workflowType :: (WorkflowType -&gt; f WorkflowType)
+-&gt; StartWorkflowExecution -&gt; f StartWorkflowExecution
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecution_workflowType"><span class="hs-identifier hs-var hs-var">startWorkflowExecution_workflowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecution -&gt; WorkflowType)
+-&gt; (StartWorkflowExecution
+    -&gt; WorkflowType -&gt; StartWorkflowExecution)
+-&gt; Lens
+     StartWorkflowExecution
+     StartWorkflowExecution
+     WorkflowType
+     WorkflowType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359037"><span class="annot"><span class="annottext">WorkflowType
+workflowType :: WorkflowType
+$sel:workflowType:StartWorkflowExecution' :: StartWorkflowExecution -&gt; WorkflowType
+</span><a href="#local-6989586621679359037"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679359037"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359036"><span class="annot"><span class="annottext">s :: StartWorkflowExecution
+</span><a href="#local-6989586621679359036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359035"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679359035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecution
+</span><a href="#local-6989586621679359036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:StartWorkflowExecution' :: WorkflowType
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AworkflowType%3AStartWorkflowExecution%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679359035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-493"></span><span>
+</span><span id="line-494"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-495"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-496"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-497"></span><span>      </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse</span></a></span><span>
+</span><span id="line-498"></span><span>  </span><span id="local-6989586621679359031"><span class="annot"><span class="annottext">request :: StartWorkflowExecution -&gt; Request StartWorkflowExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartWorkflowExecution -&gt; Request StartWorkflowExecution
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SWF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-499"></span><span>  </span><span id="local-6989586621679359027"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartWorkflowExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartWorkflowExecution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-500"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartWorkflowExecution))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartWorkflowExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartWorkflowExecution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-501"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679359024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359024"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679359023"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679359023"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679359022"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679359022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-502"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartWorkflowExecutionResponse
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">StartWorkflowExecutionResponse'</span></a></span><span>
+</span><span id="line-503"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartWorkflowExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartWorkflowExecutionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679359022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;runId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-504"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartWorkflowExecutionResponse)
+-&gt; Either String Int
+-&gt; Either String StartWorkflowExecutionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359024"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-505"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-506"></span><span>
+</span><span id="line-507"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359014"><span id="local-6989586621679359016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span></span></span><span>
+</span><span id="line-508"></span><span>
+</span><span id="line-509"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span></span><span>
+</span><span id="line-510"></span><span>
+</span><span id="line-511"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-512"></span><span>  </span><span id="local-6989586621679359007"><span class="annot"><span class="annottext">toHeaders :: StartWorkflowExecution -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-513"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartWorkflowExecution -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-514"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-515"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-516"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SimpleWorkflowService.StartWorkflowExecution&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-517"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-518"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-519"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-520"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-521"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-522"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-523"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-524"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-525"></span><span>
+</span><span id="line-526"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358997"><span id="local-6989586621679358999"><span id="local-6989586621679359001"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-527"></span><span>  </span><span id="local-6989586621679358995"><span class="annot"><span class="annottext">toJSON :: StartWorkflowExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution%27"><span class="hs-identifier hs-type">StartWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358983"><span id="local-6989586621679358984"><span id="local-6989586621679358985"><span id="local-6989586621679358986"><span id="local-6989586621679358987"><span id="local-6989586621679358988"><span id="local-6989586621679358989"><span id="local-6989586621679358990"><span id="local-6989586621679358991"><span id="local-6989586621679358992"><span id="local-6989586621679358993"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Maybe ChildPolicy
+Maybe TaskList
+Text
+WorkflowType
+workflowType :: WorkflowType
+workflowId :: Text
+domain :: Text
+childPolicy :: Maybe ChildPolicy
+taskPriority :: Maybe Text
+taskList :: Maybe TaskList
+executionStartToCloseTimeout :: Maybe Text
+input :: Maybe Text
+lambdaRole :: Maybe Text
+taskStartToCloseTimeout :: Maybe Text
+tagList :: Maybe [Text]
+$sel:workflowType:StartWorkflowExecution' :: StartWorkflowExecution -&gt; WorkflowType
+$sel:workflowId:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Text
+$sel:domain:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Text
+$sel:childPolicy:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe ChildPolicy
+$sel:taskPriority:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+$sel:taskList:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe TaskList
+$sel:executionStartToCloseTimeout:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+$sel:input:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+$sel:lambdaRole:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+$sel:taskStartToCloseTimeout:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe Text
+$sel:tagList:StartWorkflowExecution' :: StartWorkflowExecution -&gt; Maybe [Text]
+</span><a href="#local-6989586621679358983"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-528"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-529"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-530"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679358993"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-531"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskStartToCloseTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-532"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358992"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-533"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambdaRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358991"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-534"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;input&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358990"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-535"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;executionStartToCloseTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-536"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358989"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-537"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskList -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaskList -&gt; Pair) -&gt; Maybe TaskList -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679358988"><span class="hs-identifier hs-var">taskList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-538"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskPriority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358987"><span class="hs-identifier hs-var">taskPriority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-539"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;childPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChildPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ChildPolicy -&gt; Pair) -&gt; Maybe ChildPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679358986"><span class="hs-identifier hs-var">childPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-540"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358985"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-541"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358984"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-542"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WorkflowType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679358983"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-543"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-544"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-545"></span><span>
+</span><span id="line-546"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-547"></span><span>  </span><span id="local-6989586621679358977"><span class="annot"><span class="annottext">toPath :: StartWorkflowExecution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartWorkflowExecution -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-548"></span><span>
+</span><span id="line-549"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecution"><span class="hs-identifier hs-type">StartWorkflowExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-550"></span><span>  </span><span id="local-6989586621679358973"><span class="annot"><span class="annottext">toQuery :: StartWorkflowExecution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartWorkflowExecution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-551"></span><span>
+</span><span id="line-552"></span><span class="hs-comment">-- | Specifies the @runId@ of a workflow execution.</span><span>
+</span><span id="line-553"></span><span class="hs-comment">--</span><span>
+</span><span id="line-554"></span><span class="hs-comment">-- /See:/ 'newStartWorkflowExecutionResponse' smart constructor.</span><span>
+</span><span id="line-555"></span><span id="local-6989586621679358970"><span id="local-6989586621679358971"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartWorkflowExecutionResponse"><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-var">StartWorkflowExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartWorkflowExecutionResponse%27"><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">StartWorkflowExecutionResponse'</span></a></span></span><span>
+</span><span id="line-556"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @runId@ of a workflow execution. This ID is generated by the service</span><span>
+</span><span id="line-557"></span><span>    </span><span class="hs-comment">-- and can be used to uniquely identify the workflow execution within a</span><span>
+</span><span id="line-558"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-559"></span><span>    </span><span id="%24sel%3ArunId%3AStartWorkflowExecutionResponse%27"><span class="annot"><span class="annottext">StartWorkflowExecutionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3ArunId%3AStartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-560"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-561"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartWorkflowExecutionResponse%27"><span class="annot"><span class="annottext">StartWorkflowExecutionResponse -&gt; Int
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AhttpStatus%3AStartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-562"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-563"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358964"><span id="local-6989586621679358966"><span class="annot"><span class="annottext">StartWorkflowExecutionResponse
+-&gt; StartWorkflowExecutionResponse -&gt; Bool
+(StartWorkflowExecutionResponse
+ -&gt; StartWorkflowExecutionResponse -&gt; Bool)
+-&gt; (StartWorkflowExecutionResponse
+    -&gt; StartWorkflowExecutionResponse -&gt; Bool)
+-&gt; Eq StartWorkflowExecutionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartWorkflowExecutionResponse
+-&gt; StartWorkflowExecutionResponse -&gt; Bool
+$c/= :: StartWorkflowExecutionResponse
+-&gt; StartWorkflowExecutionResponse -&gt; Bool
+== :: StartWorkflowExecutionResponse
+-&gt; StartWorkflowExecutionResponse -&gt; Bool
+$c== :: StartWorkflowExecutionResponse
+-&gt; StartWorkflowExecutionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358956"><span id="local-6989586621679358958"><span id="local-6989586621679358960"><span id="local-6989586621679358962"><span class="annot"><span class="annottext">ReadPrec [StartWorkflowExecutionResponse]
+ReadPrec StartWorkflowExecutionResponse
+Int -&gt; ReadS StartWorkflowExecutionResponse
+ReadS [StartWorkflowExecutionResponse]
+(Int -&gt; ReadS StartWorkflowExecutionResponse)
+-&gt; ReadS [StartWorkflowExecutionResponse]
+-&gt; ReadPrec StartWorkflowExecutionResponse
+-&gt; ReadPrec [StartWorkflowExecutionResponse]
+-&gt; Read StartWorkflowExecutionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartWorkflowExecutionResponse]
+$creadListPrec :: ReadPrec [StartWorkflowExecutionResponse]
+readPrec :: ReadPrec StartWorkflowExecutionResponse
+$creadPrec :: ReadPrec StartWorkflowExecutionResponse
+readList :: ReadS [StartWorkflowExecutionResponse]
+$creadList :: ReadS [StartWorkflowExecutionResponse]
+readsPrec :: Int -&gt; ReadS StartWorkflowExecutionResponse
+$creadsPrec :: Int -&gt; ReadS StartWorkflowExecutionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358950"><span id="local-6989586621679358952"><span id="local-6989586621679358954"><span class="annot"><span class="annottext">Int -&gt; StartWorkflowExecutionResponse -&gt; ShowS
+[StartWorkflowExecutionResponse] -&gt; ShowS
+StartWorkflowExecutionResponse -&gt; String
+(Int -&gt; StartWorkflowExecutionResponse -&gt; ShowS)
+-&gt; (StartWorkflowExecutionResponse -&gt; String)
+-&gt; ([StartWorkflowExecutionResponse] -&gt; ShowS)
+-&gt; Show StartWorkflowExecutionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartWorkflowExecutionResponse] -&gt; ShowS
+$cshowList :: [StartWorkflowExecutionResponse] -&gt; ShowS
+show :: StartWorkflowExecutionResponse -&gt; String
+$cshow :: StartWorkflowExecutionResponse -&gt; String
+showsPrec :: Int -&gt; StartWorkflowExecutionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartWorkflowExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartWorkflowExecutionResponse
+ -&gt; Rep StartWorkflowExecutionResponse x)
+-&gt; (forall x.
+    Rep StartWorkflowExecutionResponse x
+    -&gt; StartWorkflowExecutionResponse)
+-&gt; Generic StartWorkflowExecutionResponse
+forall x.
+Rep StartWorkflowExecutionResponse x
+-&gt; StartWorkflowExecutionResponse
+forall x.
+StartWorkflowExecutionResponse
+-&gt; Rep StartWorkflowExecutionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartWorkflowExecutionResponse x
+-&gt; StartWorkflowExecutionResponse
+$cfrom :: forall x.
+StartWorkflowExecutionResponse
+-&gt; Rep StartWorkflowExecutionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-564"></span><span>
+</span><span id="line-565"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-566"></span><span class="hs-comment">-- Create a value of 'StartWorkflowExecutionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-567"></span><span class="hs-comment">--</span><span>
+</span><span id="line-568"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-569"></span><span class="hs-comment">--</span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-571"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-572"></span><span class="hs-comment">--</span><span>
+</span><span id="line-573"></span><span class="hs-comment">-- 'runId', 'startWorkflowExecutionResponse_runId' - The @runId@ of a workflow execution. This ID is generated by the service</span><span>
+</span><span id="line-574"></span><span class="hs-comment">-- and can be used to uniquely identify the workflow execution within a</span><span>
+</span><span id="line-575"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-576"></span><span class="hs-comment">--</span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- 'httpStatus', 'startWorkflowExecutionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-578"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#newStartWorkflowExecutionResponse"><span class="hs-identifier hs-type">newStartWorkflowExecutionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-579"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-580"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-581"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse</span></a></span><span>
+</span><span id="line-582"></span><span id="newStartWorkflowExecutionResponse"><span class="annot"><span class="annottext">newStartWorkflowExecutionResponse :: Int -&gt; StartWorkflowExecutionResponse
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#newStartWorkflowExecutionResponse"><span class="hs-identifier hs-var hs-var">newStartWorkflowExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679358947"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-583"></span><span>  </span><span class="annot"><span class="annottext">StartWorkflowExecutionResponse' :: Maybe Text -&gt; Int -&gt; StartWorkflowExecutionResponse
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse%27"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse'</span></a></span><span>
+</span><span id="line-584"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runId:StartWorkflowExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3ArunId%3AStartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-585"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-586"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartWorkflowExecutionResponse' :: Int
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AhttpStatus%3AStartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-587"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-588"></span><span>
+</span><span id="line-589"></span><span class="hs-comment">-- | The @runId@ of a workflow execution. This ID is generated by the service</span><span>
+</span><span id="line-590"></span><span class="hs-comment">-- and can be used to uniquely identify the workflow execution within a</span><span>
+</span><span id="line-591"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-592"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecutionResponse_runId"><span class="hs-identifier hs-type">startWorkflowExecutionResponse_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-593"></span><span id="startWorkflowExecutionResponse_runId"><span class="annot"><span class="annottext">startWorkflowExecutionResponse_runId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartWorkflowExecutionResponse
+-&gt; f StartWorkflowExecutionResponse
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecutionResponse_runId"><span class="hs-identifier hs-var hs-var">startWorkflowExecutionResponse_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecutionResponse -&gt; Maybe Text)
+-&gt; (StartWorkflowExecutionResponse
+    -&gt; Maybe Text -&gt; StartWorkflowExecutionResponse)
+-&gt; Lens
+     StartWorkflowExecutionResponse
+     StartWorkflowExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse%27"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358946"><span class="annot"><span class="annottext">Maybe Text
+runId :: Maybe Text
+$sel:runId:StartWorkflowExecutionResponse' :: StartWorkflowExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679358946"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358946"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358945"><span class="annot"><span class="annottext">s :: StartWorkflowExecutionResponse
+</span><a href="#local-6989586621679358945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse%27"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecutionResponse
+</span><a href="#local-6989586621679358945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:StartWorkflowExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3ArunId%3AStartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-594"></span><span>
+</span><span id="line-595"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-596"></span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecutionResponse_httpStatus"><span class="hs-identifier hs-type">startWorkflowExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-597"></span><span id="startWorkflowExecutionResponse_httpStatus"><span class="annot"><span class="annottext">startWorkflowExecutionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartWorkflowExecutionResponse
+-&gt; f StartWorkflowExecutionResponse
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#startWorkflowExecutionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startWorkflowExecutionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkflowExecutionResponse -&gt; Int)
+-&gt; (StartWorkflowExecutionResponse
+    -&gt; Int -&gt; StartWorkflowExecutionResponse)
+-&gt; Lens
+     StartWorkflowExecutionResponse
+     StartWorkflowExecutionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse%27"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358943"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartWorkflowExecutionResponse' :: StartWorkflowExecutionResponse -&gt; Int
+</span><a href="#local-6989586621679358943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358942"><span class="annot"><span class="annottext">s :: StartWorkflowExecutionResponse
+</span><a href="#local-6989586621679358942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse%27"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkflowExecutionResponse
+</span><a href="#local-6989586621679358942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartWorkflowExecutionResponse' :: Int
+</span><a href="Amazonka.SWF.StartWorkflowExecution.html#%24sel%3AhttpStatus%3AStartWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-598"></span><span>
+</span><span id="line-599"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-600"></span><span>  </span><span id="local-6989586621679358939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-601"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.StartWorkflowExecution.html#StartWorkflowExecutionResponse"><span class="hs-identifier hs-type">StartWorkflowExecutionResponse</span></a></span></span><span>
+</span><span id="line-602"></span></pre></body></html>

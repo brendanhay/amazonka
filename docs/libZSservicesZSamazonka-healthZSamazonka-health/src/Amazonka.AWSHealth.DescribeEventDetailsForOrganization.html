@@ -1,0 +1,775 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AWSHealth.DescribeEventDetailsForOrganization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns detailed information about one or more specified events for one</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- or more AWS accounts in your organization. This information includes</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- standard event data (such as the AWS Region and service), an event</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- description, and (depending on the event) possible metadata. This</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- operation doesn\'t return affected entities, such as the resources</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- related to the event. To return affected entities, use the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html DescribeAffectedEntitiesForOrganization&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Before you can call this operation, you must first enable AWS Health to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- work with AWS Organizations. To do this, call the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- operation from your organization\'s management account.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- When you call the @DescribeEventDetailsForOrganization@ operation,</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- specify the @organizationEventDetailFilters@ object in the request.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Depending on the AWS Health event type, note the following differences:</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   To return event details for a public event, you must specify a null</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     value for the @awsAccountId@ parameter. If you specify an account ID</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     for a public event, AWS Health returns an error message because</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     public events aren\'t specific to an account.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- -   To return event details for an event that is specific to an account</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     in your organization, you must specify the @awsAccountId@ parameter</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     in the request. If you don\'t specify an account ID, AWS Health</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     returns an error message because the event is specific to an account</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     in your organization.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event&gt;.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- This operation doesn\'t support resource-level permissions. You can\'t</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- use this operation to allow or deny access to specific AWS Health</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- events. For more information, see</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions Resource- and action-based conditions&gt;</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- in the /AWS Health User Guide/.</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AWSHealth.DescribeEventDetailsForOrganization</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier">DescribeEventDetailsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#newDescribeEventDetailsForOrganization"><span class="hs-identifier">newDescribeEventDetailsForOrganization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganization_locale"><span class="hs-identifier">describeEventDetailsForOrganization_locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganization_organizationEventDetailFilters"><span class="hs-identifier">describeEventDetailsForOrganization_organizationEventDetailFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier">DescribeEventDetailsForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#newDescribeEventDetailsForOrganizationResponse"><span class="hs-identifier">newDescribeEventDetailsForOrganizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_successfulSet"><span class="hs-identifier">describeEventDetailsForOrganizationResponse_successfulSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_failedSet"><span class="hs-identifier">describeEventDetailsForOrganizationResponse_failedSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_httpStatus"><span class="hs-identifier">describeEventDetailsForOrganizationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.html"><span class="hs-identifier">Amazonka.AWSHealth.Types</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventDetailsForOrganization' smart constructor.</span><span>
+</span><span id="line-88"></span><span id="local-6989586621679190358"><span id="local-6989586621679190359"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventDetailsForOrganization"><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-var">DescribeEventDetailsForOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventDetailsForOrganization%27"><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-var">DescribeEventDetailsForOrganization'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Alocale%3ADescribeEventDetailsForOrganization%27"><span class="annot"><span class="annottext">DescribeEventDetailsForOrganization -&gt; Maybe Text
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3Alocale%3ADescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | A set of JSON elements that includes the @awsAccountId@ and the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- @eventArn@.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AorganizationEventDetailFilters%3ADescribeEventDetailsForOrganization%27"><span class="annot"><span class="annottext">DescribeEventDetailsForOrganization -&gt; NonEmpty EventAccountFilter
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AorganizationEventDetailFilters%3ADescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-var hs-var">organizationEventDetailFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190351"><span id="local-6989586621679190353"><span class="annot"><span class="annottext">DescribeEventDetailsForOrganization
+-&gt; DescribeEventDetailsForOrganization -&gt; Bool
+(DescribeEventDetailsForOrganization
+ -&gt; DescribeEventDetailsForOrganization -&gt; Bool)
+-&gt; (DescribeEventDetailsForOrganization
+    -&gt; DescribeEventDetailsForOrganization -&gt; Bool)
+-&gt; Eq DescribeEventDetailsForOrganization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventDetailsForOrganization
+-&gt; DescribeEventDetailsForOrganization -&gt; Bool
+$c/= :: DescribeEventDetailsForOrganization
+-&gt; DescribeEventDetailsForOrganization -&gt; Bool
+== :: DescribeEventDetailsForOrganization
+-&gt; DescribeEventDetailsForOrganization -&gt; Bool
+$c== :: DescribeEventDetailsForOrganization
+-&gt; DescribeEventDetailsForOrganization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190342"><span id="local-6989586621679190344"><span id="local-6989586621679190346"><span id="local-6989586621679190348"><span class="annot"><span class="annottext">ReadPrec [DescribeEventDetailsForOrganization]
+ReadPrec DescribeEventDetailsForOrganization
+Int -&gt; ReadS DescribeEventDetailsForOrganization
+ReadS [DescribeEventDetailsForOrganization]
+(Int -&gt; ReadS DescribeEventDetailsForOrganization)
+-&gt; ReadS [DescribeEventDetailsForOrganization]
+-&gt; ReadPrec DescribeEventDetailsForOrganization
+-&gt; ReadPrec [DescribeEventDetailsForOrganization]
+-&gt; Read DescribeEventDetailsForOrganization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventDetailsForOrganization]
+$creadListPrec :: ReadPrec [DescribeEventDetailsForOrganization]
+readPrec :: ReadPrec DescribeEventDetailsForOrganization
+$creadPrec :: ReadPrec DescribeEventDetailsForOrganization
+readList :: ReadS [DescribeEventDetailsForOrganization]
+$creadList :: ReadS [DescribeEventDetailsForOrganization]
+readsPrec :: Int -&gt; ReadS DescribeEventDetailsForOrganization
+$creadsPrec :: Int -&gt; ReadS DescribeEventDetailsForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190335"><span id="local-6989586621679190337"><span id="local-6989586621679190339"><span class="annot"><span class="annottext">Int -&gt; DescribeEventDetailsForOrganization -&gt; ShowS
+[DescribeEventDetailsForOrganization] -&gt; ShowS
+DescribeEventDetailsForOrganization -&gt; String
+(Int -&gt; DescribeEventDetailsForOrganization -&gt; ShowS)
+-&gt; (DescribeEventDetailsForOrganization -&gt; String)
+-&gt; ([DescribeEventDetailsForOrganization] -&gt; ShowS)
+-&gt; Show DescribeEventDetailsForOrganization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventDetailsForOrganization] -&gt; ShowS
+$cshowList :: [DescribeEventDetailsForOrganization] -&gt; ShowS
+show :: DescribeEventDetailsForOrganization -&gt; String
+$cshow :: DescribeEventDetailsForOrganization -&gt; String
+showsPrec :: Int -&gt; DescribeEventDetailsForOrganization -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventDetailsForOrganization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventDetailsForOrganization
+ -&gt; Rep DescribeEventDetailsForOrganization x)
+-&gt; (forall x.
+    Rep DescribeEventDetailsForOrganization x
+    -&gt; DescribeEventDetailsForOrganization)
+-&gt; Generic DescribeEventDetailsForOrganization
+forall x.
+Rep DescribeEventDetailsForOrganization x
+-&gt; DescribeEventDetailsForOrganization
+forall x.
+DescribeEventDetailsForOrganization
+-&gt; Rep DescribeEventDetailsForOrganization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEventDetailsForOrganization x
+-&gt; DescribeEventDetailsForOrganization
+$cfrom :: forall x.
+DescribeEventDetailsForOrganization
+-&gt; Rep DescribeEventDetailsForOrganization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'DescribeEventDetailsForOrganization' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'locale', 'describeEventDetailsForOrganization_locale' - The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'organizationEventDetailFilters', 'describeEventDetailsForOrganization_organizationEventDetailFilters' - A set of JSON elements that includes the @awsAccountId@ and the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @eventArn@.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#newDescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">newDescribeEventDetailsForOrganization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'organizationEventDetailFilters'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span>
+</span><span id="line-115"></span><span id="newDescribeEventDetailsForOrganization"><span class="annot"><span class="annottext">newDescribeEventDetailsForOrganization :: NonEmpty EventAccountFilter -&gt; DescribeEventDetailsForOrganization
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#newDescribeEventDetailsForOrganization"><span class="hs-identifier hs-var hs-var">newDescribeEventDetailsForOrganization</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679190330"><span class="annot"><span class="annottext">NonEmpty EventAccountFilter
+</span><a href="#local-6989586621679190330"><span class="hs-identifier hs-var">pOrganizationEventDetailFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">DescribeEventDetailsForOrganization' :: Maybe Text
+-&gt; NonEmpty EventAccountFilter
+-&gt; DescribeEventDetailsForOrganization
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization'</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:locale:DescribeEventDetailsForOrganization' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3Alocale%3ADescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationEventDetailFilters:DescribeEventDetailsForOrganization' :: NonEmpty EventAccountFilter
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AorganizationEventDetailFilters%3ADescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-var">organizationEventDetailFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty EventAccountFilter)
+  (Identity (NonEmpty EventAccountFilter))
+-&gt; Tagged
+     (NonEmpty EventAccountFilter)
+     (Identity (NonEmpty EventAccountFilter))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty EventAccountFilter)
+   (Identity (NonEmpty EventAccountFilter))
+ -&gt; Tagged
+      (NonEmpty EventAccountFilter)
+      (Identity (NonEmpty EventAccountFilter)))
+-&gt; NonEmpty EventAccountFilter -&gt; NonEmpty EventAccountFilter
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty EventAccountFilter
+</span><a href="#local-6989586621679190330"><span class="hs-identifier hs-var">pOrganizationEventDetailFilters_</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganization_locale"><span class="hs-identifier hs-type">describeEventDetailsForOrganization_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="describeEventDetailsForOrganization_locale"><span class="annot"><span class="annottext">describeEventDetailsForOrganization_locale :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEventDetailsForOrganization
+-&gt; f DescribeEventDetailsForOrganization
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganization_locale"><span class="hs-identifier hs-var hs-var">describeEventDetailsForOrganization_locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventDetailsForOrganization -&gt; Maybe Text)
+-&gt; (DescribeEventDetailsForOrganization
+    -&gt; Maybe Text -&gt; DescribeEventDetailsForOrganization)
+-&gt; Lens
+     DescribeEventDetailsForOrganization
+     DescribeEventDetailsForOrganization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190325"><span class="annot"><span class="annottext">Maybe Text
+locale :: Maybe Text
+$sel:locale:DescribeEventDetailsForOrganization' :: DescribeEventDetailsForOrganization -&gt; Maybe Text
+</span><a href="#local-6989586621679190325"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190325"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190324"><span class="annot"><span class="annottext">s :: DescribeEventDetailsForOrganization
+</span><a href="#local-6989586621679190324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventDetailsForOrganization
+</span><a href="#local-6989586621679190324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeEventDetailsForOrganization' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3Alocale%3ADescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A set of JSON elements that includes the @awsAccountId@ and the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @eventArn@.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganization_organizationEventDetailFilters"><span class="hs-identifier hs-type">describeEventDetailsForOrganization_organizationEventDetailFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="describeEventDetailsForOrganization_organizationEventDetailFilters"><span class="annot"><span class="annottext">describeEventDetailsForOrganization_organizationEventDetailFilters :: (NonEmpty EventAccountFilter -&gt; f (NonEmpty EventAccountFilter))
+-&gt; DescribeEventDetailsForOrganization
+-&gt; f DescribeEventDetailsForOrganization
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganization_organizationEventDetailFilters"><span class="hs-identifier hs-var hs-var">describeEventDetailsForOrganization_organizationEventDetailFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventDetailsForOrganization
+ -&gt; NonEmpty EventAccountFilter)
+-&gt; (DescribeEventDetailsForOrganization
+    -&gt; NonEmpty EventAccountFilter
+    -&gt; DescribeEventDetailsForOrganization)
+-&gt; Lens
+     DescribeEventDetailsForOrganization
+     DescribeEventDetailsForOrganization
+     (NonEmpty EventAccountFilter)
+     (NonEmpty EventAccountFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190322"><span class="annot"><span class="annottext">NonEmpty EventAccountFilter
+organizationEventDetailFilters :: NonEmpty EventAccountFilter
+$sel:organizationEventDetailFilters:DescribeEventDetailsForOrganization' :: DescribeEventDetailsForOrganization -&gt; NonEmpty EventAccountFilter
+</span><a href="#local-6989586621679190322"><span class="hs-identifier hs-var hs-var">organizationEventDetailFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty EventAccountFilter
+</span><a href="#local-6989586621679190322"><span class="hs-identifier hs-var">organizationEventDetailFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190321"><span class="annot"><span class="annottext">s :: DescribeEventDetailsForOrganization
+</span><a href="#local-6989586621679190321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190320"><span class="annot"><span class="annottext">NonEmpty EventAccountFilter
+</span><a href="#local-6989586621679190320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventDetailsForOrganization
+</span><a href="#local-6989586621679190321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationEventDetailFilters:DescribeEventDetailsForOrganization' :: NonEmpty EventAccountFilter
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AorganizationEventDetailFilters%3ADescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-var">organizationEventDetailFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty EventAccountFilter
+</span><a href="#local-6989586621679190320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty EventAccountFilter -&gt; f (NonEmpty EventAccountFilter))
+ -&gt; DescribeEventDetailsForOrganization
+ -&gt; f DescribeEventDetailsForOrganization)
+-&gt; ((NonEmpty EventAccountFilter
+     -&gt; f (NonEmpty EventAccountFilter))
+    -&gt; NonEmpty EventAccountFilter -&gt; f (NonEmpty EventAccountFilter))
+-&gt; (NonEmpty EventAccountFilter -&gt; f (NonEmpty EventAccountFilter))
+-&gt; DescribeEventDetailsForOrganization
+-&gt; f DescribeEventDetailsForOrganization
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty EventAccountFilter -&gt; f (NonEmpty EventAccountFilter))
+-&gt; NonEmpty EventAccountFilter -&gt; f (NonEmpty EventAccountFilter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679190315"><span class="annot"><span class="annottext">request :: DescribeEventDetailsForOrganization
+-&gt; Request DescribeEventDetailsForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeEventDetailsForOrganization
+-&gt; Request DescribeEventDetailsForOrganization
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AWSHealth.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679190311"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEventDetailsForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeEventDetailsForOrganization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeEventDetailsForOrganization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEventDetailsForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeEventDetailsForOrganization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679190307"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679190307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679190306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetails]
+-&gt; Maybe [OrganizationEventDetailsErrorItem]
+-&gt; Int
+-&gt; DescribeEventDetailsForOrganizationResponse
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">DescribeEventDetailsForOrganizationResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [OrganizationEventDetails]
+ -&gt; Maybe [OrganizationEventDetailsErrorItem]
+ -&gt; Int
+ -&gt; DescribeEventDetailsForOrganizationResponse)
+-&gt; Either String (Maybe [OrganizationEventDetails])
+-&gt; Either
+     String
+     (Maybe [OrganizationEventDetailsErrorItem]
+      -&gt; Int -&gt; DescribeEventDetailsForOrganizationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [OrganizationEventDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;successfulSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OrganizationEventDetails]))
+-&gt; Maybe [OrganizationEventDetails]
+-&gt; Either String (Maybe [OrganizationEventDetails])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [OrganizationEventDetailsErrorItem]
+   -&gt; Int -&gt; DescribeEventDetailsForOrganizationResponse)
+-&gt; Either String (Maybe [OrganizationEventDetailsErrorItem])
+-&gt; Either
+     String (Int -&gt; DescribeEventDetailsForOrganizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe [OrganizationEventDetailsErrorItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failedSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OrganizationEventDetailsErrorItem]))
+-&gt; Maybe [OrganizationEventDetailsErrorItem]
+-&gt; Either String (Maybe [OrganizationEventDetailsErrorItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetailsErrorItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeEventDetailsForOrganizationResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeEventDetailsForOrganizationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190308"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679190297"><span id="local-6989586621679190299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679190294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679190290"><span class="annot"><span class="annottext">toHeaders :: DescribeEventDetailsForOrganization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeEventDetailsForOrganization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHealth_20160804.DescribeEventDetailsForOrganization&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-170"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-174"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679190280"><span id="local-6989586621679190282"><span id="local-6989586621679190284"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span></span></span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679190278"><span class="annot"><span class="annottext">toJSON :: DescribeEventDetailsForOrganization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190275"><span id="local-6989586621679190276"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty EventAccountFilter
+organizationEventDetailFilters :: NonEmpty EventAccountFilter
+locale :: Maybe Text
+$sel:organizationEventDetailFilters:DescribeEventDetailsForOrganization' :: DescribeEventDetailsForOrganization -&gt; NonEmpty EventAccountFilter
+$sel:locale:DescribeEventDetailsForOrganization' :: DescribeEventDetailsForOrganization -&gt; Maybe Text
+</span><a href="#local-6989586621679190275"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;locale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190276"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;organizationEventDetailFilters&quot;</span></span><span>
+</span><span id="line-188"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty EventAccountFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty EventAccountFilter
+</span><a href="#local-6989586621679190275"><span class="hs-identifier hs-var">organizationEventDetailFilters</span></a></span><span>
+</span><span id="line-189"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679190269"><span class="annot"><span class="annottext">toPath :: DescribeEventDetailsForOrganization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventDetailsForOrganization -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganization"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganization</span></a></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679190265"><span class="annot"><span class="annottext">toQuery :: DescribeEventDetailsForOrganization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEventDetailsForOrganization -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventDetailsForOrganizationResponse' smart constructor.</span><span>
+</span><span id="line-206"></span><span id="local-6989586621679190262"><span id="local-6989586621679190263"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventDetailsForOrganizationResponse"><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-var">DescribeEventDetailsForOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventDetailsForOrganizationResponse%27"><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">DescribeEventDetailsForOrganizationResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the events that could be retrieved.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AsuccessfulSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse
+-&gt; Maybe [OrganizationEventDetails]
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AsuccessfulSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">successfulSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AWSHealth.Types.OrganizationEventDetails.html#OrganizationEventDetails"><span class="hs-identifier hs-type">OrganizationEventDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | Error messages for any events that could not be retrieved.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AfailedSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse
+-&gt; Maybe [OrganizationEventDetailsErrorItem]
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AfailedSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">failedSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventDetailsForOrganizationResponse%27"><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse -&gt; Int
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AhttpStatus%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190255"><span id="local-6989586621679190257"><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse
+-&gt; DescribeEventDetailsForOrganizationResponse -&gt; Bool
+(DescribeEventDetailsForOrganizationResponse
+ -&gt; DescribeEventDetailsForOrganizationResponse -&gt; Bool)
+-&gt; (DescribeEventDetailsForOrganizationResponse
+    -&gt; DescribeEventDetailsForOrganizationResponse -&gt; Bool)
+-&gt; Eq DescribeEventDetailsForOrganizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventDetailsForOrganizationResponse
+-&gt; DescribeEventDetailsForOrganizationResponse -&gt; Bool
+$c/= :: DescribeEventDetailsForOrganizationResponse
+-&gt; DescribeEventDetailsForOrganizationResponse -&gt; Bool
+== :: DescribeEventDetailsForOrganizationResponse
+-&gt; DescribeEventDetailsForOrganizationResponse -&gt; Bool
+$c== :: DescribeEventDetailsForOrganizationResponse
+-&gt; DescribeEventDetailsForOrganizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190247"><span id="local-6989586621679190249"><span id="local-6989586621679190251"><span id="local-6989586621679190253"><span class="annot"><span class="annottext">ReadPrec [DescribeEventDetailsForOrganizationResponse]
+ReadPrec DescribeEventDetailsForOrganizationResponse
+Int -&gt; ReadS DescribeEventDetailsForOrganizationResponse
+ReadS [DescribeEventDetailsForOrganizationResponse]
+(Int -&gt; ReadS DescribeEventDetailsForOrganizationResponse)
+-&gt; ReadS [DescribeEventDetailsForOrganizationResponse]
+-&gt; ReadPrec DescribeEventDetailsForOrganizationResponse
+-&gt; ReadPrec [DescribeEventDetailsForOrganizationResponse]
+-&gt; Read DescribeEventDetailsForOrganizationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventDetailsForOrganizationResponse]
+$creadListPrec :: ReadPrec [DescribeEventDetailsForOrganizationResponse]
+readPrec :: ReadPrec DescribeEventDetailsForOrganizationResponse
+$creadPrec :: ReadPrec DescribeEventDetailsForOrganizationResponse
+readList :: ReadS [DescribeEventDetailsForOrganizationResponse]
+$creadList :: ReadS [DescribeEventDetailsForOrganizationResponse]
+readsPrec :: Int -&gt; ReadS DescribeEventDetailsForOrganizationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEventDetailsForOrganizationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190241"><span id="local-6989586621679190243"><span id="local-6989586621679190245"><span class="annot"><span class="annottext">Int -&gt; DescribeEventDetailsForOrganizationResponse -&gt; ShowS
+[DescribeEventDetailsForOrganizationResponse] -&gt; ShowS
+DescribeEventDetailsForOrganizationResponse -&gt; String
+(Int -&gt; DescribeEventDetailsForOrganizationResponse -&gt; ShowS)
+-&gt; (DescribeEventDetailsForOrganizationResponse -&gt; String)
+-&gt; ([DescribeEventDetailsForOrganizationResponse] -&gt; ShowS)
+-&gt; Show DescribeEventDetailsForOrganizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventDetailsForOrganizationResponse] -&gt; ShowS
+$cshowList :: [DescribeEventDetailsForOrganizationResponse] -&gt; ShowS
+show :: DescribeEventDetailsForOrganizationResponse -&gt; String
+$cshow :: DescribeEventDetailsForOrganizationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEventDetailsForOrganizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventDetailsForOrganizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventDetailsForOrganizationResponse
+ -&gt; Rep DescribeEventDetailsForOrganizationResponse x)
+-&gt; (forall x.
+    Rep DescribeEventDetailsForOrganizationResponse x
+    -&gt; DescribeEventDetailsForOrganizationResponse)
+-&gt; Generic DescribeEventDetailsForOrganizationResponse
+forall x.
+Rep DescribeEventDetailsForOrganizationResponse x
+-&gt; DescribeEventDetailsForOrganizationResponse
+forall x.
+DescribeEventDetailsForOrganizationResponse
+-&gt; Rep DescribeEventDetailsForOrganizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEventDetailsForOrganizationResponse x
+-&gt; DescribeEventDetailsForOrganizationResponse
+$cfrom :: forall x.
+DescribeEventDetailsForOrganizationResponse
+-&gt; Rep DescribeEventDetailsForOrganizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Create a value of 'DescribeEventDetailsForOrganizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'successfulSet', 'describeEventDetailsForOrganizationResponse_successfulSet' - Information about the events that could be retrieved.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'failedSet', 'describeEventDetailsForOrganizationResponse_failedSet' - Error messages for any events that could not be retrieved.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'describeEventDetailsForOrganizationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#newDescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">newDescribeEventDetailsForOrganizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newDescribeEventDetailsForOrganizationResponse"><span class="annot"><span class="annottext">newDescribeEventDetailsForOrganizationResponse :: Int -&gt; DescribeEventDetailsForOrganizationResponse
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#newDescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventDetailsForOrganizationResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679190238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse' :: Maybe [OrganizationEventDetails]
+-&gt; Maybe [OrganizationEventDetailsErrorItem]
+-&gt; Int
+-&gt; DescribeEventDetailsForOrganizationResponse
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse'</span></a></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:successfulSet:DescribeEventDetailsForOrganizationResponse' :: Maybe [OrganizationEventDetails]
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AsuccessfulSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">successfulSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:failedSet:DescribeEventDetailsForOrganizationResponse' :: Maybe [OrganizationEventDetailsErrorItem]
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AfailedSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">failedSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetailsErrorItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventDetailsForOrganizationResponse' :: Int
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AhttpStatus%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Information about the events that could be retrieved.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_successfulSet"><span class="hs-identifier hs-type">describeEventDetailsForOrganizationResponse_successfulSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AWSHealth.Types.OrganizationEventDetails.html#OrganizationEventDetails"><span class="hs-identifier hs-type">OrganizationEventDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="describeEventDetailsForOrganizationResponse_successfulSet"><span class="annot"><span class="annottext">describeEventDetailsForOrganizationResponse_successfulSet :: (Maybe [OrganizationEventDetails]
+ -&gt; f (Maybe [OrganizationEventDetails]))
+-&gt; DescribeEventDetailsForOrganizationResponse
+-&gt; f DescribeEventDetailsForOrganizationResponse
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_successfulSet"><span class="hs-identifier hs-var hs-var">describeEventDetailsForOrganizationResponse_successfulSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventDetailsForOrganizationResponse
+ -&gt; Maybe [OrganizationEventDetails])
+-&gt; (DescribeEventDetailsForOrganizationResponse
+    -&gt; Maybe [OrganizationEventDetails]
+    -&gt; DescribeEventDetailsForOrganizationResponse)
+-&gt; Lens
+     DescribeEventDetailsForOrganizationResponse
+     DescribeEventDetailsForOrganizationResponse
+     (Maybe [OrganizationEventDetails])
+     (Maybe [OrganizationEventDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190237"><span class="annot"><span class="annottext">Maybe [OrganizationEventDetails]
+successfulSet :: Maybe [OrganizationEventDetails]
+$sel:successfulSet:DescribeEventDetailsForOrganizationResponse' :: DescribeEventDetailsForOrganizationResponse
+-&gt; Maybe [OrganizationEventDetails]
+</span><a href="#local-6989586621679190237"><span class="hs-identifier hs-var hs-var">successfulSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetails]
+</span><a href="#local-6989586621679190237"><span class="hs-identifier hs-var">successfulSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190236"><span class="annot"><span class="annottext">s :: DescribeEventDetailsForOrganizationResponse
+</span><a href="#local-6989586621679190236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190235"><span class="annot"><span class="annottext">Maybe [OrganizationEventDetails]
+</span><a href="#local-6989586621679190235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse
+</span><a href="#local-6989586621679190236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulSet:DescribeEventDetailsForOrganizationResponse' :: Maybe [OrganizationEventDetails]
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AsuccessfulSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">successfulSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetails]
+</span><a href="#local-6989586621679190235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OrganizationEventDetails]
+  -&gt; f (Maybe [OrganizationEventDetails]))
+ -&gt; DescribeEventDetailsForOrganizationResponse
+ -&gt; f DescribeEventDetailsForOrganizationResponse)
+-&gt; ((Maybe [OrganizationEventDetails]
+     -&gt; f (Maybe [OrganizationEventDetails]))
+    -&gt; Maybe [OrganizationEventDetails]
+    -&gt; f (Maybe [OrganizationEventDetails]))
+-&gt; (Maybe [OrganizationEventDetails]
+    -&gt; f (Maybe [OrganizationEventDetails]))
+-&gt; DescribeEventDetailsForOrganizationResponse
+-&gt; f DescribeEventDetailsForOrganizationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OrganizationEventDetails]
+  [OrganizationEventDetails]
+  [OrganizationEventDetails]
+  [OrganizationEventDetails]
+-&gt; Iso
+     (Maybe [OrganizationEventDetails])
+     (Maybe [OrganizationEventDetails])
+     (Maybe [OrganizationEventDetails])
+     (Maybe [OrganizationEventDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OrganizationEventDetails]
+  [OrganizationEventDetails]
+  [OrganizationEventDetails]
+  [OrganizationEventDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Error messages for any events that could not be retrieved.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_failedSet"><span class="hs-identifier hs-type">describeEventDetailsForOrganizationResponse_failedSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="describeEventDetailsForOrganizationResponse_failedSet"><span class="annot"><span class="annottext">describeEventDetailsForOrganizationResponse_failedSet :: (Maybe [OrganizationEventDetailsErrorItem]
+ -&gt; f (Maybe [OrganizationEventDetailsErrorItem]))
+-&gt; DescribeEventDetailsForOrganizationResponse
+-&gt; f DescribeEventDetailsForOrganizationResponse
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_failedSet"><span class="hs-identifier hs-var hs-var">describeEventDetailsForOrganizationResponse_failedSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventDetailsForOrganizationResponse
+ -&gt; Maybe [OrganizationEventDetailsErrorItem])
+-&gt; (DescribeEventDetailsForOrganizationResponse
+    -&gt; Maybe [OrganizationEventDetailsErrorItem]
+    -&gt; DescribeEventDetailsForOrganizationResponse)
+-&gt; Lens
+     DescribeEventDetailsForOrganizationResponse
+     DescribeEventDetailsForOrganizationResponse
+     (Maybe [OrganizationEventDetailsErrorItem])
+     (Maybe [OrganizationEventDetailsErrorItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190233"><span class="annot"><span class="annottext">Maybe [OrganizationEventDetailsErrorItem]
+failedSet :: Maybe [OrganizationEventDetailsErrorItem]
+$sel:failedSet:DescribeEventDetailsForOrganizationResponse' :: DescribeEventDetailsForOrganizationResponse
+-&gt; Maybe [OrganizationEventDetailsErrorItem]
+</span><a href="#local-6989586621679190233"><span class="hs-identifier hs-var hs-var">failedSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetailsErrorItem]
+</span><a href="#local-6989586621679190233"><span class="hs-identifier hs-var">failedSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190232"><span class="annot"><span class="annottext">s :: DescribeEventDetailsForOrganizationResponse
+</span><a href="#local-6989586621679190232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190231"><span class="annot"><span class="annottext">Maybe [OrganizationEventDetailsErrorItem]
+</span><a href="#local-6989586621679190231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse
+</span><a href="#local-6989586621679190232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedSet:DescribeEventDetailsForOrganizationResponse' :: Maybe [OrganizationEventDetailsErrorItem]
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AfailedSet%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">failedSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEventDetailsErrorItem]
+</span><a href="#local-6989586621679190231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OrganizationEventDetailsErrorItem]
+  -&gt; f (Maybe [OrganizationEventDetailsErrorItem]))
+ -&gt; DescribeEventDetailsForOrganizationResponse
+ -&gt; f DescribeEventDetailsForOrganizationResponse)
+-&gt; ((Maybe [OrganizationEventDetailsErrorItem]
+     -&gt; f (Maybe [OrganizationEventDetailsErrorItem]))
+    -&gt; Maybe [OrganizationEventDetailsErrorItem]
+    -&gt; f (Maybe [OrganizationEventDetailsErrorItem]))
+-&gt; (Maybe [OrganizationEventDetailsErrorItem]
+    -&gt; f (Maybe [OrganizationEventDetailsErrorItem]))
+-&gt; DescribeEventDetailsForOrganizationResponse
+-&gt; f DescribeEventDetailsForOrganizationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OrganizationEventDetailsErrorItem]
+  [OrganizationEventDetailsErrorItem]
+  [OrganizationEventDetailsErrorItem]
+  [OrganizationEventDetailsErrorItem]
+-&gt; Iso
+     (Maybe [OrganizationEventDetailsErrorItem])
+     (Maybe [OrganizationEventDetailsErrorItem])
+     (Maybe [OrganizationEventDetailsErrorItem])
+     (Maybe [OrganizationEventDetailsErrorItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OrganizationEventDetailsErrorItem]
+  [OrganizationEventDetailsErrorItem]
+  [OrganizationEventDetailsErrorItem]
+  [OrganizationEventDetailsErrorItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_httpStatus"><span class="hs-identifier hs-type">describeEventDetailsForOrganizationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="describeEventDetailsForOrganizationResponse_httpStatus"><span class="annot"><span class="annottext">describeEventDetailsForOrganizationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEventDetailsForOrganizationResponse
+-&gt; f DescribeEventDetailsForOrganizationResponse
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#describeEventDetailsForOrganizationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEventDetailsForOrganizationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventDetailsForOrganizationResponse -&gt; Int)
+-&gt; (DescribeEventDetailsForOrganizationResponse
+    -&gt; Int -&gt; DescribeEventDetailsForOrganizationResponse)
+-&gt; Lens
+     DescribeEventDetailsForOrganizationResponse
+     DescribeEventDetailsForOrganizationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190230"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEventDetailsForOrganizationResponse' :: DescribeEventDetailsForOrganizationResponse -&gt; Int
+</span><a href="#local-6989586621679190230"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190230"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190229"><span class="annot"><span class="annottext">s :: DescribeEventDetailsForOrganizationResponse
+</span><a href="#local-6989586621679190229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventDetailsForOrganizationResponse
+</span><a href="#local-6989586621679190229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventDetailsForOrganizationResponse' :: Int
+</span><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#%24sel%3AhttpStatus%3ADescribeEventDetailsForOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679190226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.AWSHealth.DescribeEventDetailsForOrganization.html#DescribeEventDetailsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventDetailsForOrganizationResponse</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

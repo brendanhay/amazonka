@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol"><span class="hs-identifier">CustomRoutingProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol_TCP"><span class="hs-identifier">CustomRoutingProtocol_TCP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol_UDP"><span class="hs-identifier">CustomRoutingProtocol_UDP</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679236347"><span id="local-6989586621679236348"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomRoutingProtocol"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol"><span class="hs-identifier hs-var">CustomRoutingProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomRoutingProtocol%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol%27"><span class="hs-identifier hs-var">CustomRoutingProtocol'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomRoutingProtocol"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; Text
+</span><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#fromCustomRoutingProtocol"><span class="hs-identifier hs-var hs-var">fromCustomRoutingProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236339"><span id="local-6989586621679236341"><span id="local-6989586621679236343"><span class="annot"><span class="annottext">Int -&gt; CustomRoutingProtocol -&gt; ShowS
+[CustomRoutingProtocol] -&gt; ShowS
+CustomRoutingProtocol -&gt; String
+(Int -&gt; CustomRoutingProtocol -&gt; ShowS)
+-&gt; (CustomRoutingProtocol -&gt; String)
+-&gt; ([CustomRoutingProtocol] -&gt; ShowS)
+-&gt; Show CustomRoutingProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomRoutingProtocol] -&gt; ShowS
+$cshowList :: [CustomRoutingProtocol] -&gt; ShowS
+show :: CustomRoutingProtocol -&gt; String
+$cshow :: CustomRoutingProtocol -&gt; String
+showsPrec :: Int -&gt; CustomRoutingProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomRoutingProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679236330"><span id="local-6989586621679236332"><span id="local-6989586621679236334"><span id="local-6989586621679236336"><span class="annot"><span class="annottext">ReadPrec [CustomRoutingProtocol]
+ReadPrec CustomRoutingProtocol
+Int -&gt; ReadS CustomRoutingProtocol
+ReadS [CustomRoutingProtocol]
+(Int -&gt; ReadS CustomRoutingProtocol)
+-&gt; ReadS [CustomRoutingProtocol]
+-&gt; ReadPrec CustomRoutingProtocol
+-&gt; ReadPrec [CustomRoutingProtocol]
+-&gt; Read CustomRoutingProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomRoutingProtocol]
+$creadListPrec :: ReadPrec [CustomRoutingProtocol]
+readPrec :: ReadPrec CustomRoutingProtocol
+$creadPrec :: ReadPrec CustomRoutingProtocol
+readList :: ReadS [CustomRoutingProtocol]
+$creadList :: ReadS [CustomRoutingProtocol]
+readsPrec :: Int -&gt; ReadS CustomRoutingProtocol
+$creadsPrec :: Int -&gt; ReadS CustomRoutingProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236325"><span id="local-6989586621679236327"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+(CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool)
+-&gt; (CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool)
+-&gt; Eq CustomRoutingProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+$c/= :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+== :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+$c== :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236309"><span id="local-6989586621679236311"><span id="local-6989586621679236313"><span id="local-6989586621679236315"><span id="local-6989586621679236317"><span id="local-6989586621679236319"><span id="local-6989586621679236321"><span class="annot"><span class="annottext">Eq CustomRoutingProtocol
+Eq CustomRoutingProtocol
+-&gt; (CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Ordering)
+-&gt; (CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool)
+-&gt; (CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool)
+-&gt; (CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool)
+-&gt; (CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool)
+-&gt; (CustomRoutingProtocol
+    -&gt; CustomRoutingProtocol -&gt; CustomRoutingProtocol)
+-&gt; (CustomRoutingProtocol
+    -&gt; CustomRoutingProtocol -&gt; CustomRoutingProtocol)
+-&gt; Ord CustomRoutingProtocol
+CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Ordering
+CustomRoutingProtocol
+-&gt; CustomRoutingProtocol -&gt; CustomRoutingProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CustomRoutingProtocol
+-&gt; CustomRoutingProtocol -&gt; CustomRoutingProtocol
+$cmin :: CustomRoutingProtocol
+-&gt; CustomRoutingProtocol -&gt; CustomRoutingProtocol
+max :: CustomRoutingProtocol
+-&gt; CustomRoutingProtocol -&gt; CustomRoutingProtocol
+$cmax :: CustomRoutingProtocol
+-&gt; CustomRoutingProtocol -&gt; CustomRoutingProtocol
+&gt;= :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+$c&gt;= :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+&gt; :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+$c&gt; :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+&lt;= :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+$c&lt;= :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+&lt; :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+$c&lt; :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Bool
+compare :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Ordering
+$ccompare :: CustomRoutingProtocol -&gt; CustomRoutingProtocol -&gt; Ordering
+$cp1Ord :: Eq CustomRoutingProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CustomRoutingProtocol -&gt; Rep CustomRoutingProtocol x)
+-&gt; (forall x. Rep CustomRoutingProtocol x -&gt; CustomRoutingProtocol)
+-&gt; Generic CustomRoutingProtocol
+forall x. Rep CustomRoutingProtocol x -&gt; CustomRoutingProtocol
+forall x. CustomRoutingProtocol -&gt; Rep CustomRoutingProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CustomRoutingProtocol x -&gt; CustomRoutingProtocol
+$cfrom :: forall x. CustomRoutingProtocol -&gt; Rep CustomRoutingProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236301"><span id="local-6989586621679236303"><span class="annot"><span class="annottext">Int -&gt; CustomRoutingProtocol -&gt; Int
+CustomRoutingProtocol -&gt; Int
+(Int -&gt; CustomRoutingProtocol -&gt; Int)
+-&gt; (CustomRoutingProtocol -&gt; Int) -&gt; Hashable CustomRoutingProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CustomRoutingProtocol -&gt; Int
+$chash :: CustomRoutingProtocol -&gt; Int
+hashWithSalt :: Int -&gt; CustomRoutingProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; CustomRoutingProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679236298"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; ()
+(CustomRoutingProtocol -&gt; ()) -&gt; NFData CustomRoutingProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CustomRoutingProtocol -&gt; ()
+$crnf :: CustomRoutingProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236295"><span class="annot"><span class="annottext">Text -&gt; Either String CustomRoutingProtocol
+(Text -&gt; Either String CustomRoutingProtocol)
+-&gt; FromText CustomRoutingProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CustomRoutingProtocol
+$cfromText :: Text -&gt; Either String CustomRoutingProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236292"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; Text
+(CustomRoutingProtocol -&gt; Text) -&gt; ToText CustomRoutingProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CustomRoutingProtocol -&gt; Text
+$ctoText :: CustomRoutingProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236289"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; ByteString
+(CustomRoutingProtocol -&gt; ByteString)
+-&gt; ToByteString CustomRoutingProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CustomRoutingProtocol -&gt; ByteString
+$ctoBS :: CustomRoutingProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236286"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; ByteStringBuilder
+(CustomRoutingProtocol -&gt; ByteStringBuilder)
+-&gt; ToLog CustomRoutingProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CustomRoutingProtocol -&gt; ByteStringBuilder
+$cbuild :: CustomRoutingProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236283"><span class="annot"><span class="annottext">HeaderName -&gt; CustomRoutingProtocol -&gt; [Header]
+(HeaderName -&gt; CustomRoutingProtocol -&gt; [Header])
+-&gt; ToHeader CustomRoutingProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CustomRoutingProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CustomRoutingProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236280"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; QueryString
+(CustomRoutingProtocol -&gt; QueryString)
+-&gt; ToQuery CustomRoutingProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CustomRoutingProtocol -&gt; QueryString
+$ctoQuery :: CustomRoutingProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236275"><span id="local-6989586621679236277"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomRoutingProtocol]
+Value -&gt; Parser CustomRoutingProtocol
+(Value -&gt; Parser CustomRoutingProtocol)
+-&gt; (Value -&gt; Parser [CustomRoutingProtocol])
+-&gt; FromJSON CustomRoutingProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CustomRoutingProtocol]
+$cparseJSONList :: Value -&gt; Parser [CustomRoutingProtocol]
+parseJSON :: Value -&gt; Parser CustomRoutingProtocol
+$cparseJSON :: Value -&gt; Parser CustomRoutingProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236270"><span id="local-6989586621679236272"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomRoutingProtocol]
+FromJSONKeyFunction CustomRoutingProtocol
+FromJSONKeyFunction CustomRoutingProtocol
+-&gt; FromJSONKeyFunction [CustomRoutingProtocol]
+-&gt; FromJSONKey CustomRoutingProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CustomRoutingProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [CustomRoutingProtocol]
+fromJSONKey :: FromJSONKeyFunction CustomRoutingProtocol
+$cfromJSONKey :: FromJSONKeyFunction CustomRoutingProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236261"><span id="local-6989586621679236263"><span id="local-6989586621679236265"><span id="local-6989586621679236267"><span class="annot"><span class="annottext">[CustomRoutingProtocol] -&gt; Encoding
+[CustomRoutingProtocol] -&gt; Value
+CustomRoutingProtocol -&gt; Encoding
+CustomRoutingProtocol -&gt; Value
+(CustomRoutingProtocol -&gt; Value)
+-&gt; (CustomRoutingProtocol -&gt; Encoding)
+-&gt; ([CustomRoutingProtocol] -&gt; Value)
+-&gt; ([CustomRoutingProtocol] -&gt; Encoding)
+-&gt; ToJSON CustomRoutingProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CustomRoutingProtocol] -&gt; Encoding
+$ctoEncodingList :: [CustomRoutingProtocol] -&gt; Encoding
+toJSONList :: [CustomRoutingProtocol] -&gt; Value
+$ctoJSONList :: [CustomRoutingProtocol] -&gt; Value
+toEncoding :: CustomRoutingProtocol -&gt; Encoding
+$ctoEncoding :: CustomRoutingProtocol -&gt; Encoding
+toJSON :: CustomRoutingProtocol -&gt; Value
+$ctoJSON :: CustomRoutingProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236256"><span id="local-6989586621679236258"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomRoutingProtocol]
+ToJSONKeyFunction CustomRoutingProtocol
+ToJSONKeyFunction CustomRoutingProtocol
+-&gt; ToJSONKeyFunction [CustomRoutingProtocol]
+-&gt; ToJSONKey CustomRoutingProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CustomRoutingProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [CustomRoutingProtocol]
+toJSONKey :: ToJSONKeyFunction CustomRoutingProtocol
+$ctoJSONKey :: ToJSONKeyFunction CustomRoutingProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236253"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomRoutingProtocol
+([Node] -&gt; Either String CustomRoutingProtocol)
+-&gt; FromXML CustomRoutingProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CustomRoutingProtocol
+$cparseXML :: [Node] -&gt; Either String CustomRoutingProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236250"><span class="annot"><span class="annottext">CustomRoutingProtocol -&gt; XML
+(CustomRoutingProtocol -&gt; XML) -&gt; ToXML CustomRoutingProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CustomRoutingProtocol -&gt; XML
+$ctoXML :: CustomRoutingProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol_TCP"><span class="hs-identifier hs-type">CustomRoutingProtocol_TCP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol"><span class="hs-identifier hs-type">CustomRoutingProtocol</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomRoutingProtocol_TCP"><span id="%24mCustomRoutingProtocol_TCP"><span id="CustomRoutingProtocol_TCP"><span class="annot"><span class="annottext">$bCustomRoutingProtocol_TCP :: CustomRoutingProtocol
+$mCustomRoutingProtocol_TCP :: forall r.
+CustomRoutingProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#%24bCustomRoutingProtocol_TCP"><span class="hs-identifier hs-var hs-var hs-var">CustomRoutingProtocol_TCP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol%27"><span class="hs-identifier hs-type">CustomRoutingProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TCP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol_UDP"><span class="hs-identifier hs-type">CustomRoutingProtocol_UDP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol"><span class="hs-identifier hs-type">CustomRoutingProtocol</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomRoutingProtocol_UDP"><span id="%24mCustomRoutingProtocol_UDP"><span id="CustomRoutingProtocol_UDP"><span class="annot"><span class="annottext">$bCustomRoutingProtocol_UDP :: CustomRoutingProtocol
+$mCustomRoutingProtocol_UDP :: forall r.
+CustomRoutingProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#%24bCustomRoutingProtocol_UDP"><span class="hs-identifier hs-var hs-var hs-var">CustomRoutingProtocol_UDP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol%27"><span class="hs-identifier hs-type">CustomRoutingProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UDP&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol_TCP"><span class="hs-pragma hs-type">CustomRoutingProtocol_TCP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol_UDP"><span class="hs-pragma hs-type">CustomRoutingProtocol_UDP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol%27"><span class="hs-pragma hs-type">CustomRoutingProtocol'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

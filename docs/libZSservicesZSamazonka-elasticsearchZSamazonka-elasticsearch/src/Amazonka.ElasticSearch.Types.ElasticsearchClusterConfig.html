@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ColdStorageOptions.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.ColdStorageOptions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.ESPartitionInstanceType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ZoneAwarenessConfig.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.ZoneAwarenessConfig</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Specifies the configuration for the domain cluster, such as the type and</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- number of instances.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newElasticsearchClusterConfig' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679304999"><span id="local-6989586621679305000"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticsearchClusterConfig"><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-var">ElasticsearchClusterConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchClusterConfig%27"><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">ElasticsearchClusterConfig'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Total number of dedicated master nodes, active and on standby, for the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdedicatedMasterCount%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">dedicatedMasterCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The instance type for a dedicated master node.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdedicatedMasterType%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">dedicatedMasterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A boolean value to indicate whether a dedicated master node is enabled.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- See</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes&gt;</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdedicatedMasterEnabled%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">dedicatedMasterEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The number of instances in the specified domain cluster.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AinstanceCount%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AinstanceCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Specifies the @ColdStorageOptions@ config for Elasticsearch Domain</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcoldStorageOptions%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe ColdStorageOptions
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AcoldStorageOptions%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">coldStorageOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ColdStorageOptions.html#ColdStorageOptions"><span class="hs-identifier hs-type">ColdStorageOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A boolean value to indicate whether zone awareness is enabled. See</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness&gt;</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AzoneAwarenessEnabled%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AzoneAwarenessEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">zoneAwarenessEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The instance type for an Elasticsearch cluster. UltraWarm instance types</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- are not supported for data instances.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinstanceType%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AinstanceType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | True to enable warm storage.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AwarmEnabled%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">warmEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Specifies the zone awareness configuration for a domain when zone</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- awareness is enabled.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AzoneAwarenessConfig%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe ZoneAwarenessConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AzoneAwarenessConfig%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">zoneAwarenessConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The number of warm nodes in the cluster.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AwarmCount%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">warmCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The instance type for the Elasticsearch cluster\'s warm nodes.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AwarmType%3AElasticsearchClusterConfig%27"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; Maybe ESWarmPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var hs-var">warmType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304983"><span id="local-6989586621679304985"><span class="annot"><span class="annottext">ElasticsearchClusterConfig -&gt; ElasticsearchClusterConfig -&gt; Bool
+(ElasticsearchClusterConfig -&gt; ElasticsearchClusterConfig -&gt; Bool)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; ElasticsearchClusterConfig -&gt; Bool)
+-&gt; Eq ElasticsearchClusterConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ElasticsearchClusterConfig -&gt; ElasticsearchClusterConfig -&gt; Bool
+$c/= :: ElasticsearchClusterConfig -&gt; ElasticsearchClusterConfig -&gt; Bool
+== :: ElasticsearchClusterConfig -&gt; ElasticsearchClusterConfig -&gt; Bool
+$c== :: ElasticsearchClusterConfig -&gt; ElasticsearchClusterConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304974"><span id="local-6989586621679304976"><span id="local-6989586621679304978"><span id="local-6989586621679304980"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchClusterConfig]
+ReadPrec ElasticsearchClusterConfig
+Int -&gt; ReadS ElasticsearchClusterConfig
+ReadS [ElasticsearchClusterConfig]
+(Int -&gt; ReadS ElasticsearchClusterConfig)
+-&gt; ReadS [ElasticsearchClusterConfig]
+-&gt; ReadPrec ElasticsearchClusterConfig
+-&gt; ReadPrec [ElasticsearchClusterConfig]
+-&gt; Read ElasticsearchClusterConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ElasticsearchClusterConfig]
+$creadListPrec :: ReadPrec [ElasticsearchClusterConfig]
+readPrec :: ReadPrec ElasticsearchClusterConfig
+$creadPrec :: ReadPrec ElasticsearchClusterConfig
+readList :: ReadS [ElasticsearchClusterConfig]
+$creadList :: ReadS [ElasticsearchClusterConfig]
+readsPrec :: Int -&gt; ReadS ElasticsearchClusterConfig
+$creadsPrec :: Int -&gt; ReadS ElasticsearchClusterConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304967"><span id="local-6989586621679304969"><span id="local-6989586621679304971"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchClusterConfig -&gt; ShowS
+[ElasticsearchClusterConfig] -&gt; ShowS
+ElasticsearchClusterConfig -&gt; String
+(Int -&gt; ElasticsearchClusterConfig -&gt; ShowS)
+-&gt; (ElasticsearchClusterConfig -&gt; String)
+-&gt; ([ElasticsearchClusterConfig] -&gt; ShowS)
+-&gt; Show ElasticsearchClusterConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ElasticsearchClusterConfig] -&gt; ShowS
+$cshowList :: [ElasticsearchClusterConfig] -&gt; ShowS
+show :: ElasticsearchClusterConfig -&gt; String
+$cshow :: ElasticsearchClusterConfig -&gt; String
+showsPrec :: Int -&gt; ElasticsearchClusterConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; ElasticsearchClusterConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ElasticsearchClusterConfig -&gt; Rep ElasticsearchClusterConfig x)
+-&gt; (forall x.
+    Rep ElasticsearchClusterConfig x -&gt; ElasticsearchClusterConfig)
+-&gt; Generic ElasticsearchClusterConfig
+forall x.
+Rep ElasticsearchClusterConfig x -&gt; ElasticsearchClusterConfig
+forall x.
+ElasticsearchClusterConfig -&gt; Rep ElasticsearchClusterConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ElasticsearchClusterConfig x -&gt; ElasticsearchClusterConfig
+$cfrom :: forall x.
+ElasticsearchClusterConfig -&gt; Rep ElasticsearchClusterConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ElasticsearchClusterConfig' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'dedicatedMasterCount', 'elasticsearchClusterConfig_dedicatedMasterCount' - Total number of dedicated master nodes, active and on standby, for the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'dedicatedMasterType', 'elasticsearchClusterConfig_dedicatedMasterType' - The instance type for a dedicated master node.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'dedicatedMasterEnabled', 'elasticsearchClusterConfig_dedicatedMasterEnabled' - A boolean value to indicate whether a dedicated master node is enabled.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- See</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes&gt;</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'instanceCount', 'elasticsearchClusterConfig_instanceCount' - The number of instances in the specified domain cluster.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'coldStorageOptions', 'elasticsearchClusterConfig_coldStorageOptions' - Specifies the @ColdStorageOptions@ config for Elasticsearch Domain</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'zoneAwarenessEnabled', 'elasticsearchClusterConfig_zoneAwarenessEnabled' - A boolean value to indicate whether zone awareness is enabled. See</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness&gt;</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'instanceType', 'elasticsearchClusterConfig_instanceType' - The instance type for an Elasticsearch cluster. UltraWarm instance types</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- are not supported for data instances.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'warmEnabled', 'elasticsearchClusterConfig_warmEnabled' - True to enable warm storage.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'zoneAwarenessConfig', 'elasticsearchClusterConfig_zoneAwarenessConfig' - Specifies the zone awareness configuration for a domain when zone</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- awareness is enabled.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'warmCount', 'elasticsearchClusterConfig_warmCount' - The number of warm nodes in the cluster.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'warmType', 'elasticsearchClusterConfig_warmType' - The instance type for the Elasticsearch cluster\'s warm nodes.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#newElasticsearchClusterConfig"><span class="hs-identifier hs-type">newElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span>
+</span><span id="line-107"></span><span id="newElasticsearchClusterConfig"><span class="annot"><span class="annottext">newElasticsearchClusterConfig :: ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#newElasticsearchClusterConfig"><span class="hs-identifier hs-var hs-var">newElasticsearchClusterConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig' :: Maybe Int
+-&gt; Maybe ESPartitionInstanceType
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe ColdStorageOptions
+-&gt; Maybe Bool
+-&gt; Maybe ESPartitionInstanceType
+-&gt; Maybe Bool
+-&gt; Maybe ZoneAwarenessConfig
+-&gt; Maybe Int
+-&gt; Maybe ESWarmPartitionInstanceType
+-&gt; ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dedicatedMasterCount:ElasticsearchClusterConfig' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">dedicatedMasterCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:dedicatedMasterType:ElasticsearchClusterConfig' :: Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">dedicatedMasterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:dedicatedMasterEnabled:ElasticsearchClusterConfig' :: Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">dedicatedMasterEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceCount:ElasticsearchClusterConfig' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AinstanceCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:coldStorageOptions:ElasticsearchClusterConfig' :: Maybe ColdStorageOptions
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AcoldStorageOptions%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">coldStorageOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColdStorageOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:zoneAwarenessEnabled:ElasticsearchClusterConfig' :: Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AzoneAwarenessEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">zoneAwarenessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:ElasticsearchClusterConfig' :: Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AinstanceType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:warmEnabled:ElasticsearchClusterConfig' :: Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">warmEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:zoneAwarenessConfig:ElasticsearchClusterConfig' :: Maybe ZoneAwarenessConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AzoneAwarenessConfig%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">zoneAwarenessConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZoneAwarenessConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:warmCount:ElasticsearchClusterConfig' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">warmCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:warmType:ElasticsearchClusterConfig' :: Maybe ESWarmPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">warmType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESWarmPartitionInstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Total number of dedicated master nodes, active and on standby, for the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_dedicatedMasterCount"><span class="hs-identifier hs-type">elasticsearchClusterConfig_dedicatedMasterCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="elasticsearchClusterConfig_dedicatedMasterCount"><span class="annot"><span class="annottext">elasticsearchClusterConfig_dedicatedMasterCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_dedicatedMasterCount"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_dedicatedMasterCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe Int)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe Int -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304958"><span class="annot"><span class="annottext">Maybe Int
+dedicatedMasterCount :: Maybe Int
+$sel:dedicatedMasterCount:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Int
+</span><a href="#local-6989586621679304958"><span class="hs-identifier hs-var hs-var">dedicatedMasterCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304958"><span class="hs-identifier hs-var">dedicatedMasterCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304957"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304956"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedMasterCount:ElasticsearchClusterConfig' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">dedicatedMasterCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The instance type for a dedicated master node.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_dedicatedMasterType"><span class="hs-identifier hs-type">elasticsearchClusterConfig_dedicatedMasterType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="elasticsearchClusterConfig_dedicatedMasterType"><span class="annot"><span class="annottext">elasticsearchClusterConfig_dedicatedMasterType :: (Maybe ESPartitionInstanceType
+ -&gt; f (Maybe ESPartitionInstanceType))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_dedicatedMasterType"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_dedicatedMasterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe ESPartitionInstanceType -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe ESPartitionInstanceType)
+     (Maybe ESPartitionInstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304954"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+dedicatedMasterType :: Maybe ESPartitionInstanceType
+$sel:dedicatedMasterType:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304954"><span class="hs-identifier hs-var hs-var">dedicatedMasterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304954"><span class="hs-identifier hs-var">dedicatedMasterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304953"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304952"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedMasterType:ElasticsearchClusterConfig' :: Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">dedicatedMasterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | A boolean value to indicate whether a dedicated master node is enabled.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- See</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes&gt;</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_dedicatedMasterEnabled"><span class="hs-identifier hs-type">elasticsearchClusterConfig_dedicatedMasterEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="elasticsearchClusterConfig_dedicatedMasterEnabled"><span class="annot"><span class="annottext">elasticsearchClusterConfig_dedicatedMasterEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_dedicatedMasterEnabled"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_dedicatedMasterEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe Bool)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe Bool -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304950"><span class="annot"><span class="annottext">Maybe Bool
+dedicatedMasterEnabled :: Maybe Bool
+$sel:dedicatedMasterEnabled:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679304950"><span class="hs-identifier hs-var hs-var">dedicatedMasterEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304950"><span class="hs-identifier hs-var">dedicatedMasterEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304949"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304948"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedMasterEnabled:ElasticsearchClusterConfig' :: Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AdedicatedMasterEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">dedicatedMasterEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The number of instances in the specified domain cluster.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_instanceCount"><span class="hs-identifier hs-type">elasticsearchClusterConfig_instanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="elasticsearchClusterConfig_instanceCount"><span class="annot"><span class="annottext">elasticsearchClusterConfig_instanceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_instanceCount"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_instanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe Int)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe Int -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304946"><span class="annot"><span class="annottext">Maybe Int
+instanceCount :: Maybe Int
+$sel:instanceCount:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Int
+</span><a href="#local-6989586621679304946"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304946"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304945"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304944"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:ElasticsearchClusterConfig' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AinstanceCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Specifies the @ColdStorageOptions@ config for Elasticsearch Domain</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_coldStorageOptions"><span class="hs-identifier hs-type">elasticsearchClusterConfig_coldStorageOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ColdStorageOptions.html#ColdStorageOptions"><span class="hs-identifier hs-type">ColdStorageOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="elasticsearchClusterConfig_coldStorageOptions"><span class="annot"><span class="annottext">elasticsearchClusterConfig_coldStorageOptions :: (Maybe ColdStorageOptions -&gt; f (Maybe ColdStorageOptions))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_coldStorageOptions"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_coldStorageOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe ColdStorageOptions)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe ColdStorageOptions -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe ColdStorageOptions)
+     (Maybe ColdStorageOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304942"><span class="annot"><span class="annottext">Maybe ColdStorageOptions
+coldStorageOptions :: Maybe ColdStorageOptions
+$sel:coldStorageOptions:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ColdStorageOptions
+</span><a href="#local-6989586621679304942"><span class="hs-identifier hs-var hs-var">coldStorageOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColdStorageOptions
+</span><a href="#local-6989586621679304942"><span class="hs-identifier hs-var">coldStorageOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304941"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304940"><span class="annot"><span class="annottext">Maybe ColdStorageOptions
+</span><a href="#local-6989586621679304940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coldStorageOptions:ElasticsearchClusterConfig' :: Maybe ColdStorageOptions
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AcoldStorageOptions%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">coldStorageOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColdStorageOptions
+</span><a href="#local-6989586621679304940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | A boolean value to indicate whether zone awareness is enabled. See</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness&gt;</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_zoneAwarenessEnabled"><span class="hs-identifier hs-type">elasticsearchClusterConfig_zoneAwarenessEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="elasticsearchClusterConfig_zoneAwarenessEnabled"><span class="annot"><span class="annottext">elasticsearchClusterConfig_zoneAwarenessEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_zoneAwarenessEnabled"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_zoneAwarenessEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe Bool)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe Bool -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304938"><span class="annot"><span class="annottext">Maybe Bool
+zoneAwarenessEnabled :: Maybe Bool
+$sel:zoneAwarenessEnabled:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679304938"><span class="hs-identifier hs-var hs-var">zoneAwarenessEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304938"><span class="hs-identifier hs-var">zoneAwarenessEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304937"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304936"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zoneAwarenessEnabled:ElasticsearchClusterConfig' :: Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AzoneAwarenessEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">zoneAwarenessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The instance type for an Elasticsearch cluster. UltraWarm instance types</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- are not supported for data instances.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_instanceType"><span class="hs-identifier hs-type">elasticsearchClusterConfig_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="elasticsearchClusterConfig_instanceType"><span class="annot"><span class="annottext">elasticsearchClusterConfig_instanceType :: (Maybe ESPartitionInstanceType
+ -&gt; f (Maybe ESPartitionInstanceType))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_instanceType"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe ESPartitionInstanceType -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe ESPartitionInstanceType)
+     (Maybe ESPartitionInstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304934"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+instanceType :: Maybe ESPartitionInstanceType
+$sel:instanceType:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304934"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304934"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304933"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304932"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ElasticsearchClusterConfig' :: Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AinstanceType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | True to enable warm storage.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_warmEnabled"><span class="hs-identifier hs-type">elasticsearchClusterConfig_warmEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="elasticsearchClusterConfig_warmEnabled"><span class="annot"><span class="annottext">elasticsearchClusterConfig_warmEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_warmEnabled"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_warmEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe Bool)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe Bool -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304930"><span class="annot"><span class="annottext">Maybe Bool
+warmEnabled :: Maybe Bool
+$sel:warmEnabled:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679304930"><span class="hs-identifier hs-var hs-var">warmEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304930"><span class="hs-identifier hs-var">warmEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304929"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304928"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warmEnabled:ElasticsearchClusterConfig' :: Maybe Bool
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmEnabled%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">warmEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Specifies the zone awareness configuration for a domain when zone</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- awareness is enabled.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_zoneAwarenessConfig"><span class="hs-identifier hs-type">elasticsearchClusterConfig_zoneAwarenessConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="elasticsearchClusterConfig_zoneAwarenessConfig"><span class="annot"><span class="annottext">elasticsearchClusterConfig_zoneAwarenessConfig :: (Maybe ZoneAwarenessConfig -&gt; f (Maybe ZoneAwarenessConfig))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_zoneAwarenessConfig"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_zoneAwarenessConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe ZoneAwarenessConfig)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe ZoneAwarenessConfig -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe ZoneAwarenessConfig)
+     (Maybe ZoneAwarenessConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304926"><span class="annot"><span class="annottext">Maybe ZoneAwarenessConfig
+zoneAwarenessConfig :: Maybe ZoneAwarenessConfig
+$sel:zoneAwarenessConfig:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ZoneAwarenessConfig
+</span><a href="#local-6989586621679304926"><span class="hs-identifier hs-var hs-var">zoneAwarenessConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZoneAwarenessConfig
+</span><a href="#local-6989586621679304926"><span class="hs-identifier hs-var">zoneAwarenessConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304925"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304924"><span class="annot"><span class="annottext">Maybe ZoneAwarenessConfig
+</span><a href="#local-6989586621679304924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zoneAwarenessConfig:ElasticsearchClusterConfig' :: Maybe ZoneAwarenessConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AzoneAwarenessConfig%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">zoneAwarenessConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZoneAwarenessConfig
+</span><a href="#local-6989586621679304924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The number of warm nodes in the cluster.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_warmCount"><span class="hs-identifier hs-type">elasticsearchClusterConfig_warmCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="elasticsearchClusterConfig_warmCount"><span class="annot"><span class="annottext">elasticsearchClusterConfig_warmCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_warmCount"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_warmCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe Int)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe Int -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304922"><span class="annot"><span class="annottext">Maybe Int
+warmCount :: Maybe Int
+$sel:warmCount:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Int
+</span><a href="#local-6989586621679304922"><span class="hs-identifier hs-var hs-var">warmCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304922"><span class="hs-identifier hs-var">warmCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304921"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304920"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warmCount:ElasticsearchClusterConfig' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmCount%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">warmCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The instance type for the Elasticsearch cluster\'s warm nodes.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_warmType"><span class="hs-identifier hs-type">elasticsearchClusterConfig_warmType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier hs-type">ESWarmPartitionInstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="elasticsearchClusterConfig_warmType"><span class="annot"><span class="annottext">elasticsearchClusterConfig_warmType :: (Maybe ESWarmPartitionInstanceType
+ -&gt; f (Maybe ESWarmPartitionInstanceType))
+-&gt; ElasticsearchClusterConfig -&gt; f ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#elasticsearchClusterConfig_warmType"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig_warmType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchClusterConfig -&gt; Maybe ESWarmPartitionInstanceType)
+-&gt; (ElasticsearchClusterConfig
+    -&gt; Maybe ESWarmPartitionInstanceType -&gt; ElasticsearchClusterConfig)
+-&gt; Lens
+     ElasticsearchClusterConfig
+     ElasticsearchClusterConfig
+     (Maybe ESWarmPartitionInstanceType)
+     (Maybe ESWarmPartitionInstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304918"><span class="annot"><span class="annottext">Maybe ESWarmPartitionInstanceType
+warmType :: Maybe ESWarmPartitionInstanceType
+$sel:warmType:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ESWarmPartitionInstanceType
+</span><a href="#local-6989586621679304918"><span class="hs-identifier hs-var hs-var">warmType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ESWarmPartitionInstanceType
+</span><a href="#local-6989586621679304918"><span class="hs-identifier hs-var">warmType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304917"><span class="annot"><span class="annottext">s :: ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304916"><span class="annot"><span class="annottext">Maybe ESWarmPartitionInstanceType
+</span><a href="#local-6989586621679304916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchClusterConfig
+</span><a href="#local-6989586621679304917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warmType:ElasticsearchClusterConfig' :: Maybe ESWarmPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#%24sel%3AwarmType%3AElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">warmType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESWarmPartitionInstanceType
+</span><a href="#local-6989586621679304916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304913"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679304911"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ElasticsearchClusterConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ElasticsearchClusterConfig)
+-&gt; Value
+-&gt; Parser ElasticsearchClusterConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ElasticsearchClusterConfig&quot;</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304908"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe ESPartitionInstanceType
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe ColdStorageOptions
+-&gt; Maybe Bool
+-&gt; Maybe ESPartitionInstanceType
+-&gt; Maybe Bool
+-&gt; Maybe ZoneAwarenessConfig
+-&gt; Maybe Int
+-&gt; Maybe ESWarmPartitionInstanceType
+-&gt; ElasticsearchClusterConfig
+</span><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-var">ElasticsearchClusterConfig'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe ESPartitionInstanceType
+ -&gt; Maybe Bool
+ -&gt; Maybe Int
+ -&gt; Maybe ColdStorageOptions
+ -&gt; Maybe Bool
+ -&gt; Maybe ESPartitionInstanceType
+ -&gt; Maybe Bool
+ -&gt; Maybe ZoneAwarenessConfig
+ -&gt; Maybe Int
+ -&gt; Maybe ESWarmPartitionInstanceType
+ -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ESPartitionInstanceType
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe ColdStorageOptions
+      -&gt; Maybe Bool
+      -&gt; Maybe ESPartitionInstanceType
+      -&gt; Maybe Bool
+      -&gt; Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedMasterCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ESPartitionInstanceType
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe ColdStorageOptions
+   -&gt; Maybe Bool
+   -&gt; Maybe ESPartitionInstanceType
+   -&gt; Maybe Bool
+   -&gt; Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe ESPartitionInstanceType)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe ColdStorageOptions
+      -&gt; Maybe Bool
+      -&gt; Maybe ESPartitionInstanceType
+      -&gt; Maybe Bool
+      -&gt; Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ESPartitionInstanceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedMasterType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe ColdStorageOptions
+   -&gt; Maybe Bool
+   -&gt; Maybe ESPartitionInstanceType
+   -&gt; Maybe Bool
+   -&gt; Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ColdStorageOptions
+      -&gt; Maybe Bool
+      -&gt; Maybe ESPartitionInstanceType
+      -&gt; Maybe Bool
+      -&gt; Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedMasterEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ColdStorageOptions
+   -&gt; Maybe Bool
+   -&gt; Maybe ESPartitionInstanceType
+   -&gt; Maybe Bool
+   -&gt; Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ColdStorageOptions
+      -&gt; Maybe Bool
+      -&gt; Maybe ESPartitionInstanceType
+      -&gt; Maybe Bool
+      -&gt; Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ColdStorageOptions
+   -&gt; Maybe Bool
+   -&gt; Maybe ESPartitionInstanceType
+   -&gt; Maybe Bool
+   -&gt; Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe ColdStorageOptions)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe ESPartitionInstanceType
+      -&gt; Maybe Bool
+      -&gt; Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColdStorageOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ColdStorageOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe ESPartitionInstanceType
+   -&gt; Maybe Bool
+   -&gt; Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe ESPartitionInstanceType
+      -&gt; Maybe Bool
+      -&gt; Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZoneAwarenessEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ESPartitionInstanceType
+   -&gt; Maybe Bool
+   -&gt; Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe ESPartitionInstanceType)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ESPartitionInstanceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe ZoneAwarenessConfig
+      -&gt; Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType
+      -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ZoneAwarenessConfig
+   -&gt; Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType
+   -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe ZoneAwarenessConfig)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ESWarmPartitionInstanceType -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ZoneAwarenessConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZoneAwarenessConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ESWarmPartitionInstanceType -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ESWarmPartitionInstanceType -&gt; ElasticsearchClusterConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ESWarmPartitionInstanceType -&gt; ElasticsearchClusterConfig)
+-&gt; Parser (Maybe ESWarmPartitionInstanceType)
+-&gt; Parser ElasticsearchClusterConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ESWarmPartitionInstanceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304902"><span id="local-6989586621679304904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304891"><span id="local-6989586621679304893"><span id="local-6989586621679304895"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig"><span class="hs-identifier hs-type">ElasticsearchClusterConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679304889"><span class="annot"><span class="annottext">toJSON :: ElasticsearchClusterConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig.html#ElasticsearchClusterConfig%27"><span class="hs-identifier hs-type">ElasticsearchClusterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304877"><span id="local-6989586621679304878"><span id="local-6989586621679304879"><span id="local-6989586621679304880"><span id="local-6989586621679304881"><span id="local-6989586621679304882"><span id="local-6989586621679304883"><span id="local-6989586621679304884"><span id="local-6989586621679304885"><span id="local-6989586621679304886"><span id="local-6989586621679304887"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe ColdStorageOptions
+Maybe ESPartitionInstanceType
+Maybe ESWarmPartitionInstanceType
+Maybe ZoneAwarenessConfig
+warmType :: Maybe ESWarmPartitionInstanceType
+warmCount :: Maybe Int
+zoneAwarenessConfig :: Maybe ZoneAwarenessConfig
+warmEnabled :: Maybe Bool
+instanceType :: Maybe ESPartitionInstanceType
+zoneAwarenessEnabled :: Maybe Bool
+coldStorageOptions :: Maybe ColdStorageOptions
+instanceCount :: Maybe Int
+dedicatedMasterEnabled :: Maybe Bool
+dedicatedMasterType :: Maybe ESPartitionInstanceType
+dedicatedMasterCount :: Maybe Int
+$sel:warmType:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ESWarmPartitionInstanceType
+$sel:warmCount:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Int
+$sel:zoneAwarenessConfig:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ZoneAwarenessConfig
+$sel:warmEnabled:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Bool
+$sel:instanceType:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType
+$sel:zoneAwarenessEnabled:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Bool
+$sel:coldStorageOptions:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ColdStorageOptions
+$sel:instanceCount:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Int
+$sel:dedicatedMasterEnabled:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Bool
+$sel:dedicatedMasterType:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe ESPartitionInstanceType
+$sel:dedicatedMasterCount:ElasticsearchClusterConfig' :: ElasticsearchClusterConfig -&gt; Maybe Int
+</span><a href="#local-6989586621679304877"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedMasterCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304887"><span class="hs-identifier hs-var">dedicatedMasterCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedMasterType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ESPartitionInstanceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(ESPartitionInstanceType -&gt; Pair)
+-&gt; Maybe ESPartitionInstanceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304886"><span class="hs-identifier hs-var">dedicatedMasterType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedMasterEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304885"><span class="hs-identifier hs-var">dedicatedMasterEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304884"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ColdStorageOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColdStorageOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(ColdStorageOptions -&gt; Pair)
+-&gt; Maybe ColdStorageOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColdStorageOptions
+</span><a href="#local-6989586621679304883"><span class="hs-identifier hs-var">coldStorageOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZoneAwarenessEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304882"><span class="hs-identifier hs-var">zoneAwarenessEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ESPartitionInstanceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ESPartitionInstanceType -&gt; Pair)
+-&gt; Maybe ESPartitionInstanceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679304881"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304880"><span class="hs-identifier hs-var">warmEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZoneAwarenessConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ZoneAwarenessConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(ZoneAwarenessConfig -&gt; Pair)
+-&gt; Maybe ZoneAwarenessConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ZoneAwarenessConfig
+</span><a href="#local-6989586621679304879"><span class="hs-identifier hs-var">zoneAwarenessConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679304878"><span class="hs-identifier hs-var">warmCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ESWarmPartitionInstanceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ESWarmPartitionInstanceType -&gt; Pair)
+-&gt; Maybe ESWarmPartitionInstanceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ESWarmPartitionInstanceType
+</span><a href="#local-6989586621679304877"><span class="hs-identifier hs-var">warmType</span></a></span><span>
+</span><span id="line-219"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span></pre></body></html>

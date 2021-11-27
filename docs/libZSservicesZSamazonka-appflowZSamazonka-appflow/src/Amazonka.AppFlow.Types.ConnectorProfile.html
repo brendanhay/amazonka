@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.ConnectorProfile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectorProfile</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectionMode.html"><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectionMode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfileProperties.html"><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectorProfileProperties</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html"><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectorType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningState.html"><span class="hs-identifier">Amazonka.AppFlow.Types.PrivateConnectionProvisioningState</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes an instance of a connector. This includes the provided name,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- credentials ARN, connection-mode, and so on. To keep the API intuitive</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- and extensible, the fields that are common to all types of connector</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- profiles are explicitly specified at the top level. The rest of the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- connector-specific properties are available via the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- @connectorProfileProperties@ field.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newConnectorProfile' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679329955"><span id="local-6989586621679329956"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectorProfile"><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-var">ConnectorProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorProfile%27"><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-var">ConnectorProfile'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the connector profile. The name is unique for each</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @ConnectorProfile@ in the Amazon Web Services account.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AconnectorProfileName%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileName%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">connectorProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Specifies when the connector profile was last updated.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe POSIX
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AlastUpdatedAt%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies when the connector profile was created.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreatedAt%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe POSIX
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AcreatedAt%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the connector profile credentials.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcredentialsArn%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AcredentialsArn%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">credentialsArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The connector-specific properties of the profile configuration.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AconnectorProfileProperties%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe ConnectorProfileProperties
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileProperties%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">connectorProfileProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfileProperties.html#ConnectorProfileProperties"><span class="hs-identifier hs-type">ConnectorProfileProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Indicates the connection mode and if it is public or private.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AconnectionMode%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe ConnectionMode
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectionMode%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">connectionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectionMode.html#ConnectionMode"><span class="hs-identifier hs-type">ConnectionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the connector profile.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AconnectorProfileArn%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileArn%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">connectorProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Specifies the private connection provisioning state.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprivateConnectionProvisioningState%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe PrivateConnectionProvisioningState
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AprivateConnectionProvisioningState%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">privateConnectionProvisioningState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningState.html#PrivateConnectionProvisioningState"><span class="hs-identifier hs-type">PrivateConnectionProvisioningState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The type of connector, such as Salesforce, Amplitude, and so on.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AconnectorType%3AConnectorProfile%27"><span class="annot"><span class="annottext">ConnectorProfile -&gt; Maybe ConnectorType
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorType%3AConnectorProfile%27"><span class="hs-identifier hs-var hs-var">connectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329941"><span id="local-6989586621679329943"><span class="annot"><span class="annottext">ConnectorProfile -&gt; ConnectorProfile -&gt; Bool
+(ConnectorProfile -&gt; ConnectorProfile -&gt; Bool)
+-&gt; (ConnectorProfile -&gt; ConnectorProfile -&gt; Bool)
+-&gt; Eq ConnectorProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectorProfile -&gt; ConnectorProfile -&gt; Bool
+$c/= :: ConnectorProfile -&gt; ConnectorProfile -&gt; Bool
+== :: ConnectorProfile -&gt; ConnectorProfile -&gt; Bool
+$c== :: ConnectorProfile -&gt; ConnectorProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329932"><span id="local-6989586621679329934"><span id="local-6989586621679329936"><span id="local-6989586621679329938"><span class="annot"><span class="annottext">ReadPrec [ConnectorProfile]
+ReadPrec ConnectorProfile
+Int -&gt; ReadS ConnectorProfile
+ReadS [ConnectorProfile]
+(Int -&gt; ReadS ConnectorProfile)
+-&gt; ReadS [ConnectorProfile]
+-&gt; ReadPrec ConnectorProfile
+-&gt; ReadPrec [ConnectorProfile]
+-&gt; Read ConnectorProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectorProfile]
+$creadListPrec :: ReadPrec [ConnectorProfile]
+readPrec :: ReadPrec ConnectorProfile
+$creadPrec :: ReadPrec ConnectorProfile
+readList :: ReadS [ConnectorProfile]
+$creadList :: ReadS [ConnectorProfile]
+readsPrec :: Int -&gt; ReadS ConnectorProfile
+$creadsPrec :: Int -&gt; ReadS ConnectorProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329925"><span id="local-6989586621679329927"><span id="local-6989586621679329929"><span class="annot"><span class="annottext">Int -&gt; ConnectorProfile -&gt; ShowS
+[ConnectorProfile] -&gt; ShowS
+ConnectorProfile -&gt; String
+(Int -&gt; ConnectorProfile -&gt; ShowS)
+-&gt; (ConnectorProfile -&gt; String)
+-&gt; ([ConnectorProfile] -&gt; ShowS)
+-&gt; Show ConnectorProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectorProfile] -&gt; ShowS
+$cshowList :: [ConnectorProfile] -&gt; ShowS
+show :: ConnectorProfile -&gt; String
+$cshow :: ConnectorProfile -&gt; String
+showsPrec :: Int -&gt; ConnectorProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectorProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConnectorProfile -&gt; Rep ConnectorProfile x)
+-&gt; (forall x. Rep ConnectorProfile x -&gt; ConnectorProfile)
+-&gt; Generic ConnectorProfile
+forall x. Rep ConnectorProfile x -&gt; ConnectorProfile
+forall x. ConnectorProfile -&gt; Rep ConnectorProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectorProfile x -&gt; ConnectorProfile
+$cfrom :: forall x. ConnectorProfile -&gt; Rep ConnectorProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ConnectorProfile' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'connectorProfileName', 'connectorProfile_connectorProfileName' - The name of the connector profile. The name is unique for each</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- @ConnectorProfile@ in the Amazon Web Services account.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lastUpdatedAt', 'connectorProfile_lastUpdatedAt' - Specifies when the connector profile was last updated.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'createdAt', 'connectorProfile_createdAt' - Specifies when the connector profile was created.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'credentialsArn', 'connectorProfile_credentialsArn' - The Amazon Resource Name (ARN) of the connector profile credentials.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'connectorProfileProperties', 'connectorProfile_connectorProfileProperties' - The connector-specific properties of the profile configuration.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'connectionMode', 'connectorProfile_connectionMode' - Indicates the connection mode and if it is public or private.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'connectorProfileArn', 'connectorProfile_connectorProfileArn' - The Amazon Resource Name (ARN) of the connector profile.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'privateConnectionProvisioningState', 'connectorProfile_privateConnectionProvisioningState' - Specifies the private connection provisioning state.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'connectorType', 'connectorProfile_connectorType' - The type of connector, such as Salesforce, Amplitude, and so on.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#newConnectorProfile"><span class="hs-identifier hs-type">newConnectorProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span>
+</span><span id="line-89"></span><span id="newConnectorProfile"><span class="annot"><span class="annottext">newConnectorProfile :: ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#newConnectorProfile"><span class="hs-identifier hs-var hs-var">newConnectorProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ConnectorProfile' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ConnectorProfileProperties
+-&gt; Maybe ConnectionMode
+-&gt; Maybe Text
+-&gt; Maybe PrivateConnectionProvisioningState
+-&gt; Maybe ConnectorType
+-&gt; ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectorProfileName:ConnectorProfile' :: Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileName%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:ConnectorProfile' :: Maybe POSIX
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AlastUpdatedAt%3AConnectorProfile%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ConnectorProfile' :: Maybe POSIX
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AcreatedAt%3AConnectorProfile%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:credentialsArn:ConnectorProfile' :: Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AcredentialsArn%3AConnectorProfile%27"><span class="hs-identifier hs-var">credentialsArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorProfileProperties:ConnectorProfile' :: Maybe ConnectorProfileProperties
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileProperties%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorProfileProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorProfileProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionMode:ConnectorProfile' :: Maybe ConnectionMode
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectionMode%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorProfileArn:ConnectorProfile' :: Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileArn%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateConnectionProvisioningState:ConnectorProfile' :: Maybe PrivateConnectionProvisioningState
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AprivateConnectionProvisioningState%3AConnectorProfile%27"><span class="hs-identifier hs-var">privateConnectionProvisioningState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrivateConnectionProvisioningState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorType:ConnectorProfile' :: Maybe ConnectorType
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorType%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the connector profile. The name is unique for each</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @ConnectorProfile@ in the Amazon Web Services account.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorProfileName"><span class="hs-identifier hs-type">connectorProfile_connectorProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="connectorProfile_connectorProfileName"><span class="annot"><span class="annottext">connectorProfile_connectorProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorProfileName"><span class="hs-identifier hs-var hs-var">connectorProfile_connectorProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe Text)
+-&gt; (ConnectorProfile -&gt; Maybe Text -&gt; ConnectorProfile)
+-&gt; Lens ConnectorProfile ConnectorProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329916"><span class="annot"><span class="annottext">Maybe Text
+connectorProfileName :: Maybe Text
+$sel:connectorProfileName:ConnectorProfile' :: ConnectorProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679329916"><span class="hs-identifier hs-var hs-var">connectorProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329916"><span class="hs-identifier hs-var">connectorProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329915"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329914"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorProfileName:ConnectorProfile' :: Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileName%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Specifies when the connector profile was last updated.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_lastUpdatedAt"><span class="hs-identifier hs-type">connectorProfile_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="connectorProfile_lastUpdatedAt"><span class="annot"><span class="annottext">connectorProfile_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">connectorProfile_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe POSIX)
+-&gt; (ConnectorProfile -&gt; Maybe POSIX -&gt; ConnectorProfile)
+-&gt; Lens
+     ConnectorProfile ConnectorProfile (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329912"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:ConnectorProfile' :: ConnectorProfile -&gt; Maybe POSIX
+</span><a href="#local-6989586621679329912"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679329912"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329911"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329910"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679329910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:ConnectorProfile' :: Maybe POSIX
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AlastUpdatedAt%3AConnectorProfile%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679329910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConnectorProfile -&gt; f ConnectorProfile)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConnectorProfile
+-&gt; f ConnectorProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Specifies when the connector profile was created.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_createdAt"><span class="hs-identifier hs-type">connectorProfile_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="connectorProfile_createdAt"><span class="annot"><span class="annottext">connectorProfile_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_createdAt"><span class="hs-identifier hs-var hs-var">connectorProfile_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe POSIX)
+-&gt; (ConnectorProfile -&gt; Maybe POSIX -&gt; ConnectorProfile)
+-&gt; Lens
+     ConnectorProfile ConnectorProfile (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329905"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:ConnectorProfile' :: ConnectorProfile -&gt; Maybe POSIX
+</span><a href="#local-6989586621679329905"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679329905"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329904"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329903"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679329903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ConnectorProfile' :: Maybe POSIX
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AcreatedAt%3AConnectorProfile%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679329903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConnectorProfile -&gt; f ConnectorProfile)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConnectorProfile
+-&gt; f ConnectorProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the connector profile credentials.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_credentialsArn"><span class="hs-identifier hs-type">connectorProfile_credentialsArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="connectorProfile_credentialsArn"><span class="annot"><span class="annottext">connectorProfile_credentialsArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_credentialsArn"><span class="hs-identifier hs-var hs-var">connectorProfile_credentialsArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe Text)
+-&gt; (ConnectorProfile -&gt; Maybe Text -&gt; ConnectorProfile)
+-&gt; Lens ConnectorProfile ConnectorProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329901"><span class="annot"><span class="annottext">Maybe Text
+credentialsArn :: Maybe Text
+$sel:credentialsArn:ConnectorProfile' :: ConnectorProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679329901"><span class="hs-identifier hs-var hs-var">credentialsArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329901"><span class="hs-identifier hs-var">credentialsArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329900"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentialsArn:ConnectorProfile' :: Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AcredentialsArn%3AConnectorProfile%27"><span class="hs-identifier hs-var">credentialsArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The connector-specific properties of the profile configuration.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorProfileProperties"><span class="hs-identifier hs-type">connectorProfile_connectorProfileProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfileProperties.html#ConnectorProfileProperties"><span class="hs-identifier hs-type">ConnectorProfileProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="connectorProfile_connectorProfileProperties"><span class="annot"><span class="annottext">connectorProfile_connectorProfileProperties :: (Maybe ConnectorProfileProperties
+ -&gt; f (Maybe ConnectorProfileProperties))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorProfileProperties"><span class="hs-identifier hs-var hs-var">connectorProfile_connectorProfileProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe ConnectorProfileProperties)
+-&gt; (ConnectorProfile
+    -&gt; Maybe ConnectorProfileProperties -&gt; ConnectorProfile)
+-&gt; Lens
+     ConnectorProfile
+     ConnectorProfile
+     (Maybe ConnectorProfileProperties)
+     (Maybe ConnectorProfileProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329897"><span class="annot"><span class="annottext">Maybe ConnectorProfileProperties
+connectorProfileProperties :: Maybe ConnectorProfileProperties
+$sel:connectorProfileProperties:ConnectorProfile' :: ConnectorProfile -&gt; Maybe ConnectorProfileProperties
+</span><a href="#local-6989586621679329897"><span class="hs-identifier hs-var hs-var">connectorProfileProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorProfileProperties
+</span><a href="#local-6989586621679329897"><span class="hs-identifier hs-var">connectorProfileProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329896"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329895"><span class="annot"><span class="annottext">Maybe ConnectorProfileProperties
+</span><a href="#local-6989586621679329895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorProfileProperties:ConnectorProfile' :: Maybe ConnectorProfileProperties
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileProperties%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorProfileProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorProfileProperties
+</span><a href="#local-6989586621679329895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Indicates the connection mode and if it is public or private.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectionMode"><span class="hs-identifier hs-type">connectorProfile_connectionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectionMode.html#ConnectionMode"><span class="hs-identifier hs-type">ConnectionMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="connectorProfile_connectionMode"><span class="annot"><span class="annottext">connectorProfile_connectionMode :: (Maybe ConnectionMode -&gt; f (Maybe ConnectionMode))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectionMode"><span class="hs-identifier hs-var hs-var">connectorProfile_connectionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe ConnectionMode)
+-&gt; (ConnectorProfile -&gt; Maybe ConnectionMode -&gt; ConnectorProfile)
+-&gt; Lens
+     ConnectorProfile
+     ConnectorProfile
+     (Maybe ConnectionMode)
+     (Maybe ConnectionMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329893"><span class="annot"><span class="annottext">Maybe ConnectionMode
+connectionMode :: Maybe ConnectionMode
+$sel:connectionMode:ConnectorProfile' :: ConnectorProfile -&gt; Maybe ConnectionMode
+</span><a href="#local-6989586621679329893"><span class="hs-identifier hs-var hs-var">connectionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionMode
+</span><a href="#local-6989586621679329893"><span class="hs-identifier hs-var">connectionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329892"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329891"><span class="annot"><span class="annottext">Maybe ConnectionMode
+</span><a href="#local-6989586621679329891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionMode:ConnectorProfile' :: Maybe ConnectionMode
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectionMode%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionMode
+</span><a href="#local-6989586621679329891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the connector profile.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorProfileArn"><span class="hs-identifier hs-type">connectorProfile_connectorProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="connectorProfile_connectorProfileArn"><span class="annot"><span class="annottext">connectorProfile_connectorProfileArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorProfileArn"><span class="hs-identifier hs-var hs-var">connectorProfile_connectorProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe Text)
+-&gt; (ConnectorProfile -&gt; Maybe Text -&gt; ConnectorProfile)
+-&gt; Lens ConnectorProfile ConnectorProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329889"><span class="annot"><span class="annottext">Maybe Text
+connectorProfileArn :: Maybe Text
+$sel:connectorProfileArn:ConnectorProfile' :: ConnectorProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679329889"><span class="hs-identifier hs-var hs-var">connectorProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329889"><span class="hs-identifier hs-var">connectorProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329888"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorProfileArn:ConnectorProfile' :: Maybe Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorProfileArn%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Specifies the private connection provisioning state.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_privateConnectionProvisioningState"><span class="hs-identifier hs-type">connectorProfile_privateConnectionProvisioningState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningState.html#PrivateConnectionProvisioningState"><span class="hs-identifier hs-type">PrivateConnectionProvisioningState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="connectorProfile_privateConnectionProvisioningState"><span class="annot"><span class="annottext">connectorProfile_privateConnectionProvisioningState :: (Maybe PrivateConnectionProvisioningState
+ -&gt; f (Maybe PrivateConnectionProvisioningState))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_privateConnectionProvisioningState"><span class="hs-identifier hs-var hs-var">connectorProfile_privateConnectionProvisioningState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe PrivateConnectionProvisioningState)
+-&gt; (ConnectorProfile
+    -&gt; Maybe PrivateConnectionProvisioningState -&gt; ConnectorProfile)
+-&gt; Lens
+     ConnectorProfile
+     ConnectorProfile
+     (Maybe PrivateConnectionProvisioningState)
+     (Maybe PrivateConnectionProvisioningState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329885"><span class="annot"><span class="annottext">Maybe PrivateConnectionProvisioningState
+privateConnectionProvisioningState :: Maybe PrivateConnectionProvisioningState
+$sel:privateConnectionProvisioningState:ConnectorProfile' :: ConnectorProfile -&gt; Maybe PrivateConnectionProvisioningState
+</span><a href="#local-6989586621679329885"><span class="hs-identifier hs-var hs-var">privateConnectionProvisioningState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrivateConnectionProvisioningState
+</span><a href="#local-6989586621679329885"><span class="hs-identifier hs-var">privateConnectionProvisioningState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329884"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329883"><span class="annot"><span class="annottext">Maybe PrivateConnectionProvisioningState
+</span><a href="#local-6989586621679329883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateConnectionProvisioningState:ConnectorProfile' :: Maybe PrivateConnectionProvisioningState
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AprivateConnectionProvisioningState%3AConnectorProfile%27"><span class="hs-identifier hs-var">privateConnectionProvisioningState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrivateConnectionProvisioningState
+</span><a href="#local-6989586621679329883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The type of connector, such as Salesforce, Amplitude, and so on.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorType"><span class="hs-identifier hs-type">connectorProfile_connectorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="connectorProfile_connectorType"><span class="annot"><span class="annottext">connectorProfile_connectorType :: (Maybe ConnectorType -&gt; f (Maybe ConnectorType))
+-&gt; ConnectorProfile -&gt; f ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#connectorProfile_connectorType"><span class="hs-identifier hs-var hs-var">connectorProfile_connectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorProfile -&gt; Maybe ConnectorType)
+-&gt; (ConnectorProfile -&gt; Maybe ConnectorType -&gt; ConnectorProfile)
+-&gt; Lens
+     ConnectorProfile
+     ConnectorProfile
+     (Maybe ConnectorType)
+     (Maybe ConnectorType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329881"><span class="annot"><span class="annottext">Maybe ConnectorType
+connectorType :: Maybe ConnectorType
+$sel:connectorType:ConnectorProfile' :: ConnectorProfile -&gt; Maybe ConnectorType
+</span><a href="#local-6989586621679329881"><span class="hs-identifier hs-var hs-var">connectorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorType
+</span><a href="#local-6989586621679329881"><span class="hs-identifier hs-var">connectorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329880"><span class="annot"><span class="annottext">s :: ConnectorProfile
+</span><a href="#local-6989586621679329880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-type">ConnectorProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329879"><span class="annot"><span class="annottext">Maybe ConnectorType
+</span><a href="#local-6989586621679329879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorProfile
+</span><a href="#local-6989586621679329880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorType:ConnectorProfile' :: Maybe ConnectorType
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#%24sel%3AconnectorType%3AConnectorProfile%27"><span class="hs-identifier hs-var">connectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorType
+</span><a href="#local-6989586621679329879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329876"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679329874"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectorProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConnectorProfile)
+-&gt; Value
+-&gt; Parser ConnectorProfile
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConnectorProfile&quot;</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329871"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ConnectorProfileProperties
+-&gt; Maybe ConnectionMode
+-&gt; Maybe Text
+-&gt; Maybe PrivateConnectionProvisioningState
+-&gt; Maybe ConnectorType
+-&gt; ConnectorProfile
+</span><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile%27"><span class="hs-identifier hs-var">ConnectorProfile'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ConnectorProfileProperties
+ -&gt; Maybe ConnectionMode
+ -&gt; Maybe Text
+ -&gt; Maybe PrivateConnectionProvisioningState
+ -&gt; Maybe ConnectorType
+ -&gt; ConnectorProfile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectorProfileProperties
+      -&gt; Maybe ConnectionMode
+      -&gt; Maybe Text
+      -&gt; Maybe PrivateConnectionProvisioningState
+      -&gt; Maybe ConnectorType
+      -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectorProfileProperties
+   -&gt; Maybe ConnectionMode
+   -&gt; Maybe Text
+   -&gt; Maybe PrivateConnectionProvisioningState
+   -&gt; Maybe ConnectorType
+   -&gt; ConnectorProfile)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectorProfileProperties
+      -&gt; Maybe ConnectionMode
+      -&gt; Maybe Text
+      -&gt; Maybe PrivateConnectionProvisioningState
+      -&gt; Maybe ConnectorType
+      -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectorProfileProperties
+   -&gt; Maybe ConnectionMode
+   -&gt; Maybe Text
+   -&gt; Maybe PrivateConnectionProvisioningState
+   -&gt; Maybe ConnectorType
+   -&gt; ConnectorProfile)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ConnectorProfileProperties
+      -&gt; Maybe ConnectionMode
+      -&gt; Maybe Text
+      -&gt; Maybe PrivateConnectionProvisioningState
+      -&gt; Maybe ConnectorType
+      -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ConnectorProfileProperties
+   -&gt; Maybe ConnectionMode
+   -&gt; Maybe Text
+   -&gt; Maybe PrivateConnectionProvisioningState
+   -&gt; Maybe ConnectorType
+   -&gt; ConnectorProfile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ConnectorProfileProperties
+      -&gt; Maybe ConnectionMode
+      -&gt; Maybe Text
+      -&gt; Maybe PrivateConnectionProvisioningState
+      -&gt; Maybe ConnectorType
+      -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;credentialsArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectorProfileProperties
+   -&gt; Maybe ConnectionMode
+   -&gt; Maybe Text
+   -&gt; Maybe PrivateConnectionProvisioningState
+   -&gt; Maybe ConnectorType
+   -&gt; ConnectorProfile)
+-&gt; Parser (Maybe ConnectorProfileProperties)
+-&gt; Parser
+     (Maybe ConnectionMode
+      -&gt; Maybe Text
+      -&gt; Maybe PrivateConnectionProvisioningState
+      -&gt; Maybe ConnectorType
+      -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectorProfileProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorProfileProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectionMode
+   -&gt; Maybe Text
+   -&gt; Maybe PrivateConnectionProvisioningState
+   -&gt; Maybe ConnectorType
+   -&gt; ConnectorProfile)
+-&gt; Parser (Maybe ConnectionMode)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PrivateConnectionProvisioningState
+      -&gt; Maybe ConnectorType
+      -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PrivateConnectionProvisioningState
+   -&gt; Maybe ConnectorType
+   -&gt; ConnectorProfile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PrivateConnectionProvisioningState
+      -&gt; Maybe ConnectorType -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorProfileArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PrivateConnectionProvisioningState
+   -&gt; Maybe ConnectorType -&gt; ConnectorProfile)
+-&gt; Parser (Maybe PrivateConnectionProvisioningState)
+-&gt; Parser (Maybe ConnectorType -&gt; ConnectorProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PrivateConnectionProvisioningState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateConnectionProvisioningState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ConnectorType -&gt; ConnectorProfile)
+-&gt; Parser (Maybe ConnectorType) -&gt; Parser ConnectorProfile
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectorType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329865"><span id="local-6989586621679329867"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span></span><span>
+</span><span id="line-160"></span></pre></body></html>

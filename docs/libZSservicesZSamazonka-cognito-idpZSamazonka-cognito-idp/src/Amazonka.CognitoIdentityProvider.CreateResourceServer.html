@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.CreateResourceServer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new OAuth2.0 resource server and defines custom scopes in it.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.CreateResourceServer</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier">CreateResourceServer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#newCreateResourceServer"><span class="hs-identifier">newCreateResourceServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_scopes"><span class="hs-identifier">createResourceServer_scopes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_userPoolId"><span class="hs-identifier">createResourceServer_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_identifier"><span class="hs-identifier">createResourceServer_identifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_name"><span class="hs-identifier">createResourceServer_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier">CreateResourceServerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#newCreateResourceServerResponse"><span class="hs-identifier">newCreateResourceServerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServerResponse_httpStatus"><span class="hs-identifier">createResourceServerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServerResponse_resourceServer"><span class="hs-identifier">createResourceServerResponse_resourceServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.html"><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateResourceServer' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679451919"><span id="local-6989586621679451920"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateResourceServer"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-var">CreateResourceServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateResourceServer%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-var">CreateResourceServer'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of scopes. Each scope is map, where the keys are @name@ and</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @description@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Ascopes%3ACreateResourceServer%27"><span class="annot"><span class="annottext">CreateResourceServer -&gt; Maybe [ResourceServerScopeType]
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Ascopes%3ACreateResourceServer%27"><span class="hs-identifier hs-var hs-var">scopes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The user pool ID for the user pool.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AuserPoolId%3ACreateResourceServer%27"><span class="annot"><span class="annottext">CreateResourceServer -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AuserPoolId%3ACreateResourceServer%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A unique resource server identifier for the resource server. This could</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- be an HTTPS endpoint where the resource server is located. For example,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @https:\/\/my-weather-api.example.com@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aidentifier%3ACreateResourceServer%27"><span class="annot"><span class="annottext">CreateResourceServer -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Aidentifier%3ACreateResourceServer%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A friendly name for the resource server.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3ACreateResourceServer%27"><span class="annot"><span class="annottext">CreateResourceServer -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Aname%3ACreateResourceServer%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451910"><span id="local-6989586621679451912"><span class="annot"><span class="annottext">CreateResourceServer -&gt; CreateResourceServer -&gt; Bool
+(CreateResourceServer -&gt; CreateResourceServer -&gt; Bool)
+-&gt; (CreateResourceServer -&gt; CreateResourceServer -&gt; Bool)
+-&gt; Eq CreateResourceServer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateResourceServer -&gt; CreateResourceServer -&gt; Bool
+$c/= :: CreateResourceServer -&gt; CreateResourceServer -&gt; Bool
+== :: CreateResourceServer -&gt; CreateResourceServer -&gt; Bool
+$c== :: CreateResourceServer -&gt; CreateResourceServer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451901"><span id="local-6989586621679451903"><span id="local-6989586621679451905"><span id="local-6989586621679451907"><span class="annot"><span class="annottext">ReadPrec [CreateResourceServer]
+ReadPrec CreateResourceServer
+Int -&gt; ReadS CreateResourceServer
+ReadS [CreateResourceServer]
+(Int -&gt; ReadS CreateResourceServer)
+-&gt; ReadS [CreateResourceServer]
+-&gt; ReadPrec CreateResourceServer
+-&gt; ReadPrec [CreateResourceServer]
+-&gt; Read CreateResourceServer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateResourceServer]
+$creadListPrec :: ReadPrec [CreateResourceServer]
+readPrec :: ReadPrec CreateResourceServer
+$creadPrec :: ReadPrec CreateResourceServer
+readList :: ReadS [CreateResourceServer]
+$creadList :: ReadS [CreateResourceServer]
+readsPrec :: Int -&gt; ReadS CreateResourceServer
+$creadsPrec :: Int -&gt; ReadS CreateResourceServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451894"><span id="local-6989586621679451896"><span id="local-6989586621679451898"><span class="annot"><span class="annottext">Int -&gt; CreateResourceServer -&gt; ShowS
+[CreateResourceServer] -&gt; ShowS
+CreateResourceServer -&gt; String
+(Int -&gt; CreateResourceServer -&gt; ShowS)
+-&gt; (CreateResourceServer -&gt; String)
+-&gt; ([CreateResourceServer] -&gt; ShowS)
+-&gt; Show CreateResourceServer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateResourceServer] -&gt; ShowS
+$cshowList :: [CreateResourceServer] -&gt; ShowS
+show :: CreateResourceServer -&gt; String
+$cshow :: CreateResourceServer -&gt; String
+showsPrec :: Int -&gt; CreateResourceServer -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateResourceServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateResourceServer -&gt; Rep CreateResourceServer x)
+-&gt; (forall x. Rep CreateResourceServer x -&gt; CreateResourceServer)
+-&gt; Generic CreateResourceServer
+forall x. Rep CreateResourceServer x -&gt; CreateResourceServer
+forall x. CreateResourceServer -&gt; Rep CreateResourceServer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateResourceServer x -&gt; CreateResourceServer
+$cfrom :: forall x. CreateResourceServer -&gt; Rep CreateResourceServer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'CreateResourceServer' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'scopes', 'createResourceServer_scopes' - A list of scopes. Each scope is map, where the keys are @name@ and</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- @description@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'userPoolId', 'createResourceServer_userPoolId' - The user pool ID for the user pool.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'identifier', 'createResourceServer_identifier' - A unique resource server identifier for the resource server. This could</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- be an HTTPS endpoint where the resource server is located. For example,</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- @https:\/\/my-weather-api.example.com@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'name', 'createResourceServer_name' - A friendly name for the resource server.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#newCreateResourceServer"><span class="hs-identifier hs-type">newCreateResourceServer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'userPoolId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'identifier'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span>
+</span><span id="line-94"></span><span id="newCreateResourceServer"><span class="annot"><span class="annottext">newCreateResourceServer :: Text -&gt; Text -&gt; Text -&gt; CreateResourceServer
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#newCreateResourceServer"><span class="hs-identifier hs-var hs-var">newCreateResourceServer</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679451889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451889"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679451888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451888"><span class="hs-identifier hs-var">pIdentifier_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679451887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451887"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">CreateResourceServer' :: Maybe [ResourceServerScopeType]
+-&gt; Text -&gt; Text -&gt; Text -&gt; CreateResourceServer
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scopes:CreateResourceServer' :: Maybe [ResourceServerScopeType]
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Ascopes%3ACreateResourceServer%27"><span class="hs-identifier hs-var">scopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceServerScopeType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:userPoolId:CreateResourceServer' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AuserPoolId%3ACreateResourceServer%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451889"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:identifier:CreateResourceServer' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Aidentifier%3ACreateResourceServer%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451888"><span class="hs-identifier hs-var">pIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateResourceServer' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Aname%3ACreateResourceServer%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451887"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A list of scopes. Each scope is map, where the keys are @name@ and</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @description@.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_scopes"><span class="hs-identifier hs-type">createResourceServer_scopes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="createResourceServer_scopes"><span class="annot"><span class="annottext">createResourceServer_scopes :: (Maybe [ResourceServerScopeType]
+ -&gt; f (Maybe [ResourceServerScopeType]))
+-&gt; CreateResourceServer -&gt; f CreateResourceServer
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_scopes"><span class="hs-identifier hs-var hs-var">createResourceServer_scopes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceServer -&gt; Maybe [ResourceServerScopeType])
+-&gt; (CreateResourceServer
+    -&gt; Maybe [ResourceServerScopeType] -&gt; CreateResourceServer)
+-&gt; Lens
+     CreateResourceServer
+     CreateResourceServer
+     (Maybe [ResourceServerScopeType])
+     (Maybe [ResourceServerScopeType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451884"><span class="annot"><span class="annottext">Maybe [ResourceServerScopeType]
+scopes :: Maybe [ResourceServerScopeType]
+$sel:scopes:CreateResourceServer' :: CreateResourceServer -&gt; Maybe [ResourceServerScopeType]
+</span><a href="#local-6989586621679451884"><span class="hs-identifier hs-var hs-var">scopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceServerScopeType]
+</span><a href="#local-6989586621679451884"><span class="hs-identifier hs-var">scopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451883"><span class="annot"><span class="annottext">s :: CreateResourceServer
+</span><a href="#local-6989586621679451883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451882"><span class="annot"><span class="annottext">Maybe [ResourceServerScopeType]
+</span><a href="#local-6989586621679451882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceServer
+</span><a href="#local-6989586621679451883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scopes:CreateResourceServer' :: Maybe [ResourceServerScopeType]
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Ascopes%3ACreateResourceServer%27"><span class="hs-identifier hs-var">scopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceServerScopeType]
+</span><a href="#local-6989586621679451882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceServerScopeType]
+  -&gt; f (Maybe [ResourceServerScopeType]))
+ -&gt; CreateResourceServer -&gt; f CreateResourceServer)
+-&gt; ((Maybe [ResourceServerScopeType]
+     -&gt; f (Maybe [ResourceServerScopeType]))
+    -&gt; Maybe [ResourceServerScopeType]
+    -&gt; f (Maybe [ResourceServerScopeType]))
+-&gt; (Maybe [ResourceServerScopeType]
+    -&gt; f (Maybe [ResourceServerScopeType]))
+-&gt; CreateResourceServer
+-&gt; f CreateResourceServer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceServerScopeType]
+  [ResourceServerScopeType]
+  [ResourceServerScopeType]
+  [ResourceServerScopeType]
+-&gt; Iso
+     (Maybe [ResourceServerScopeType])
+     (Maybe [ResourceServerScopeType])
+     (Maybe [ResourceServerScopeType])
+     (Maybe [ResourceServerScopeType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceServerScopeType]
+  [ResourceServerScopeType]
+  [ResourceServerScopeType]
+  [ResourceServerScopeType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The user pool ID for the user pool.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_userPoolId"><span class="hs-identifier hs-type">createResourceServer_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="createResourceServer_userPoolId"><span class="annot"><span class="annottext">createResourceServer_userPoolId :: (Text -&gt; f Text) -&gt; CreateResourceServer -&gt; f CreateResourceServer
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_userPoolId"><span class="hs-identifier hs-var hs-var">createResourceServer_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceServer -&gt; Text)
+-&gt; (CreateResourceServer -&gt; Text -&gt; CreateResourceServer)
+-&gt; Lens CreateResourceServer CreateResourceServer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451878"><span class="annot"><span class="annottext">Text
+userPoolId :: Text
+$sel:userPoolId:CreateResourceServer' :: CreateResourceServer -&gt; Text
+</span><a href="#local-6989586621679451878"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451878"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451877"><span class="annot"><span class="annottext">s :: CreateResourceServer
+</span><a href="#local-6989586621679451877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceServer
+</span><a href="#local-6989586621679451877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:CreateResourceServer' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AuserPoolId%3ACreateResourceServer%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A unique resource server identifier for the resource server. This could</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- be an HTTPS endpoint where the resource server is located. For example,</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @https:\/\/my-weather-api.example.com@.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_identifier"><span class="hs-identifier hs-type">createResourceServer_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="createResourceServer_identifier"><span class="annot"><span class="annottext">createResourceServer_identifier :: (Text -&gt; f Text) -&gt; CreateResourceServer -&gt; f CreateResourceServer
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_identifier"><span class="hs-identifier hs-var hs-var">createResourceServer_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceServer -&gt; Text)
+-&gt; (CreateResourceServer -&gt; Text -&gt; CreateResourceServer)
+-&gt; Lens CreateResourceServer CreateResourceServer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451875"><span class="annot"><span class="annottext">Text
+identifier :: Text
+$sel:identifier:CreateResourceServer' :: CreateResourceServer -&gt; Text
+</span><a href="#local-6989586621679451875"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451875"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451874"><span class="annot"><span class="annottext">s :: CreateResourceServer
+</span><a href="#local-6989586621679451874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451873"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceServer
+</span><a href="#local-6989586621679451874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:CreateResourceServer' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Aidentifier%3ACreateResourceServer%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A friendly name for the resource server.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_name"><span class="hs-identifier hs-type">createResourceServer_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="createResourceServer_name"><span class="annot"><span class="annottext">createResourceServer_name :: (Text -&gt; f Text) -&gt; CreateResourceServer -&gt; f CreateResourceServer
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServer_name"><span class="hs-identifier hs-var hs-var">createResourceServer_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceServer -&gt; Text)
+-&gt; (CreateResourceServer -&gt; Text -&gt; CreateResourceServer)
+-&gt; Lens CreateResourceServer CreateResourceServer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451872"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateResourceServer' :: CreateResourceServer -&gt; Text
+</span><a href="#local-6989586621679451872"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451872"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451871"><span class="annot"><span class="annottext">s :: CreateResourceServer
+</span><a href="#local-6989586621679451871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceServer
+</span><a href="#local-6989586621679451871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateResourceServer' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3Aname%3ACreateResourceServer%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-type">CreateResourceServerResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679451866"><span class="annot"><span class="annottext">request :: CreateResourceServer -&gt; Request CreateResourceServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateResourceServer -&gt; Request CreateResourceServer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679451862"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateResourceServer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateResourceServer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateResourceServer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateResourceServer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateResourceServer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679451859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451859"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679451858"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679451858"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679451857"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679451857"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ResourceServerType -&gt; CreateResourceServerResponse
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse%27"><span class="hs-identifier hs-var">CreateResourceServerResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ResourceServerType -&gt; CreateResourceServerResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (ResourceServerType -&gt; CreateResourceServerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451859"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResourceServerType -&gt; CreateResourceServerResponse)
+-&gt; Either String ResourceServerType
+-&gt; Either String CreateResourceServerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679451857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ResourceServerType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceServer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451849"><span id="local-6989586621679451851"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679451842"><span class="annot"><span class="annottext">toHeaders :: CreateResourceServer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateResourceServer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.CreateResourceServer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451832"><span id="local-6989586621679451834"><span id="local-6989586621679451836"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679451830"><span class="annot"><span class="annottext">toJSON :: CreateResourceServer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer%27"><span class="hs-identifier hs-type">CreateResourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451825"><span id="local-6989586621679451826"><span id="local-6989586621679451827"><span id="local-6989586621679451828"><span class="annot"><span class="annottext">Maybe [ResourceServerScopeType]
+Text
+name :: Text
+identifier :: Text
+userPoolId :: Text
+scopes :: Maybe [ResourceServerScopeType]
+$sel:name:CreateResourceServer' :: CreateResourceServer -&gt; Text
+$sel:identifier:CreateResourceServer' :: CreateResourceServer -&gt; Text
+$sel:userPoolId:CreateResourceServer' :: CreateResourceServer -&gt; Text
+$sel:scopes:CreateResourceServer' :: CreateResourceServer -&gt; Maybe [ResourceServerScopeType]
+</span><a href="#local-6989586621679451825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Scopes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourceServerScopeType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ResourceServerScopeType] -&gt; Pair)
+-&gt; Maybe [ResourceServerScopeType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceServerScopeType]
+</span><a href="#local-6989586621679451828"><span class="hs-identifier hs-var">scopes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451827"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Identifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451826"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451825"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679451819"><span class="annot"><span class="annottext">toPath :: CreateResourceServer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateResourceServer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServer"><span class="hs-identifier hs-type">CreateResourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679451815"><span class="annot"><span class="annottext">toQuery :: CreateResourceServer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateResourceServer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newCreateResourceServerResponse' smart constructor.</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679451812"><span id="local-6989586621679451813"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateResourceServerResponse"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-var">CreateResourceServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateResourceServerResponse%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse%27"><span class="hs-identifier hs-var">CreateResourceServerResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateResourceServerResponse%27"><span class="annot"><span class="annottext">CreateResourceServerResponse -&gt; Int
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AhttpStatus%3ACreateResourceServerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The newly created resource server.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AresourceServer%3ACreateResourceServerResponse%27"><span class="annot"><span class="annottext">CreateResourceServerResponse -&gt; ResourceServerType
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AresourceServer%3ACreateResourceServerResponse%27"><span class="hs-identifier hs-var hs-var">resourceServer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ResourceServerType.html#ResourceServerType"><span class="hs-identifier hs-type">ResourceServerType</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451806"><span id="local-6989586621679451808"><span class="annot"><span class="annottext">CreateResourceServerResponse
+-&gt; CreateResourceServerResponse -&gt; Bool
+(CreateResourceServerResponse
+ -&gt; CreateResourceServerResponse -&gt; Bool)
+-&gt; (CreateResourceServerResponse
+    -&gt; CreateResourceServerResponse -&gt; Bool)
+-&gt; Eq CreateResourceServerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateResourceServerResponse
+-&gt; CreateResourceServerResponse -&gt; Bool
+$c/= :: CreateResourceServerResponse
+-&gt; CreateResourceServerResponse -&gt; Bool
+== :: CreateResourceServerResponse
+-&gt; CreateResourceServerResponse -&gt; Bool
+$c== :: CreateResourceServerResponse
+-&gt; CreateResourceServerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451798"><span id="local-6989586621679451800"><span id="local-6989586621679451802"><span id="local-6989586621679451804"><span class="annot"><span class="annottext">ReadPrec [CreateResourceServerResponse]
+ReadPrec CreateResourceServerResponse
+Int -&gt; ReadS CreateResourceServerResponse
+ReadS [CreateResourceServerResponse]
+(Int -&gt; ReadS CreateResourceServerResponse)
+-&gt; ReadS [CreateResourceServerResponse]
+-&gt; ReadPrec CreateResourceServerResponse
+-&gt; ReadPrec [CreateResourceServerResponse]
+-&gt; Read CreateResourceServerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateResourceServerResponse]
+$creadListPrec :: ReadPrec [CreateResourceServerResponse]
+readPrec :: ReadPrec CreateResourceServerResponse
+$creadPrec :: ReadPrec CreateResourceServerResponse
+readList :: ReadS [CreateResourceServerResponse]
+$creadList :: ReadS [CreateResourceServerResponse]
+readsPrec :: Int -&gt; ReadS CreateResourceServerResponse
+$creadsPrec :: Int -&gt; ReadS CreateResourceServerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451792"><span id="local-6989586621679451794"><span id="local-6989586621679451796"><span class="annot"><span class="annottext">Int -&gt; CreateResourceServerResponse -&gt; ShowS
+[CreateResourceServerResponse] -&gt; ShowS
+CreateResourceServerResponse -&gt; String
+(Int -&gt; CreateResourceServerResponse -&gt; ShowS)
+-&gt; (CreateResourceServerResponse -&gt; String)
+-&gt; ([CreateResourceServerResponse] -&gt; ShowS)
+-&gt; Show CreateResourceServerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateResourceServerResponse] -&gt; ShowS
+$cshowList :: [CreateResourceServerResponse] -&gt; ShowS
+show :: CreateResourceServerResponse -&gt; String
+$cshow :: CreateResourceServerResponse -&gt; String
+showsPrec :: Int -&gt; CreateResourceServerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateResourceServerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateResourceServerResponse -&gt; Rep CreateResourceServerResponse x)
+-&gt; (forall x.
+    Rep CreateResourceServerResponse x -&gt; CreateResourceServerResponse)
+-&gt; Generic CreateResourceServerResponse
+forall x.
+Rep CreateResourceServerResponse x -&gt; CreateResourceServerResponse
+forall x.
+CreateResourceServerResponse -&gt; Rep CreateResourceServerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateResourceServerResponse x -&gt; CreateResourceServerResponse
+$cfrom :: forall x.
+CreateResourceServerResponse -&gt; Rep CreateResourceServerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'CreateResourceServerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'createResourceServerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'resourceServer', 'createResourceServerResponse_resourceServer' - The newly created resource server.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#newCreateResourceServerResponse"><span class="hs-identifier hs-type">newCreateResourceServerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'resourceServer'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ResourceServerType.html#ResourceServerType"><span class="hs-identifier hs-type">ResourceServerType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-type">CreateResourceServerResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newCreateResourceServerResponse"><span class="annot"><span class="annottext">newCreateResourceServerResponse :: Int -&gt; ResourceServerType -&gt; CreateResourceServerResponse
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#newCreateResourceServerResponse"><span class="hs-identifier hs-var hs-var">newCreateResourceServerResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679451789"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451789"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679451788"><span class="annot"><span class="annottext">ResourceServerType
+</span><a href="#local-6989586621679451788"><span class="hs-identifier hs-var">pResourceServer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">CreateResourceServerResponse' :: Int -&gt; ResourceServerType -&gt; CreateResourceServerResponse
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse%27"><span class="hs-identifier hs-type">CreateResourceServerResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateResourceServerResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AhttpStatus%3ACreateResourceServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451789"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceServer:CreateResourceServerResponse' :: ResourceServerType
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AresourceServer%3ACreateResourceServerResponse%27"><span class="hs-identifier hs-var">resourceServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceServerType
+</span><a href="#local-6989586621679451788"><span class="hs-identifier hs-var">pResourceServer_</span></a></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServerResponse_httpStatus"><span class="hs-identifier hs-type">createResourceServerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-type">CreateResourceServerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span id="createResourceServerResponse_httpStatus"><span class="annot"><span class="annottext">createResourceServerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateResourceServerResponse -&gt; f CreateResourceServerResponse
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createResourceServerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceServerResponse -&gt; Int)
+-&gt; (CreateResourceServerResponse
+    -&gt; Int -&gt; CreateResourceServerResponse)
+-&gt; Lens
+     CreateResourceServerResponse CreateResourceServerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse%27"><span class="hs-identifier hs-type">CreateResourceServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451787"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateResourceServerResponse' :: CreateResourceServerResponse -&gt; Int
+</span><a href="#local-6989586621679451787"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451787"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451786"><span class="annot"><span class="annottext">s :: CreateResourceServerResponse
+</span><a href="#local-6989586621679451786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse%27"><span class="hs-identifier hs-type">CreateResourceServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451785"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceServerResponse
+</span><a href="#local-6989586621679451786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateResourceServerResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AhttpStatus%3ACreateResourceServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-type">CreateResourceServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The newly created resource server.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServerResponse_resourceServer"><span class="hs-identifier hs-type">createResourceServerResponse_resourceServer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-type">CreateResourceServerResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ResourceServerType.html#ResourceServerType"><span class="hs-identifier hs-type">ResourceServerType</span></a></span><span>
+</span><span id="line-214"></span><span id="createResourceServerResponse_resourceServer"><span class="annot"><span class="annottext">createResourceServerResponse_resourceServer :: (ResourceServerType -&gt; f ResourceServerType)
+-&gt; CreateResourceServerResponse -&gt; f CreateResourceServerResponse
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#createResourceServerResponse_resourceServer"><span class="hs-identifier hs-var hs-var">createResourceServerResponse_resourceServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceServerResponse -&gt; ResourceServerType)
+-&gt; (CreateResourceServerResponse
+    -&gt; ResourceServerType -&gt; CreateResourceServerResponse)
+-&gt; Lens
+     CreateResourceServerResponse
+     CreateResourceServerResponse
+     ResourceServerType
+     ResourceServerType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse%27"><span class="hs-identifier hs-type">CreateResourceServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451784"><span class="annot"><span class="annottext">ResourceServerType
+resourceServer :: ResourceServerType
+$sel:resourceServer:CreateResourceServerResponse' :: CreateResourceServerResponse -&gt; ResourceServerType
+</span><a href="#local-6989586621679451784"><span class="hs-identifier hs-var hs-var">resourceServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceServerType
+</span><a href="#local-6989586621679451784"><span class="hs-identifier hs-var">resourceServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451783"><span class="annot"><span class="annottext">s :: CreateResourceServerResponse
+</span><a href="#local-6989586621679451783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse%27"><span class="hs-identifier hs-type">CreateResourceServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451782"><span class="annot"><span class="annottext">ResourceServerType
+</span><a href="#local-6989586621679451782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceServerResponse
+</span><a href="#local-6989586621679451783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceServer:CreateResourceServerResponse' :: ResourceServerType
+</span><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#%24sel%3AresourceServer%3ACreateResourceServerResponse%27"><span class="hs-identifier hs-var">resourceServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceServerType
+</span><a href="#local-6989586621679451782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-type">CreateResourceServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.CreateResourceServer.html#CreateResourceServerResponse"><span class="hs-identifier hs-type">CreateResourceServerResponse</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSMContacts.CreateContactChannel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- A contact channel is the method that Incident Manager uses to engage</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- your contact.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSMContacts.CreateContactChannel</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier">CreateContactChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#newCreateContactChannel"><span class="hs-identifier">newCreateContactChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_idempotencyToken"><span class="hs-identifier">createContactChannel_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_deferActivation"><span class="hs-identifier">createContactChannel_deferActivation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_contactId"><span class="hs-identifier">createContactChannel_contactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_name"><span class="hs-identifier">createContactChannel_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_type"><span class="hs-identifier">createContactChannel_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_deliveryAddress"><span class="hs-identifier">createContactChannel_deliveryAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier">CreateContactChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#newCreateContactChannelResponse"><span class="hs-identifier">newCreateContactChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannelResponse_httpStatus"><span class="hs-identifier">createContactChannelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannelResponse_contactChannelArn"><span class="hs-identifier">createContactChannelResponse_contactChannelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.html"><span class="hs-identifier">Amazonka.SSMContacts.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateContactChannel' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679202582"><span id="local-6989586621679202583"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContactChannel"><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-var">CreateContactChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContactChannel%27"><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-var">CreateContactChannel'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token ensuring that the operation is called only once with the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- specified details.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ACreateContactChannel%27"><span class="annot"><span class="annottext">CreateContactChannel -&gt; Maybe Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AidempotencyToken%3ACreateContactChannel%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | If you want to activate the channel at a later time, you can choose to</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- defer activation. Incident Manager can\'t engage your contact channel</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- until it has been activated.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdeferActivation%3ACreateContactChannel%27"><span class="annot"><span class="annottext">CreateContactChannel -&gt; Maybe Bool
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AdeferActivation%3ACreateContactChannel%27"><span class="hs-identifier hs-var hs-var">deferActivation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact you are adding the contact</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- channel to.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcontactId%3ACreateContactChannel%27"><span class="annot"><span class="annottext">CreateContactChannel -&gt; Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AcontactId%3ACreateContactChannel%27"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the contact channel.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aname%3ACreateContactChannel%27"><span class="annot"><span class="annottext">CreateContactChannel -&gt; Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3Aname%3ACreateContactChannel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Incident Manager supports three types of contact channels:</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @SMS@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @VOICE@</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @EMAIL@</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateContactChannel%27"><span class="annot"><span class="annottext">CreateContactChannel -&gt; ChannelType
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3Atype%27%3ACreateContactChannel%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The details that Incident Manager uses when trying to engage the contact</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- channel. The format is dependent on the type of the contact channel. The</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- following are the expected formats:</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   SMS - \'+\' followed by the country code and phone number</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   VOICE - \'+\' followed by the country code and phone number</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   EMAIL - any standard email format</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdeliveryAddress%3ACreateContactChannel%27"><span class="annot"><span class="annottext">CreateContactChannel -&gt; ContactChannelAddress
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AdeliveryAddress%3ACreateContactChannel%27"><span class="hs-identifier hs-var hs-var">deliveryAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactChannelAddress.html#ContactChannelAddress"><span class="hs-identifier hs-type">ContactChannelAddress</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202571"><span id="local-6989586621679202573"><span class="annot"><span class="annottext">CreateContactChannel -&gt; CreateContactChannel -&gt; Bool
+(CreateContactChannel -&gt; CreateContactChannel -&gt; Bool)
+-&gt; (CreateContactChannel -&gt; CreateContactChannel -&gt; Bool)
+-&gt; Eq CreateContactChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContactChannel -&gt; CreateContactChannel -&gt; Bool
+$c/= :: CreateContactChannel -&gt; CreateContactChannel -&gt; Bool
+== :: CreateContactChannel -&gt; CreateContactChannel -&gt; Bool
+$c== :: CreateContactChannel -&gt; CreateContactChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202562"><span id="local-6989586621679202564"><span id="local-6989586621679202566"><span id="local-6989586621679202568"><span class="annot"><span class="annottext">ReadPrec [CreateContactChannel]
+ReadPrec CreateContactChannel
+Int -&gt; ReadS CreateContactChannel
+ReadS [CreateContactChannel]
+(Int -&gt; ReadS CreateContactChannel)
+-&gt; ReadS [CreateContactChannel]
+-&gt; ReadPrec CreateContactChannel
+-&gt; ReadPrec [CreateContactChannel]
+-&gt; Read CreateContactChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContactChannel]
+$creadListPrec :: ReadPrec [CreateContactChannel]
+readPrec :: ReadPrec CreateContactChannel
+$creadPrec :: ReadPrec CreateContactChannel
+readList :: ReadS [CreateContactChannel]
+$creadList :: ReadS [CreateContactChannel]
+readsPrec :: Int -&gt; ReadS CreateContactChannel
+$creadsPrec :: Int -&gt; ReadS CreateContactChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202555"><span id="local-6989586621679202557"><span id="local-6989586621679202559"><span class="annot"><span class="annottext">Int -&gt; CreateContactChannel -&gt; ShowS
+[CreateContactChannel] -&gt; ShowS
+CreateContactChannel -&gt; String
+(Int -&gt; CreateContactChannel -&gt; ShowS)
+-&gt; (CreateContactChannel -&gt; String)
+-&gt; ([CreateContactChannel] -&gt; ShowS)
+-&gt; Show CreateContactChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContactChannel] -&gt; ShowS
+$cshowList :: [CreateContactChannel] -&gt; ShowS
+show :: CreateContactChannel -&gt; String
+$cshow :: CreateContactChannel -&gt; String
+showsPrec :: Int -&gt; CreateContactChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContactChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateContactChannel -&gt; Rep CreateContactChannel x)
+-&gt; (forall x. Rep CreateContactChannel x -&gt; CreateContactChannel)
+-&gt; Generic CreateContactChannel
+forall x. Rep CreateContactChannel x -&gt; CreateContactChannel
+forall x. CreateContactChannel -&gt; Rep CreateContactChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateContactChannel x -&gt; CreateContactChannel
+$cfrom :: forall x. CreateContactChannel -&gt; Rep CreateContactChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'CreateContactChannel' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'idempotencyToken', 'createContactChannel_idempotencyToken' - A token ensuring that the operation is called only once with the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- specified details.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'deferActivation', 'createContactChannel_deferActivation' - If you want to activate the channel at a later time, you can choose to</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- defer activation. Incident Manager can\'t engage your contact channel</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- until it has been activated.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'contactId', 'createContactChannel_contactId' - The Amazon Resource Name (ARN) of the contact you are adding the contact</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- channel to.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'name', 'createContactChannel_name' - The name of the contact channel.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'type'', 'createContactChannel_type' - Incident Manager supports three types of contact channels:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @SMS@</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   @VOICE@</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @EMAIL@</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'deliveryAddress', 'createContactChannel_deliveryAddress' - The details that Incident Manager uses when trying to engage the contact</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- channel. The format is dependent on the type of the contact channel. The</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- following are the expected formats:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   SMS - \'+\' followed by the country code and phone number</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   VOICE - \'+\' followed by the country code and phone number</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   EMAIL - any standard email format</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#newCreateContactChannel"><span class="hs-identifier hs-type">newCreateContactChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'contactId'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'deliveryAddress'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactChannelAddress.html#ContactChannelAddress"><span class="hs-identifier hs-type">ContactChannelAddress</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span>
+</span><span id="line-137"></span><span id="newCreateContactChannel"><span class="annot"><span class="annottext">newCreateContactChannel :: Text
+-&gt; Text
+-&gt; ChannelType
+-&gt; ContactChannelAddress
+-&gt; CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#newCreateContactChannel"><span class="hs-identifier hs-var hs-var">newCreateContactChannel</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679202550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202550"><span class="hs-identifier hs-var">pContactId_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679202549"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202549"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679202548"><span class="annot"><span class="annottext">ChannelType
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679202547"><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679202547"><span class="hs-identifier hs-var">pDeliveryAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">CreateContactChannel' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; ChannelType
+-&gt; ContactChannelAddress
+-&gt; CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateContactChannel' :: Maybe Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AidempotencyToken%3ACreateContactChannel%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:deferActivation:CreateContactChannel' :: Maybe Bool
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AdeferActivation%3ACreateContactChannel%27"><span class="hs-identifier hs-var">deferActivation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:contactId:CreateContactChannel' :: Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AcontactId%3ACreateContactChannel%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202550"><span class="hs-identifier hs-var">pContactId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateContactChannel' :: Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3Aname%3ACreateContactChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202549"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':CreateContactChannel' :: ChannelType
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3Atype%27%3ACreateContactChannel%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChannelType
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryAddress:CreateContactChannel' :: ContactChannelAddress
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AdeliveryAddress%3ACreateContactChannel%27"><span class="hs-identifier hs-var">deliveryAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679202547"><span class="hs-identifier hs-var">pDeliveryAddress_</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | A token ensuring that the operation is called only once with the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- specified details.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_idempotencyToken"><span class="hs-identifier hs-type">createContactChannel_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createContactChannel_idempotencyToken"><span class="annot"><span class="annottext">createContactChannel_idempotencyToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateContactChannel -&gt; f CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_idempotencyToken"><span class="hs-identifier hs-var hs-var">createContactChannel_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannel -&gt; Maybe Text)
+-&gt; (CreateContactChannel -&gt; Maybe Text -&gt; CreateContactChannel)
+-&gt; Lens
+     CreateContactChannel CreateContactChannel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202544"><span class="annot"><span class="annottext">Maybe Text
+idempotencyToken :: Maybe Text
+$sel:idempotencyToken:CreateContactChannel' :: CreateContactChannel -&gt; Maybe Text
+</span><a href="#local-6989586621679202544"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202544"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202543"><span class="annot"><span class="annottext">s :: CreateContactChannel
+</span><a href="#local-6989586621679202543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202542"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannel
+</span><a href="#local-6989586621679202543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateContactChannel' :: Maybe Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AidempotencyToken%3ACreateContactChannel%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | If you want to activate the channel at a later time, you can choose to</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- defer activation. Incident Manager can\'t engage your contact channel</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- until it has been activated.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_deferActivation"><span class="hs-identifier hs-type">createContactChannel_deferActivation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="createContactChannel_deferActivation"><span class="annot"><span class="annottext">createContactChannel_deferActivation :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateContactChannel -&gt; f CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_deferActivation"><span class="hs-identifier hs-var hs-var">createContactChannel_deferActivation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannel -&gt; Maybe Bool)
+-&gt; (CreateContactChannel -&gt; Maybe Bool -&gt; CreateContactChannel)
+-&gt; Lens
+     CreateContactChannel CreateContactChannel (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202541"><span class="annot"><span class="annottext">Maybe Bool
+deferActivation :: Maybe Bool
+$sel:deferActivation:CreateContactChannel' :: CreateContactChannel -&gt; Maybe Bool
+</span><a href="#local-6989586621679202541"><span class="hs-identifier hs-var hs-var">deferActivation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202541"><span class="hs-identifier hs-var">deferActivation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202540"><span class="annot"><span class="annottext">s :: CreateContactChannel
+</span><a href="#local-6989586621679202540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202539"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannel
+</span><a href="#local-6989586621679202540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deferActivation:CreateContactChannel' :: Maybe Bool
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AdeferActivation%3ACreateContactChannel%27"><span class="hs-identifier hs-var">deferActivation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact you are adding the contact</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- channel to.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_contactId"><span class="hs-identifier hs-type">createContactChannel_contactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-166"></span><span id="createContactChannel_contactId"><span class="annot"><span class="annottext">createContactChannel_contactId :: (Text -&gt; f Text) -&gt; CreateContactChannel -&gt; f CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_contactId"><span class="hs-identifier hs-var hs-var">createContactChannel_contactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannel -&gt; Text)
+-&gt; (CreateContactChannel -&gt; Text -&gt; CreateContactChannel)
+-&gt; Lens CreateContactChannel CreateContactChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202538"><span class="annot"><span class="annottext">Text
+contactId :: Text
+$sel:contactId:CreateContactChannel' :: CreateContactChannel -&gt; Text
+</span><a href="#local-6989586621679202538"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202538"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202537"><span class="annot"><span class="annottext">s :: CreateContactChannel
+</span><a href="#local-6989586621679202537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannel
+</span><a href="#local-6989586621679202537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactId:CreateContactChannel' :: Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AcontactId%3ACreateContactChannel%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The name of the contact channel.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_name"><span class="hs-identifier hs-type">createContactChannel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="createContactChannel_name"><span class="annot"><span class="annottext">createContactChannel_name :: (Text -&gt; f Text) -&gt; CreateContactChannel -&gt; f CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_name"><span class="hs-identifier hs-var hs-var">createContactChannel_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannel -&gt; Text)
+-&gt; (CreateContactChannel -&gt; Text -&gt; CreateContactChannel)
+-&gt; Lens CreateContactChannel CreateContactChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202535"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateContactChannel' :: CreateContactChannel -&gt; Text
+</span><a href="#local-6989586621679202535"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202535"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202534"><span class="annot"><span class="annottext">s :: CreateContactChannel
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannel
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateContactChannel' :: Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3Aname%3ACreateContactChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Incident Manager supports three types of contact channels:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @SMS@</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   @VOICE@</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   @EMAIL@</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_type"><span class="hs-identifier hs-type">createContactChannel_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-180"></span><span id="createContactChannel_type"><span class="annot"><span class="annottext">createContactChannel_type :: (ChannelType -&gt; f ChannelType)
+-&gt; CreateContactChannel -&gt; f CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_type"><span class="hs-identifier hs-var hs-var">createContactChannel_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannel -&gt; ChannelType)
+-&gt; (CreateContactChannel -&gt; ChannelType -&gt; CreateContactChannel)
+-&gt; Lens
+     CreateContactChannel CreateContactChannel ChannelType ChannelType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202532"><span class="annot"><span class="annottext">ChannelType
+type' :: ChannelType
+$sel:type':CreateContactChannel' :: CreateContactChannel -&gt; ChannelType
+</span><a href="#local-6989586621679202532"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelType
+</span><a href="#local-6989586621679202532"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202531"><span class="annot"><span class="annottext">s :: CreateContactChannel
+</span><a href="#local-6989586621679202531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202530"><span class="annot"><span class="annottext">ChannelType
+</span><a href="#local-6989586621679202530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannel
+</span><a href="#local-6989586621679202531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateContactChannel' :: ChannelType
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3Atype%27%3ACreateContactChannel%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChannelType
+</span><a href="#local-6989586621679202530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The details that Incident Manager uses when trying to engage the contact</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- channel. The format is dependent on the type of the contact channel. The</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- following are the expected formats:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   SMS - \'+\' followed by the country code and phone number</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   VOICE - \'+\' followed by the country code and phone number</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   EMAIL - any standard email format</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_deliveryAddress"><span class="hs-identifier hs-type">createContactChannel_deliveryAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.Types.ContactChannelAddress.html#ContactChannelAddress"><span class="hs-identifier hs-type">ContactChannelAddress</span></a></span><span>
+</span><span id="line-192"></span><span id="createContactChannel_deliveryAddress"><span class="annot"><span class="annottext">createContactChannel_deliveryAddress :: (ContactChannelAddress -&gt; f ContactChannelAddress)
+-&gt; CreateContactChannel -&gt; f CreateContactChannel
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannel_deliveryAddress"><span class="hs-identifier hs-var hs-var">createContactChannel_deliveryAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannel -&gt; ContactChannelAddress)
+-&gt; (CreateContactChannel
+    -&gt; ContactChannelAddress -&gt; CreateContactChannel)
+-&gt; Lens
+     CreateContactChannel
+     CreateContactChannel
+     ContactChannelAddress
+     ContactChannelAddress
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202529"><span class="annot"><span class="annottext">ContactChannelAddress
+deliveryAddress :: ContactChannelAddress
+$sel:deliveryAddress:CreateContactChannel' :: CreateContactChannel -&gt; ContactChannelAddress
+</span><a href="#local-6989586621679202529"><span class="hs-identifier hs-var hs-var">deliveryAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679202529"><span class="hs-identifier hs-var">deliveryAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202528"><span class="annot"><span class="annottext">s :: CreateContactChannel
+</span><a href="#local-6989586621679202528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202527"><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679202527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannel
+</span><a href="#local-6989586621679202528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryAddress:CreateContactChannel' :: ContactChannelAddress
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AdeliveryAddress%3ACreateContactChannel%27"><span class="hs-identifier hs-var">deliveryAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679202527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-196"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-type">CreateContactChannelResponse</span></a></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679202523"><span class="annot"><span class="annottext">request :: CreateContactChannel -&gt; Request CreateContactChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateContactChannel -&gt; Request CreateContactChannel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSMContacts.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679202519"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateContactChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateContactChannel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateContactChannel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateContactChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateContactChannel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202516"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202515"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202515"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202514"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateContactChannelResponse
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse%27"><span class="hs-identifier hs-var">CreateContactChannelResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateContactChannelResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateContactChannelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202516"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateContactChannelResponse)
+-&gt; Either String Text -&gt; Either String CreateContactChannelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202506"><span id="local-6989586621679202508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span></span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679202499"><span class="annot"><span class="annottext">toHeaders :: CreateContactChannel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateContactChannel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SSMContacts.CreateContactChannel&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-218"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-222"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202489"><span id="local-6989586621679202491"><span id="local-6989586621679202493"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679202487"><span class="annot"><span class="annottext">toJSON :: CreateContactChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel%27"><span class="hs-identifier hs-type">CreateContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202480"><span id="local-6989586621679202481"><span id="local-6989586621679202482"><span id="local-6989586621679202483"><span id="local-6989586621679202484"><span id="local-6989586621679202485"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+ChannelType
+ContactChannelAddress
+deliveryAddress :: ContactChannelAddress
+type' :: ChannelType
+name :: Text
+contactId :: Text
+deferActivation :: Maybe Bool
+idempotencyToken :: Maybe Text
+$sel:deliveryAddress:CreateContactChannel' :: CreateContactChannel -&gt; ContactChannelAddress
+$sel:type':CreateContactChannel' :: CreateContactChannel -&gt; ChannelType
+$sel:name:CreateContactChannel' :: CreateContactChannel -&gt; Text
+$sel:contactId:CreateContactChannel' :: CreateContactChannel -&gt; Text
+$sel:deferActivation:CreateContactChannel' :: CreateContactChannel -&gt; Maybe Bool
+$sel:idempotencyToken:CreateContactChannel' :: CreateContactChannel -&gt; Maybe Text
+</span><a href="#local-6989586621679202480"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-230"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202485"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeferActivation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202484"><span class="hs-identifier hs-var">deferActivation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202483"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202482"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChannelType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ChannelType
+</span><a href="#local-6989586621679202481"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-238"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContactChannelAddress -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679202480"><span class="hs-identifier hs-var">deliveryAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679202474"><span class="annot"><span class="annottext">toPath :: CreateContactChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateContactChannel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannel"><span class="hs-identifier hs-type">CreateContactChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679202470"><span class="annot"><span class="annottext">toQuery :: CreateContactChannel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateContactChannel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | /See:/ 'newCreateContactChannelResponse' smart constructor.</span><span>
+</span><span id="line-249"></span><span id="local-6989586621679202467"><span id="local-6989586621679202468"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContactChannelResponse"><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-var">CreateContactChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContactChannelResponse%27"><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse%27"><span class="hs-identifier hs-var">CreateContactChannelResponse'</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContactChannelResponse%27"><span class="annot"><span class="annottext">CreateContactChannelResponse -&gt; Int
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AhttpStatus%3ACreateContactChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact channel.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AcontactChannelArn%3ACreateContactChannelResponse%27"><span class="annot"><span class="annottext">CreateContactChannelResponse -&gt; Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AcontactChannelArn%3ACreateContactChannelResponse%27"><span class="hs-identifier hs-var hs-var">contactChannelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202461"><span id="local-6989586621679202463"><span class="annot"><span class="annottext">CreateContactChannelResponse
+-&gt; CreateContactChannelResponse -&gt; Bool
+(CreateContactChannelResponse
+ -&gt; CreateContactChannelResponse -&gt; Bool)
+-&gt; (CreateContactChannelResponse
+    -&gt; CreateContactChannelResponse -&gt; Bool)
+-&gt; Eq CreateContactChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContactChannelResponse
+-&gt; CreateContactChannelResponse -&gt; Bool
+$c/= :: CreateContactChannelResponse
+-&gt; CreateContactChannelResponse -&gt; Bool
+== :: CreateContactChannelResponse
+-&gt; CreateContactChannelResponse -&gt; Bool
+$c== :: CreateContactChannelResponse
+-&gt; CreateContactChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202453"><span id="local-6989586621679202455"><span id="local-6989586621679202457"><span id="local-6989586621679202459"><span class="annot"><span class="annottext">ReadPrec [CreateContactChannelResponse]
+ReadPrec CreateContactChannelResponse
+Int -&gt; ReadS CreateContactChannelResponse
+ReadS [CreateContactChannelResponse]
+(Int -&gt; ReadS CreateContactChannelResponse)
+-&gt; ReadS [CreateContactChannelResponse]
+-&gt; ReadPrec CreateContactChannelResponse
+-&gt; ReadPrec [CreateContactChannelResponse]
+-&gt; Read CreateContactChannelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContactChannelResponse]
+$creadListPrec :: ReadPrec [CreateContactChannelResponse]
+readPrec :: ReadPrec CreateContactChannelResponse
+$creadPrec :: ReadPrec CreateContactChannelResponse
+readList :: ReadS [CreateContactChannelResponse]
+$creadList :: ReadS [CreateContactChannelResponse]
+readsPrec :: Int -&gt; ReadS CreateContactChannelResponse
+$creadsPrec :: Int -&gt; ReadS CreateContactChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202447"><span id="local-6989586621679202449"><span id="local-6989586621679202451"><span class="annot"><span class="annottext">Int -&gt; CreateContactChannelResponse -&gt; ShowS
+[CreateContactChannelResponse] -&gt; ShowS
+CreateContactChannelResponse -&gt; String
+(Int -&gt; CreateContactChannelResponse -&gt; ShowS)
+-&gt; (CreateContactChannelResponse -&gt; String)
+-&gt; ([CreateContactChannelResponse] -&gt; ShowS)
+-&gt; Show CreateContactChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContactChannelResponse] -&gt; ShowS
+$cshowList :: [CreateContactChannelResponse] -&gt; ShowS
+show :: CreateContactChannelResponse -&gt; String
+$cshow :: CreateContactChannelResponse -&gt; String
+showsPrec :: Int -&gt; CreateContactChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContactChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateContactChannelResponse -&gt; Rep CreateContactChannelResponse x)
+-&gt; (forall x.
+    Rep CreateContactChannelResponse x -&gt; CreateContactChannelResponse)
+-&gt; Generic CreateContactChannelResponse
+forall x.
+Rep CreateContactChannelResponse x -&gt; CreateContactChannelResponse
+forall x.
+CreateContactChannelResponse -&gt; Rep CreateContactChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateContactChannelResponse x -&gt; CreateContactChannelResponse
+$cfrom :: forall x.
+CreateContactChannelResponse -&gt; Rep CreateContactChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- Create a value of 'CreateContactChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'httpStatus', 'createContactChannelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'contactChannelArn', 'createContactChannelResponse_contactChannelArn' - The Amazon Resource Name (ARN) of the contact channel.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#newCreateContactChannelResponse"><span class="hs-identifier hs-type">newCreateContactChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-comment">-- | 'contactChannelArn'</span><span>
+</span><span id="line-272"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>  </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-type">CreateContactChannelResponse</span></a></span><span>
+</span><span id="line-274"></span><span id="newCreateContactChannelResponse"><span class="annot"><span class="annottext">newCreateContactChannelResponse :: Int -&gt; Text -&gt; CreateContactChannelResponse
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#newCreateContactChannelResponse"><span class="hs-identifier hs-var hs-var">newCreateContactChannelResponse</span></a></span></span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679202444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679202443"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">pContactChannelArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">CreateContactChannelResponse' :: Int -&gt; Text -&gt; CreateContactChannelResponse
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse%27"><span class="hs-identifier hs-type">CreateContactChannelResponse'</span></a></span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactChannelResponse' :: Int
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AhttpStatus%3ACreateContactChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">$sel:contactChannelArn:CreateContactChannelResponse' :: Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AcontactChannelArn%3ACreateContactChannelResponse%27"><span class="hs-identifier hs-var">contactChannelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">pContactChannelArn_</span></a></span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannelResponse_httpStatus"><span class="hs-identifier hs-type">createContactChannelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-type">CreateContactChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-285"></span><span id="createContactChannelResponse_httpStatus"><span class="annot"><span class="annottext">createContactChannelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateContactChannelResponse -&gt; f CreateContactChannelResponse
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createContactChannelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannelResponse -&gt; Int)
+-&gt; (CreateContactChannelResponse
+    -&gt; Int -&gt; CreateContactChannelResponse)
+-&gt; Lens
+     CreateContactChannelResponse CreateContactChannelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse%27"><span class="hs-identifier hs-type">CreateContactChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202442"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateContactChannelResponse' :: CreateContactChannelResponse -&gt; Int
+</span><a href="#local-6989586621679202442"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202442"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202441"><span class="annot"><span class="annottext">s :: CreateContactChannelResponse
+</span><a href="#local-6989586621679202441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse%27"><span class="hs-identifier hs-type">CreateContactChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannelResponse
+</span><a href="#local-6989586621679202441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactChannelResponse' :: Int
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AhttpStatus%3ACreateContactChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-type">CreateContactChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact channel.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannelResponse_contactChannelArn"><span class="hs-identifier hs-type">createContactChannelResponse_contactChannelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-type">CreateContactChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-289"></span><span id="createContactChannelResponse_contactChannelArn"><span class="annot"><span class="annottext">createContactChannelResponse_contactChannelArn :: (Text -&gt; f Text)
+-&gt; CreateContactChannelResponse -&gt; f CreateContactChannelResponse
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#createContactChannelResponse_contactChannelArn"><span class="hs-identifier hs-var hs-var">createContactChannelResponse_contactChannelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactChannelResponse -&gt; Text)
+-&gt; (CreateContactChannelResponse
+    -&gt; Text -&gt; CreateContactChannelResponse)
+-&gt; Lens
+     CreateContactChannelResponse CreateContactChannelResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse%27"><span class="hs-identifier hs-type">CreateContactChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202439"><span class="annot"><span class="annottext">Text
+contactChannelArn :: Text
+$sel:contactChannelArn:CreateContactChannelResponse' :: CreateContactChannelResponse -&gt; Text
+</span><a href="#local-6989586621679202439"><span class="hs-identifier hs-var hs-var">contactChannelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202439"><span class="hs-identifier hs-var">contactChannelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202438"><span class="annot"><span class="annottext">s :: CreateContactChannelResponse
+</span><a href="#local-6989586621679202438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse%27"><span class="hs-identifier hs-type">CreateContactChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202437"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactChannelResponse
+</span><a href="#local-6989586621679202438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactChannelArn:CreateContactChannelResponse' :: Text
+</span><a href="Amazonka.SSMContacts.CreateContactChannel.html#%24sel%3AcontactChannelArn%3ACreateContactChannelResponse%27"><span class="hs-identifier hs-var">contactChannelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-type">CreateContactChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSMContacts.CreateContactChannel.html#CreateContactChannelResponse"><span class="hs-identifier hs-type">CreateContactChannelResponse</span></a></span></span><span>
+</span><span id="line-292"></span></pre></body></html>

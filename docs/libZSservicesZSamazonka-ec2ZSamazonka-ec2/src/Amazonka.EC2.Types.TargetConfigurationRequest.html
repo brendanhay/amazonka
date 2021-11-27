@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.TargetConfigurationRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.TargetConfigurationRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Details about the target configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTargetConfigurationRequest' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681164816"><span id="local-6989586621681164817"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetConfigurationRequest"><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-var">TargetConfigurationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetConfigurationRequest%27"><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest%27"><span class="hs-identifier hs-var">TargetConfigurationRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of instances the Convertible Reserved Instance offering can</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- be applied to. This parameter is reserved and cannot be specified in a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- request</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AinstanceCount%3ATargetConfigurationRequest%27"><span class="annot"><span class="annottext">TargetConfigurationRequest -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#%24sel%3AinstanceCount%3ATargetConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Convertible Reserved Instance offering ID.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AofferingId%3ATargetConfigurationRequest%27"><span class="annot"><span class="annottext">TargetConfigurationRequest -&gt; Text
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#%24sel%3AofferingId%3ATargetConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681164809"><span id="local-6989586621681164811"><span class="annot"><span class="annottext">TargetConfigurationRequest -&gt; TargetConfigurationRequest -&gt; Bool
+(TargetConfigurationRequest -&gt; TargetConfigurationRequest -&gt; Bool)
+-&gt; (TargetConfigurationRequest
+    -&gt; TargetConfigurationRequest -&gt; Bool)
+-&gt; Eq TargetConfigurationRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TargetConfigurationRequest -&gt; TargetConfigurationRequest -&gt; Bool
+$c/= :: TargetConfigurationRequest -&gt; TargetConfigurationRequest -&gt; Bool
+== :: TargetConfigurationRequest -&gt; TargetConfigurationRequest -&gt; Bool
+$c== :: TargetConfigurationRequest -&gt; TargetConfigurationRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681164800"><span id="local-6989586621681164802"><span id="local-6989586621681164804"><span id="local-6989586621681164806"><span class="annot"><span class="annottext">ReadPrec [TargetConfigurationRequest]
+ReadPrec TargetConfigurationRequest
+Int -&gt; ReadS TargetConfigurationRequest
+ReadS [TargetConfigurationRequest]
+(Int -&gt; ReadS TargetConfigurationRequest)
+-&gt; ReadS [TargetConfigurationRequest]
+-&gt; ReadPrec TargetConfigurationRequest
+-&gt; ReadPrec [TargetConfigurationRequest]
+-&gt; Read TargetConfigurationRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TargetConfigurationRequest]
+$creadListPrec :: ReadPrec [TargetConfigurationRequest]
+readPrec :: ReadPrec TargetConfigurationRequest
+$creadPrec :: ReadPrec TargetConfigurationRequest
+readList :: ReadS [TargetConfigurationRequest]
+$creadList :: ReadS [TargetConfigurationRequest]
+readsPrec :: Int -&gt; ReadS TargetConfigurationRequest
+$creadsPrec :: Int -&gt; ReadS TargetConfigurationRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681164793"><span id="local-6989586621681164795"><span id="local-6989586621681164797"><span class="annot"><span class="annottext">Int -&gt; TargetConfigurationRequest -&gt; ShowS
+[TargetConfigurationRequest] -&gt; ShowS
+TargetConfigurationRequest -&gt; String
+(Int -&gt; TargetConfigurationRequest -&gt; ShowS)
+-&gt; (TargetConfigurationRequest -&gt; String)
+-&gt; ([TargetConfigurationRequest] -&gt; ShowS)
+-&gt; Show TargetConfigurationRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TargetConfigurationRequest] -&gt; ShowS
+$cshowList :: [TargetConfigurationRequest] -&gt; ShowS
+show :: TargetConfigurationRequest -&gt; String
+$cshow :: TargetConfigurationRequest -&gt; String
+showsPrec :: Int -&gt; TargetConfigurationRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; TargetConfigurationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TargetConfigurationRequest -&gt; Rep TargetConfigurationRequest x)
+-&gt; (forall x.
+    Rep TargetConfigurationRequest x -&gt; TargetConfigurationRequest)
+-&gt; Generic TargetConfigurationRequest
+forall x.
+Rep TargetConfigurationRequest x -&gt; TargetConfigurationRequest
+forall x.
+TargetConfigurationRequest -&gt; Rep TargetConfigurationRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TargetConfigurationRequest x -&gt; TargetConfigurationRequest
+$cfrom :: forall x.
+TargetConfigurationRequest -&gt; Rep TargetConfigurationRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'TargetConfigurationRequest' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'instanceCount', 'targetConfigurationRequest_instanceCount' - The number of instances the Convertible Reserved Instance offering can</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- be applied to. This parameter is reserved and cannot be specified in a</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- request</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'offeringId', 'targetConfigurationRequest_offeringId' - The Convertible Reserved Instance offering ID.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#newTargetConfigurationRequest"><span class="hs-identifier hs-type">newTargetConfigurationRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'offeringId'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span>
+</span><span id="line-57"></span><span id="newTargetConfigurationRequest"><span class="annot"><span class="annottext">newTargetConfigurationRequest :: Text -&gt; TargetConfigurationRequest
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#newTargetConfigurationRequest"><span class="hs-identifier hs-var hs-var">newTargetConfigurationRequest</span></a></span></span><span> </span><span id="local-6989586621681164787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681164787"><span class="hs-identifier hs-var">pOfferingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">TargetConfigurationRequest' :: Maybe Int -&gt; Text -&gt; TargetConfigurationRequest
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest%27"><span class="hs-identifier hs-type">TargetConfigurationRequest'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceCount:TargetConfigurationRequest' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#%24sel%3AinstanceCount%3ATargetConfigurationRequest%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:offeringId:TargetConfigurationRequest' :: Text
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#%24sel%3AofferingId%3ATargetConfigurationRequest%27"><span class="hs-identifier hs-var">offeringId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681164787"><span class="hs-identifier hs-var">pOfferingId_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The number of instances the Convertible Reserved Instance offering can</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- be applied to. This parameter is reserved and cannot be specified in a</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- request</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#targetConfigurationRequest_instanceCount"><span class="hs-identifier hs-type">targetConfigurationRequest_instanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="targetConfigurationRequest_instanceCount"><span class="annot"><span class="annottext">targetConfigurationRequest_instanceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; TargetConfigurationRequest -&gt; f TargetConfigurationRequest
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#targetConfigurationRequest_instanceCount"><span class="hs-identifier hs-var hs-var">targetConfigurationRequest_instanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetConfigurationRequest -&gt; Maybe Int)
+-&gt; (TargetConfigurationRequest
+    -&gt; Maybe Int -&gt; TargetConfigurationRequest)
+-&gt; Lens
+     TargetConfigurationRequest
+     TargetConfigurationRequest
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest%27"><span class="hs-identifier hs-type">TargetConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681164783"><span class="annot"><span class="annottext">Maybe Int
+instanceCount :: Maybe Int
+$sel:instanceCount:TargetConfigurationRequest' :: TargetConfigurationRequest -&gt; Maybe Int
+</span><a href="#local-6989586621681164783"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681164783"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681164782"><span class="annot"><span class="annottext">s :: TargetConfigurationRequest
+</span><a href="#local-6989586621681164782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest%27"><span class="hs-identifier hs-type">TargetConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681164781"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681164781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetConfigurationRequest
+</span><a href="#local-6989586621681164782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:TargetConfigurationRequest' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#%24sel%3AinstanceCount%3ATargetConfigurationRequest%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681164781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The Convertible Reserved Instance offering ID.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#targetConfigurationRequest_offeringId"><span class="hs-identifier hs-type">targetConfigurationRequest_offeringId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span id="targetConfigurationRequest_offeringId"><span class="annot"><span class="annottext">targetConfigurationRequest_offeringId :: (Text -&gt; f Text)
+-&gt; TargetConfigurationRequest -&gt; f TargetConfigurationRequest
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#targetConfigurationRequest_offeringId"><span class="hs-identifier hs-var hs-var">targetConfigurationRequest_offeringId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetConfigurationRequest -&gt; Text)
+-&gt; (TargetConfigurationRequest
+    -&gt; Text -&gt; TargetConfigurationRequest)
+-&gt; Lens
+     TargetConfigurationRequest TargetConfigurationRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest%27"><span class="hs-identifier hs-type">TargetConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681164779"><span class="annot"><span class="annottext">Text
+offeringId :: Text
+$sel:offeringId:TargetConfigurationRequest' :: TargetConfigurationRequest -&gt; Text
+</span><a href="#local-6989586621681164779"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681164779"><span class="hs-identifier hs-var">offeringId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681164778"><span class="annot"><span class="annottext">s :: TargetConfigurationRequest
+</span><a href="#local-6989586621681164778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest%27"><span class="hs-identifier hs-type">TargetConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681164777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681164777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetConfigurationRequest
+</span><a href="#local-6989586621681164778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringId:TargetConfigurationRequest' :: Text
+</span><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#%24sel%3AofferingId%3ATargetConfigurationRequest%27"><span class="hs-identifier hs-var">offeringId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681164777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681164773"><span id="local-6989586621681164775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681164770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621681164766"><span class="annot"><span class="annottext">toQuery :: TargetConfigurationRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest%27"><span class="hs-identifier hs-type">TargetConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681164763"><span id="local-6989586621681164764"><span class="annot"><span class="annottext">Maybe Int
+Text
+offeringId :: Text
+instanceCount :: Maybe Int
+$sel:offeringId:TargetConfigurationRequest' :: TargetConfigurationRequest -&gt; Text
+$sel:instanceCount:TargetConfigurationRequest' :: TargetConfigurationRequest -&gt; Maybe Int
+</span><a href="#local-6989586621681164763"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681164764"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OfferingId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681164763"><span class="hs-identifier hs-var">offeringId</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span></pre></body></html>

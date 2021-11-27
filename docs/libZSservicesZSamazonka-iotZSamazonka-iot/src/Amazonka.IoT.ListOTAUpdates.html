@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.ListOTAUpdates</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists OTA updates.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListOTAUpdates&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.ListOTAUpdates</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier">ListOTAUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#newListOTAUpdates"><span class="hs-identifier">newListOTAUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_nextToken"><span class="hs-identifier">listOTAUpdates_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_otaUpdateStatus"><span class="hs-identifier">listOTAUpdates_otaUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_maxResults"><span class="hs-identifier">listOTAUpdates_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier">ListOTAUpdatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#newListOTAUpdatesResponse"><span class="hs-identifier">newListOTAUpdatesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_nextToken"><span class="hs-identifier">listOTAUpdatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_otaUpdates"><span class="hs-identifier">listOTAUpdatesResponse_otaUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_httpStatus"><span class="hs-identifier">listOTAUpdatesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListOTAUpdates' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679823031"><span id="local-6989586621679823032"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOTAUpdates"><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-var">ListOTAUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOTAUpdates%27"><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-var">ListOTAUpdates'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token used to retrieve the next set of results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListOTAUpdates%27"><span class="annot"><span class="annottext">ListOTAUpdates -&gt; Maybe Text
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AnextToken%3AListOTAUpdates%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The OTA update job status.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AotaUpdateStatus%3AListOTAUpdates%27"><span class="annot"><span class="annottext">ListOTAUpdates -&gt; Maybe OTAUpdateStatus
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AotaUpdateStatus%3AListOTAUpdates%27"><span class="hs-identifier hs-var hs-var">otaUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus"><span class="hs-identifier hs-type">OTAUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListOTAUpdates%27"><span class="annot"><span class="annottext">ListOTAUpdates -&gt; Maybe Natural
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AmaxResults%3AListOTAUpdates%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823023"><span id="local-6989586621679823025"><span class="annot"><span class="annottext">ListOTAUpdates -&gt; ListOTAUpdates -&gt; Bool
+(ListOTAUpdates -&gt; ListOTAUpdates -&gt; Bool)
+-&gt; (ListOTAUpdates -&gt; ListOTAUpdates -&gt; Bool) -&gt; Eq ListOTAUpdates
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOTAUpdates -&gt; ListOTAUpdates -&gt; Bool
+$c/= :: ListOTAUpdates -&gt; ListOTAUpdates -&gt; Bool
+== :: ListOTAUpdates -&gt; ListOTAUpdates -&gt; Bool
+$c== :: ListOTAUpdates -&gt; ListOTAUpdates -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823014"><span id="local-6989586621679823016"><span id="local-6989586621679823018"><span id="local-6989586621679823020"><span class="annot"><span class="annottext">ReadPrec [ListOTAUpdates]
+ReadPrec ListOTAUpdates
+Int -&gt; ReadS ListOTAUpdates
+ReadS [ListOTAUpdates]
+(Int -&gt; ReadS ListOTAUpdates)
+-&gt; ReadS [ListOTAUpdates]
+-&gt; ReadPrec ListOTAUpdates
+-&gt; ReadPrec [ListOTAUpdates]
+-&gt; Read ListOTAUpdates
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOTAUpdates]
+$creadListPrec :: ReadPrec [ListOTAUpdates]
+readPrec :: ReadPrec ListOTAUpdates
+$creadPrec :: ReadPrec ListOTAUpdates
+readList :: ReadS [ListOTAUpdates]
+$creadList :: ReadS [ListOTAUpdates]
+readsPrec :: Int -&gt; ReadS ListOTAUpdates
+$creadsPrec :: Int -&gt; ReadS ListOTAUpdates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823007"><span id="local-6989586621679823009"><span id="local-6989586621679823011"><span class="annot"><span class="annottext">Int -&gt; ListOTAUpdates -&gt; ShowS
+[ListOTAUpdates] -&gt; ShowS
+ListOTAUpdates -&gt; String
+(Int -&gt; ListOTAUpdates -&gt; ShowS)
+-&gt; (ListOTAUpdates -&gt; String)
+-&gt; ([ListOTAUpdates] -&gt; ShowS)
+-&gt; Show ListOTAUpdates
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOTAUpdates] -&gt; ShowS
+$cshowList :: [ListOTAUpdates] -&gt; ShowS
+show :: ListOTAUpdates -&gt; String
+$cshow :: ListOTAUpdates -&gt; String
+showsPrec :: Int -&gt; ListOTAUpdates -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOTAUpdates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListOTAUpdates -&gt; Rep ListOTAUpdates x)
+-&gt; (forall x. Rep ListOTAUpdates x -&gt; ListOTAUpdates)
+-&gt; Generic ListOTAUpdates
+forall x. Rep ListOTAUpdates x -&gt; ListOTAUpdates
+forall x. ListOTAUpdates -&gt; Rep ListOTAUpdates x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListOTAUpdates x -&gt; ListOTAUpdates
+$cfrom :: forall x. ListOTAUpdates -&gt; Rep ListOTAUpdates x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListOTAUpdates' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'listOTAUpdates_nextToken' - A token used to retrieve the next set of results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'otaUpdateStatus', 'listOTAUpdates_otaUpdateStatus' - The OTA update job status.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'listOTAUpdates_maxResults' - The maximum number of results to return at one time.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#newListOTAUpdates"><span class="hs-identifier hs-type">newListOTAUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span>
+</span><span id="line-84"></span><span id="newListOTAUpdates"><span class="annot"><span class="annottext">newListOTAUpdates :: ListOTAUpdates
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#newListOTAUpdates"><span class="hs-identifier hs-var hs-var">newListOTAUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListOTAUpdates' :: Maybe Text
+-&gt; Maybe OTAUpdateStatus -&gt; Maybe Natural -&gt; ListOTAUpdates
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOTAUpdates' :: Maybe Text
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AnextToken%3AListOTAUpdates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdateStatus:ListOTAUpdates' :: Maybe OTAUpdateStatus
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AotaUpdateStatus%3AListOTAUpdates%27"><span class="hs-identifier hs-var">otaUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListOTAUpdates' :: Maybe Natural
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AmaxResults%3AListOTAUpdates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A token used to retrieve the next set of results.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_nextToken"><span class="hs-identifier hs-type">listOTAUpdates_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listOTAUpdates_nextToken"><span class="annot"><span class="annottext">listOTAUpdates_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListOTAUpdates -&gt; f ListOTAUpdates
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_nextToken"><span class="hs-identifier hs-var hs-var">listOTAUpdates_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOTAUpdates -&gt; Maybe Text)
+-&gt; (ListOTAUpdates -&gt; Maybe Text -&gt; ListOTAUpdates)
+-&gt; Lens ListOTAUpdates ListOTAUpdates (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823001"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOTAUpdates' :: ListOTAUpdates -&gt; Maybe Text
+</span><a href="#local-6989586621679823001"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823001"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823000"><span class="annot"><span class="annottext">s :: ListOTAUpdates
+</span><a href="#local-6989586621679823000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822999"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOTAUpdates
+</span><a href="#local-6989586621679823000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOTAUpdates' :: Maybe Text
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AnextToken%3AListOTAUpdates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The OTA update job status.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_otaUpdateStatus"><span class="hs-identifier hs-type">listOTAUpdates_otaUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus"><span class="hs-identifier hs-type">OTAUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listOTAUpdates_otaUpdateStatus"><span class="annot"><span class="annottext">listOTAUpdates_otaUpdateStatus :: (Maybe OTAUpdateStatus -&gt; f (Maybe OTAUpdateStatus))
+-&gt; ListOTAUpdates -&gt; f ListOTAUpdates
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_otaUpdateStatus"><span class="hs-identifier hs-var hs-var">listOTAUpdates_otaUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOTAUpdates -&gt; Maybe OTAUpdateStatus)
+-&gt; (ListOTAUpdates -&gt; Maybe OTAUpdateStatus -&gt; ListOTAUpdates)
+-&gt; Lens
+     ListOTAUpdates
+     ListOTAUpdates
+     (Maybe OTAUpdateStatus)
+     (Maybe OTAUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822998"><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+otaUpdateStatus :: Maybe OTAUpdateStatus
+$sel:otaUpdateStatus:ListOTAUpdates' :: ListOTAUpdates -&gt; Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679822998"><span class="hs-identifier hs-var hs-var">otaUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679822998"><span class="hs-identifier hs-var">otaUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822997"><span class="annot"><span class="annottext">s :: ListOTAUpdates
+</span><a href="#local-6989586621679822997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822996"><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679822996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOTAUpdates
+</span><a href="#local-6989586621679822997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateStatus:ListOTAUpdates' :: Maybe OTAUpdateStatus
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AotaUpdateStatus%3AListOTAUpdates%27"><span class="hs-identifier hs-var">otaUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679822996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_maxResults"><span class="hs-identifier hs-type">listOTAUpdates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listOTAUpdates_maxResults"><span class="annot"><span class="annottext">listOTAUpdates_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListOTAUpdates -&gt; f ListOTAUpdates
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_maxResults"><span class="hs-identifier hs-var hs-var">listOTAUpdates_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOTAUpdates -&gt; Maybe Natural)
+-&gt; (ListOTAUpdates -&gt; Maybe Natural -&gt; ListOTAUpdates)
+-&gt; Lens
+     ListOTAUpdates ListOTAUpdates (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822995"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListOTAUpdates' :: ListOTAUpdates -&gt; Maybe Natural
+</span><a href="#local-6989586621679822995"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679822995"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822994"><span class="annot"><span class="annottext">s :: ListOTAUpdates
+</span><a href="#local-6989586621679822994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822993"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679822993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOTAUpdates
+</span><a href="#local-6989586621679822994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListOTAUpdates' :: Maybe Natural
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AmaxResults%3AListOTAUpdates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679822993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679822989"><span class="annot"><span class="annottext">page :: ListOTAUpdates
+-&gt; AWSResponse ListOTAUpdates -&gt; Maybe ListOTAUpdates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679822987"><span class="annot"><span class="annottext">ListOTAUpdates
+</span><a href="#local-6989586621679822987"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679822986"><span class="annot"><span class="annottext">AWSResponse ListOTAUpdates
+</span><a href="#local-6989586621679822986"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-106"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOTAUpdates
+ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822986"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">ListOTAUpdatesResponse
+-&gt; Getting (First Text) ListOTAUpdatesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOTAUpdatesResponse
+-&gt; Const (First Text) ListOTAUpdatesResponse
+Lens' ListOTAUpdatesResponse (Maybe Text)
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_nextToken"><span class="hs-identifier hs-var">listOTAUpdatesResponse_nextToken</span></a></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOTAUpdatesResponse
+ -&gt; Const (First Text) ListOTAUpdatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOTAUpdatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOTAUpdates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [OTAUpdateSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOTAUpdates
+ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822986"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListOTAUpdatesResponse
+-&gt; Getting
+     (First [OTAUpdateSummary])
+     ListOTAUpdatesResponse
+     [OTAUpdateSummary]
+-&gt; Maybe [OTAUpdateSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [OTAUpdateSummary]
+ -&gt; Const (First [OTAUpdateSummary]) (Maybe [OTAUpdateSummary]))
+-&gt; ListOTAUpdatesResponse
+-&gt; Const (First [OTAUpdateSummary]) ListOTAUpdatesResponse
+Lens' ListOTAUpdatesResponse (Maybe [OTAUpdateSummary])
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_otaUpdates"><span class="hs-identifier hs-var">listOTAUpdatesResponse_otaUpdates</span></a></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [OTAUpdateSummary]
+  -&gt; Const (First [OTAUpdateSummary]) (Maybe [OTAUpdateSummary]))
+ -&gt; ListOTAUpdatesResponse
+ -&gt; Const (First [OTAUpdateSummary]) ListOTAUpdatesResponse)
+-&gt; (([OTAUpdateSummary]
+     -&gt; Const (First [OTAUpdateSummary]) [OTAUpdateSummary])
+    -&gt; Maybe [OTAUpdateSummary]
+    -&gt; Const (First [OTAUpdateSummary]) (Maybe [OTAUpdateSummary]))
+-&gt; Getting
+     (First [OTAUpdateSummary])
+     ListOTAUpdatesResponse
+     [OTAUpdateSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([OTAUpdateSummary]
+ -&gt; Const (First [OTAUpdateSummary]) [OTAUpdateSummary])
+-&gt; Maybe [OTAUpdateSummary]
+-&gt; Const (First [OTAUpdateSummary]) (Maybe [OTAUpdateSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOTAUpdates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">ListOTAUpdates -&gt; Maybe ListOTAUpdates
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListOTAUpdates -&gt; Maybe ListOTAUpdates)
+-&gt; ListOTAUpdates -&gt; Maybe ListOTAUpdates
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ListOTAUpdates
+</span><a href="#local-6989586621679822987"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListOTAUpdates
+-&gt; (ListOTAUpdates -&gt; ListOTAUpdates) -&gt; ListOTAUpdates
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListOTAUpdates -&gt; Identity ListOTAUpdates
+Lens ListOTAUpdates ListOTAUpdates (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdates_nextToken"><span class="hs-identifier hs-var">listOTAUpdates_nextToken</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListOTAUpdates -&gt; Identity ListOTAUpdates)
+-&gt; Maybe Text -&gt; ListOTAUpdates -&gt; ListOTAUpdates
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOTAUpdates
+ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822986"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListOTAUpdatesResponse
+-&gt; Getting (First Text) ListOTAUpdatesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOTAUpdatesResponse
+-&gt; Const (First Text) ListOTAUpdatesResponse
+Lens' ListOTAUpdatesResponse (Maybe Text)
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_nextToken"><span class="hs-identifier hs-var">listOTAUpdatesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOTAUpdatesResponse
+ -&gt; Const (First Text) ListOTAUpdatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOTAUpdatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679822976"><span class="annot"><span class="annottext">request :: ListOTAUpdates -&gt; Request ListOTAUpdates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListOTAUpdates -&gt; Request ListOTAUpdates
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679822972"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListOTAUpdates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListOTAUpdates)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListOTAUpdates))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListOTAUpdates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListOTAUpdates)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679822969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822969"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679822968"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679822968"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679822967"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679822967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [OTAUpdateSummary] -&gt; Int -&gt; ListOTAUpdatesResponse
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">ListOTAUpdatesResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [OTAUpdateSummary] -&gt; Int -&gt; ListOTAUpdatesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [OTAUpdateSummary] -&gt; Int -&gt; ListOTAUpdatesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679822967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [OTAUpdateSummary] -&gt; Int -&gt; ListOTAUpdatesResponse)
+-&gt; Either String (Maybe [OTAUpdateSummary])
+-&gt; Either String (Int -&gt; ListOTAUpdatesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679822967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OTAUpdateSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;otaUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OTAUpdateSummary]))
+-&gt; Maybe [OTAUpdateSummary]
+-&gt; Either String (Maybe [OTAUpdateSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OTAUpdateSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListOTAUpdatesResponse)
+-&gt; Either String Int -&gt; Either String ListOTAUpdatesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822969"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822958"><span id="local-6989586621679822960"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679822951"><span class="annot"><span class="annottext">toHeaders :: ListOTAUpdates -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListOTAUpdates -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679822946"><span class="annot"><span class="annottext">toPath :: ListOTAUpdates -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListOTAUpdates -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/otaUpdates&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates"><span class="hs-identifier hs-type">ListOTAUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679822942"><span class="annot"><span class="annottext">toQuery :: ListOTAUpdates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdates%27"><span class="hs-identifier hs-type">ListOTAUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822938"><span id="local-6989586621679822939"><span id="local-6989586621679822940"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe OTAUpdateStatus
+maxResults :: Maybe Natural
+otaUpdateStatus :: Maybe OTAUpdateStatus
+nextToken :: Maybe Text
+$sel:maxResults:ListOTAUpdates' :: ListOTAUpdates -&gt; Maybe Natural
+$sel:otaUpdateStatus:ListOTAUpdates' :: ListOTAUpdates -&gt; Maybe OTAUpdateStatus
+$sel:nextToken:ListOTAUpdates' :: ListOTAUpdates -&gt; Maybe Text
+</span><a href="#local-6989586621679822938"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822940"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;otaUpdateStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe OTAUpdateStatus -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679822939"><span class="hs-identifier hs-var">otaUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679822938"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newListOTAUpdatesResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679822935"><span id="local-6989586621679822936"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOTAUpdatesResponse"><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-var">ListOTAUpdatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOTAUpdatesResponse%27"><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">ListOTAUpdatesResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to use to get the next set of results.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AnextToken%3AListOTAUpdatesResponse%27"><span class="annot"><span class="annottext">ListOTAUpdatesResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AnextToken%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | A list of OTA update jobs.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AotaUpdates%3AListOTAUpdatesResponse%27"><span class="annot"><span class="annottext">ListOTAUpdatesResponse -&gt; Maybe [OTAUpdateSummary]
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AotaUpdates%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var hs-var">otaUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListOTAUpdatesResponse%27"><span class="annot"><span class="annottext">ListOTAUpdatesResponse -&gt; Int
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AhttpStatus%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679822928"><span id="local-6989586621679822930"><span class="annot"><span class="annottext">ListOTAUpdatesResponse -&gt; ListOTAUpdatesResponse -&gt; Bool
+(ListOTAUpdatesResponse -&gt; ListOTAUpdatesResponse -&gt; Bool)
+-&gt; (ListOTAUpdatesResponse -&gt; ListOTAUpdatesResponse -&gt; Bool)
+-&gt; Eq ListOTAUpdatesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOTAUpdatesResponse -&gt; ListOTAUpdatesResponse -&gt; Bool
+$c/= :: ListOTAUpdatesResponse -&gt; ListOTAUpdatesResponse -&gt; Bool
+== :: ListOTAUpdatesResponse -&gt; ListOTAUpdatesResponse -&gt; Bool
+$c== :: ListOTAUpdatesResponse -&gt; ListOTAUpdatesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822920"><span id="local-6989586621679822922"><span id="local-6989586621679822924"><span id="local-6989586621679822926"><span class="annot"><span class="annottext">ReadPrec [ListOTAUpdatesResponse]
+ReadPrec ListOTAUpdatesResponse
+Int -&gt; ReadS ListOTAUpdatesResponse
+ReadS [ListOTAUpdatesResponse]
+(Int -&gt; ReadS ListOTAUpdatesResponse)
+-&gt; ReadS [ListOTAUpdatesResponse]
+-&gt; ReadPrec ListOTAUpdatesResponse
+-&gt; ReadPrec [ListOTAUpdatesResponse]
+-&gt; Read ListOTAUpdatesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOTAUpdatesResponse]
+$creadListPrec :: ReadPrec [ListOTAUpdatesResponse]
+readPrec :: ReadPrec ListOTAUpdatesResponse
+$creadPrec :: ReadPrec ListOTAUpdatesResponse
+readList :: ReadS [ListOTAUpdatesResponse]
+$creadList :: ReadS [ListOTAUpdatesResponse]
+readsPrec :: Int -&gt; ReadS ListOTAUpdatesResponse
+$creadsPrec :: Int -&gt; ReadS ListOTAUpdatesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822914"><span id="local-6989586621679822916"><span id="local-6989586621679822918"><span class="annot"><span class="annottext">Int -&gt; ListOTAUpdatesResponse -&gt; ShowS
+[ListOTAUpdatesResponse] -&gt; ShowS
+ListOTAUpdatesResponse -&gt; String
+(Int -&gt; ListOTAUpdatesResponse -&gt; ShowS)
+-&gt; (ListOTAUpdatesResponse -&gt; String)
+-&gt; ([ListOTAUpdatesResponse] -&gt; ShowS)
+-&gt; Show ListOTAUpdatesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOTAUpdatesResponse] -&gt; ShowS
+$cshowList :: [ListOTAUpdatesResponse] -&gt; ShowS
+show :: ListOTAUpdatesResponse -&gt; String
+$cshow :: ListOTAUpdatesResponse -&gt; String
+showsPrec :: Int -&gt; ListOTAUpdatesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOTAUpdatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListOTAUpdatesResponse -&gt; Rep ListOTAUpdatesResponse x)
+-&gt; (forall x.
+    Rep ListOTAUpdatesResponse x -&gt; ListOTAUpdatesResponse)
+-&gt; Generic ListOTAUpdatesResponse
+forall x. Rep ListOTAUpdatesResponse x -&gt; ListOTAUpdatesResponse
+forall x. ListOTAUpdatesResponse -&gt; Rep ListOTAUpdatesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListOTAUpdatesResponse x -&gt; ListOTAUpdatesResponse
+$cfrom :: forall x. ListOTAUpdatesResponse -&gt; Rep ListOTAUpdatesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'ListOTAUpdatesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'nextToken', 'listOTAUpdatesResponse_nextToken' - A token to use to get the next set of results.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'otaUpdates', 'listOTAUpdatesResponse_otaUpdates' - A list of OTA update jobs.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'httpStatus', 'listOTAUpdatesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#newListOTAUpdatesResponse"><span class="hs-identifier hs-type">newListOTAUpdatesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span>
+</span><span id="line-184"></span><span id="newListOTAUpdatesResponse"><span class="annot"><span class="annottext">newListOTAUpdatesResponse :: Int -&gt; ListOTAUpdatesResponse
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#newListOTAUpdatesResponse"><span class="hs-identifier hs-var hs-var">newListOTAUpdatesResponse</span></a></span></span><span> </span><span id="local-6989586621679822911"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822911"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ListOTAUpdatesResponse' :: Maybe Text
+-&gt; Maybe [OTAUpdateSummary] -&gt; Int -&gt; ListOTAUpdatesResponse
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-type">ListOTAUpdatesResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOTAUpdatesResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AnextToken%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdates:ListOTAUpdatesResponse' :: Maybe [OTAUpdateSummary]
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AotaUpdates%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">otaUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OTAUpdateSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListOTAUpdatesResponse' :: Int
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AhttpStatus%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822911"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A token to use to get the next set of results.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_nextToken"><span class="hs-identifier hs-type">listOTAUpdatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="listOTAUpdatesResponse_nextToken"><span class="annot"><span class="annottext">listOTAUpdatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListOTAUpdatesResponse -&gt; f ListOTAUpdatesResponse
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listOTAUpdatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOTAUpdatesResponse -&gt; Maybe Text)
+-&gt; (ListOTAUpdatesResponse -&gt; Maybe Text -&gt; ListOTAUpdatesResponse)
+-&gt; Lens' ListOTAUpdatesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-type">ListOTAUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822910"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOTAUpdatesResponse' :: ListOTAUpdatesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679822910"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822910"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822909"><span class="annot"><span class="annottext">s :: ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-type">ListOTAUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOTAUpdatesResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AnextToken%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A list of OTA update jobs.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_otaUpdates"><span class="hs-identifier hs-type">listOTAUpdatesResponse_otaUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="listOTAUpdatesResponse_otaUpdates"><span class="annot"><span class="annottext">listOTAUpdatesResponse_otaUpdates :: (Maybe [OTAUpdateSummary] -&gt; f (Maybe [OTAUpdateSummary]))
+-&gt; ListOTAUpdatesResponse -&gt; f ListOTAUpdatesResponse
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_otaUpdates"><span class="hs-identifier hs-var hs-var">listOTAUpdatesResponse_otaUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOTAUpdatesResponse -&gt; Maybe [OTAUpdateSummary])
+-&gt; (ListOTAUpdatesResponse
+    -&gt; Maybe [OTAUpdateSummary] -&gt; ListOTAUpdatesResponse)
+-&gt; Lens' ListOTAUpdatesResponse (Maybe [OTAUpdateSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-type">ListOTAUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822907"><span class="annot"><span class="annottext">Maybe [OTAUpdateSummary]
+otaUpdates :: Maybe [OTAUpdateSummary]
+$sel:otaUpdates:ListOTAUpdatesResponse' :: ListOTAUpdatesResponse -&gt; Maybe [OTAUpdateSummary]
+</span><a href="#local-6989586621679822907"><span class="hs-identifier hs-var hs-var">otaUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OTAUpdateSummary]
+</span><a href="#local-6989586621679822907"><span class="hs-identifier hs-var">otaUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822906"><span class="annot"><span class="annottext">s :: ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-type">ListOTAUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822905"><span class="annot"><span class="annottext">Maybe [OTAUpdateSummary]
+</span><a href="#local-6989586621679822905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdates:ListOTAUpdatesResponse' :: Maybe [OTAUpdateSummary]
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AotaUpdates%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">otaUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OTAUpdateSummary]
+</span><a href="#local-6989586621679822905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OTAUpdateSummary] -&gt; f (Maybe [OTAUpdateSummary]))
+ -&gt; ListOTAUpdatesResponse -&gt; f ListOTAUpdatesResponse)
+-&gt; ((Maybe [OTAUpdateSummary] -&gt; f (Maybe [OTAUpdateSummary]))
+    -&gt; Maybe [OTAUpdateSummary] -&gt; f (Maybe [OTAUpdateSummary]))
+-&gt; (Maybe [OTAUpdateSummary] -&gt; f (Maybe [OTAUpdateSummary]))
+-&gt; ListOTAUpdatesResponse
+-&gt; f ListOTAUpdatesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OTAUpdateSummary]
+  [OTAUpdateSummary]
+  [OTAUpdateSummary]
+  [OTAUpdateSummary]
+-&gt; Iso
+     (Maybe [OTAUpdateSummary])
+     (Maybe [OTAUpdateSummary])
+     (Maybe [OTAUpdateSummary])
+     (Maybe [OTAUpdateSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OTAUpdateSummary]
+  [OTAUpdateSummary]
+  [OTAUpdateSummary]
+  [OTAUpdateSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_httpStatus"><span class="hs-identifier hs-type">listOTAUpdatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span id="listOTAUpdatesResponse_httpStatus"><span class="annot"><span class="annottext">listOTAUpdatesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListOTAUpdatesResponse -&gt; f ListOTAUpdatesResponse
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#listOTAUpdatesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listOTAUpdatesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOTAUpdatesResponse -&gt; Int)
+-&gt; (ListOTAUpdatesResponse -&gt; Int -&gt; ListOTAUpdatesResponse)
+-&gt; Lens ListOTAUpdatesResponse ListOTAUpdatesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-type">ListOTAUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822902"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListOTAUpdatesResponse' :: ListOTAUpdatesResponse -&gt; Int
+</span><a href="#local-6989586621679822902"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822902"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822901"><span class="annot"><span class="annottext">s :: ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse%27"><span class="hs-identifier hs-type">ListOTAUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822900"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOTAUpdatesResponse
+</span><a href="#local-6989586621679822901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOTAUpdatesResponse' :: Int
+</span><a href="Amazonka.IoT.ListOTAUpdates.html#%24sel%3AhttpStatus%3AListOTAUpdatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListOTAUpdates.html#ListOTAUpdatesResponse"><span class="hs-identifier hs-type">ListOTAUpdatesResponse</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

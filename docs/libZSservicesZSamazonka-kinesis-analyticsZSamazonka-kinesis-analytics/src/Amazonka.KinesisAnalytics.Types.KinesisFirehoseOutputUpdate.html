@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | When updating an output configuration using the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html UpdateApplication&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- operation, provides information about an Amazon Kinesis Firehose</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- delivery stream configured as the destination.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newKinesisFirehoseOutputUpdate' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679206861"><span id="local-6989586621679206862"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisFirehoseOutputUpdate"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-var">KinesisFirehoseOutputUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisFirehoseOutputUpdate%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-var">KinesisFirehoseOutputUpdate'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the stream on your behalf. You need to grant the necessary permissions</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- to this role.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AroleARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="annot"><span class="annottext">KinesisFirehoseOutputUpdate -&gt; Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#%24sel%3AroleARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-var hs-var">roleARNUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- stream to write to.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="annot"><span class="annottext">KinesisFirehoseOutputUpdate -&gt; Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#%24sel%3AresourceARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-var hs-var">resourceARNUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206854"><span id="local-6989586621679206856"><span class="annot"><span class="annottext">KinesisFirehoseOutputUpdate -&gt; KinesisFirehoseOutputUpdate -&gt; Bool
+(KinesisFirehoseOutputUpdate
+ -&gt; KinesisFirehoseOutputUpdate -&gt; Bool)
+-&gt; (KinesisFirehoseOutputUpdate
+    -&gt; KinesisFirehoseOutputUpdate -&gt; Bool)
+-&gt; Eq KinesisFirehoseOutputUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KinesisFirehoseOutputUpdate -&gt; KinesisFirehoseOutputUpdate -&gt; Bool
+$c/= :: KinesisFirehoseOutputUpdate -&gt; KinesisFirehoseOutputUpdate -&gt; Bool
+== :: KinesisFirehoseOutputUpdate -&gt; KinesisFirehoseOutputUpdate -&gt; Bool
+$c== :: KinesisFirehoseOutputUpdate -&gt; KinesisFirehoseOutputUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206845"><span id="local-6989586621679206847"><span id="local-6989586621679206849"><span id="local-6989586621679206851"><span class="annot"><span class="annottext">ReadPrec [KinesisFirehoseOutputUpdate]
+ReadPrec KinesisFirehoseOutputUpdate
+Int -&gt; ReadS KinesisFirehoseOutputUpdate
+ReadS [KinesisFirehoseOutputUpdate]
+(Int -&gt; ReadS KinesisFirehoseOutputUpdate)
+-&gt; ReadS [KinesisFirehoseOutputUpdate]
+-&gt; ReadPrec KinesisFirehoseOutputUpdate
+-&gt; ReadPrec [KinesisFirehoseOutputUpdate]
+-&gt; Read KinesisFirehoseOutputUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KinesisFirehoseOutputUpdate]
+$creadListPrec :: ReadPrec [KinesisFirehoseOutputUpdate]
+readPrec :: ReadPrec KinesisFirehoseOutputUpdate
+$creadPrec :: ReadPrec KinesisFirehoseOutputUpdate
+readList :: ReadS [KinesisFirehoseOutputUpdate]
+$creadList :: ReadS [KinesisFirehoseOutputUpdate]
+readsPrec :: Int -&gt; ReadS KinesisFirehoseOutputUpdate
+$creadsPrec :: Int -&gt; ReadS KinesisFirehoseOutputUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206838"><span id="local-6989586621679206840"><span id="local-6989586621679206842"><span class="annot"><span class="annottext">Int -&gt; KinesisFirehoseOutputUpdate -&gt; ShowS
+[KinesisFirehoseOutputUpdate] -&gt; ShowS
+KinesisFirehoseOutputUpdate -&gt; String
+(Int -&gt; KinesisFirehoseOutputUpdate -&gt; ShowS)
+-&gt; (KinesisFirehoseOutputUpdate -&gt; String)
+-&gt; ([KinesisFirehoseOutputUpdate] -&gt; ShowS)
+-&gt; Show KinesisFirehoseOutputUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KinesisFirehoseOutputUpdate] -&gt; ShowS
+$cshowList :: [KinesisFirehoseOutputUpdate] -&gt; ShowS
+show :: KinesisFirehoseOutputUpdate -&gt; String
+$cshow :: KinesisFirehoseOutputUpdate -&gt; String
+showsPrec :: Int -&gt; KinesisFirehoseOutputUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; KinesisFirehoseOutputUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ KinesisFirehoseOutputUpdate -&gt; Rep KinesisFirehoseOutputUpdate x)
+-&gt; (forall x.
+    Rep KinesisFirehoseOutputUpdate x -&gt; KinesisFirehoseOutputUpdate)
+-&gt; Generic KinesisFirehoseOutputUpdate
+forall x.
+Rep KinesisFirehoseOutputUpdate x -&gt; KinesisFirehoseOutputUpdate
+forall x.
+KinesisFirehoseOutputUpdate -&gt; Rep KinesisFirehoseOutputUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep KinesisFirehoseOutputUpdate x -&gt; KinesisFirehoseOutputUpdate
+$cfrom :: forall x.
+KinesisFirehoseOutputUpdate -&gt; Rep KinesisFirehoseOutputUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'KinesisFirehoseOutputUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'roleARNUpdate', 'kinesisFirehoseOutputUpdate_roleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- the stream on your behalf. You need to grant the necessary permissions</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- to this role.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'resourceARNUpdate', 'kinesisFirehoseOutputUpdate_resourceARNUpdate' - Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- stream to write to.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#newKinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">newKinesisFirehoseOutputUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span><span>
+</span><span id="line-59"></span><span id="newKinesisFirehoseOutputUpdate"><span class="annot"><span class="annottext">newKinesisFirehoseOutputUpdate :: KinesisFirehoseOutputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#newKinesisFirehoseOutputUpdate"><span class="hs-identifier hs-var hs-var">newKinesisFirehoseOutputUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">KinesisFirehoseOutputUpdate' :: Maybe Text -&gt; Maybe Text -&gt; KinesisFirehoseOutputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleARNUpdate:KinesisFirehoseOutputUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#%24sel%3AroleARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-var">roleARNUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceARNUpdate:KinesisFirehoseOutputUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#%24sel%3AresourceARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-var">resourceARNUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- the stream on your behalf. You need to grant the necessary permissions</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- to this role.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#kinesisFirehoseOutputUpdate_roleARNUpdate"><span class="hs-identifier hs-type">kinesisFirehoseOutputUpdate_roleARNUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="kinesisFirehoseOutputUpdate_roleARNUpdate"><span class="annot"><span class="annottext">kinesisFirehoseOutputUpdate_roleARNUpdate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; KinesisFirehoseOutputUpdate -&gt; f KinesisFirehoseOutputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#kinesisFirehoseOutputUpdate_roleARNUpdate"><span class="hs-identifier hs-var hs-var">kinesisFirehoseOutputUpdate_roleARNUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KinesisFirehoseOutputUpdate -&gt; Maybe Text)
+-&gt; (KinesisFirehoseOutputUpdate
+    -&gt; Maybe Text -&gt; KinesisFirehoseOutputUpdate)
+-&gt; Lens
+     KinesisFirehoseOutputUpdate
+     KinesisFirehoseOutputUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206829"><span class="annot"><span class="annottext">Maybe Text
+roleARNUpdate :: Maybe Text
+$sel:roleARNUpdate:KinesisFirehoseOutputUpdate' :: KinesisFirehoseOutputUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679206829"><span class="hs-identifier hs-var hs-var">roleARNUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206829"><span class="hs-identifier hs-var">roleARNUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206828"><span class="annot"><span class="annottext">s :: KinesisFirehoseOutputUpdate
+</span><a href="#local-6989586621679206828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisFirehoseOutputUpdate
+</span><a href="#local-6989586621679206828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARNUpdate:KinesisFirehoseOutputUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#%24sel%3AroleARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-var">roleARNUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- stream to write to.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#kinesisFirehoseOutputUpdate_resourceARNUpdate"><span class="hs-identifier hs-type">kinesisFirehoseOutputUpdate_resourceARNUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="kinesisFirehoseOutputUpdate_resourceARNUpdate"><span class="annot"><span class="annottext">kinesisFirehoseOutputUpdate_resourceARNUpdate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; KinesisFirehoseOutputUpdate -&gt; f KinesisFirehoseOutputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#kinesisFirehoseOutputUpdate_resourceARNUpdate"><span class="hs-identifier hs-var hs-var">kinesisFirehoseOutputUpdate_resourceARNUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KinesisFirehoseOutputUpdate -&gt; Maybe Text)
+-&gt; (KinesisFirehoseOutputUpdate
+    -&gt; Maybe Text -&gt; KinesisFirehoseOutputUpdate)
+-&gt; Lens
+     KinesisFirehoseOutputUpdate
+     KinesisFirehoseOutputUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206825"><span class="annot"><span class="annottext">Maybe Text
+resourceARNUpdate :: Maybe Text
+$sel:resourceARNUpdate:KinesisFirehoseOutputUpdate' :: KinesisFirehoseOutputUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679206825"><span class="hs-identifier hs-var hs-var">resourceARNUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206825"><span class="hs-identifier hs-var">resourceARNUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206824"><span class="annot"><span class="annottext">s :: KinesisFirehoseOutputUpdate
+</span><a href="#local-6989586621679206824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisFirehoseOutputUpdate
+</span><a href="#local-6989586621679206824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARNUpdate:KinesisFirehoseOutputUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#%24sel%3AresourceARNUpdate%3AKinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-var">resourceARNUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206819"><span id="local-6989586621679206821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206808"><span id="local-6989586621679206810"><span id="local-6989586621679206812"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679206806"><span class="annot"><span class="annottext">toJSON :: KinesisFirehoseOutputUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate.html#KinesisFirehoseOutputUpdate%27"><span class="hs-identifier hs-type">KinesisFirehoseOutputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206803"><span id="local-6989586621679206804"><span class="annot"><span class="annottext">Maybe Text
+resourceARNUpdate :: Maybe Text
+roleARNUpdate :: Maybe Text
+$sel:resourceARNUpdate:KinesisFirehoseOutputUpdate' :: KinesisFirehoseOutputUpdate -&gt; Maybe Text
+$sel:roleARNUpdate:KinesisFirehoseOutputUpdate' :: KinesisFirehoseOutputUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679206803"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARNUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206804"><span class="hs-identifier hs-var">roleARNUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceARNUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206803"><span class="hs-identifier hs-var">resourceARNUpdate</span></a></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

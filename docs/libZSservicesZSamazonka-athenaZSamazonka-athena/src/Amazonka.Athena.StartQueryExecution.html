@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Athena.StartQueryExecution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Runs the SQL query statements contained in the @Query@. Requires you to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- have access to the workgroup in which the query ran. Running queries</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- against an external catalog requires GetDataCatalog permission to the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- catalog. For code samples using the Amazon Web Services SDK for Java,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the /Amazon Athena User Guide/.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Athena.StartQueryExecution</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier">StartQueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#newStartQueryExecution"><span class="hs-identifier">newStartQueryExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_queryExecutionContext"><span class="hs-identifier">startQueryExecution_queryExecutionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_resultConfiguration"><span class="hs-identifier">startQueryExecution_resultConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_clientRequestToken"><span class="hs-identifier">startQueryExecution_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_workGroup"><span class="hs-identifier">startQueryExecution_workGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_queryString"><span class="hs-identifier">startQueryExecution_queryString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier">StartQueryExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#newStartQueryExecutionResponse"><span class="hs-identifier">newStartQueryExecutionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecutionResponse_queryExecutionId"><span class="hs-identifier">startQueryExecutionResponse_queryExecutionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecutionResponse_httpStatus"><span class="hs-identifier">startQueryExecutionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.html"><span class="hs-identifier">Amazonka.Athena.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newStartQueryExecution' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679220791"><span id="local-6989586621679220792"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartQueryExecution"><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-var">StartQueryExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartQueryExecution%27"><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-var">StartQueryExecution'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The database within which the query executes.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AqueryExecutionContext%3AStartQueryExecution%27"><span class="annot"><span class="annottext">StartQueryExecution -&gt; Maybe QueryExecutionContext
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryExecutionContext%3AStartQueryExecution%27"><span class="hs-identifier hs-var hs-var">queryExecutionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionContext.html#QueryExecutionContext"><span class="hs-identifier hs-type">QueryExecutionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Specifies information about where and how to save the results of the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- query execution. If the query runs in a workgroup, then workgroup\'s</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- settings may override query settings. This affects the query results</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- location. The workgroup settings override is specified in</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- EnforceWorkGroupConfiguration (true\/false) in the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- WorkGroupConfiguration. See</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AresultConfiguration%3AStartQueryExecution%27"><span class="annot"><span class="annottext">StartQueryExecution -&gt; Maybe ResultConfiguration
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AresultConfiguration%3AStartQueryExecution%27"><span class="hs-identifier hs-var hs-var">resultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A unique case-sensitive string used to ensure the request to create the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- query is idempotent (executes only once). If another</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @StartQueryExecution@ request is received, the same response is returned</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- and another query is not created. If a parameter has changed, for</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- example, the @QueryString@, an error is returned.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- This token is listed as not required because Amazon Web Services SDKs</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- (for example the Amazon Web Services SDK for Java) auto-generate the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- token for users. If you are not using the Amazon Web Services SDK or the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Amazon Web Services CLI, you must provide this token or the action will</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- fail.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStartQueryExecution%27"><span class="annot"><span class="annottext">StartQueryExecution -&gt; Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AclientRequestToken%3AStartQueryExecution%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The name of the workgroup in which the query is being started.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AworkGroup%3AStartQueryExecution%27"><span class="annot"><span class="annottext">StartQueryExecution -&gt; Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AworkGroup%3AStartQueryExecution%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The SQL query statements to be executed.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AqueryString%3AStartQueryExecution%27"><span class="annot"><span class="annottext">StartQueryExecution -&gt; Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryString%3AStartQueryExecution%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220781"><span id="local-6989586621679220783"><span class="annot"><span class="annottext">StartQueryExecution -&gt; StartQueryExecution -&gt; Bool
+(StartQueryExecution -&gt; StartQueryExecution -&gt; Bool)
+-&gt; (StartQueryExecution -&gt; StartQueryExecution -&gt; Bool)
+-&gt; Eq StartQueryExecution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartQueryExecution -&gt; StartQueryExecution -&gt; Bool
+$c/= :: StartQueryExecution -&gt; StartQueryExecution -&gt; Bool
+== :: StartQueryExecution -&gt; StartQueryExecution -&gt; Bool
+$c== :: StartQueryExecution -&gt; StartQueryExecution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220772"><span id="local-6989586621679220774"><span id="local-6989586621679220776"><span id="local-6989586621679220778"><span class="annot"><span class="annottext">ReadPrec [StartQueryExecution]
+ReadPrec StartQueryExecution
+Int -&gt; ReadS StartQueryExecution
+ReadS [StartQueryExecution]
+(Int -&gt; ReadS StartQueryExecution)
+-&gt; ReadS [StartQueryExecution]
+-&gt; ReadPrec StartQueryExecution
+-&gt; ReadPrec [StartQueryExecution]
+-&gt; Read StartQueryExecution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartQueryExecution]
+$creadListPrec :: ReadPrec [StartQueryExecution]
+readPrec :: ReadPrec StartQueryExecution
+$creadPrec :: ReadPrec StartQueryExecution
+readList :: ReadS [StartQueryExecution]
+$creadList :: ReadS [StartQueryExecution]
+readsPrec :: Int -&gt; ReadS StartQueryExecution
+$creadsPrec :: Int -&gt; ReadS StartQueryExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220765"><span id="local-6989586621679220767"><span id="local-6989586621679220769"><span class="annot"><span class="annottext">Int -&gt; StartQueryExecution -&gt; ShowS
+[StartQueryExecution] -&gt; ShowS
+StartQueryExecution -&gt; String
+(Int -&gt; StartQueryExecution -&gt; ShowS)
+-&gt; (StartQueryExecution -&gt; String)
+-&gt; ([StartQueryExecution] -&gt; ShowS)
+-&gt; Show StartQueryExecution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartQueryExecution] -&gt; ShowS
+$cshowList :: [StartQueryExecution] -&gt; ShowS
+show :: StartQueryExecution -&gt; String
+$cshow :: StartQueryExecution -&gt; String
+showsPrec :: Int -&gt; StartQueryExecution -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartQueryExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartQueryExecution -&gt; Rep StartQueryExecution x)
+-&gt; (forall x. Rep StartQueryExecution x -&gt; StartQueryExecution)
+-&gt; Generic StartQueryExecution
+forall x. Rep StartQueryExecution x -&gt; StartQueryExecution
+forall x. StartQueryExecution -&gt; Rep StartQueryExecution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartQueryExecution x -&gt; StartQueryExecution
+$cfrom :: forall x. StartQueryExecution -&gt; Rep StartQueryExecution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'StartQueryExecution' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'queryExecutionContext', 'startQueryExecution_queryExecutionContext' - The database within which the query executes.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'resultConfiguration', 'startQueryExecution_resultConfiguration' - Specifies information about where and how to save the results of the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- query execution. If the query runs in a workgroup, then workgroup\'s</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- settings may override query settings. This affects the query results</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- location. The workgroup settings override is specified in</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- EnforceWorkGroupConfiguration (true\/false) in the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- WorkGroupConfiguration. See</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'clientRequestToken', 'startQueryExecution_clientRequestToken' - A unique case-sensitive string used to ensure the request to create the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- query is idempotent (executes only once). If another</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @StartQueryExecution@ request is received, the same response is returned</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- and another query is not created. If a parameter has changed, for</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- example, the @QueryString@, an error is returned.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- This token is listed as not required because Amazon Web Services SDKs</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- (for example the Amazon Web Services SDK for Java) auto-generate the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- token for users. If you are not using the Amazon Web Services SDK or the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Amazon Web Services CLI, you must provide this token or the action will</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- fail.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'workGroup', 'startQueryExecution_workGroup' - The name of the workgroup in which the query is being started.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'queryString', 'startQueryExecution_queryString' - The SQL query statements to be executed.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#newStartQueryExecution"><span class="hs-identifier hs-type">newStartQueryExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'queryString'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span>
+</span><span id="line-127"></span><span id="newStartQueryExecution"><span class="annot"><span class="annottext">newStartQueryExecution :: Text -&gt; StartQueryExecution
+</span><a href="Amazonka.Athena.StartQueryExecution.html#newStartQueryExecution"><span class="hs-identifier hs-var hs-var">newStartQueryExecution</span></a></span></span><span> </span><span id="local-6989586621679220760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220760"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">StartQueryExecution' :: Maybe QueryExecutionContext
+-&gt; Maybe ResultConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; StartQueryExecution
+</span><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryExecutionContext:StartQueryExecution' :: Maybe QueryExecutionContext
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryExecutionContext%3AStartQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultConfiguration:StartQueryExecution' :: Maybe ResultConfiguration
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AresultConfiguration%3AStartQueryExecution%27"><span class="hs-identifier hs-var">resultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResultConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartQueryExecution' :: Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AclientRequestToken%3AStartQueryExecution%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:workGroup:StartQueryExecution' :: Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AworkGroup%3AStartQueryExecution%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:StartQueryExecution' :: Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryString%3AStartQueryExecution%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220760"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The database within which the query executes.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_queryExecutionContext"><span class="hs-identifier hs-type">startQueryExecution_queryExecutionContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionContext.html#QueryExecutionContext"><span class="hs-identifier hs-type">QueryExecutionContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="startQueryExecution_queryExecutionContext"><span class="annot"><span class="annottext">startQueryExecution_queryExecutionContext :: (Maybe QueryExecutionContext -&gt; f (Maybe QueryExecutionContext))
+-&gt; StartQueryExecution -&gt; f StartQueryExecution
+</span><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_queryExecutionContext"><span class="hs-identifier hs-var hs-var">startQueryExecution_queryExecutionContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartQueryExecution -&gt; Maybe QueryExecutionContext)
+-&gt; (StartQueryExecution
+    -&gt; Maybe QueryExecutionContext -&gt; StartQueryExecution)
+-&gt; Lens
+     StartQueryExecution
+     StartQueryExecution
+     (Maybe QueryExecutionContext)
+     (Maybe QueryExecutionContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220757"><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+queryExecutionContext :: Maybe QueryExecutionContext
+$sel:queryExecutionContext:StartQueryExecution' :: StartQueryExecution -&gt; Maybe QueryExecutionContext
+</span><a href="#local-6989586621679220757"><span class="hs-identifier hs-var hs-var">queryExecutionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+</span><a href="#local-6989586621679220757"><span class="hs-identifier hs-var">queryExecutionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220756"><span class="annot"><span class="annottext">s :: StartQueryExecution
+</span><a href="#local-6989586621679220756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220755"><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+</span><a href="#local-6989586621679220755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryExecution
+</span><a href="#local-6989586621679220756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionContext:StartQueryExecution' :: Maybe QueryExecutionContext
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryExecutionContext%3AStartQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+</span><a href="#local-6989586621679220755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Specifies information about where and how to save the results of the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- query execution. If the query runs in a workgroup, then workgroup\'s</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- settings may override query settings. This affects the query results</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- location. The workgroup settings override is specified in</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- EnforceWorkGroupConfiguration (true\/false) in the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- WorkGroupConfiguration. See</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_resultConfiguration"><span class="hs-identifier hs-type">startQueryExecution_resultConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="startQueryExecution_resultConfiguration"><span class="annot"><span class="annottext">startQueryExecution_resultConfiguration :: (Maybe ResultConfiguration -&gt; f (Maybe ResultConfiguration))
+-&gt; StartQueryExecution -&gt; f StartQueryExecution
+</span><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_resultConfiguration"><span class="hs-identifier hs-var hs-var">startQueryExecution_resultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartQueryExecution -&gt; Maybe ResultConfiguration)
+-&gt; (StartQueryExecution
+    -&gt; Maybe ResultConfiguration -&gt; StartQueryExecution)
+-&gt; Lens
+     StartQueryExecution
+     StartQueryExecution
+     (Maybe ResultConfiguration)
+     (Maybe ResultConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220754"><span class="annot"><span class="annottext">Maybe ResultConfiguration
+resultConfiguration :: Maybe ResultConfiguration
+$sel:resultConfiguration:StartQueryExecution' :: StartQueryExecution -&gt; Maybe ResultConfiguration
+</span><a href="#local-6989586621679220754"><span class="hs-identifier hs-var hs-var">resultConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResultConfiguration
+</span><a href="#local-6989586621679220754"><span class="hs-identifier hs-var">resultConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220753"><span class="annot"><span class="annottext">s :: StartQueryExecution
+</span><a href="#local-6989586621679220753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220752"><span class="annot"><span class="annottext">Maybe ResultConfiguration
+</span><a href="#local-6989586621679220752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryExecution
+</span><a href="#local-6989586621679220753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultConfiguration:StartQueryExecution' :: Maybe ResultConfiguration
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AresultConfiguration%3AStartQueryExecution%27"><span class="hs-identifier hs-var">resultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResultConfiguration
+</span><a href="#local-6989586621679220752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | A unique case-sensitive string used to ensure the request to create the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- query is idempotent (executes only once). If another</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @StartQueryExecution@ request is received, the same response is returned</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- and another query is not created. If a parameter has changed, for</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- example, the @QueryString@, an error is returned.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- This token is listed as not required because Amazon Web Services SDKs</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- (for example the Amazon Web Services SDK for Java) auto-generate the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- token for users. If you are not using the Amazon Web Services SDK or the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Amazon Web Services CLI, you must provide this token or the action will</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- fail.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_clientRequestToken"><span class="hs-identifier hs-type">startQueryExecution_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="startQueryExecution_clientRequestToken"><span class="annot"><span class="annottext">startQueryExecution_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartQueryExecution -&gt; f StartQueryExecution
+</span><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_clientRequestToken"><span class="hs-identifier hs-var hs-var">startQueryExecution_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartQueryExecution -&gt; Maybe Text)
+-&gt; (StartQueryExecution -&gt; Maybe Text -&gt; StartQueryExecution)
+-&gt; Lens
+     StartQueryExecution StartQueryExecution (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220751"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:StartQueryExecution' :: StartQueryExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679220751"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220751"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220750"><span class="annot"><span class="annottext">s :: StartQueryExecution
+</span><a href="#local-6989586621679220750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryExecution
+</span><a href="#local-6989586621679220750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartQueryExecution' :: Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AclientRequestToken%3AStartQueryExecution%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The name of the workgroup in which the query is being started.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_workGroup"><span class="hs-identifier hs-type">startQueryExecution_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="startQueryExecution_workGroup"><span class="annot"><span class="annottext">startQueryExecution_workGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartQueryExecution -&gt; f StartQueryExecution
+</span><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_workGroup"><span class="hs-identifier hs-var hs-var">startQueryExecution_workGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartQueryExecution -&gt; Maybe Text)
+-&gt; (StartQueryExecution -&gt; Maybe Text -&gt; StartQueryExecution)
+-&gt; Lens
+     StartQueryExecution StartQueryExecution (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220748"><span class="annot"><span class="annottext">Maybe Text
+workGroup :: Maybe Text
+$sel:workGroup:StartQueryExecution' :: StartQueryExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679220748"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220748"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220747"><span class="annot"><span class="annottext">s :: StartQueryExecution
+</span><a href="#local-6989586621679220747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220746"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryExecution
+</span><a href="#local-6989586621679220747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:StartQueryExecution' :: Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AworkGroup%3AStartQueryExecution%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The SQL query statements to be executed.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_queryString"><span class="hs-identifier hs-type">startQueryExecution_queryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-171"></span><span id="startQueryExecution_queryString"><span class="annot"><span class="annottext">startQueryExecution_queryString :: (Text -&gt; f Text) -&gt; StartQueryExecution -&gt; f StartQueryExecution
+</span><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecution_queryString"><span class="hs-identifier hs-var hs-var">startQueryExecution_queryString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartQueryExecution -&gt; Text)
+-&gt; (StartQueryExecution -&gt; Text -&gt; StartQueryExecution)
+-&gt; Lens StartQueryExecution StartQueryExecution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220745"><span class="annot"><span class="annottext">Text
+queryString :: Text
+$sel:queryString:StartQueryExecution' :: StartQueryExecution -&gt; Text
+</span><a href="#local-6989586621679220745"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220745"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220744"><span class="annot"><span class="annottext">s :: StartQueryExecution
+</span><a href="#local-6989586621679220744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryExecution
+</span><a href="#local-6989586621679220744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:StartQueryExecution' :: Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryString%3AStartQueryExecution%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-175"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-type">StartQueryExecutionResponse</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679220739"><span class="annot"><span class="annottext">request :: StartQueryExecution -&gt; Request StartQueryExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartQueryExecution -&gt; Request StartQueryExecution
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679220735"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartQueryExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartQueryExecution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartQueryExecution))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartQueryExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartQueryExecution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220732"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220732"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679220731"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679220731"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679220730"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220730"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartQueryExecutionResponse
+</span><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse%27"><span class="hs-identifier hs-var">StartQueryExecutionResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartQueryExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartQueryExecutionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartQueryExecutionResponse)
+-&gt; Either String Int -&gt; Either String StartQueryExecutionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220732"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220722"><span id="local-6989586621679220724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span></span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679220715"><span class="annot"><span class="annottext">toHeaders :: StartQueryExecution -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartQueryExecution -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonAthena.StartQueryExecution&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-197"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-201"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220705"><span id="local-6989586621679220707"><span id="local-6989586621679220709"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679220703"><span class="annot"><span class="annottext">toJSON :: StartQueryExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution%27"><span class="hs-identifier hs-type">StartQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220697"><span id="local-6989586621679220698"><span id="local-6989586621679220699"><span id="local-6989586621679220700"><span id="local-6989586621679220701"><span class="annot"><span class="annottext">Maybe Text
+Maybe QueryExecutionContext
+Maybe ResultConfiguration
+Text
+queryString :: Text
+workGroup :: Maybe Text
+clientRequestToken :: Maybe Text
+resultConfiguration :: Maybe ResultConfiguration
+queryExecutionContext :: Maybe QueryExecutionContext
+$sel:queryString:StartQueryExecution' :: StartQueryExecution -&gt; Text
+$sel:workGroup:StartQueryExecution' :: StartQueryExecution -&gt; Maybe Text
+$sel:clientRequestToken:StartQueryExecution' :: StartQueryExecution -&gt; Maybe Text
+$sel:resultConfiguration:StartQueryExecution' :: StartQueryExecution -&gt; Maybe ResultConfiguration
+$sel:queryExecutionContext:StartQueryExecution' :: StartQueryExecution -&gt; Maybe QueryExecutionContext
+</span><a href="#local-6989586621679220697"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-209"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryExecutionContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; QueryExecutionContext -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(QueryExecutionContext -&gt; Pair)
+-&gt; Maybe QueryExecutionContext -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+</span><a href="#local-6989586621679220701"><span class="hs-identifier hs-var">queryExecutionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResultConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(ResultConfiguration -&gt; Pair)
+-&gt; Maybe ResultConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResultConfiguration
+</span><a href="#local-6989586621679220700"><span class="hs-identifier hs-var">resultConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220699"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220698"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220697"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679220691"><span class="annot"><span class="annottext">toPath :: StartQueryExecution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartQueryExecution -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecution"><span class="hs-identifier hs-type">StartQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679220687"><span class="annot"><span class="annottext">toQuery :: StartQueryExecution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartQueryExecution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | /See:/ 'newStartQueryExecutionResponse' smart constructor.</span><span>
+</span><span id="line-227"></span><span id="local-6989586621679220684"><span id="local-6989586621679220685"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartQueryExecutionResponse"><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-var">StartQueryExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartQueryExecutionResponse%27"><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse%27"><span class="hs-identifier hs-var">StartQueryExecutionResponse'</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the query that ran as a result of this request.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AqueryExecutionId%3AStartQueryExecutionResponse%27"><span class="annot"><span class="annottext">StartQueryExecutionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryExecutionId%3AStartQueryExecutionResponse%27"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartQueryExecutionResponse%27"><span class="annot"><span class="annottext">StartQueryExecutionResponse -&gt; Int
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AhttpStatus%3AStartQueryExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220678"><span id="local-6989586621679220680"><span class="annot"><span class="annottext">StartQueryExecutionResponse -&gt; StartQueryExecutionResponse -&gt; Bool
+(StartQueryExecutionResponse
+ -&gt; StartQueryExecutionResponse -&gt; Bool)
+-&gt; (StartQueryExecutionResponse
+    -&gt; StartQueryExecutionResponse -&gt; Bool)
+-&gt; Eq StartQueryExecutionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartQueryExecutionResponse -&gt; StartQueryExecutionResponse -&gt; Bool
+$c/= :: StartQueryExecutionResponse -&gt; StartQueryExecutionResponse -&gt; Bool
+== :: StartQueryExecutionResponse -&gt; StartQueryExecutionResponse -&gt; Bool
+$c== :: StartQueryExecutionResponse -&gt; StartQueryExecutionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220670"><span id="local-6989586621679220672"><span id="local-6989586621679220674"><span id="local-6989586621679220676"><span class="annot"><span class="annottext">ReadPrec [StartQueryExecutionResponse]
+ReadPrec StartQueryExecutionResponse
+Int -&gt; ReadS StartQueryExecutionResponse
+ReadS [StartQueryExecutionResponse]
+(Int -&gt; ReadS StartQueryExecutionResponse)
+-&gt; ReadS [StartQueryExecutionResponse]
+-&gt; ReadPrec StartQueryExecutionResponse
+-&gt; ReadPrec [StartQueryExecutionResponse]
+-&gt; Read StartQueryExecutionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartQueryExecutionResponse]
+$creadListPrec :: ReadPrec [StartQueryExecutionResponse]
+readPrec :: ReadPrec StartQueryExecutionResponse
+$creadPrec :: ReadPrec StartQueryExecutionResponse
+readList :: ReadS [StartQueryExecutionResponse]
+$creadList :: ReadS [StartQueryExecutionResponse]
+readsPrec :: Int -&gt; ReadS StartQueryExecutionResponse
+$creadsPrec :: Int -&gt; ReadS StartQueryExecutionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220664"><span id="local-6989586621679220666"><span id="local-6989586621679220668"><span class="annot"><span class="annottext">Int -&gt; StartQueryExecutionResponse -&gt; ShowS
+[StartQueryExecutionResponse] -&gt; ShowS
+StartQueryExecutionResponse -&gt; String
+(Int -&gt; StartQueryExecutionResponse -&gt; ShowS)
+-&gt; (StartQueryExecutionResponse -&gt; String)
+-&gt; ([StartQueryExecutionResponse] -&gt; ShowS)
+-&gt; Show StartQueryExecutionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartQueryExecutionResponse] -&gt; ShowS
+$cshowList :: [StartQueryExecutionResponse] -&gt; ShowS
+show :: StartQueryExecutionResponse -&gt; String
+$cshow :: StartQueryExecutionResponse -&gt; String
+showsPrec :: Int -&gt; StartQueryExecutionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartQueryExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartQueryExecutionResponse -&gt; Rep StartQueryExecutionResponse x)
+-&gt; (forall x.
+    Rep StartQueryExecutionResponse x -&gt; StartQueryExecutionResponse)
+-&gt; Generic StartQueryExecutionResponse
+forall x.
+Rep StartQueryExecutionResponse x -&gt; StartQueryExecutionResponse
+forall x.
+StartQueryExecutionResponse -&gt; Rep StartQueryExecutionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartQueryExecutionResponse x -&gt; StartQueryExecutionResponse
+$cfrom :: forall x.
+StartQueryExecutionResponse -&gt; Rep StartQueryExecutionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Create a value of 'StartQueryExecutionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'queryExecutionId', 'startQueryExecutionResponse_queryExecutionId' - The unique ID of the query that ran as a result of this request.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'httpStatus', 'startQueryExecutionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#newStartQueryExecutionResponse"><span class="hs-identifier hs-type">newStartQueryExecutionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-type">StartQueryExecutionResponse</span></a></span><span>
+</span><span id="line-250"></span><span id="newStartQueryExecutionResponse"><span class="annot"><span class="annottext">newStartQueryExecutionResponse :: Int -&gt; StartQueryExecutionResponse
+</span><a href="Amazonka.Athena.StartQueryExecution.html#newStartQueryExecutionResponse"><span class="hs-identifier hs-var hs-var">newStartQueryExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679220661"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220661"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="annottext">StartQueryExecutionResponse' :: Maybe Text -&gt; Int -&gt; StartQueryExecutionResponse
+</span><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse%27"><span class="hs-identifier hs-type">StartQueryExecutionResponse'</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryExecutionId:StartQueryExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryExecutionId%3AStartQueryExecutionResponse%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartQueryExecutionResponse' :: Int
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AhttpStatus%3AStartQueryExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220661"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The unique ID of the query that ran as a result of this request.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecutionResponse_queryExecutionId"><span class="hs-identifier hs-type">startQueryExecutionResponse_queryExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-type">StartQueryExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="startQueryExecutionResponse_queryExecutionId"><span class="annot"><span class="annottext">startQueryExecutionResponse_queryExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartQueryExecutionResponse -&gt; f StartQueryExecutionResponse
+</span><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecutionResponse_queryExecutionId"><span class="hs-identifier hs-var hs-var">startQueryExecutionResponse_queryExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartQueryExecutionResponse -&gt; Maybe Text)
+-&gt; (StartQueryExecutionResponse
+    -&gt; Maybe Text -&gt; StartQueryExecutionResponse)
+-&gt; Lens
+     StartQueryExecutionResponse
+     StartQueryExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse%27"><span class="hs-identifier hs-type">StartQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220660"><span class="annot"><span class="annottext">Maybe Text
+queryExecutionId :: Maybe Text
+$sel:queryExecutionId:StartQueryExecutionResponse' :: StartQueryExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679220660"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220660"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220659"><span class="annot"><span class="annottext">s :: StartQueryExecutionResponse
+</span><a href="#local-6989586621679220659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse%27"><span class="hs-identifier hs-type">StartQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryExecutionResponse
+</span><a href="#local-6989586621679220659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionId:StartQueryExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AqueryExecutionId%3AStartQueryExecutionResponse%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-type">StartQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecutionResponse_httpStatus"><span class="hs-identifier hs-type">startQueryExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-type">StartQueryExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-263"></span><span id="startQueryExecutionResponse_httpStatus"><span class="annot"><span class="annottext">startQueryExecutionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartQueryExecutionResponse -&gt; f StartQueryExecutionResponse
+</span><a href="Amazonka.Athena.StartQueryExecution.html#startQueryExecutionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startQueryExecutionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartQueryExecutionResponse -&gt; Int)
+-&gt; (StartQueryExecutionResponse
+    -&gt; Int -&gt; StartQueryExecutionResponse)
+-&gt; Lens
+     StartQueryExecutionResponse StartQueryExecutionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse%27"><span class="hs-identifier hs-type">StartQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220657"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartQueryExecutionResponse' :: StartQueryExecutionResponse -&gt; Int
+</span><a href="#local-6989586621679220657"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220657"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220656"><span class="annot"><span class="annottext">s :: StartQueryExecutionResponse
+</span><a href="#local-6989586621679220656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse%27"><span class="hs-identifier hs-type">StartQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220655"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryExecutionResponse
+</span><a href="#local-6989586621679220656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartQueryExecutionResponse' :: Int
+</span><a href="Amazonka.Athena.StartQueryExecution.html#%24sel%3AhttpStatus%3AStartQueryExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-type">StartQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.StartQueryExecution.html#StartQueryExecutionResponse"><span class="hs-identifier hs-type">StartQueryExecutionResponse</span></a></span></span><span>
+</span><span id="line-266"></span></pre></body></html>

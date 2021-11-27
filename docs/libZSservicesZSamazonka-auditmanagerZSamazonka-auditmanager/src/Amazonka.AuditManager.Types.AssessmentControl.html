@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.Types.AssessmentControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentControl</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlComment</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlResponse.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlResponse</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ControlStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The control entity that represents a standard or custom control used in</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- an Audit Manager assessment.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAssessmentControl' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679291591"><span id="local-6989586621679291592"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentControl"><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-var">AssessmentControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentControl%27"><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-var">AssessmentControl'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the specified control.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe ControlStatus
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Astatus%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlStatus.html#ControlStatus"><span class="hs-identifier hs-type">ControlStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The amount of evidence generated for the control.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AevidenceCount%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AevidenceCount%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">evidenceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The response of the specified control.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aresponse%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe ControlResponse
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aresponse%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">response</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier hs-type">ControlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the specified control.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aname%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aid%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aid%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The list of data sources for the specified evidence.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AevidenceSources%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe [Text]
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AevidenceSources%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">evidenceSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The list of comments attached to the specified control.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Acomments%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe [ControlComment]
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Acomments%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html#ControlComment"><span class="hs-identifier hs-type">ControlComment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The amount of evidence in the assessment report.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AassessmentReportEvidenceCount%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AassessmentReportEvidenceCount%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">assessmentReportEvidenceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The description of the specified control.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Adescription%3AAssessmentControl%27"><span class="annot"><span class="annottext">AssessmentControl -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Adescription%3AAssessmentControl%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291577"><span id="local-6989586621679291579"><span class="annot"><span class="annottext">AssessmentControl -&gt; AssessmentControl -&gt; Bool
+(AssessmentControl -&gt; AssessmentControl -&gt; Bool)
+-&gt; (AssessmentControl -&gt; AssessmentControl -&gt; Bool)
+-&gt; Eq AssessmentControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssessmentControl -&gt; AssessmentControl -&gt; Bool
+$c/= :: AssessmentControl -&gt; AssessmentControl -&gt; Bool
+== :: AssessmentControl -&gt; AssessmentControl -&gt; Bool
+$c== :: AssessmentControl -&gt; AssessmentControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291568"><span id="local-6989586621679291570"><span id="local-6989586621679291572"><span id="local-6989586621679291574"><span class="annot"><span class="annottext">ReadPrec [AssessmentControl]
+ReadPrec AssessmentControl
+Int -&gt; ReadS AssessmentControl
+ReadS [AssessmentControl]
+(Int -&gt; ReadS AssessmentControl)
+-&gt; ReadS [AssessmentControl]
+-&gt; ReadPrec AssessmentControl
+-&gt; ReadPrec [AssessmentControl]
+-&gt; Read AssessmentControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssessmentControl]
+$creadListPrec :: ReadPrec [AssessmentControl]
+readPrec :: ReadPrec AssessmentControl
+$creadPrec :: ReadPrec AssessmentControl
+readList :: ReadS [AssessmentControl]
+$creadList :: ReadS [AssessmentControl]
+readsPrec :: Int -&gt; ReadS AssessmentControl
+$creadsPrec :: Int -&gt; ReadS AssessmentControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291561"><span id="local-6989586621679291563"><span id="local-6989586621679291565"><span class="annot"><span class="annottext">Int -&gt; AssessmentControl -&gt; ShowS
+[AssessmentControl] -&gt; ShowS
+AssessmentControl -&gt; String
+(Int -&gt; AssessmentControl -&gt; ShowS)
+-&gt; (AssessmentControl -&gt; String)
+-&gt; ([AssessmentControl] -&gt; ShowS)
+-&gt; Show AssessmentControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssessmentControl] -&gt; ShowS
+$cshowList :: [AssessmentControl] -&gt; ShowS
+show :: AssessmentControl -&gt; String
+$cshow :: AssessmentControl -&gt; String
+showsPrec :: Int -&gt; AssessmentControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssessmentControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssessmentControl -&gt; Rep AssessmentControl x)
+-&gt; (forall x. Rep AssessmentControl x -&gt; AssessmentControl)
+-&gt; Generic AssessmentControl
+forall x. Rep AssessmentControl x -&gt; AssessmentControl
+forall x. AssessmentControl -&gt; Rep AssessmentControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssessmentControl x -&gt; AssessmentControl
+$cfrom :: forall x. AssessmentControl -&gt; Rep AssessmentControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'AssessmentControl' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'status', 'assessmentControl_status' - The status of the specified control.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'evidenceCount', 'assessmentControl_evidenceCount' - The amount of evidence generated for the control.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'response', 'assessmentControl_response' - The response of the specified control.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'assessmentControl_name' - The name of the specified control.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'id', 'assessmentControl_id' - The identifier for the specified control.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'evidenceSources', 'assessmentControl_evidenceSources' - The list of data sources for the specified evidence.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'comments', 'assessmentControl_comments' - The list of comments attached to the specified control.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'assessmentReportEvidenceCount', 'assessmentControl_assessmentReportEvidenceCount' - The amount of evidence in the assessment report.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'assessmentControl_description' - The description of the specified control.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#newAssessmentControl"><span class="hs-identifier hs-type">newAssessmentControl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span>
+</span><span id="line-82"></span><span id="newAssessmentControl"><span class="annot"><span class="annottext">newAssessmentControl :: AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#newAssessmentControl"><span class="hs-identifier hs-var hs-var">newAssessmentControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">AssessmentControl' :: Maybe ControlStatus
+-&gt; Maybe Int
+-&gt; Maybe ControlResponse
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [ControlComment]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AssessmentControl' :: Maybe ControlStatus
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Astatus%3AAssessmentControl%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ControlStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceCount:AssessmentControl' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AevidenceCount%3AAssessmentControl%27"><span class="hs-identifier hs-var">evidenceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:response:AssessmentControl' :: Maybe ControlResponse
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aresponse%3AAssessmentControl%27"><span class="hs-identifier hs-var">response</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ControlResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AssessmentControl' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aname%3AAssessmentControl%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AssessmentControl' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aid%3AAssessmentControl%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceSources:AssessmentControl' :: Maybe [Text]
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AevidenceSources%3AAssessmentControl%27"><span class="hs-identifier hs-var">evidenceSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:comments:AssessmentControl' :: Maybe [ControlComment]
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Acomments%3AAssessmentControl%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ControlComment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentReportEvidenceCount:AssessmentControl' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AassessmentReportEvidenceCount%3AAssessmentControl%27"><span class="hs-identifier hs-var">assessmentReportEvidenceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:AssessmentControl' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Adescription%3AAssessmentControl%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The status of the specified control.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_status"><span class="hs-identifier hs-type">assessmentControl_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlStatus.html#ControlStatus"><span class="hs-identifier hs-type">ControlStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="assessmentControl_status"><span class="annot"><span class="annottext">assessmentControl_status :: (Maybe ControlStatus -&gt; f (Maybe ControlStatus))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_status"><span class="hs-identifier hs-var hs-var">assessmentControl_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe ControlStatus)
+-&gt; (AssessmentControl -&gt; Maybe ControlStatus -&gt; AssessmentControl)
+-&gt; Lens
+     AssessmentControl
+     AssessmentControl
+     (Maybe ControlStatus)
+     (Maybe ControlStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291552"><span class="annot"><span class="annottext">Maybe ControlStatus
+status :: Maybe ControlStatus
+$sel:status:AssessmentControl' :: AssessmentControl -&gt; Maybe ControlStatus
+</span><a href="#local-6989586621679291552"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ControlStatus
+</span><a href="#local-6989586621679291552"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291551"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291550"><span class="annot"><span class="annottext">Maybe ControlStatus
+</span><a href="#local-6989586621679291550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AssessmentControl' :: Maybe ControlStatus
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Astatus%3AAssessmentControl%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ControlStatus
+</span><a href="#local-6989586621679291550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The amount of evidence generated for the control.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_evidenceCount"><span class="hs-identifier hs-type">assessmentControl_evidenceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="assessmentControl_evidenceCount"><span class="annot"><span class="annottext">assessmentControl_evidenceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_evidenceCount"><span class="hs-identifier hs-var hs-var">assessmentControl_evidenceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe Int)
+-&gt; (AssessmentControl -&gt; Maybe Int -&gt; AssessmentControl)
+-&gt; Lens AssessmentControl AssessmentControl (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291548"><span class="annot"><span class="annottext">Maybe Int
+evidenceCount :: Maybe Int
+$sel:evidenceCount:AssessmentControl' :: AssessmentControl -&gt; Maybe Int
+</span><a href="#local-6989586621679291548"><span class="hs-identifier hs-var hs-var">evidenceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679291548"><span class="hs-identifier hs-var">evidenceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291547"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291546"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679291546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceCount:AssessmentControl' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AevidenceCount%3AAssessmentControl%27"><span class="hs-identifier hs-var">evidenceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679291546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The response of the specified control.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_response"><span class="hs-identifier hs-type">assessmentControl_response</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier hs-type">ControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="assessmentControl_response"><span class="annot"><span class="annottext">assessmentControl_response :: (Maybe ControlResponse -&gt; f (Maybe ControlResponse))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_response"><span class="hs-identifier hs-var hs-var">assessmentControl_response</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe ControlResponse)
+-&gt; (AssessmentControl
+    -&gt; Maybe ControlResponse -&gt; AssessmentControl)
+-&gt; Lens
+     AssessmentControl
+     AssessmentControl
+     (Maybe ControlResponse)
+     (Maybe ControlResponse)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291544"><span class="annot"><span class="annottext">Maybe ControlResponse
+response :: Maybe ControlResponse
+$sel:response:AssessmentControl' :: AssessmentControl -&gt; Maybe ControlResponse
+</span><a href="#local-6989586621679291544"><span class="hs-identifier hs-var hs-var">response</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ControlResponse
+</span><a href="#local-6989586621679291544"><span class="hs-identifier hs-var">response</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291543"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291542"><span class="annot"><span class="annottext">Maybe ControlResponse
+</span><a href="#local-6989586621679291542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:response:AssessmentControl' :: Maybe ControlResponse
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aresponse%3AAssessmentControl%27"><span class="hs-identifier hs-var">response</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ControlResponse
+</span><a href="#local-6989586621679291542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the specified control.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_name"><span class="hs-identifier hs-type">assessmentControl_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="assessmentControl_name"><span class="annot"><span class="annottext">assessmentControl_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_name"><span class="hs-identifier hs-var hs-var">assessmentControl_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe Text)
+-&gt; (AssessmentControl -&gt; Maybe Text -&gt; AssessmentControl)
+-&gt; Lens
+     AssessmentControl AssessmentControl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291540"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AssessmentControl' :: AssessmentControl -&gt; Maybe Text
+</span><a href="#local-6989586621679291540"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291540"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291539"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentControl' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aname%3AAssessmentControl%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_id"><span class="hs-identifier hs-type">assessmentControl_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="assessmentControl_id"><span class="annot"><span class="annottext">assessmentControl_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_id"><span class="hs-identifier hs-var hs-var">assessmentControl_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe Text)
+-&gt; (AssessmentControl -&gt; Maybe Text -&gt; AssessmentControl)
+-&gt; Lens
+     AssessmentControl AssessmentControl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291536"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:AssessmentControl' :: AssessmentControl -&gt; Maybe Text
+</span><a href="#local-6989586621679291536"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291536"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291535"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291534"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AssessmentControl' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Aid%3AAssessmentControl%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The list of data sources for the specified evidence.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_evidenceSources"><span class="hs-identifier hs-type">assessmentControl_evidenceSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="assessmentControl_evidenceSources"><span class="annot"><span class="annottext">assessmentControl_evidenceSources :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_evidenceSources"><span class="hs-identifier hs-var hs-var">assessmentControl_evidenceSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe [Text])
+-&gt; (AssessmentControl -&gt; Maybe [Text] -&gt; AssessmentControl)
+-&gt; Lens
+     AssessmentControl AssessmentControl (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291532"><span class="annot"><span class="annottext">Maybe [Text]
+evidenceSources :: Maybe [Text]
+$sel:evidenceSources:AssessmentControl' :: AssessmentControl -&gt; Maybe [Text]
+</span><a href="#local-6989586621679291532"><span class="hs-identifier hs-var hs-var">evidenceSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679291532"><span class="hs-identifier hs-var">evidenceSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291531"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291530"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679291530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceSources:AssessmentControl' :: Maybe [Text]
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AevidenceSources%3AAssessmentControl%27"><span class="hs-identifier hs-var">evidenceSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679291530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AssessmentControl -&gt; f AssessmentControl)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AssessmentControl
+-&gt; f AssessmentControl
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The list of comments attached to the specified control.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_comments"><span class="hs-identifier hs-type">assessmentControl_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.ControlComment.html#ControlComment"><span class="hs-identifier hs-type">ControlComment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="assessmentControl_comments"><span class="annot"><span class="annottext">assessmentControl_comments :: (Maybe [ControlComment] -&gt; f (Maybe [ControlComment]))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_comments"><span class="hs-identifier hs-var hs-var">assessmentControl_comments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe [ControlComment])
+-&gt; (AssessmentControl
+    -&gt; Maybe [ControlComment] -&gt; AssessmentControl)
+-&gt; Lens
+     AssessmentControl
+     AssessmentControl
+     (Maybe [ControlComment])
+     (Maybe [ControlComment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291525"><span class="annot"><span class="annottext">Maybe [ControlComment]
+comments :: Maybe [ControlComment]
+$sel:comments:AssessmentControl' :: AssessmentControl -&gt; Maybe [ControlComment]
+</span><a href="#local-6989586621679291525"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ControlComment]
+</span><a href="#local-6989586621679291525"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291524"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291523"><span class="annot"><span class="annottext">Maybe [ControlComment]
+</span><a href="#local-6989586621679291523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:AssessmentControl' :: Maybe [ControlComment]
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Acomments%3AAssessmentControl%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ControlComment]
+</span><a href="#local-6989586621679291523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ControlComment] -&gt; f (Maybe [ControlComment]))
+ -&gt; AssessmentControl -&gt; f AssessmentControl)
+-&gt; ((Maybe [ControlComment] -&gt; f (Maybe [ControlComment]))
+    -&gt; Maybe [ControlComment] -&gt; f (Maybe [ControlComment]))
+-&gt; (Maybe [ControlComment] -&gt; f (Maybe [ControlComment]))
+-&gt; AssessmentControl
+-&gt; f AssessmentControl
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ControlComment] [ControlComment] [ControlComment] [ControlComment]
+-&gt; Iso
+     (Maybe [ControlComment])
+     (Maybe [ControlComment])
+     (Maybe [ControlComment])
+     (Maybe [ControlComment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ControlComment] [ControlComment] [ControlComment] [ControlComment]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The amount of evidence in the assessment report.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_assessmentReportEvidenceCount"><span class="hs-identifier hs-type">assessmentControl_assessmentReportEvidenceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="assessmentControl_assessmentReportEvidenceCount"><span class="annot"><span class="annottext">assessmentControl_assessmentReportEvidenceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_assessmentReportEvidenceCount"><span class="hs-identifier hs-var hs-var">assessmentControl_assessmentReportEvidenceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe Int)
+-&gt; (AssessmentControl -&gt; Maybe Int -&gt; AssessmentControl)
+-&gt; Lens AssessmentControl AssessmentControl (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291521"><span class="annot"><span class="annottext">Maybe Int
+assessmentReportEvidenceCount :: Maybe Int
+$sel:assessmentReportEvidenceCount:AssessmentControl' :: AssessmentControl -&gt; Maybe Int
+</span><a href="#local-6989586621679291521"><span class="hs-identifier hs-var hs-var">assessmentReportEvidenceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679291521"><span class="hs-identifier hs-var">assessmentReportEvidenceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291520"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291519"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679291519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentReportEvidenceCount:AssessmentControl' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3AassessmentReportEvidenceCount%3AAssessmentControl%27"><span class="hs-identifier hs-var">assessmentReportEvidenceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679291519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The description of the specified control.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_description"><span class="hs-identifier hs-type">assessmentControl_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="assessmentControl_description"><span class="annot"><span class="annottext">assessmentControl_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentControl -&gt; f AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#assessmentControl_description"><span class="hs-identifier hs-var hs-var">assessmentControl_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentControl -&gt; Maybe Text)
+-&gt; (AssessmentControl -&gt; Maybe Text -&gt; AssessmentControl)
+-&gt; Lens
+     AssessmentControl AssessmentControl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291517"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:AssessmentControl' :: AssessmentControl -&gt; Maybe Text
+</span><a href="#local-6989586621679291517"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291517"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291516"><span class="annot"><span class="annottext">s :: AssessmentControl
+</span><a href="#local-6989586621679291516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-type">AssessmentControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentControl
+</span><a href="#local-6989586621679291516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AssessmentControl' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#%24sel%3Adescription%3AAssessmentControl%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291512"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679291510"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssessmentControl)
+-&gt; Value
+-&gt; Parser AssessmentControl
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssessmentControl&quot;</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291507"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe ControlStatus
+-&gt; Maybe Int
+-&gt; Maybe ControlResponse
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [ControlComment]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; AssessmentControl
+</span><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl%27"><span class="hs-identifier hs-var">AssessmentControl'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ControlStatus
+ -&gt; Maybe Int
+ -&gt; Maybe ControlResponse
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe [ControlComment]
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; AssessmentControl)
+-&gt; Parser (Maybe ControlStatus)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ControlResponse
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [ControlComment]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ControlStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ControlResponse
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [ControlComment]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; AssessmentControl)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ControlResponse
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [ControlComment]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ControlResponse
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [ControlComment]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; AssessmentControl)
+-&gt; Parser (Maybe ControlResponse)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [ControlComment]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ControlResponse)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;response&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [ControlComment]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; AssessmentControl)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [ControlComment]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [ControlComment]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; AssessmentControl)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [ControlComment]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [ControlComment]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; AssessmentControl)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [ControlComment]
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceSources&quot;</span></span><span>
+</span><span id="line-143"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ControlComment]
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; AssessmentControl)
+-&gt; Parser (Maybe [ControlComment])
+-&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ControlComment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ControlComment]))
+-&gt; Maybe [ControlComment] -&gt; Parser (Maybe [ControlComment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ControlComment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; AssessmentControl)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Text -&gt; AssessmentControl)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentReportEvidenceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AssessmentControl)
+-&gt; Parser (Maybe Text) -&gt; Parser AssessmentControl
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291500"><span id="local-6989586621679291502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentControl.html#AssessmentControl"><span class="hs-identifier hs-type">AssessmentControl</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

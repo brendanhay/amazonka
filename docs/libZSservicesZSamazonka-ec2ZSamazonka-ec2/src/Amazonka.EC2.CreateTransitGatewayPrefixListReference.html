@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.CreateTransitGatewayPrefixListReference</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a reference (route) to a prefix list in a specified transit</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- gateway route table.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.CreateTransitGatewayPrefixListReference</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier">CreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#newCreateTransitGatewayPrefixListReference"><span class="hs-identifier">newCreateTransitGatewayPrefixListReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_blackhole"><span class="hs-identifier">createTransitGatewayPrefixListReference_blackhole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_transitGatewayAttachmentId"><span class="hs-identifier">createTransitGatewayPrefixListReference_transitGatewayAttachmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_dryRun"><span class="hs-identifier">createTransitGatewayPrefixListReference_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_transitGatewayRouteTableId"><span class="hs-identifier">createTransitGatewayPrefixListReference_transitGatewayRouteTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_prefixListId"><span class="hs-identifier">createTransitGatewayPrefixListReference_prefixListId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier">CreateTransitGatewayPrefixListReferenceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#newCreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier">newCreateTransitGatewayPrefixListReferenceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference"><span class="hs-identifier">createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReferenceResponse_httpStatus"><span class="hs-identifier">createTransitGatewayPrefixListReferenceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateTransitGatewayPrefixListReference' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621681287273"><span id="local-6989586621681287274"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTransitGatewayPrefixListReference"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-var">CreateTransitGatewayPrefixListReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTransitGatewayPrefixListReference%27"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">CreateTransitGatewayPrefixListReference'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether to drop traffic that matches this route.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Ablackhole%3ACreateTransitGatewayPrefixListReference%27"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3Ablackhole%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var hs-var">blackhole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the attachment to which traffic is routed.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayPrefixListReference%27"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateTransitGatewayPrefixListReference%27"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AdryRun%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway route table.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtransitGatewayRouteTableId%3ACreateTransitGatewayPrefixListReference%27"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference -&gt; Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayRouteTableId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the prefix list that is used for destination matches.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AprefixListId%3ACreateTransitGatewayPrefixListReference%27"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference -&gt; Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AprefixListId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681287263"><span id="local-6989586621681287265"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference
+-&gt; CreateTransitGatewayPrefixListReference -&gt; Bool
+(CreateTransitGatewayPrefixListReference
+ -&gt; CreateTransitGatewayPrefixListReference -&gt; Bool)
+-&gt; (CreateTransitGatewayPrefixListReference
+    -&gt; CreateTransitGatewayPrefixListReference -&gt; Bool)
+-&gt; Eq CreateTransitGatewayPrefixListReference
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTransitGatewayPrefixListReference
+-&gt; CreateTransitGatewayPrefixListReference -&gt; Bool
+$c/= :: CreateTransitGatewayPrefixListReference
+-&gt; CreateTransitGatewayPrefixListReference -&gt; Bool
+== :: CreateTransitGatewayPrefixListReference
+-&gt; CreateTransitGatewayPrefixListReference -&gt; Bool
+$c== :: CreateTransitGatewayPrefixListReference
+-&gt; CreateTransitGatewayPrefixListReference -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287254"><span id="local-6989586621681287256"><span id="local-6989586621681287258"><span id="local-6989586621681287260"><span class="annot"><span class="annottext">ReadPrec [CreateTransitGatewayPrefixListReference]
+ReadPrec CreateTransitGatewayPrefixListReference
+Int -&gt; ReadS CreateTransitGatewayPrefixListReference
+ReadS [CreateTransitGatewayPrefixListReference]
+(Int -&gt; ReadS CreateTransitGatewayPrefixListReference)
+-&gt; ReadS [CreateTransitGatewayPrefixListReference]
+-&gt; ReadPrec CreateTransitGatewayPrefixListReference
+-&gt; ReadPrec [CreateTransitGatewayPrefixListReference]
+-&gt; Read CreateTransitGatewayPrefixListReference
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTransitGatewayPrefixListReference]
+$creadListPrec :: ReadPrec [CreateTransitGatewayPrefixListReference]
+readPrec :: ReadPrec CreateTransitGatewayPrefixListReference
+$creadPrec :: ReadPrec CreateTransitGatewayPrefixListReference
+readList :: ReadS [CreateTransitGatewayPrefixListReference]
+$creadList :: ReadS [CreateTransitGatewayPrefixListReference]
+readsPrec :: Int -&gt; ReadS CreateTransitGatewayPrefixListReference
+$creadsPrec :: Int -&gt; ReadS CreateTransitGatewayPrefixListReference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287247"><span id="local-6989586621681287249"><span id="local-6989586621681287251"><span class="annot"><span class="annottext">Int -&gt; CreateTransitGatewayPrefixListReference -&gt; ShowS
+[CreateTransitGatewayPrefixListReference] -&gt; ShowS
+CreateTransitGatewayPrefixListReference -&gt; String
+(Int -&gt; CreateTransitGatewayPrefixListReference -&gt; ShowS)
+-&gt; (CreateTransitGatewayPrefixListReference -&gt; String)
+-&gt; ([CreateTransitGatewayPrefixListReference] -&gt; ShowS)
+-&gt; Show CreateTransitGatewayPrefixListReference
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTransitGatewayPrefixListReference] -&gt; ShowS
+$cshowList :: [CreateTransitGatewayPrefixListReference] -&gt; ShowS
+show :: CreateTransitGatewayPrefixListReference -&gt; String
+$cshow :: CreateTransitGatewayPrefixListReference -&gt; String
+showsPrec :: Int -&gt; CreateTransitGatewayPrefixListReference -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTransitGatewayPrefixListReference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTransitGatewayPrefixListReference
+ -&gt; Rep CreateTransitGatewayPrefixListReference x)
+-&gt; (forall x.
+    Rep CreateTransitGatewayPrefixListReference x
+    -&gt; CreateTransitGatewayPrefixListReference)
+-&gt; Generic CreateTransitGatewayPrefixListReference
+forall x.
+Rep CreateTransitGatewayPrefixListReference x
+-&gt; CreateTransitGatewayPrefixListReference
+forall x.
+CreateTransitGatewayPrefixListReference
+-&gt; Rep CreateTransitGatewayPrefixListReference x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTransitGatewayPrefixListReference x
+-&gt; CreateTransitGatewayPrefixListReference
+$cfrom :: forall x.
+CreateTransitGatewayPrefixListReference
+-&gt; Rep CreateTransitGatewayPrefixListReference x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'CreateTransitGatewayPrefixListReference' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'blackhole', 'createTransitGatewayPrefixListReference_blackhole' - Indicates whether to drop traffic that matches this route.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'createTransitGatewayPrefixListReference_transitGatewayAttachmentId' - The ID of the attachment to which traffic is routed.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'dryRun', 'createTransitGatewayPrefixListReference_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'transitGatewayRouteTableId', 'createTransitGatewayPrefixListReference_transitGatewayRouteTableId' - The ID of the transit gateway route table.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'prefixListId', 'createTransitGatewayPrefixListReference_prefixListId' - The ID of the prefix list that is used for destination matches.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#newCreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">newCreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayRouteTableId'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'prefixListId'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span>
+</span><span id="line-98"></span><span id="newCreateTransitGatewayPrefixListReference"><span class="annot"><span class="annottext">newCreateTransitGatewayPrefixListReference :: Text -&gt; Text -&gt; CreateTransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#newCreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-var hs-var">newCreateTransitGatewayPrefixListReference</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621681287242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287242"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621681287241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287241"><span class="hs-identifier hs-var">pPrefixListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; CreateTransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:blackhole:CreateTransitGatewayPrefixListReference' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3Ablackhole%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">blackhole</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:CreateTransitGatewayPrefixListReference' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:CreateTransitGatewayPrefixListReference' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AdryRun%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:CreateTransitGatewayPrefixListReference' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayRouteTableId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287242"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:prefixListId:CreateTransitGatewayPrefixListReference' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AprefixListId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287241"><span class="hs-identifier hs-var">pPrefixListId_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Indicates whether to drop traffic that matches this route.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_blackhole"><span class="hs-identifier hs-type">createTransitGatewayPrefixListReference_blackhole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="createTransitGatewayPrefixListReference_blackhole"><span class="annot"><span class="annottext">createTransitGatewayPrefixListReference_blackhole :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateTransitGatewayPrefixListReference
+-&gt; f CreateTransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_blackhole"><span class="hs-identifier hs-var hs-var">createTransitGatewayPrefixListReference_blackhole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayPrefixListReference -&gt; Maybe Bool)
+-&gt; (CreateTransitGatewayPrefixListReference
+    -&gt; Maybe Bool -&gt; CreateTransitGatewayPrefixListReference)
+-&gt; Lens
+     CreateTransitGatewayPrefixListReference
+     CreateTransitGatewayPrefixListReference
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287238"><span class="annot"><span class="annottext">Maybe Bool
+blackhole :: Maybe Bool
+$sel:blackhole:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Maybe Bool
+</span><a href="#local-6989586621681287238"><span class="hs-identifier hs-var hs-var">blackhole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287238"><span class="hs-identifier hs-var">blackhole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287237"><span class="annot"><span class="annottext">s :: CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287236"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackhole:CreateTransitGatewayPrefixListReference' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3Ablackhole%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">blackhole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The ID of the attachment to which traffic is routed.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_transitGatewayAttachmentId"><span class="hs-identifier hs-type">createTransitGatewayPrefixListReference_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="createTransitGatewayPrefixListReference_transitGatewayAttachmentId"><span class="annot"><span class="annottext">createTransitGatewayPrefixListReference_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateTransitGatewayPrefixListReference
+-&gt; f CreateTransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">createTransitGatewayPrefixListReference_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayPrefixListReference -&gt; Maybe Text)
+-&gt; (CreateTransitGatewayPrefixListReference
+    -&gt; Maybe Text -&gt; CreateTransitGatewayPrefixListReference)
+-&gt; Lens
+     CreateTransitGatewayPrefixListReference
+     CreateTransitGatewayPrefixListReference
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287235"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayAttachmentId :: Maybe Text
+$sel:transitGatewayAttachmentId:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Maybe Text
+</span><a href="#local-6989586621681287235"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287235"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287234"><span class="annot"><span class="annottext">s :: CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287233"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:CreateTransitGatewayPrefixListReference' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_dryRun"><span class="hs-identifier hs-type">createTransitGatewayPrefixListReference_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createTransitGatewayPrefixListReference_dryRun"><span class="annot"><span class="annottext">createTransitGatewayPrefixListReference_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateTransitGatewayPrefixListReference
+-&gt; f CreateTransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_dryRun"><span class="hs-identifier hs-var hs-var">createTransitGatewayPrefixListReference_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayPrefixListReference -&gt; Maybe Bool)
+-&gt; (CreateTransitGatewayPrefixListReference
+    -&gt; Maybe Bool -&gt; CreateTransitGatewayPrefixListReference)
+-&gt; Lens
+     CreateTransitGatewayPrefixListReference
+     CreateTransitGatewayPrefixListReference
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287232"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Maybe Bool
+</span><a href="#local-6989586621681287232"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287232"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287231"><span class="annot"><span class="annottext">s :: CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287230"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateTransitGatewayPrefixListReference' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AdryRun%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The ID of the transit gateway route table.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_transitGatewayRouteTableId"><span class="hs-identifier hs-type">createTransitGatewayPrefixListReference_transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="createTransitGatewayPrefixListReference_transitGatewayRouteTableId"><span class="annot"><span class="annottext">createTransitGatewayPrefixListReference_transitGatewayRouteTableId :: (Text -&gt; f Text)
+-&gt; CreateTransitGatewayPrefixListReference
+-&gt; f CreateTransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_transitGatewayRouteTableId"><span class="hs-identifier hs-var hs-var">createTransitGatewayPrefixListReference_transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayPrefixListReference -&gt; Text)
+-&gt; (CreateTransitGatewayPrefixListReference
+    -&gt; Text -&gt; CreateTransitGatewayPrefixListReference)
+-&gt; Lens
+     CreateTransitGatewayPrefixListReference
+     CreateTransitGatewayPrefixListReference
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287229"><span class="annot"><span class="annottext">Text
+transitGatewayRouteTableId :: Text
+$sel:transitGatewayRouteTableId:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Text
+</span><a href="#local-6989586621681287229"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287229"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287228"><span class="annot"><span class="annottext">s :: CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:CreateTransitGatewayPrefixListReference' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayRouteTableId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The ID of the prefix list that is used for destination matches.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_prefixListId"><span class="hs-identifier hs-type">createTransitGatewayPrefixListReference_prefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="createTransitGatewayPrefixListReference_prefixListId"><span class="annot"><span class="annottext">createTransitGatewayPrefixListReference_prefixListId :: (Text -&gt; f Text)
+-&gt; CreateTransitGatewayPrefixListReference
+-&gt; f CreateTransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReference_prefixListId"><span class="hs-identifier hs-var hs-var">createTransitGatewayPrefixListReference_prefixListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayPrefixListReference -&gt; Text)
+-&gt; (CreateTransitGatewayPrefixListReference
+    -&gt; Text -&gt; CreateTransitGatewayPrefixListReference)
+-&gt; Lens
+     CreateTransitGatewayPrefixListReference
+     CreateTransitGatewayPrefixListReference
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287226"><span class="annot"><span class="annottext">Text
+prefixListId :: Text
+$sel:prefixListId:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Text
+</span><a href="#local-6989586621681287226"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287226"><span class="hs-identifier hs-var">prefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287225"><span class="annot"><span class="annottext">s :: CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287224"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListId:CreateTransitGatewayPrefixListReference' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AprefixListId%3ACreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621681287220"><span class="annot"><span class="annottext">request :: CreateTransitGatewayPrefixListReference
+-&gt; Request CreateTransitGatewayPrefixListReference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateTransitGatewayPrefixListReference
+-&gt; Request CreateTransitGatewayPrefixListReference
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621681287216"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateTransitGatewayPrefixListReference
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateTransitGatewayPrefixListReference)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse CreateTransitGatewayPrefixListReference))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateTransitGatewayPrefixListReference
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateTransitGatewayPrefixListReference)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681287213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287213"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681287212"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681287212"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681287211"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681287211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayPrefixListReference
+-&gt; Int -&gt; CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var">CreateTransitGatewayPrefixListReferenceResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayPrefixListReference
+ -&gt; Int -&gt; CreateTransitGatewayPrefixListReferenceResponse)
+-&gt; Either String (Maybe TransitGatewayPrefixListReference)
+-&gt; Either
+     String (Int -&gt; CreateTransitGatewayPrefixListReferenceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681287211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe TransitGatewayPrefixListReference)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayPrefixListReference&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; CreateTransitGatewayPrefixListReferenceResponse)
+-&gt; Either String Int
+-&gt; Either String CreateTransitGatewayPrefixListReferenceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287213"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621681287203"><span id="local-6989586621681287205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621681287200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681287196"><span class="annot"><span class="annottext">toHeaders :: CreateTransitGatewayPrefixListReference -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateTransitGatewayPrefixListReference -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621681287191"><span class="annot"><span class="annottext">toPath :: CreateTransitGatewayPrefixListReference -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTransitGatewayPrefixListReference -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621681287187"><span class="annot"><span class="annottext">toQuery :: CreateTransitGatewayPrefixListReference -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReference%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287181"><span id="local-6989586621681287182"><span id="local-6989586621681287183"><span id="local-6989586621681287184"><span id="local-6989586621681287185"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+prefixListId :: Text
+transitGatewayRouteTableId :: Text
+dryRun :: Maybe Bool
+transitGatewayAttachmentId :: Maybe Text
+blackhole :: Maybe Bool
+$sel:prefixListId:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Text
+$sel:transitGatewayRouteTableId:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Text
+$sel:dryRun:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Maybe Bool
+$sel:transitGatewayAttachmentId:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Maybe Text
+$sel:blackhole:CreateTransitGatewayPrefixListReference' :: CreateTransitGatewayPrefixListReference -&gt; Maybe Bool
+</span><a href="#local-6989586621681287181"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateTransitGatewayPrefixListReference&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-181"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Blackhole&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287185"><span class="hs-identifier hs-var">blackhole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayAttachmentId&quot;</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287184"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287183"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayRouteTableId&quot;</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287182"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PrefixListId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287181"><span class="hs-identifier hs-var">prefixListId</span></a></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newCreateTransitGatewayPrefixListReferenceResponse' smart constructor.</span><span>
+</span><span id="line-194"></span><span id="local-6989586621681287178"><span id="local-6989586621681287179"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTransitGatewayPrefixListReferenceResponse"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-var">CreateTransitGatewayPrefixListReferenceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTransitGatewayPrefixListReferenceResponse%27"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var">CreateTransitGatewayPrefixListReferenceResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the prefix list reference.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AtransitGatewayPrefixListReference%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReferenceResponse
+-&gt; Maybe TransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayPrefixListReference%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var hs-var">transitGatewayPrefixListReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayPrefixListReference.html#TransitGatewayPrefixListReference"><span class="hs-identifier hs-type">TransitGatewayPrefixListReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReferenceResponse -&gt; Int
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AhttpStatus%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681287172"><span id="local-6989586621681287174"><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReferenceResponse
+-&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; Bool
+(CreateTransitGatewayPrefixListReferenceResponse
+ -&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; Bool)
+-&gt; (CreateTransitGatewayPrefixListReferenceResponse
+    -&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; Bool)
+-&gt; Eq CreateTransitGatewayPrefixListReferenceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTransitGatewayPrefixListReferenceResponse
+-&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; Bool
+$c/= :: CreateTransitGatewayPrefixListReferenceResponse
+-&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; Bool
+== :: CreateTransitGatewayPrefixListReferenceResponse
+-&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; Bool
+$c== :: CreateTransitGatewayPrefixListReferenceResponse
+-&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287164"><span id="local-6989586621681287166"><span id="local-6989586621681287168"><span id="local-6989586621681287170"><span class="annot"><span class="annottext">ReadPrec [CreateTransitGatewayPrefixListReferenceResponse]
+ReadPrec CreateTransitGatewayPrefixListReferenceResponse
+Int -&gt; ReadS CreateTransitGatewayPrefixListReferenceResponse
+ReadS [CreateTransitGatewayPrefixListReferenceResponse]
+(Int -&gt; ReadS CreateTransitGatewayPrefixListReferenceResponse)
+-&gt; ReadS [CreateTransitGatewayPrefixListReferenceResponse]
+-&gt; ReadPrec CreateTransitGatewayPrefixListReferenceResponse
+-&gt; ReadPrec [CreateTransitGatewayPrefixListReferenceResponse]
+-&gt; Read CreateTransitGatewayPrefixListReferenceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTransitGatewayPrefixListReferenceResponse]
+$creadListPrec :: ReadPrec [CreateTransitGatewayPrefixListReferenceResponse]
+readPrec :: ReadPrec CreateTransitGatewayPrefixListReferenceResponse
+$creadPrec :: ReadPrec CreateTransitGatewayPrefixListReferenceResponse
+readList :: ReadS [CreateTransitGatewayPrefixListReferenceResponse]
+$creadList :: ReadS [CreateTransitGatewayPrefixListReferenceResponse]
+readsPrec :: Int -&gt; ReadS CreateTransitGatewayPrefixListReferenceResponse
+$creadsPrec :: Int -&gt; ReadS CreateTransitGatewayPrefixListReferenceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287158"><span id="local-6989586621681287160"><span id="local-6989586621681287162"><span class="annot"><span class="annottext">Int -&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; ShowS
+[CreateTransitGatewayPrefixListReferenceResponse] -&gt; ShowS
+CreateTransitGatewayPrefixListReferenceResponse -&gt; String
+(Int -&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; ShowS)
+-&gt; (CreateTransitGatewayPrefixListReferenceResponse -&gt; String)
+-&gt; ([CreateTransitGatewayPrefixListReferenceResponse] -&gt; ShowS)
+-&gt; Show CreateTransitGatewayPrefixListReferenceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTransitGatewayPrefixListReferenceResponse] -&gt; ShowS
+$cshowList :: [CreateTransitGatewayPrefixListReferenceResponse] -&gt; ShowS
+show :: CreateTransitGatewayPrefixListReferenceResponse -&gt; String
+$cshow :: CreateTransitGatewayPrefixListReferenceResponse -&gt; String
+showsPrec :: Int -&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTransitGatewayPrefixListReferenceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTransitGatewayPrefixListReferenceResponse
+ -&gt; Rep CreateTransitGatewayPrefixListReferenceResponse x)
+-&gt; (forall x.
+    Rep CreateTransitGatewayPrefixListReferenceResponse x
+    -&gt; CreateTransitGatewayPrefixListReferenceResponse)
+-&gt; Generic CreateTransitGatewayPrefixListReferenceResponse
+forall x.
+Rep CreateTransitGatewayPrefixListReferenceResponse x
+-&gt; CreateTransitGatewayPrefixListReferenceResponse
+forall x.
+CreateTransitGatewayPrefixListReferenceResponse
+-&gt; Rep CreateTransitGatewayPrefixListReferenceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTransitGatewayPrefixListReferenceResponse x
+-&gt; CreateTransitGatewayPrefixListReferenceResponse
+$cfrom :: forall x.
+CreateTransitGatewayPrefixListReferenceResponse
+-&gt; Rep CreateTransitGatewayPrefixListReferenceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'CreateTransitGatewayPrefixListReferenceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'transitGatewayPrefixListReference', 'createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference' - Information about the prefix list reference.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'httpStatus', 'createTransitGatewayPrefixListReferenceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#newCreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">newCreateTransitGatewayPrefixListReferenceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse</span></a></span><span>
+</span><span id="line-217"></span><span id="newCreateTransitGatewayPrefixListReferenceResponse"><span class="annot"><span class="annottext">newCreateTransitGatewayPrefixListReferenceResponse :: Int -&gt; CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#newCreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-var hs-var">newCreateTransitGatewayPrefixListReferenceResponse</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621681287155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReferenceResponse' :: Maybe TransitGatewayPrefixListReference
+-&gt; Int -&gt; CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse'</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayPrefixListReference:CreateTransitGatewayPrefixListReferenceResponse' :: Maybe TransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayPrefixListReference%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var">transitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayPrefixListReference
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTransitGatewayPrefixListReferenceResponse' :: Int
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AhttpStatus%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | Information about the prefix list reference.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference"><span class="hs-identifier hs-type">createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayPrefixListReference.html#TransitGatewayPrefixListReference"><span class="hs-identifier hs-type">TransitGatewayPrefixListReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference"><span class="annot"><span class="annottext">createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference :: (Maybe TransitGatewayPrefixListReference
+ -&gt; f (Maybe TransitGatewayPrefixListReference))
+-&gt; CreateTransitGatewayPrefixListReferenceResponse
+-&gt; f CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference"><span class="hs-identifier hs-var hs-var">createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayPrefixListReferenceResponse
+ -&gt; Maybe TransitGatewayPrefixListReference)
+-&gt; (CreateTransitGatewayPrefixListReferenceResponse
+    -&gt; Maybe TransitGatewayPrefixListReference
+    -&gt; CreateTransitGatewayPrefixListReferenceResponse)
+-&gt; Lens
+     CreateTransitGatewayPrefixListReferenceResponse
+     CreateTransitGatewayPrefixListReferenceResponse
+     (Maybe TransitGatewayPrefixListReference)
+     (Maybe TransitGatewayPrefixListReference)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287154"><span class="annot"><span class="annottext">Maybe TransitGatewayPrefixListReference
+transitGatewayPrefixListReference :: Maybe TransitGatewayPrefixListReference
+$sel:transitGatewayPrefixListReference:CreateTransitGatewayPrefixListReferenceResponse' :: CreateTransitGatewayPrefixListReferenceResponse
+-&gt; Maybe TransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287154"><span class="hs-identifier hs-var hs-var">transitGatewayPrefixListReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287154"><span class="hs-identifier hs-var">transitGatewayPrefixListReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287153"><span class="annot"><span class="annottext">s :: CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="#local-6989586621681287153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287152"><span class="annot"><span class="annottext">Maybe TransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="#local-6989586621681287153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayPrefixListReference:CreateTransitGatewayPrefixListReferenceResponse' :: Maybe TransitGatewayPrefixListReference
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AtransitGatewayPrefixListReference%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var">transitGatewayPrefixListReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayPrefixListReference
+</span><a href="#local-6989586621681287152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReferenceResponse_httpStatus"><span class="hs-identifier hs-type">createTransitGatewayPrefixListReferenceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span id="createTransitGatewayPrefixListReferenceResponse_httpStatus"><span class="annot"><span class="annottext">createTransitGatewayPrefixListReferenceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateTransitGatewayPrefixListReferenceResponse
+-&gt; f CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#createTransitGatewayPrefixListReferenceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createTransitGatewayPrefixListReferenceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayPrefixListReferenceResponse -&gt; Int)
+-&gt; (CreateTransitGatewayPrefixListReferenceResponse
+    -&gt; Int -&gt; CreateTransitGatewayPrefixListReferenceResponse)
+-&gt; Lens
+     CreateTransitGatewayPrefixListReferenceResponse
+     CreateTransitGatewayPrefixListReferenceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287151"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateTransitGatewayPrefixListReferenceResponse' :: CreateTransitGatewayPrefixListReferenceResponse -&gt; Int
+</span><a href="#local-6989586621681287151"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287151"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287150"><span class="annot"><span class="annottext">s :: CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="#local-6989586621681287150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287149"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayPrefixListReferenceResponse
+</span><a href="#local-6989586621681287150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTransitGatewayPrefixListReferenceResponse' :: Int
+</span><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#%24sel%3AhttpStatus%3ACreateTransitGatewayPrefixListReferenceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621681287147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayPrefixListReference.html#CreateTransitGatewayPrefixListReferenceResponse"><span class="hs-identifier hs-type">CreateTransitGatewayPrefixListReferenceResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

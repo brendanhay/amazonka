@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.CellOutput
+module Amazonka.Route53RecoveryReadiness.Types.CellOutput
 
 -- | A Cell and its properties
 --   
@@ -65,16 +65,16 @@ cellOutput_cellName :: Lens' CellOutput Text
 
 -- | A list of Cell arns
 cellOutput_cells :: Lens' CellOutput [Text]
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.CellOutput.CellOutput
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.CellOutput.CellOutput
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.CellOutput.CellOutput
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.CellOutput.CellOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.CellOutput.CellOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.CellOutput.CellOutput
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.CellOutput.CellOutput
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.CellOutput.CellOutput
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.CellOutput.CellOutput
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.CellOutput.CellOutput
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.CellOutput.CellOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.CellOutput.CellOutput
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.CellOutput.CellOutput
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.CellOutput.CellOutput
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput
+module Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput
 
 -- | A collection of rules used in a readiness check
 --   
@@ -119,16 +119,16 @@ listRulesOutput_ruleId :: Lens' ListRulesOutput Text
 
 -- | The resource type the rule applies to.
 listRulesOutput_resourceType :: Lens' ListRulesOutput Text
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput.ListRulesOutput
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.Message
+module Amazonka.Route53RecoveryReadiness.Types.Message
 
 -- | Information relating to readiness check status
 --   
@@ -153,16 +153,16 @@ newMessage :: Message
 
 -- | The text of a readiness check message
 message_messageText :: Lens' Message (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.Message.Message
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.Message.Message
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.Message.Message
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.Message.Message
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.Message.Message
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.Message.Message
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.Message.Message
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.Message.Message
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.Message.Message
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.Message.Message
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.Message.Message
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.Message.Message
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.Message.Message
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.Message.Message
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.NLBResource
+module Amazonka.Route53RecoveryReadiness.Types.NLBResource
 
 -- | The NLB resource a DNS Target Resource points to
 --   
@@ -187,17 +187,17 @@ newNLBResource :: NLBResource
 
 -- | An NLB resource arn
 nLBResource_arn :: Lens' NLBResource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.Types.NLBResource.NLBResource
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord
+module Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord
 
 -- | The Route 53 resource a DNS Target Resource record points to
 --   
@@ -232,17 +232,17 @@ r53ResourceRecord_domainName :: Lens' R53ResourceRecord (Maybe Text)
 
 -- | The Resource Record set id
 r53ResourceRecord_recordSetId :: Lens' R53ResourceRecord (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.R53ResourceRecord
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.Readiness
+module Amazonka.Route53RecoveryReadiness.Types.Readiness
 
 -- | The readiness of an entire ReadinessCheck or an individual resource
 --   ARN.
@@ -253,28 +253,28 @@ pattern Readiness_NOT_AUTHORIZED :: Readiness
 pattern Readiness_NOT_READY :: Readiness
 pattern Readiness_READY :: Readiness
 pattern Readiness_UNKNOWN :: Readiness
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance GHC.Classes.Ord Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.XML.ToXML Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.XML.FromXML Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.Log.ToLog Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.Text.ToText Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Amazonka.Data.Text.FromText Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance GHC.Classes.Ord Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.Readiness.Readiness
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput
+module Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput
 
 -- | A resource used for checking the readiness of a Resource Set
 --   
@@ -328,16 +328,16 @@ readinessCheckOutput_readinessCheckArn :: Lens' ReadinessCheckOutput Text
 
 -- | Name of the ResourceSet to be checked
 readinessCheckOutput_resourceSet :: Lens' ReadinessCheckOutput Text
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput.ReadinessCheckOutput
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary
+module Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary
 
 -- | Summary of ReadinessCheck status, paginated in
 --   GetRecoveryGroupReadinessSummary and GetCellReadinessSummary
@@ -377,16 +377,16 @@ readinessCheckSummary_readiness :: Lens' ReadinessCheckSummary (Maybe Readiness)
 -- | The name of a ReadinessCheck which is part of the given RecoveryGroup
 --   or Cell
 readinessCheckSummary_readinessCheckName :: Lens' ReadinessCheckSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary.ReadinessCheckSummary
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.Recommendation
+module Amazonka.Route53RecoveryReadiness.Types.Recommendation
 
 -- | Guidance for improving Recovery Group resilliancy
 --   
@@ -413,16 +413,16 @@ newRecommendation :: Text -> Recommendation
 
 -- | Guidance text for recommendation
 recommendation_recommendationText :: Lens' Recommendation Text
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.Recommendation.Recommendation
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.Recommendation.Recommendation
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.Recommendation.Recommendation
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.Recommendation.Recommendation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.Recommendation.Recommendation
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.Recommendation.Recommendation
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.Recommendation.Recommendation
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.Recommendation.Recommendation
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.Recommendation.Recommendation
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.Recommendation.Recommendation
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.Recommendation.Recommendation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.Recommendation.Recommendation
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.Recommendation.Recommendation
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.Recommendation.Recommendation
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput
+module Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput
 
 -- | A Recovery Group generally containing multiple Cells
 --   
@@ -475,16 +475,16 @@ recoveryGroupOutput_recoveryGroupName :: Lens' RecoveryGroupOutput Text
 
 -- | A list of Cell arns
 recoveryGroupOutput_cells :: Lens' RecoveryGroupOutput [Text]
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput.RecoveryGroupOutput
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.ResourceResult
+module Amazonka.Route53RecoveryReadiness.Types.ResourceResult
 
 -- | Result with status for an individual resource.
 --   
@@ -540,16 +540,16 @@ resourceResult_readiness :: Lens' ResourceResult Readiness
 -- | The time the resource was last checked for readiness, in ISO-8601
 --   format, UTC.
 resourceResult_lastCheckedTimestamp :: Lens' ResourceResult UTCTime
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.ResourceResult.ResourceResult
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.RuleResult
+module Amazonka.Route53RecoveryReadiness.Types.RuleResult
 
 -- | Result with status for an individual rule..
 --   
@@ -604,16 +604,16 @@ ruleResult_ruleId :: Lens' RuleResult Text
 -- | The time the resource was last checked for readiness, in ISO-8601
 --   format, UTC.
 ruleResult_lastCheckedTimestamp :: Lens' RuleResult UTCTime
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.RuleResult.RuleResult
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.RuleResult.RuleResult
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.RuleResult.RuleResult
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.RuleResult.RuleResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.RuleResult.RuleResult
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.RuleResult.RuleResult
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.RuleResult.RuleResult
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.RuleResult.RuleResult
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.RuleResult.RuleResult
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.RuleResult.RuleResult
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.RuleResult.RuleResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.RuleResult.RuleResult
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.RuleResult.RuleResult
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.RuleResult.RuleResult
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.TargetResource
+module Amazonka.Route53RecoveryReadiness.Types.TargetResource
 
 -- | The target resource the R53 record points to
 --   
@@ -644,17 +644,17 @@ targetResource_r53Resource :: Lens' TargetResource (Maybe R53ResourceRecord)
 
 -- | Undocumented member.
 targetResource_nLBResource :: Lens' TargetResource (Maybe NLBResource)
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.Types.TargetResource.TargetResource
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource
+module Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource
 
 -- | A component for DNS/Routing Control Readiness Checks
 --   
@@ -720,17 +720,17 @@ dNSTargetResource_domainName :: Lens' DNSTargetResource (Maybe Text)
 
 -- | The R53 Set Id to uniquely identify a record given a Name and a Type
 dNSTargetResource_recordSetId :: Lens' DNSTargetResource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource.DNSTargetResource
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.Resource
+module Amazonka.Route53RecoveryReadiness.Types.Resource
 
 -- | The resource element of a ResourceSet
 --   
@@ -788,17 +788,17 @@ resource_componentId :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_dnsTargetResource :: Lens' Resource (Maybe DNSTargetResource)
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.Types.Resource.Resource
 
 
-module Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput
+module Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput
 
 -- | A collection of resources of the same type
 --   
@@ -859,16 +859,16 @@ resourceSetOutput_resourceSetArn :: Lens' ResourceSetOutput Text
 
 -- | A list of Resource objects
 resourceSetOutput_resources :: Lens' ResourceSetOutput [Resource]
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput.ResourceSetOutput
 
 
-module Network.AWS.Route53RecoveryReadiness.Types
+module Amazonka.Route53RecoveryReadiness.Types
 
 -- | API version <tt>2019-12-02</tt> of the Amazon Route53 Recovery
 --   Readiness SDK configuration.
@@ -1582,7 +1582,7 @@ targetResource_nLBResource :: Lens' TargetResource (Maybe NLBResource)
 
 -- | Adds tags to the specified resource. You can specify one or more tags
 --   to add.
-module Network.AWS.Route53RecoveryReadiness.TagResource
+module Amazonka.Route53RecoveryReadiness.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1639,26 +1639,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.TagResource.TagResource
 
 
 -- | Returns a list of the tags assigned to the specified resource.
-module Network.AWS.Route53RecoveryReadiness.ListTagsForResources
+module Amazonka.Route53RecoveryReadiness.ListTagsForResources
 
 -- | <i>See:</i> <a>newListTagsForResources</a> smart constructor.
 data ListTagsForResources
@@ -1717,28 +1717,28 @@ listTagsForResourcesResponse_tags :: Lens' ListTagsForResourcesResponse (Maybe (
 
 -- | The response's http status code.
 listTagsForResourcesResponse_httpStatus :: Lens' ListTagsForResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.ListTagsForResources.ListTagsForResources
 
 
 -- | Returns a collection of rules that are applied as part of Readiness
 --   Checks.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.ListRules
+module Amazonka.Route53RecoveryReadiness.ListRules
 
 -- | <i>See:</i> <a>newListRules</a> smart constructor.
 data ListRules
@@ -1826,28 +1826,28 @@ listRulesResponse_nextToken :: Lens' ListRulesResponse (Maybe Text)
 
 -- | The response's http status code.
 listRulesResponse_httpStatus :: Lens' ListRulesResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListRules.ListRulesResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListRules.ListRulesResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListRules.ListRulesResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListRules.ListRulesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListRules.ListRulesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.ListRules.ListRules
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListRules.ListRulesResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListRules.ListRulesResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListRules.ListRulesResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListRules.ListRulesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListRules.ListRulesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.ListRules.ListRules
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.ListRules.ListRules
 
 
 -- | Returns a collection of Resource Sets.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.ListResourceSets
+module Amazonka.Route53RecoveryReadiness.ListResourceSets
 
 -- | <i>See:</i> <a>newListResourceSets</a> smart constructor.
 data ListResourceSets
@@ -1928,28 +1928,28 @@ listResourceSetsResponse_nextToken :: Lens' ListResourceSetsResponse (Maybe Text
 
 -- | The response's http status code.
 listResourceSetsResponse_httpStatus :: Lens' ListResourceSetsResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.ListResourceSets.ListResourceSets
 
 
 -- | Returns a collection of Recovery Groups.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups
+module Amazonka.Route53RecoveryReadiness.ListRecoveryGroups
 
 -- | <i>See:</i> <a>newListRecoveryGroups</a> smart constructor.
 data ListRecoveryGroups
@@ -2030,28 +2030,28 @@ listRecoveryGroupsResponse_nextToken :: Lens' ListRecoveryGroupsResponse (Maybe 
 
 -- | The response's http status code.
 listRecoveryGroupsResponse_httpStatus :: Lens' ListRecoveryGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.ListRecoveryGroups.ListRecoveryGroups
 
 
 -- | Returns a collection of Readiness Checks.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.ListReadinessChecks
+module Amazonka.Route53RecoveryReadiness.ListReadinessChecks
 
 -- | <i>See:</i> <a>newListReadinessChecks</a> smart constructor.
 data ListReadinessChecks
@@ -2132,28 +2132,28 @@ listReadinessChecksResponse_nextToken :: Lens' ListReadinessChecksResponse (Mayb
 
 -- | The response's http status code.
 listReadinessChecksResponse_httpStatus :: Lens' ListReadinessChecksResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecksResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.ListReadinessChecks.ListReadinessChecks
 
 
 -- | Returns a collection of cross account readiness authorizations.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations
+module Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations
 
 -- | <i>See:</i> <a>newListCrossAccountAuthorizations</a> smart
 --   constructor.
@@ -2237,28 +2237,28 @@ listCrossAccountAuthorizationsResponse_nextToken :: Lens' ListCrossAccountAuthor
 
 -- | The response's http status code.
 listCrossAccountAuthorizationsResponse_httpStatus :: Lens' ListCrossAccountAuthorizationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations.ListCrossAccountAuthorizations
 
 
 -- | Returns a collection of Cells.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.ListCells
+module Amazonka.Route53RecoveryReadiness.ListCells
 
 -- | <i>See:</i> <a>newListCells</a> smart constructor.
 data ListCells
@@ -2334,26 +2334,26 @@ listCellsResponse_nextToken :: Lens' ListCellsResponse (Maybe Text)
 
 -- | The response's http status code.
 listCellsResponse_httpStatus :: Lens' ListCellsResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.ListCells.ListCellsResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.ListCells.ListCellsResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.ListCells.ListCellsResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.ListCells.ListCellsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListCells.ListCellsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.ListCells.ListCells
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.ListCells.ListCellsResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.ListCells.ListCellsResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.ListCells.ListCellsResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.ListCells.ListCellsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListCells.ListCellsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.ListCells.ListCells
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.ListCells.ListCells
 
 
 -- | Returns information about a Resource Set.
-module Network.AWS.Route53RecoveryReadiness.GetResourceSet
+module Amazonka.Route53RecoveryReadiness.GetResourceSet
 
 -- | <i>See:</i> <a>newGetResourceSet</a> smart constructor.
 data GetResourceSet
@@ -2447,27 +2447,27 @@ getResourceSetResponse_tags :: Lens' GetResourceSetResponse (Maybe (HashMap Text
 
 -- | The response's http status code.
 getResourceSetResponse_httpStatus :: Lens' GetResourceSetResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetResourceSet.GetResourceSet
 
 
 -- | Returns information about a Recovery Group.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
+module Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
 
 -- | <i>See:</i> <a>newGetRecoveryGroupReadinessSummary</a> smart
 --   constructor.
@@ -2570,26 +2570,26 @@ getRecoveryGroupReadinessSummaryResponse_nextToken :: Lens' GetRecoveryGroupRead
 
 -- | The response's http status code.
 getRecoveryGroupReadinessSummaryResponse_httpStatus :: Lens' GetRecoveryGroupReadinessSummaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummaryResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary.GetRecoveryGroupReadinessSummary
 
 
 -- | Returns information about a Recovery Group.
-module Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup
+module Amazonka.Route53RecoveryReadiness.GetRecoveryGroup
 
 -- | <i>See:</i> <a>newGetRecoveryGroup</a> smart constructor.
 data GetRecoveryGroup
@@ -2673,27 +2673,27 @@ getRecoveryGroupResponse_tags :: Lens' GetRecoveryGroupResponse (Maybe (HashMap 
 
 -- | The response's http status code.
 getRecoveryGroupResponse_httpStatus :: Lens' GetRecoveryGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetRecoveryGroup.GetRecoveryGroup
 
 
 -- | Returns information about the status of a Readiness Check.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus
+module Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus
 
 -- | <i>See:</i> <a>newGetReadinessCheckStatus</a> smart constructor.
 data GetReadinessCheckStatus
@@ -2805,29 +2805,29 @@ getReadinessCheckStatusResponse_messages :: Lens' GetReadinessCheckStatusRespons
 
 -- | The response's http status code.
 getReadinessCheckStatusResponse_httpStatus :: Lens' GetReadinessCheckStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatusResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus.GetReadinessCheckStatus
 
 
 -- | Returns detailed information about the status of an individual
 --   resource within a Readiness Check's Resource Set.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
+module Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
 
 -- | <i>See:</i> <a>newGetReadinessCheckResourceStatus</a> smart
 --   constructor.
@@ -2940,26 +2940,26 @@ getReadinessCheckResourceStatusResponse_nextToken :: Lens' GetReadinessCheckReso
 
 -- | The response's http status code.
 getReadinessCheckResourceStatusResponse_httpStatus :: Lens' GetReadinessCheckResourceStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatusResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus.GetReadinessCheckResourceStatus
 
 
 -- | Returns information about a ReadinessCheck.
-module Network.AWS.Route53RecoveryReadiness.GetReadinessCheck
+module Amazonka.Route53RecoveryReadiness.GetReadinessCheck
 
 -- | <i>See:</i> <a>newGetReadinessCheck</a> smart constructor.
 data GetReadinessCheck
@@ -3045,27 +3045,27 @@ getReadinessCheckResponse_tags :: Lens' GetReadinessCheckResponse (Maybe (HashMa
 
 -- | The response's http status code.
 getReadinessCheckResponse_httpStatus :: Lens' GetReadinessCheckResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheckResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetReadinessCheck.GetReadinessCheck
 
 
 -- | Returns information about readiness of a Cell.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary
+module Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary
 
 -- | <i>See:</i> <a>newGetCellReadinessSummary</a> smart constructor.
 data GetCellReadinessSummary
@@ -3166,26 +3166,26 @@ getCellReadinessSummaryResponse_nextToken :: Lens' GetCellReadinessSummaryRespon
 
 -- | The response's http status code.
 getCellReadinessSummaryResponse_httpStatus :: Lens' GetCellReadinessSummaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummaryResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary.GetCellReadinessSummary
 
 
 -- | Returns information about a Cell.
-module Network.AWS.Route53RecoveryReadiness.GetCell
+module Amazonka.Route53RecoveryReadiness.GetCell
 
 -- | <i>See:</i> <a>newGetCell</a> smart constructor.
 data GetCell
@@ -3275,26 +3275,26 @@ getCellResponse_tags :: Lens' GetCellResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 getCellResponse_httpStatus :: Lens' GetCellResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetCell.GetCellResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetCell.GetCellResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetCell.GetCellResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetCell.GetCellResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetCell.GetCellResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetCell.GetCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetCell.GetCellResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetCell.GetCellResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetCell.GetCellResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetCell.GetCellResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetCell.GetCellResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetCell.GetCell
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetCell.GetCell
 
 
 -- | Returns a collection of recommendations to improve resilliance and
 --   readiness check quality for a Recovery Group.
-module Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations
+module Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
 
 -- | <i>See:</i> <a>newGetArchitectureRecommendations</a> smart
 --   constructor.
@@ -3403,25 +3403,25 @@ getArchitectureRecommendationsResponse_recommendations :: Lens' GetArchitectureR
 
 -- | The response's http status code.
 getArchitectureRecommendationsResponse_httpStatus :: Lens' GetArchitectureRecommendationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations.GetArchitectureRecommendations
 
 
 -- | Deletes an existing Resource Set.
-module Network.AWS.Route53RecoveryReadiness.DeleteResourceSet
+module Amazonka.Route53RecoveryReadiness.DeleteResourceSet
 
 -- | <i>See:</i> <a>newDeleteResourceSet</a> smart constructor.
 data DeleteResourceSet
@@ -3456,25 +3456,25 @@ DeleteResourceSetResponse' :: DeleteResourceSetResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteResourceSetResponse :: DeleteResourceSetResponse
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.DeleteResourceSet.DeleteResourceSet
 
 
 -- | Deletes an existing Recovery Group.
-module Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup
+module Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup
 
 -- | <i>See:</i> <a>newDeleteRecoveryGroup</a> smart constructor.
 data DeleteRecoveryGroup
@@ -3510,25 +3510,25 @@ DeleteRecoveryGroupResponse' :: DeleteRecoveryGroupResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteRecoveryGroupResponse :: DeleteRecoveryGroupResponse
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup.DeleteRecoveryGroup
 
 
 -- | Deletes an existing Readiness Check.
-module Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck
+module Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck
 
 -- | <i>See:</i> <a>newDeleteReadinessCheck</a> smart constructor.
 data DeleteReadinessCheck
@@ -3564,25 +3564,25 @@ DeleteReadinessCheckResponse' :: DeleteReadinessCheckResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteReadinessCheckResponse :: DeleteReadinessCheckResponse
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheckResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck.DeleteReadinessCheck
 
 
 -- | Delete cross account readiness authorization
-module Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
+module Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
 
 -- | <i>See:</i> <a>newDeleteCrossAccountAuthorization</a> smart
 --   constructor.
@@ -3634,25 +3634,25 @@ newDeleteCrossAccountAuthorizationResponse :: Int -> DeleteCrossAccountAuthoriza
 
 -- | The response's http status code.
 deleteCrossAccountAuthorizationResponse_httpStatus :: Lens' DeleteCrossAccountAuthorizationResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization.DeleteCrossAccountAuthorization
 
 
 -- | Deletes an existing Cell.
-module Network.AWS.Route53RecoveryReadiness.DeleteCell
+module Amazonka.Route53RecoveryReadiness.DeleteCell
 
 -- | <i>See:</i> <a>newDeleteCell</a> smart constructor.
 data DeleteCell
@@ -3686,25 +3686,25 @@ DeleteCellResponse' :: DeleteCellResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteCellResponse :: DeleteCellResponse
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCellResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.DeleteCell.DeleteCell
 
 
 -- | Creates a new Resource Set.
-module Network.AWS.Route53RecoveryReadiness.CreateResourceSet
+module Amazonka.Route53RecoveryReadiness.CreateResourceSet
 
 -- | The ResourceSet to create
 --   
@@ -3828,26 +3828,26 @@ createResourceSetResponse_tags :: Lens' CreateResourceSetResponse (Maybe (HashMa
 
 -- | The response's http status code.
 createResourceSetResponse_httpStatus :: Lens' CreateResourceSetResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.CreateResourceSet.CreateResourceSet
 
 
 -- | Creates a new Recovery Group.
-module Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup
+module Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup
 
 -- | The RecoveryGroup to create
 --   
@@ -3950,26 +3950,26 @@ createRecoveryGroupResponse_tags :: Lens' CreateRecoveryGroupResponse (Maybe (Ha
 
 -- | The response's http status code.
 createRecoveryGroupResponse_httpStatus :: Lens' CreateRecoveryGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup.CreateRecoveryGroup
 
 
 -- | Creates a new Readiness Check.
-module Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck
+module Amazonka.Route53RecoveryReadiness.CreateReadinessCheck
 
 -- | The ReadinessCheck to create
 --   
@@ -4074,26 +4074,26 @@ createReadinessCheckResponse_tags :: Lens' CreateReadinessCheckResponse (Maybe (
 
 -- | The response's http status code.
 createReadinessCheckResponse_httpStatus :: Lens' CreateReadinessCheckResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheckResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.CreateReadinessCheck.CreateReadinessCheck
 
 
 -- | Create a new cross account readiness authorization.
-module Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization
+module Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization
 
 -- | The cross account authorization
 --   
@@ -4158,26 +4158,26 @@ createCrossAccountAuthorizationResponse_crossAccountAuthorization :: Lens' Creat
 
 -- | The response's http status code.
 createCrossAccountAuthorizationResponse_httpStatus :: Lens' CreateCrossAccountAuthorizationResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.CreateCrossAccountAuthorization
 
 
 -- | Creates a new Cell.
-module Network.AWS.Route53RecoveryReadiness.CreateCell
+module Amazonka.Route53RecoveryReadiness.CreateCell
 
 -- | The Cell to create
 --   
@@ -4289,27 +4289,27 @@ createCellResponse_tags :: Lens' CreateCellResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 createCellResponse_httpStatus :: Lens' CreateCellResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCellResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCellResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCellResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCellResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCellResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.CreateCell.CreateCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.CreateCell.CreateCellResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.CreateCell.CreateCellResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.CreateCell.CreateCellResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.CreateCell.CreateCellResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateCell.CreateCellResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.CreateCell.CreateCell
 
 
 -- | Removes tags from the specified resource. You can specify one or more
 --   tags to remove.
-module Network.AWS.Route53RecoveryReadiness.UntagResource
+module Amazonka.Route53RecoveryReadiness.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4357,25 +4357,25 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.UntagResource.UntagResource
 
 
 -- | Updates an existing Cell.
-module Network.AWS.Route53RecoveryReadiness.UpdateCell
+module Amazonka.Route53RecoveryReadiness.UpdateCell
 
 -- | Parameters to update for the Cell
 --   
@@ -4477,26 +4477,26 @@ updateCellResponse_tags :: Lens' UpdateCellResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 updateCellResponse_httpStatus :: Lens' UpdateCellResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCellResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.UpdateCell.UpdateCell
 
 
 -- | Updates an exisiting Readiness Check.
-module Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck
+module Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck
 
 -- | The new Readiness Check values
 --   
@@ -4594,26 +4594,26 @@ updateReadinessCheckResponse_tags :: Lens' UpdateReadinessCheckResponse (Maybe (
 
 -- | The response's http status code.
 updateReadinessCheckResponse_httpStatus :: Lens' UpdateReadinessCheckResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheckResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck.UpdateReadinessCheck
 
 
 -- | Updates an existing Recovery Group.
-module Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup
+module Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup
 
 -- | Parameters to update for the RecoveryGroup
 --   
@@ -4710,26 +4710,26 @@ updateRecoveryGroupResponse_tags :: Lens' UpdateRecoveryGroupResponse (Maybe (Ha
 
 -- | The response's http status code.
 updateRecoveryGroupResponse_httpStatus :: Lens' UpdateRecoveryGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.UpdateRecoveryGroup
 
 
 -- | Updates an existing Resource Set.
-module Network.AWS.Route53RecoveryReadiness.UpdateResourceSet
+module Amazonka.Route53RecoveryReadiness.UpdateResourceSet
 
 -- | configuration for the desired
 --   
@@ -4845,25 +4845,25 @@ updateResourceSetResponse_tags :: Lens' UpdateResourceSetResponse (Maybe (HashMa
 
 -- | The response's http status code.
 updateResourceSetResponse_httpStatus :: Lens' UpdateResourceSetResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance GHC.Generics.Generic Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryReadiness.UpdateResourceSet.UpdateResourceSet
 
 
-module Network.AWS.Route53RecoveryReadiness.Lens
+module Amazonka.Route53RecoveryReadiness.Lens
 
 -- | Undocumented member.
 createResourceSet_tags :: Lens' CreateResourceSet (Maybe (HashMap Text Text))
@@ -5563,14 +5563,14 @@ targetResource_r53Resource :: Lens' TargetResource (Maybe R53ResourceRecord)
 targetResource_nLBResource :: Lens' TargetResource (Maybe NLBResource)
 
 
-module Network.AWS.Route53RecoveryReadiness.Waiters
+module Amazonka.Route53RecoveryReadiness.Waiters
 
 
 -- | Derived from API version <tt>2019-12-02</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   AWS Route53 Recovery Readiness
-module Network.AWS.Route53RecoveryReadiness
+module Amazonka.Route53RecoveryReadiness
 
 -- | API version <tt>2019-12-02</tt> of the Amazon Route53 Recovery
 --   Readiness SDK configuration.

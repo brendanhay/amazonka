@@ -1,0 +1,910 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RedshiftData.ListSchemas</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the schemas in a database. A token is returned to page through the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- schema list. Depending on the authorization method, use one of the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- following combinations of request parameters:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   Secrets Manager - specify the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--     secret, the database name, and the cluster identifier that matches</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     the cluster in the secret.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Temporary credentials - specify the cluster identifier, the database</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     name, and the database user name. Permission to call the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     @redshift:GetClusterCredentials@ operation is required to use this</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     method.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RedshiftData.ListSchemas</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#newListSchemas"><span class="hs-identifier">newListSchemas</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_dbUser"><span class="hs-identifier">listSchemas_dbUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_connectedDatabase"><span class="hs-identifier">listSchemas_connectedDatabase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier">listSchemas_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_secretArn"><span class="hs-identifier">listSchemas_secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_maxResults"><span class="hs-identifier">listSchemas_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_schemaPattern"><span class="hs-identifier">listSchemas_schemaPattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_clusterIdentifier"><span class="hs-identifier">listSchemas_clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_database"><span class="hs-identifier">listSchemas_database</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier">ListSchemasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#newListSchemasResponse"><span class="hs-identifier">newListSchemasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier">listSchemasResponse_schemas</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier">listSchemasResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_httpStatus"><span class="hs-identifier">listSchemasResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.Types.html"><span class="hs-identifier">Amazonka.RedshiftData.Types</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newListSchemas' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679179705"><span id="local-6989586621679179706"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSchemas"><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-var">ListSchemas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSchemas%27"><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-var">ListSchemas'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The database user name. This parameter is required when authenticating</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- using temporary credentials.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdbUser%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AdbUser%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A database name. The connected database is specified when you connect</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- with your authentication credentials.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AconnectedDatabase%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AconnectedDatabase%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">connectedDatabase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- NextToken value in the next NextToken parameter and retrying the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- command. If the NextToken field is empty, all response records have been</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- retrieved for the request.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AnextToken%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AnextToken%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database. This</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- parameter is required when authenticating using Secrets Manager.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AsecretArn%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AsecretArn%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The maximum number of schemas to return in the response. If more schemas</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- exist than fit in one response, then @NextToken@ is returned to page</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- through the results.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AmaxResults%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Natural
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AmaxResults%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | A pattern to filter results by schema name. Within a schema pattern,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- \&quot;%\&quot; means match any substring of 0 or more characters and \&quot;_\&quot; means</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- match any one character. Only schema name entries matching the search</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- pattern are returned.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AschemaPattern%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AschemaPattern%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">schemaPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The cluster identifier. This parameter is required when authenticating</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AclusterIdentifier%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The name of the database that contains the schemas to list. If</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- @ConnectedDatabase@ is not specified, this is also the database to</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- connect to with your authentication credentials.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3Adatabase%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3Adatabase%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179692"><span id="local-6989586621679179694"><span class="annot"><span class="annottext">ListSchemas -&gt; ListSchemas -&gt; Bool
+(ListSchemas -&gt; ListSchemas -&gt; Bool)
+-&gt; (ListSchemas -&gt; ListSchemas -&gt; Bool) -&gt; Eq ListSchemas
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSchemas -&gt; ListSchemas -&gt; Bool
+$c/= :: ListSchemas -&gt; ListSchemas -&gt; Bool
+== :: ListSchemas -&gt; ListSchemas -&gt; Bool
+$c== :: ListSchemas -&gt; ListSchemas -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179683"><span id="local-6989586621679179685"><span id="local-6989586621679179687"><span id="local-6989586621679179689"><span class="annot"><span class="annottext">ReadPrec [ListSchemas]
+ReadPrec ListSchemas
+Int -&gt; ReadS ListSchemas
+ReadS [ListSchemas]
+(Int -&gt; ReadS ListSchemas)
+-&gt; ReadS [ListSchemas]
+-&gt; ReadPrec ListSchemas
+-&gt; ReadPrec [ListSchemas]
+-&gt; Read ListSchemas
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSchemas]
+$creadListPrec :: ReadPrec [ListSchemas]
+readPrec :: ReadPrec ListSchemas
+$creadPrec :: ReadPrec ListSchemas
+readList :: ReadS [ListSchemas]
+$creadList :: ReadS [ListSchemas]
+readsPrec :: Int -&gt; ReadS ListSchemas
+$creadsPrec :: Int -&gt; ReadS ListSchemas
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179676"><span id="local-6989586621679179678"><span id="local-6989586621679179680"><span class="annot"><span class="annottext">Int -&gt; ListSchemas -&gt; ShowS
+[ListSchemas] -&gt; ShowS
+ListSchemas -&gt; String
+(Int -&gt; ListSchemas -&gt; ShowS)
+-&gt; (ListSchemas -&gt; String)
+-&gt; ([ListSchemas] -&gt; ShowS)
+-&gt; Show ListSchemas
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSchemas] -&gt; ShowS
+$cshowList :: [ListSchemas] -&gt; ShowS
+show :: ListSchemas -&gt; String
+$cshow :: ListSchemas -&gt; String
+showsPrec :: Int -&gt; ListSchemas -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSchemas -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSchemas -&gt; Rep ListSchemas x)
+-&gt; (forall x. Rep ListSchemas x -&gt; ListSchemas)
+-&gt; Generic ListSchemas
+forall x. Rep ListSchemas x -&gt; ListSchemas
+forall x. ListSchemas -&gt; Rep ListSchemas x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSchemas x -&gt; ListSchemas
+$cfrom :: forall x. ListSchemas -&gt; Rep ListSchemas x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Create a value of 'ListSchemas' with all optional fields omitted.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when authenticating</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- using temporary credentials.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'connectedDatabase', 'listSchemas_connectedDatabase' - A database name. The connected database is specified when you connect</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- with your authentication credentials.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'nextToken', 'listSchemas_nextToken' - A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- NextToken value in the next NextToken parameter and retrying the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- command. If the NextToken field is empty, all response records have been</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- retrieved for the request.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'secretArn', 'listSchemas_secretArn' - The name or ARN of the secret that enables access to the database. This</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- parameter is required when authenticating using Secrets Manager.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return in the response. If more schemas</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- exist than fit in one response, then @NextToken@ is returned to page</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- through the results.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'schemaPattern', 'listSchemas_schemaPattern' - A pattern to filter results by schema name. Within a schema pattern,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- \&quot;%\&quot; means match any substring of 0 or more characters and \&quot;_\&quot; means</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- match any one character. Only schema name entries matching the search</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- pattern are returned.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'clusterIdentifier', 'listSchemas_clusterIdentifier' - The cluster identifier. This parameter is required when authenticating</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'database', 'listSchemas_database' - The name of the database that contains the schemas to list. If</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @ConnectedDatabase@ is not specified, this is also the database to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- connect to with your authentication credentials.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#newListSchemas"><span class="hs-identifier hs-type">newListSchemas</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'clusterIdentifier'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'database'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span>
+</span><span id="line-152"></span><span id="newListSchemas"><span class="annot"><span class="annottext">newListSchemas :: Text -&gt; Text -&gt; ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#newListSchemas"><span class="hs-identifier hs-var hs-var">newListSchemas</span></a></span></span><span> </span><span id="local-6989586621679179671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179671"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span id="local-6989586621679179670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179670"><span class="hs-identifier hs-var">pDatabase_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">ListSchemas' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbUser:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AdbUser%3AListSchemas%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectedDatabase:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AconnectedDatabase%3AListSchemas%27"><span class="hs-identifier hs-var">connectedDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AnextToken%3AListSchemas%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretArn:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AsecretArn%3AListSchemas%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListSchemas' :: Maybe Natural
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AmaxResults%3AListSchemas%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaPattern:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AschemaPattern%3AListSchemas%27"><span class="hs-identifier hs-var">schemaPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ListSchemas' :: Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AclusterIdentifier%3AListSchemas%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179671"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:database:ListSchemas' :: Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3Adatabase%3AListSchemas%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179670"><span class="hs-identifier hs-var">pDatabase_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The database user name. This parameter is required when authenticating</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- using temporary credentials.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_dbUser"><span class="hs-identifier hs-type">listSchemas_dbUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="listSchemas_dbUser"><span class="annot"><span class="annottext">listSchemas_dbUser :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_dbUser"><span class="hs-identifier hs-var hs-var">listSchemas_dbUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Text)
+-&gt; (ListSchemas -&gt; Maybe Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179668"><span class="annot"><span class="annottext">Maybe Text
+dbUser :: Maybe Text
+$sel:dbUser:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679179668"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179668"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179667"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbUser:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AdbUser%3AListSchemas%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | A database name. The connected database is specified when you connect</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- with your authentication credentials.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_connectedDatabase"><span class="hs-identifier hs-type">listSchemas_connectedDatabase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="listSchemas_connectedDatabase"><span class="annot"><span class="annottext">listSchemas_connectedDatabase :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_connectedDatabase"><span class="hs-identifier hs-var hs-var">listSchemas_connectedDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Text)
+-&gt; (ListSchemas -&gt; Maybe Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179665"><span class="annot"><span class="annottext">Maybe Text
+connectedDatabase :: Maybe Text
+$sel:connectedDatabase:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679179665"><span class="hs-identifier hs-var hs-var">connectedDatabase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179665"><span class="hs-identifier hs-var">connectedDatabase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179664"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedDatabase:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AconnectedDatabase%3AListSchemas%27"><span class="hs-identifier hs-var">connectedDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- NextToken value in the next NextToken parameter and retrying the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- command. If the NextToken field is empty, all response records have been</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- retrieved for the request.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier hs-type">listSchemas_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="listSchemas_nextToken"><span class="annot"><span class="annottext">listSchemas_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier hs-var hs-var">listSchemas_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Text)
+-&gt; (ListSchemas -&gt; Maybe Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179662"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679179662"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179662"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179661"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AnextToken%3AListSchemas%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database. This</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- parameter is required when authenticating using Secrets Manager.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_secretArn"><span class="hs-identifier hs-type">listSchemas_secretArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listSchemas_secretArn"><span class="annot"><span class="annottext">listSchemas_secretArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_secretArn"><span class="hs-identifier hs-var hs-var">listSchemas_secretArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Text)
+-&gt; (ListSchemas -&gt; Maybe Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179659"><span class="annot"><span class="annottext">Maybe Text
+secretArn :: Maybe Text
+$sel:secretArn:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679179659"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179659"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179658"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretArn:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AsecretArn%3AListSchemas%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The maximum number of schemas to return in the response. If more schemas</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- exist than fit in one response, then @NextToken@ is returned to page</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- through the results.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_maxResults"><span class="hs-identifier hs-type">listSchemas_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="listSchemas_maxResults"><span class="annot"><span class="annottext">listSchemas_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_maxResults"><span class="hs-identifier hs-var hs-var">listSchemas_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Natural)
+-&gt; (ListSchemas -&gt; Maybe Natural -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179656"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListSchemas' :: ListSchemas -&gt; Maybe Natural
+</span><a href="#local-6989586621679179656"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179656"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179655"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179654"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSchemas' :: Maybe Natural
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AmaxResults%3AListSchemas%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | A pattern to filter results by schema name. Within a schema pattern,</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- \&quot;%\&quot; means match any substring of 0 or more characters and \&quot;_\&quot; means</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- match any one character. Only schema name entries matching the search</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- pattern are returned.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_schemaPattern"><span class="hs-identifier hs-type">listSchemas_schemaPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="listSchemas_schemaPattern"><span class="annot"><span class="annottext">listSchemas_schemaPattern :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_schemaPattern"><span class="hs-identifier hs-var hs-var">listSchemas_schemaPattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Text)
+-&gt; (ListSchemas -&gt; Maybe Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179653"><span class="annot"><span class="annottext">Maybe Text
+schemaPattern :: Maybe Text
+$sel:schemaPattern:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679179653"><span class="hs-identifier hs-var hs-var">schemaPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179653"><span class="hs-identifier hs-var">schemaPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179652"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179651"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaPattern:ListSchemas' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AschemaPattern%3AListSchemas%27"><span class="hs-identifier hs-var">schemaPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The cluster identifier. This parameter is required when authenticating</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_clusterIdentifier"><span class="hs-identifier hs-type">listSchemas_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-204"></span><span id="listSchemas_clusterIdentifier"><span class="annot"><span class="annottext">listSchemas_clusterIdentifier :: (Text -&gt; f Text) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_clusterIdentifier"><span class="hs-identifier hs-var hs-var">listSchemas_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Text)
+-&gt; (ListSchemas -&gt; Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179650"><span class="annot"><span class="annottext">Text
+clusterIdentifier :: Text
+$sel:clusterIdentifier:ListSchemas' :: ListSchemas -&gt; Text
+</span><a href="#local-6989586621679179650"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179650"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179649"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ListSchemas' :: Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AclusterIdentifier%3AListSchemas%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The name of the database that contains the schemas to list. If</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @ConnectedDatabase@ is not specified, this is also the database to</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- connect to with your authentication credentials.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_database"><span class="hs-identifier hs-type">listSchemas_database</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-210"></span><span id="listSchemas_database"><span class="annot"><span class="annottext">listSchemas_database :: (Text -&gt; f Text) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_database"><span class="hs-identifier hs-var hs-var">listSchemas_database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Text)
+-&gt; (ListSchemas -&gt; Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179647"><span class="annot"><span class="annottext">Text
+database :: Text
+$sel:database:ListSchemas' :: ListSchemas -&gt; Text
+</span><a href="#local-6989586621679179647"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179647"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179646"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679179646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:ListSchemas' :: Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3Adatabase%3AListSchemas%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679179641"><span class="annot"><span class="annottext">page :: ListSchemas -&gt; AWSResponse ListSchemas -&gt; Maybe ListSchemas
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679179639"><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179639"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679179638"><span class="annot"><span class="annottext">AWSResponse ListSchemas
+</span><a href="#local-6989586621679179638"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-215"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSchemas
+ListSchemasResponse
+</span><a href="#local-6989586621679179638"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">ListSchemasResponse
+-&gt; Getting (First Text) ListSchemasResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse
+Lens' ListSchemasResponse (Maybe Text)
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-var">listSchemasResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSchemasResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-217"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSchemas
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-220"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSchemas
+ListSchemasResponse
+</span><a href="#local-6989586621679179638"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">ListSchemasResponse
+-&gt; Getting (First [Text]) ListSchemasResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListSchemasResponse -&gt; Const (First [Text]) ListSchemasResponse
+Lens' ListSchemasResponse (Maybe [Text])
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier hs-var">listSchemasResponse_schemas</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListSchemasResponse -&gt; Const (First [Text]) ListSchemasResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListSchemasResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-222"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSchemas
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe ListSchemas
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe ListSchemas)
+-&gt; ListSchemas -&gt; Maybe ListSchemas
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679179639"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">ListSchemas -&gt; (ListSchemas -&gt; ListSchemas) -&gt; ListSchemas
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListSchemas -&gt; Identity ListSchemas
+Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier hs-var">listSchemas_nextToken</span></a></span><span>
+</span><span id="line-228"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListSchemas -&gt; Identity ListSchemas)
+-&gt; Maybe Text -&gt; ListSchemas -&gt; ListSchemas
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSchemas
+ListSchemasResponse
+</span><a href="#local-6989586621679179638"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-229"></span><span>          </span><span class="annot"><span class="annottext">ListSchemasResponse
+-&gt; Getting (First Text) ListSchemasResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse
+Lens' ListSchemasResponse (Maybe Text)
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-var">listSchemasResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSchemasResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679179628"><span class="annot"><span class="annottext">request :: ListSchemas -&gt; Request ListSchemas
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSchemas -&gt; Request ListSchemas
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RedshiftData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679179624"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListSchemas
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSchemas)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListSchemas))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListSchemas
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSchemas)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179621"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179620"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179620"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179619"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179619"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListSchemasResponse
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-var">ListSchemasResponse'</span></a></span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListSchemasResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListSchemasResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schemas&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListSchemasResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListSchemasResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListSchemasResponse)
+-&gt; Either String Int -&gt; Either String ListSchemasResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179621"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179610"><span id="local-6989586621679179612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span></span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679179603"><span class="annot"><span class="annottext">toHeaders :: ListSchemas -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSchemas -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-251"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RedshiftData.ListSchemas&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-255"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-256"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179593"><span id="local-6989586621679179595"><span id="local-6989586621679179597"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679179591"><span class="annot"><span class="annottext">toJSON :: ListSchemas -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179582"><span id="local-6989586621679179583"><span id="local-6989586621679179584"><span id="local-6989586621679179585"><span id="local-6989586621679179586"><span id="local-6989586621679179587"><span id="local-6989586621679179588"><span id="local-6989586621679179589"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+database :: Text
+clusterIdentifier :: Text
+schemaPattern :: Maybe Text
+maxResults :: Maybe Natural
+secretArn :: Maybe Text
+nextToken :: Maybe Text
+connectedDatabase :: Maybe Text
+dbUser :: Maybe Text
+$sel:database:ListSchemas' :: ListSchemas -&gt; Text
+$sel:clusterIdentifier:ListSchemas' :: ListSchemas -&gt; Text
+$sel:schemaPattern:ListSchemas' :: ListSchemas -&gt; Maybe Text
+$sel:maxResults:ListSchemas' :: ListSchemas -&gt; Maybe Natural
+$sel:secretArn:ListSchemas' :: ListSchemas -&gt; Maybe Text
+$sel:nextToken:ListSchemas' :: ListSchemas -&gt; Maybe Text
+$sel:connectedDatabase:ListSchemas' :: ListSchemas -&gt; Maybe Text
+$sel:dbUser:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679179582"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-264"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbUser&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179589"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectedDatabase&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179588"><span class="hs-identifier hs-var">connectedDatabase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179587"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179586"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179585"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179584"><span class="hs-identifier hs-var">schemaPattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-272"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179583"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179582"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679179576"><span class="annot"><span class="annottext">toPath :: ListSchemas -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSchemas -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679179572"><span class="annot"><span class="annottext">toQuery :: ListSchemas -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListSchemas -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | /See:/ 'newListSchemasResponse' smart constructor.</span><span>
+</span><span id="line-284"></span><span id="local-6989586621679179569"><span id="local-6989586621679179570"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSchemasResponse"><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-var">ListSchemasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSchemasResponse%27"><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-var">ListSchemasResponse'</span></a></span></span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The schemas that match the request pattern.</span><span>
+</span><span id="line-286"></span><span>    </span><span id="%24sel%3Aschemas%3AListSchemasResponse%27"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3Aschemas%3AListSchemasResponse%27"><span class="hs-identifier hs-var hs-var">schemas</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-comment">-- NextToken value in the next NextToken parameter and retrying the</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- command. If the NextToken field is empty, all response records have been</span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-comment">-- retrieved for the request.</span><span>
+</span><span id="line-293"></span><span>    </span><span id="%24sel%3AnextToken%3AListSchemasResponse%27"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AnextToken%3AListSchemasResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-295"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; Int
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179562"><span id="local-6989586621679179564"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+(ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool)
+-&gt; (ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool)
+-&gt; Eq ListSchemasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+$c/= :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+== :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+$c== :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179554"><span id="local-6989586621679179556"><span id="local-6989586621679179558"><span id="local-6989586621679179560"><span class="annot"><span class="annottext">ReadPrec [ListSchemasResponse]
+ReadPrec ListSchemasResponse
+Int -&gt; ReadS ListSchemasResponse
+ReadS [ListSchemasResponse]
+(Int -&gt; ReadS ListSchemasResponse)
+-&gt; ReadS [ListSchemasResponse]
+-&gt; ReadPrec ListSchemasResponse
+-&gt; ReadPrec [ListSchemasResponse]
+-&gt; Read ListSchemasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSchemasResponse]
+$creadListPrec :: ReadPrec [ListSchemasResponse]
+readPrec :: ReadPrec ListSchemasResponse
+$creadPrec :: ReadPrec ListSchemasResponse
+readList :: ReadS [ListSchemasResponse]
+$creadList :: ReadS [ListSchemasResponse]
+readsPrec :: Int -&gt; ReadS ListSchemasResponse
+$creadsPrec :: Int -&gt; ReadS ListSchemasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179548"><span id="local-6989586621679179550"><span id="local-6989586621679179552"><span class="annot"><span class="annottext">Int -&gt; ListSchemasResponse -&gt; ShowS
+[ListSchemasResponse] -&gt; ShowS
+ListSchemasResponse -&gt; String
+(Int -&gt; ListSchemasResponse -&gt; ShowS)
+-&gt; (ListSchemasResponse -&gt; String)
+-&gt; ([ListSchemasResponse] -&gt; ShowS)
+-&gt; Show ListSchemasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSchemasResponse] -&gt; ShowS
+$cshowList :: [ListSchemasResponse] -&gt; ShowS
+show :: ListSchemasResponse -&gt; String
+$cshow :: ListSchemasResponse -&gt; String
+showsPrec :: Int -&gt; ListSchemasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSchemasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSchemasResponse -&gt; Rep ListSchemasResponse x)
+-&gt; (forall x. Rep ListSchemasResponse x -&gt; ListSchemasResponse)
+-&gt; Generic ListSchemasResponse
+forall x. Rep ListSchemasResponse x -&gt; ListSchemasResponse
+forall x. ListSchemasResponse -&gt; Rep ListSchemasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSchemasResponse x -&gt; ListSchemasResponse
+$cfrom :: forall x. ListSchemasResponse -&gt; Rep ListSchemasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- Create a value of 'ListSchemasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- 'schemas', 'listSchemasResponse_schemas' - The schemas that match the request pattern.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- 'nextToken', 'listSchemasResponse_nextToken' - A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- NextToken value in the next NextToken parameter and retrying the</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- command. If the NextToken field is empty, all response records have been</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- retrieved for the request.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- 'httpStatus', 'listSchemasResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#newListSchemasResponse"><span class="hs-identifier hs-type">newListSchemasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-318"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-319"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-320"></span><span>  </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span>
+</span><span id="line-321"></span><span id="newListSchemasResponse"><span class="annot"><span class="annottext">newListSchemasResponse :: Int -&gt; ListSchemasResponse
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#newListSchemasResponse"><span class="hs-identifier hs-var hs-var">newListSchemasResponse</span></a></span></span><span> </span><span id="local-6989586621679179545"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179545"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><span class="annottext">ListSchemasResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListSchemasResponse
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemas:ListSchemasResponse' :: Maybe [Text]
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3Aschemas%3AListSchemasResponse%27"><span class="hs-identifier hs-var">schemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemasResponse' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AnextToken%3AListSchemasResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSchemasResponse' :: Int
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179545"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The schemas that match the request pattern.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier hs-type">listSchemasResponse_schemas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="listSchemasResponse_schemas"><span class="annot"><span class="annottext">listSchemasResponse_schemas :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListSchemasResponse -&gt; f ListSchemasResponse
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier hs-var hs-var">listSchemasResponse_schemas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemasResponse -&gt; Maybe [Text])
+-&gt; (ListSchemasResponse -&gt; Maybe [Text] -&gt; ListSchemasResponse)
+-&gt; Lens' ListSchemasResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179544"><span class="annot"><span class="annottext">Maybe [Text]
+schemas :: Maybe [Text]
+$sel:schemas:ListSchemasResponse' :: ListSchemasResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679179544"><span class="hs-identifier hs-var hs-var">schemas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679179544"><span class="hs-identifier hs-var">schemas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179543"><span class="annot"><span class="annottext">s :: ListSchemasResponse
+</span><a href="#local-6989586621679179543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179542"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679179542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemasResponse
+</span><a href="#local-6989586621679179543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemas:ListSchemasResponse' :: Maybe [Text]
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3Aschemas%3AListSchemasResponse%27"><span class="hs-identifier hs-var">schemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679179542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListSchemasResponse -&gt; f ListSchemasResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListSchemasResponse
+-&gt; f ListSchemasResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- NextToken value in the next NextToken parameter and retrying the</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- command. If the NextToken field is empty, all response records have been</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- retrieved for the request.</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-type">listSchemasResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="listSchemasResponse_nextToken"><span class="annot"><span class="annottext">listSchemasResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSchemasResponse -&gt; f ListSchemasResponse
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-var hs-var">listSchemasResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemasResponse -&gt; Maybe Text)
+-&gt; (ListSchemasResponse -&gt; Maybe Text -&gt; ListSchemasResponse)
+-&gt; Lens' ListSchemasResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179539"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSchemasResponse' :: ListSchemasResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679179539"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179539"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179538"><span class="annot"><span class="annottext">s :: ListSchemasResponse
+</span><a href="#local-6989586621679179538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemasResponse
+</span><a href="#local-6989586621679179538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemasResponse' :: Maybe Text
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AnextToken%3AListSchemasResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_httpStatus"><span class="hs-identifier hs-type">listSchemasResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-343"></span><span id="listSchemasResponse_httpStatus"><span class="annot"><span class="annottext">listSchemasResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListSchemasResponse -&gt; f ListSchemasResponse
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#listSchemasResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listSchemasResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemasResponse -&gt; Int)
+-&gt; (ListSchemasResponse -&gt; Int -&gt; ListSchemasResponse)
+-&gt; Lens ListSchemasResponse ListSchemasResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179536"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListSchemasResponse' :: ListSchemasResponse -&gt; Int
+</span><a href="#local-6989586621679179536"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179536"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179535"><span class="annot"><span class="annottext">s :: ListSchemasResponse
+</span><a href="#local-6989586621679179535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179534"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemasResponse
+</span><a href="#local-6989586621679179535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSchemasResponse' :: Int
+</span><a href="Amazonka.RedshiftData.ListSchemas.html#%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RedshiftData.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span></span><span>
+</span><span id="line-346"></span></pre></body></html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Comprehend.BatchDetectKeyPhrases</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Detects the key noun phrases found in a batch of documents.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Comprehend.BatchDetectKeyPhrases</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier">BatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#newBatchDetectKeyPhrases"><span class="hs-identifier">newBatchDetectKeyPhrases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrases_textList"><span class="hs-identifier">batchDetectKeyPhrases_textList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrases_languageCode"><span class="hs-identifier">batchDetectKeyPhrases_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier">BatchDetectKeyPhrasesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#newBatchDetectKeyPhrasesResponse"><span class="hs-identifier">newBatchDetectKeyPhrasesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_httpStatus"><span class="hs-identifier">batchDetectKeyPhrasesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_resultList"><span class="hs-identifier">batchDetectKeyPhrasesResponse_resultList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_errorList"><span class="hs-identifier">batchDetectKeyPhrasesResponse_errorList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.html"><span class="hs-identifier">Amazonka.Comprehend.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectKeyPhrases' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679366439"><span id="local-6989586621679366440"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectKeyPhrases"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-var">BatchDetectKeyPhrases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectKeyPhrases%27"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases%27"><span class="hs-identifier hs-var">BatchDetectKeyPhrases'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list containing the text of the input documents. The list can contain</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- a maximum of 25 documents. Each document must contain fewer that 5,000</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- bytes of UTF-8 encoded characters.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtextList%3ABatchDetectKeyPhrases%27"><span class="annot"><span class="annottext">BatchDetectKeyPhrases -&gt; Sensitive [Sensitive Text]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AtextList%3ABatchDetectKeyPhrases%27"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The language of the input documents. You can specify any of the primary</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- languages supported by Amazon Comprehend. All documents must be in the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- same language.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlanguageCode%3ABatchDetectKeyPhrases%27"><span class="annot"><span class="annottext">BatchDetectKeyPhrases -&gt; LanguageCode
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AlanguageCode%3ABatchDetectKeyPhrases%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366432"><span id="local-6989586621679366434"><span class="annot"><span class="annottext">BatchDetectKeyPhrases -&gt; BatchDetectKeyPhrases -&gt; Bool
+(BatchDetectKeyPhrases -&gt; BatchDetectKeyPhrases -&gt; Bool)
+-&gt; (BatchDetectKeyPhrases -&gt; BatchDetectKeyPhrases -&gt; Bool)
+-&gt; Eq BatchDetectKeyPhrases
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDetectKeyPhrases -&gt; BatchDetectKeyPhrases -&gt; Bool
+$c/= :: BatchDetectKeyPhrases -&gt; BatchDetectKeyPhrases -&gt; Bool
+== :: BatchDetectKeyPhrases -&gt; BatchDetectKeyPhrases -&gt; Bool
+$c== :: BatchDetectKeyPhrases -&gt; BatchDetectKeyPhrases -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366425"><span id="local-6989586621679366427"><span id="local-6989586621679366429"><span class="annot"><span class="annottext">Int -&gt; BatchDetectKeyPhrases -&gt; ShowS
+[BatchDetectKeyPhrases] -&gt; ShowS
+BatchDetectKeyPhrases -&gt; String
+(Int -&gt; BatchDetectKeyPhrases -&gt; ShowS)
+-&gt; (BatchDetectKeyPhrases -&gt; String)
+-&gt; ([BatchDetectKeyPhrases] -&gt; ShowS)
+-&gt; Show BatchDetectKeyPhrases
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDetectKeyPhrases] -&gt; ShowS
+$cshowList :: [BatchDetectKeyPhrases] -&gt; ShowS
+show :: BatchDetectKeyPhrases -&gt; String
+$cshow :: BatchDetectKeyPhrases -&gt; String
+showsPrec :: Int -&gt; BatchDetectKeyPhrases -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDetectKeyPhrases -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchDetectKeyPhrases -&gt; Rep BatchDetectKeyPhrases x)
+-&gt; (forall x. Rep BatchDetectKeyPhrases x -&gt; BatchDetectKeyPhrases)
+-&gt; Generic BatchDetectKeyPhrases
+forall x. Rep BatchDetectKeyPhrases x -&gt; BatchDetectKeyPhrases
+forall x. BatchDetectKeyPhrases -&gt; Rep BatchDetectKeyPhrases x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchDetectKeyPhrases x -&gt; BatchDetectKeyPhrases
+$cfrom :: forall x. BatchDetectKeyPhrases -&gt; Rep BatchDetectKeyPhrases x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'BatchDetectKeyPhrases' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'textList', 'batchDetectKeyPhrases_textList' - A list containing the text of the input documents. The list can contain</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- a maximum of 25 documents. Each document must contain fewer that 5,000</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- bytes of UTF-8 encoded characters.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'languageCode', 'batchDetectKeyPhrases_languageCode' - The language of the input documents. You can specify any of the primary</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- languages supported by Amazon Comprehend. All documents must be in the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- same language.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#newBatchDetectKeyPhrases"><span class="hs-identifier hs-type">newBatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span>
+</span><span id="line-83"></span><span id="newBatchDetectKeyPhrases"><span class="annot"><span class="annottext">newBatchDetectKeyPhrases :: LanguageCode -&gt; BatchDetectKeyPhrases
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#newBatchDetectKeyPhrases"><span class="hs-identifier hs-var hs-var">newBatchDetectKeyPhrases</span></a></span></span><span> </span><span id="local-6989586621679366420"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366420"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectKeyPhrases' :: Sensitive [Sensitive Text] -&gt; LanguageCode -&gt; BatchDetectKeyPhrases
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrases'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:textList:BatchDetectKeyPhrases' :: Sensitive [Sensitive Text]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AtextList%3ABatchDetectKeyPhrases%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:BatchDetectKeyPhrases' :: LanguageCode
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AlanguageCode%3ABatchDetectKeyPhrases%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366420"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | A list containing the text of the input documents. The list can contain</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- a maximum of 25 documents. Each document must contain fewer that 5,000</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- bytes of UTF-8 encoded characters.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrases_textList"><span class="hs-identifier hs-type">batchDetectKeyPhrases_textList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-93"></span><span id="batchDetectKeyPhrases_textList"><span class="annot"><span class="annottext">batchDetectKeyPhrases_textList :: ([Text] -&gt; f [Text])
+-&gt; BatchDetectKeyPhrases -&gt; f BatchDetectKeyPhrases
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrases_textList"><span class="hs-identifier hs-var hs-var">batchDetectKeyPhrases_textList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectKeyPhrases -&gt; Sensitive [Sensitive Text])
+-&gt; (BatchDetectKeyPhrases
+    -&gt; Sensitive [Sensitive Text] -&gt; BatchDetectKeyPhrases)
+-&gt; Lens
+     BatchDetectKeyPhrases
+     BatchDetectKeyPhrases
+     (Sensitive [Sensitive Text])
+     (Sensitive [Sensitive Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366417"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+textList :: Sensitive [Sensitive Text]
+$sel:textList:BatchDetectKeyPhrases' :: BatchDetectKeyPhrases -&gt; Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366417"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366417"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366416"><span class="annot"><span class="annottext">s :: BatchDetectKeyPhrases
+</span><a href="#local-6989586621679366416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366415"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectKeyPhrases
+</span><a href="#local-6989586621679366416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:BatchDetectKeyPhrases' :: Sensitive [Sensitive Text]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AtextList%3ABatchDetectKeyPhrases%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+ -&gt; BatchDetectKeyPhrases -&gt; f BatchDetectKeyPhrases)
+-&gt; (([Text] -&gt; f [Text])
+    -&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+-&gt; ([Text] -&gt; f [Text])
+-&gt; BatchDetectKeyPhrases
+-&gt; f BatchDetectKeyPhrases
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Sensitive Text] -&gt; f [Sensitive Text])
+-&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text])
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(([Sensitive Text] -&gt; f [Sensitive Text])
+ -&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; Sensitive [Sensitive Text]
+-&gt; f (Sensitive [Sensitive Text])
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The language of the input documents. You can specify any of the primary</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- languages supported by Amazon Comprehend. All documents must be in the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- same language.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrases_languageCode"><span class="hs-identifier hs-type">batchDetectKeyPhrases_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-99"></span><span id="batchDetectKeyPhrases_languageCode"><span class="annot"><span class="annottext">batchDetectKeyPhrases_languageCode :: (LanguageCode -&gt; f LanguageCode)
+-&gt; BatchDetectKeyPhrases -&gt; f BatchDetectKeyPhrases
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrases_languageCode"><span class="hs-identifier hs-var hs-var">batchDetectKeyPhrases_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectKeyPhrases -&gt; LanguageCode)
+-&gt; (BatchDetectKeyPhrases -&gt; LanguageCode -&gt; BatchDetectKeyPhrases)
+-&gt; Lens
+     BatchDetectKeyPhrases
+     BatchDetectKeyPhrases
+     LanguageCode
+     LanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366411"><span class="annot"><span class="annottext">LanguageCode
+languageCode :: LanguageCode
+$sel:languageCode:BatchDetectKeyPhrases' :: BatchDetectKeyPhrases -&gt; LanguageCode
+</span><a href="#local-6989586621679366411"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366411"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366410"><span class="annot"><span class="annottext">s :: BatchDetectKeyPhrases
+</span><a href="#local-6989586621679366410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366409"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectKeyPhrases
+</span><a href="#local-6989586621679366410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:BatchDetectKeyPhrases' :: LanguageCode
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AlanguageCode%3ABatchDetectKeyPhrases%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679366405"><span class="annot"><span class="annottext">request :: BatchDetectKeyPhrases -&gt; Request BatchDetectKeyPhrases
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDetectKeyPhrases -&gt; Request BatchDetectKeyPhrases
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679366401"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchDetectKeyPhrases
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDetectKeyPhrases)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchDetectKeyPhrases))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchDetectKeyPhrases
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDetectKeyPhrases)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366398"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679366397"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679366397"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679366396"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366396"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; [BatchDetectKeyPhrasesItemResult]
+-&gt; [BatchItemError]
+-&gt; BatchDetectKeyPhrasesResponse
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">BatchDetectKeyPhrasesResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; [BatchDetectKeyPhrasesItemResult]
+ -&gt; [BatchItemError]
+ -&gt; BatchDetectKeyPhrasesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([BatchDetectKeyPhrasesItemResult]
+      -&gt; [BatchItemError] -&gt; BatchDetectKeyPhrasesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366398"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([BatchDetectKeyPhrasesItemResult]
+   -&gt; [BatchItemError] -&gt; BatchDetectKeyPhrasesResponse)
+-&gt; Either String [BatchDetectKeyPhrasesItemResult]
+-&gt; Either
+     String ([BatchItemError] -&gt; BatchDetectKeyPhrasesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe [BatchDetectKeyPhrasesItemResult])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [BatchDetectKeyPhrasesItemResult])
+-&gt; [BatchDetectKeyPhrasesItemResult]
+-&gt; Either String [BatchDetectKeyPhrasesItemResult]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[BatchDetectKeyPhrasesItemResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String ([BatchItemError] -&gt; BatchDetectKeyPhrasesResponse)
+-&gt; Either String [BatchItemError]
+-&gt; Either String BatchDetectKeyPhrasesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [BatchItemError])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [BatchItemError])
+-&gt; [BatchItemError] -&gt; Either String [BatchItemError]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366387"><span id="local-6989586621679366389"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679366380"><span class="annot"><span class="annottext">toHeaders :: BatchDetectKeyPhrases -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDetectKeyPhrases -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comprehend_20171127.BatchDetectKeyPhrases&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366370"><span id="local-6989586621679366372"><span id="local-6989586621679366374"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679366368"><span class="annot"><span class="annottext">toJSON :: BatchDetectKeyPhrases -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366365"><span id="local-6989586621679366366"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+LanguageCode
+languageCode :: LanguageCode
+textList :: Sensitive [Sensitive Text]
+$sel:languageCode:BatchDetectKeyPhrases' :: BatchDetectKeyPhrases -&gt; LanguageCode
+$sel:textList:BatchDetectKeyPhrases' :: BatchDetectKeyPhrases -&gt; Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366365"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive [Sensitive Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366366"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366365"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679366359"><span class="annot"><span class="annottext">toPath :: BatchDetectKeyPhrases -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDetectKeyPhrases -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrases"><span class="hs-identifier hs-type">BatchDetectKeyPhrases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679366355"><span class="annot"><span class="annottext">toQuery :: BatchDetectKeyPhrases -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDetectKeyPhrases -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectKeyPhrasesResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679366352"><span id="local-6989586621679366353"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectKeyPhrasesResponse"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-var">BatchDetectKeyPhrasesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectKeyPhrasesResponse%27"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">BatchDetectKeyPhrasesResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDetectKeyPhrasesResponse%27"><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse -&gt; Int
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AhttpStatus%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | A list of objects containing the results of the operation. The results</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- of the documents in the input list. If all of the documents contain an</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- error, the @ResultList@ is empty.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AresultList%3ABatchDetectKeyPhrasesResponse%27"><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse -&gt; [BatchDetectKeyPhrasesItemResult]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AresultList%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchDetectKeyPhrasesItemResult.html#BatchDetectKeyPhrasesItemResult"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesItemResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | A list containing one object for each document that contained an error.</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- the order of the documents in the input list. If there are no errors in</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- the batch, the @ErrorList@ is empty.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AerrorList%3ABatchDetectKeyPhrasesResponse%27"><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse -&gt; [BatchItemError]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AerrorList%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366345"><span id="local-6989586621679366347"><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse
+-&gt; BatchDetectKeyPhrasesResponse -&gt; Bool
+(BatchDetectKeyPhrasesResponse
+ -&gt; BatchDetectKeyPhrasesResponse -&gt; Bool)
+-&gt; (BatchDetectKeyPhrasesResponse
+    -&gt; BatchDetectKeyPhrasesResponse -&gt; Bool)
+-&gt; Eq BatchDetectKeyPhrasesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDetectKeyPhrasesResponse
+-&gt; BatchDetectKeyPhrasesResponse -&gt; Bool
+$c/= :: BatchDetectKeyPhrasesResponse
+-&gt; BatchDetectKeyPhrasesResponse -&gt; Bool
+== :: BatchDetectKeyPhrasesResponse
+-&gt; BatchDetectKeyPhrasesResponse -&gt; Bool
+$c== :: BatchDetectKeyPhrasesResponse
+-&gt; BatchDetectKeyPhrasesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366339"><span id="local-6989586621679366341"><span id="local-6989586621679366343"><span class="annot"><span class="annottext">Int -&gt; BatchDetectKeyPhrasesResponse -&gt; ShowS
+[BatchDetectKeyPhrasesResponse] -&gt; ShowS
+BatchDetectKeyPhrasesResponse -&gt; String
+(Int -&gt; BatchDetectKeyPhrasesResponse -&gt; ShowS)
+-&gt; (BatchDetectKeyPhrasesResponse -&gt; String)
+-&gt; ([BatchDetectKeyPhrasesResponse] -&gt; ShowS)
+-&gt; Show BatchDetectKeyPhrasesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDetectKeyPhrasesResponse] -&gt; ShowS
+$cshowList :: [BatchDetectKeyPhrasesResponse] -&gt; ShowS
+show :: BatchDetectKeyPhrasesResponse -&gt; String
+$cshow :: BatchDetectKeyPhrasesResponse -&gt; String
+showsPrec :: Int -&gt; BatchDetectKeyPhrasesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDetectKeyPhrasesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchDetectKeyPhrasesResponse
+ -&gt; Rep BatchDetectKeyPhrasesResponse x)
+-&gt; (forall x.
+    Rep BatchDetectKeyPhrasesResponse x
+    -&gt; BatchDetectKeyPhrasesResponse)
+-&gt; Generic BatchDetectKeyPhrasesResponse
+forall x.
+Rep BatchDetectKeyPhrasesResponse x
+-&gt; BatchDetectKeyPhrasesResponse
+forall x.
+BatchDetectKeyPhrasesResponse
+-&gt; Rep BatchDetectKeyPhrasesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchDetectKeyPhrasesResponse x
+-&gt; BatchDetectKeyPhrasesResponse
+$cfrom :: forall x.
+BatchDetectKeyPhrasesResponse
+-&gt; Rep BatchDetectKeyPhrasesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'BatchDetectKeyPhrasesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'batchDetectKeyPhrasesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'resultList', 'batchDetectKeyPhrasesResponse_resultList' - A list of objects containing the results of the operation. The results</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- of the documents in the input list. If all of the documents contain an</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- error, the @ResultList@ is empty.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'errorList', 'batchDetectKeyPhrasesResponse_errorList' - A list containing one object for each document that contained an error.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- the order of the documents in the input list. If there are no errors in</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the batch, the @ErrorList@ is empty.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#newBatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">newBatchDetectKeyPhrasesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newBatchDetectKeyPhrasesResponse"><span class="annot"><span class="annottext">newBatchDetectKeyPhrasesResponse :: Int -&gt; BatchDetectKeyPhrasesResponse
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#newBatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-var hs-var">newBatchDetectKeyPhrasesResponse</span></a></span></span><span> </span><span id="local-6989586621679366336"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366336"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse' :: Int
+-&gt; [BatchDetectKeyPhrasesItemResult]
+-&gt; [BatchItemError]
+-&gt; BatchDetectKeyPhrasesResponse
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectKeyPhrasesResponse' :: Int
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AhttpStatus%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366336"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectKeyPhrasesResponse' :: [BatchDetectKeyPhrasesItemResult]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AresultList%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectKeyPhrasesItemResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectKeyPhrasesResponse' :: [BatchItemError]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AerrorList%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">errorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_httpStatus"><span class="hs-identifier hs-type">batchDetectKeyPhrasesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span id="batchDetectKeyPhrasesResponse_httpStatus"><span class="annot"><span class="annottext">batchDetectKeyPhrasesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchDetectKeyPhrasesResponse -&gt; f BatchDetectKeyPhrasesResponse
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchDetectKeyPhrasesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectKeyPhrasesResponse -&gt; Int)
+-&gt; (BatchDetectKeyPhrasesResponse
+    -&gt; Int -&gt; BatchDetectKeyPhrasesResponse)
+-&gt; Lens
+     BatchDetectKeyPhrasesResponse BatchDetectKeyPhrasesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366335"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchDetectKeyPhrasesResponse' :: BatchDetectKeyPhrasesResponse -&gt; Int
+</span><a href="#local-6989586621679366335"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366335"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366334"><span class="annot"><span class="annottext">s :: BatchDetectKeyPhrasesResponse
+</span><a href="#local-6989586621679366334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse
+</span><a href="#local-6989586621679366334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectKeyPhrasesResponse' :: Int
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AhttpStatus%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | A list of objects containing the results of the operation. The results</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- of the documents in the input list. If all of the documents contain an</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- error, the @ResultList@ is empty.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_resultList"><span class="hs-identifier hs-type">batchDetectKeyPhrasesResponse_resultList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchDetectKeyPhrasesItemResult.html#BatchDetectKeyPhrasesItemResult"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesItemResult</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-206"></span><span id="batchDetectKeyPhrasesResponse_resultList"><span class="annot"><span class="annottext">batchDetectKeyPhrasesResponse_resultList :: ([BatchDetectKeyPhrasesItemResult]
+ -&gt; f [BatchDetectKeyPhrasesItemResult])
+-&gt; BatchDetectKeyPhrasesResponse -&gt; f BatchDetectKeyPhrasesResponse
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_resultList"><span class="hs-identifier hs-var hs-var">batchDetectKeyPhrasesResponse_resultList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectKeyPhrasesResponse
+ -&gt; [BatchDetectKeyPhrasesItemResult])
+-&gt; (BatchDetectKeyPhrasesResponse
+    -&gt; [BatchDetectKeyPhrasesItemResult]
+    -&gt; BatchDetectKeyPhrasesResponse)
+-&gt; Lens
+     BatchDetectKeyPhrasesResponse
+     BatchDetectKeyPhrasesResponse
+     [BatchDetectKeyPhrasesItemResult]
+     [BatchDetectKeyPhrasesItemResult]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366332"><span class="annot"><span class="annottext">[BatchDetectKeyPhrasesItemResult]
+resultList :: [BatchDetectKeyPhrasesItemResult]
+$sel:resultList:BatchDetectKeyPhrasesResponse' :: BatchDetectKeyPhrasesResponse -&gt; [BatchDetectKeyPhrasesItemResult]
+</span><a href="#local-6989586621679366332"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchDetectKeyPhrasesItemResult]
+</span><a href="#local-6989586621679366332"><span class="hs-identifier hs-var">resultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366331"><span class="annot"><span class="annottext">s :: BatchDetectKeyPhrasesResponse
+</span><a href="#local-6989586621679366331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366330"><span class="annot"><span class="annottext">[BatchDetectKeyPhrasesItemResult]
+</span><a href="#local-6989586621679366330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse
+</span><a href="#local-6989586621679366331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectKeyPhrasesResponse' :: [BatchDetectKeyPhrasesItemResult]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AresultList%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectKeyPhrasesItemResult]
+</span><a href="#local-6989586621679366330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchDetectKeyPhrasesItemResult]
+  -&gt; f [BatchDetectKeyPhrasesItemResult])
+ -&gt; BatchDetectKeyPhrasesResponse
+ -&gt; f BatchDetectKeyPhrasesResponse)
+-&gt; (([BatchDetectKeyPhrasesItemResult]
+     -&gt; f [BatchDetectKeyPhrasesItemResult])
+    -&gt; [BatchDetectKeyPhrasesItemResult]
+    -&gt; f [BatchDetectKeyPhrasesItemResult])
+-&gt; ([BatchDetectKeyPhrasesItemResult]
+    -&gt; f [BatchDetectKeyPhrasesItemResult])
+-&gt; BatchDetectKeyPhrasesResponse
+-&gt; f BatchDetectKeyPhrasesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchDetectKeyPhrasesItemResult]
+ -&gt; f [BatchDetectKeyPhrasesItemResult])
+-&gt; [BatchDetectKeyPhrasesItemResult]
+-&gt; f [BatchDetectKeyPhrasesItemResult]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | A list containing one object for each document that contained an error.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- the order of the documents in the input list. If there are no errors in</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- the batch, the @ErrorList@ is empty.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_errorList"><span class="hs-identifier hs-type">batchDetectKeyPhrasesResponse_errorList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-213"></span><span id="batchDetectKeyPhrasesResponse_errorList"><span class="annot"><span class="annottext">batchDetectKeyPhrasesResponse_errorList :: ([BatchItemError] -&gt; f [BatchItemError])
+-&gt; BatchDetectKeyPhrasesResponse -&gt; f BatchDetectKeyPhrasesResponse
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#batchDetectKeyPhrasesResponse_errorList"><span class="hs-identifier hs-var hs-var">batchDetectKeyPhrasesResponse_errorList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectKeyPhrasesResponse -&gt; [BatchItemError])
+-&gt; (BatchDetectKeyPhrasesResponse
+    -&gt; [BatchItemError] -&gt; BatchDetectKeyPhrasesResponse)
+-&gt; Lens
+     BatchDetectKeyPhrasesResponse
+     BatchDetectKeyPhrasesResponse
+     [BatchItemError]
+     [BatchItemError]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366329"><span class="annot"><span class="annottext">[BatchItemError]
+errorList :: [BatchItemError]
+$sel:errorList:BatchDetectKeyPhrasesResponse' :: BatchDetectKeyPhrasesResponse -&gt; [BatchItemError]
+</span><a href="#local-6989586621679366329"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679366329"><span class="hs-identifier hs-var">errorList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366328"><span class="annot"><span class="annottext">s :: BatchDetectKeyPhrasesResponse
+</span><a href="#local-6989586621679366328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366327"><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679366327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectKeyPhrasesResponse
+</span><a href="#local-6989586621679366328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectKeyPhrasesResponse' :: [BatchItemError]
+</span><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#%24sel%3AerrorList%3ABatchDetectKeyPhrasesResponse%27"><span class="hs-identifier hs-var">errorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679366327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchItemError] -&gt; f [BatchItemError])
+ -&gt; BatchDetectKeyPhrasesResponse
+ -&gt; f BatchDetectKeyPhrasesResponse)
+-&gt; (([BatchItemError] -&gt; f [BatchItemError])
+    -&gt; [BatchItemError] -&gt; f [BatchItemError])
+-&gt; ([BatchItemError] -&gt; f [BatchItemError])
+-&gt; BatchDetectKeyPhrasesResponse
+-&gt; f BatchDetectKeyPhrasesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchItemError] -&gt; f [BatchItemError])
+-&gt; [BatchItemError] -&gt; f [BatchItemError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectKeyPhrases.html#BatchDetectKeyPhrasesResponse"><span class="hs-identifier hs-type">BatchDetectKeyPhrasesResponse</span></a></span></span><span>
+</span><span id="line-216"></span></pre></body></html>

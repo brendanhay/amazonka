@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.ListAssets</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a paginated list of asset summaries.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can use this operation to do the following:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   List assets based on a specific asset model.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   List top-level assets.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- You can\'t use this operation to list all assets. To retrieve summaries</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- for all of your assets, use</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html ListAssetModels&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- to get all of your asset model IDs. Then, use ListAssets to get all</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- assets for each asset model.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.ListAssets</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier">ListAssets</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#newListAssets"><span class="hs-identifier">newListAssets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_assetModelId"><span class="hs-identifier">listAssets_assetModelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_nextToken"><span class="hs-identifier">listAssets_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_filter"><span class="hs-identifier">listAssets_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_maxResults"><span class="hs-identifier">listAssets_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier">ListAssetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#newListAssetsResponse"><span class="hs-identifier">newListAssetsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_nextToken"><span class="hs-identifier">listAssetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_httpStatus"><span class="hs-identifier">listAssetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_assetSummaries"><span class="hs-identifier">listAssetsResponse_assetSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newListAssets' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679350827"><span id="local-6989586621679350828"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssets"><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-var">ListAssets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssets%27"><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-var">ListAssets'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the asset model by which to filter the list of assets. This</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- parameter is required if you choose @ALL@ for @filter@.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AassetModelId%3AListAssets%27"><span class="annot"><span class="annottext">ListAssets -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AassetModelId%3AListAssets%27"><span class="hs-identifier hs-var hs-var">assetModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssets%27"><span class="annot"><span class="annottext">ListAssets -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AnextToken%3AListAssets%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The filter for the requested list of assets. Choose one of the following</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- options:</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @ALL@ &#8211; The list includes all assets for a given asset model ID. The</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     @assetModelId@ parameter is required if you filter by @ALL@.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @TOP_LEVEL@ &#8211; The list includes only top-level assets in the asset</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     hierarchy tree.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Default: @ALL@</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Afilter%27%3AListAssets%27"><span class="annot"><span class="annottext">ListAssets -&gt; Maybe ListAssetsFilter
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3Afilter%27%3AListAssets%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ListAssetsFilter.html#ListAssetsFilter"><span class="hs-identifier hs-type">ListAssetsFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return for each paginated request.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Default: 50</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAssets%27"><span class="annot"><span class="annottext">ListAssets -&gt; Maybe Natural
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AmaxResults%3AListAssets%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350818"><span id="local-6989586621679350820"><span class="annot"><span class="annottext">ListAssets -&gt; ListAssets -&gt; Bool
+(ListAssets -&gt; ListAssets -&gt; Bool)
+-&gt; (ListAssets -&gt; ListAssets -&gt; Bool) -&gt; Eq ListAssets
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssets -&gt; ListAssets -&gt; Bool
+$c/= :: ListAssets -&gt; ListAssets -&gt; Bool
+== :: ListAssets -&gt; ListAssets -&gt; Bool
+$c== :: ListAssets -&gt; ListAssets -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350809"><span id="local-6989586621679350811"><span id="local-6989586621679350813"><span id="local-6989586621679350815"><span class="annot"><span class="annottext">ReadPrec [ListAssets]
+ReadPrec ListAssets
+Int -&gt; ReadS ListAssets
+ReadS [ListAssets]
+(Int -&gt; ReadS ListAssets)
+-&gt; ReadS [ListAssets]
+-&gt; ReadPrec ListAssets
+-&gt; ReadPrec [ListAssets]
+-&gt; Read ListAssets
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssets]
+$creadListPrec :: ReadPrec [ListAssets]
+readPrec :: ReadPrec ListAssets
+$creadPrec :: ReadPrec ListAssets
+readList :: ReadS [ListAssets]
+$creadList :: ReadS [ListAssets]
+readsPrec :: Int -&gt; ReadS ListAssets
+$creadsPrec :: Int -&gt; ReadS ListAssets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350802"><span id="local-6989586621679350804"><span id="local-6989586621679350806"><span class="annot"><span class="annottext">Int -&gt; ListAssets -&gt; ShowS
+[ListAssets] -&gt; ShowS
+ListAssets -&gt; String
+(Int -&gt; ListAssets -&gt; ShowS)
+-&gt; (ListAssets -&gt; String)
+-&gt; ([ListAssets] -&gt; ShowS)
+-&gt; Show ListAssets
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssets] -&gt; ShowS
+$cshowList :: [ListAssets] -&gt; ShowS
+show :: ListAssets -&gt; String
+$cshow :: ListAssets -&gt; String
+showsPrec :: Int -&gt; ListAssets -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAssets -&gt; Rep ListAssets x)
+-&gt; (forall x. Rep ListAssets x -&gt; ListAssets) -&gt; Generic ListAssets
+forall x. Rep ListAssets x -&gt; ListAssets
+forall x. ListAssets -&gt; Rep ListAssets x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAssets x -&gt; ListAssets
+$cfrom :: forall x. ListAssets -&gt; Rep ListAssets x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'ListAssets' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'assetModelId', 'listAssets_assetModelId' - The ID of the asset model by which to filter the list of assets. This</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- parameter is required if you choose @ALL@ for @filter@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'nextToken', 'listAssets_nextToken' - The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'filter'', 'listAssets_filter' - The filter for the requested list of assets. Choose one of the following</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- options:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   @ALL@ &#8211; The list includes all assets for a given asset model ID. The</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     @assetModelId@ parameter is required if you filter by @ALL@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   @TOP_LEVEL@ &#8211; The list includes only top-level assets in the asset</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     hierarchy tree.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Default: @ALL@</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'maxResults', 'listAssets_maxResults' - The maximum number of results to return for each paginated request.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Default: 50</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#newListAssets"><span class="hs-identifier hs-type">newListAssets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span>
+</span><span id="line-121"></span><span id="newListAssets"><span class="annot"><span class="annottext">newListAssets :: ListAssets
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#newListAssets"><span class="hs-identifier hs-var hs-var">newListAssets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">ListAssets' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ListAssetsFilter
+-&gt; Maybe Natural
+-&gt; ListAssets
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assetModelId:ListAssets' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AassetModelId%3AListAssets%27"><span class="hs-identifier hs-var">assetModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssets' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AnextToken%3AListAssets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ListAssets' :: Maybe ListAssetsFilter
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3Afilter%27%3AListAssets%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListAssetsFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAssets' :: Maybe Natural
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AmaxResults%3AListAssets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ID of the asset model by which to filter the list of assets. This</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- parameter is required if you choose @ALL@ for @filter@.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_assetModelId"><span class="hs-identifier hs-type">listAssets_assetModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listAssets_assetModelId"><span class="annot"><span class="annottext">listAssets_assetModelId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListAssets -&gt; f ListAssets
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_assetModelId"><span class="hs-identifier hs-var hs-var">listAssets_assetModelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssets -&gt; Maybe Text)
+-&gt; (ListAssets -&gt; Maybe Text -&gt; ListAssets)
+-&gt; Lens ListAssets ListAssets (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350796"><span class="annot"><span class="annottext">Maybe Text
+assetModelId :: Maybe Text
+$sel:assetModelId:ListAssets' :: ListAssets -&gt; Maybe Text
+</span><a href="#local-6989586621679350796"><span class="hs-identifier hs-var hs-var">assetModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350796"><span class="hs-identifier hs-var">assetModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350795"><span class="annot"><span class="annottext">s :: ListAssets
+</span><a href="#local-6989586621679350795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssets
+</span><a href="#local-6989586621679350795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetModelId:ListAssets' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AassetModelId%3AListAssets%27"><span class="hs-identifier hs-var">assetModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_nextToken"><span class="hs-identifier hs-type">listAssets_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listAssets_nextToken"><span class="annot"><span class="annottext">listAssets_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListAssets -&gt; f ListAssets
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_nextToken"><span class="hs-identifier hs-var hs-var">listAssets_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssets -&gt; Maybe Text)
+-&gt; (ListAssets -&gt; Maybe Text -&gt; ListAssets)
+-&gt; Lens ListAssets ListAssets (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350793"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssets' :: ListAssets -&gt; Maybe Text
+</span><a href="#local-6989586621679350793"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350793"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350792"><span class="annot"><span class="annottext">s :: ListAssets
+</span><a href="#local-6989586621679350792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssets
+</span><a href="#local-6989586621679350792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssets' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AnextToken%3AListAssets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The filter for the requested list of assets. Choose one of the following</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- options:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @ALL@ &#8211; The list includes all assets for a given asset model ID. The</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     @assetModelId@ parameter is required if you filter by @ALL@.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @TOP_LEVEL@ &#8211; The list includes only top-level assets in the asset</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     hierarchy tree.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Default: @ALL@</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_filter"><span class="hs-identifier hs-type">listAssets_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ListAssetsFilter.html#ListAssetsFilter"><span class="hs-identifier hs-type">ListAssetsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="listAssets_filter"><span class="annot"><span class="annottext">listAssets_filter :: (Maybe ListAssetsFilter -&gt; f (Maybe ListAssetsFilter))
+-&gt; ListAssets -&gt; f ListAssets
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_filter"><span class="hs-identifier hs-var hs-var">listAssets_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssets -&gt; Maybe ListAssetsFilter)
+-&gt; (ListAssets -&gt; Maybe ListAssetsFilter -&gt; ListAssets)
+-&gt; Lens
+     ListAssets
+     ListAssets
+     (Maybe ListAssetsFilter)
+     (Maybe ListAssetsFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350790"><span class="annot"><span class="annottext">Maybe ListAssetsFilter
+filter' :: Maybe ListAssetsFilter
+$sel:filter':ListAssets' :: ListAssets -&gt; Maybe ListAssetsFilter
+</span><a href="#local-6989586621679350790"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListAssetsFilter
+</span><a href="#local-6989586621679350790"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350789"><span class="annot"><span class="annottext">s :: ListAssets
+</span><a href="#local-6989586621679350789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350788"><span class="annot"><span class="annottext">Maybe ListAssetsFilter
+</span><a href="#local-6989586621679350788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssets
+</span><a href="#local-6989586621679350789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListAssets' :: Maybe ListAssetsFilter
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3Afilter%27%3AListAssets%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListAssetsFilter
+</span><a href="#local-6989586621679350788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The maximum number of results to return for each paginated request.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Default: 50</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_maxResults"><span class="hs-identifier hs-type">listAssets_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listAssets_maxResults"><span class="annot"><span class="annottext">listAssets_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListAssets -&gt; f ListAssets
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_maxResults"><span class="hs-identifier hs-var hs-var">listAssets_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssets -&gt; Maybe Natural)
+-&gt; (ListAssets -&gt; Maybe Natural -&gt; ListAssets)
+-&gt; Lens ListAssets ListAssets (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350787"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAssets' :: ListAssets -&gt; Maybe Natural
+</span><a href="#local-6989586621679350787"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679350787"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350786"><span class="annot"><span class="annottext">s :: ListAssets
+</span><a href="#local-6989586621679350786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350785"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679350785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssets
+</span><a href="#local-6989586621679350786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAssets' :: Maybe Natural
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AmaxResults%3AListAssets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679350785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679350781"><span class="annot"><span class="annottext">page :: ListAssets -&gt; AWSResponse ListAssets -&gt; Maybe ListAssets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679350779"><span class="annot"><span class="annottext">ListAssets
+</span><a href="#local-6989586621679350779"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679350778"><span class="annot"><span class="annottext">AWSResponse ListAssets
+</span><a href="#local-6989586621679350778"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssets
+ListAssetsResponse
+</span><a href="#local-6989586621679350778"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">ListAssetsResponse
+-&gt; Getting (First Text) ListAssetsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAssetsResponse -&gt; Const (First Text) ListAssetsResponse
+Lens' ListAssetsResponse (Maybe Text)
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_nextToken"><span class="hs-identifier hs-var">listAssetsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAssetsResponse -&gt; Const (First Text) ListAssetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAssetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-162"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAssets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[AssetSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-165"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListAssets
+ListAssetsResponse
+</span><a href="#local-6989586621679350778"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListAssetsResponse
+-&gt; Getting [AssetSummary] ListAssetsResponse [AssetSummary]
+-&gt; [AssetSummary]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [AssetSummary] ListAssetsResponse [AssetSummary]
+Lens' ListAssetsResponse [AssetSummary]
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_assetSummaries"><span class="hs-identifier hs-var">listAssetsResponse_assetSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAssets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">ListAssets -&gt; Maybe ListAssets
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAssets -&gt; Maybe ListAssets) -&gt; ListAssets -&gt; Maybe ListAssets
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ListAssets
+</span><a href="#local-6989586621679350779"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ListAssets -&gt; (ListAssets -&gt; ListAssets) -&gt; ListAssets
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAssets -&gt; Identity ListAssets
+Lens ListAssets ListAssets (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssets_nextToken"><span class="hs-identifier hs-var">listAssets_nextToken</span></a></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAssets -&gt; Identity ListAssets)
+-&gt; Maybe Text -&gt; ListAssets -&gt; ListAssets
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssets
+ListAssetsResponse
+</span><a href="#local-6989586621679350778"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">ListAssetsResponse
+-&gt; Getting (First Text) ListAssetsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAssetsResponse -&gt; Const (First Text) ListAssetsResponse
+Lens' ListAssetsResponse (Maybe Text)
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_nextToken"><span class="hs-identifier hs-var">listAssetsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAssetsResponse -&gt; Const (First Text) ListAssetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAssetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679350767"><span class="annot"><span class="annottext">request :: ListAssets -&gt; Request ListAssets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAssets -&gt; Request ListAssets
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679350763"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAssets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAssets)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAssets))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAssets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAssets)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350760"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679350759"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679350759"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679350758"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [AssetSummary] -&gt; ListAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-var">ListAssetsResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [AssetSummary] -&gt; ListAssetsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; [AssetSummary] -&gt; ListAssetsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [AssetSummary] -&gt; ListAssetsResponse)
+-&gt; Either String Int
+-&gt; Either String ([AssetSummary] -&gt; ListAssetsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350760"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either String ([AssetSummary] -&gt; ListAssetsResponse)
+-&gt; Either String [AssetSummary] -&gt; Either String ListAssetsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [AssetSummary])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetSummaries&quot;</span></span><span>
+</span><span id="line-184"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [AssetSummary])
+-&gt; [AssetSummary] -&gt; Either String [AssetSummary]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[AssetSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350749"><span id="local-6989586621679350751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679350742"><span class="annot"><span class="annottext">toHeaders :: ListAssets -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssets -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-199"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679350736"><span class="annot"><span class="annottext">toPath :: ListAssets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAssets -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assets&quot;</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets"><span class="hs-identifier hs-type">ListAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679350732"><span class="annot"><span class="annottext">toQuery :: ListAssets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssets%27"><span class="hs-identifier hs-type">ListAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350727"><span id="local-6989586621679350728"><span id="local-6989586621679350729"><span id="local-6989586621679350730"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ListAssetsFilter
+maxResults :: Maybe Natural
+filter' :: Maybe ListAssetsFilter
+nextToken :: Maybe Text
+assetModelId :: Maybe Text
+$sel:maxResults:ListAssets' :: ListAssets -&gt; Maybe Natural
+$sel:filter':ListAssets' :: ListAssets -&gt; Maybe ListAssetsFilter
+$sel:nextToken:ListAssets' :: ListAssets -&gt; Maybe Text
+$sel:assetModelId:ListAssets' :: ListAssets -&gt; Maybe Text
+</span><a href="#local-6989586621679350727"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;assetModelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350730"><span class="hs-identifier hs-var">assetModelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350729"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ListAssetsFilter -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListAssetsFilter
+</span><a href="#local-6989586621679350728"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679350727"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | /See:/ 'newListAssetsResponse' smart constructor.</span><span>
+</span><span id="line-216"></span><span id="local-6989586621679350724"><span id="local-6989586621679350725"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssetsResponse"><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-var">ListAssetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssetsResponse%27"><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-var">ListAssetsResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssetsResponse%27"><span class="annot"><span class="annottext">ListAssetsResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AnextToken%3AListAssetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAssetsResponse%27"><span class="annot"><span class="annottext">ListAssetsResponse -&gt; Int
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AhttpStatus%3AListAssetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | A list that summarizes each asset.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AassetSummaries%3AListAssetsResponse%27"><span class="annot"><span class="annottext">ListAssetsResponse -&gt; [AssetSummary]
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AassetSummaries%3AListAssetsResponse%27"><span class="hs-identifier hs-var hs-var">assetSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetSummary.html#AssetSummary"><span class="hs-identifier hs-type">AssetSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350717"><span id="local-6989586621679350719"><span class="annot"><span class="annottext">ListAssetsResponse -&gt; ListAssetsResponse -&gt; Bool
+(ListAssetsResponse -&gt; ListAssetsResponse -&gt; Bool)
+-&gt; (ListAssetsResponse -&gt; ListAssetsResponse -&gt; Bool)
+-&gt; Eq ListAssetsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssetsResponse -&gt; ListAssetsResponse -&gt; Bool
+$c/= :: ListAssetsResponse -&gt; ListAssetsResponse -&gt; Bool
+== :: ListAssetsResponse -&gt; ListAssetsResponse -&gt; Bool
+$c== :: ListAssetsResponse -&gt; ListAssetsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350709"><span id="local-6989586621679350711"><span id="local-6989586621679350713"><span id="local-6989586621679350715"><span class="annot"><span class="annottext">ReadPrec [ListAssetsResponse]
+ReadPrec ListAssetsResponse
+Int -&gt; ReadS ListAssetsResponse
+ReadS [ListAssetsResponse]
+(Int -&gt; ReadS ListAssetsResponse)
+-&gt; ReadS [ListAssetsResponse]
+-&gt; ReadPrec ListAssetsResponse
+-&gt; ReadPrec [ListAssetsResponse]
+-&gt; Read ListAssetsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssetsResponse]
+$creadListPrec :: ReadPrec [ListAssetsResponse]
+readPrec :: ReadPrec ListAssetsResponse
+$creadPrec :: ReadPrec ListAssetsResponse
+readList :: ReadS [ListAssetsResponse]
+$creadList :: ReadS [ListAssetsResponse]
+readsPrec :: Int -&gt; ReadS ListAssetsResponse
+$creadsPrec :: Int -&gt; ReadS ListAssetsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350703"><span id="local-6989586621679350705"><span id="local-6989586621679350707"><span class="annot"><span class="annottext">Int -&gt; ListAssetsResponse -&gt; ShowS
+[ListAssetsResponse] -&gt; ShowS
+ListAssetsResponse -&gt; String
+(Int -&gt; ListAssetsResponse -&gt; ShowS)
+-&gt; (ListAssetsResponse -&gt; String)
+-&gt; ([ListAssetsResponse] -&gt; ShowS)
+-&gt; Show ListAssetsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssetsResponse] -&gt; ShowS
+$cshowList :: [ListAssetsResponse] -&gt; ShowS
+show :: ListAssetsResponse -&gt; String
+$cshow :: ListAssetsResponse -&gt; String
+showsPrec :: Int -&gt; ListAssetsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAssetsResponse -&gt; Rep ListAssetsResponse x)
+-&gt; (forall x. Rep ListAssetsResponse x -&gt; ListAssetsResponse)
+-&gt; Generic ListAssetsResponse
+forall x. Rep ListAssetsResponse x -&gt; ListAssetsResponse
+forall x. ListAssetsResponse -&gt; Rep ListAssetsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAssetsResponse x -&gt; ListAssetsResponse
+$cfrom :: forall x. ListAssetsResponse -&gt; Rep ListAssetsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Create a value of 'ListAssetsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'nextToken', 'listAssetsResponse_nextToken' - The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'listAssetsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'assetSummaries', 'listAssetsResponse_assetSummaries' - A list that summarizes each asset.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#newListAssetsResponse"><span class="hs-identifier hs-type">newListAssetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span>
+</span><span id="line-245"></span><span id="newListAssetsResponse"><span class="annot"><span class="annottext">newListAssetsResponse :: Int -&gt; ListAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#newListAssetsResponse"><span class="hs-identifier hs-var hs-var">newListAssetsResponse</span></a></span></span><span> </span><span id="local-6989586621679350700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350700"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">ListAssetsResponse' :: Maybe Text -&gt; Int -&gt; [AssetSummary] -&gt; ListAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-type">ListAssetsResponse'</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssetsResponse' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AnextToken%3AListAssetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssetsResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AhttpStatus%3AListAssetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350700"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetSummaries:ListAssetsResponse' :: [AssetSummary]
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AassetSummaries%3AListAssetsResponse%27"><span class="hs-identifier hs-var">assetSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssetSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_nextToken"><span class="hs-identifier hs-type">listAssetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="listAssetsResponse_nextToken"><span class="annot"><span class="annottext">listAssetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssetsResponse -&gt; f ListAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssetsResponse -&gt; Maybe Text)
+-&gt; (ListAssetsResponse -&gt; Maybe Text -&gt; ListAssetsResponse)
+-&gt; Lens' ListAssetsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-type">ListAssetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350699"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssetsResponse' :: ListAssetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679350699"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350699"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350698"><span class="annot"><span class="annottext">s :: ListAssetsResponse
+</span><a href="#local-6989586621679350698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-type">ListAssetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350697"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssetsResponse
+</span><a href="#local-6989586621679350698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssetsResponse' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AnextToken%3AListAssetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_httpStatus"><span class="hs-identifier hs-type">listAssetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="listAssetsResponse_httpStatus"><span class="annot"><span class="annottext">listAssetsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListAssetsResponse -&gt; f ListAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAssetsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssetsResponse -&gt; Int)
+-&gt; (ListAssetsResponse -&gt; Int -&gt; ListAssetsResponse)
+-&gt; Lens ListAssetsResponse ListAssetsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-type">ListAssetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350696"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAssetsResponse' :: ListAssetsResponse -&gt; Int
+</span><a href="#local-6989586621679350696"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350696"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350695"><span class="annot"><span class="annottext">s :: ListAssetsResponse
+</span><a href="#local-6989586621679350695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-type">ListAssetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350694"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssetsResponse
+</span><a href="#local-6989586621679350695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssetsResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AhttpStatus%3AListAssetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | A list that summarizes each asset.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_assetSummaries"><span class="hs-identifier hs-type">listAssetsResponse_assetSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetSummary.html#AssetSummary"><span class="hs-identifier hs-type">AssetSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-263"></span><span id="listAssetsResponse_assetSummaries"><span class="annot"><span class="annottext">listAssetsResponse_assetSummaries :: ([AssetSummary] -&gt; f [AssetSummary])
+-&gt; ListAssetsResponse -&gt; f ListAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#listAssetsResponse_assetSummaries"><span class="hs-identifier hs-var hs-var">listAssetsResponse_assetSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssetsResponse -&gt; [AssetSummary])
+-&gt; (ListAssetsResponse -&gt; [AssetSummary] -&gt; ListAssetsResponse)
+-&gt; Lens' ListAssetsResponse [AssetSummary]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-type">ListAssetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350693"><span class="annot"><span class="annottext">[AssetSummary]
+assetSummaries :: [AssetSummary]
+$sel:assetSummaries:ListAssetsResponse' :: ListAssetsResponse -&gt; [AssetSummary]
+</span><a href="#local-6989586621679350693"><span class="hs-identifier hs-var hs-var">assetSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssetSummary]
+</span><a href="#local-6989586621679350693"><span class="hs-identifier hs-var">assetSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350692"><span class="annot"><span class="annottext">s :: ListAssetsResponse
+</span><a href="#local-6989586621679350692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse%27"><span class="hs-identifier hs-type">ListAssetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350691"><span class="annot"><span class="annottext">[AssetSummary]
+</span><a href="#local-6989586621679350691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssetsResponse
+</span><a href="#local-6989586621679350692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetSummaries:ListAssetsResponse' :: [AssetSummary]
+</span><a href="Amazonka.IoTSiteWise.ListAssets.html#%24sel%3AassetSummaries%3AListAssetsResponse%27"><span class="hs-identifier hs-var">assetSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssetSummary]
+</span><a href="#local-6989586621679350691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssetSummary] -&gt; f [AssetSummary])
+ -&gt; ListAssetsResponse -&gt; f ListAssetsResponse)
+-&gt; (([AssetSummary] -&gt; f [AssetSummary])
+    -&gt; [AssetSummary] -&gt; f [AssetSummary])
+-&gt; ([AssetSummary] -&gt; f [AssetSummary])
+-&gt; ListAssetsResponse
+-&gt; f ListAssetsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AssetSummary] -&gt; f [AssetSummary])
+-&gt; [AssetSummary] -&gt; f [AssetSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.ListAssets.html#ListAssetsResponse"><span class="hs-identifier hs-type">ListAssetsResponse</span></a></span></span><span>
+</span><span id="line-266"></span></pre></body></html>

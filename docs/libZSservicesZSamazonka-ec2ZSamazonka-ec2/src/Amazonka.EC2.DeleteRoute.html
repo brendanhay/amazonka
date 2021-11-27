@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DeleteRoute</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified route from the specified route table.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DeleteRoute</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier">DeleteRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#newDeleteRoute"><span class="hs-identifier">newDeleteRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationIpv6CidrBlock"><span class="hs-identifier">deleteRoute_destinationIpv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationPrefixListId"><span class="hs-identifier">deleteRoute_destinationPrefixListId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_dryRun"><span class="hs-identifier">deleteRoute_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationCidrBlock"><span class="hs-identifier">deleteRoute_destinationCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_routeTableId"><span class="hs-identifier">deleteRoute_routeTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse"><span class="hs-identifier">DeleteRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#newDeleteRouteResponse"><span class="hs-identifier">newDeleteRouteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteRoute' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621681279251"><span id="local-6989586621681279252"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRoute"><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-var">DeleteRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRoute%27"><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-var">DeleteRoute'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 CIDR range for the route. The value you specify must match the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- CIDR for the route exactly.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdestinationIpv6CidrBlock%3ADeleteRoute%27"><span class="annot"><span class="annottext">DeleteRoute -&gt; Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationIpv6CidrBlock%3ADeleteRoute%27"><span class="hs-identifier hs-var hs-var">destinationIpv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the prefix list for the route.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdestinationPrefixListId%3ADeleteRoute%27"><span class="annot"><span class="annottext">DeleteRoute -&gt; Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationPrefixListId%3ADeleteRoute%27"><span class="hs-identifier hs-var hs-var">destinationPrefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteRoute%27"><span class="annot"><span class="annottext">DeleteRoute -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdryRun%3ADeleteRoute%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The IPv4 CIDR range for the route. The value you specify must match the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- CIDR for the route exactly.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3ADeleteRoute%27"><span class="annot"><span class="annottext">DeleteRoute -&gt; Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationCidrBlock%3ADeleteRoute%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the route table.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3ArouteTableId%3ADeleteRoute%27"><span class="annot"><span class="annottext">DeleteRoute -&gt; Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3ArouteTableId%3ADeleteRoute%27"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681279241"><span id="local-6989586621681279243"><span class="annot"><span class="annottext">DeleteRoute -&gt; DeleteRoute -&gt; Bool
+(DeleteRoute -&gt; DeleteRoute -&gt; Bool)
+-&gt; (DeleteRoute -&gt; DeleteRoute -&gt; Bool) -&gt; Eq DeleteRoute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRoute -&gt; DeleteRoute -&gt; Bool
+$c/= :: DeleteRoute -&gt; DeleteRoute -&gt; Bool
+== :: DeleteRoute -&gt; DeleteRoute -&gt; Bool
+$c== :: DeleteRoute -&gt; DeleteRoute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681279232"><span id="local-6989586621681279234"><span id="local-6989586621681279236"><span id="local-6989586621681279238"><span class="annot"><span class="annottext">ReadPrec [DeleteRoute]
+ReadPrec DeleteRoute
+Int -&gt; ReadS DeleteRoute
+ReadS [DeleteRoute]
+(Int -&gt; ReadS DeleteRoute)
+-&gt; ReadS [DeleteRoute]
+-&gt; ReadPrec DeleteRoute
+-&gt; ReadPrec [DeleteRoute]
+-&gt; Read DeleteRoute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRoute]
+$creadListPrec :: ReadPrec [DeleteRoute]
+readPrec :: ReadPrec DeleteRoute
+$creadPrec :: ReadPrec DeleteRoute
+readList :: ReadS [DeleteRoute]
+$creadList :: ReadS [DeleteRoute]
+readsPrec :: Int -&gt; ReadS DeleteRoute
+$creadsPrec :: Int -&gt; ReadS DeleteRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681279225"><span id="local-6989586621681279227"><span id="local-6989586621681279229"><span class="annot"><span class="annottext">Int -&gt; DeleteRoute -&gt; ShowS
+[DeleteRoute] -&gt; ShowS
+DeleteRoute -&gt; String
+(Int -&gt; DeleteRoute -&gt; ShowS)
+-&gt; (DeleteRoute -&gt; String)
+-&gt; ([DeleteRoute] -&gt; ShowS)
+-&gt; Show DeleteRoute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRoute] -&gt; ShowS
+$cshowList :: [DeleteRoute] -&gt; ShowS
+show :: DeleteRoute -&gt; String
+$cshow :: DeleteRoute -&gt; String
+showsPrec :: Int -&gt; DeleteRoute -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRoute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteRoute -&gt; Rep DeleteRoute x)
+-&gt; (forall x. Rep DeleteRoute x -&gt; DeleteRoute)
+-&gt; Generic DeleteRoute
+forall x. Rep DeleteRoute x -&gt; DeleteRoute
+forall x. DeleteRoute -&gt; Rep DeleteRoute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteRoute x -&gt; DeleteRoute
+$cfrom :: forall x. DeleteRoute -&gt; Rep DeleteRoute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DeleteRoute' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'destinationIpv6CidrBlock', 'deleteRoute_destinationIpv6CidrBlock' - The IPv6 CIDR range for the route. The value you specify must match the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- CIDR for the route exactly.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'destinationPrefixListId', 'deleteRoute_destinationPrefixListId' - The ID of the prefix list for the route.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'dryRun', 'deleteRoute_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'destinationCidrBlock', 'deleteRoute_destinationCidrBlock' - The IPv4 CIDR range for the route. The value you specify must match the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- CIDR for the route exactly.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'routeTableId', 'deleteRoute_routeTableId' - The ID of the route table.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#newDeleteRoute"><span class="hs-identifier hs-type">newDeleteRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'routeTableId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span>
+</span><span id="line-95"></span><span id="newDeleteRoute"><span class="annot"><span class="annottext">newDeleteRoute :: Text -&gt; DeleteRoute
+</span><a href="Amazonka.EC2.DeleteRoute.html#newDeleteRoute"><span class="hs-identifier hs-var hs-var">newDeleteRoute</span></a></span></span><span> </span><span id="local-6989586621681279220"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681279220"><span class="hs-identifier hs-var">pRouteTableId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DeleteRoute' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; DeleteRoute
+</span><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationIpv6CidrBlock:DeleteRoute' :: Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationIpv6CidrBlock%3ADeleteRoute%27"><span class="hs-identifier hs-var">destinationIpv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationPrefixListId:DeleteRoute' :: Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationPrefixListId%3ADeleteRoute%27"><span class="hs-identifier hs-var">destinationPrefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DeleteRoute' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdryRun%3ADeleteRoute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:DeleteRoute' :: Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationCidrBlock%3ADeleteRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:routeTableId:DeleteRoute' :: Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3ArouteTableId%3ADeleteRoute%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681279220"><span class="hs-identifier hs-var">pRouteTableId_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The IPv6 CIDR range for the route. The value you specify must match the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- CIDR for the route exactly.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationIpv6CidrBlock"><span class="hs-identifier hs-type">deleteRoute_destinationIpv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="deleteRoute_destinationIpv6CidrBlock"><span class="annot"><span class="annottext">deleteRoute_destinationIpv6CidrBlock :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteRoute -&gt; f DeleteRoute
+</span><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationIpv6CidrBlock"><span class="hs-identifier hs-var hs-var">deleteRoute_destinationIpv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRoute -&gt; Maybe Text)
+-&gt; (DeleteRoute -&gt; Maybe Text -&gt; DeleteRoute)
+-&gt; Lens DeleteRoute DeleteRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681279217"><span class="annot"><span class="annottext">Maybe Text
+destinationIpv6CidrBlock :: Maybe Text
+$sel:destinationIpv6CidrBlock:DeleteRoute' :: DeleteRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681279217"><span class="hs-identifier hs-var hs-var">destinationIpv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279217"><span class="hs-identifier hs-var">destinationIpv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681279216"><span class="annot"><span class="annottext">s :: DeleteRoute
+</span><a href="#local-6989586621681279216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681279215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoute
+</span><a href="#local-6989586621681279216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationIpv6CidrBlock:DeleteRoute' :: Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationIpv6CidrBlock%3ADeleteRoute%27"><span class="hs-identifier hs-var">destinationIpv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ID of the prefix list for the route.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationPrefixListId"><span class="hs-identifier hs-type">deleteRoute_destinationPrefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="deleteRoute_destinationPrefixListId"><span class="annot"><span class="annottext">deleteRoute_destinationPrefixListId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteRoute -&gt; f DeleteRoute
+</span><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationPrefixListId"><span class="hs-identifier hs-var hs-var">deleteRoute_destinationPrefixListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRoute -&gt; Maybe Text)
+-&gt; (DeleteRoute -&gt; Maybe Text -&gt; DeleteRoute)
+-&gt; Lens DeleteRoute DeleteRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681279214"><span class="annot"><span class="annottext">Maybe Text
+destinationPrefixListId :: Maybe Text
+$sel:destinationPrefixListId:DeleteRoute' :: DeleteRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681279214"><span class="hs-identifier hs-var hs-var">destinationPrefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279214"><span class="hs-identifier hs-var">destinationPrefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681279213"><span class="annot"><span class="annottext">s :: DeleteRoute
+</span><a href="#local-6989586621681279213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681279212"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoute
+</span><a href="#local-6989586621681279213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPrefixListId:DeleteRoute' :: Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationPrefixListId%3ADeleteRoute%27"><span class="hs-identifier hs-var">destinationPrefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_dryRun"><span class="hs-identifier hs-type">deleteRoute_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="deleteRoute_dryRun"><span class="annot"><span class="annottext">deleteRoute_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeleteRoute -&gt; f DeleteRoute
+</span><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_dryRun"><span class="hs-identifier hs-var hs-var">deleteRoute_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRoute -&gt; Maybe Bool)
+-&gt; (DeleteRoute -&gt; Maybe Bool -&gt; DeleteRoute)
+-&gt; Lens DeleteRoute DeleteRoute (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681279211"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DeleteRoute' :: DeleteRoute -&gt; Maybe Bool
+</span><a href="#local-6989586621681279211"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681279211"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681279210"><span class="annot"><span class="annottext">s :: DeleteRoute
+</span><a href="#local-6989586621681279210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681279209"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681279209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoute
+</span><a href="#local-6989586621681279210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteRoute' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdryRun%3ADeleteRoute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681279209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The IPv4 CIDR range for the route. The value you specify must match the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- CIDR for the route exactly.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationCidrBlock"><span class="hs-identifier hs-type">deleteRoute_destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="deleteRoute_destinationCidrBlock"><span class="annot"><span class="annottext">deleteRoute_destinationCidrBlock :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteRoute -&gt; f DeleteRoute
+</span><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_destinationCidrBlock"><span class="hs-identifier hs-var hs-var">deleteRoute_destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRoute -&gt; Maybe Text)
+-&gt; (DeleteRoute -&gt; Maybe Text -&gt; DeleteRoute)
+-&gt; Lens DeleteRoute DeleteRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681279208"><span class="annot"><span class="annottext">Maybe Text
+destinationCidrBlock :: Maybe Text
+$sel:destinationCidrBlock:DeleteRoute' :: DeleteRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681279208"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279208"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681279207"><span class="annot"><span class="annottext">s :: DeleteRoute
+</span><a href="#local-6989586621681279207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681279206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoute
+</span><a href="#local-6989586621681279207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:DeleteRoute' :: Maybe Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3AdestinationCidrBlock%3ADeleteRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The ID of the route table.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_routeTableId"><span class="hs-identifier hs-type">deleteRoute_routeTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="deleteRoute_routeTableId"><span class="annot"><span class="annottext">deleteRoute_routeTableId :: (Text -&gt; f Text) -&gt; DeleteRoute -&gt; f DeleteRoute
+</span><a href="Amazonka.EC2.DeleteRoute.html#deleteRoute_routeTableId"><span class="hs-identifier hs-var hs-var">deleteRoute_routeTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRoute -&gt; Text)
+-&gt; (DeleteRoute -&gt; Text -&gt; DeleteRoute)
+-&gt; Lens DeleteRoute DeleteRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681279205"><span class="annot"><span class="annottext">Text
+routeTableId :: Text
+$sel:routeTableId:DeleteRoute' :: DeleteRoute -&gt; Text
+</span><a href="#local-6989586621681279205"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681279205"><span class="hs-identifier hs-var">routeTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681279204"><span class="annot"><span class="annottext">s :: DeleteRoute
+</span><a href="#local-6989586621681279204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681279203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681279203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoute
+</span><a href="#local-6989586621681279204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeTableId:DeleteRoute' :: Text
+</span><a href="Amazonka.EC2.DeleteRoute.html#%24sel%3ArouteTableId%3ADeleteRoute%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681279203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse"><span class="hs-identifier hs-type">DeleteRouteResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621681279199"><span class="annot"><span class="annottext">request :: DeleteRoute -&gt; Request DeleteRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRoute -&gt; Request DeleteRoute
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621681279195"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteRoute)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteRoute
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteRoute)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteRoute
+DeleteRouteResponse
+</span><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse%27"><span class="hs-identifier hs-var">DeleteRouteResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681279188"><span id="local-6989586621681279190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681279185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621681279181"><span class="annot"><span class="annottext">toHeaders :: DeleteRoute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteRoute -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621681279176"><span class="annot"><span class="annottext">toPath :: DeleteRoute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRoute -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute"><span class="hs-identifier hs-type">DeleteRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621681279172"><span class="annot"><span class="annottext">toQuery :: DeleteRoute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRoute%27"><span class="hs-identifier hs-type">DeleteRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681279166"><span id="local-6989586621681279167"><span id="local-6989586621681279168"><span id="local-6989586621681279169"><span id="local-6989586621681279170"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+routeTableId :: Text
+destinationCidrBlock :: Maybe Text
+dryRun :: Maybe Bool
+destinationPrefixListId :: Maybe Text
+destinationIpv6CidrBlock :: Maybe Text
+$sel:routeTableId:DeleteRoute' :: DeleteRoute -&gt; Text
+$sel:destinationCidrBlock:DeleteRoute' :: DeleteRoute -&gt; Maybe Text
+$sel:dryRun:DeleteRoute' :: DeleteRoute -&gt; Maybe Bool
+$sel:destinationPrefixListId:DeleteRoute' :: DeleteRoute -&gt; Maybe Text
+$sel:destinationIpv6CidrBlock:DeleteRoute' :: DeleteRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681279166"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteRoute&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationIpv6CidrBlock&quot;</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279170"><span class="hs-identifier hs-var">destinationIpv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationPrefixListId&quot;</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279169"><span class="hs-identifier hs-var">destinationPrefixListId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681279168"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationCidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681279167"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RouteTableId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681279166"><span class="hs-identifier hs-var">routeTableId</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | /See:/ 'newDeleteRouteResponse' smart constructor.</span><span>
+</span><span id="line-162"></span><span id="local-6989586621681279163"><span id="local-6989586621681279164"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRouteResponse"><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse"><span class="hs-identifier hs-var">DeleteRouteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRouteResponse%27"><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse%27"><span class="hs-identifier hs-var">DeleteRouteResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681279159"><span id="local-6989586621681279161"><span class="annot"><span class="annottext">DeleteRouteResponse -&gt; DeleteRouteResponse -&gt; Bool
+(DeleteRouteResponse -&gt; DeleteRouteResponse -&gt; Bool)
+-&gt; (DeleteRouteResponse -&gt; DeleteRouteResponse -&gt; Bool)
+-&gt; Eq DeleteRouteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRouteResponse -&gt; DeleteRouteResponse -&gt; Bool
+$c/= :: DeleteRouteResponse -&gt; DeleteRouteResponse -&gt; Bool
+== :: DeleteRouteResponse -&gt; DeleteRouteResponse -&gt; Bool
+$c== :: DeleteRouteResponse -&gt; DeleteRouteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681279151"><span id="local-6989586621681279153"><span id="local-6989586621681279155"><span id="local-6989586621681279157"><span class="annot"><span class="annottext">ReadPrec [DeleteRouteResponse]
+ReadPrec DeleteRouteResponse
+Int -&gt; ReadS DeleteRouteResponse
+ReadS [DeleteRouteResponse]
+(Int -&gt; ReadS DeleteRouteResponse)
+-&gt; ReadS [DeleteRouteResponse]
+-&gt; ReadPrec DeleteRouteResponse
+-&gt; ReadPrec [DeleteRouteResponse]
+-&gt; Read DeleteRouteResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRouteResponse]
+$creadListPrec :: ReadPrec [DeleteRouteResponse]
+readPrec :: ReadPrec DeleteRouteResponse
+$creadPrec :: ReadPrec DeleteRouteResponse
+readList :: ReadS [DeleteRouteResponse]
+$creadList :: ReadS [DeleteRouteResponse]
+readsPrec :: Int -&gt; ReadS DeleteRouteResponse
+$creadsPrec :: Int -&gt; ReadS DeleteRouteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681279145"><span id="local-6989586621681279147"><span id="local-6989586621681279149"><span class="annot"><span class="annottext">Int -&gt; DeleteRouteResponse -&gt; ShowS
+[DeleteRouteResponse] -&gt; ShowS
+DeleteRouteResponse -&gt; String
+(Int -&gt; DeleteRouteResponse -&gt; ShowS)
+-&gt; (DeleteRouteResponse -&gt; String)
+-&gt; ([DeleteRouteResponse] -&gt; ShowS)
+-&gt; Show DeleteRouteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRouteResponse] -&gt; ShowS
+$cshowList :: [DeleteRouteResponse] -&gt; ShowS
+show :: DeleteRouteResponse -&gt; String
+$cshow :: DeleteRouteResponse -&gt; String
+showsPrec :: Int -&gt; DeleteRouteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRouteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteRouteResponse -&gt; Rep DeleteRouteResponse x)
+-&gt; (forall x. Rep DeleteRouteResponse x -&gt; DeleteRouteResponse)
+-&gt; Generic DeleteRouteResponse
+forall x. Rep DeleteRouteResponse x -&gt; DeleteRouteResponse
+forall x. DeleteRouteResponse -&gt; Rep DeleteRouteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteRouteResponse x -&gt; DeleteRouteResponse
+$cfrom :: forall x. DeleteRouteResponse -&gt; Rep DeleteRouteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'DeleteRouteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#newDeleteRouteResponse"><span class="hs-identifier hs-type">newDeleteRouteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse"><span class="hs-identifier hs-type">DeleteRouteResponse</span></a></span><span>
+</span><span id="line-173"></span><span id="newDeleteRouteResponse"><span class="annot"><span class="annottext">newDeleteRouteResponse :: DeleteRouteResponse
+</span><a href="Amazonka.EC2.DeleteRoute.html#newDeleteRouteResponse"><span class="hs-identifier hs-var hs-var">newDeleteRouteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteRouteResponse
+</span><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse%27"><span class="hs-identifier hs-var">DeleteRouteResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681279141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteRoute.html#DeleteRouteResponse"><span class="hs-identifier hs-type">DeleteRouteResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

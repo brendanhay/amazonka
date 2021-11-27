@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppRunner.Types.ProviderType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppRunner.Types.ProviderType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType"><span class="hs-identifier">ProviderType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType_GITHUB"><span class="hs-identifier">ProviderType_GITHUB</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679205153"><span id="local-6989586621679205154"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProviderType"><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType"><span class="hs-identifier hs-var">ProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProviderType%27"><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType%27"><span class="hs-identifier hs-var">ProviderType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProviderType"><span class="annot"><span class="annottext">ProviderType -&gt; Text
+</span><a href="Amazonka.AppRunner.Types.ProviderType.html#fromProviderType"><span class="hs-identifier hs-var hs-var">fromProviderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205145"><span id="local-6989586621679205147"><span id="local-6989586621679205149"><span class="annot"><span class="annottext">Int -&gt; ProviderType -&gt; ShowS
+[ProviderType] -&gt; ShowS
+ProviderType -&gt; String
+(Int -&gt; ProviderType -&gt; ShowS)
+-&gt; (ProviderType -&gt; String)
+-&gt; ([ProviderType] -&gt; ShowS)
+-&gt; Show ProviderType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProviderType] -&gt; ShowS
+$cshowList :: [ProviderType] -&gt; ShowS
+show :: ProviderType -&gt; String
+$cshow :: ProviderType -&gt; String
+showsPrec :: Int -&gt; ProviderType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProviderType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679205136"><span id="local-6989586621679205138"><span id="local-6989586621679205140"><span id="local-6989586621679205142"><span class="annot"><span class="annottext">ReadPrec [ProviderType]
+ReadPrec ProviderType
+Int -&gt; ReadS ProviderType
+ReadS [ProviderType]
+(Int -&gt; ReadS ProviderType)
+-&gt; ReadS [ProviderType]
+-&gt; ReadPrec ProviderType
+-&gt; ReadPrec [ProviderType]
+-&gt; Read ProviderType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProviderType]
+$creadListPrec :: ReadPrec [ProviderType]
+readPrec :: ReadPrec ProviderType
+$creadPrec :: ReadPrec ProviderType
+readList :: ReadS [ProviderType]
+$creadList :: ReadS [ProviderType]
+readsPrec :: Int -&gt; ReadS ProviderType
+$creadsPrec :: Int -&gt; ReadS ProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679205131"><span id="local-6989586621679205133"><span class="annot"><span class="annottext">ProviderType -&gt; ProviderType -&gt; Bool
+(ProviderType -&gt; ProviderType -&gt; Bool)
+-&gt; (ProviderType -&gt; ProviderType -&gt; Bool) -&gt; Eq ProviderType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProviderType -&gt; ProviderType -&gt; Bool
+$c/= :: ProviderType -&gt; ProviderType -&gt; Bool
+== :: ProviderType -&gt; ProviderType -&gt; Bool
+$c== :: ProviderType -&gt; ProviderType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679205115"><span id="local-6989586621679205117"><span id="local-6989586621679205119"><span id="local-6989586621679205121"><span id="local-6989586621679205123"><span id="local-6989586621679205125"><span id="local-6989586621679205127"><span class="annot"><span class="annottext">Eq ProviderType
+Eq ProviderType
+-&gt; (ProviderType -&gt; ProviderType -&gt; Ordering)
+-&gt; (ProviderType -&gt; ProviderType -&gt; Bool)
+-&gt; (ProviderType -&gt; ProviderType -&gt; Bool)
+-&gt; (ProviderType -&gt; ProviderType -&gt; Bool)
+-&gt; (ProviderType -&gt; ProviderType -&gt; Bool)
+-&gt; (ProviderType -&gt; ProviderType -&gt; ProviderType)
+-&gt; (ProviderType -&gt; ProviderType -&gt; ProviderType)
+-&gt; Ord ProviderType
+ProviderType -&gt; ProviderType -&gt; Bool
+ProviderType -&gt; ProviderType -&gt; Ordering
+ProviderType -&gt; ProviderType -&gt; ProviderType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProviderType -&gt; ProviderType -&gt; ProviderType
+$cmin :: ProviderType -&gt; ProviderType -&gt; ProviderType
+max :: ProviderType -&gt; ProviderType -&gt; ProviderType
+$cmax :: ProviderType -&gt; ProviderType -&gt; ProviderType
+&gt;= :: ProviderType -&gt; ProviderType -&gt; Bool
+$c&gt;= :: ProviderType -&gt; ProviderType -&gt; Bool
+&gt; :: ProviderType -&gt; ProviderType -&gt; Bool
+$c&gt; :: ProviderType -&gt; ProviderType -&gt; Bool
+&lt;= :: ProviderType -&gt; ProviderType -&gt; Bool
+$c&lt;= :: ProviderType -&gt; ProviderType -&gt; Bool
+&lt; :: ProviderType -&gt; ProviderType -&gt; Bool
+$c&lt; :: ProviderType -&gt; ProviderType -&gt; Bool
+compare :: ProviderType -&gt; ProviderType -&gt; Ordering
+$ccompare :: ProviderType -&gt; ProviderType -&gt; Ordering
+$cp1Ord :: Eq ProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ProviderType -&gt; Rep ProviderType x)
+-&gt; (forall x. Rep ProviderType x -&gt; ProviderType)
+-&gt; Generic ProviderType
+forall x. Rep ProviderType x -&gt; ProviderType
+forall x. ProviderType -&gt; Rep ProviderType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProviderType x -&gt; ProviderType
+$cfrom :: forall x. ProviderType -&gt; Rep ProviderType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205107"><span id="local-6989586621679205109"><span class="annot"><span class="annottext">Int -&gt; ProviderType -&gt; Int
+ProviderType -&gt; Int
+(Int -&gt; ProviderType -&gt; Int)
+-&gt; (ProviderType -&gt; Int) -&gt; Hashable ProviderType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProviderType -&gt; Int
+$chash :: ProviderType -&gt; Int
+hashWithSalt :: Int -&gt; ProviderType -&gt; Int
+$chashWithSalt :: Int -&gt; ProviderType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679205104"><span class="annot"><span class="annottext">ProviderType -&gt; ()
+(ProviderType -&gt; ()) -&gt; NFData ProviderType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProviderType -&gt; ()
+$crnf :: ProviderType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679205101"><span class="annot"><span class="annottext">Text -&gt; Either String ProviderType
+(Text -&gt; Either String ProviderType) -&gt; FromText ProviderType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProviderType
+$cfromText :: Text -&gt; Either String ProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679205098"><span class="annot"><span class="annottext">ProviderType -&gt; Text
+(ProviderType -&gt; Text) -&gt; ToText ProviderType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProviderType -&gt; Text
+$ctoText :: ProviderType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679205095"><span class="annot"><span class="annottext">ProviderType -&gt; ByteString
+(ProviderType -&gt; ByteString) -&gt; ToByteString ProviderType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProviderType -&gt; ByteString
+$ctoBS :: ProviderType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679205092"><span class="annot"><span class="annottext">ProviderType -&gt; ByteStringBuilder
+(ProviderType -&gt; ByteStringBuilder) -&gt; ToLog ProviderType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProviderType -&gt; ByteStringBuilder
+$cbuild :: ProviderType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679205089"><span class="annot"><span class="annottext">HeaderName -&gt; ProviderType -&gt; [Header]
+(HeaderName -&gt; ProviderType -&gt; [Header]) -&gt; ToHeader ProviderType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProviderType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProviderType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679205086"><span class="annot"><span class="annottext">ProviderType -&gt; QueryString
+(ProviderType -&gt; QueryString) -&gt; ToQuery ProviderType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProviderType -&gt; QueryString
+$ctoQuery :: ProviderType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679205081"><span id="local-6989586621679205083"><span class="annot"><span class="annottext">Value -&gt; Parser [ProviderType]
+Value -&gt; Parser ProviderType
+(Value -&gt; Parser ProviderType)
+-&gt; (Value -&gt; Parser [ProviderType]) -&gt; FromJSON ProviderType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProviderType]
+$cparseJSONList :: Value -&gt; Parser [ProviderType]
+parseJSON :: Value -&gt; Parser ProviderType
+$cparseJSON :: Value -&gt; Parser ProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679205076"><span id="local-6989586621679205078"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProviderType]
+FromJSONKeyFunction ProviderType
+FromJSONKeyFunction ProviderType
+-&gt; FromJSONKeyFunction [ProviderType] -&gt; FromJSONKey ProviderType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProviderType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProviderType]
+fromJSONKey :: FromJSONKeyFunction ProviderType
+$cfromJSONKey :: FromJSONKeyFunction ProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679205067"><span id="local-6989586621679205069"><span id="local-6989586621679205071"><span id="local-6989586621679205073"><span class="annot"><span class="annottext">[ProviderType] -&gt; Encoding
+[ProviderType] -&gt; Value
+ProviderType -&gt; Encoding
+ProviderType -&gt; Value
+(ProviderType -&gt; Value)
+-&gt; (ProviderType -&gt; Encoding)
+-&gt; ([ProviderType] -&gt; Value)
+-&gt; ([ProviderType] -&gt; Encoding)
+-&gt; ToJSON ProviderType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProviderType] -&gt; Encoding
+$ctoEncodingList :: [ProviderType] -&gt; Encoding
+toJSONList :: [ProviderType] -&gt; Value
+$ctoJSONList :: [ProviderType] -&gt; Value
+toEncoding :: ProviderType -&gt; Encoding
+$ctoEncoding :: ProviderType -&gt; Encoding
+toJSON :: ProviderType -&gt; Value
+$ctoJSON :: ProviderType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679205062"><span id="local-6989586621679205064"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProviderType]
+ToJSONKeyFunction ProviderType
+ToJSONKeyFunction ProviderType
+-&gt; ToJSONKeyFunction [ProviderType] -&gt; ToJSONKey ProviderType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProviderType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProviderType]
+toJSONKey :: ToJSONKeyFunction ProviderType
+$ctoJSONKey :: ToJSONKeyFunction ProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679205059"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProviderType
+([Node] -&gt; Either String ProviderType) -&gt; FromXML ProviderType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProviderType
+$cparseXML :: [Node] -&gt; Either String ProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679205056"><span class="annot"><span class="annottext">ProviderType -&gt; XML
+(ProviderType -&gt; XML) -&gt; ToXML ProviderType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProviderType -&gt; XML
+$ctoXML :: ProviderType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType_GITHUB"><span class="hs-identifier hs-type">ProviderType_GITHUB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType"><span class="hs-identifier hs-type">ProviderType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProviderType_GITHUB"><span id="%24mProviderType_GITHUB"><span id="ProviderType_GITHUB"><span class="annot"><span class="annottext">$bProviderType_GITHUB :: ProviderType
+$mProviderType_GITHUB :: forall r. ProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppRunner.Types.ProviderType.html#%24bProviderType_GITHUB"><span class="hs-identifier hs-var hs-var hs-var">ProviderType_GITHUB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType%27"><span class="hs-identifier hs-type">ProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GITHUB&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType_GITHUB"><span class="hs-pragma hs-type">ProviderType_GITHUB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.ProviderType.html#ProviderType%27"><span class="hs-pragma hs-type">ProviderType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

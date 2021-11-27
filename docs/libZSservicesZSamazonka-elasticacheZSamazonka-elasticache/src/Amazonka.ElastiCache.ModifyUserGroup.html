@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.ModifyUserGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the list of users that belong to the user group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.ModifyUserGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier">ModifyUserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#newModifyUserGroup"><span class="hs-identifier">newModifyUserGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userIdsToAdd"><span class="hs-identifier">modifyUserGroup_userIdsToAdd</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userIdsToRemove"><span class="hs-identifier">modifyUserGroup_userIdsToRemove</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userGroupId"><span class="hs-identifier">modifyUserGroup_userGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#newUserGroup"><span class="hs-identifier">newUserGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#userGroup_status"><span class="hs-identifier">userGroup_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#userGroup_userIds"><span class="hs-identifier">userGroup_userIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#userGroup_arn"><span class="hs-identifier">userGroup_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#userGroup_userGroupId"><span class="hs-identifier">userGroup_userGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#userGroup_engine"><span class="hs-identifier">userGroup_engine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#userGroup_pendingChanges"><span class="hs-identifier">userGroup_pendingChanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#userGroup_replicationGroups"><span class="hs-identifier">userGroup_replicationGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.html"><span class="hs-identifier">Amazonka.ElastiCache.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newModifyUserGroup' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679411668"><span id="local-6989586621679411669"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyUserGroup"><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-var">ModifyUserGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyUserGroup%27"><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-var">ModifyUserGroup'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of user IDs to add to the user group.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AuserIdsToAdd%3AModifyUserGroup%27"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToAdd%3AModifyUserGroup%27"><span class="hs-identifier hs-var hs-var">userIdsToAdd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The list of user IDs to remove from the user group.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AuserIdsToRemove%3AModifyUserGroup%27"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToRemove%3AModifyUserGroup%27"><span class="hs-identifier hs-var hs-var">userIdsToRemove</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the user group.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; Text
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411660"><span id="local-6989586621679411662"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
+(ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool)
+-&gt; (ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool)
+-&gt; Eq ModifyUserGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
+$c/= :: ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
+== :: ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
+$c== :: ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411651"><span id="local-6989586621679411653"><span id="local-6989586621679411655"><span id="local-6989586621679411657"><span class="annot"><span class="annottext">ReadPrec [ModifyUserGroup]
+ReadPrec ModifyUserGroup
+Int -&gt; ReadS ModifyUserGroup
+ReadS [ModifyUserGroup]
+(Int -&gt; ReadS ModifyUserGroup)
+-&gt; ReadS [ModifyUserGroup]
+-&gt; ReadPrec ModifyUserGroup
+-&gt; ReadPrec [ModifyUserGroup]
+-&gt; Read ModifyUserGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyUserGroup]
+$creadListPrec :: ReadPrec [ModifyUserGroup]
+readPrec :: ReadPrec ModifyUserGroup
+$creadPrec :: ReadPrec ModifyUserGroup
+readList :: ReadS [ModifyUserGroup]
+$creadList :: ReadS [ModifyUserGroup]
+readsPrec :: Int -&gt; ReadS ModifyUserGroup
+$creadsPrec :: Int -&gt; ReadS ModifyUserGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411644"><span id="local-6989586621679411646"><span id="local-6989586621679411648"><span class="annot"><span class="annottext">Int -&gt; ModifyUserGroup -&gt; ShowS
+[ModifyUserGroup] -&gt; ShowS
+ModifyUserGroup -&gt; String
+(Int -&gt; ModifyUserGroup -&gt; ShowS)
+-&gt; (ModifyUserGroup -&gt; String)
+-&gt; ([ModifyUserGroup] -&gt; ShowS)
+-&gt; Show ModifyUserGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyUserGroup] -&gt; ShowS
+$cshowList :: [ModifyUserGroup] -&gt; ShowS
+show :: ModifyUserGroup -&gt; String
+$cshow :: ModifyUserGroup -&gt; String
+showsPrec :: Int -&gt; ModifyUserGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyUserGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyUserGroup -&gt; Rep ModifyUserGroup x)
+-&gt; (forall x. Rep ModifyUserGroup x -&gt; ModifyUserGroup)
+-&gt; Generic ModifyUserGroup
+forall x. Rep ModifyUserGroup x -&gt; ModifyUserGroup
+forall x. ModifyUserGroup -&gt; Rep ModifyUserGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyUserGroup x -&gt; ModifyUserGroup
+$cfrom :: forall x. ModifyUserGroup -&gt; Rep ModifyUserGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'ModifyUserGroup' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'userIdsToAdd', 'modifyUserGroup_userIdsToAdd' - The list of user IDs to add to the user group.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'userIdsToRemove', 'modifyUserGroup_userIdsToRemove' - The list of user IDs to remove from the user group.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'userGroupId', 'modifyUserGroup_userGroupId' - The ID of the user group.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#newModifyUserGroup"><span class="hs-identifier hs-type">newModifyUserGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'userGroupId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span>
+</span><span id="line-84"></span><span id="newModifyUserGroup"><span class="annot"><span class="annottext">newModifyUserGroup :: Text -&gt; ModifyUserGroup
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#newModifyUserGroup"><span class="hs-identifier hs-var hs-var">newModifyUserGroup</span></a></span></span><span> </span><span id="local-6989586621679411639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411639"><span class="hs-identifier hs-var">pUserGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ModifyUserGroup' :: Maybe (NonEmpty Text)
+-&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; ModifyUserGroup
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userIdsToAdd:ModifyUserGroup' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToAdd%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:userIdsToRemove:ModifyUserGroup' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToRemove%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:userGroupId:ModifyUserGroup' :: Text
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411639"><span class="hs-identifier hs-var">pUserGroupId_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The list of user IDs to add to the user group.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userIdsToAdd"><span class="hs-identifier hs-type">modifyUserGroup_userIdsToAdd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="modifyUserGroup_userIdsToAdd"><span class="annot"><span class="annottext">modifyUserGroup_userIdsToAdd :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModifyUserGroup -&gt; f ModifyUserGroup
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userIdsToAdd"><span class="hs-identifier hs-var hs-var">modifyUserGroup_userIdsToAdd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyUserGroup -&gt; Maybe (NonEmpty Text))
+-&gt; (ModifyUserGroup -&gt; Maybe (NonEmpty Text) -&gt; ModifyUserGroup)
+-&gt; Lens
+     ModifyUserGroup
+     ModifyUserGroup
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411636"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+userIdsToAdd :: Maybe (NonEmpty Text)
+$sel:userIdsToAdd:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411636"><span class="hs-identifier hs-var hs-var">userIdsToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411636"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411635"><span class="annot"><span class="annottext">s :: ModifyUserGroup
+</span><a href="#local-6989586621679411635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411634"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
+</span><a href="#local-6989586621679411635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdsToAdd:ModifyUserGroup' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToAdd%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; ModifyUserGroup -&gt; f ModifyUserGroup)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModifyUserGroup
+-&gt; f ModifyUserGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The list of user IDs to remove from the user group.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userIdsToRemove"><span class="hs-identifier hs-type">modifyUserGroup_userIdsToRemove</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="modifyUserGroup_userIdsToRemove"><span class="annot"><span class="annottext">modifyUserGroup_userIdsToRemove :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModifyUserGroup -&gt; f ModifyUserGroup
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userIdsToRemove"><span class="hs-identifier hs-var hs-var">modifyUserGroup_userIdsToRemove</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyUserGroup -&gt; Maybe (NonEmpty Text))
+-&gt; (ModifyUserGroup -&gt; Maybe (NonEmpty Text) -&gt; ModifyUserGroup)
+-&gt; Lens
+     ModifyUserGroup
+     ModifyUserGroup
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411630"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+userIdsToRemove :: Maybe (NonEmpty Text)
+$sel:userIdsToRemove:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411630"><span class="hs-identifier hs-var hs-var">userIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411630"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411629"><span class="annot"><span class="annottext">s :: ModifyUserGroup
+</span><a href="#local-6989586621679411629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411628"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
+</span><a href="#local-6989586621679411629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdsToRemove:ModifyUserGroup' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToRemove%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; ModifyUserGroup -&gt; f ModifyUserGroup)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModifyUserGroup
+-&gt; f ModifyUserGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The ID of the user group.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userGroupId"><span class="hs-identifier hs-type">modifyUserGroup_userGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="modifyUserGroup_userGroupId"><span class="annot"><span class="annottext">modifyUserGroup_userGroupId :: (Text -&gt; f Text) -&gt; ModifyUserGroup -&gt; f ModifyUserGroup
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#modifyUserGroup_userGroupId"><span class="hs-identifier hs-var hs-var">modifyUserGroup_userGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyUserGroup -&gt; Text)
+-&gt; (ModifyUserGroup -&gt; Text -&gt; ModifyUserGroup)
+-&gt; Lens ModifyUserGroup ModifyUserGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411627"><span class="annot"><span class="annottext">Text
+userGroupId :: Text
+$sel:userGroupId:ModifyUserGroup' :: ModifyUserGroup -&gt; Text
+</span><a href="#local-6989586621679411627"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411627"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411626"><span class="annot"><span class="annottext">s :: ModifyUserGroup
+</span><a href="#local-6989586621679411626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411625"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
+</span><a href="#local-6989586621679411626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroupId:ModifyUserGroup' :: Text
+</span><a href="Amazonka.ElastiCache.ModifyUserGroup.html#%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679411621"><span class="annot"><span class="annottext">request :: ModifyUserGroup -&gt; Request ModifyUserGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyUserGroup -&gt; Request ModifyUserGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679411617"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyUserGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyUserGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ModifyUserGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyUserGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyUserGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifyUserGroupResult&quot;</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411614"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411613"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679411613"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411612"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679411612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String UserGroup
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679411612"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411607"><span id="local-6989586621679411609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679411600"><span class="annot"><span class="annottext">toHeaders :: ModifyUserGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyUserGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679411595"><span class="annot"><span class="annottext">toPath :: ModifyUserGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyUserGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679411591"><span class="annot"><span class="annottext">toQuery :: ModifyUserGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411587"><span id="local-6989586621679411588"><span id="local-6989586621679411589"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Text
+userGroupId :: Text
+userIdsToRemove :: Maybe (NonEmpty Text)
+userIdsToAdd :: Maybe (NonEmpty Text)
+$sel:userGroupId:ModifyUserGroup' :: ModifyUserGroup -&gt; Text
+$sel:userIdsToRemove:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
+$sel:userIdsToAdd:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411587"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyUserGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-02-02&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserIdsToAdd&quot;</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Text -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; QueryString)
+-&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411589"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserIdsToRemove&quot;</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Text -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-134"></span><span>                </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; QueryString)
+-&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411588"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411587"><span class="hs-identifier hs-var">userGroupId</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span></pre></body></html>

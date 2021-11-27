@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LakeFormation.Types.Resource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LakeFormation.Types.Resource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.CatalogResource.html"><span class="hs-identifier">Amazonka.LakeFormation.Types.CatalogResource</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html"><span class="hs-identifier">Amazonka.LakeFormation.Types.DataLocationResource</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DatabaseResource.html"><span class="hs-identifier">Amazonka.LakeFormation.Types.DatabaseResource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.LFTagKeyResource.html"><span class="hs-identifier">Amazonka.LakeFormation.Types.LFTagKeyResource</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.LFTagPolicyResource.html"><span class="hs-identifier">Amazonka.LakeFormation.Types.LFTagPolicyResource</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.TableResource.html"><span class="hs-identifier">Amazonka.LakeFormation.Types.TableResource</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.TableWithColumnsResource.html"><span class="hs-identifier">Amazonka.LakeFormation.Types.TableWithColumnsResource</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | A structure for the resource.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newResource' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679199554"><span id="local-6989586621679199555"></span></span><span class="hs-keyword">data</span><span> </span><span id="Resource"><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-var">Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Resource%27"><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of an Amazon S3 path where permissions are granted or</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- revoked.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdataLocation%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AdataLocation%3AResource%27"><span class="hs-identifier hs-var hs-var">dataLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The database for the resource. Unique to the Data Catalog. A database is</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- a set of associated table definitions organized into a logical group.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- You can Grant and Revoke database permissions to a principal.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adatabase%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe DatabaseResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Adatabase%3AResource%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DatabaseResource.html#DatabaseResource"><span class="hs-identifier hs-type">DatabaseResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The tag key and values attached to a resource.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlFTag%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe LFTagKeyResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AlFTag%3AResource%27"><span class="hs-identifier hs-var hs-var">lFTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.LFTagKeyResource.html#LFTagKeyResource"><span class="hs-identifier hs-type">LFTagKeyResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Acatalog%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe CatalogResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Acatalog%3AResource%27"><span class="hs-identifier hs-var hs-var">catalog</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.CatalogResource.html#CatalogResource"><span class="hs-identifier hs-type">CatalogResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A list of tag conditions that define a resource\'s tag policy.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlFTagPolicy%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe LFTagPolicyResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AlFTagPolicy%3AResource%27"><span class="hs-identifier hs-var hs-var">lFTagPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.LFTagPolicyResource.html#LFTagPolicyResource"><span class="hs-identifier hs-type">LFTagPolicyResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The table for the resource. A table is a metadata definition that</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- represents your data. You can Grant and Revoke table privileges to a</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- principal.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atable%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe TableResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Atable%3AResource%27"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.TableResource.html#TableResource"><span class="hs-identifier hs-type">TableResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The table with columns for the resource. A principal with permissions to</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- this resource can select metadata from the columns of a table in the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Data Catalog and the underlying data in Amazon S3.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtableWithColumns%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe TableWithColumnsResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AtableWithColumns%3AResource%27"><span class="hs-identifier hs-var hs-var">tableWithColumns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.TableWithColumnsResource.html#TableWithColumnsResource"><span class="hs-identifier hs-type">TableWithColumnsResource</span></a></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199542"><span id="local-6989586621679199544"><span class="annot"><span class="annottext">Resource -&gt; Resource -&gt; Bool
+(Resource -&gt; Resource -&gt; Bool)
+-&gt; (Resource -&gt; Resource -&gt; Bool) -&gt; Eq Resource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Resource -&gt; Resource -&gt; Bool
+$c/= :: Resource -&gt; Resource -&gt; Bool
+== :: Resource -&gt; Resource -&gt; Bool
+$c== :: Resource -&gt; Resource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199533"><span id="local-6989586621679199535"><span id="local-6989586621679199537"><span id="local-6989586621679199539"><span class="annot"><span class="annottext">ReadPrec [Resource]
+ReadPrec Resource
+Int -&gt; ReadS Resource
+ReadS [Resource]
+(Int -&gt; ReadS Resource)
+-&gt; ReadS [Resource]
+-&gt; ReadPrec Resource
+-&gt; ReadPrec [Resource]
+-&gt; Read Resource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Resource]
+$creadListPrec :: ReadPrec [Resource]
+readPrec :: ReadPrec Resource
+$creadPrec :: ReadPrec Resource
+readList :: ReadS [Resource]
+$creadList :: ReadS [Resource]
+readsPrec :: Int -&gt; ReadS Resource
+$creadsPrec :: Int -&gt; ReadS Resource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199526"><span id="local-6989586621679199528"><span id="local-6989586621679199530"><span class="annot"><span class="annottext">Int -&gt; Resource -&gt; ShowS
+[Resource] -&gt; ShowS
+Resource -&gt; String
+(Int -&gt; Resource -&gt; ShowS)
+-&gt; (Resource -&gt; String) -&gt; ([Resource] -&gt; ShowS) -&gt; Show Resource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Resource] -&gt; ShowS
+$cshowList :: [Resource] -&gt; ShowS
+show :: Resource -&gt; String
+$cshow :: Resource -&gt; String
+showsPrec :: Int -&gt; Resource -&gt; ShowS
+$cshowsPrec :: Int -&gt; Resource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Resource -&gt; Rep Resource x)
+-&gt; (forall x. Rep Resource x -&gt; Resource) -&gt; Generic Resource
+forall x. Rep Resource x -&gt; Resource
+forall x. Resource -&gt; Rep Resource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Resource x -&gt; Resource
+$cfrom :: forall x. Resource -&gt; Rep Resource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'Resource' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'dataLocation', 'resource_dataLocation' - The location of an Amazon S3 path where permissions are granted or</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- revoked.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'database', 'resource_database' - The database for the resource. Unique to the Data Catalog. A database is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- a set of associated table definitions organized into a logical group.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- You can Grant and Revoke database permissions to a principal.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'lFTag', 'resource_lFTag' - The tag key and values attached to a resource.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'catalog', 'resource_catalog' - The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'lFTagPolicy', 'resource_lFTagPolicy' - A list of tag conditions that define a resource\'s tag policy.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'table', 'resource_table' - The table for the resource. A table is a metadata definition that</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- represents your data. You can Grant and Revoke table privileges to a</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- principal.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tableWithColumns', 'resource_tableWithColumns' - The table with columns for the resource. A principal with permissions to</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- this resource can select metadata from the columns of a table in the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Data Catalog and the underlying data in Amazon S3.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#newResource"><span class="hs-identifier hs-type">newResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span>
+</span><span id="line-97"></span><span id="newResource"><span class="annot"><span class="annottext">newResource :: Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#newResource"><span class="hs-identifier hs-var hs-var">newResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">Resource' :: Maybe DataLocationResource
+-&gt; Maybe DatabaseResource
+-&gt; Maybe LFTagKeyResource
+-&gt; Maybe CatalogResource
+-&gt; Maybe LFTagPolicyResource
+-&gt; Maybe TableResource
+-&gt; Maybe TableWithColumnsResource
+-&gt; Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataLocation:Resource' :: Maybe DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AdataLocation%3AResource%27"><span class="hs-identifier hs-var">dataLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLocationResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:database:Resource' :: Maybe DatabaseResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Adatabase%3AResource%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:lFTag:Resource' :: Maybe LFTagKeyResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AlFTag%3AResource%27"><span class="hs-identifier hs-var">lFTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LFTagKeyResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalog:Resource' :: Maybe CatalogResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Acatalog%3AResource%27"><span class="hs-identifier hs-var">catalog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:lFTagPolicy:Resource' :: Maybe LFTagPolicyResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AlFTagPolicy%3AResource%27"><span class="hs-identifier hs-var">lFTagPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LFTagPolicyResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:table:Resource' :: Maybe TableResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Atable%3AResource%27"><span class="hs-identifier hs-var">table</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableWithColumns:Resource' :: Maybe TableWithColumnsResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AtableWithColumns%3AResource%27"><span class="hs-identifier hs-var">tableWithColumns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableWithColumnsResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The location of an Amazon S3 path where permissions are granted or</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- revoked.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#resource_dataLocation"><span class="hs-identifier hs-type">resource_dataLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="resource_dataLocation"><span class="annot"><span class="annottext">resource_dataLocation :: (Maybe DataLocationResource -&gt; f (Maybe DataLocationResource))
+-&gt; Resource -&gt; f Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#resource_dataLocation"><span class="hs-identifier hs-var hs-var">resource_dataLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Maybe DataLocationResource)
+-&gt; (Resource -&gt; Maybe DataLocationResource -&gt; Resource)
+-&gt; Lens
+     Resource
+     Resource
+     (Maybe DataLocationResource)
+     (Maybe DataLocationResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199517"><span class="annot"><span class="annottext">Maybe DataLocationResource
+dataLocation :: Maybe DataLocationResource
+$sel:dataLocation:Resource' :: Resource -&gt; Maybe DataLocationResource
+</span><a href="#local-6989586621679199517"><span class="hs-identifier hs-var hs-var">dataLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataLocationResource
+</span><a href="#local-6989586621679199517"><span class="hs-identifier hs-var">dataLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199516"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679199516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199515"><span class="annot"><span class="annottext">Maybe DataLocationResource
+</span><a href="#local-6989586621679199515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679199516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLocation:Resource' :: Maybe DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AdataLocation%3AResource%27"><span class="hs-identifier hs-var">dataLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLocationResource
+</span><a href="#local-6989586621679199515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The database for the resource. Unique to the Data Catalog. A database is</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- a set of associated table definitions organized into a logical group.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- You can Grant and Revoke database permissions to a principal.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#resource_database"><span class="hs-identifier hs-type">resource_database</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DatabaseResource.html#DatabaseResource"><span class="hs-identifier hs-type">DatabaseResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="resource_database"><span class="annot"><span class="annottext">resource_database :: (Maybe DatabaseResource -&gt; f (Maybe DatabaseResource))
+-&gt; Resource -&gt; f Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#resource_database"><span class="hs-identifier hs-var hs-var">resource_database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Maybe DatabaseResource)
+-&gt; (Resource -&gt; Maybe DatabaseResource -&gt; Resource)
+-&gt; Lens
+     Resource Resource (Maybe DatabaseResource) (Maybe DatabaseResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199513"><span class="annot"><span class="annottext">Maybe DatabaseResource
+database :: Maybe DatabaseResource
+$sel:database:Resource' :: Resource -&gt; Maybe DatabaseResource
+</span><a href="#local-6989586621679199513"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseResource
+</span><a href="#local-6989586621679199513"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199512"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679199512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199511"><span class="annot"><span class="annottext">Maybe DatabaseResource
+</span><a href="#local-6989586621679199511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679199512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:Resource' :: Maybe DatabaseResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Adatabase%3AResource%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseResource
+</span><a href="#local-6989586621679199511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The tag key and values attached to a resource.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#resource_lFTag"><span class="hs-identifier hs-type">resource_lFTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.LFTagKeyResource.html#LFTagKeyResource"><span class="hs-identifier hs-type">LFTagKeyResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="resource_lFTag"><span class="annot"><span class="annottext">resource_lFTag :: (Maybe LFTagKeyResource -&gt; f (Maybe LFTagKeyResource))
+-&gt; Resource -&gt; f Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#resource_lFTag"><span class="hs-identifier hs-var hs-var">resource_lFTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Maybe LFTagKeyResource)
+-&gt; (Resource -&gt; Maybe LFTagKeyResource -&gt; Resource)
+-&gt; Lens
+     Resource Resource (Maybe LFTagKeyResource) (Maybe LFTagKeyResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199509"><span class="annot"><span class="annottext">Maybe LFTagKeyResource
+lFTag :: Maybe LFTagKeyResource
+$sel:lFTag:Resource' :: Resource -&gt; Maybe LFTagKeyResource
+</span><a href="#local-6989586621679199509"><span class="hs-identifier hs-var hs-var">lFTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LFTagKeyResource
+</span><a href="#local-6989586621679199509"><span class="hs-identifier hs-var">lFTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199508"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679199508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199507"><span class="annot"><span class="annottext">Maybe LFTagKeyResource
+</span><a href="#local-6989586621679199507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679199508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lFTag:Resource' :: Maybe LFTagKeyResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AlFTag%3AResource%27"><span class="hs-identifier hs-var">lFTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LFTagKeyResource
+</span><a href="#local-6989586621679199507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#resource_catalog"><span class="hs-identifier hs-type">resource_catalog</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.CatalogResource.html#CatalogResource"><span class="hs-identifier hs-type">CatalogResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="resource_catalog"><span class="annot"><span class="annottext">resource_catalog :: (Maybe CatalogResource -&gt; f (Maybe CatalogResource))
+-&gt; Resource -&gt; f Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#resource_catalog"><span class="hs-identifier hs-var hs-var">resource_catalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Maybe CatalogResource)
+-&gt; (Resource -&gt; Maybe CatalogResource -&gt; Resource)
+-&gt; Lens
+     Resource Resource (Maybe CatalogResource) (Maybe CatalogResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199505"><span class="annot"><span class="annottext">Maybe CatalogResource
+catalog :: Maybe CatalogResource
+$sel:catalog:Resource' :: Resource -&gt; Maybe CatalogResource
+</span><a href="#local-6989586621679199505"><span class="hs-identifier hs-var hs-var">catalog</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogResource
+</span><a href="#local-6989586621679199505"><span class="hs-identifier hs-var">catalog</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199504"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679199504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199503"><span class="annot"><span class="annottext">Maybe CatalogResource
+</span><a href="#local-6989586621679199503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679199504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalog:Resource' :: Maybe CatalogResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Acatalog%3AResource%27"><span class="hs-identifier hs-var">catalog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogResource
+</span><a href="#local-6989586621679199503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A list of tag conditions that define a resource\'s tag policy.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#resource_lFTagPolicy"><span class="hs-identifier hs-type">resource_lFTagPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.LFTagPolicyResource.html#LFTagPolicyResource"><span class="hs-identifier hs-type">LFTagPolicyResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="resource_lFTagPolicy"><span class="annot"><span class="annottext">resource_lFTagPolicy :: (Maybe LFTagPolicyResource -&gt; f (Maybe LFTagPolicyResource))
+-&gt; Resource -&gt; f Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#resource_lFTagPolicy"><span class="hs-identifier hs-var hs-var">resource_lFTagPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Maybe LFTagPolicyResource)
+-&gt; (Resource -&gt; Maybe LFTagPolicyResource -&gt; Resource)
+-&gt; Lens
+     Resource
+     Resource
+     (Maybe LFTagPolicyResource)
+     (Maybe LFTagPolicyResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199501"><span class="annot"><span class="annottext">Maybe LFTagPolicyResource
+lFTagPolicy :: Maybe LFTagPolicyResource
+$sel:lFTagPolicy:Resource' :: Resource -&gt; Maybe LFTagPolicyResource
+</span><a href="#local-6989586621679199501"><span class="hs-identifier hs-var hs-var">lFTagPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LFTagPolicyResource
+</span><a href="#local-6989586621679199501"><span class="hs-identifier hs-var">lFTagPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199500"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679199500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199499"><span class="annot"><span class="annottext">Maybe LFTagPolicyResource
+</span><a href="#local-6989586621679199499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679199500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lFTagPolicy:Resource' :: Maybe LFTagPolicyResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AlFTagPolicy%3AResource%27"><span class="hs-identifier hs-var">lFTagPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LFTagPolicyResource
+</span><a href="#local-6989586621679199499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The table for the resource. A table is a metadata definition that</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- represents your data. You can Grant and Revoke table privileges to a</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- principal.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#resource_table"><span class="hs-identifier hs-type">resource_table</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.TableResource.html#TableResource"><span class="hs-identifier hs-type">TableResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="resource_table"><span class="annot"><span class="annottext">resource_table :: (Maybe TableResource -&gt; f (Maybe TableResource))
+-&gt; Resource -&gt; f Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#resource_table"><span class="hs-identifier hs-var hs-var">resource_table</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Maybe TableResource)
+-&gt; (Resource -&gt; Maybe TableResource -&gt; Resource)
+-&gt; Lens
+     Resource Resource (Maybe TableResource) (Maybe TableResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199497"><span class="annot"><span class="annottext">Maybe TableResource
+table :: Maybe TableResource
+$sel:table:Resource' :: Resource -&gt; Maybe TableResource
+</span><a href="#local-6989586621679199497"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableResource
+</span><a href="#local-6989586621679199497"><span class="hs-identifier hs-var">table</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199496"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679199496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199495"><span class="annot"><span class="annottext">Maybe TableResource
+</span><a href="#local-6989586621679199495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679199496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:table:Resource' :: Maybe TableResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3Atable%3AResource%27"><span class="hs-identifier hs-var">table</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableResource
+</span><a href="#local-6989586621679199495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The table with columns for the resource. A principal with permissions to</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- this resource can select metadata from the columns of a table in the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Data Catalog and the underlying data in Amazon S3.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#resource_tableWithColumns"><span class="hs-identifier hs-type">resource_tableWithColumns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.TableWithColumnsResource.html#TableWithColumnsResource"><span class="hs-identifier hs-type">TableWithColumnsResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="resource_tableWithColumns"><span class="annot"><span class="annottext">resource_tableWithColumns :: (Maybe TableWithColumnsResource
+ -&gt; f (Maybe TableWithColumnsResource))
+-&gt; Resource -&gt; f Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#resource_tableWithColumns"><span class="hs-identifier hs-var hs-var">resource_tableWithColumns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Resource -&gt; Maybe TableWithColumnsResource)
+-&gt; (Resource -&gt; Maybe TableWithColumnsResource -&gt; Resource)
+-&gt; Lens
+     Resource
+     Resource
+     (Maybe TableWithColumnsResource)
+     (Maybe TableWithColumnsResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199493"><span class="annot"><span class="annottext">Maybe TableWithColumnsResource
+tableWithColumns :: Maybe TableWithColumnsResource
+$sel:tableWithColumns:Resource' :: Resource -&gt; Maybe TableWithColumnsResource
+</span><a href="#local-6989586621679199493"><span class="hs-identifier hs-var hs-var">tableWithColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableWithColumnsResource
+</span><a href="#local-6989586621679199493"><span class="hs-identifier hs-var">tableWithColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199492"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679199492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199491"><span class="annot"><span class="annottext">Maybe TableWithColumnsResource
+</span><a href="#local-6989586621679199491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679199492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableWithColumns:Resource' :: Maybe TableWithColumnsResource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#%24sel%3AtableWithColumns%3AResource%27"><span class="hs-identifier hs-var">tableWithColumns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableWithColumnsResource
+</span><a href="#local-6989586621679199491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199488"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679199486"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Resource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Resource) -&gt; Value -&gt; Parser Resource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Resource&quot;</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199483"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe DataLocationResource
+-&gt; Maybe DatabaseResource
+-&gt; Maybe LFTagKeyResource
+-&gt; Maybe CatalogResource
+-&gt; Maybe LFTagPolicyResource
+-&gt; Maybe TableResource
+-&gt; Maybe TableWithColumnsResource
+-&gt; Resource
+</span><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DataLocationResource
+ -&gt; Maybe DatabaseResource
+ -&gt; Maybe LFTagKeyResource
+ -&gt; Maybe CatalogResource
+ -&gt; Maybe LFTagPolicyResource
+ -&gt; Maybe TableResource
+ -&gt; Maybe TableWithColumnsResource
+ -&gt; Resource)
+-&gt; Parser (Maybe DataLocationResource)
+-&gt; Parser
+     (Maybe DatabaseResource
+      -&gt; Maybe LFTagKeyResource
+      -&gt; Maybe CatalogResource
+      -&gt; Maybe LFTagPolicyResource
+      -&gt; Maybe TableResource
+      -&gt; Maybe TableWithColumnsResource
+      -&gt; Resource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataLocationResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatabaseResource
+   -&gt; Maybe LFTagKeyResource
+   -&gt; Maybe CatalogResource
+   -&gt; Maybe LFTagPolicyResource
+   -&gt; Maybe TableResource
+   -&gt; Maybe TableWithColumnsResource
+   -&gt; Resource)
+-&gt; Parser (Maybe DatabaseResource)
+-&gt; Parser
+     (Maybe LFTagKeyResource
+      -&gt; Maybe CatalogResource
+      -&gt; Maybe LFTagPolicyResource
+      -&gt; Maybe TableResource
+      -&gt; Maybe TableWithColumnsResource
+      -&gt; Resource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatabaseResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LFTagKeyResource
+   -&gt; Maybe CatalogResource
+   -&gt; Maybe LFTagPolicyResource
+   -&gt; Maybe TableResource
+   -&gt; Maybe TableWithColumnsResource
+   -&gt; Resource)
+-&gt; Parser (Maybe LFTagKeyResource)
+-&gt; Parser
+     (Maybe CatalogResource
+      -&gt; Maybe LFTagPolicyResource
+      -&gt; Maybe TableResource
+      -&gt; Maybe TableWithColumnsResource
+      -&gt; Resource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LFTagKeyResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LFTag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CatalogResource
+   -&gt; Maybe LFTagPolicyResource
+   -&gt; Maybe TableResource
+   -&gt; Maybe TableWithColumnsResource
+   -&gt; Resource)
+-&gt; Parser (Maybe CatalogResource)
+-&gt; Parser
+     (Maybe LFTagPolicyResource
+      -&gt; Maybe TableResource
+      -&gt; Maybe TableWithColumnsResource
+      -&gt; Resource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CatalogResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Catalog&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LFTagPolicyResource
+   -&gt; Maybe TableResource
+   -&gt; Maybe TableWithColumnsResource
+   -&gt; Resource)
+-&gt; Parser (Maybe LFTagPolicyResource)
+-&gt; Parser
+     (Maybe TableResource -&gt; Maybe TableWithColumnsResource -&gt; Resource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LFTagPolicyResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LFTagPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TableResource -&gt; Maybe TableWithColumnsResource -&gt; Resource)
+-&gt; Parser (Maybe TableResource)
+-&gt; Parser (Maybe TableWithColumnsResource -&gt; Resource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TableResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Table&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TableWithColumnsResource -&gt; Resource)
+-&gt; Parser (Maybe TableWithColumnsResource) -&gt; Parser Resource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TableWithColumnsResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableWithColumns&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199477"><span id="local-6989586621679199479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199466"><span id="local-6989586621679199468"><span id="local-6989586621679199470"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679199464"><span class="annot"><span class="annottext">toJSON :: Resource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199456"><span id="local-6989586621679199457"><span id="local-6989586621679199458"><span id="local-6989586621679199459"><span id="local-6989586621679199460"><span id="local-6989586621679199461"><span id="local-6989586621679199462"><span class="annot"><span class="annottext">Maybe CatalogResource
+Maybe DataLocationResource
+Maybe DatabaseResource
+Maybe LFTagKeyResource
+Maybe LFTagPolicyResource
+Maybe TableResource
+Maybe TableWithColumnsResource
+tableWithColumns :: Maybe TableWithColumnsResource
+table :: Maybe TableResource
+lFTagPolicy :: Maybe LFTagPolicyResource
+catalog :: Maybe CatalogResource
+lFTag :: Maybe LFTagKeyResource
+database :: Maybe DatabaseResource
+dataLocation :: Maybe DataLocationResource
+$sel:tableWithColumns:Resource' :: Resource -&gt; Maybe TableWithColumnsResource
+$sel:table:Resource' :: Resource -&gt; Maybe TableResource
+$sel:lFTagPolicy:Resource' :: Resource -&gt; Maybe LFTagPolicyResource
+$sel:catalog:Resource' :: Resource -&gt; Maybe CatalogResource
+$sel:lFTag:Resource' :: Resource -&gt; Maybe LFTagKeyResource
+$sel:database:Resource' :: Resource -&gt; Maybe DatabaseResource
+$sel:dataLocation:Resource' :: Resource -&gt; Maybe DataLocationResource
+</span><a href="#local-6989586621679199456"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataLocationResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DataLocationResource -&gt; Pair)
+-&gt; Maybe DataLocationResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataLocationResource
+</span><a href="#local-6989586621679199462"><span class="hs-identifier hs-var">dataLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatabaseResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DatabaseResource -&gt; Pair) -&gt; Maybe DatabaseResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseResource
+</span><a href="#local-6989586621679199461"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LFTag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LFTagKeyResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LFTagKeyResource -&gt; Pair) -&gt; Maybe LFTagKeyResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LFTagKeyResource
+</span><a href="#local-6989586621679199460"><span class="hs-identifier hs-var">lFTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Catalog&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CatalogResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CatalogResource -&gt; Pair) -&gt; Maybe CatalogResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CatalogResource
+</span><a href="#local-6989586621679199459"><span class="hs-identifier hs-var">catalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LFTagPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LFTagPolicyResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LFTagPolicyResource -&gt; Pair)
+-&gt; Maybe LFTagPolicyResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LFTagPolicyResource
+</span><a href="#local-6989586621679199458"><span class="hs-identifier hs-var">lFTagPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Table&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TableResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TableResource -&gt; Pair) -&gt; Maybe TableResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TableResource
+</span><a href="#local-6989586621679199457"><span class="hs-identifier hs-var">table</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableWithColumns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TableWithColumnsResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(TableWithColumnsResource -&gt; Pair)
+-&gt; Maybe TableWithColumnsResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TableWithColumnsResource
+</span><a href="#local-6989586621679199456"><span class="hs-identifier hs-var">tableWithColumns</span></a></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span></pre></body></html>

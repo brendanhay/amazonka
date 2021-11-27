@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.CreateKeyGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a key group that you can use with</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html CloudFront signed URLs and signed cookies&gt;.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To create a key group, you must specify at least one public key for the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- key group. After you create a key group, you can reference it from one</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- or more cache behaviors. When you reference a key group in a cache</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- behavior, CloudFront requires signed URLs or signed cookies for all</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- requests that match the cache behavior. The URLs or cookies must be</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- signed with a private key whose corresponding public key is in the key</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- group. The signed URL or cookie contains information about which public</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- key CloudFront should use to verify the signature. For more information,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.CreateKeyGroup</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier">CreateKeyGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#newCreateKeyGroup"><span class="hs-identifier">newCreateKeyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroup_keyGroupConfig"><span class="hs-identifier">createKeyGroup_keyGroupConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier">CreateKeyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#newCreateKeyGroupResponse"><span class="hs-identifier">newCreateKeyGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_eTag"><span class="hs-identifier">createKeyGroupResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_location"><span class="hs-identifier">createKeyGroupResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_keyGroup"><span class="hs-identifier">createKeyGroupResponse_keyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_httpStatus"><span class="hs-identifier">createKeyGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.html"><span class="hs-identifier">Amazonka.CloudFront.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCreateKeyGroup' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679420832"><span id="local-6989586621679420833"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyGroup"><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-var">CreateKeyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyGroup%27"><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-var">CreateKeyGroup'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A key group configuration.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="annot"><span class="annottext">CreateKeyGroup -&gt; KeyGroupConfig
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="hs-identifier hs-var hs-var">keyGroupConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupConfig.html#KeyGroupConfig"><span class="hs-identifier hs-type">KeyGroupConfig</span></a></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420826"><span id="local-6989586621679420828"><span class="annot"><span class="annottext">CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
+(CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool)
+-&gt; (CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool) -&gt; Eq CreateKeyGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
+$c/= :: CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
+== :: CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
+$c== :: CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420817"><span id="local-6989586621679420819"><span id="local-6989586621679420821"><span id="local-6989586621679420823"><span class="annot"><span class="annottext">ReadPrec [CreateKeyGroup]
+ReadPrec CreateKeyGroup
+Int -&gt; ReadS CreateKeyGroup
+ReadS [CreateKeyGroup]
+(Int -&gt; ReadS CreateKeyGroup)
+-&gt; ReadS [CreateKeyGroup]
+-&gt; ReadPrec CreateKeyGroup
+-&gt; ReadPrec [CreateKeyGroup]
+-&gt; Read CreateKeyGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateKeyGroup]
+$creadListPrec :: ReadPrec [CreateKeyGroup]
+readPrec :: ReadPrec CreateKeyGroup
+$creadPrec :: ReadPrec CreateKeyGroup
+readList :: ReadS [CreateKeyGroup]
+$creadList :: ReadS [CreateKeyGroup]
+readsPrec :: Int -&gt; ReadS CreateKeyGroup
+$creadsPrec :: Int -&gt; ReadS CreateKeyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420810"><span id="local-6989586621679420812"><span id="local-6989586621679420814"><span class="annot"><span class="annottext">Int -&gt; CreateKeyGroup -&gt; ShowS
+[CreateKeyGroup] -&gt; ShowS
+CreateKeyGroup -&gt; String
+(Int -&gt; CreateKeyGroup -&gt; ShowS)
+-&gt; (CreateKeyGroup -&gt; String)
+-&gt; ([CreateKeyGroup] -&gt; ShowS)
+-&gt; Show CreateKeyGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateKeyGroup] -&gt; ShowS
+$cshowList :: [CreateKeyGroup] -&gt; ShowS
+show :: CreateKeyGroup -&gt; String
+$cshow :: CreateKeyGroup -&gt; String
+showsPrec :: Int -&gt; CreateKeyGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateKeyGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateKeyGroup -&gt; Rep CreateKeyGroup x)
+-&gt; (forall x. Rep CreateKeyGroup x -&gt; CreateKeyGroup)
+-&gt; Generic CreateKeyGroup
+forall x. Rep CreateKeyGroup x -&gt; CreateKeyGroup
+forall x. CreateKeyGroup -&gt; Rep CreateKeyGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateKeyGroup x -&gt; CreateKeyGroup
+$cfrom :: forall x. CreateKeyGroup -&gt; Rep CreateKeyGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'CreateKeyGroup' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'keyGroupConfig', 'createKeyGroup_keyGroupConfig' - A key group configuration.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#newCreateKeyGroup"><span class="hs-identifier hs-type">newCreateKeyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'keyGroupConfig'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupConfig.html#KeyGroupConfig"><span class="hs-identifier hs-type">KeyGroupConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span>
+</span><span id="line-84"></span><span id="newCreateKeyGroup"><span class="annot"><span class="annottext">newCreateKeyGroup :: KeyGroupConfig -&gt; CreateKeyGroup
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#newCreateKeyGroup"><span class="hs-identifier hs-var hs-var">newCreateKeyGroup</span></a></span></span><span> </span><span id="local-6989586621679420805"><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679420805"><span class="hs-identifier hs-var">pKeyGroupConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">CreateKeyGroup' :: KeyGroupConfig -&gt; CreateKeyGroup
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroupConfig:CreateKeyGroup' :: KeyGroupConfig
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679420805"><span class="hs-identifier hs-var">pKeyGroupConfig_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A key group configuration.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroup_keyGroupConfig"><span class="hs-identifier hs-type">createKeyGroup_keyGroupConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupConfig.html#KeyGroupConfig"><span class="hs-identifier hs-type">KeyGroupConfig</span></a></span><span>
+</span><span id="line-89"></span><span id="createKeyGroup_keyGroupConfig"><span class="annot"><span class="annottext">createKeyGroup_keyGroupConfig :: (KeyGroupConfig -&gt; f KeyGroupConfig)
+-&gt; CreateKeyGroup -&gt; f CreateKeyGroup
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroup_keyGroupConfig"><span class="hs-identifier hs-var hs-var">createKeyGroup_keyGroupConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyGroup -&gt; KeyGroupConfig)
+-&gt; (CreateKeyGroup -&gt; KeyGroupConfig -&gt; CreateKeyGroup)
+-&gt; Lens CreateKeyGroup CreateKeyGroup KeyGroupConfig KeyGroupConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420802"><span class="annot"><span class="annottext">KeyGroupConfig
+keyGroupConfig :: KeyGroupConfig
+$sel:keyGroupConfig:CreateKeyGroup' :: CreateKeyGroup -&gt; KeyGroupConfig
+</span><a href="#local-6989586621679420802"><span class="hs-identifier hs-var hs-var">keyGroupConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679420802"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420801"><span class="annot"><span class="annottext">s :: CreateKeyGroup
+</span><a href="#local-6989586621679420801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420800"><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679420800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroup
+</span><a href="#local-6989586621679420801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroupConfig:CreateKeyGroup' :: KeyGroupConfig
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679420800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679420796"><span class="annot"><span class="annottext">request :: CreateKeyGroup -&gt; Request CreateKeyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateKeyGroup -&gt; Request CreateKeyGroup
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679420792"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateKeyGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateKeyGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateKeyGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateKeyGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateKeyGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679420789"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420789"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679420788"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420788"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679420787"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-var">CreateKeyGroupResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420788"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420788"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse)
+-&gt; Either String (Maybe KeyGroup)
+-&gt; Either String (Int -&gt; CreateKeyGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe KeyGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420787"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateKeyGroupResponse)
+-&gt; Either String Int -&gt; Either String CreateKeyGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420789"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420778"><span id="local-6989586621679420780"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420775"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679420771"><span class="annot"><span class="annottext">toElement :: CreateKeyGroup -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420769"><span class="annot"><span class="annottext">KeyGroupConfig
+keyGroupConfig :: KeyGroupConfig
+$sel:keyGroupConfig:CreateKeyGroup' :: CreateKeyGroup -&gt; KeyGroupConfig
+</span><a href="#local-6989586621679420769"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; KeyGroupConfig -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}KeyGroupConfig&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679420769"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679420765"><span class="annot"><span class="annottext">toHeaders :: CreateKeyGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateKeyGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679420760"><span class="annot"><span class="annottext">toPath :: CreateKeyGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateKeyGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/key-group&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679420756"><span class="annot"><span class="annottext">toQuery :: CreateKeyGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateKeyGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newCreateKeyGroupResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679420753"><span id="local-6989586621679420754"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyGroupResponse"><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-var">CreateKeyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyGroupResponse%27"><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-var">CreateKeyGroupResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for this version of the key group.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AeTag%3ACreateKeyGroupResponse%27"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AeTag%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The URL of the key group.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3Alocation%3ACreateKeyGroupResponse%27"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3Alocation%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The key group that was just created.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AkeyGroup%3ACreateKeyGroupResponse%27"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; Maybe KeyGroup
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroup%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; Int
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420745"><span id="local-6989586621679420747"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
+(CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool)
+-&gt; (CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool)
+-&gt; Eq CreateKeyGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
+$c/= :: CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
+== :: CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
+$c== :: CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420737"><span id="local-6989586621679420739"><span id="local-6989586621679420741"><span id="local-6989586621679420743"><span class="annot"><span class="annottext">ReadPrec [CreateKeyGroupResponse]
+ReadPrec CreateKeyGroupResponse
+Int -&gt; ReadS CreateKeyGroupResponse
+ReadS [CreateKeyGroupResponse]
+(Int -&gt; ReadS CreateKeyGroupResponse)
+-&gt; ReadS [CreateKeyGroupResponse]
+-&gt; ReadPrec CreateKeyGroupResponse
+-&gt; ReadPrec [CreateKeyGroupResponse]
+-&gt; Read CreateKeyGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateKeyGroupResponse]
+$creadListPrec :: ReadPrec [CreateKeyGroupResponse]
+readPrec :: ReadPrec CreateKeyGroupResponse
+$creadPrec :: ReadPrec CreateKeyGroupResponse
+readList :: ReadS [CreateKeyGroupResponse]
+$creadList :: ReadS [CreateKeyGroupResponse]
+readsPrec :: Int -&gt; ReadS CreateKeyGroupResponse
+$creadsPrec :: Int -&gt; ReadS CreateKeyGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420731"><span id="local-6989586621679420733"><span id="local-6989586621679420735"><span class="annot"><span class="annottext">Int -&gt; CreateKeyGroupResponse -&gt; ShowS
+[CreateKeyGroupResponse] -&gt; ShowS
+CreateKeyGroupResponse -&gt; String
+(Int -&gt; CreateKeyGroupResponse -&gt; ShowS)
+-&gt; (CreateKeyGroupResponse -&gt; String)
+-&gt; ([CreateKeyGroupResponse] -&gt; ShowS)
+-&gt; Show CreateKeyGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateKeyGroupResponse] -&gt; ShowS
+$cshowList :: [CreateKeyGroupResponse] -&gt; ShowS
+show :: CreateKeyGroupResponse -&gt; String
+$cshow :: CreateKeyGroupResponse -&gt; String
+showsPrec :: Int -&gt; CreateKeyGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateKeyGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateKeyGroupResponse -&gt; Rep CreateKeyGroupResponse x)
+-&gt; (forall x.
+    Rep CreateKeyGroupResponse x -&gt; CreateKeyGroupResponse)
+-&gt; Generic CreateKeyGroupResponse
+forall x. Rep CreateKeyGroupResponse x -&gt; CreateKeyGroupResponse
+forall x. CreateKeyGroupResponse -&gt; Rep CreateKeyGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateKeyGroupResponse x -&gt; CreateKeyGroupResponse
+$cfrom :: forall x. CreateKeyGroupResponse -&gt; Rep CreateKeyGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'CreateKeyGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'eTag', 'createKeyGroupResponse_eTag' - The identifier for this version of the key group.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'location', 'createKeyGroupResponse_location' - The URL of the key group.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'keyGroup', 'createKeyGroupResponse_keyGroup' - The key group that was just created.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'createKeyGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#newCreateKeyGroupResponse"><span class="hs-identifier hs-type">newCreateKeyGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newCreateKeyGroupResponse"><span class="annot"><span class="annottext">newCreateKeyGroupResponse :: Int -&gt; CreateKeyGroupResponse
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#newCreateKeyGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateKeyGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679420728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">CreateKeyGroupResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:CreateKeyGroupResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AeTag%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CreateKeyGroupResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3Alocation%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyGroup:CreateKeyGroupResponse' :: Maybe KeyGroup
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroup%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">keyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyGroupResponse' :: Int
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The identifier for this version of the key group.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_eTag"><span class="hs-identifier hs-type">createKeyGroupResponse_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="createKeyGroupResponse_eTag"><span class="annot"><span class="annottext">createKeyGroupResponse_eTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateKeyGroupResponse -&gt; f CreateKeyGroupResponse
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_eTag"><span class="hs-identifier hs-var hs-var">createKeyGroupResponse_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyGroupResponse -&gt; Maybe Text)
+-&gt; (CreateKeyGroupResponse -&gt; Maybe Text -&gt; CreateKeyGroupResponse)
+-&gt; Lens
+     CreateKeyGroupResponse
+     CreateKeyGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420727"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679420727"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420727"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420726"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679420726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679420726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CreateKeyGroupResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AeTag%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The URL of the key group.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_location"><span class="hs-identifier hs-type">createKeyGroupResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="createKeyGroupResponse_location"><span class="annot"><span class="annottext">createKeyGroupResponse_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateKeyGroupResponse -&gt; f CreateKeyGroupResponse
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_location"><span class="hs-identifier hs-var hs-var">createKeyGroupResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyGroupResponse -&gt; Maybe Text)
+-&gt; (CreateKeyGroupResponse -&gt; Maybe Text -&gt; CreateKeyGroupResponse)
+-&gt; Lens
+     CreateKeyGroupResponse
+     CreateKeyGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420724"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679420724"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420724"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420723"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679420723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679420723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateKeyGroupResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3Alocation%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The key group that was just created.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_keyGroup"><span class="hs-identifier hs-type">createKeyGroupResponse_keyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createKeyGroupResponse_keyGroup"><span class="annot"><span class="annottext">createKeyGroupResponse_keyGroup :: (Maybe KeyGroup -&gt; f (Maybe KeyGroup))
+-&gt; CreateKeyGroupResponse -&gt; f CreateKeyGroupResponse
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_keyGroup"><span class="hs-identifier hs-var hs-var">createKeyGroupResponse_keyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyGroupResponse -&gt; Maybe KeyGroup)
+-&gt; (CreateKeyGroupResponse
+    -&gt; Maybe KeyGroup -&gt; CreateKeyGroupResponse)
+-&gt; Lens
+     CreateKeyGroupResponse
+     CreateKeyGroupResponse
+     (Maybe KeyGroup)
+     (Maybe KeyGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420721"><span class="annot"><span class="annottext">Maybe KeyGroup
+keyGroup :: Maybe KeyGroup
+$sel:keyGroup:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe KeyGroup
+</span><a href="#local-6989586621679420721"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyGroup
+</span><a href="#local-6989586621679420721"><span class="hs-identifier hs-var">keyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420720"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679420720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420719"><span class="annot"><span class="annottext">Maybe KeyGroup
+</span><a href="#local-6989586621679420719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679420720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:CreateKeyGroupResponse' :: Maybe KeyGroup
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroup%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">keyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyGroup
+</span><a href="#local-6989586621679420719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_httpStatus"><span class="hs-identifier hs-type">createKeyGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="createKeyGroupResponse_httpStatus"><span class="annot"><span class="annottext">createKeyGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateKeyGroupResponse -&gt; f CreateKeyGroupResponse
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createKeyGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyGroupResponse -&gt; Int)
+-&gt; (CreateKeyGroupResponse -&gt; Int -&gt; CreateKeyGroupResponse)
+-&gt; Lens CreateKeyGroupResponse CreateKeyGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420718"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Int
+</span><a href="#local-6989586621679420718"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420718"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420717"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679420717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679420717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyGroupResponse' :: Int
+</span><a href="Amazonka.CloudFront.CreateKeyGroup.html#%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

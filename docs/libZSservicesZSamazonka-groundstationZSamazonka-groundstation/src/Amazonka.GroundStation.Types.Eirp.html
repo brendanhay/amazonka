@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GroundStation.Types.Eirp</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GroundStation.Types.Eirp</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.EirpUnits.html"><span class="hs-identifier">Amazonka.GroundStation.Types.EirpUnits</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Object that represents EIRP.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEirp' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679213285"><span id="local-6989586621679213286"></span></span><span class="hs-keyword">data</span><span> </span><span id="Eirp"><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-var">Eirp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eirp%27"><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-var">Eirp'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Units of an EIRP.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aunits%3AEirp%27"><span class="annot"><span class="annottext">Eirp -&gt; EirpUnits
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#%24sel%3Aunits%3AEirp%27"><span class="hs-identifier hs-var hs-var">units</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.EirpUnits.html#EirpUnits"><span class="hs-identifier hs-type">EirpUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Value of an EIRP. Valid values are between 20.0 to 50.0 dBW.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AEirp%27"><span class="annot"><span class="annottext">Eirp -&gt; Double
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#%24sel%3Avalue%3AEirp%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213278"><span id="local-6989586621679213280"><span class="annot"><span class="annottext">Eirp -&gt; Eirp -&gt; Bool
+(Eirp -&gt; Eirp -&gt; Bool) -&gt; (Eirp -&gt; Eirp -&gt; Bool) -&gt; Eq Eirp
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Eirp -&gt; Eirp -&gt; Bool
+$c/= :: Eirp -&gt; Eirp -&gt; Bool
+== :: Eirp -&gt; Eirp -&gt; Bool
+$c== :: Eirp -&gt; Eirp -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213269"><span id="local-6989586621679213271"><span id="local-6989586621679213273"><span id="local-6989586621679213275"><span class="annot"><span class="annottext">ReadPrec [Eirp]
+ReadPrec Eirp
+Int -&gt; ReadS Eirp
+ReadS [Eirp]
+(Int -&gt; ReadS Eirp)
+-&gt; ReadS [Eirp] -&gt; ReadPrec Eirp -&gt; ReadPrec [Eirp] -&gt; Read Eirp
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Eirp]
+$creadListPrec :: ReadPrec [Eirp]
+readPrec :: ReadPrec Eirp
+$creadPrec :: ReadPrec Eirp
+readList :: ReadS [Eirp]
+$creadList :: ReadS [Eirp]
+readsPrec :: Int -&gt; ReadS Eirp
+$creadsPrec :: Int -&gt; ReadS Eirp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213262"><span id="local-6989586621679213264"><span id="local-6989586621679213266"><span class="annot"><span class="annottext">Int -&gt; Eirp -&gt; ShowS
+[Eirp] -&gt; ShowS
+Eirp -&gt; String
+(Int -&gt; Eirp -&gt; ShowS)
+-&gt; (Eirp -&gt; String) -&gt; ([Eirp] -&gt; ShowS) -&gt; Show Eirp
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Eirp] -&gt; ShowS
+$cshowList :: [Eirp] -&gt; ShowS
+show :: Eirp -&gt; String
+$cshow :: Eirp -&gt; String
+showsPrec :: Int -&gt; Eirp -&gt; ShowS
+$cshowsPrec :: Int -&gt; Eirp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Eirp -&gt; Rep Eirp x)
+-&gt; (forall x. Rep Eirp x -&gt; Eirp) -&gt; Generic Eirp
+forall x. Rep Eirp x -&gt; Eirp
+forall x. Eirp -&gt; Rep Eirp x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Eirp x -&gt; Eirp
+$cfrom :: forall x. Eirp -&gt; Rep Eirp x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'Eirp' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'units', 'eirp_units' - Units of an EIRP.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'eirp_value' - Value of an EIRP. Valid values are between 20.0 to 50.0 dBW.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#newEirp"><span class="hs-identifier hs-type">newEirp</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'units'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.GroundStation.Types.EirpUnits.html#EirpUnits"><span class="hs-identifier hs-type">EirpUnits</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span><span>
+</span><span id="line-55"></span><span id="newEirp"><span class="annot"><span class="annottext">newEirp :: EirpUnits -&gt; Double -&gt; Eirp
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#newEirp"><span class="hs-identifier hs-var hs-var">newEirp</span></a></span></span><span> </span><span id="local-6989586621679213256"><span class="annot"><span class="annottext">EirpUnits
+</span><a href="#local-6989586621679213256"><span class="hs-identifier hs-var">pUnits_</span></a></span></span><span> </span><span id="local-6989586621679213255"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679213255"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Eirp' :: EirpUnits -&gt; Double -&gt; Eirp
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-type">Eirp'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:units:Eirp' :: EirpUnits
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#%24sel%3Aunits%3AEirp%27"><span class="hs-identifier hs-var">units</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EirpUnits
+</span><a href="#local-6989586621679213256"><span class="hs-identifier hs-var">pUnits_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Eirp' :: Double
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#%24sel%3Avalue%3AEirp%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679213255"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Units of an EIRP.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#eirp_units"><span class="hs-identifier hs-type">eirp_units</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.EirpUnits.html#EirpUnits"><span class="hs-identifier hs-type">EirpUnits</span></a></span><span>
+</span><span id="line-60"></span><span id="eirp_units"><span class="annot"><span class="annottext">eirp_units :: (EirpUnits -&gt; f EirpUnits) -&gt; Eirp -&gt; f Eirp
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#eirp_units"><span class="hs-identifier hs-var hs-var">eirp_units</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Eirp -&gt; EirpUnits)
+-&gt; (Eirp -&gt; EirpUnits -&gt; Eirp)
+-&gt; Lens Eirp Eirp EirpUnits EirpUnits
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-type">Eirp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213251"><span class="annot"><span class="annottext">EirpUnits
+units :: EirpUnits
+$sel:units:Eirp' :: Eirp -&gt; EirpUnits
+</span><a href="#local-6989586621679213251"><span class="hs-identifier hs-var hs-var">units</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EirpUnits
+</span><a href="#local-6989586621679213251"><span class="hs-identifier hs-var">units</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213250"><span class="annot"><span class="annottext">s :: Eirp
+</span><a href="#local-6989586621679213250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-type">Eirp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213249"><span class="annot"><span class="annottext">EirpUnits
+</span><a href="#local-6989586621679213249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Eirp
+</span><a href="#local-6989586621679213250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:units:Eirp' :: EirpUnits
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#%24sel%3Aunits%3AEirp%27"><span class="hs-identifier hs-var">units</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EirpUnits
+</span><a href="#local-6989586621679213249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Value of an EIRP. Valid values are between 20.0 to 50.0 dBW.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#eirp_value"><span class="hs-identifier hs-type">eirp_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-64"></span><span id="eirp_value"><span class="annot"><span class="annottext">eirp_value :: (Double -&gt; f Double) -&gt; Eirp -&gt; f Eirp
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#eirp_value"><span class="hs-identifier hs-var hs-var">eirp_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Eirp -&gt; Double)
+-&gt; (Eirp -&gt; Double -&gt; Eirp) -&gt; Lens Eirp Eirp Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-type">Eirp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213247"><span class="annot"><span class="annottext">Double
+value :: Double
+$sel:value:Eirp' :: Eirp -&gt; Double
+</span><a href="#local-6989586621679213247"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679213247"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213246"><span class="annot"><span class="annottext">s :: Eirp
+</span><a href="#local-6989586621679213246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-type">Eirp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213245"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679213245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Eirp
+</span><a href="#local-6989586621679213246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Eirp' :: Double
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#%24sel%3Avalue%3AEirp%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679213245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679213240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Eirp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Eirp) -&gt; Value -&gt; Parser Eirp
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Eirp&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213237"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">EirpUnits -&gt; Double -&gt; Eirp
+</span><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-var">Eirp'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(EirpUnits -&gt; Double -&gt; Eirp)
+-&gt; Parser EirpUnits -&gt; Parser (Double -&gt; Eirp)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EirpUnits
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;units&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Double -&gt; Eirp) -&gt; Parser Double -&gt; Parser Eirp
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213231"><span id="local-6989586621679213233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213220"><span id="local-6989586621679213222"><span id="local-6989586621679213224"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp"><span class="hs-identifier hs-type">Eirp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679213218"><span class="annot"><span class="annottext">toJSON :: Eirp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GroundStation.Types.Eirp.html#Eirp%27"><span class="hs-identifier hs-type">Eirp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213215"><span id="local-6989586621679213216"><span class="annot"><span class="annottext">Double
+EirpUnits
+value :: Double
+units :: EirpUnits
+$sel:value:Eirp' :: Eirp -&gt; Double
+$sel:units:Eirp' :: Eirp -&gt; EirpUnits
+</span><a href="#local-6989586621679213215"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;units&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EirpUnits -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EirpUnits
+</span><a href="#local-6989586621679213216"><span class="hs-identifier hs-var">units</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679213215"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span></pre></body></html>

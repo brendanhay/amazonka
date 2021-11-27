@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.Types.AwsApiCallAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.Types.AwsApiCallAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DomainDetails.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.DomainDetails</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.RemoteIpDetails.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.RemoteIpDetails</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains information about the API action.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAwsApiCallAction' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299330"><span id="local-6989586621679299331"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsApiCallAction"><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-var">AwsApiCallAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsApiCallAction%27"><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-var">AwsApiCallAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The remote IP information of the connection that initiated the AWS API</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AremoteIpDetails%3AAwsApiCallAction%27"><span class="annot"><span class="annottext">AwsApiCallAction -&gt; Maybe RemoteIpDetails
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AremoteIpDetails%3AAwsApiCallAction%27"><span class="hs-identifier hs-var hs-var">remoteIpDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The AWS API caller type.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcallerType%3AAwsApiCallAction%27"><span class="annot"><span class="annottext">AwsApiCallAction -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AcallerType%3AAwsApiCallAction%27"><span class="hs-identifier hs-var hs-var">callerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The domain information for the AWS API call.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdomainDetails%3AAwsApiCallAction%27"><span class="annot"><span class="annottext">AwsApiCallAction -&gt; Maybe DomainDetails
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AdomainDetails%3AAwsApiCallAction%27"><span class="hs-identifier hs-var hs-var">domainDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The AWS service name whose API was invoked.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AserviceName%3AAwsApiCallAction%27"><span class="annot"><span class="annottext">AwsApiCallAction -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AserviceName%3AAwsApiCallAction%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The error code of the failed AWS API action.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AerrorCode%3AAwsApiCallAction%27"><span class="annot"><span class="annottext">AwsApiCallAction -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AerrorCode%3AAwsApiCallAction%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The AWS API name.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aapi%3AAwsApiCallAction%27"><span class="annot"><span class="annottext">AwsApiCallAction -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3Aapi%3AAwsApiCallAction%27"><span class="hs-identifier hs-var hs-var">api</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299319"><span id="local-6989586621679299321"><span class="annot"><span class="annottext">AwsApiCallAction -&gt; AwsApiCallAction -&gt; Bool
+(AwsApiCallAction -&gt; AwsApiCallAction -&gt; Bool)
+-&gt; (AwsApiCallAction -&gt; AwsApiCallAction -&gt; Bool)
+-&gt; Eq AwsApiCallAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsApiCallAction -&gt; AwsApiCallAction -&gt; Bool
+$c/= :: AwsApiCallAction -&gt; AwsApiCallAction -&gt; Bool
+== :: AwsApiCallAction -&gt; AwsApiCallAction -&gt; Bool
+$c== :: AwsApiCallAction -&gt; AwsApiCallAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299310"><span id="local-6989586621679299312"><span id="local-6989586621679299314"><span id="local-6989586621679299316"><span class="annot"><span class="annottext">ReadPrec [AwsApiCallAction]
+ReadPrec AwsApiCallAction
+Int -&gt; ReadS AwsApiCallAction
+ReadS [AwsApiCallAction]
+(Int -&gt; ReadS AwsApiCallAction)
+-&gt; ReadS [AwsApiCallAction]
+-&gt; ReadPrec AwsApiCallAction
+-&gt; ReadPrec [AwsApiCallAction]
+-&gt; Read AwsApiCallAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsApiCallAction]
+$creadListPrec :: ReadPrec [AwsApiCallAction]
+readPrec :: ReadPrec AwsApiCallAction
+$creadPrec :: ReadPrec AwsApiCallAction
+readList :: ReadS [AwsApiCallAction]
+$creadList :: ReadS [AwsApiCallAction]
+readsPrec :: Int -&gt; ReadS AwsApiCallAction
+$creadsPrec :: Int -&gt; ReadS AwsApiCallAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299303"><span id="local-6989586621679299305"><span id="local-6989586621679299307"><span class="annot"><span class="annottext">Int -&gt; AwsApiCallAction -&gt; ShowS
+[AwsApiCallAction] -&gt; ShowS
+AwsApiCallAction -&gt; String
+(Int -&gt; AwsApiCallAction -&gt; ShowS)
+-&gt; (AwsApiCallAction -&gt; String)
+-&gt; ([AwsApiCallAction] -&gt; ShowS)
+-&gt; Show AwsApiCallAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsApiCallAction] -&gt; ShowS
+$cshowList :: [AwsApiCallAction] -&gt; ShowS
+show :: AwsApiCallAction -&gt; String
+$cshow :: AwsApiCallAction -&gt; String
+showsPrec :: Int -&gt; AwsApiCallAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsApiCallAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AwsApiCallAction -&gt; Rep AwsApiCallAction x)
+-&gt; (forall x. Rep AwsApiCallAction x -&gt; AwsApiCallAction)
+-&gt; Generic AwsApiCallAction
+forall x. Rep AwsApiCallAction x -&gt; AwsApiCallAction
+forall x. AwsApiCallAction -&gt; Rep AwsApiCallAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsApiCallAction x -&gt; AwsApiCallAction
+$cfrom :: forall x. AwsApiCallAction -&gt; Rep AwsApiCallAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'AwsApiCallAction' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'remoteIpDetails', 'awsApiCallAction_remoteIpDetails' - The remote IP information of the connection that initiated the AWS API</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'callerType', 'awsApiCallAction_callerType' - The AWS API caller type.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'domainDetails', 'awsApiCallAction_domainDetails' - The domain information for the AWS API call.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'serviceName', 'awsApiCallAction_serviceName' - The AWS service name whose API was invoked.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'errorCode', 'awsApiCallAction_errorCode' - The error code of the failed AWS API action.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'api', 'awsApiCallAction_api' - The AWS API name.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#newAwsApiCallAction"><span class="hs-identifier hs-type">newAwsApiCallAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span>
+</span><span id="line-70"></span><span id="newAwsApiCallAction"><span class="annot"><span class="annottext">newAwsApiCallAction :: AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#newAwsApiCallAction"><span class="hs-identifier hs-var hs-var">newAwsApiCallAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">AwsApiCallAction' :: Maybe RemoteIpDetails
+-&gt; Maybe Text
+-&gt; Maybe DomainDetails
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:remoteIpDetails:AwsApiCallAction' :: Maybe RemoteIpDetails
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AremoteIpDetails%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">remoteIpDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe RemoteIpDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:callerType:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AcallerType%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">callerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainDetails:AwsApiCallAction' :: Maybe DomainDetails
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AdomainDetails%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">domainDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AserviceName%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AerrorCode%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:api:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3Aapi%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">api</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The remote IP information of the connection that initiated the AWS API</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_remoteIpDetails"><span class="hs-identifier hs-type">awsApiCallAction_remoteIpDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="awsApiCallAction_remoteIpDetails"><span class="annot"><span class="annottext">awsApiCallAction_remoteIpDetails :: (Maybe RemoteIpDetails -&gt; f (Maybe RemoteIpDetails))
+-&gt; AwsApiCallAction -&gt; f AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_remoteIpDetails"><span class="hs-identifier hs-var hs-var">awsApiCallAction_remoteIpDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiCallAction -&gt; Maybe RemoteIpDetails)
+-&gt; (AwsApiCallAction -&gt; Maybe RemoteIpDetails -&gt; AwsApiCallAction)
+-&gt; Lens
+     AwsApiCallAction
+     AwsApiCallAction
+     (Maybe RemoteIpDetails)
+     (Maybe RemoteIpDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299294"><span class="annot"><span class="annottext">Maybe RemoteIpDetails
+remoteIpDetails :: Maybe RemoteIpDetails
+$sel:remoteIpDetails:AwsApiCallAction' :: AwsApiCallAction -&gt; Maybe RemoteIpDetails
+</span><a href="#local-6989586621679299294"><span class="hs-identifier hs-var hs-var">remoteIpDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RemoteIpDetails
+</span><a href="#local-6989586621679299294"><span class="hs-identifier hs-var">remoteIpDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299293"><span class="annot"><span class="annottext">s :: AwsApiCallAction
+</span><a href="#local-6989586621679299293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299292"><span class="annot"><span class="annottext">Maybe RemoteIpDetails
+</span><a href="#local-6989586621679299292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiCallAction
+</span><a href="#local-6989586621679299293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteIpDetails:AwsApiCallAction' :: Maybe RemoteIpDetails
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AremoteIpDetails%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">remoteIpDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemoteIpDetails
+</span><a href="#local-6989586621679299292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The AWS API caller type.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_callerType"><span class="hs-identifier hs-type">awsApiCallAction_callerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="awsApiCallAction_callerType"><span class="annot"><span class="annottext">awsApiCallAction_callerType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiCallAction -&gt; f AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_callerType"><span class="hs-identifier hs-var hs-var">awsApiCallAction_callerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiCallAction -&gt; Maybe Text)
+-&gt; (AwsApiCallAction -&gt; Maybe Text -&gt; AwsApiCallAction)
+-&gt; Lens AwsApiCallAction AwsApiCallAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299290"><span class="annot"><span class="annottext">Maybe Text
+callerType :: Maybe Text
+$sel:callerType:AwsApiCallAction' :: AwsApiCallAction -&gt; Maybe Text
+</span><a href="#local-6989586621679299290"><span class="hs-identifier hs-var hs-var">callerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299290"><span class="hs-identifier hs-var">callerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299289"><span class="annot"><span class="annottext">s :: AwsApiCallAction
+</span><a href="#local-6989586621679299289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiCallAction
+</span><a href="#local-6989586621679299289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerType:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AcallerType%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">callerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The domain information for the AWS API call.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_domainDetails"><span class="hs-identifier hs-type">awsApiCallAction_domainDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="awsApiCallAction_domainDetails"><span class="annot"><span class="annottext">awsApiCallAction_domainDetails :: (Maybe DomainDetails -&gt; f (Maybe DomainDetails))
+-&gt; AwsApiCallAction -&gt; f AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_domainDetails"><span class="hs-identifier hs-var hs-var">awsApiCallAction_domainDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiCallAction -&gt; Maybe DomainDetails)
+-&gt; (AwsApiCallAction -&gt; Maybe DomainDetails -&gt; AwsApiCallAction)
+-&gt; Lens
+     AwsApiCallAction
+     AwsApiCallAction
+     (Maybe DomainDetails)
+     (Maybe DomainDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299286"><span class="annot"><span class="annottext">Maybe DomainDetails
+domainDetails :: Maybe DomainDetails
+$sel:domainDetails:AwsApiCallAction' :: AwsApiCallAction -&gt; Maybe DomainDetails
+</span><a href="#local-6989586621679299286"><span class="hs-identifier hs-var hs-var">domainDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDetails
+</span><a href="#local-6989586621679299286"><span class="hs-identifier hs-var">domainDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299285"><span class="annot"><span class="annottext">s :: AwsApiCallAction
+</span><a href="#local-6989586621679299285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299284"><span class="annot"><span class="annottext">Maybe DomainDetails
+</span><a href="#local-6989586621679299284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiCallAction
+</span><a href="#local-6989586621679299285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainDetails:AwsApiCallAction' :: Maybe DomainDetails
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AdomainDetails%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">domainDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDetails
+</span><a href="#local-6989586621679299284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The AWS service name whose API was invoked.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_serviceName"><span class="hs-identifier hs-type">awsApiCallAction_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="awsApiCallAction_serviceName"><span class="annot"><span class="annottext">awsApiCallAction_serviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiCallAction -&gt; f AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_serviceName"><span class="hs-identifier hs-var hs-var">awsApiCallAction_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiCallAction -&gt; Maybe Text)
+-&gt; (AwsApiCallAction -&gt; Maybe Text -&gt; AwsApiCallAction)
+-&gt; Lens AwsApiCallAction AwsApiCallAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299282"><span class="annot"><span class="annottext">Maybe Text
+serviceName :: Maybe Text
+$sel:serviceName:AwsApiCallAction' :: AwsApiCallAction -&gt; Maybe Text
+</span><a href="#local-6989586621679299282"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299282"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299281"><span class="annot"><span class="annottext">s :: AwsApiCallAction
+</span><a href="#local-6989586621679299281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299280"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiCallAction
+</span><a href="#local-6989586621679299281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AserviceName%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The error code of the failed AWS API action.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_errorCode"><span class="hs-identifier hs-type">awsApiCallAction_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="awsApiCallAction_errorCode"><span class="annot"><span class="annottext">awsApiCallAction_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiCallAction -&gt; f AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_errorCode"><span class="hs-identifier hs-var hs-var">awsApiCallAction_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiCallAction -&gt; Maybe Text)
+-&gt; (AwsApiCallAction -&gt; Maybe Text -&gt; AwsApiCallAction)
+-&gt; Lens AwsApiCallAction AwsApiCallAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299278"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:AwsApiCallAction' :: AwsApiCallAction -&gt; Maybe Text
+</span><a href="#local-6989586621679299278"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299278"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299277"><span class="annot"><span class="annottext">s :: AwsApiCallAction
+</span><a href="#local-6989586621679299277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiCallAction
+</span><a href="#local-6989586621679299277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3AerrorCode%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The AWS API name.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_api"><span class="hs-identifier hs-type">awsApiCallAction_api</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="awsApiCallAction_api"><span class="annot"><span class="annottext">awsApiCallAction_api :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiCallAction -&gt; f AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#awsApiCallAction_api"><span class="hs-identifier hs-var hs-var">awsApiCallAction_api</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiCallAction -&gt; Maybe Text)
+-&gt; (AwsApiCallAction -&gt; Maybe Text -&gt; AwsApiCallAction)
+-&gt; Lens AwsApiCallAction AwsApiCallAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299274"><span class="annot"><span class="annottext">Maybe Text
+api :: Maybe Text
+$sel:api:AwsApiCallAction' :: AwsApiCallAction -&gt; Maybe Text
+</span><a href="#local-6989586621679299274"><span class="hs-identifier hs-var hs-var">api</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299274"><span class="hs-identifier hs-var">api</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299273"><span class="annot"><span class="annottext">s :: AwsApiCallAction
+</span><a href="#local-6989586621679299273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-type">AwsApiCallAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299272"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiCallAction
+</span><a href="#local-6989586621679299273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:api:AwsApiCallAction' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#%24sel%3Aapi%3AAwsApiCallAction%27"><span class="hs-identifier hs-var">api</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299269"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679299267"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsApiCallAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsApiCallAction)
+-&gt; Value
+-&gt; Parser AwsApiCallAction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsApiCallAction&quot;</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe RemoteIpDetails
+-&gt; Maybe Text
+-&gt; Maybe DomainDetails
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AwsApiCallAction
+</span><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction%27"><span class="hs-identifier hs-var">AwsApiCallAction'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RemoteIpDetails
+ -&gt; Maybe Text
+ -&gt; Maybe DomainDetails
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AwsApiCallAction)
+-&gt; Parser (Maybe RemoteIpDetails)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DomainDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsApiCallAction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RemoteIpDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteIpDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DomainDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsApiCallAction)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DomainDetails
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AwsApiCallAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;callerType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DomainDetails
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AwsApiCallAction)
+-&gt; Parser (Maybe DomainDetails)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AwsApiCallAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DomainDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AwsApiCallAction)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AwsApiCallAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AwsApiCallAction)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AwsApiCallAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AwsApiCallAction)
+-&gt; Parser (Maybe Text) -&gt; Parser AwsApiCallAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;api&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299258"><span id="local-6989586621679299260"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.AwsApiCallAction.html#AwsApiCallAction"><span class="hs-identifier hs-type">AwsApiCallAction</span></a></span></span><span>
+</span><span id="line-123"></span></pre></body></html>

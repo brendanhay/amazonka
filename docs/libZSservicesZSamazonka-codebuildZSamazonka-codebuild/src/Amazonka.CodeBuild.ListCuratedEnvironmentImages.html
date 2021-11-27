@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.ListCuratedEnvironmentImages</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about Docker images that are managed by CodeBuild.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.ListCuratedEnvironmentImages</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier">ListCuratedEnvironmentImages</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#newListCuratedEnvironmentImages"><span class="hs-identifier">newListCuratedEnvironmentImages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier">ListCuratedEnvironmentImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#newListCuratedEnvironmentImagesResponse"><span class="hs-identifier">newListCuratedEnvironmentImagesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#listCuratedEnvironmentImagesResponse_platforms"><span class="hs-identifier">listCuratedEnvironmentImagesResponse_platforms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#listCuratedEnvironmentImagesResponse_httpStatus"><span class="hs-identifier">listCuratedEnvironmentImagesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.html"><span class="hs-identifier">Amazonka.CodeBuild.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newListCuratedEnvironmentImages' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679386756"><span id="local-6989586621679386757"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCuratedEnvironmentImages"><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-var">ListCuratedEnvironmentImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCuratedEnvironmentImages%27"><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages%27"><span class="hs-identifier hs-var">ListCuratedEnvironmentImages'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386751"><span id="local-6989586621679386753"><span class="annot"><span class="annottext">ListCuratedEnvironmentImages
+-&gt; ListCuratedEnvironmentImages -&gt; Bool
+(ListCuratedEnvironmentImages
+ -&gt; ListCuratedEnvironmentImages -&gt; Bool)
+-&gt; (ListCuratedEnvironmentImages
+    -&gt; ListCuratedEnvironmentImages -&gt; Bool)
+-&gt; Eq ListCuratedEnvironmentImages
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListCuratedEnvironmentImages
+-&gt; ListCuratedEnvironmentImages -&gt; Bool
+$c/= :: ListCuratedEnvironmentImages
+-&gt; ListCuratedEnvironmentImages -&gt; Bool
+== :: ListCuratedEnvironmentImages
+-&gt; ListCuratedEnvironmentImages -&gt; Bool
+$c== :: ListCuratedEnvironmentImages
+-&gt; ListCuratedEnvironmentImages -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386742"><span id="local-6989586621679386744"><span id="local-6989586621679386746"><span id="local-6989586621679386748"><span class="annot"><span class="annottext">ReadPrec [ListCuratedEnvironmentImages]
+ReadPrec ListCuratedEnvironmentImages
+Int -&gt; ReadS ListCuratedEnvironmentImages
+ReadS [ListCuratedEnvironmentImages]
+(Int -&gt; ReadS ListCuratedEnvironmentImages)
+-&gt; ReadS [ListCuratedEnvironmentImages]
+-&gt; ReadPrec ListCuratedEnvironmentImages
+-&gt; ReadPrec [ListCuratedEnvironmentImages]
+-&gt; Read ListCuratedEnvironmentImages
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListCuratedEnvironmentImages]
+$creadListPrec :: ReadPrec [ListCuratedEnvironmentImages]
+readPrec :: ReadPrec ListCuratedEnvironmentImages
+$creadPrec :: ReadPrec ListCuratedEnvironmentImages
+readList :: ReadS [ListCuratedEnvironmentImages]
+$creadList :: ReadS [ListCuratedEnvironmentImages]
+readsPrec :: Int -&gt; ReadS ListCuratedEnvironmentImages
+$creadsPrec :: Int -&gt; ReadS ListCuratedEnvironmentImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386735"><span id="local-6989586621679386737"><span id="local-6989586621679386739"><span class="annot"><span class="annottext">Int -&gt; ListCuratedEnvironmentImages -&gt; ShowS
+[ListCuratedEnvironmentImages] -&gt; ShowS
+ListCuratedEnvironmentImages -&gt; String
+(Int -&gt; ListCuratedEnvironmentImages -&gt; ShowS)
+-&gt; (ListCuratedEnvironmentImages -&gt; String)
+-&gt; ([ListCuratedEnvironmentImages] -&gt; ShowS)
+-&gt; Show ListCuratedEnvironmentImages
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListCuratedEnvironmentImages] -&gt; ShowS
+$cshowList :: [ListCuratedEnvironmentImages] -&gt; ShowS
+show :: ListCuratedEnvironmentImages -&gt; String
+$cshow :: ListCuratedEnvironmentImages -&gt; String
+showsPrec :: Int -&gt; ListCuratedEnvironmentImages -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListCuratedEnvironmentImages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListCuratedEnvironmentImages -&gt; Rep ListCuratedEnvironmentImages x)
+-&gt; (forall x.
+    Rep ListCuratedEnvironmentImages x -&gt; ListCuratedEnvironmentImages)
+-&gt; Generic ListCuratedEnvironmentImages
+forall x.
+Rep ListCuratedEnvironmentImages x -&gt; ListCuratedEnvironmentImages
+forall x.
+ListCuratedEnvironmentImages -&gt; Rep ListCuratedEnvironmentImages x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListCuratedEnvironmentImages x -&gt; ListCuratedEnvironmentImages
+$cfrom :: forall x.
+ListCuratedEnvironmentImages -&gt; Rep ListCuratedEnvironmentImages x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ListCuratedEnvironmentImages' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#newListCuratedEnvironmentImages"><span class="hs-identifier hs-type">newListCuratedEnvironmentImages</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span><span>
+</span><span id="line-58"></span><span id="newListCuratedEnvironmentImages"><span class="annot"><span class="annottext">newListCuratedEnvironmentImages :: ListCuratedEnvironmentImages
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#newListCuratedEnvironmentImages"><span class="hs-identifier hs-var hs-var">newListCuratedEnvironmentImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ListCuratedEnvironmentImages
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages%27"><span class="hs-identifier hs-var">ListCuratedEnvironmentImages'</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-63"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679386727"><span class="annot"><span class="annottext">request :: ListCuratedEnvironmentImages
+-&gt; Request ListCuratedEnvironmentImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListCuratedEnvironmentImages
+-&gt; Request ListCuratedEnvironmentImages
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679386723"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListCuratedEnvironmentImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListCuratedEnvironmentImages)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListCuratedEnvironmentImages))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListCuratedEnvironmentImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListCuratedEnvironmentImages)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386720"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386720"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386719"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386719"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386718"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EnvironmentPlatform]
+-&gt; Int -&gt; ListCuratedEnvironmentImagesResponse
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var">ListCuratedEnvironmentImagesResponse'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EnvironmentPlatform]
+ -&gt; Int -&gt; ListCuratedEnvironmentImagesResponse)
+-&gt; Either String (Maybe [EnvironmentPlatform])
+-&gt; Either String (Int -&gt; ListCuratedEnvironmentImagesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key -&gt; Either String (Maybe (Maybe [EnvironmentPlatform]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;platforms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [EnvironmentPlatform]))
+-&gt; Maybe [EnvironmentPlatform]
+-&gt; Either String (Maybe [EnvironmentPlatform])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentPlatform]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListCuratedEnvironmentImagesResponse)
+-&gt; Either String Int
+-&gt; Either String ListCuratedEnvironmentImagesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386720"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679386709"><span id="local-6989586621679386711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679386702"><span class="annot"><span class="annottext">toHeaders :: ListCuratedEnvironmentImages -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListCuratedEnvironmentImages -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-85"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeBuild_20161006.ListCuratedEnvironmentImages&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-87"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-91"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386692"><span id="local-6989586621679386694"><span id="local-6989586621679386696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679386690"><span class="annot"><span class="annottext">toJSON :: ListCuratedEnvironmentImages -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; ListCuratedEnvironmentImages -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679386685"><span class="annot"><span class="annottext">toPath :: ListCuratedEnvironmentImages -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListCuratedEnvironmentImages -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImages"><span class="hs-identifier hs-type">ListCuratedEnvironmentImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679386681"><span class="annot"><span class="annottext">toQuery :: ListCuratedEnvironmentImages -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListCuratedEnvironmentImages -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | /See:/ 'newListCuratedEnvironmentImagesResponse' smart constructor.</span><span>
+</span><span id="line-105"></span><span id="local-6989586621679386678"><span id="local-6989586621679386679"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCuratedEnvironmentImagesResponse"><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-var">ListCuratedEnvironmentImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCuratedEnvironmentImagesResponse%27"><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var">ListCuratedEnvironmentImagesResponse'</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about supported platforms for Docker images that are managed</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- by CodeBuild.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3Aplatforms%3AListCuratedEnvironmentImagesResponse%27"><span class="annot"><span class="annottext">ListCuratedEnvironmentImagesResponse -&gt; Maybe [EnvironmentPlatform]
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#%24sel%3Aplatforms%3AListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var hs-var">platforms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeBuild.Types.EnvironmentPlatform.html#EnvironmentPlatform"><span class="hs-identifier hs-type">EnvironmentPlatform</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCuratedEnvironmentImagesResponse%27"><span class="annot"><span class="annottext">ListCuratedEnvironmentImagesResponse -&gt; Int
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#%24sel%3AhttpStatus%3AListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386672"><span id="local-6989586621679386674"><span class="annot"><span class="annottext">ListCuratedEnvironmentImagesResponse
+-&gt; ListCuratedEnvironmentImagesResponse -&gt; Bool
+(ListCuratedEnvironmentImagesResponse
+ -&gt; ListCuratedEnvironmentImagesResponse -&gt; Bool)
+-&gt; (ListCuratedEnvironmentImagesResponse
+    -&gt; ListCuratedEnvironmentImagesResponse -&gt; Bool)
+-&gt; Eq ListCuratedEnvironmentImagesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListCuratedEnvironmentImagesResponse
+-&gt; ListCuratedEnvironmentImagesResponse -&gt; Bool
+$c/= :: ListCuratedEnvironmentImagesResponse
+-&gt; ListCuratedEnvironmentImagesResponse -&gt; Bool
+== :: ListCuratedEnvironmentImagesResponse
+-&gt; ListCuratedEnvironmentImagesResponse -&gt; Bool
+$c== :: ListCuratedEnvironmentImagesResponse
+-&gt; ListCuratedEnvironmentImagesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386664"><span id="local-6989586621679386666"><span id="local-6989586621679386668"><span id="local-6989586621679386670"><span class="annot"><span class="annottext">ReadPrec [ListCuratedEnvironmentImagesResponse]
+ReadPrec ListCuratedEnvironmentImagesResponse
+Int -&gt; ReadS ListCuratedEnvironmentImagesResponse
+ReadS [ListCuratedEnvironmentImagesResponse]
+(Int -&gt; ReadS ListCuratedEnvironmentImagesResponse)
+-&gt; ReadS [ListCuratedEnvironmentImagesResponse]
+-&gt; ReadPrec ListCuratedEnvironmentImagesResponse
+-&gt; ReadPrec [ListCuratedEnvironmentImagesResponse]
+-&gt; Read ListCuratedEnvironmentImagesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListCuratedEnvironmentImagesResponse]
+$creadListPrec :: ReadPrec [ListCuratedEnvironmentImagesResponse]
+readPrec :: ReadPrec ListCuratedEnvironmentImagesResponse
+$creadPrec :: ReadPrec ListCuratedEnvironmentImagesResponse
+readList :: ReadS [ListCuratedEnvironmentImagesResponse]
+$creadList :: ReadS [ListCuratedEnvironmentImagesResponse]
+readsPrec :: Int -&gt; ReadS ListCuratedEnvironmentImagesResponse
+$creadsPrec :: Int -&gt; ReadS ListCuratedEnvironmentImagesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386658"><span id="local-6989586621679386660"><span id="local-6989586621679386662"><span class="annot"><span class="annottext">Int -&gt; ListCuratedEnvironmentImagesResponse -&gt; ShowS
+[ListCuratedEnvironmentImagesResponse] -&gt; ShowS
+ListCuratedEnvironmentImagesResponse -&gt; String
+(Int -&gt; ListCuratedEnvironmentImagesResponse -&gt; ShowS)
+-&gt; (ListCuratedEnvironmentImagesResponse -&gt; String)
+-&gt; ([ListCuratedEnvironmentImagesResponse] -&gt; ShowS)
+-&gt; Show ListCuratedEnvironmentImagesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListCuratedEnvironmentImagesResponse] -&gt; ShowS
+$cshowList :: [ListCuratedEnvironmentImagesResponse] -&gt; ShowS
+show :: ListCuratedEnvironmentImagesResponse -&gt; String
+$cshow :: ListCuratedEnvironmentImagesResponse -&gt; String
+showsPrec :: Int -&gt; ListCuratedEnvironmentImagesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListCuratedEnvironmentImagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListCuratedEnvironmentImagesResponse
+ -&gt; Rep ListCuratedEnvironmentImagesResponse x)
+-&gt; (forall x.
+    Rep ListCuratedEnvironmentImagesResponse x
+    -&gt; ListCuratedEnvironmentImagesResponse)
+-&gt; Generic ListCuratedEnvironmentImagesResponse
+forall x.
+Rep ListCuratedEnvironmentImagesResponse x
+-&gt; ListCuratedEnvironmentImagesResponse
+forall x.
+ListCuratedEnvironmentImagesResponse
+-&gt; Rep ListCuratedEnvironmentImagesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListCuratedEnvironmentImagesResponse x
+-&gt; ListCuratedEnvironmentImagesResponse
+$cfrom :: forall x.
+ListCuratedEnvironmentImagesResponse
+-&gt; Rep ListCuratedEnvironmentImagesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Create a value of 'ListCuratedEnvironmentImagesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'platforms', 'listCuratedEnvironmentImagesResponse_platforms' - Information about supported platforms for Docker images that are managed</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- by CodeBuild.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'httpStatus', 'listCuratedEnvironmentImagesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#newListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">newListCuratedEnvironmentImagesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse</span></a></span><span>
+</span><span id="line-130"></span><span id="newListCuratedEnvironmentImagesResponse"><span class="annot"><span class="annottext">newListCuratedEnvironmentImagesResponse :: Int -&gt; ListCuratedEnvironmentImagesResponse
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#newListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-var hs-var">newListCuratedEnvironmentImagesResponse</span></a></span></span><span> </span><span id="local-6989586621679386655"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">ListCuratedEnvironmentImagesResponse' :: Maybe [EnvironmentPlatform]
+-&gt; Int -&gt; ListCuratedEnvironmentImagesResponse
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:platforms:ListCuratedEnvironmentImagesResponse' :: Maybe [EnvironmentPlatform]
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#%24sel%3Aplatforms%3AListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var">platforms</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EnvironmentPlatform]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCuratedEnvironmentImagesResponse' :: Int
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#%24sel%3AhttpStatus%3AListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Information about supported platforms for Docker images that are managed</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- by CodeBuild.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#listCuratedEnvironmentImagesResponse_platforms"><span class="hs-identifier hs-type">listCuratedEnvironmentImagesResponse_platforms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeBuild.Types.EnvironmentPlatform.html#EnvironmentPlatform"><span class="hs-identifier hs-type">EnvironmentPlatform</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listCuratedEnvironmentImagesResponse_platforms"><span class="annot"><span class="annottext">listCuratedEnvironmentImagesResponse_platforms :: (Maybe [EnvironmentPlatform] -&gt; f (Maybe [EnvironmentPlatform]))
+-&gt; ListCuratedEnvironmentImagesResponse
+-&gt; f ListCuratedEnvironmentImagesResponse
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#listCuratedEnvironmentImagesResponse_platforms"><span class="hs-identifier hs-var hs-var">listCuratedEnvironmentImagesResponse_platforms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCuratedEnvironmentImagesResponse
+ -&gt; Maybe [EnvironmentPlatform])
+-&gt; (ListCuratedEnvironmentImagesResponse
+    -&gt; Maybe [EnvironmentPlatform]
+    -&gt; ListCuratedEnvironmentImagesResponse)
+-&gt; Lens
+     ListCuratedEnvironmentImagesResponse
+     ListCuratedEnvironmentImagesResponse
+     (Maybe [EnvironmentPlatform])
+     (Maybe [EnvironmentPlatform])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386652"><span class="annot"><span class="annottext">Maybe [EnvironmentPlatform]
+platforms :: Maybe [EnvironmentPlatform]
+$sel:platforms:ListCuratedEnvironmentImagesResponse' :: ListCuratedEnvironmentImagesResponse -&gt; Maybe [EnvironmentPlatform]
+</span><a href="#local-6989586621679386652"><span class="hs-identifier hs-var hs-var">platforms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentPlatform]
+</span><a href="#local-6989586621679386652"><span class="hs-identifier hs-var">platforms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386651"><span class="annot"><span class="annottext">s :: ListCuratedEnvironmentImagesResponse
+</span><a href="#local-6989586621679386651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386650"><span class="annot"><span class="annottext">Maybe [EnvironmentPlatform]
+</span><a href="#local-6989586621679386650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCuratedEnvironmentImagesResponse
+</span><a href="#local-6989586621679386651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platforms:ListCuratedEnvironmentImagesResponse' :: Maybe [EnvironmentPlatform]
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#%24sel%3Aplatforms%3AListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var">platforms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentPlatform]
+</span><a href="#local-6989586621679386650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentPlatform] -&gt; f (Maybe [EnvironmentPlatform]))
+ -&gt; ListCuratedEnvironmentImagesResponse
+ -&gt; f ListCuratedEnvironmentImagesResponse)
+-&gt; ((Maybe [EnvironmentPlatform]
+     -&gt; f (Maybe [EnvironmentPlatform]))
+    -&gt; Maybe [EnvironmentPlatform] -&gt; f (Maybe [EnvironmentPlatform]))
+-&gt; (Maybe [EnvironmentPlatform] -&gt; f (Maybe [EnvironmentPlatform]))
+-&gt; ListCuratedEnvironmentImagesResponse
+-&gt; f ListCuratedEnvironmentImagesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentPlatform]
+  [EnvironmentPlatform]
+  [EnvironmentPlatform]
+  [EnvironmentPlatform]
+-&gt; Iso
+     (Maybe [EnvironmentPlatform])
+     (Maybe [EnvironmentPlatform])
+     (Maybe [EnvironmentPlatform])
+     (Maybe [EnvironmentPlatform])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentPlatform]
+  [EnvironmentPlatform]
+  [EnvironmentPlatform]
+  [EnvironmentPlatform]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#listCuratedEnvironmentImagesResponse_httpStatus"><span class="hs-identifier hs-type">listCuratedEnvironmentImagesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-144"></span><span id="listCuratedEnvironmentImagesResponse_httpStatus"><span class="annot"><span class="annottext">listCuratedEnvironmentImagesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListCuratedEnvironmentImagesResponse
+-&gt; f ListCuratedEnvironmentImagesResponse
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#listCuratedEnvironmentImagesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listCuratedEnvironmentImagesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCuratedEnvironmentImagesResponse -&gt; Int)
+-&gt; (ListCuratedEnvironmentImagesResponse
+    -&gt; Int -&gt; ListCuratedEnvironmentImagesResponse)
+-&gt; Lens
+     ListCuratedEnvironmentImagesResponse
+     ListCuratedEnvironmentImagesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386646"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListCuratedEnvironmentImagesResponse' :: ListCuratedEnvironmentImagesResponse -&gt; Int
+</span><a href="#local-6989586621679386646"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386646"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386645"><span class="annot"><span class="annottext">s :: ListCuratedEnvironmentImagesResponse
+</span><a href="#local-6989586621679386645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCuratedEnvironmentImagesResponse
+</span><a href="#local-6989586621679386645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCuratedEnvironmentImagesResponse' :: Int
+</span><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#%24sel%3AhttpStatus%3AListCuratedEnvironmentImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679386642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.ListCuratedEnvironmentImages.html#ListCuratedEnvironmentImagesResponse"><span class="hs-identifier hs-type">ListCuratedEnvironmentImagesResponse</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

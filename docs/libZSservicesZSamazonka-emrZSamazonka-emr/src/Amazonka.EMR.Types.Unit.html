@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMR.Types.Unit</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.Types.Unit</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier">Unit</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BITS"><span class="hs-identifier">Unit_BITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BITS_PER_SECOND"><span class="hs-identifier">Unit_BITS_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BYTES"><span class="hs-identifier">Unit_BYTES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BYTES_PER_SECOND"><span class="hs-identifier">Unit_BYTES_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_COUNT"><span class="hs-identifier">Unit_COUNT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_COUNT_PER_SECOND"><span class="hs-identifier">Unit_COUNT_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BITS"><span class="hs-identifier">Unit_GIGA_BITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BITS_PER_SECOND"><span class="hs-identifier">Unit_GIGA_BITS_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BYTES"><span class="hs-identifier">Unit_GIGA_BYTES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BYTES_PER_SECOND"><span class="hs-identifier">Unit_GIGA_BYTES_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BITS"><span class="hs-identifier">Unit_KILO_BITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BITS_PER_SECOND"><span class="hs-identifier">Unit_KILO_BITS_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BYTES"><span class="hs-identifier">Unit_KILO_BYTES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BYTES_PER_SECOND"><span class="hs-identifier">Unit_KILO_BYTES_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BITS"><span class="hs-identifier">Unit_MEGA_BITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BITS_PER_SECOND"><span class="hs-identifier">Unit_MEGA_BITS_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BYTES"><span class="hs-identifier">Unit_MEGA_BYTES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BYTES_PER_SECOND"><span class="hs-identifier">Unit_MEGA_BYTES_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MICRO_SECONDS"><span class="hs-identifier">Unit_MICRO_SECONDS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MILLI_SECONDS"><span class="hs-identifier">Unit_MILLI_SECONDS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_NONE"><span class="hs-identifier">Unit_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_PERCENT"><span class="hs-identifier">Unit_PERCENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_SECONDS"><span class="hs-identifier">Unit_SECONDS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BITS"><span class="hs-identifier">Unit_TERA_BITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BITS_PER_SECOND"><span class="hs-identifier">Unit_TERA_BITS_PER_SECOND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BYTES"><span class="hs-identifier">Unit_TERA_BYTES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BYTES_PER_SECOND"><span class="hs-identifier">Unit_TERA_BYTES_PER_SECOND</span></a></span><span>
+</span><span id="line-50"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679379054"><span id="local-6989586621679379055"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Unit"><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-var">Unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Unit%27"><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-var">Unit'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromUnit"><span class="annot"><span class="annottext">Unit -&gt; Text
+</span><a href="Amazonka.EMR.Types.Unit.html#fromUnit"><span class="hs-identifier hs-var hs-var">fromUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379046"><span id="local-6989586621679379048"><span id="local-6989586621679379050"><span class="annot"><span class="annottext">Int -&gt; Unit -&gt; ShowS
+[Unit] -&gt; ShowS
+Unit -&gt; String
+(Int -&gt; Unit -&gt; ShowS)
+-&gt; (Unit -&gt; String) -&gt; ([Unit] -&gt; ShowS) -&gt; Show Unit
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Unit] -&gt; ShowS
+$cshowList :: [Unit] -&gt; ShowS
+show :: Unit -&gt; String
+$cshow :: Unit -&gt; String
+showsPrec :: Int -&gt; Unit -&gt; ShowS
+$cshowsPrec :: Int -&gt; Unit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679379037"><span id="local-6989586621679379039"><span id="local-6989586621679379041"><span id="local-6989586621679379043"><span class="annot"><span class="annottext">ReadPrec [Unit]
+ReadPrec Unit
+Int -&gt; ReadS Unit
+ReadS [Unit]
+(Int -&gt; ReadS Unit)
+-&gt; ReadS [Unit] -&gt; ReadPrec Unit -&gt; ReadPrec [Unit] -&gt; Read Unit
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Unit]
+$creadListPrec :: ReadPrec [Unit]
+readPrec :: ReadPrec Unit
+$creadPrec :: ReadPrec Unit
+readList :: ReadS [Unit]
+$creadList :: ReadS [Unit]
+readsPrec :: Int -&gt; ReadS Unit
+$creadsPrec :: Int -&gt; ReadS Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679379032"><span id="local-6989586621679379034"><span class="annot"><span class="annottext">Unit -&gt; Unit -&gt; Bool
+(Unit -&gt; Unit -&gt; Bool) -&gt; (Unit -&gt; Unit -&gt; Bool) -&gt; Eq Unit
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Unit -&gt; Unit -&gt; Bool
+$c/= :: Unit -&gt; Unit -&gt; Bool
+== :: Unit -&gt; Unit -&gt; Bool
+$c== :: Unit -&gt; Unit -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679379016"><span id="local-6989586621679379018"><span id="local-6989586621679379020"><span id="local-6989586621679379022"><span id="local-6989586621679379024"><span id="local-6989586621679379026"><span id="local-6989586621679379028"><span class="annot"><span class="annottext">Eq Unit
+Eq Unit
+-&gt; (Unit -&gt; Unit -&gt; Ordering)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Unit)
+-&gt; (Unit -&gt; Unit -&gt; Unit)
+-&gt; Ord Unit
+Unit -&gt; Unit -&gt; Bool
+Unit -&gt; Unit -&gt; Ordering
+Unit -&gt; Unit -&gt; Unit
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Unit -&gt; Unit -&gt; Unit
+$cmin :: Unit -&gt; Unit -&gt; Unit
+max :: Unit -&gt; Unit -&gt; Unit
+$cmax :: Unit -&gt; Unit -&gt; Unit
+&gt;= :: Unit -&gt; Unit -&gt; Bool
+$c&gt;= :: Unit -&gt; Unit -&gt; Bool
+&gt; :: Unit -&gt; Unit -&gt; Bool
+$c&gt; :: Unit -&gt; Unit -&gt; Bool
+&lt;= :: Unit -&gt; Unit -&gt; Bool
+$c&lt;= :: Unit -&gt; Unit -&gt; Bool
+&lt; :: Unit -&gt; Unit -&gt; Bool
+$c&lt; :: Unit -&gt; Unit -&gt; Bool
+compare :: Unit -&gt; Unit -&gt; Ordering
+$ccompare :: Unit -&gt; Unit -&gt; Ordering
+$cp1Ord :: Eq Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Unit -&gt; Rep Unit x)
+-&gt; (forall x. Rep Unit x -&gt; Unit) -&gt; Generic Unit
+forall x. Rep Unit x -&gt; Unit
+forall x. Unit -&gt; Rep Unit x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Unit x -&gt; Unit
+$cfrom :: forall x. Unit -&gt; Rep Unit x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379008"><span id="local-6989586621679379010"><span class="annot"><span class="annottext">Int -&gt; Unit -&gt; Int
+Unit -&gt; Int
+(Int -&gt; Unit -&gt; Int) -&gt; (Unit -&gt; Int) -&gt; Hashable Unit
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Unit -&gt; Int
+$chash :: Unit -&gt; Int
+hashWithSalt :: Int -&gt; Unit -&gt; Int
+$chashWithSalt :: Int -&gt; Unit -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679379005"><span class="annot"><span class="annottext">Unit -&gt; ()
+(Unit -&gt; ()) -&gt; NFData Unit
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Unit -&gt; ()
+$crnf :: Unit -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679379002"><span class="annot"><span class="annottext">Text -&gt; Either String Unit
+(Text -&gt; Either String Unit) -&gt; FromText Unit
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Unit
+$cfromText :: Text -&gt; Either String Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679378999"><span class="annot"><span class="annottext">Unit -&gt; Text
+(Unit -&gt; Text) -&gt; ToText Unit
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Unit -&gt; Text
+$ctoText :: Unit -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679378996"><span class="annot"><span class="annottext">Unit -&gt; ByteString
+(Unit -&gt; ByteString) -&gt; ToByteString Unit
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Unit -&gt; ByteString
+$ctoBS :: Unit -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679378993"><span class="annot"><span class="annottext">Unit -&gt; ByteStringBuilder
+(Unit -&gt; ByteStringBuilder) -&gt; ToLog Unit
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Unit -&gt; ByteStringBuilder
+$cbuild :: Unit -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679378990"><span class="annot"><span class="annottext">HeaderName -&gt; Unit -&gt; [Header]
+(HeaderName -&gt; Unit -&gt; [Header]) -&gt; ToHeader Unit
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Unit -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Unit -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679378987"><span class="annot"><span class="annottext">Unit -&gt; QueryString
+(Unit -&gt; QueryString) -&gt; ToQuery Unit
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Unit -&gt; QueryString
+$ctoQuery :: Unit -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679378982"><span id="local-6989586621679378984"><span class="annot"><span class="annottext">Value -&gt; Parser [Unit]
+Value -&gt; Parser Unit
+(Value -&gt; Parser Unit) -&gt; (Value -&gt; Parser [Unit]) -&gt; FromJSON Unit
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Unit]
+$cparseJSONList :: Value -&gt; Parser [Unit]
+parseJSON :: Value -&gt; Parser Unit
+$cparseJSON :: Value -&gt; Parser Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679378977"><span id="local-6989586621679378979"><span class="annot"><span class="annottext">FromJSONKeyFunction [Unit]
+FromJSONKeyFunction Unit
+FromJSONKeyFunction Unit
+-&gt; FromJSONKeyFunction [Unit] -&gt; FromJSONKey Unit
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Unit]
+$cfromJSONKeyList :: FromJSONKeyFunction [Unit]
+fromJSONKey :: FromJSONKeyFunction Unit
+$cfromJSONKey :: FromJSONKeyFunction Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679378968"><span id="local-6989586621679378970"><span id="local-6989586621679378972"><span id="local-6989586621679378974"><span class="annot"><span class="annottext">[Unit] -&gt; Encoding
+[Unit] -&gt; Value
+Unit -&gt; Encoding
+Unit -&gt; Value
+(Unit -&gt; Value)
+-&gt; (Unit -&gt; Encoding)
+-&gt; ([Unit] -&gt; Value)
+-&gt; ([Unit] -&gt; Encoding)
+-&gt; ToJSON Unit
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Unit] -&gt; Encoding
+$ctoEncodingList :: [Unit] -&gt; Encoding
+toJSONList :: [Unit] -&gt; Value
+$ctoJSONList :: [Unit] -&gt; Value
+toEncoding :: Unit -&gt; Encoding
+$ctoEncoding :: Unit -&gt; Encoding
+toJSON :: Unit -&gt; Value
+$ctoJSON :: Unit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679378963"><span id="local-6989586621679378965"><span class="annot"><span class="annottext">ToJSONKeyFunction [Unit]
+ToJSONKeyFunction Unit
+ToJSONKeyFunction Unit
+-&gt; ToJSONKeyFunction [Unit] -&gt; ToJSONKey Unit
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Unit]
+$ctoJSONKeyList :: ToJSONKeyFunction [Unit]
+toJSONKey :: ToJSONKeyFunction Unit
+$ctoJSONKey :: ToJSONKeyFunction Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679378960"><span class="annot"><span class="annottext">[Node] -&gt; Either String Unit
+([Node] -&gt; Either String Unit) -&gt; FromXML Unit
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Unit
+$cparseXML :: [Node] -&gt; Either String Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679378957"><span class="annot"><span class="annottext">Unit -&gt; XML
+(Unit -&gt; XML) -&gt; ToXML Unit
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Unit -&gt; XML
+$ctoXML :: Unit -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BITS"><span class="hs-identifier hs-type">Unit_BITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_BITS"><span id="%24mUnit_BITS"><span id="Unit_BITS"><span class="annot"><span class="annottext">$bUnit_BITS :: Unit
+$mUnit_BITS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_BITS"><span class="hs-identifier hs-var hs-var hs-var">Unit_BITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BITS&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BITS_PER_SECOND"><span class="hs-identifier hs-type">Unit_BITS_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_BITS_PER_SECOND"><span id="%24mUnit_BITS_PER_SECOND"><span id="Unit_BITS_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_BITS_PER_SECOND :: Unit
+$mUnit_BITS_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_BITS_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_BITS_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BITS_PER_SECOND&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BYTES"><span class="hs-identifier hs-type">Unit_BYTES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_BYTES"><span id="%24mUnit_BYTES"><span id="Unit_BYTES"><span class="annot"><span class="annottext">$bUnit_BYTES :: Unit
+$mUnit_BYTES :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_BYTES"><span class="hs-identifier hs-var hs-var hs-var">Unit_BYTES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BYTES&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BYTES_PER_SECOND"><span class="hs-identifier hs-type">Unit_BYTES_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_BYTES_PER_SECOND"><span id="%24mUnit_BYTES_PER_SECOND"><span id="Unit_BYTES_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_BYTES_PER_SECOND :: Unit
+$mUnit_BYTES_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_BYTES_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_BYTES_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BYTES_PER_SECOND&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_COUNT"><span class="hs-identifier hs-type">Unit_COUNT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_COUNT"><span id="%24mUnit_COUNT"><span id="Unit_COUNT"><span class="annot"><span class="annottext">$bUnit_COUNT :: Unit
+$mUnit_COUNT :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_COUNT"><span class="hs-identifier hs-var hs-var hs-var">Unit_COUNT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COUNT&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_COUNT_PER_SECOND"><span class="hs-identifier hs-type">Unit_COUNT_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_COUNT_PER_SECOND"><span id="%24mUnit_COUNT_PER_SECOND"><span id="Unit_COUNT_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_COUNT_PER_SECOND :: Unit
+$mUnit_COUNT_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_COUNT_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_COUNT_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COUNT_PER_SECOND&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BITS"><span class="hs-identifier hs-type">Unit_GIGA_BITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_GIGA_BITS"><span id="%24mUnit_GIGA_BITS"><span id="Unit_GIGA_BITS"><span class="annot"><span class="annottext">$bUnit_GIGA_BITS :: Unit
+$mUnit_GIGA_BITS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_GIGA_BITS"><span class="hs-identifier hs-var hs-var hs-var">Unit_GIGA_BITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GIGA_BITS&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BITS_PER_SECOND"><span class="hs-identifier hs-type">Unit_GIGA_BITS_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_GIGA_BITS_PER_SECOND"><span id="%24mUnit_GIGA_BITS_PER_SECOND"><span id="Unit_GIGA_BITS_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_GIGA_BITS_PER_SECOND :: Unit
+$mUnit_GIGA_BITS_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_GIGA_BITS_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_GIGA_BITS_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GIGA_BITS_PER_SECOND&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BYTES"><span class="hs-identifier hs-type">Unit_GIGA_BYTES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_GIGA_BYTES"><span id="%24mUnit_GIGA_BYTES"><span id="Unit_GIGA_BYTES"><span class="annot"><span class="annottext">$bUnit_GIGA_BYTES :: Unit
+$mUnit_GIGA_BYTES :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_GIGA_BYTES"><span class="hs-identifier hs-var hs-var hs-var">Unit_GIGA_BYTES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GIGA_BYTES&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BYTES_PER_SECOND"><span class="hs-identifier hs-type">Unit_GIGA_BYTES_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_GIGA_BYTES_PER_SECOND"><span id="%24mUnit_GIGA_BYTES_PER_SECOND"><span id="Unit_GIGA_BYTES_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_GIGA_BYTES_PER_SECOND :: Unit
+$mUnit_GIGA_BYTES_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_GIGA_BYTES_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_GIGA_BYTES_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GIGA_BYTES_PER_SECOND&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BITS"><span class="hs-identifier hs-type">Unit_KILO_BITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_KILO_BITS"><span id="%24mUnit_KILO_BITS"><span id="Unit_KILO_BITS"><span class="annot"><span class="annottext">$bUnit_KILO_BITS :: Unit
+$mUnit_KILO_BITS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_KILO_BITS"><span class="hs-identifier hs-var hs-var hs-var">Unit_KILO_BITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KILO_BITS&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BITS_PER_SECOND"><span class="hs-identifier hs-type">Unit_KILO_BITS_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_KILO_BITS_PER_SECOND"><span id="%24mUnit_KILO_BITS_PER_SECOND"><span id="Unit_KILO_BITS_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_KILO_BITS_PER_SECOND :: Unit
+$mUnit_KILO_BITS_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_KILO_BITS_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_KILO_BITS_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KILO_BITS_PER_SECOND&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BYTES"><span class="hs-identifier hs-type">Unit_KILO_BYTES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_KILO_BYTES"><span id="%24mUnit_KILO_BYTES"><span id="Unit_KILO_BYTES"><span class="annot"><span class="annottext">$bUnit_KILO_BYTES :: Unit
+$mUnit_KILO_BYTES :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_KILO_BYTES"><span class="hs-identifier hs-var hs-var hs-var">Unit_KILO_BYTES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KILO_BYTES&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BYTES_PER_SECOND"><span class="hs-identifier hs-type">Unit_KILO_BYTES_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_KILO_BYTES_PER_SECOND"><span id="%24mUnit_KILO_BYTES_PER_SECOND"><span id="Unit_KILO_BYTES_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_KILO_BYTES_PER_SECOND :: Unit
+$mUnit_KILO_BYTES_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_KILO_BYTES_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_KILO_BYTES_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KILO_BYTES_PER_SECOND&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BITS"><span class="hs-identifier hs-type">Unit_MEGA_BITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_MEGA_BITS"><span id="%24mUnit_MEGA_BITS"><span id="Unit_MEGA_BITS"><span class="annot"><span class="annottext">$bUnit_MEGA_BITS :: Unit
+$mUnit_MEGA_BITS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_MEGA_BITS"><span class="hs-identifier hs-var hs-var hs-var">Unit_MEGA_BITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEGA_BITS&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BITS_PER_SECOND"><span class="hs-identifier hs-type">Unit_MEGA_BITS_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_MEGA_BITS_PER_SECOND"><span id="%24mUnit_MEGA_BITS_PER_SECOND"><span id="Unit_MEGA_BITS_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_MEGA_BITS_PER_SECOND :: Unit
+$mUnit_MEGA_BITS_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_MEGA_BITS_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_MEGA_BITS_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEGA_BITS_PER_SECOND&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BYTES"><span class="hs-identifier hs-type">Unit_MEGA_BYTES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_MEGA_BYTES"><span id="%24mUnit_MEGA_BYTES"><span id="Unit_MEGA_BYTES"><span class="annot"><span class="annottext">$bUnit_MEGA_BYTES :: Unit
+$mUnit_MEGA_BYTES :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_MEGA_BYTES"><span class="hs-identifier hs-var hs-var hs-var">Unit_MEGA_BYTES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEGA_BYTES&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BYTES_PER_SECOND"><span class="hs-identifier hs-type">Unit_MEGA_BYTES_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_MEGA_BYTES_PER_SECOND"><span id="%24mUnit_MEGA_BYTES_PER_SECOND"><span id="Unit_MEGA_BYTES_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_MEGA_BYTES_PER_SECOND :: Unit
+$mUnit_MEGA_BYTES_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_MEGA_BYTES_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_MEGA_BYTES_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEGA_BYTES_PER_SECOND&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MICRO_SECONDS"><span class="hs-identifier hs-type">Unit_MICRO_SECONDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_MICRO_SECONDS"><span id="%24mUnit_MICRO_SECONDS"><span id="Unit_MICRO_SECONDS"><span class="annot"><span class="annottext">$bUnit_MICRO_SECONDS :: Unit
+$mUnit_MICRO_SECONDS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_MICRO_SECONDS"><span class="hs-identifier hs-var hs-var hs-var">Unit_MICRO_SECONDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MICRO_SECONDS&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MILLI_SECONDS"><span class="hs-identifier hs-type">Unit_MILLI_SECONDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_MILLI_SECONDS"><span id="%24mUnit_MILLI_SECONDS"><span id="Unit_MILLI_SECONDS"><span class="annot"><span class="annottext">$bUnit_MILLI_SECONDS :: Unit
+$mUnit_MILLI_SECONDS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_MILLI_SECONDS"><span class="hs-identifier hs-var hs-var hs-var">Unit_MILLI_SECONDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MILLI_SECONDS&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_NONE"><span class="hs-identifier hs-type">Unit_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_NONE"><span id="%24mUnit_NONE"><span id="Unit_NONE"><span class="annot"><span class="annottext">$bUnit_NONE :: Unit
+$mUnit_NONE :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_NONE"><span class="hs-identifier hs-var hs-var hs-var">Unit_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_PERCENT"><span class="hs-identifier hs-type">Unit_PERCENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_PERCENT"><span id="%24mUnit_PERCENT"><span id="Unit_PERCENT"><span class="annot"><span class="annottext">$bUnit_PERCENT :: Unit
+$mUnit_PERCENT :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_PERCENT"><span class="hs-identifier hs-var hs-var hs-var">Unit_PERCENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERCENT&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_SECONDS"><span class="hs-identifier hs-type">Unit_SECONDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_SECONDS"><span id="%24mUnit_SECONDS"><span id="Unit_SECONDS"><span class="annot"><span class="annottext">$bUnit_SECONDS :: Unit
+$mUnit_SECONDS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_SECONDS"><span class="hs-identifier hs-var hs-var hs-var">Unit_SECONDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECONDS&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BITS"><span class="hs-identifier hs-type">Unit_TERA_BITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_TERA_BITS"><span id="%24mUnit_TERA_BITS"><span id="Unit_TERA_BITS"><span class="annot"><span class="annottext">$bUnit_TERA_BITS :: Unit
+$mUnit_TERA_BITS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_TERA_BITS"><span class="hs-identifier hs-var hs-var hs-var">Unit_TERA_BITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERA_BITS&quot;</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BITS_PER_SECOND"><span class="hs-identifier hs-type">Unit_TERA_BITS_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_TERA_BITS_PER_SECOND"><span id="%24mUnit_TERA_BITS_PER_SECOND"><span id="Unit_TERA_BITS_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_TERA_BITS_PER_SECOND :: Unit
+$mUnit_TERA_BITS_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_TERA_BITS_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_TERA_BITS_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERA_BITS_PER_SECOND&quot;</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BYTES"><span class="hs-identifier hs-type">Unit_TERA_BYTES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_TERA_BYTES"><span id="%24mUnit_TERA_BYTES"><span id="Unit_TERA_BYTES"><span class="annot"><span class="annottext">$bUnit_TERA_BYTES :: Unit
+$mUnit_TERA_BYTES :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_TERA_BYTES"><span class="hs-identifier hs-var hs-var hs-var">Unit_TERA_BYTES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERA_BYTES&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BYTES_PER_SECOND"><span class="hs-identifier hs-type">Unit_TERA_BYTES_PER_SECOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_TERA_BYTES_PER_SECOND"><span id="%24mUnit_TERA_BYTES_PER_SECOND"><span id="Unit_TERA_BYTES_PER_SECOND"><span class="annot"><span class="annottext">$bUnit_TERA_BYTES_PER_SECOND :: Unit
+$mUnit_TERA_BYTES_PER_SECOND :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.Unit.html#%24bUnit_TERA_BYTES_PER_SECOND"><span class="hs-identifier hs-var hs-var hs-var">Unit_TERA_BYTES_PER_SECOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERA_BYTES_PER_SECOND&quot;</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BITS"><span class="hs-pragma hs-type">Unit_BITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BITS_PER_SECOND"><span class="hs-pragma hs-type">Unit_BITS_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BYTES"><span class="hs-pragma hs-type">Unit_BYTES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_BYTES_PER_SECOND"><span class="hs-pragma hs-type">Unit_BYTES_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_COUNT"><span class="hs-pragma hs-type">Unit_COUNT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_COUNT_PER_SECOND"><span class="hs-pragma hs-type">Unit_COUNT_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BITS"><span class="hs-pragma hs-type">Unit_GIGA_BITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BITS_PER_SECOND"><span class="hs-pragma hs-type">Unit_GIGA_BITS_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BYTES"><span class="hs-pragma hs-type">Unit_GIGA_BYTES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_GIGA_BYTES_PER_SECOND"><span class="hs-pragma hs-type">Unit_GIGA_BYTES_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BITS"><span class="hs-pragma hs-type">Unit_KILO_BITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BITS_PER_SECOND"><span class="hs-pragma hs-type">Unit_KILO_BITS_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BYTES"><span class="hs-pragma hs-type">Unit_KILO_BYTES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_KILO_BYTES_PER_SECOND"><span class="hs-pragma hs-type">Unit_KILO_BYTES_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BITS"><span class="hs-pragma hs-type">Unit_MEGA_BITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BITS_PER_SECOND"><span class="hs-pragma hs-type">Unit_MEGA_BITS_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BYTES"><span class="hs-pragma hs-type">Unit_MEGA_BYTES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MEGA_BYTES_PER_SECOND"><span class="hs-pragma hs-type">Unit_MEGA_BYTES_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MICRO_SECONDS"><span class="hs-pragma hs-type">Unit_MICRO_SECONDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_MILLI_SECONDS"><span class="hs-pragma hs-type">Unit_MILLI_SECONDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_NONE"><span class="hs-pragma hs-type">Unit_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_PERCENT"><span class="hs-pragma hs-type">Unit_PERCENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_SECONDS"><span class="hs-pragma hs-type">Unit_SECONDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BITS"><span class="hs-pragma hs-type">Unit_TERA_BITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BITS_PER_SECOND"><span class="hs-pragma hs-type">Unit_TERA_BITS_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BYTES"><span class="hs-pragma hs-type">Unit_TERA_BYTES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit_TERA_BYTES_PER_SECOND"><span class="hs-pragma hs-type">Unit_TERA_BYTES_PER_SECOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit%27"><span class="hs-pragma hs-type">Unit'</span></a></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-193"></span></pre></body></html>

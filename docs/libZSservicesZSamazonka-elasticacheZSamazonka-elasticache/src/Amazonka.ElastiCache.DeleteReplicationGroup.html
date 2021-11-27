@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.DeleteReplicationGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an existing replication group. By default, this operation</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- deletes the entire replication group, including the primary\/primaries</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- and all of the read replicas. If the replication group has only one</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- primary, you can optionally delete only the read replicas, while</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- retaining the primary by setting @RetainPrimaryCluster=true@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When you receive a successful response from this operation, Amazon</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- ElastiCache immediately begins deleting the selected resources; you</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- cannot cancel or revert this operation.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- This operation is valid for Redis only.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.DeleteReplicationGroup</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#newDeleteReplicationGroup"><span class="hs-identifier">newDeleteReplicationGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_finalSnapshotIdentifier"><span class="hs-identifier">deleteReplicationGroup_finalSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_retainPrimaryCluster"><span class="hs-identifier">deleteReplicationGroup_retainPrimaryCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_replicationGroupId"><span class="hs-identifier">deleteReplicationGroup_replicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier">DeleteReplicationGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#newDeleteReplicationGroupResponse"><span class="hs-identifier">newDeleteReplicationGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroupResponse_replicationGroup"><span class="hs-identifier">deleteReplicationGroupResponse_replicationGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroupResponse_httpStatus"><span class="hs-identifier">deleteReplicationGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.html"><span class="hs-identifier">Amazonka.ElastiCache.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Represents the input of a @DeleteReplicationGroup@ operation.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newDeleteReplicationGroup' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679420138"><span id="local-6989586621679420139"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationGroup"><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-var">DeleteReplicationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationGroup%27"><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-var">DeleteReplicationGroup'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a final node group (shard) snapshot. ElastiCache creates the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- snapshot from the primary node in the cluster, rather than one of the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- replicas; this is to ensure that it captures the freshest data. After</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the final snapshot is taken, the replication group is immediately</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AfinalSnapshotIdentifier%3ADeleteReplicationGroup%27"><span class="annot"><span class="annottext">DeleteReplicationGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AfinalSnapshotIdentifier%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var hs-var">finalSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | If set to @true@, all of the read replicas are deleted, but the primary</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- node is retained.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AretainPrimaryCluster%3ADeleteReplicationGroup%27"><span class="annot"><span class="annottext">DeleteReplicationGroup -&gt; Maybe Bool
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AretainPrimaryCluster%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var hs-var">retainPrimaryCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The identifier for the cluster to be deleted. This parameter is not case</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- sensitive.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AreplicationGroupId%3ADeleteReplicationGroup%27"><span class="annot"><span class="annottext">DeleteReplicationGroup -&gt; Text
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AreplicationGroupId%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420130"><span id="local-6989586621679420132"><span class="annot"><span class="annottext">DeleteReplicationGroup -&gt; DeleteReplicationGroup -&gt; Bool
+(DeleteReplicationGroup -&gt; DeleteReplicationGroup -&gt; Bool)
+-&gt; (DeleteReplicationGroup -&gt; DeleteReplicationGroup -&gt; Bool)
+-&gt; Eq DeleteReplicationGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReplicationGroup -&gt; DeleteReplicationGroup -&gt; Bool
+$c/= :: DeleteReplicationGroup -&gt; DeleteReplicationGroup -&gt; Bool
+== :: DeleteReplicationGroup -&gt; DeleteReplicationGroup -&gt; Bool
+$c== :: DeleteReplicationGroup -&gt; DeleteReplicationGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420121"><span id="local-6989586621679420123"><span id="local-6989586621679420125"><span id="local-6989586621679420127"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationGroup]
+ReadPrec DeleteReplicationGroup
+Int -&gt; ReadS DeleteReplicationGroup
+ReadS [DeleteReplicationGroup]
+(Int -&gt; ReadS DeleteReplicationGroup)
+-&gt; ReadS [DeleteReplicationGroup]
+-&gt; ReadPrec DeleteReplicationGroup
+-&gt; ReadPrec [DeleteReplicationGroup]
+-&gt; Read DeleteReplicationGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReplicationGroup]
+$creadListPrec :: ReadPrec [DeleteReplicationGroup]
+readPrec :: ReadPrec DeleteReplicationGroup
+$creadPrec :: ReadPrec DeleteReplicationGroup
+readList :: ReadS [DeleteReplicationGroup]
+$creadList :: ReadS [DeleteReplicationGroup]
+readsPrec :: Int -&gt; ReadS DeleteReplicationGroup
+$creadsPrec :: Int -&gt; ReadS DeleteReplicationGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420114"><span id="local-6989586621679420116"><span id="local-6989586621679420118"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationGroup -&gt; ShowS
+[DeleteReplicationGroup] -&gt; ShowS
+DeleteReplicationGroup -&gt; String
+(Int -&gt; DeleteReplicationGroup -&gt; ShowS)
+-&gt; (DeleteReplicationGroup -&gt; String)
+-&gt; ([DeleteReplicationGroup] -&gt; ShowS)
+-&gt; Show DeleteReplicationGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReplicationGroup] -&gt; ShowS
+$cshowList :: [DeleteReplicationGroup] -&gt; ShowS
+show :: DeleteReplicationGroup -&gt; String
+$cshow :: DeleteReplicationGroup -&gt; String
+showsPrec :: Int -&gt; DeleteReplicationGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReplicationGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteReplicationGroup -&gt; Rep DeleteReplicationGroup x)
+-&gt; (forall x.
+    Rep DeleteReplicationGroup x -&gt; DeleteReplicationGroup)
+-&gt; Generic DeleteReplicationGroup
+forall x. Rep DeleteReplicationGroup x -&gt; DeleteReplicationGroup
+forall x. DeleteReplicationGroup -&gt; Rep DeleteReplicationGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteReplicationGroup x -&gt; DeleteReplicationGroup
+$cfrom :: forall x. DeleteReplicationGroup -&gt; Rep DeleteReplicationGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'DeleteReplicationGroup' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'finalSnapshotIdentifier', 'deleteReplicationGroup_finalSnapshotIdentifier' - The name of a final node group (shard) snapshot. ElastiCache creates the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- snapshot from the primary node in the cluster, rather than one of the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- replicas; this is to ensure that it captures the freshest data. After</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the final snapshot is taken, the replication group is immediately</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'retainPrimaryCluster', 'deleteReplicationGroup_retainPrimaryCluster' - If set to @true@, all of the read replicas are deleted, but the primary</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- node is retained.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'replicationGroupId', 'deleteReplicationGroup_replicationGroupId' - The identifier for the cluster to be deleted. This parameter is not case</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- sensitive.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#newDeleteReplicationGroup"><span class="hs-identifier hs-type">newDeleteReplicationGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'replicationGroupId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span>
+</span><span id="line-103"></span><span id="newDeleteReplicationGroup"><span class="annot"><span class="annottext">newDeleteReplicationGroup :: Text -&gt; DeleteReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#newDeleteReplicationGroup"><span class="hs-identifier hs-var hs-var">newDeleteReplicationGroup</span></a></span></span><span> </span><span id="local-6989586621679420109"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420109"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">DeleteReplicationGroup' :: Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; DeleteReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:finalSnapshotIdentifier:DeleteReplicationGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AfinalSnapshotIdentifier%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var">finalSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:retainPrimaryCluster:DeleteReplicationGroup' :: Maybe Bool
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AretainPrimaryCluster%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var">retainPrimaryCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationGroupId:DeleteReplicationGroup' :: Text
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AreplicationGroupId%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420109"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of a final node group (shard) snapshot. ElastiCache creates the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- snapshot from the primary node in the cluster, rather than one of the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- replicas; this is to ensure that it captures the freshest data. After</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the final snapshot is taken, the replication group is immediately</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_finalSnapshotIdentifier"><span class="hs-identifier hs-type">deleteReplicationGroup_finalSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="deleteReplicationGroup_finalSnapshotIdentifier"><span class="annot"><span class="annottext">deleteReplicationGroup_finalSnapshotIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteReplicationGroup -&gt; f DeleteReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_finalSnapshotIdentifier"><span class="hs-identifier hs-var hs-var">deleteReplicationGroup_finalSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReplicationGroup -&gt; Maybe Text)
+-&gt; (DeleteReplicationGroup -&gt; Maybe Text -&gt; DeleteReplicationGroup)
+-&gt; Lens
+     DeleteReplicationGroup
+     DeleteReplicationGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420106"><span class="annot"><span class="annottext">Maybe Text
+finalSnapshotIdentifier :: Maybe Text
+$sel:finalSnapshotIdentifier:DeleteReplicationGroup' :: DeleteReplicationGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679420106"><span class="hs-identifier hs-var hs-var">finalSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420106"><span class="hs-identifier hs-var">finalSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420105"><span class="annot"><span class="annottext">s :: DeleteReplicationGroup
+</span><a href="#local-6989586621679420105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationGroup
+</span><a href="#local-6989586621679420105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalSnapshotIdentifier:DeleteReplicationGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AfinalSnapshotIdentifier%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var">finalSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | If set to @true@, all of the read replicas are deleted, but the primary</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- node is retained.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_retainPrimaryCluster"><span class="hs-identifier hs-type">deleteReplicationGroup_retainPrimaryCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="deleteReplicationGroup_retainPrimaryCluster"><span class="annot"><span class="annottext">deleteReplicationGroup_retainPrimaryCluster :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteReplicationGroup -&gt; f DeleteReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_retainPrimaryCluster"><span class="hs-identifier hs-var hs-var">deleteReplicationGroup_retainPrimaryCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReplicationGroup -&gt; Maybe Bool)
+-&gt; (DeleteReplicationGroup -&gt; Maybe Bool -&gt; DeleteReplicationGroup)
+-&gt; Lens
+     DeleteReplicationGroup
+     DeleteReplicationGroup
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420103"><span class="annot"><span class="annottext">Maybe Bool
+retainPrimaryCluster :: Maybe Bool
+$sel:retainPrimaryCluster:DeleteReplicationGroup' :: DeleteReplicationGroup -&gt; Maybe Bool
+</span><a href="#local-6989586621679420103"><span class="hs-identifier hs-var hs-var">retainPrimaryCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679420103"><span class="hs-identifier hs-var">retainPrimaryCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420102"><span class="annot"><span class="annottext">s :: DeleteReplicationGroup
+</span><a href="#local-6989586621679420102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420101"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679420101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationGroup
+</span><a href="#local-6989586621679420102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retainPrimaryCluster:DeleteReplicationGroup' :: Maybe Bool
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AretainPrimaryCluster%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var">retainPrimaryCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679420101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The identifier for the cluster to be deleted. This parameter is not case</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- sensitive.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_replicationGroupId"><span class="hs-identifier hs-type">deleteReplicationGroup_replicationGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="deleteReplicationGroup_replicationGroupId"><span class="annot"><span class="annottext">deleteReplicationGroup_replicationGroupId :: (Text -&gt; f Text)
+-&gt; DeleteReplicationGroup -&gt; f DeleteReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroup_replicationGroupId"><span class="hs-identifier hs-var hs-var">deleteReplicationGroup_replicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReplicationGroup -&gt; Text)
+-&gt; (DeleteReplicationGroup -&gt; Text -&gt; DeleteReplicationGroup)
+-&gt; Lens DeleteReplicationGroup DeleteReplicationGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420100"><span class="annot"><span class="annottext">Text
+replicationGroupId :: Text
+$sel:replicationGroupId:DeleteReplicationGroup' :: DeleteReplicationGroup -&gt; Text
+</span><a href="#local-6989586621679420100"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420100"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420099"><span class="annot"><span class="annottext">s :: DeleteReplicationGroup
+</span><a href="#local-6989586621679420099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420098"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationGroup
+</span><a href="#local-6989586621679420099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:DeleteReplicationGroup' :: Text
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AreplicationGroupId%3ADeleteReplicationGroup%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679420094"><span class="annot"><span class="annottext">request :: DeleteReplicationGroup -&gt; Request DeleteReplicationGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteReplicationGroup -&gt; Request DeleteReplicationGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679420090"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteReplicationGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReplicationGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DeleteReplicationGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteReplicationGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReplicationGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteReplicationGroupResult&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679420087"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420087"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679420086"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420086"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679420085"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationGroup -&gt; Int -&gt; DeleteReplicationGroupResponse
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var">DeleteReplicationGroupResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicationGroup -&gt; Int -&gt; DeleteReplicationGroupResponse)
+-&gt; Either String (Maybe ReplicationGroup)
+-&gt; Either String (Int -&gt; DeleteReplicationGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteReplicationGroupResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteReplicationGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420087"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420077"><span id="local-6989586621679420079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679420070"><span class="annot"><span class="annottext">toHeaders :: DeleteReplicationGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteReplicationGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679420065"><span class="annot"><span class="annottext">toPath :: DeleteReplicationGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteReplicationGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup"><span class="hs-identifier hs-type">DeleteReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679420061"><span class="annot"><span class="annottext">toQuery :: DeleteReplicationGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroup%27"><span class="hs-identifier hs-type">DeleteReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420057"><span id="local-6989586621679420058"><span id="local-6989586621679420059"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+replicationGroupId :: Text
+retainPrimaryCluster :: Maybe Bool
+finalSnapshotIdentifier :: Maybe Text
+$sel:replicationGroupId:DeleteReplicationGroup' :: DeleteReplicationGroup -&gt; Text
+$sel:retainPrimaryCluster:DeleteReplicationGroup' :: DeleteReplicationGroup -&gt; Maybe Bool
+$sel:finalSnapshotIdentifier:DeleteReplicationGroup' :: DeleteReplicationGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679420057"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteReplicationGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-02-02&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FinalSnapshotIdentifier&quot;</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420059"><span class="hs-identifier hs-var">finalSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RetainPrimaryCluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679420058"><span class="hs-identifier hs-var">retainPrimaryCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReplicationGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420057"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newDeleteReplicationGroupResponse' smart constructor.</span><span>
+</span><span id="line-167"></span><span id="local-6989586621679420054"><span id="local-6989586621679420055"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationGroupResponse"><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-var">DeleteReplicationGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationGroupResponse%27"><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var">DeleteReplicationGroupResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreplicationGroup%3ADeleteReplicationGroupResponse%27"><span class="annot"><span class="annottext">DeleteReplicationGroupResponse -&gt; Maybe ReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AreplicationGroup%3ADeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteReplicationGroupResponse%27"><span class="annot"><span class="annottext">DeleteReplicationGroupResponse -&gt; Int
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AhttpStatus%3ADeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420048"><span id="local-6989586621679420050"><span class="annot"><span class="annottext">DeleteReplicationGroupResponse
+-&gt; DeleteReplicationGroupResponse -&gt; Bool
+(DeleteReplicationGroupResponse
+ -&gt; DeleteReplicationGroupResponse -&gt; Bool)
+-&gt; (DeleteReplicationGroupResponse
+    -&gt; DeleteReplicationGroupResponse -&gt; Bool)
+-&gt; Eq DeleteReplicationGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReplicationGroupResponse
+-&gt; DeleteReplicationGroupResponse -&gt; Bool
+$c/= :: DeleteReplicationGroupResponse
+-&gt; DeleteReplicationGroupResponse -&gt; Bool
+== :: DeleteReplicationGroupResponse
+-&gt; DeleteReplicationGroupResponse -&gt; Bool
+$c== :: DeleteReplicationGroupResponse
+-&gt; DeleteReplicationGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420040"><span id="local-6989586621679420042"><span id="local-6989586621679420044"><span id="local-6989586621679420046"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationGroupResponse]
+ReadPrec DeleteReplicationGroupResponse
+Int -&gt; ReadS DeleteReplicationGroupResponse
+ReadS [DeleteReplicationGroupResponse]
+(Int -&gt; ReadS DeleteReplicationGroupResponse)
+-&gt; ReadS [DeleteReplicationGroupResponse]
+-&gt; ReadPrec DeleteReplicationGroupResponse
+-&gt; ReadPrec [DeleteReplicationGroupResponse]
+-&gt; Read DeleteReplicationGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReplicationGroupResponse]
+$creadListPrec :: ReadPrec [DeleteReplicationGroupResponse]
+readPrec :: ReadPrec DeleteReplicationGroupResponse
+$creadPrec :: ReadPrec DeleteReplicationGroupResponse
+readList :: ReadS [DeleteReplicationGroupResponse]
+$creadList :: ReadS [DeleteReplicationGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteReplicationGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteReplicationGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420034"><span id="local-6989586621679420036"><span id="local-6989586621679420038"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationGroupResponse -&gt; ShowS
+[DeleteReplicationGroupResponse] -&gt; ShowS
+DeleteReplicationGroupResponse -&gt; String
+(Int -&gt; DeleteReplicationGroupResponse -&gt; ShowS)
+-&gt; (DeleteReplicationGroupResponse -&gt; String)
+-&gt; ([DeleteReplicationGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteReplicationGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReplicationGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteReplicationGroupResponse] -&gt; ShowS
+show :: DeleteReplicationGroupResponse -&gt; String
+$cshow :: DeleteReplicationGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteReplicationGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReplicationGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteReplicationGroupResponse
+ -&gt; Rep DeleteReplicationGroupResponse x)
+-&gt; (forall x.
+    Rep DeleteReplicationGroupResponse x
+    -&gt; DeleteReplicationGroupResponse)
+-&gt; Generic DeleteReplicationGroupResponse
+forall x.
+Rep DeleteReplicationGroupResponse x
+-&gt; DeleteReplicationGroupResponse
+forall x.
+DeleteReplicationGroupResponse
+-&gt; Rep DeleteReplicationGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteReplicationGroupResponse x
+-&gt; DeleteReplicationGroupResponse
+$cfrom :: forall x.
+DeleteReplicationGroupResponse
+-&gt; Rep DeleteReplicationGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'DeleteReplicationGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'replicationGroup', 'deleteReplicationGroupResponse_replicationGroup' - Undocumented member.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'deleteReplicationGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#newDeleteReplicationGroupResponse"><span class="hs-identifier hs-type">newDeleteReplicationGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newDeleteReplicationGroupResponse"><span class="annot"><span class="annottext">newDeleteReplicationGroupResponse :: Int -&gt; DeleteReplicationGroupResponse
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#newDeleteReplicationGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteReplicationGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679420031"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420031"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">DeleteReplicationGroupResponse' :: Maybe ReplicationGroup -&gt; Int -&gt; DeleteReplicationGroupResponse
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationGroup:DeleteReplicationGroupResponse' :: Maybe ReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AreplicationGroup%3ADeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReplicationGroupResponse' :: Int
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AhttpStatus%3ADeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420031"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroupResponse_replicationGroup"><span class="hs-identifier hs-type">deleteReplicationGroupResponse_replicationGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="deleteReplicationGroupResponse_replicationGroup"><span class="annot"><span class="annottext">deleteReplicationGroupResponse_replicationGroup :: (Maybe ReplicationGroup -&gt; f (Maybe ReplicationGroup))
+-&gt; DeleteReplicationGroupResponse
+-&gt; f DeleteReplicationGroupResponse
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroupResponse_replicationGroup"><span class="hs-identifier hs-var hs-var">deleteReplicationGroupResponse_replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReplicationGroupResponse -&gt; Maybe ReplicationGroup)
+-&gt; (DeleteReplicationGroupResponse
+    -&gt; Maybe ReplicationGroup -&gt; DeleteReplicationGroupResponse)
+-&gt; Lens
+     DeleteReplicationGroupResponse
+     DeleteReplicationGroupResponse
+     (Maybe ReplicationGroup)
+     (Maybe ReplicationGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420030"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+replicationGroup :: Maybe ReplicationGroup
+$sel:replicationGroup:DeleteReplicationGroupResponse' :: DeleteReplicationGroupResponse -&gt; Maybe ReplicationGroup
+</span><a href="#local-6989586621679420030"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679420030"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420029"><span class="annot"><span class="annottext">s :: DeleteReplicationGroupResponse
+</span><a href="#local-6989586621679420029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420028"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679420028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationGroupResponse
+</span><a href="#local-6989586621679420029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:DeleteReplicationGroupResponse' :: Maybe ReplicationGroup
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AreplicationGroup%3ADeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679420028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroupResponse_httpStatus"><span class="hs-identifier hs-type">deleteReplicationGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span id="deleteReplicationGroupResponse_httpStatus"><span class="annot"><span class="annottext">deleteReplicationGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteReplicationGroupResponse
+-&gt; f DeleteReplicationGroupResponse
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#deleteReplicationGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteReplicationGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReplicationGroupResponse -&gt; Int)
+-&gt; (DeleteReplicationGroupResponse
+    -&gt; Int -&gt; DeleteReplicationGroupResponse)
+-&gt; Lens
+     DeleteReplicationGroupResponse
+     DeleteReplicationGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420027"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteReplicationGroupResponse' :: DeleteReplicationGroupResponse -&gt; Int
+</span><a href="#local-6989586621679420027"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420027"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420026"><span class="annot"><span class="annottext">s :: DeleteReplicationGroupResponse
+</span><a href="#local-6989586621679420026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationGroupResponse
+</span><a href="#local-6989586621679420026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReplicationGroupResponse' :: Int
+</span><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#%24sel%3AhttpStatus%3ADeleteReplicationGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679420023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DeleteReplicationGroup.html#DeleteReplicationGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationGroupResponse</span></a></span></span><span>
+</span><span id="line-207"></span></pre></body></html>

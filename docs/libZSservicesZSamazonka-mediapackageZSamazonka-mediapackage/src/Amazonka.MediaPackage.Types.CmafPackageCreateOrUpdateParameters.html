@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafEncryption.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.CmafEncryption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.StreamSelection.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.StreamSelection</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A Common Media Application Format (CMAF) packaging configuration.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCmafPackageCreateOrUpdateParameters' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679239466"><span id="local-6989586621679239467"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmafPackageCreateOrUpdateParameters"><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-var">CmafPackageCreateOrUpdateParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafPackageCreateOrUpdateParameters%27"><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">CmafPackageCreateOrUpdateParameters'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of HLS manifest configurations</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AhlsManifests%3ACmafPackageCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters
+-&gt; Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AhlsManifests%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">hlsManifests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsegmentDurationSeconds%3ACmafPackageCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters -&gt; Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AsegmentDurationSeconds%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstreamSelection%3ACmafPackageCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters -&gt; Maybe StreamSelection
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AstreamSelection%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aencryption%3ACmafPackageCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters -&gt; Maybe CmafEncryption
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3Aencryption%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | An optional custom string that is prepended to the name of each segment.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsegmentPrefix%3ACmafPackageCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AsegmentPrefix%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">segmentPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239456"><span id="local-6989586621679239458"><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters
+-&gt; CmafPackageCreateOrUpdateParameters -&gt; Bool
+(CmafPackageCreateOrUpdateParameters
+ -&gt; CmafPackageCreateOrUpdateParameters -&gt; Bool)
+-&gt; (CmafPackageCreateOrUpdateParameters
+    -&gt; CmafPackageCreateOrUpdateParameters -&gt; Bool)
+-&gt; Eq CmafPackageCreateOrUpdateParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmafPackageCreateOrUpdateParameters
+-&gt; CmafPackageCreateOrUpdateParameters -&gt; Bool
+$c/= :: CmafPackageCreateOrUpdateParameters
+-&gt; CmafPackageCreateOrUpdateParameters -&gt; Bool
+== :: CmafPackageCreateOrUpdateParameters
+-&gt; CmafPackageCreateOrUpdateParameters -&gt; Bool
+$c== :: CmafPackageCreateOrUpdateParameters
+-&gt; CmafPackageCreateOrUpdateParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239447"><span id="local-6989586621679239449"><span id="local-6989586621679239451"><span id="local-6989586621679239453"><span class="annot"><span class="annottext">ReadPrec [CmafPackageCreateOrUpdateParameters]
+ReadPrec CmafPackageCreateOrUpdateParameters
+Int -&gt; ReadS CmafPackageCreateOrUpdateParameters
+ReadS [CmafPackageCreateOrUpdateParameters]
+(Int -&gt; ReadS CmafPackageCreateOrUpdateParameters)
+-&gt; ReadS [CmafPackageCreateOrUpdateParameters]
+-&gt; ReadPrec CmafPackageCreateOrUpdateParameters
+-&gt; ReadPrec [CmafPackageCreateOrUpdateParameters]
+-&gt; Read CmafPackageCreateOrUpdateParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmafPackageCreateOrUpdateParameters]
+$creadListPrec :: ReadPrec [CmafPackageCreateOrUpdateParameters]
+readPrec :: ReadPrec CmafPackageCreateOrUpdateParameters
+$creadPrec :: ReadPrec CmafPackageCreateOrUpdateParameters
+readList :: ReadS [CmafPackageCreateOrUpdateParameters]
+$creadList :: ReadS [CmafPackageCreateOrUpdateParameters]
+readsPrec :: Int -&gt; ReadS CmafPackageCreateOrUpdateParameters
+$creadsPrec :: Int -&gt; ReadS CmafPackageCreateOrUpdateParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239440"><span id="local-6989586621679239442"><span id="local-6989586621679239444"><span class="annot"><span class="annottext">Int -&gt; CmafPackageCreateOrUpdateParameters -&gt; ShowS
+[CmafPackageCreateOrUpdateParameters] -&gt; ShowS
+CmafPackageCreateOrUpdateParameters -&gt; String
+(Int -&gt; CmafPackageCreateOrUpdateParameters -&gt; ShowS)
+-&gt; (CmafPackageCreateOrUpdateParameters -&gt; String)
+-&gt; ([CmafPackageCreateOrUpdateParameters] -&gt; ShowS)
+-&gt; Show CmafPackageCreateOrUpdateParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmafPackageCreateOrUpdateParameters] -&gt; ShowS
+$cshowList :: [CmafPackageCreateOrUpdateParameters] -&gt; ShowS
+show :: CmafPackageCreateOrUpdateParameters -&gt; String
+$cshow :: CmafPackageCreateOrUpdateParameters -&gt; String
+showsPrec :: Int -&gt; CmafPackageCreateOrUpdateParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmafPackageCreateOrUpdateParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CmafPackageCreateOrUpdateParameters
+ -&gt; Rep CmafPackageCreateOrUpdateParameters x)
+-&gt; (forall x.
+    Rep CmafPackageCreateOrUpdateParameters x
+    -&gt; CmafPackageCreateOrUpdateParameters)
+-&gt; Generic CmafPackageCreateOrUpdateParameters
+forall x.
+Rep CmafPackageCreateOrUpdateParameters x
+-&gt; CmafPackageCreateOrUpdateParameters
+forall x.
+CmafPackageCreateOrUpdateParameters
+-&gt; Rep CmafPackageCreateOrUpdateParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CmafPackageCreateOrUpdateParameters x
+-&gt; CmafPackageCreateOrUpdateParameters
+$cfrom :: forall x.
+CmafPackageCreateOrUpdateParameters
+-&gt; Rep CmafPackageCreateOrUpdateParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'CmafPackageCreateOrUpdateParameters' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'hlsManifests', 'cmafPackageCreateOrUpdateParameters_hlsManifests' - A list of HLS manifest configurations</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'segmentDurationSeconds', 'cmafPackageCreateOrUpdateParameters_segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'streamSelection', 'cmafPackageCreateOrUpdateParameters_streamSelection' - Undocumented member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'encryption', 'cmafPackageCreateOrUpdateParameters_encryption' - Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'segmentPrefix', 'cmafPackageCreateOrUpdateParameters_segmentPrefix' - An optional custom string that is prepended to the name of each segment.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#newCmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">newCmafPackageCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span>
+</span><span id="line-67"></span><span id="newCmafPackageCreateOrUpdateParameters"><span class="annot"><span class="annottext">newCmafPackageCreateOrUpdateParameters :: CmafPackageCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#newCmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-var hs-var">newCmafPackageCreateOrUpdateParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters' :: Maybe [HlsManifestCreateOrUpdateParameters]
+-&gt; Maybe Int
+-&gt; Maybe StreamSelection
+-&gt; Maybe CmafEncryption
+-&gt; Maybe Text
+-&gt; CmafPackageCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hlsManifests:CmafPackageCreateOrUpdateParameters' :: Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AhlsManifests%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe [HlsManifestCreateOrUpdateParameters]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:CmafPackageCreateOrUpdateParameters' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AsegmentDurationSeconds%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamSelection:CmafPackageCreateOrUpdateParameters' :: Maybe StreamSelection
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AstreamSelection%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:CmafPackageCreateOrUpdateParameters' :: Maybe CmafEncryption
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3Aencryption%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentPrefix:CmafPackageCreateOrUpdateParameters' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AsegmentPrefix%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | A list of HLS manifest configurations</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_hlsManifests"><span class="hs-identifier hs-type">cmafPackageCreateOrUpdateParameters_hlsManifests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="cmafPackageCreateOrUpdateParameters_hlsManifests"><span class="annot"><span class="annottext">cmafPackageCreateOrUpdateParameters_hlsManifests :: (Maybe [HlsManifestCreateOrUpdateParameters]
+ -&gt; f (Maybe [HlsManifestCreateOrUpdateParameters]))
+-&gt; CmafPackageCreateOrUpdateParameters
+-&gt; f CmafPackageCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_hlsManifests"><span class="hs-identifier hs-var hs-var">cmafPackageCreateOrUpdateParameters_hlsManifests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackageCreateOrUpdateParameters
+ -&gt; Maybe [HlsManifestCreateOrUpdateParameters])
+-&gt; (CmafPackageCreateOrUpdateParameters
+    -&gt; Maybe [HlsManifestCreateOrUpdateParameters]
+    -&gt; CmafPackageCreateOrUpdateParameters)
+-&gt; Lens
+     CmafPackageCreateOrUpdateParameters
+     CmafPackageCreateOrUpdateParameters
+     (Maybe [HlsManifestCreateOrUpdateParameters])
+     (Maybe [HlsManifestCreateOrUpdateParameters])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239431"><span class="annot"><span class="annottext">Maybe [HlsManifestCreateOrUpdateParameters]
+hlsManifests :: Maybe [HlsManifestCreateOrUpdateParameters]
+$sel:hlsManifests:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters
+-&gt; Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="#local-6989586621679239431"><span class="hs-identifier hs-var hs-var">hlsManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="#local-6989586621679239431"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239430"><span class="annot"><span class="annottext">s :: CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239429"><span class="annot"><span class="annottext">Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="#local-6989586621679239429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsManifests:CmafPackageCreateOrUpdateParameters' :: Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AhlsManifests%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="#local-6989586621679239429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HlsManifestCreateOrUpdateParameters]
+  -&gt; f (Maybe [HlsManifestCreateOrUpdateParameters]))
+ -&gt; CmafPackageCreateOrUpdateParameters
+ -&gt; f CmafPackageCreateOrUpdateParameters)
+-&gt; ((Maybe [HlsManifestCreateOrUpdateParameters]
+     -&gt; f (Maybe [HlsManifestCreateOrUpdateParameters]))
+    -&gt; Maybe [HlsManifestCreateOrUpdateParameters]
+    -&gt; f (Maybe [HlsManifestCreateOrUpdateParameters]))
+-&gt; (Maybe [HlsManifestCreateOrUpdateParameters]
+    -&gt; f (Maybe [HlsManifestCreateOrUpdateParameters]))
+-&gt; CmafPackageCreateOrUpdateParameters
+-&gt; f CmafPackageCreateOrUpdateParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HlsManifestCreateOrUpdateParameters]
+  [HlsManifestCreateOrUpdateParameters]
+  [HlsManifestCreateOrUpdateParameters]
+  [HlsManifestCreateOrUpdateParameters]
+-&gt; Iso
+     (Maybe [HlsManifestCreateOrUpdateParameters])
+     (Maybe [HlsManifestCreateOrUpdateParameters])
+     (Maybe [HlsManifestCreateOrUpdateParameters])
+     (Maybe [HlsManifestCreateOrUpdateParameters])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HlsManifestCreateOrUpdateParameters]
+  [HlsManifestCreateOrUpdateParameters]
+  [HlsManifestCreateOrUpdateParameters]
+  [HlsManifestCreateOrUpdateParameters]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_segmentDurationSeconds"><span class="hs-identifier hs-type">cmafPackageCreateOrUpdateParameters_segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="cmafPackageCreateOrUpdateParameters_segmentDurationSeconds"><span class="annot"><span class="annottext">cmafPackageCreateOrUpdateParameters_segmentDurationSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; CmafPackageCreateOrUpdateParameters
+-&gt; f CmafPackageCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_segmentDurationSeconds"><span class="hs-identifier hs-var hs-var">cmafPackageCreateOrUpdateParameters_segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackageCreateOrUpdateParameters -&gt; Maybe Int)
+-&gt; (CmafPackageCreateOrUpdateParameters
+    -&gt; Maybe Int -&gt; CmafPackageCreateOrUpdateParameters)
+-&gt; Lens
+     CmafPackageCreateOrUpdateParameters
+     CmafPackageCreateOrUpdateParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239424"><span class="annot"><span class="annottext">Maybe Int
+segmentDurationSeconds :: Maybe Int
+$sel:segmentDurationSeconds:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679239424"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239424"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239423"><span class="annot"><span class="annottext">s :: CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239422"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:CmafPackageCreateOrUpdateParameters' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AsegmentDurationSeconds%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_streamSelection"><span class="hs-identifier hs-type">cmafPackageCreateOrUpdateParameters_streamSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="cmafPackageCreateOrUpdateParameters_streamSelection"><span class="annot"><span class="annottext">cmafPackageCreateOrUpdateParameters_streamSelection :: (Maybe StreamSelection -&gt; f (Maybe StreamSelection))
+-&gt; CmafPackageCreateOrUpdateParameters
+-&gt; f CmafPackageCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_streamSelection"><span class="hs-identifier hs-var hs-var">cmafPackageCreateOrUpdateParameters_streamSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackageCreateOrUpdateParameters -&gt; Maybe StreamSelection)
+-&gt; (CmafPackageCreateOrUpdateParameters
+    -&gt; Maybe StreamSelection -&gt; CmafPackageCreateOrUpdateParameters)
+-&gt; Lens
+     CmafPackageCreateOrUpdateParameters
+     CmafPackageCreateOrUpdateParameters
+     (Maybe StreamSelection)
+     (Maybe StreamSelection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239420"><span class="annot"><span class="annottext">Maybe StreamSelection
+streamSelection :: Maybe StreamSelection
+$sel:streamSelection:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe StreamSelection
+</span><a href="#local-6989586621679239420"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239420"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239419"><span class="annot"><span class="annottext">s :: CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239418"><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamSelection:CmafPackageCreateOrUpdateParameters' :: Maybe StreamSelection
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AstreamSelection%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_encryption"><span class="hs-identifier hs-type">cmafPackageCreateOrUpdateParameters_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="cmafPackageCreateOrUpdateParameters_encryption"><span class="annot"><span class="annottext">cmafPackageCreateOrUpdateParameters_encryption :: (Maybe CmafEncryption -&gt; f (Maybe CmafEncryption))
+-&gt; CmafPackageCreateOrUpdateParameters
+-&gt; f CmafPackageCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_encryption"><span class="hs-identifier hs-var hs-var">cmafPackageCreateOrUpdateParameters_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackageCreateOrUpdateParameters -&gt; Maybe CmafEncryption)
+-&gt; (CmafPackageCreateOrUpdateParameters
+    -&gt; Maybe CmafEncryption -&gt; CmafPackageCreateOrUpdateParameters)
+-&gt; Lens
+     CmafPackageCreateOrUpdateParameters
+     CmafPackageCreateOrUpdateParameters
+     (Maybe CmafEncryption)
+     (Maybe CmafEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239416"><span class="annot"><span class="annottext">Maybe CmafEncryption
+encryption :: Maybe CmafEncryption
+$sel:encryption:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe CmafEncryption
+</span><a href="#local-6989586621679239416"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
+</span><a href="#local-6989586621679239416"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239415"><span class="annot"><span class="annottext">s :: CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239414"><span class="annot"><span class="annottext">Maybe CmafEncryption
+</span><a href="#local-6989586621679239414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:CmafPackageCreateOrUpdateParameters' :: Maybe CmafEncryption
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3Aencryption%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
+</span><a href="#local-6989586621679239414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | An optional custom string that is prepended to the name of each segment.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_segmentPrefix"><span class="hs-identifier hs-type">cmafPackageCreateOrUpdateParameters_segmentPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="cmafPackageCreateOrUpdateParameters_segmentPrefix"><span class="annot"><span class="annottext">cmafPackageCreateOrUpdateParameters_segmentPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CmafPackageCreateOrUpdateParameters
+-&gt; f CmafPackageCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#cmafPackageCreateOrUpdateParameters_segmentPrefix"><span class="hs-identifier hs-var hs-var">cmafPackageCreateOrUpdateParameters_segmentPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackageCreateOrUpdateParameters -&gt; Maybe Text)
+-&gt; (CmafPackageCreateOrUpdateParameters
+    -&gt; Maybe Text -&gt; CmafPackageCreateOrUpdateParameters)
+-&gt; Lens
+     CmafPackageCreateOrUpdateParameters
+     CmafPackageCreateOrUpdateParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239412"><span class="annot"><span class="annottext">Maybe Text
+segmentPrefix :: Maybe Text
+$sel:segmentPrefix:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679239412"><span class="hs-identifier hs-var hs-var">segmentPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239412"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239411"><span class="annot"><span class="annottext">s :: CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239410"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackageCreateOrUpdateParameters
+</span><a href="#local-6989586621679239411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentPrefix:CmafPackageCreateOrUpdateParameters' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#%24sel%3AsegmentPrefix%3ACmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679239406"><span id="local-6989586621679239408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679239403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679239395"><span id="local-6989586621679239397"><span id="local-6989586621679239399"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters</span></a></span></span></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679239393"><span class="annot"><span class="annottext">toJSON :: CmafPackageCreateOrUpdateParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.html#CmafPackageCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">CmafPackageCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239387"><span id="local-6989586621679239388"><span id="local-6989586621679239389"><span id="local-6989586621679239390"><span id="local-6989586621679239391"><span class="annot"><span class="annottext">Maybe Int
+Maybe [HlsManifestCreateOrUpdateParameters]
+Maybe Text
+Maybe CmafEncryption
+Maybe StreamSelection
+segmentPrefix :: Maybe Text
+encryption :: Maybe CmafEncryption
+streamSelection :: Maybe StreamSelection
+segmentDurationSeconds :: Maybe Int
+hlsManifests :: Maybe [HlsManifestCreateOrUpdateParameters]
+$sel:segmentPrefix:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe Text
+$sel:encryption:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe CmafEncryption
+$sel:streamSelection:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe StreamSelection
+$sel:segmentDurationSeconds:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters -&gt; Maybe Int
+$sel:hlsManifests:CmafPackageCreateOrUpdateParameters' :: CmafPackageCreateOrUpdateParameters
+-&gt; Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="#local-6989586621679239387"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [HlsManifestCreateOrUpdateParameters] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([HlsManifestCreateOrUpdateParameters] -&gt; Pair)
+-&gt; Maybe [HlsManifestCreateOrUpdateParameters] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifestCreateOrUpdateParameters]
+</span><a href="#local-6989586621679239391"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239390"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamSelection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Pair) -&gt; Maybe StreamSelection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239389"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmafEncryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CmafEncryption -&gt; Pair) -&gt; Maybe CmafEncryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
+</span><a href="#local-6989586621679239388"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239387"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span></pre></body></html>

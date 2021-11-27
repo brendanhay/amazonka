@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.Types.RaidArray</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.Types.RaidArray</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes an instance\'s RAID array.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRaidArray' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679376059"><span id="local-6989586621679376060"></span></span><span class="hs-keyword">data</span><span> </span><span id="RaidArray"><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-var">RaidArray</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RaidArray%27"><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-var">RaidArray'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AinstanceId%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AinstanceId%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The array\'s size.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asize%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Asize%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | For PIOPS volumes, the IOPS per disk.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aiops%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Aiops%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | When the RAID array was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreatedAt%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AcreatedAt%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The &lt;http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level&gt;.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AraidLevel%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AraidLevel%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">raidLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The array\'s Linux device. For example \/dev\/mdadm0.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adevice%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Adevice%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The number of disks in the array.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AnumberOfDisks%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AnumberOfDisks%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">numberOfDisks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The array\'s Availability Zone. For more information, see</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints&gt;.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AavailabilityZone%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AavailabilityZone%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The array name.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Aname%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The array ID.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AraidArrayId%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AraidArrayId%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">raidArrayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The volume type, standard or PIOPS.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AvolumeType%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AvolumeType%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The stack ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AstackId%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AstackId%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The array\'s mount point.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AmountPoint%3ARaidArray%27"><span class="annot"><span class="annottext">RaidArray -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AmountPoint%3ARaidArray%27"><span class="hs-identifier hs-var hs-var">mountPoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376041"><span id="local-6989586621679376043"><span class="annot"><span class="annottext">RaidArray -&gt; RaidArray -&gt; Bool
+(RaidArray -&gt; RaidArray -&gt; Bool)
+-&gt; (RaidArray -&gt; RaidArray -&gt; Bool) -&gt; Eq RaidArray
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RaidArray -&gt; RaidArray -&gt; Bool
+$c/= :: RaidArray -&gt; RaidArray -&gt; Bool
+== :: RaidArray -&gt; RaidArray -&gt; Bool
+$c== :: RaidArray -&gt; RaidArray -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376032"><span id="local-6989586621679376034"><span id="local-6989586621679376036"><span id="local-6989586621679376038"><span class="annot"><span class="annottext">ReadPrec [RaidArray]
+ReadPrec RaidArray
+Int -&gt; ReadS RaidArray
+ReadS [RaidArray]
+(Int -&gt; ReadS RaidArray)
+-&gt; ReadS [RaidArray]
+-&gt; ReadPrec RaidArray
+-&gt; ReadPrec [RaidArray]
+-&gt; Read RaidArray
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RaidArray]
+$creadListPrec :: ReadPrec [RaidArray]
+readPrec :: ReadPrec RaidArray
+$creadPrec :: ReadPrec RaidArray
+readList :: ReadS [RaidArray]
+$creadList :: ReadS [RaidArray]
+readsPrec :: Int -&gt; ReadS RaidArray
+$creadsPrec :: Int -&gt; ReadS RaidArray
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376025"><span id="local-6989586621679376027"><span id="local-6989586621679376029"><span class="annot"><span class="annottext">Int -&gt; RaidArray -&gt; ShowS
+[RaidArray] -&gt; ShowS
+RaidArray -&gt; String
+(Int -&gt; RaidArray -&gt; ShowS)
+-&gt; (RaidArray -&gt; String)
+-&gt; ([RaidArray] -&gt; ShowS)
+-&gt; Show RaidArray
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RaidArray] -&gt; ShowS
+$cshowList :: [RaidArray] -&gt; ShowS
+show :: RaidArray -&gt; String
+$cshow :: RaidArray -&gt; String
+showsPrec :: Int -&gt; RaidArray -&gt; ShowS
+$cshowsPrec :: Int -&gt; RaidArray -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RaidArray -&gt; Rep RaidArray x)
+-&gt; (forall x. Rep RaidArray x -&gt; RaidArray) -&gt; Generic RaidArray
+forall x. Rep RaidArray x -&gt; RaidArray
+forall x. RaidArray -&gt; Rep RaidArray x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RaidArray x -&gt; RaidArray
+$cfrom :: forall x. RaidArray -&gt; Rep RaidArray x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'RaidArray' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'instanceId', 'raidArray_instanceId' - The instance ID.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'size', 'raidArray_size' - The array\'s size.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'iops', 'raidArray_iops' - For PIOPS volumes, the IOPS per disk.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'createdAt', 'raidArray_createdAt' - When the RAID array was created.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'raidLevel', 'raidArray_raidLevel' - The &lt;http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level&gt;.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'device', 'raidArray_device' - The array\'s Linux device. For example \/dev\/mdadm0.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'numberOfDisks', 'raidArray_numberOfDisks' - The number of disks in the array.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'availabilityZone', 'raidArray_availabilityZone' - The array\'s Availability Zone. For more information, see</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints&gt;.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'name', 'raidArray_name' - The array name.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'raidArrayId', 'raidArray_raidArrayId' - The array ID.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'volumeType', 'raidArray_volumeType' - The volume type, standard or PIOPS.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'stackId', 'raidArray_stackId' - The stack ID.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'mountPoint', 'raidArray_mountPoint' - The array\'s mount point.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#newRaidArray"><span class="hs-identifier hs-type">newRaidArray</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span>
+</span><span id="line-96"></span><span id="newRaidArray"><span class="annot"><span class="annottext">newRaidArray :: RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#newRaidArray"><span class="hs-identifier hs-var hs-var">newRaidArray</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">RaidArray' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AinstanceId%3ARaidArray%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:size:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Asize%3ARaidArray%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:iops:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Aiops%3ARaidArray%27"><span class="hs-identifier hs-var">iops</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AcreatedAt%3ARaidArray%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:raidLevel:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AraidLevel%3ARaidArray%27"><span class="hs-identifier hs-var">raidLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:device:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Adevice%3ARaidArray%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfDisks:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AnumberOfDisks%3ARaidArray%27"><span class="hs-identifier hs-var">numberOfDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AavailabilityZone%3ARaidArray%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Aname%3ARaidArray%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:raidArrayId:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AraidArrayId%3ARaidArray%27"><span class="hs-identifier hs-var">raidArrayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeType:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AvolumeType%3ARaidArray%27"><span class="hs-identifier hs-var">volumeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AstackId%3ARaidArray%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:mountPoint:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AmountPoint%3ARaidArray%27"><span class="hs-identifier hs-var">mountPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_instanceId"><span class="hs-identifier hs-type">raidArray_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="raidArray_instanceId"><span class="annot"><span class="annottext">raidArray_instanceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_instanceId"><span class="hs-identifier hs-var hs-var">raidArray_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376016"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679376016"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376016"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376015"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679376015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376014"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679376015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AinstanceId%3ARaidArray%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The array\'s size.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_size"><span class="hs-identifier hs-type">raidArray_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="raidArray_size"><span class="annot"><span class="annottext">raidArray_size :: (Maybe Int -&gt; f (Maybe Int)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_size"><span class="hs-identifier hs-var hs-var">raidArray_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Int)
+-&gt; (RaidArray -&gt; Maybe Int -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376012"><span class="annot"><span class="annottext">Maybe Int
+size :: Maybe Int
+$sel:size:RaidArray' :: RaidArray -&gt; Maybe Int
+</span><a href="#local-6989586621679376012"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376012"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376011"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679376011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376010"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679376011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Asize%3ARaidArray%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | For PIOPS volumes, the IOPS per disk.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_iops"><span class="hs-identifier hs-type">raidArray_iops</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="raidArray_iops"><span class="annot"><span class="annottext">raidArray_iops :: (Maybe Int -&gt; f (Maybe Int)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_iops"><span class="hs-identifier hs-var hs-var">raidArray_iops</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Int)
+-&gt; (RaidArray -&gt; Maybe Int -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376008"><span class="annot"><span class="annottext">Maybe Int
+iops :: Maybe Int
+$sel:iops:RaidArray' :: RaidArray -&gt; Maybe Int
+</span><a href="#local-6989586621679376008"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376008"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376007"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679376007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376006"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679376007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iops:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Aiops%3ARaidArray%27"><span class="hs-identifier hs-var">iops</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | When the RAID array was created.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_createdAt"><span class="hs-identifier hs-type">raidArray_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="raidArray_createdAt"><span class="annot"><span class="annottext">raidArray_createdAt :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_createdAt"><span class="hs-identifier hs-var hs-var">raidArray_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376004"><span class="annot"><span class="annottext">Maybe Text
+createdAt :: Maybe Text
+$sel:createdAt:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679376004"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376004"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376003"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679376003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376002"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679376003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AcreatedAt%3ARaidArray%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The &lt;http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level&gt;.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_raidLevel"><span class="hs-identifier hs-type">raidArray_raidLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="raidArray_raidLevel"><span class="annot"><span class="annottext">raidArray_raidLevel :: (Maybe Int -&gt; f (Maybe Int)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_raidLevel"><span class="hs-identifier hs-var hs-var">raidArray_raidLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Int)
+-&gt; (RaidArray -&gt; Maybe Int -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376000"><span class="annot"><span class="annottext">Maybe Int
+raidLevel :: Maybe Int
+$sel:raidLevel:RaidArray' :: RaidArray -&gt; Maybe Int
+</span><a href="#local-6989586621679376000"><span class="hs-identifier hs-var hs-var">raidLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376000"><span class="hs-identifier hs-var">raidLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375999"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375998"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679375998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:raidLevel:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AraidLevel%3ARaidArray%27"><span class="hs-identifier hs-var">raidLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679375998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The array\'s Linux device. For example \/dev\/mdadm0.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_device"><span class="hs-identifier hs-type">raidArray_device</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="raidArray_device"><span class="annot"><span class="annottext">raidArray_device :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_device"><span class="hs-identifier hs-var hs-var">raidArray_device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375996"><span class="annot"><span class="annottext">Maybe Text
+device :: Maybe Text
+$sel:device:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679375996"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375996"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375995"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Adevice%3ARaidArray%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The number of disks in the array.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_numberOfDisks"><span class="hs-identifier hs-type">raidArray_numberOfDisks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="raidArray_numberOfDisks"><span class="annot"><span class="annottext">raidArray_numberOfDisks :: (Maybe Int -&gt; f (Maybe Int)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_numberOfDisks"><span class="hs-identifier hs-var hs-var">raidArray_numberOfDisks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Int)
+-&gt; (RaidArray -&gt; Maybe Int -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375992"><span class="annot"><span class="annottext">Maybe Int
+numberOfDisks :: Maybe Int
+$sel:numberOfDisks:RaidArray' :: RaidArray -&gt; Maybe Int
+</span><a href="#local-6989586621679375992"><span class="hs-identifier hs-var hs-var">numberOfDisks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679375992"><span class="hs-identifier hs-var">numberOfDisks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375991"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375990"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679375990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDisks:RaidArray' :: Maybe Int
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AnumberOfDisks%3ARaidArray%27"><span class="hs-identifier hs-var">numberOfDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679375990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The array\'s Availability Zone. For more information, see</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints&gt;.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_availabilityZone"><span class="hs-identifier hs-type">raidArray_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="raidArray_availabilityZone"><span class="annot"><span class="annottext">raidArray_availabilityZone :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_availabilityZone"><span class="hs-identifier hs-var hs-var">raidArray_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375988"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679375988"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375988"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375987"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AavailabilityZone%3ARaidArray%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The array name.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_name"><span class="hs-identifier hs-type">raidArray_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="raidArray_name"><span class="annot"><span class="annottext">raidArray_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_name"><span class="hs-identifier hs-var hs-var">raidArray_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375984"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679375984"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375984"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375983"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375982"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3Aname%3ARaidArray%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The array ID.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_raidArrayId"><span class="hs-identifier hs-type">raidArray_raidArrayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="raidArray_raidArrayId"><span class="annot"><span class="annottext">raidArray_raidArrayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_raidArrayId"><span class="hs-identifier hs-var hs-var">raidArray_raidArrayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375980"><span class="annot"><span class="annottext">Maybe Text
+raidArrayId :: Maybe Text
+$sel:raidArrayId:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679375980"><span class="hs-identifier hs-var hs-var">raidArrayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375980"><span class="hs-identifier hs-var">raidArrayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375979"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375978"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:raidArrayId:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AraidArrayId%3ARaidArray%27"><span class="hs-identifier hs-var">raidArrayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The volume type, standard or PIOPS.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_volumeType"><span class="hs-identifier hs-type">raidArray_volumeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="raidArray_volumeType"><span class="annot"><span class="annottext">raidArray_volumeType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_volumeType"><span class="hs-identifier hs-var hs-var">raidArray_volumeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375976"><span class="annot"><span class="annottext">Maybe Text
+volumeType :: Maybe Text
+$sel:volumeType:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679375976"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375976"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375975"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeType:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AvolumeType%3ARaidArray%27"><span class="hs-identifier hs-var">volumeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The stack ID.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_stackId"><span class="hs-identifier hs-type">raidArray_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="raidArray_stackId"><span class="annot"><span class="annottext">raidArray_stackId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_stackId"><span class="hs-identifier hs-var hs-var">raidArray_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375972"><span class="annot"><span class="annottext">Maybe Text
+stackId :: Maybe Text
+$sel:stackId:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679375972"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375972"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375971"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375970"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AstackId%3ARaidArray%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The array\'s mount point.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_mountPoint"><span class="hs-identifier hs-type">raidArray_mountPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="raidArray_mountPoint"><span class="annot"><span class="annottext">raidArray_mountPoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RaidArray -&gt; f RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#raidArray_mountPoint"><span class="hs-identifier hs-var hs-var">raidArray_mountPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RaidArray -&gt; Maybe Text)
+-&gt; (RaidArray -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Lens RaidArray RaidArray (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375968"><span class="annot"><span class="annottext">Maybe Text
+mountPoint :: Maybe Text
+$sel:mountPoint:RaidArray' :: RaidArray -&gt; Maybe Text
+</span><a href="#local-6989586621679375968"><span class="hs-identifier hs-var hs-var">mountPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375968"><span class="hs-identifier hs-var">mountPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375967"><span class="annot"><span class="annottext">s :: RaidArray
+</span><a href="#local-6989586621679375967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-type">RaidArray'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375966"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RaidArray
+</span><a href="#local-6989586621679375967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mountPoint:RaidArray' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#%24sel%3AmountPoint%3ARaidArray%27"><span class="hs-identifier hs-var">mountPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375963"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679375961"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RaidArray
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser RaidArray) -&gt; Value -&gt; Parser RaidArray
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RaidArray&quot;</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679375958"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RaidArray
+</span><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray%27"><span class="hs-identifier hs-var">RaidArray'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; RaidArray)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Iops&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RaidLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Device&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfDisks&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RaidArray)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RaidArrayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RaidArray)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RaidArray)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RaidArray)
+-&gt; Parser (Maybe Text) -&gt; Parser RaidArray
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MountPoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375952"><span id="local-6989586621679375954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

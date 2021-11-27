@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.Types.GlobalNodeGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.Types.GlobalNodeGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Indicates the slot configuration and global identifier for a slice</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGlobalNodeGroup' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679399800"><span id="local-6989586621679399801"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalNodeGroup"><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-var">GlobalNodeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalNodeGroup%27"><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-var">GlobalNodeGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The keyspace for this node group</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the global node group</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var hs-var">globalNodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399793"><span id="local-6989586621679399795"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
+(GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool)
+-&gt; (GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool)
+-&gt; Eq GlobalNodeGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
+$c/= :: GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
+== :: GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
+$c== :: GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399784"><span id="local-6989586621679399786"><span id="local-6989586621679399788"><span id="local-6989586621679399790"><span class="annot"><span class="annottext">ReadPrec [GlobalNodeGroup]
+ReadPrec GlobalNodeGroup
+Int -&gt; ReadS GlobalNodeGroup
+ReadS [GlobalNodeGroup]
+(Int -&gt; ReadS GlobalNodeGroup)
+-&gt; ReadS [GlobalNodeGroup]
+-&gt; ReadPrec GlobalNodeGroup
+-&gt; ReadPrec [GlobalNodeGroup]
+-&gt; Read GlobalNodeGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GlobalNodeGroup]
+$creadListPrec :: ReadPrec [GlobalNodeGroup]
+readPrec :: ReadPrec GlobalNodeGroup
+$creadPrec :: ReadPrec GlobalNodeGroup
+readList :: ReadS [GlobalNodeGroup]
+$creadList :: ReadS [GlobalNodeGroup]
+readsPrec :: Int -&gt; ReadS GlobalNodeGroup
+$creadsPrec :: Int -&gt; ReadS GlobalNodeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399777"><span id="local-6989586621679399779"><span id="local-6989586621679399781"><span class="annot"><span class="annottext">Int -&gt; GlobalNodeGroup -&gt; ShowS
+[GlobalNodeGroup] -&gt; ShowS
+GlobalNodeGroup -&gt; String
+(Int -&gt; GlobalNodeGroup -&gt; ShowS)
+-&gt; (GlobalNodeGroup -&gt; String)
+-&gt; ([GlobalNodeGroup] -&gt; ShowS)
+-&gt; Show GlobalNodeGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GlobalNodeGroup] -&gt; ShowS
+$cshowList :: [GlobalNodeGroup] -&gt; ShowS
+show :: GlobalNodeGroup -&gt; String
+$cshow :: GlobalNodeGroup -&gt; String
+showsPrec :: Int -&gt; GlobalNodeGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; GlobalNodeGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GlobalNodeGroup -&gt; Rep GlobalNodeGroup x)
+-&gt; (forall x. Rep GlobalNodeGroup x -&gt; GlobalNodeGroup)
+-&gt; Generic GlobalNodeGroup
+forall x. Rep GlobalNodeGroup x -&gt; GlobalNodeGroup
+forall x. GlobalNodeGroup -&gt; Rep GlobalNodeGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GlobalNodeGroup x -&gt; GlobalNodeGroup
+$cfrom :: forall x. GlobalNodeGroup -&gt; Rep GlobalNodeGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'GlobalNodeGroup' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'slots', 'globalNodeGroup_slots' - The keyspace for this node group</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'globalNodeGroupId', 'globalNodeGroup_globalNodeGroupId' - The name of the global node group</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#newGlobalNodeGroup"><span class="hs-identifier hs-type">newGlobalNodeGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span>
+</span><span id="line-51"></span><span id="newGlobalNodeGroup"><span class="annot"><span class="annottext">newGlobalNodeGroup :: GlobalNodeGroup
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#newGlobalNodeGroup"><span class="hs-identifier hs-var hs-var">newGlobalNodeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">GlobalNodeGroup' :: Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:slots:GlobalNodeGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalNodeGroupId:GlobalNodeGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The keyspace for this node group</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_slots"><span class="hs-identifier hs-type">globalNodeGroup_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="globalNodeGroup_slots"><span class="annot"><span class="annottext">globalNodeGroup_slots :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GlobalNodeGroup -&gt; f GlobalNodeGroup
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_slots"><span class="hs-identifier hs-var hs-var">globalNodeGroup_slots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalNodeGroup -&gt; Maybe Text)
+-&gt; (GlobalNodeGroup -&gt; Maybe Text -&gt; GlobalNodeGroup)
+-&gt; Lens GlobalNodeGroup GlobalNodeGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399768"><span class="annot"><span class="annottext">Maybe Text
+slots :: Maybe Text
+$sel:slots:GlobalNodeGroup' :: GlobalNodeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399768"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399768"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399767"><span class="annot"><span class="annottext">s :: GlobalNodeGroup
+</span><a href="#local-6989586621679399767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalNodeGroup
+</span><a href="#local-6989586621679399767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:GlobalNodeGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The name of the global node group</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_globalNodeGroupId"><span class="hs-identifier hs-type">globalNodeGroup_globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="globalNodeGroup_globalNodeGroupId"><span class="annot"><span class="annottext">globalNodeGroup_globalNodeGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GlobalNodeGroup -&gt; f GlobalNodeGroup
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_globalNodeGroupId"><span class="hs-identifier hs-var hs-var">globalNodeGroup_globalNodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalNodeGroup -&gt; Maybe Text)
+-&gt; (GlobalNodeGroup -&gt; Maybe Text -&gt; GlobalNodeGroup)
+-&gt; Lens GlobalNodeGroup GlobalNodeGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399764"><span class="annot"><span class="annottext">Maybe Text
+globalNodeGroupId :: Maybe Text
+$sel:globalNodeGroupId:GlobalNodeGroup' :: GlobalNodeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399764"><span class="hs-identifier hs-var hs-var">globalNodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399764"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399763"><span class="annot"><span class="annottext">s :: GlobalNodeGroup
+</span><a href="#local-6989586621679399763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399762"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalNodeGroup
+</span><a href="#local-6989586621679399763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNodeGroupId:GlobalNodeGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679399759"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GlobalNodeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399757"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup
+</span><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-var">GlobalNodeGroup'</span></a></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; GlobalNodeGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Slots&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; GlobalNodeGroup)
+-&gt; Either String (Maybe Text) -&gt; Either String GlobalNodeGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalNodeGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399751"><span id="local-6989586621679399753"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span></span><span>
+</span><span id="line-74"></span></pre></body></html>

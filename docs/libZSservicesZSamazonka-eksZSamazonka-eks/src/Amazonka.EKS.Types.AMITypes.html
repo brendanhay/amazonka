@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EKS.Types.AMITypes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EKS.Types.AMITypes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes"><span class="hs-identifier">AMITypes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_ARM_64"><span class="hs-identifier">AMITypes_AL2_ARM_64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_x86_64"><span class="hs-identifier">AMITypes_AL2_x86_64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_x86_64_GPU"><span class="hs-identifier">AMITypes_AL2_x86_64_GPU</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_CUSTOM"><span class="hs-identifier">AMITypes_CUSTOM</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679262648"><span id="local-6989586621679262649"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AMITypes"><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes"><span class="hs-identifier hs-var">AMITypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AMITypes%27"><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes%27"><span class="hs-identifier hs-var">AMITypes'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAMITypes"><span class="annot"><span class="annottext">AMITypes -&gt; Text
+</span><a href="Amazonka.EKS.Types.AMITypes.html#fromAMITypes"><span class="hs-identifier hs-var hs-var">fromAMITypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262640"><span id="local-6989586621679262642"><span id="local-6989586621679262644"><span class="annot"><span class="annottext">Int -&gt; AMITypes -&gt; ShowS
+[AMITypes] -&gt; ShowS
+AMITypes -&gt; String
+(Int -&gt; AMITypes -&gt; ShowS)
+-&gt; (AMITypes -&gt; String) -&gt; ([AMITypes] -&gt; ShowS) -&gt; Show AMITypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AMITypes] -&gt; ShowS
+$cshowList :: [AMITypes] -&gt; ShowS
+show :: AMITypes -&gt; String
+$cshow :: AMITypes -&gt; String
+showsPrec :: Int -&gt; AMITypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; AMITypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679262631"><span id="local-6989586621679262633"><span id="local-6989586621679262635"><span id="local-6989586621679262637"><span class="annot"><span class="annottext">ReadPrec [AMITypes]
+ReadPrec AMITypes
+Int -&gt; ReadS AMITypes
+ReadS [AMITypes]
+(Int -&gt; ReadS AMITypes)
+-&gt; ReadS [AMITypes]
+-&gt; ReadPrec AMITypes
+-&gt; ReadPrec [AMITypes]
+-&gt; Read AMITypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AMITypes]
+$creadListPrec :: ReadPrec [AMITypes]
+readPrec :: ReadPrec AMITypes
+$creadPrec :: ReadPrec AMITypes
+readList :: ReadS [AMITypes]
+$creadList :: ReadS [AMITypes]
+readsPrec :: Int -&gt; ReadS AMITypes
+$creadsPrec :: Int -&gt; ReadS AMITypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679262626"><span id="local-6989586621679262628"><span class="annot"><span class="annottext">AMITypes -&gt; AMITypes -&gt; Bool
+(AMITypes -&gt; AMITypes -&gt; Bool)
+-&gt; (AMITypes -&gt; AMITypes -&gt; Bool) -&gt; Eq AMITypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AMITypes -&gt; AMITypes -&gt; Bool
+$c/= :: AMITypes -&gt; AMITypes -&gt; Bool
+== :: AMITypes -&gt; AMITypes -&gt; Bool
+$c== :: AMITypes -&gt; AMITypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679262610"><span id="local-6989586621679262612"><span id="local-6989586621679262614"><span id="local-6989586621679262616"><span id="local-6989586621679262618"><span id="local-6989586621679262620"><span id="local-6989586621679262622"><span class="annot"><span class="annottext">Eq AMITypes
+Eq AMITypes
+-&gt; (AMITypes -&gt; AMITypes -&gt; Ordering)
+-&gt; (AMITypes -&gt; AMITypes -&gt; Bool)
+-&gt; (AMITypes -&gt; AMITypes -&gt; Bool)
+-&gt; (AMITypes -&gt; AMITypes -&gt; Bool)
+-&gt; (AMITypes -&gt; AMITypes -&gt; Bool)
+-&gt; (AMITypes -&gt; AMITypes -&gt; AMITypes)
+-&gt; (AMITypes -&gt; AMITypes -&gt; AMITypes)
+-&gt; Ord AMITypes
+AMITypes -&gt; AMITypes -&gt; Bool
+AMITypes -&gt; AMITypes -&gt; Ordering
+AMITypes -&gt; AMITypes -&gt; AMITypes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AMITypes -&gt; AMITypes -&gt; AMITypes
+$cmin :: AMITypes -&gt; AMITypes -&gt; AMITypes
+max :: AMITypes -&gt; AMITypes -&gt; AMITypes
+$cmax :: AMITypes -&gt; AMITypes -&gt; AMITypes
+&gt;= :: AMITypes -&gt; AMITypes -&gt; Bool
+$c&gt;= :: AMITypes -&gt; AMITypes -&gt; Bool
+&gt; :: AMITypes -&gt; AMITypes -&gt; Bool
+$c&gt; :: AMITypes -&gt; AMITypes -&gt; Bool
+&lt;= :: AMITypes -&gt; AMITypes -&gt; Bool
+$c&lt;= :: AMITypes -&gt; AMITypes -&gt; Bool
+&lt; :: AMITypes -&gt; AMITypes -&gt; Bool
+$c&lt; :: AMITypes -&gt; AMITypes -&gt; Bool
+compare :: AMITypes -&gt; AMITypes -&gt; Ordering
+$ccompare :: AMITypes -&gt; AMITypes -&gt; Ordering
+$cp1Ord :: Eq AMITypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AMITypes -&gt; Rep AMITypes x)
+-&gt; (forall x. Rep AMITypes x -&gt; AMITypes) -&gt; Generic AMITypes
+forall x. Rep AMITypes x -&gt; AMITypes
+forall x. AMITypes -&gt; Rep AMITypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AMITypes x -&gt; AMITypes
+$cfrom :: forall x. AMITypes -&gt; Rep AMITypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262602"><span id="local-6989586621679262604"><span class="annot"><span class="annottext">Int -&gt; AMITypes -&gt; Int
+AMITypes -&gt; Int
+(Int -&gt; AMITypes -&gt; Int) -&gt; (AMITypes -&gt; Int) -&gt; Hashable AMITypes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AMITypes -&gt; Int
+$chash :: AMITypes -&gt; Int
+hashWithSalt :: Int -&gt; AMITypes -&gt; Int
+$chashWithSalt :: Int -&gt; AMITypes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679262599"><span class="annot"><span class="annottext">AMITypes -&gt; ()
+(AMITypes -&gt; ()) -&gt; NFData AMITypes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AMITypes -&gt; ()
+$crnf :: AMITypes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679262596"><span class="annot"><span class="annottext">Text -&gt; Either String AMITypes
+(Text -&gt; Either String AMITypes) -&gt; FromText AMITypes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AMITypes
+$cfromText :: Text -&gt; Either String AMITypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679262593"><span class="annot"><span class="annottext">AMITypes -&gt; Text
+(AMITypes -&gt; Text) -&gt; ToText AMITypes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AMITypes -&gt; Text
+$ctoText :: AMITypes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262590"><span class="annot"><span class="annottext">AMITypes -&gt; ByteString
+(AMITypes -&gt; ByteString) -&gt; ToByteString AMITypes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AMITypes -&gt; ByteString
+$ctoBS :: AMITypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262587"><span class="annot"><span class="annottext">AMITypes -&gt; ByteStringBuilder
+(AMITypes -&gt; ByteStringBuilder) -&gt; ToLog AMITypes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AMITypes -&gt; ByteStringBuilder
+$cbuild :: AMITypes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262584"><span class="annot"><span class="annottext">HeaderName -&gt; AMITypes -&gt; [Header]
+(HeaderName -&gt; AMITypes -&gt; [Header]) -&gt; ToHeader AMITypes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AMITypes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AMITypes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262581"><span class="annot"><span class="annottext">AMITypes -&gt; QueryString
+(AMITypes -&gt; QueryString) -&gt; ToQuery AMITypes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AMITypes -&gt; QueryString
+$ctoQuery :: AMITypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262576"><span id="local-6989586621679262578"><span class="annot"><span class="annottext">Value -&gt; Parser [AMITypes]
+Value -&gt; Parser AMITypes
+(Value -&gt; Parser AMITypes)
+-&gt; (Value -&gt; Parser [AMITypes]) -&gt; FromJSON AMITypes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AMITypes]
+$cparseJSONList :: Value -&gt; Parser [AMITypes]
+parseJSON :: Value -&gt; Parser AMITypes
+$cparseJSON :: Value -&gt; Parser AMITypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262571"><span id="local-6989586621679262573"><span class="annot"><span class="annottext">FromJSONKeyFunction [AMITypes]
+FromJSONKeyFunction AMITypes
+FromJSONKeyFunction AMITypes
+-&gt; FromJSONKeyFunction [AMITypes] -&gt; FromJSONKey AMITypes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AMITypes]
+$cfromJSONKeyList :: FromJSONKeyFunction [AMITypes]
+fromJSONKey :: FromJSONKeyFunction AMITypes
+$cfromJSONKey :: FromJSONKeyFunction AMITypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262562"><span id="local-6989586621679262564"><span id="local-6989586621679262566"><span id="local-6989586621679262568"><span class="annot"><span class="annottext">[AMITypes] -&gt; Encoding
+[AMITypes] -&gt; Value
+AMITypes -&gt; Encoding
+AMITypes -&gt; Value
+(AMITypes -&gt; Value)
+-&gt; (AMITypes -&gt; Encoding)
+-&gt; ([AMITypes] -&gt; Value)
+-&gt; ([AMITypes] -&gt; Encoding)
+-&gt; ToJSON AMITypes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AMITypes] -&gt; Encoding
+$ctoEncodingList :: [AMITypes] -&gt; Encoding
+toJSONList :: [AMITypes] -&gt; Value
+$ctoJSONList :: [AMITypes] -&gt; Value
+toEncoding :: AMITypes -&gt; Encoding
+$ctoEncoding :: AMITypes -&gt; Encoding
+toJSON :: AMITypes -&gt; Value
+$ctoJSON :: AMITypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262557"><span id="local-6989586621679262559"><span class="annot"><span class="annottext">ToJSONKeyFunction [AMITypes]
+ToJSONKeyFunction AMITypes
+ToJSONKeyFunction AMITypes
+-&gt; ToJSONKeyFunction [AMITypes] -&gt; ToJSONKey AMITypes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AMITypes]
+$ctoJSONKeyList :: ToJSONKeyFunction [AMITypes]
+toJSONKey :: ToJSONKeyFunction AMITypes
+$ctoJSONKey :: ToJSONKeyFunction AMITypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679262554"><span class="annot"><span class="annottext">[Node] -&gt; Either String AMITypes
+([Node] -&gt; Either String AMITypes) -&gt; FromXML AMITypes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AMITypes
+$cparseXML :: [Node] -&gt; Either String AMITypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679262551"><span class="annot"><span class="annottext">AMITypes -&gt; XML
+(AMITypes -&gt; XML) -&gt; ToXML AMITypes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AMITypes -&gt; XML
+$ctoXML :: AMITypes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_ARM_64"><span class="hs-identifier hs-type">AMITypes_AL2_ARM_64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes"><span class="hs-identifier hs-type">AMITypes</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAMITypes_AL2_ARM_64"><span id="%24mAMITypes_AL2_ARM_64"><span id="AMITypes_AL2_ARM_64"><span class="annot"><span class="annottext">$bAMITypes_AL2_ARM_64 :: AMITypes
+$mAMITypes_AL2_ARM_64 :: forall r. AMITypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AMITypes.html#%24bAMITypes_AL2_ARM_64"><span class="hs-identifier hs-var hs-var hs-var">AMITypes_AL2_ARM_64</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes%27"><span class="hs-identifier hs-type">AMITypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AL2_ARM_64&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_x86_64"><span class="hs-identifier hs-type">AMITypes_AL2_x86_64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes"><span class="hs-identifier hs-type">AMITypes</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAMITypes_AL2_x86_64"><span id="%24mAMITypes_AL2_x86_64"><span id="AMITypes_AL2_x86_64"><span class="annot"><span class="annottext">$bAMITypes_AL2_x86_64 :: AMITypes
+$mAMITypes_AL2_x86_64 :: forall r. AMITypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AMITypes.html#%24bAMITypes_AL2_x86_64"><span class="hs-identifier hs-var hs-var hs-var">AMITypes_AL2_x86_64</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes%27"><span class="hs-identifier hs-type">AMITypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AL2_x86_64&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_x86_64_GPU"><span class="hs-identifier hs-type">AMITypes_AL2_x86_64_GPU</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes"><span class="hs-identifier hs-type">AMITypes</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAMITypes_AL2_x86_64_GPU"><span id="%24mAMITypes_AL2_x86_64_GPU"><span id="AMITypes_AL2_x86_64_GPU"><span class="annot"><span class="annottext">$bAMITypes_AL2_x86_64_GPU :: AMITypes
+$mAMITypes_AL2_x86_64_GPU :: forall r. AMITypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AMITypes.html#%24bAMITypes_AL2_x86_64_GPU"><span class="hs-identifier hs-var hs-var hs-var">AMITypes_AL2_x86_64_GPU</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes%27"><span class="hs-identifier hs-type">AMITypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AL2_x86_64_GPU&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_CUSTOM"><span class="hs-identifier hs-type">AMITypes_CUSTOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes"><span class="hs-identifier hs-type">AMITypes</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAMITypes_CUSTOM"><span id="%24mAMITypes_CUSTOM"><span id="AMITypes_CUSTOM"><span class="annot"><span class="annottext">$bAMITypes_CUSTOM :: AMITypes
+$mAMITypes_CUSTOM :: forall r. AMITypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AMITypes.html#%24bAMITypes_CUSTOM"><span class="hs-identifier hs-var hs-var hs-var">AMITypes_CUSTOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes%27"><span class="hs-identifier hs-type">AMITypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_ARM_64"><span class="hs-pragma hs-type">AMITypes_AL2_ARM_64</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_x86_64"><span class="hs-pragma hs-type">AMITypes_AL2_x86_64</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_AL2_x86_64_GPU"><span class="hs-pragma hs-type">AMITypes_AL2_x86_64_GPU</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes_CUSTOM"><span class="hs-pragma hs-type">AMITypes_CUSTOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AMITypes.html#AMITypes%27"><span class="hs-pragma hs-type">AMITypes'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

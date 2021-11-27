@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Panorama.Types.StaticIpConnectionInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Panorama.Types.StaticIpConnectionInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A static IP configuration.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStaticIpConnectionInfo' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679259137"><span id="local-6989586621679259138"></span></span><span class="hs-keyword">data</span><span> </span><span id="StaticIpConnectionInfo"><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-var">StaticIpConnectionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StaticIpConnectionInfo%27"><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-var">StaticIpConnectionInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The connection\'s IP address.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AipAddress%3AStaticIpConnectionInfo%27"><span class="annot"><span class="annottext">StaticIpConnectionInfo -&gt; Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3AipAddress%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The connection\'s DNS mask.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amask%3AStaticIpConnectionInfo%27"><span class="annot"><span class="annottext">StaticIpConnectionInfo -&gt; Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3Amask%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var hs-var">mask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The connection\'s DNS address.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Adns%3AStaticIpConnectionInfo%27"><span class="annot"><span class="annottext">StaticIpConnectionInfo -&gt; [Text]
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3Adns%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var hs-var">dns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The connection\'s default gateway.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdefaultGateway%3AStaticIpConnectionInfo%27"><span class="annot"><span class="annottext">StaticIpConnectionInfo -&gt; Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3AdefaultGateway%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var hs-var">defaultGateway</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259128"><span id="local-6989586621679259130"><span class="annot"><span class="annottext">StaticIpConnectionInfo -&gt; StaticIpConnectionInfo -&gt; Bool
+(StaticIpConnectionInfo -&gt; StaticIpConnectionInfo -&gt; Bool)
+-&gt; (StaticIpConnectionInfo -&gt; StaticIpConnectionInfo -&gt; Bool)
+-&gt; Eq StaticIpConnectionInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StaticIpConnectionInfo -&gt; StaticIpConnectionInfo -&gt; Bool
+$c/= :: StaticIpConnectionInfo -&gt; StaticIpConnectionInfo -&gt; Bool
+== :: StaticIpConnectionInfo -&gt; StaticIpConnectionInfo -&gt; Bool
+$c== :: StaticIpConnectionInfo -&gt; StaticIpConnectionInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259119"><span id="local-6989586621679259121"><span id="local-6989586621679259123"><span id="local-6989586621679259125"><span class="annot"><span class="annottext">ReadPrec [StaticIpConnectionInfo]
+ReadPrec StaticIpConnectionInfo
+Int -&gt; ReadS StaticIpConnectionInfo
+ReadS [StaticIpConnectionInfo]
+(Int -&gt; ReadS StaticIpConnectionInfo)
+-&gt; ReadS [StaticIpConnectionInfo]
+-&gt; ReadPrec StaticIpConnectionInfo
+-&gt; ReadPrec [StaticIpConnectionInfo]
+-&gt; Read StaticIpConnectionInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StaticIpConnectionInfo]
+$creadListPrec :: ReadPrec [StaticIpConnectionInfo]
+readPrec :: ReadPrec StaticIpConnectionInfo
+$creadPrec :: ReadPrec StaticIpConnectionInfo
+readList :: ReadS [StaticIpConnectionInfo]
+$creadList :: ReadS [StaticIpConnectionInfo]
+readsPrec :: Int -&gt; ReadS StaticIpConnectionInfo
+$creadsPrec :: Int -&gt; ReadS StaticIpConnectionInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259112"><span id="local-6989586621679259114"><span id="local-6989586621679259116"><span class="annot"><span class="annottext">Int -&gt; StaticIpConnectionInfo -&gt; ShowS
+[StaticIpConnectionInfo] -&gt; ShowS
+StaticIpConnectionInfo -&gt; String
+(Int -&gt; StaticIpConnectionInfo -&gt; ShowS)
+-&gt; (StaticIpConnectionInfo -&gt; String)
+-&gt; ([StaticIpConnectionInfo] -&gt; ShowS)
+-&gt; Show StaticIpConnectionInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StaticIpConnectionInfo] -&gt; ShowS
+$cshowList :: [StaticIpConnectionInfo] -&gt; ShowS
+show :: StaticIpConnectionInfo -&gt; String
+$cshow :: StaticIpConnectionInfo -&gt; String
+showsPrec :: Int -&gt; StaticIpConnectionInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; StaticIpConnectionInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StaticIpConnectionInfo -&gt; Rep StaticIpConnectionInfo x)
+-&gt; (forall x.
+    Rep StaticIpConnectionInfo x -&gt; StaticIpConnectionInfo)
+-&gt; Generic StaticIpConnectionInfo
+forall x. Rep StaticIpConnectionInfo x -&gt; StaticIpConnectionInfo
+forall x. StaticIpConnectionInfo -&gt; Rep StaticIpConnectionInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StaticIpConnectionInfo x -&gt; StaticIpConnectionInfo
+$cfrom :: forall x. StaticIpConnectionInfo -&gt; Rep StaticIpConnectionInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'StaticIpConnectionInfo' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'ipAddress', 'staticIpConnectionInfo_ipAddress' - The connection\'s IP address.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'mask', 'staticIpConnectionInfo_mask' - The connection\'s DNS mask.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'dns', 'staticIpConnectionInfo_dns' - The connection\'s DNS address.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'defaultGateway', 'staticIpConnectionInfo_defaultGateway' - The connection\'s default gateway.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#newStaticIpConnectionInfo"><span class="hs-identifier hs-type">newStaticIpConnectionInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'ipAddress'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'mask'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'defaultGateway'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span>
+</span><span id="line-64"></span><span id="newStaticIpConnectionInfo"><span class="annot"><span class="annottext">newStaticIpConnectionInfo :: Text -&gt; Text -&gt; Text -&gt; StaticIpConnectionInfo
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#newStaticIpConnectionInfo"><span class="hs-identifier hs-var hs-var">newStaticIpConnectionInfo</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679259106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259106"><span class="hs-identifier hs-var">pIpAddress_</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679259105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259105"><span class="hs-identifier hs-var">pMask_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679259104"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259104"><span class="hs-identifier hs-var">pDefaultGateway_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">StaticIpConnectionInfo' :: Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; StaticIpConnectionInfo
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipAddress:StaticIpConnectionInfo' :: Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3AipAddress%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259106"><span class="hs-identifier hs-var">pIpAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:mask:StaticIpConnectionInfo' :: Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3Amask%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">mask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259105"><span class="hs-identifier hs-var">pMask_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:dns:StaticIpConnectionInfo' :: [Text]
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3Adns%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">dns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultGateway:StaticIpConnectionInfo' :: Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3AdefaultGateway%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">defaultGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259104"><span class="hs-identifier hs-var">pDefaultGateway_</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The connection\'s IP address.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_ipAddress"><span class="hs-identifier hs-type">staticIpConnectionInfo_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="staticIpConnectionInfo_ipAddress"><span class="annot"><span class="annottext">staticIpConnectionInfo_ipAddress :: (Text -&gt; f Text)
+-&gt; StaticIpConnectionInfo -&gt; f StaticIpConnectionInfo
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_ipAddress"><span class="hs-identifier hs-var hs-var">staticIpConnectionInfo_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticIpConnectionInfo -&gt; Text)
+-&gt; (StaticIpConnectionInfo -&gt; Text -&gt; StaticIpConnectionInfo)
+-&gt; Lens StaticIpConnectionInfo StaticIpConnectionInfo Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259100"><span class="annot"><span class="annottext">Text
+ipAddress :: Text
+$sel:ipAddress:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; Text
+</span><a href="#local-6989586621679259100"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259100"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259099"><span class="annot"><span class="annottext">s :: StaticIpConnectionInfo
+</span><a href="#local-6989586621679259099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259098"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticIpConnectionInfo
+</span><a href="#local-6989586621679259099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:StaticIpConnectionInfo' :: Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3AipAddress%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The connection\'s DNS mask.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_mask"><span class="hs-identifier hs-type">staticIpConnectionInfo_mask</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="staticIpConnectionInfo_mask"><span class="annot"><span class="annottext">staticIpConnectionInfo_mask :: (Text -&gt; f Text)
+-&gt; StaticIpConnectionInfo -&gt; f StaticIpConnectionInfo
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_mask"><span class="hs-identifier hs-var hs-var">staticIpConnectionInfo_mask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticIpConnectionInfo -&gt; Text)
+-&gt; (StaticIpConnectionInfo -&gt; Text -&gt; StaticIpConnectionInfo)
+-&gt; Lens StaticIpConnectionInfo StaticIpConnectionInfo Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259096"><span class="annot"><span class="annottext">Text
+mask :: Text
+$sel:mask:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; Text
+</span><a href="#local-6989586621679259096"><span class="hs-identifier hs-var hs-var">mask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259096"><span class="hs-identifier hs-var">mask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259095"><span class="annot"><span class="annottext">s :: StaticIpConnectionInfo
+</span><a href="#local-6989586621679259095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticIpConnectionInfo
+</span><a href="#local-6989586621679259095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mask:StaticIpConnectionInfo' :: Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3Amask%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">mask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The connection\'s DNS address.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_dns"><span class="hs-identifier hs-type">staticIpConnectionInfo_dns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span id="staticIpConnectionInfo_dns"><span class="annot"><span class="annottext">staticIpConnectionInfo_dns :: ([Text] -&gt; f [Text])
+-&gt; StaticIpConnectionInfo -&gt; f StaticIpConnectionInfo
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_dns"><span class="hs-identifier hs-var hs-var">staticIpConnectionInfo_dns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticIpConnectionInfo -&gt; [Text])
+-&gt; (StaticIpConnectionInfo -&gt; [Text] -&gt; StaticIpConnectionInfo)
+-&gt; Lens StaticIpConnectionInfo StaticIpConnectionInfo [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259092"><span class="annot"><span class="annottext">[Text]
+dns :: [Text]
+$sel:dns:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; [Text]
+</span><a href="#local-6989586621679259092"><span class="hs-identifier hs-var hs-var">dns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259092"><span class="hs-identifier hs-var">dns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259091"><span class="annot"><span class="annottext">s :: StaticIpConnectionInfo
+</span><a href="#local-6989586621679259091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259090"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticIpConnectionInfo
+</span><a href="#local-6989586621679259091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dns:StaticIpConnectionInfo' :: [Text]
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3Adns%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">dns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; StaticIpConnectionInfo -&gt; f StaticIpConnectionInfo)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; StaticIpConnectionInfo
+-&gt; f StaticIpConnectionInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The connection\'s default gateway.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_defaultGateway"><span class="hs-identifier hs-type">staticIpConnectionInfo_defaultGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="staticIpConnectionInfo_defaultGateway"><span class="annot"><span class="annottext">staticIpConnectionInfo_defaultGateway :: (Text -&gt; f Text)
+-&gt; StaticIpConnectionInfo -&gt; f StaticIpConnectionInfo
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#staticIpConnectionInfo_defaultGateway"><span class="hs-identifier hs-var hs-var">staticIpConnectionInfo_defaultGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticIpConnectionInfo -&gt; Text)
+-&gt; (StaticIpConnectionInfo -&gt; Text -&gt; StaticIpConnectionInfo)
+-&gt; Lens StaticIpConnectionInfo StaticIpConnectionInfo Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259086"><span class="annot"><span class="annottext">Text
+defaultGateway :: Text
+$sel:defaultGateway:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; Text
+</span><a href="#local-6989586621679259086"><span class="hs-identifier hs-var hs-var">defaultGateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259086"><span class="hs-identifier hs-var">defaultGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259085"><span class="annot"><span class="annottext">s :: StaticIpConnectionInfo
+</span><a href="#local-6989586621679259085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticIpConnectionInfo
+</span><a href="#local-6989586621679259085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultGateway:StaticIpConnectionInfo' :: Text
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#%24sel%3AdefaultGateway%3AStaticIpConnectionInfo%27"><span class="hs-identifier hs-var">defaultGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259081"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679259079"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StaticIpConnectionInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser StaticIpConnectionInfo)
+-&gt; Value
+-&gt; Parser StaticIpConnectionInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;StaticIpConnectionInfo&quot;</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259076"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; StaticIpConnectionInfo
+</span><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-var">StaticIpConnectionInfo'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; StaticIpConnectionInfo)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; [Text] -&gt; Text -&gt; StaticIpConnectionInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [Text] -&gt; Text -&gt; StaticIpConnectionInfo)
+-&gt; Parser Text -&gt; Parser ([Text] -&gt; Text -&gt; StaticIpConnectionInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mask&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; Text -&gt; StaticIpConnectionInfo)
+-&gt; Parser [Text] -&gt; Parser (Text -&gt; StaticIpConnectionInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; StaticIpConnectionInfo)
+-&gt; Parser Text -&gt; Parser StaticIpConnectionInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultGateway&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259068"><span id="local-6989586621679259070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259057"><span id="local-6989586621679259059"><span id="local-6989586621679259061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo"><span class="hs-identifier hs-type">StaticIpConnectionInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679259055"><span class="annot"><span class="annottext">toJSON :: StaticIpConnectionInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.StaticIpConnectionInfo.html#StaticIpConnectionInfo%27"><span class="hs-identifier hs-type">StaticIpConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259050"><span id="local-6989586621679259051"><span id="local-6989586621679259052"><span id="local-6989586621679259053"><span class="annot"><span class="annottext">[Text]
+Text
+defaultGateway :: Text
+dns :: [Text]
+mask :: Text
+ipAddress :: Text
+$sel:defaultGateway:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; Text
+$sel:dns:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; [Text]
+$sel:mask:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; Text
+$sel:ipAddress:StaticIpConnectionInfo' :: StaticIpConnectionInfo -&gt; Text
+</span><a href="#local-6989586621679259050"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259053"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mask&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259052"><span class="hs-identifier hs-var">mask</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259051"><span class="hs-identifier hs-var">dns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultGateway&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259050"><span class="hs-identifier hs-var">defaultGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span></pre></body></html>

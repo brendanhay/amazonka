@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ManualEvidence.html"><span class="hs-identifier">Amazonka.AuditManager.Types.ManualEvidence</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An error entity for the @BatchImportEvidenceToAssessmentControl@ API.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This is used to provide more meaningful errors than a simple string</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBatchImportEvidenceToAssessmentControlError' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679293129"><span id="local-6989586621679293130"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchImportEvidenceToAssessmentControlError"><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-var">BatchImportEvidenceToAssessmentControlError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchImportEvidenceToAssessmentControlError%27"><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">BatchImportEvidenceToAssessmentControlError'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code returned by the @BatchImportEvidenceToAssessmentControl@</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AerrorCode%3ABatchImportEvidenceToAssessmentControlError%27"><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AerrorCode%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The error message returned by the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @BatchImportEvidenceToAssessmentControl@ API.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AerrorMessage%3ABatchImportEvidenceToAssessmentControlError%27"><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AerrorMessage%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Manual evidence that cannot be collected automatically by Audit Manager.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmanualEvidence%3ABatchImportEvidenceToAssessmentControlError%27"><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError -&gt; Maybe ManualEvidence
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AmanualEvidence%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var hs-var">manualEvidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ManualEvidence.html#ManualEvidence"><span class="hs-identifier hs-type">ManualEvidence</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293121"><span id="local-6989586621679293123"><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError
+-&gt; BatchImportEvidenceToAssessmentControlError -&gt; Bool
+(BatchImportEvidenceToAssessmentControlError
+ -&gt; BatchImportEvidenceToAssessmentControlError -&gt; Bool)
+-&gt; (BatchImportEvidenceToAssessmentControlError
+    -&gt; BatchImportEvidenceToAssessmentControlError -&gt; Bool)
+-&gt; Eq BatchImportEvidenceToAssessmentControlError
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchImportEvidenceToAssessmentControlError
+-&gt; BatchImportEvidenceToAssessmentControlError -&gt; Bool
+$c/= :: BatchImportEvidenceToAssessmentControlError
+-&gt; BatchImportEvidenceToAssessmentControlError -&gt; Bool
+== :: BatchImportEvidenceToAssessmentControlError
+-&gt; BatchImportEvidenceToAssessmentControlError -&gt; Bool
+$c== :: BatchImportEvidenceToAssessmentControlError
+-&gt; BatchImportEvidenceToAssessmentControlError -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293112"><span id="local-6989586621679293114"><span id="local-6989586621679293116"><span id="local-6989586621679293118"><span class="annot"><span class="annottext">ReadPrec [BatchImportEvidenceToAssessmentControlError]
+ReadPrec BatchImportEvidenceToAssessmentControlError
+Int -&gt; ReadS BatchImportEvidenceToAssessmentControlError
+ReadS [BatchImportEvidenceToAssessmentControlError]
+(Int -&gt; ReadS BatchImportEvidenceToAssessmentControlError)
+-&gt; ReadS [BatchImportEvidenceToAssessmentControlError]
+-&gt; ReadPrec BatchImportEvidenceToAssessmentControlError
+-&gt; ReadPrec [BatchImportEvidenceToAssessmentControlError]
+-&gt; Read BatchImportEvidenceToAssessmentControlError
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchImportEvidenceToAssessmentControlError]
+$creadListPrec :: ReadPrec [BatchImportEvidenceToAssessmentControlError]
+readPrec :: ReadPrec BatchImportEvidenceToAssessmentControlError
+$creadPrec :: ReadPrec BatchImportEvidenceToAssessmentControlError
+readList :: ReadS [BatchImportEvidenceToAssessmentControlError]
+$creadList :: ReadS [BatchImportEvidenceToAssessmentControlError]
+readsPrec :: Int -&gt; ReadS BatchImportEvidenceToAssessmentControlError
+$creadsPrec :: Int -&gt; ReadS BatchImportEvidenceToAssessmentControlError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293105"><span id="local-6989586621679293107"><span id="local-6989586621679293109"><span class="annot"><span class="annottext">Int -&gt; BatchImportEvidenceToAssessmentControlError -&gt; ShowS
+[BatchImportEvidenceToAssessmentControlError] -&gt; ShowS
+BatchImportEvidenceToAssessmentControlError -&gt; String
+(Int -&gt; BatchImportEvidenceToAssessmentControlError -&gt; ShowS)
+-&gt; (BatchImportEvidenceToAssessmentControlError -&gt; String)
+-&gt; ([BatchImportEvidenceToAssessmentControlError] -&gt; ShowS)
+-&gt; Show BatchImportEvidenceToAssessmentControlError
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchImportEvidenceToAssessmentControlError] -&gt; ShowS
+$cshowList :: [BatchImportEvidenceToAssessmentControlError] -&gt; ShowS
+show :: BatchImportEvidenceToAssessmentControlError -&gt; String
+$cshow :: BatchImportEvidenceToAssessmentControlError -&gt; String
+showsPrec :: Int -&gt; BatchImportEvidenceToAssessmentControlError -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchImportEvidenceToAssessmentControlError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchImportEvidenceToAssessmentControlError
+ -&gt; Rep BatchImportEvidenceToAssessmentControlError x)
+-&gt; (forall x.
+    Rep BatchImportEvidenceToAssessmentControlError x
+    -&gt; BatchImportEvidenceToAssessmentControlError)
+-&gt; Generic BatchImportEvidenceToAssessmentControlError
+forall x.
+Rep BatchImportEvidenceToAssessmentControlError x
+-&gt; BatchImportEvidenceToAssessmentControlError
+forall x.
+BatchImportEvidenceToAssessmentControlError
+-&gt; Rep BatchImportEvidenceToAssessmentControlError x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchImportEvidenceToAssessmentControlError x
+-&gt; BatchImportEvidenceToAssessmentControlError
+$cfrom :: forall x.
+BatchImportEvidenceToAssessmentControlError
+-&gt; Rep BatchImportEvidenceToAssessmentControlError x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'BatchImportEvidenceToAssessmentControlError' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'errorCode', 'batchImportEvidenceToAssessmentControlError_errorCode' - The error code returned by the @BatchImportEvidenceToAssessmentControl@</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'errorMessage', 'batchImportEvidenceToAssessmentControlError_errorMessage' - The error message returned by the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- @BatchImportEvidenceToAssessmentControl@ API.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'manualEvidence', 'batchImportEvidenceToAssessmentControlError_manualEvidence' - Manual evidence that cannot be collected automatically by Audit Manager.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#newBatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">newBatchImportEvidenceToAssessmentControlError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span><span>
+</span><span id="line-61"></span><span id="newBatchImportEvidenceToAssessmentControlError"><span class="annot"><span class="annottext">newBatchImportEvidenceToAssessmentControlError :: BatchImportEvidenceToAssessmentControlError
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#newBatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-var hs-var">newBatchImportEvidenceToAssessmentControlError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ManualEvidence
+-&gt; BatchImportEvidenceToAssessmentControlError
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorCode:BatchImportEvidenceToAssessmentControlError' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AerrorCode%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:BatchImportEvidenceToAssessmentControlError' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AerrorMessage%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:manualEvidence:BatchImportEvidenceToAssessmentControlError' :: Maybe ManualEvidence
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AmanualEvidence%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">manualEvidence</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe ManualEvidence
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The error code returned by the @BatchImportEvidenceToAssessmentControl@</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_errorCode"><span class="hs-identifier hs-type">batchImportEvidenceToAssessmentControlError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="batchImportEvidenceToAssessmentControlError_errorCode"><span class="annot"><span class="annottext">batchImportEvidenceToAssessmentControlError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchImportEvidenceToAssessmentControlError
+-&gt; f BatchImportEvidenceToAssessmentControlError
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_errorCode"><span class="hs-identifier hs-var hs-var">batchImportEvidenceToAssessmentControlError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchImportEvidenceToAssessmentControlError -&gt; Maybe Text)
+-&gt; (BatchImportEvidenceToAssessmentControlError
+    -&gt; Maybe Text -&gt; BatchImportEvidenceToAssessmentControlError)
+-&gt; Lens
+     BatchImportEvidenceToAssessmentControlError
+     BatchImportEvidenceToAssessmentControlError
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293096"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:BatchImportEvidenceToAssessmentControlError' :: BatchImportEvidenceToAssessmentControlError -&gt; Maybe Text
+</span><a href="#local-6989586621679293096"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293096"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293095"><span class="annot"><span class="annottext">s :: BatchImportEvidenceToAssessmentControlError
+</span><a href="#local-6989586621679293095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293094"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError
+</span><a href="#local-6989586621679293095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:BatchImportEvidenceToAssessmentControlError' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AerrorCode%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The error message returned by the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @BatchImportEvidenceToAssessmentControl@ API.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_errorMessage"><span class="hs-identifier hs-type">batchImportEvidenceToAssessmentControlError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="batchImportEvidenceToAssessmentControlError_errorMessage"><span class="annot"><span class="annottext">batchImportEvidenceToAssessmentControlError_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchImportEvidenceToAssessmentControlError
+-&gt; f BatchImportEvidenceToAssessmentControlError
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_errorMessage"><span class="hs-identifier hs-var hs-var">batchImportEvidenceToAssessmentControlError_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchImportEvidenceToAssessmentControlError -&gt; Maybe Text)
+-&gt; (BatchImportEvidenceToAssessmentControlError
+    -&gt; Maybe Text -&gt; BatchImportEvidenceToAssessmentControlError)
+-&gt; Lens
+     BatchImportEvidenceToAssessmentControlError
+     BatchImportEvidenceToAssessmentControlError
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293092"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:BatchImportEvidenceToAssessmentControlError' :: BatchImportEvidenceToAssessmentControlError -&gt; Maybe Text
+</span><a href="#local-6989586621679293092"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293092"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293091"><span class="annot"><span class="annottext">s :: BatchImportEvidenceToAssessmentControlError
+</span><a href="#local-6989586621679293091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293090"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError
+</span><a href="#local-6989586621679293091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BatchImportEvidenceToAssessmentControlError' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AerrorMessage%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Manual evidence that cannot be collected automatically by Audit Manager.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_manualEvidence"><span class="hs-identifier hs-type">batchImportEvidenceToAssessmentControlError_manualEvidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.ManualEvidence.html#ManualEvidence"><span class="hs-identifier hs-type">ManualEvidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="batchImportEvidenceToAssessmentControlError_manualEvidence"><span class="annot"><span class="annottext">batchImportEvidenceToAssessmentControlError_manualEvidence :: (Maybe ManualEvidence -&gt; f (Maybe ManualEvidence))
+-&gt; BatchImportEvidenceToAssessmentControlError
+-&gt; f BatchImportEvidenceToAssessmentControlError
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#batchImportEvidenceToAssessmentControlError_manualEvidence"><span class="hs-identifier hs-var hs-var">batchImportEvidenceToAssessmentControlError_manualEvidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchImportEvidenceToAssessmentControlError
+ -&gt; Maybe ManualEvidence)
+-&gt; (BatchImportEvidenceToAssessmentControlError
+    -&gt; Maybe ManualEvidence
+    -&gt; BatchImportEvidenceToAssessmentControlError)
+-&gt; Lens
+     BatchImportEvidenceToAssessmentControlError
+     BatchImportEvidenceToAssessmentControlError
+     (Maybe ManualEvidence)
+     (Maybe ManualEvidence)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293088"><span class="annot"><span class="annottext">Maybe ManualEvidence
+manualEvidence :: Maybe ManualEvidence
+$sel:manualEvidence:BatchImportEvidenceToAssessmentControlError' :: BatchImportEvidenceToAssessmentControlError -&gt; Maybe ManualEvidence
+</span><a href="#local-6989586621679293088"><span class="hs-identifier hs-var hs-var">manualEvidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManualEvidence
+</span><a href="#local-6989586621679293088"><span class="hs-identifier hs-var">manualEvidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293087"><span class="annot"><span class="annottext">s :: BatchImportEvidenceToAssessmentControlError
+</span><a href="#local-6989586621679293087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293086"><span class="annot"><span class="annottext">Maybe ManualEvidence
+</span><a href="#local-6989586621679293086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchImportEvidenceToAssessmentControlError
+</span><a href="#local-6989586621679293087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualEvidence:BatchImportEvidenceToAssessmentControlError' :: Maybe ManualEvidence
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#%24sel%3AmanualEvidence%3ABatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">manualEvidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ManualEvidence
+</span><a href="#local-6989586621679293086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679293083"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679293081"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchImportEvidenceToAssessmentControlError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchImportEvidenceToAssessmentControlError)
+-&gt; Value
+-&gt; Parser BatchImportEvidenceToAssessmentControlError
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchImportEvidenceToAssessmentControlError&quot;</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293078"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293078"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ManualEvidence
+-&gt; BatchImportEvidenceToAssessmentControlError
+</span><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError%27"><span class="hs-identifier hs-var">BatchImportEvidenceToAssessmentControlError'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ManualEvidence
+ -&gt; BatchImportEvidenceToAssessmentControlError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ManualEvidence
+      -&gt; BatchImportEvidenceToAssessmentControlError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ManualEvidence
+   -&gt; BatchImportEvidenceToAssessmentControlError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ManualEvidence
+      -&gt; BatchImportEvidenceToAssessmentControlError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe ManualEvidence
+   -&gt; BatchImportEvidenceToAssessmentControlError)
+-&gt; Parser (Maybe ManualEvidence)
+-&gt; Parser BatchImportEvidenceToAssessmentControlError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManualEvidence)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;manualEvidence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679293072"><span id="local-6989586621679293074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679293069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError.html#BatchImportEvidenceToAssessmentControlError"><span class="hs-identifier hs-type">BatchImportEvidenceToAssessmentControlError</span></a></span></span><span>
+</span><span id="line-105"></span></pre></body></html>

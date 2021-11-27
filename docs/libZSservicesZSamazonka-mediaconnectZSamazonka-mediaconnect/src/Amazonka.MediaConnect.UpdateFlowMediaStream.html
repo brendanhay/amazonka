@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.UpdateFlowMediaStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing media stream.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.UpdateFlowMediaStream</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#newUpdateFlowMediaStream"><span class="hs-identifier">newUpdateFlowMediaStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_videoFormat"><span class="hs-identifier">updateFlowMediaStream_videoFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_mediaStreamType"><span class="hs-identifier">updateFlowMediaStream_mediaStreamType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_attributes"><span class="hs-identifier">updateFlowMediaStream_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_clockRate"><span class="hs-identifier">updateFlowMediaStream_clockRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_description"><span class="hs-identifier">updateFlowMediaStream_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_flowArn"><span class="hs-identifier">updateFlowMediaStream_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_mediaStreamName"><span class="hs-identifier">updateFlowMediaStream_mediaStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier">UpdateFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#newUpdateFlowMediaStreamResponse"><span class="hs-identifier">newUpdateFlowMediaStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_flowArn"><span class="hs-identifier">updateFlowMediaStreamResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_mediaStream"><span class="hs-identifier">updateFlowMediaStreamResponse_mediaStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_httpStatus"><span class="hs-identifier">updateFlowMediaStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.html"><span class="hs-identifier">Amazonka.MediaConnect.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The fields that you want to update in the media stream.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newUpdateFlowMediaStream' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679280281"><span id="local-6989586621679280282"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFlowMediaStream"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-var">UpdateFlowMediaStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFlowMediaStream%27"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-var">UpdateFlowMediaStream'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resolution of the video.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AvideoFormat%3AUpdateFlowMediaStream%27"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AvideoFormat%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">videoFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The type of media stream.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmediaStreamType%3AUpdateFlowMediaStream%27"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; Maybe MediaStreamType
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStreamType%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">mediaStreamType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStreamType.html#MediaStreamType"><span class="hs-identifier hs-type">MediaStreamType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The attributes that you want to assign to the media stream.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aattributes%3AUpdateFlowMediaStream%27"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; Maybe MediaStreamAttributesRequest
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3Aattributes%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStreamAttributesRequest.html#MediaStreamAttributesRequest"><span class="hs-identifier hs-type">MediaStreamAttributesRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The sample rate (in Hz) for the stream. If the media stream type is</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- video or ancillary data, set this value to 90000. If the media stream</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- type is audio, set this value to either 48000 or 96000.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AclockRate%3AUpdateFlowMediaStream%27"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AclockRate%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">clockRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Description</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateFlowMediaStream%27"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3Adescription%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AflowArn%3AUpdateFlowMediaStream%27"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AflowArn%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The name of the media stream that you want to update.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmediaStreamName%3AUpdateFlowMediaStream%27"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStreamName%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">mediaStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280269"><span id="local-6989586621679280271"><span class="annot"><span class="annottext">UpdateFlowMediaStream -&gt; UpdateFlowMediaStream -&gt; Bool
+(UpdateFlowMediaStream -&gt; UpdateFlowMediaStream -&gt; Bool)
+-&gt; (UpdateFlowMediaStream -&gt; UpdateFlowMediaStream -&gt; Bool)
+-&gt; Eq UpdateFlowMediaStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFlowMediaStream -&gt; UpdateFlowMediaStream -&gt; Bool
+$c/= :: UpdateFlowMediaStream -&gt; UpdateFlowMediaStream -&gt; Bool
+== :: UpdateFlowMediaStream -&gt; UpdateFlowMediaStream -&gt; Bool
+$c== :: UpdateFlowMediaStream -&gt; UpdateFlowMediaStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280260"><span id="local-6989586621679280262"><span id="local-6989586621679280264"><span id="local-6989586621679280266"><span class="annot"><span class="annottext">ReadPrec [UpdateFlowMediaStream]
+ReadPrec UpdateFlowMediaStream
+Int -&gt; ReadS UpdateFlowMediaStream
+ReadS [UpdateFlowMediaStream]
+(Int -&gt; ReadS UpdateFlowMediaStream)
+-&gt; ReadS [UpdateFlowMediaStream]
+-&gt; ReadPrec UpdateFlowMediaStream
+-&gt; ReadPrec [UpdateFlowMediaStream]
+-&gt; Read UpdateFlowMediaStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFlowMediaStream]
+$creadListPrec :: ReadPrec [UpdateFlowMediaStream]
+readPrec :: ReadPrec UpdateFlowMediaStream
+$creadPrec :: ReadPrec UpdateFlowMediaStream
+readList :: ReadS [UpdateFlowMediaStream]
+$creadList :: ReadS [UpdateFlowMediaStream]
+readsPrec :: Int -&gt; ReadS UpdateFlowMediaStream
+$creadsPrec :: Int -&gt; ReadS UpdateFlowMediaStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280253"><span id="local-6989586621679280255"><span id="local-6989586621679280257"><span class="annot"><span class="annottext">Int -&gt; UpdateFlowMediaStream -&gt; ShowS
+[UpdateFlowMediaStream] -&gt; ShowS
+UpdateFlowMediaStream -&gt; String
+(Int -&gt; UpdateFlowMediaStream -&gt; ShowS)
+-&gt; (UpdateFlowMediaStream -&gt; String)
+-&gt; ([UpdateFlowMediaStream] -&gt; ShowS)
+-&gt; Show UpdateFlowMediaStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFlowMediaStream] -&gt; ShowS
+$cshowList :: [UpdateFlowMediaStream] -&gt; ShowS
+show :: UpdateFlowMediaStream -&gt; String
+$cshow :: UpdateFlowMediaStream -&gt; String
+showsPrec :: Int -&gt; UpdateFlowMediaStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFlowMediaStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateFlowMediaStream -&gt; Rep UpdateFlowMediaStream x)
+-&gt; (forall x. Rep UpdateFlowMediaStream x -&gt; UpdateFlowMediaStream)
+-&gt; Generic UpdateFlowMediaStream
+forall x. Rep UpdateFlowMediaStream x -&gt; UpdateFlowMediaStream
+forall x. UpdateFlowMediaStream -&gt; Rep UpdateFlowMediaStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateFlowMediaStream x -&gt; UpdateFlowMediaStream
+$cfrom :: forall x. UpdateFlowMediaStream -&gt; Rep UpdateFlowMediaStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'UpdateFlowMediaStream' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'videoFormat', 'updateFlowMediaStream_videoFormat' - The resolution of the video.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'mediaStreamType', 'updateFlowMediaStream_mediaStreamType' - The type of media stream.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'attributes', 'updateFlowMediaStream_attributes' - The attributes that you want to assign to the media stream.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'clockRate', 'updateFlowMediaStream_clockRate' - The sample rate (in Hz) for the stream. If the media stream type is</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- video or ancillary data, set this value to 90000. If the media stream</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- type is audio, set this value to either 48000 or 96000.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'description', 'updateFlowMediaStream_description' - Description</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'flowArn', 'updateFlowMediaStream_flowArn' - The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'mediaStreamName', 'updateFlowMediaStream_mediaStreamName' - The name of the media stream that you want to update.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#newUpdateFlowMediaStream"><span class="hs-identifier hs-type">newUpdateFlowMediaStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'mediaStreamName'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span>
+</span><span id="line-108"></span><span id="newUpdateFlowMediaStream"><span class="annot"><span class="annottext">newUpdateFlowMediaStream :: Text -&gt; Text -&gt; UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#newUpdateFlowMediaStream"><span class="hs-identifier hs-var hs-var">newUpdateFlowMediaStream</span></a></span></span><span> </span><span id="local-6989586621679280248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280248"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span id="local-6989586621679280247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280247"><span class="hs-identifier hs-var">pMediaStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">UpdateFlowMediaStream' :: Maybe Text
+-&gt; Maybe MediaStreamType
+-&gt; Maybe MediaStreamAttributesRequest
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:videoFormat:UpdateFlowMediaStream' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AvideoFormat%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">videoFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStreamType:UpdateFlowMediaStream' :: Maybe MediaStreamType
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStreamType%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">mediaStreamType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:UpdateFlowMediaStream' :: Maybe MediaStreamAttributesRequest
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3Aattributes%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamAttributesRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:clockRate:UpdateFlowMediaStream' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AclockRate%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">clockRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateFlowMediaStream' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3Adescription%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowMediaStream' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AflowArn%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280248"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStreamName:UpdateFlowMediaStream' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStreamName%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280247"><span class="hs-identifier hs-var">pMediaStreamName_</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The resolution of the video.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_videoFormat"><span class="hs-identifier hs-type">updateFlowMediaStream_videoFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="updateFlowMediaStream_videoFormat"><span class="annot"><span class="annottext">updateFlowMediaStream_videoFormat :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowMediaStream -&gt; f UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_videoFormat"><span class="hs-identifier hs-var hs-var">updateFlowMediaStream_videoFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStream -&gt; Maybe Text)
+-&gt; (UpdateFlowMediaStream -&gt; Maybe Text -&gt; UpdateFlowMediaStream)
+-&gt; Lens
+     UpdateFlowMediaStream
+     UpdateFlowMediaStream
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280244"><span class="annot"><span class="annottext">Maybe Text
+videoFormat :: Maybe Text
+$sel:videoFormat:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Text
+</span><a href="#local-6989586621679280244"><span class="hs-identifier hs-var hs-var">videoFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280244"><span class="hs-identifier hs-var">videoFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280243"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStream
+</span><a href="#local-6989586621679280243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStream
+</span><a href="#local-6989586621679280243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoFormat:UpdateFlowMediaStream' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AvideoFormat%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">videoFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The type of media stream.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_mediaStreamType"><span class="hs-identifier hs-type">updateFlowMediaStream_mediaStreamType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStreamType.html#MediaStreamType"><span class="hs-identifier hs-type">MediaStreamType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="updateFlowMediaStream_mediaStreamType"><span class="annot"><span class="annottext">updateFlowMediaStream_mediaStreamType :: (Maybe MediaStreamType -&gt; f (Maybe MediaStreamType))
+-&gt; UpdateFlowMediaStream -&gt; f UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_mediaStreamType"><span class="hs-identifier hs-var hs-var">updateFlowMediaStream_mediaStreamType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStream -&gt; Maybe MediaStreamType)
+-&gt; (UpdateFlowMediaStream
+    -&gt; Maybe MediaStreamType -&gt; UpdateFlowMediaStream)
+-&gt; Lens
+     UpdateFlowMediaStream
+     UpdateFlowMediaStream
+     (Maybe MediaStreamType)
+     (Maybe MediaStreamType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280241"><span class="annot"><span class="annottext">Maybe MediaStreamType
+mediaStreamType :: Maybe MediaStreamType
+$sel:mediaStreamType:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe MediaStreamType
+</span><a href="#local-6989586621679280241"><span class="hs-identifier hs-var hs-var">mediaStreamType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamType
+</span><a href="#local-6989586621679280241"><span class="hs-identifier hs-var">mediaStreamType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280240"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStream
+</span><a href="#local-6989586621679280240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280239"><span class="annot"><span class="annottext">Maybe MediaStreamType
+</span><a href="#local-6989586621679280239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStream
+</span><a href="#local-6989586621679280240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreamType:UpdateFlowMediaStream' :: Maybe MediaStreamType
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStreamType%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">mediaStreamType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamType
+</span><a href="#local-6989586621679280239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The attributes that you want to assign to the media stream.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_attributes"><span class="hs-identifier hs-type">updateFlowMediaStream_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStreamAttributesRequest.html#MediaStreamAttributesRequest"><span class="hs-identifier hs-type">MediaStreamAttributesRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="updateFlowMediaStream_attributes"><span class="annot"><span class="annottext">updateFlowMediaStream_attributes :: (Maybe MediaStreamAttributesRequest
+ -&gt; f (Maybe MediaStreamAttributesRequest))
+-&gt; UpdateFlowMediaStream -&gt; f UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_attributes"><span class="hs-identifier hs-var hs-var">updateFlowMediaStream_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStream -&gt; Maybe MediaStreamAttributesRequest)
+-&gt; (UpdateFlowMediaStream
+    -&gt; Maybe MediaStreamAttributesRequest -&gt; UpdateFlowMediaStream)
+-&gt; Lens
+     UpdateFlowMediaStream
+     UpdateFlowMediaStream
+     (Maybe MediaStreamAttributesRequest)
+     (Maybe MediaStreamAttributesRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280238"><span class="annot"><span class="annottext">Maybe MediaStreamAttributesRequest
+attributes :: Maybe MediaStreamAttributesRequest
+$sel:attributes:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe MediaStreamAttributesRequest
+</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamAttributesRequest
+</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280237"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStream
+</span><a href="#local-6989586621679280237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280236"><span class="annot"><span class="annottext">Maybe MediaStreamAttributesRequest
+</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStream
+</span><a href="#local-6989586621679280237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:UpdateFlowMediaStream' :: Maybe MediaStreamAttributesRequest
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3Aattributes%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamAttributesRequest
+</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The sample rate (in Hz) for the stream. If the media stream type is</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- video or ancillary data, set this value to 90000. If the media stream</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- type is audio, set this value to either 48000 or 96000.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_clockRate"><span class="hs-identifier hs-type">updateFlowMediaStream_clockRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="updateFlowMediaStream_clockRate"><span class="annot"><span class="annottext">updateFlowMediaStream_clockRate :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateFlowMediaStream -&gt; f UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_clockRate"><span class="hs-identifier hs-var hs-var">updateFlowMediaStream_clockRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStream -&gt; Maybe Int)
+-&gt; (UpdateFlowMediaStream -&gt; Maybe Int -&gt; UpdateFlowMediaStream)
+-&gt; Lens
+     UpdateFlowMediaStream UpdateFlowMediaStream (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280235"><span class="annot"><span class="annottext">Maybe Int
+clockRate :: Maybe Int
+$sel:clockRate:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Int
+</span><a href="#local-6989586621679280235"><span class="hs-identifier hs-var hs-var">clockRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280235"><span class="hs-identifier hs-var">clockRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280234"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStream
+</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280233"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStream
+</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clockRate:UpdateFlowMediaStream' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AclockRate%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">clockRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Description</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_description"><span class="hs-identifier hs-type">updateFlowMediaStream_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="updateFlowMediaStream_description"><span class="annot"><span class="annottext">updateFlowMediaStream_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowMediaStream -&gt; f UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_description"><span class="hs-identifier hs-var hs-var">updateFlowMediaStream_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStream -&gt; Maybe Text)
+-&gt; (UpdateFlowMediaStream -&gt; Maybe Text -&gt; UpdateFlowMediaStream)
+-&gt; Lens
+     UpdateFlowMediaStream
+     UpdateFlowMediaStream
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280232"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Text
+</span><a href="#local-6989586621679280232"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280232"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280231"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStream
+</span><a href="#local-6989586621679280231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280230"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStream
+</span><a href="#local-6989586621679280231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFlowMediaStream' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3Adescription%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_flowArn"><span class="hs-identifier hs-type">updateFlowMediaStream_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="updateFlowMediaStream_flowArn"><span class="annot"><span class="annottext">updateFlowMediaStream_flowArn :: (Text -&gt; f Text)
+-&gt; UpdateFlowMediaStream -&gt; f UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_flowArn"><span class="hs-identifier hs-var hs-var">updateFlowMediaStream_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStream -&gt; Text)
+-&gt; (UpdateFlowMediaStream -&gt; Text -&gt; UpdateFlowMediaStream)
+-&gt; Lens UpdateFlowMediaStream UpdateFlowMediaStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280229"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Text
+</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280228"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStream
+</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStream
+</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowMediaStream' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AflowArn%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The name of the media stream that you want to update.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_mediaStreamName"><span class="hs-identifier hs-type">updateFlowMediaStream_mediaStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="updateFlowMediaStream_mediaStreamName"><span class="annot"><span class="annottext">updateFlowMediaStream_mediaStreamName :: (Text -&gt; f Text)
+-&gt; UpdateFlowMediaStream -&gt; f UpdateFlowMediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStream_mediaStreamName"><span class="hs-identifier hs-var hs-var">updateFlowMediaStream_mediaStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStream -&gt; Text)
+-&gt; (UpdateFlowMediaStream -&gt; Text -&gt; UpdateFlowMediaStream)
+-&gt; Lens UpdateFlowMediaStream UpdateFlowMediaStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280226"><span class="annot"><span class="annottext">Text
+mediaStreamName :: Text
+$sel:mediaStreamName:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Text
+</span><a href="#local-6989586621679280226"><span class="hs-identifier hs-var hs-var">mediaStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280226"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280225"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStream
+</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280224"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStream
+</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreamName:UpdateFlowMediaStream' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStreamName%3AUpdateFlowMediaStream%27"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679280220"><span class="annot"><span class="annottext">request :: UpdateFlowMediaStream -&gt; Request UpdateFlowMediaStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateFlowMediaStream -&gt; Request UpdateFlowMediaStream
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679280216"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateFlowMediaStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFlowMediaStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateFlowMediaStream))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateFlowMediaStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFlowMediaStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280213"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280212"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679280212"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280211"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe MediaStream -&gt; Int -&gt; UpdateFlowMediaStreamResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">UpdateFlowMediaStreamResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe MediaStream -&gt; Int -&gt; UpdateFlowMediaStreamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe MediaStream -&gt; Int -&gt; UpdateFlowMediaStreamResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe MediaStream -&gt; Int -&gt; UpdateFlowMediaStreamResponse)
+-&gt; Either String (Maybe MediaStream)
+-&gt; Either String (Int -&gt; UpdateFlowMediaStreamResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MediaStream)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaStream&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateFlowMediaStreamResponse)
+-&gt; Either String Int -&gt; Either String UpdateFlowMediaStreamResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280213"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280203"><span id="local-6989586621679280205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679280196"><span class="annot"><span class="annottext">toHeaders :: UpdateFlowMediaStream -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFlowMediaStream -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-175"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280186"><span id="local-6989586621679280188"><span id="local-6989586621679280190"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679280184"><span class="annot"><span class="annottext">toJSON :: UpdateFlowMediaStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280176"><span id="local-6989586621679280177"><span id="local-6989586621679280178"><span id="local-6989586621679280179"><span id="local-6989586621679280180"><span id="local-6989586621679280181"><span id="local-6989586621679280182"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe MediaStreamType
+Maybe MediaStreamAttributesRequest
+Text
+mediaStreamName :: Text
+flowArn :: Text
+description :: Maybe Text
+clockRate :: Maybe Int
+attributes :: Maybe MediaStreamAttributesRequest
+mediaStreamType :: Maybe MediaStreamType
+videoFormat :: Maybe Text
+$sel:mediaStreamName:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Text
+$sel:flowArn:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Text
+$sel:description:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Text
+$sel:clockRate:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Int
+$sel:attributes:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe MediaStreamAttributesRequest
+$sel:mediaStreamType:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe MediaStreamType
+$sel:videoFormat:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Text
+</span><a href="#local-6989586621679280176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280182"><span class="hs-identifier hs-var">videoFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaStreamType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MediaStreamType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(MediaStreamType -&gt; Pair) -&gt; Maybe MediaStreamType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamType
+</span><a href="#local-6989586621679280181"><span class="hs-identifier hs-var">mediaStreamType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MediaStreamAttributesRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MediaStreamAttributesRequest -&gt; Pair)
+-&gt; Maybe MediaStreamAttributesRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MediaStreamAttributesRequest
+</span><a href="#local-6989586621679280180"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clockRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280179"><span class="hs-identifier hs-var">clockRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280178"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679280170"><span class="annot"><span class="annottext">toPath :: UpdateFlowMediaStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream%27"><span class="hs-identifier hs-type">UpdateFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280162"><span id="local-6989586621679280163"><span id="local-6989586621679280164"><span id="local-6989586621679280165"><span id="local-6989586621679280166"><span id="local-6989586621679280167"><span id="local-6989586621679280168"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe MediaStreamType
+Maybe MediaStreamAttributesRequest
+Text
+mediaStreamName :: Text
+flowArn :: Text
+description :: Maybe Text
+clockRate :: Maybe Int
+attributes :: Maybe MediaStreamAttributesRequest
+mediaStreamType :: Maybe MediaStreamType
+videoFormat :: Maybe Text
+$sel:mediaStreamName:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Text
+$sel:flowArn:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Text
+$sel:description:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Text
+$sel:clockRate:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Int
+$sel:attributes:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe MediaStreamAttributesRequest
+$sel:mediaStreamType:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe MediaStreamType
+$sel:videoFormat:UpdateFlowMediaStream' :: UpdateFlowMediaStream -&gt; Maybe Text
+</span><a href="#local-6989586621679280162"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280163"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/mediaStreams/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280162"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStream"><span class="hs-identifier hs-type">UpdateFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679280158"><span class="annot"><span class="annottext">toQuery :: UpdateFlowMediaStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFlowMediaStream -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newUpdateFlowMediaStreamResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679280155"><span id="local-6989586621679280156"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFlowMediaStreamResponse"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-var">UpdateFlowMediaStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFlowMediaStreamResponse%27"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">UpdateFlowMediaStreamResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that is associated with the media stream that you</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AflowArn%3AUpdateFlowMediaStreamResponse%27"><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AflowArn%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The media stream that you updated.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AmediaStream%3AUpdateFlowMediaStreamResponse%27"><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse -&gt; Maybe MediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStream%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var hs-var">mediaStream</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStream.html#MediaStream"><span class="hs-identifier hs-type">MediaStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFlowMediaStreamResponse%27"><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse -&gt; Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AhttpStatus%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280148"><span id="local-6989586621679280150"><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse
+-&gt; UpdateFlowMediaStreamResponse -&gt; Bool
+(UpdateFlowMediaStreamResponse
+ -&gt; UpdateFlowMediaStreamResponse -&gt; Bool)
+-&gt; (UpdateFlowMediaStreamResponse
+    -&gt; UpdateFlowMediaStreamResponse -&gt; Bool)
+-&gt; Eq UpdateFlowMediaStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFlowMediaStreamResponse
+-&gt; UpdateFlowMediaStreamResponse -&gt; Bool
+$c/= :: UpdateFlowMediaStreamResponse
+-&gt; UpdateFlowMediaStreamResponse -&gt; Bool
+== :: UpdateFlowMediaStreamResponse
+-&gt; UpdateFlowMediaStreamResponse -&gt; Bool
+$c== :: UpdateFlowMediaStreamResponse
+-&gt; UpdateFlowMediaStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280140"><span id="local-6989586621679280142"><span id="local-6989586621679280144"><span id="local-6989586621679280146"><span class="annot"><span class="annottext">ReadPrec [UpdateFlowMediaStreamResponse]
+ReadPrec UpdateFlowMediaStreamResponse
+Int -&gt; ReadS UpdateFlowMediaStreamResponse
+ReadS [UpdateFlowMediaStreamResponse]
+(Int -&gt; ReadS UpdateFlowMediaStreamResponse)
+-&gt; ReadS [UpdateFlowMediaStreamResponse]
+-&gt; ReadPrec UpdateFlowMediaStreamResponse
+-&gt; ReadPrec [UpdateFlowMediaStreamResponse]
+-&gt; Read UpdateFlowMediaStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFlowMediaStreamResponse]
+$creadListPrec :: ReadPrec [UpdateFlowMediaStreamResponse]
+readPrec :: ReadPrec UpdateFlowMediaStreamResponse
+$creadPrec :: ReadPrec UpdateFlowMediaStreamResponse
+readList :: ReadS [UpdateFlowMediaStreamResponse]
+$creadList :: ReadS [UpdateFlowMediaStreamResponse]
+readsPrec :: Int -&gt; ReadS UpdateFlowMediaStreamResponse
+$creadsPrec :: Int -&gt; ReadS UpdateFlowMediaStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280134"><span id="local-6989586621679280136"><span id="local-6989586621679280138"><span class="annot"><span class="annottext">Int -&gt; UpdateFlowMediaStreamResponse -&gt; ShowS
+[UpdateFlowMediaStreamResponse] -&gt; ShowS
+UpdateFlowMediaStreamResponse -&gt; String
+(Int -&gt; UpdateFlowMediaStreamResponse -&gt; ShowS)
+-&gt; (UpdateFlowMediaStreamResponse -&gt; String)
+-&gt; ([UpdateFlowMediaStreamResponse] -&gt; ShowS)
+-&gt; Show UpdateFlowMediaStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFlowMediaStreamResponse] -&gt; ShowS
+$cshowList :: [UpdateFlowMediaStreamResponse] -&gt; ShowS
+show :: UpdateFlowMediaStreamResponse -&gt; String
+$cshow :: UpdateFlowMediaStreamResponse -&gt; String
+showsPrec :: Int -&gt; UpdateFlowMediaStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFlowMediaStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFlowMediaStreamResponse
+ -&gt; Rep UpdateFlowMediaStreamResponse x)
+-&gt; (forall x.
+    Rep UpdateFlowMediaStreamResponse x
+    -&gt; UpdateFlowMediaStreamResponse)
+-&gt; Generic UpdateFlowMediaStreamResponse
+forall x.
+Rep UpdateFlowMediaStreamResponse x
+-&gt; UpdateFlowMediaStreamResponse
+forall x.
+UpdateFlowMediaStreamResponse
+-&gt; Rep UpdateFlowMediaStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateFlowMediaStreamResponse x
+-&gt; UpdateFlowMediaStreamResponse
+$cfrom :: forall x.
+UpdateFlowMediaStreamResponse
+-&gt; Rep UpdateFlowMediaStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Create a value of 'UpdateFlowMediaStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'flowArn', 'updateFlowMediaStreamResponse_flowArn' - The ARN of the flow that is associated with the media stream that you</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'mediaStream', 'updateFlowMediaStreamResponse_mediaStream' - The media stream that you updated.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'httpStatus', 'updateFlowMediaStreamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#newUpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">newUpdateFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span>
+</span><span id="line-234"></span><span id="newUpdateFlowMediaStreamResponse"><span class="annot"><span class="annottext">newUpdateFlowMediaStreamResponse :: Int -&gt; UpdateFlowMediaStreamResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#newUpdateFlowMediaStreamResponse"><span class="hs-identifier hs-var hs-var">newUpdateFlowMediaStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679280131"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280131"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse' :: Maybe Text
+-&gt; Maybe MediaStream -&gt; Int -&gt; UpdateFlowMediaStreamResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse'</span></a></span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowMediaStreamResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AflowArn%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStream:UpdateFlowMediaStreamResponse' :: Maybe MediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStream%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">mediaStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStream
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFlowMediaStreamResponse' :: Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AhttpStatus%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280131"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The ARN of the flow that is associated with the media stream that you</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_flowArn"><span class="hs-identifier hs-type">updateFlowMediaStreamResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="updateFlowMediaStreamResponse_flowArn"><span class="annot"><span class="annottext">updateFlowMediaStreamResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowMediaStreamResponse -&gt; f UpdateFlowMediaStreamResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_flowArn"><span class="hs-identifier hs-var hs-var">updateFlowMediaStreamResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStreamResponse -&gt; Maybe Text)
+-&gt; (UpdateFlowMediaStreamResponse
+    -&gt; Maybe Text -&gt; UpdateFlowMediaStreamResponse)
+-&gt; Lens
+     UpdateFlowMediaStreamResponse
+     UpdateFlowMediaStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280130"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:UpdateFlowMediaStreamResponse' :: UpdateFlowMediaStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679280130"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280130"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280129"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStreamResponse
+</span><a href="#local-6989586621679280129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280128"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse
+</span><a href="#local-6989586621679280129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowMediaStreamResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AflowArn%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The media stream that you updated.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_mediaStream"><span class="hs-identifier hs-type">updateFlowMediaStreamResponse_mediaStream</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStream.html#MediaStream"><span class="hs-identifier hs-type">MediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="updateFlowMediaStreamResponse_mediaStream"><span class="annot"><span class="annottext">updateFlowMediaStreamResponse_mediaStream :: (Maybe MediaStream -&gt; f (Maybe MediaStream))
+-&gt; UpdateFlowMediaStreamResponse -&gt; f UpdateFlowMediaStreamResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_mediaStream"><span class="hs-identifier hs-var hs-var">updateFlowMediaStreamResponse_mediaStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStreamResponse -&gt; Maybe MediaStream)
+-&gt; (UpdateFlowMediaStreamResponse
+    -&gt; Maybe MediaStream -&gt; UpdateFlowMediaStreamResponse)
+-&gt; Lens
+     UpdateFlowMediaStreamResponse
+     UpdateFlowMediaStreamResponse
+     (Maybe MediaStream)
+     (Maybe MediaStream)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280127"><span class="annot"><span class="annottext">Maybe MediaStream
+mediaStream :: Maybe MediaStream
+$sel:mediaStream:UpdateFlowMediaStreamResponse' :: UpdateFlowMediaStreamResponse -&gt; Maybe MediaStream
+</span><a href="#local-6989586621679280127"><span class="hs-identifier hs-var hs-var">mediaStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStream
+</span><a href="#local-6989586621679280127"><span class="hs-identifier hs-var">mediaStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280126"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStreamResponse
+</span><a href="#local-6989586621679280126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280125"><span class="annot"><span class="annottext">Maybe MediaStream
+</span><a href="#local-6989586621679280125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse
+</span><a href="#local-6989586621679280126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStream:UpdateFlowMediaStreamResponse' :: Maybe MediaStream
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AmediaStream%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">mediaStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaStream
+</span><a href="#local-6989586621679280125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_httpStatus"><span class="hs-identifier hs-type">updateFlowMediaStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span id="updateFlowMediaStreamResponse_httpStatus"><span class="annot"><span class="annottext">updateFlowMediaStreamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateFlowMediaStreamResponse -&gt; f UpdateFlowMediaStreamResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#updateFlowMediaStreamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateFlowMediaStreamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowMediaStreamResponse -&gt; Int)
+-&gt; (UpdateFlowMediaStreamResponse
+    -&gt; Int -&gt; UpdateFlowMediaStreamResponse)
+-&gt; Lens
+     UpdateFlowMediaStreamResponse UpdateFlowMediaStreamResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280124"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateFlowMediaStreamResponse' :: UpdateFlowMediaStreamResponse -&gt; Int
+</span><a href="#local-6989586621679280124"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280124"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280123"><span class="annot"><span class="annottext">s :: UpdateFlowMediaStreamResponse
+</span><a href="#local-6989586621679280123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280122"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowMediaStreamResponse
+</span><a href="#local-6989586621679280123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFlowMediaStreamResponse' :: Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#%24sel%3AhttpStatus%3AUpdateFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowMediaStream.html#UpdateFlowMediaStreamResponse"><span class="hs-identifier hs-type">UpdateFlowMediaStreamResponse</span></a></span></span><span>
+</span><span id="line-256"></span></pre></body></html>

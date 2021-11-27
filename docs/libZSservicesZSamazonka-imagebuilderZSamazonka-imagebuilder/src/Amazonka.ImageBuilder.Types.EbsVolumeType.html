@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ImageBuilder.Types.EbsVolumeType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ImageBuilder.Types.EbsVolumeType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier">EbsVolumeType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Gp2"><span class="hs-identifier">EbsVolumeType_Gp2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Gp3"><span class="hs-identifier">EbsVolumeType_Gp3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Io1"><span class="hs-identifier">EbsVolumeType_Io1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Io2"><span class="hs-identifier">EbsVolumeType_Io2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Sc1"><span class="hs-identifier">EbsVolumeType_Sc1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_St1"><span class="hs-identifier">EbsVolumeType_St1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Standard"><span class="hs-identifier">EbsVolumeType_Standard</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679313355"><span id="local-6989586621679313356"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EbsVolumeType"><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-var">EbsVolumeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbsVolumeType%27"><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-var">EbsVolumeType'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEbsVolumeType"><span class="annot"><span class="annottext">EbsVolumeType -&gt; Text
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#fromEbsVolumeType"><span class="hs-identifier hs-var hs-var">fromEbsVolumeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313347"><span id="local-6989586621679313349"><span id="local-6989586621679313351"><span class="annot"><span class="annottext">Int -&gt; EbsVolumeType -&gt; ShowS
+[EbsVolumeType] -&gt; ShowS
+EbsVolumeType -&gt; String
+(Int -&gt; EbsVolumeType -&gt; ShowS)
+-&gt; (EbsVolumeType -&gt; String)
+-&gt; ([EbsVolumeType] -&gt; ShowS)
+-&gt; Show EbsVolumeType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EbsVolumeType] -&gt; ShowS
+$cshowList :: [EbsVolumeType] -&gt; ShowS
+show :: EbsVolumeType -&gt; String
+$cshow :: EbsVolumeType -&gt; String
+showsPrec :: Int -&gt; EbsVolumeType -&gt; ShowS
+$cshowsPrec :: Int -&gt; EbsVolumeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679313338"><span id="local-6989586621679313340"><span id="local-6989586621679313342"><span id="local-6989586621679313344"><span class="annot"><span class="annottext">ReadPrec [EbsVolumeType]
+ReadPrec EbsVolumeType
+Int -&gt; ReadS EbsVolumeType
+ReadS [EbsVolumeType]
+(Int -&gt; ReadS EbsVolumeType)
+-&gt; ReadS [EbsVolumeType]
+-&gt; ReadPrec EbsVolumeType
+-&gt; ReadPrec [EbsVolumeType]
+-&gt; Read EbsVolumeType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EbsVolumeType]
+$creadListPrec :: ReadPrec [EbsVolumeType]
+readPrec :: ReadPrec EbsVolumeType
+$creadPrec :: ReadPrec EbsVolumeType
+readList :: ReadS [EbsVolumeType]
+$creadList :: ReadS [EbsVolumeType]
+readsPrec :: Int -&gt; ReadS EbsVolumeType
+$creadsPrec :: Int -&gt; ReadS EbsVolumeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679313333"><span id="local-6989586621679313335"><span class="annot"><span class="annottext">EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+(EbsVolumeType -&gt; EbsVolumeType -&gt; Bool)
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; Bool) -&gt; Eq EbsVolumeType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+$c/= :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+== :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+$c== :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679313317"><span id="local-6989586621679313319"><span id="local-6989586621679313321"><span id="local-6989586621679313323"><span id="local-6989586621679313325"><span id="local-6989586621679313327"><span id="local-6989586621679313329"><span class="annot"><span class="annottext">Eq EbsVolumeType
+Eq EbsVolumeType
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; Ordering)
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; Bool)
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; Bool)
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; Bool)
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; Bool)
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; EbsVolumeType)
+-&gt; (EbsVolumeType -&gt; EbsVolumeType -&gt; EbsVolumeType)
+-&gt; Ord EbsVolumeType
+EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+EbsVolumeType -&gt; EbsVolumeType -&gt; Ordering
+EbsVolumeType -&gt; EbsVolumeType -&gt; EbsVolumeType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EbsVolumeType -&gt; EbsVolumeType -&gt; EbsVolumeType
+$cmin :: EbsVolumeType -&gt; EbsVolumeType -&gt; EbsVolumeType
+max :: EbsVolumeType -&gt; EbsVolumeType -&gt; EbsVolumeType
+$cmax :: EbsVolumeType -&gt; EbsVolumeType -&gt; EbsVolumeType
+&gt;= :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+$c&gt;= :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+&gt; :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+$c&gt; :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+&lt;= :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+$c&lt;= :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+&lt; :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+$c&lt; :: EbsVolumeType -&gt; EbsVolumeType -&gt; Bool
+compare :: EbsVolumeType -&gt; EbsVolumeType -&gt; Ordering
+$ccompare :: EbsVolumeType -&gt; EbsVolumeType -&gt; Ordering
+$cp1Ord :: Eq EbsVolumeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EbsVolumeType -&gt; Rep EbsVolumeType x)
+-&gt; (forall x. Rep EbsVolumeType x -&gt; EbsVolumeType)
+-&gt; Generic EbsVolumeType
+forall x. Rep EbsVolumeType x -&gt; EbsVolumeType
+forall x. EbsVolumeType -&gt; Rep EbsVolumeType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EbsVolumeType x -&gt; EbsVolumeType
+$cfrom :: forall x. EbsVolumeType -&gt; Rep EbsVolumeType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313309"><span id="local-6989586621679313311"><span class="annot"><span class="annottext">Int -&gt; EbsVolumeType -&gt; Int
+EbsVolumeType -&gt; Int
+(Int -&gt; EbsVolumeType -&gt; Int)
+-&gt; (EbsVolumeType -&gt; Int) -&gt; Hashable EbsVolumeType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EbsVolumeType -&gt; Int
+$chash :: EbsVolumeType -&gt; Int
+hashWithSalt :: Int -&gt; EbsVolumeType -&gt; Int
+$chashWithSalt :: Int -&gt; EbsVolumeType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679313306"><span class="annot"><span class="annottext">EbsVolumeType -&gt; ()
+(EbsVolumeType -&gt; ()) -&gt; NFData EbsVolumeType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EbsVolumeType -&gt; ()
+$crnf :: EbsVolumeType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679313303"><span class="annot"><span class="annottext">Text -&gt; Either String EbsVolumeType
+(Text -&gt; Either String EbsVolumeType) -&gt; FromText EbsVolumeType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EbsVolumeType
+$cfromText :: Text -&gt; Either String EbsVolumeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679313300"><span class="annot"><span class="annottext">EbsVolumeType -&gt; Text
+(EbsVolumeType -&gt; Text) -&gt; ToText EbsVolumeType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EbsVolumeType -&gt; Text
+$ctoText :: EbsVolumeType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679313297"><span class="annot"><span class="annottext">EbsVolumeType -&gt; ByteString
+(EbsVolumeType -&gt; ByteString) -&gt; ToByteString EbsVolumeType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EbsVolumeType -&gt; ByteString
+$ctoBS :: EbsVolumeType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679313294"><span class="annot"><span class="annottext">EbsVolumeType -&gt; ByteStringBuilder
+(EbsVolumeType -&gt; ByteStringBuilder) -&gt; ToLog EbsVolumeType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EbsVolumeType -&gt; ByteStringBuilder
+$cbuild :: EbsVolumeType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679313291"><span class="annot"><span class="annottext">HeaderName -&gt; EbsVolumeType -&gt; [Header]
+(HeaderName -&gt; EbsVolumeType -&gt; [Header]) -&gt; ToHeader EbsVolumeType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EbsVolumeType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EbsVolumeType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679313288"><span class="annot"><span class="annottext">EbsVolumeType -&gt; QueryString
+(EbsVolumeType -&gt; QueryString) -&gt; ToQuery EbsVolumeType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EbsVolumeType -&gt; QueryString
+$ctoQuery :: EbsVolumeType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679313283"><span id="local-6989586621679313285"><span class="annot"><span class="annottext">Value -&gt; Parser [EbsVolumeType]
+Value -&gt; Parser EbsVolumeType
+(Value -&gt; Parser EbsVolumeType)
+-&gt; (Value -&gt; Parser [EbsVolumeType]) -&gt; FromJSON EbsVolumeType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EbsVolumeType]
+$cparseJSONList :: Value -&gt; Parser [EbsVolumeType]
+parseJSON :: Value -&gt; Parser EbsVolumeType
+$cparseJSON :: Value -&gt; Parser EbsVolumeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679313278"><span id="local-6989586621679313280"><span class="annot"><span class="annottext">FromJSONKeyFunction [EbsVolumeType]
+FromJSONKeyFunction EbsVolumeType
+FromJSONKeyFunction EbsVolumeType
+-&gt; FromJSONKeyFunction [EbsVolumeType] -&gt; FromJSONKey EbsVolumeType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EbsVolumeType]
+$cfromJSONKeyList :: FromJSONKeyFunction [EbsVolumeType]
+fromJSONKey :: FromJSONKeyFunction EbsVolumeType
+$cfromJSONKey :: FromJSONKeyFunction EbsVolumeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679313269"><span id="local-6989586621679313271"><span id="local-6989586621679313273"><span id="local-6989586621679313275"><span class="annot"><span class="annottext">[EbsVolumeType] -&gt; Encoding
+[EbsVolumeType] -&gt; Value
+EbsVolumeType -&gt; Encoding
+EbsVolumeType -&gt; Value
+(EbsVolumeType -&gt; Value)
+-&gt; (EbsVolumeType -&gt; Encoding)
+-&gt; ([EbsVolumeType] -&gt; Value)
+-&gt; ([EbsVolumeType] -&gt; Encoding)
+-&gt; ToJSON EbsVolumeType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EbsVolumeType] -&gt; Encoding
+$ctoEncodingList :: [EbsVolumeType] -&gt; Encoding
+toJSONList :: [EbsVolumeType] -&gt; Value
+$ctoJSONList :: [EbsVolumeType] -&gt; Value
+toEncoding :: EbsVolumeType -&gt; Encoding
+$ctoEncoding :: EbsVolumeType -&gt; Encoding
+toJSON :: EbsVolumeType -&gt; Value
+$ctoJSON :: EbsVolumeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679313264"><span id="local-6989586621679313266"><span class="annot"><span class="annottext">ToJSONKeyFunction [EbsVolumeType]
+ToJSONKeyFunction EbsVolumeType
+ToJSONKeyFunction EbsVolumeType
+-&gt; ToJSONKeyFunction [EbsVolumeType] -&gt; ToJSONKey EbsVolumeType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EbsVolumeType]
+$ctoJSONKeyList :: ToJSONKeyFunction [EbsVolumeType]
+toJSONKey :: ToJSONKeyFunction EbsVolumeType
+$ctoJSONKey :: ToJSONKeyFunction EbsVolumeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679313261"><span class="annot"><span class="annottext">[Node] -&gt; Either String EbsVolumeType
+([Node] -&gt; Either String EbsVolumeType) -&gt; FromXML EbsVolumeType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EbsVolumeType
+$cparseXML :: [Node] -&gt; Either String EbsVolumeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679313258"><span class="annot"><span class="annottext">EbsVolumeType -&gt; XML
+(EbsVolumeType -&gt; XML) -&gt; ToXML EbsVolumeType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EbsVolumeType -&gt; XML
+$ctoXML :: EbsVolumeType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Gp2"><span class="hs-identifier hs-type">EbsVolumeType_Gp2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-type">EbsVolumeType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsVolumeType_Gp2"><span id="%24mEbsVolumeType_Gp2"><span id="EbsVolumeType_Gp2"><span class="annot"><span class="annottext">$bEbsVolumeType_Gp2 :: EbsVolumeType
+$mEbsVolumeType_Gp2 :: forall r. EbsVolumeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#%24bEbsVolumeType_Gp2"><span class="hs-identifier hs-var hs-var hs-var">EbsVolumeType_Gp2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-type">EbsVolumeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;gp2&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Gp3"><span class="hs-identifier hs-type">EbsVolumeType_Gp3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-type">EbsVolumeType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsVolumeType_Gp3"><span id="%24mEbsVolumeType_Gp3"><span id="EbsVolumeType_Gp3"><span class="annot"><span class="annottext">$bEbsVolumeType_Gp3 :: EbsVolumeType
+$mEbsVolumeType_Gp3 :: forall r. EbsVolumeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#%24bEbsVolumeType_Gp3"><span class="hs-identifier hs-var hs-var hs-var">EbsVolumeType_Gp3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-type">EbsVolumeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;gp3&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Io1"><span class="hs-identifier hs-type">EbsVolumeType_Io1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-type">EbsVolumeType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsVolumeType_Io1"><span id="%24mEbsVolumeType_Io1"><span id="EbsVolumeType_Io1"><span class="annot"><span class="annottext">$bEbsVolumeType_Io1 :: EbsVolumeType
+$mEbsVolumeType_Io1 :: forall r. EbsVolumeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#%24bEbsVolumeType_Io1"><span class="hs-identifier hs-var hs-var hs-var">EbsVolumeType_Io1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-type">EbsVolumeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;io1&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Io2"><span class="hs-identifier hs-type">EbsVolumeType_Io2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-type">EbsVolumeType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsVolumeType_Io2"><span id="%24mEbsVolumeType_Io2"><span id="EbsVolumeType_Io2"><span class="annot"><span class="annottext">$bEbsVolumeType_Io2 :: EbsVolumeType
+$mEbsVolumeType_Io2 :: forall r. EbsVolumeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#%24bEbsVolumeType_Io2"><span class="hs-identifier hs-var hs-var hs-var">EbsVolumeType_Io2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-type">EbsVolumeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;io2&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Sc1"><span class="hs-identifier hs-type">EbsVolumeType_Sc1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-type">EbsVolumeType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsVolumeType_Sc1"><span id="%24mEbsVolumeType_Sc1"><span id="EbsVolumeType_Sc1"><span class="annot"><span class="annottext">$bEbsVolumeType_Sc1 :: EbsVolumeType
+$mEbsVolumeType_Sc1 :: forall r. EbsVolumeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#%24bEbsVolumeType_Sc1"><span class="hs-identifier hs-var hs-var hs-var">EbsVolumeType_Sc1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-type">EbsVolumeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;sc1&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_St1"><span class="hs-identifier hs-type">EbsVolumeType_St1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-type">EbsVolumeType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsVolumeType_St1"><span id="%24mEbsVolumeType_St1"><span id="EbsVolumeType_St1"><span class="annot"><span class="annottext">$bEbsVolumeType_St1 :: EbsVolumeType
+$mEbsVolumeType_St1 :: forall r. EbsVolumeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#%24bEbsVolumeType_St1"><span class="hs-identifier hs-var hs-var hs-var">EbsVolumeType_St1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-type">EbsVolumeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;st1&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Standard"><span class="hs-identifier hs-type">EbsVolumeType_Standard</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType"><span class="hs-identifier hs-type">EbsVolumeType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsVolumeType_Standard"><span id="%24mEbsVolumeType_Standard"><span id="EbsVolumeType_Standard"><span class="annot"><span class="annottext">$bEbsVolumeType_Standard :: EbsVolumeType
+$mEbsVolumeType_Standard :: forall r. EbsVolumeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#%24bEbsVolumeType_Standard"><span class="hs-identifier hs-var hs-var hs-var">EbsVolumeType_Standard</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-identifier hs-type">EbsVolumeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;standard&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Gp2"><span class="hs-pragma hs-type">EbsVolumeType_Gp2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Gp3"><span class="hs-pragma hs-type">EbsVolumeType_Gp3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Io1"><span class="hs-pragma hs-type">EbsVolumeType_Io1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Io2"><span class="hs-pragma hs-type">EbsVolumeType_Io2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Sc1"><span class="hs-pragma hs-type">EbsVolumeType_Sc1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_St1"><span class="hs-pragma hs-type">EbsVolumeType_St1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType_Standard"><span class="hs-pragma hs-type">EbsVolumeType_Standard</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.EbsVolumeType.html#EbsVolumeType%27"><span class="hs-pragma hs-type">EbsVolumeType'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

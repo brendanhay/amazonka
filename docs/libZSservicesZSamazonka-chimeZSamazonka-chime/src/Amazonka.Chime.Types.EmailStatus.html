@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.EmailStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.EmailStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus"><span class="hs-identifier">EmailStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_Failed"><span class="hs-identifier">EmailStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_NotSent"><span class="hs-identifier">EmailStatus_NotSent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_Sent"><span class="hs-identifier">EmailStatus_Sent</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679508693"><span id="local-6989586621679508694"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmailStatus"><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus"><span class="hs-identifier hs-var">EmailStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailStatus%27"><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus%27"><span class="hs-identifier hs-var">EmailStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEmailStatus"><span class="annot"><span class="annottext">EmailStatus -&gt; Text
+</span><a href="Amazonka.Chime.Types.EmailStatus.html#fromEmailStatus"><span class="hs-identifier hs-var hs-var">fromEmailStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679508685"><span id="local-6989586621679508687"><span id="local-6989586621679508689"><span class="annot"><span class="annottext">Int -&gt; EmailStatus -&gt; ShowS
+[EmailStatus] -&gt; ShowS
+EmailStatus -&gt; String
+(Int -&gt; EmailStatus -&gt; ShowS)
+-&gt; (EmailStatus -&gt; String)
+-&gt; ([EmailStatus] -&gt; ShowS)
+-&gt; Show EmailStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EmailStatus] -&gt; ShowS
+$cshowList :: [EmailStatus] -&gt; ShowS
+show :: EmailStatus -&gt; String
+$cshow :: EmailStatus -&gt; String
+showsPrec :: Int -&gt; EmailStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; EmailStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679508676"><span id="local-6989586621679508678"><span id="local-6989586621679508680"><span id="local-6989586621679508682"><span class="annot"><span class="annottext">ReadPrec [EmailStatus]
+ReadPrec EmailStatus
+Int -&gt; ReadS EmailStatus
+ReadS [EmailStatus]
+(Int -&gt; ReadS EmailStatus)
+-&gt; ReadS [EmailStatus]
+-&gt; ReadPrec EmailStatus
+-&gt; ReadPrec [EmailStatus]
+-&gt; Read EmailStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EmailStatus]
+$creadListPrec :: ReadPrec [EmailStatus]
+readPrec :: ReadPrec EmailStatus
+$creadPrec :: ReadPrec EmailStatus
+readList :: ReadS [EmailStatus]
+$creadList :: ReadS [EmailStatus]
+readsPrec :: Int -&gt; ReadS EmailStatus
+$creadsPrec :: Int -&gt; ReadS EmailStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679508671"><span id="local-6989586621679508673"><span class="annot"><span class="annottext">EmailStatus -&gt; EmailStatus -&gt; Bool
+(EmailStatus -&gt; EmailStatus -&gt; Bool)
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; Bool) -&gt; Eq EmailStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EmailStatus -&gt; EmailStatus -&gt; Bool
+$c/= :: EmailStatus -&gt; EmailStatus -&gt; Bool
+== :: EmailStatus -&gt; EmailStatus -&gt; Bool
+$c== :: EmailStatus -&gt; EmailStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679508655"><span id="local-6989586621679508657"><span id="local-6989586621679508659"><span id="local-6989586621679508661"><span id="local-6989586621679508663"><span id="local-6989586621679508665"><span id="local-6989586621679508667"><span class="annot"><span class="annottext">Eq EmailStatus
+Eq EmailStatus
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; Ordering)
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; Bool)
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; Bool)
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; Bool)
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; Bool)
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; EmailStatus)
+-&gt; (EmailStatus -&gt; EmailStatus -&gt; EmailStatus)
+-&gt; Ord EmailStatus
+EmailStatus -&gt; EmailStatus -&gt; Bool
+EmailStatus -&gt; EmailStatus -&gt; Ordering
+EmailStatus -&gt; EmailStatus -&gt; EmailStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EmailStatus -&gt; EmailStatus -&gt; EmailStatus
+$cmin :: EmailStatus -&gt; EmailStatus -&gt; EmailStatus
+max :: EmailStatus -&gt; EmailStatus -&gt; EmailStatus
+$cmax :: EmailStatus -&gt; EmailStatus -&gt; EmailStatus
+&gt;= :: EmailStatus -&gt; EmailStatus -&gt; Bool
+$c&gt;= :: EmailStatus -&gt; EmailStatus -&gt; Bool
+&gt; :: EmailStatus -&gt; EmailStatus -&gt; Bool
+$c&gt; :: EmailStatus -&gt; EmailStatus -&gt; Bool
+&lt;= :: EmailStatus -&gt; EmailStatus -&gt; Bool
+$c&lt;= :: EmailStatus -&gt; EmailStatus -&gt; Bool
+&lt; :: EmailStatus -&gt; EmailStatus -&gt; Bool
+$c&lt; :: EmailStatus -&gt; EmailStatus -&gt; Bool
+compare :: EmailStatus -&gt; EmailStatus -&gt; Ordering
+$ccompare :: EmailStatus -&gt; EmailStatus -&gt; Ordering
+$cp1Ord :: Eq EmailStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EmailStatus -&gt; Rep EmailStatus x)
+-&gt; (forall x. Rep EmailStatus x -&gt; EmailStatus)
+-&gt; Generic EmailStatus
+forall x. Rep EmailStatus x -&gt; EmailStatus
+forall x. EmailStatus -&gt; Rep EmailStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EmailStatus x -&gt; EmailStatus
+$cfrom :: forall x. EmailStatus -&gt; Rep EmailStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679508647"><span id="local-6989586621679508649"><span class="annot"><span class="annottext">Int -&gt; EmailStatus -&gt; Int
+EmailStatus -&gt; Int
+(Int -&gt; EmailStatus -&gt; Int)
+-&gt; (EmailStatus -&gt; Int) -&gt; Hashable EmailStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EmailStatus -&gt; Int
+$chash :: EmailStatus -&gt; Int
+hashWithSalt :: Int -&gt; EmailStatus -&gt; Int
+$chashWithSalt :: Int -&gt; EmailStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679508644"><span class="annot"><span class="annottext">EmailStatus -&gt; ()
+(EmailStatus -&gt; ()) -&gt; NFData EmailStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EmailStatus -&gt; ()
+$crnf :: EmailStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679508641"><span class="annot"><span class="annottext">Text -&gt; Either String EmailStatus
+(Text -&gt; Either String EmailStatus) -&gt; FromText EmailStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EmailStatus
+$cfromText :: Text -&gt; Either String EmailStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679508638"><span class="annot"><span class="annottext">EmailStatus -&gt; Text
+(EmailStatus -&gt; Text) -&gt; ToText EmailStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EmailStatus -&gt; Text
+$ctoText :: EmailStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679508635"><span class="annot"><span class="annottext">EmailStatus -&gt; ByteString
+(EmailStatus -&gt; ByteString) -&gt; ToByteString EmailStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EmailStatus -&gt; ByteString
+$ctoBS :: EmailStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679508632"><span class="annot"><span class="annottext">EmailStatus -&gt; ByteStringBuilder
+(EmailStatus -&gt; ByteStringBuilder) -&gt; ToLog EmailStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EmailStatus -&gt; ByteStringBuilder
+$cbuild :: EmailStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679508629"><span class="annot"><span class="annottext">HeaderName -&gt; EmailStatus -&gt; [Header]
+(HeaderName -&gt; EmailStatus -&gt; [Header]) -&gt; ToHeader EmailStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EmailStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EmailStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679508626"><span class="annot"><span class="annottext">EmailStatus -&gt; QueryString
+(EmailStatus -&gt; QueryString) -&gt; ToQuery EmailStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EmailStatus -&gt; QueryString
+$ctoQuery :: EmailStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679508621"><span id="local-6989586621679508623"><span class="annot"><span class="annottext">Value -&gt; Parser [EmailStatus]
+Value -&gt; Parser EmailStatus
+(Value -&gt; Parser EmailStatus)
+-&gt; (Value -&gt; Parser [EmailStatus]) -&gt; FromJSON EmailStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EmailStatus]
+$cparseJSONList :: Value -&gt; Parser [EmailStatus]
+parseJSON :: Value -&gt; Parser EmailStatus
+$cparseJSON :: Value -&gt; Parser EmailStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679508616"><span id="local-6989586621679508618"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmailStatus]
+FromJSONKeyFunction EmailStatus
+FromJSONKeyFunction EmailStatus
+-&gt; FromJSONKeyFunction [EmailStatus] -&gt; FromJSONKey EmailStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EmailStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [EmailStatus]
+fromJSONKey :: FromJSONKeyFunction EmailStatus
+$cfromJSONKey :: FromJSONKeyFunction EmailStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679508607"><span id="local-6989586621679508609"><span id="local-6989586621679508611"><span id="local-6989586621679508613"><span class="annot"><span class="annottext">[EmailStatus] -&gt; Encoding
+[EmailStatus] -&gt; Value
+EmailStatus -&gt; Encoding
+EmailStatus -&gt; Value
+(EmailStatus -&gt; Value)
+-&gt; (EmailStatus -&gt; Encoding)
+-&gt; ([EmailStatus] -&gt; Value)
+-&gt; ([EmailStatus] -&gt; Encoding)
+-&gt; ToJSON EmailStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EmailStatus] -&gt; Encoding
+$ctoEncodingList :: [EmailStatus] -&gt; Encoding
+toJSONList :: [EmailStatus] -&gt; Value
+$ctoJSONList :: [EmailStatus] -&gt; Value
+toEncoding :: EmailStatus -&gt; Encoding
+$ctoEncoding :: EmailStatus -&gt; Encoding
+toJSON :: EmailStatus -&gt; Value
+$ctoJSON :: EmailStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679508602"><span id="local-6989586621679508604"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmailStatus]
+ToJSONKeyFunction EmailStatus
+ToJSONKeyFunction EmailStatus
+-&gt; ToJSONKeyFunction [EmailStatus] -&gt; ToJSONKey EmailStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EmailStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [EmailStatus]
+toJSONKey :: ToJSONKeyFunction EmailStatus
+$ctoJSONKey :: ToJSONKeyFunction EmailStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679508599"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmailStatus
+([Node] -&gt; Either String EmailStatus) -&gt; FromXML EmailStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EmailStatus
+$cparseXML :: [Node] -&gt; Either String EmailStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679508596"><span class="annot"><span class="annottext">EmailStatus -&gt; XML
+(EmailStatus -&gt; XML) -&gt; ToXML EmailStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EmailStatus -&gt; XML
+$ctoXML :: EmailStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_Failed"><span class="hs-identifier hs-type">EmailStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus"><span class="hs-identifier hs-type">EmailStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEmailStatus_Failed"><span id="%24mEmailStatus_Failed"><span id="EmailStatus_Failed"><span class="annot"><span class="annottext">$bEmailStatus_Failed :: EmailStatus
+$mEmailStatus_Failed :: forall r. EmailStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.EmailStatus.html#%24bEmailStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">EmailStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus%27"><span class="hs-identifier hs-type">EmailStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_NotSent"><span class="hs-identifier hs-type">EmailStatus_NotSent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus"><span class="hs-identifier hs-type">EmailStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEmailStatus_NotSent"><span id="%24mEmailStatus_NotSent"><span id="EmailStatus_NotSent"><span class="annot"><span class="annottext">$bEmailStatus_NotSent :: EmailStatus
+$mEmailStatus_NotSent :: forall r. EmailStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.EmailStatus.html#%24bEmailStatus_NotSent"><span class="hs-identifier hs-var hs-var hs-var">EmailStatus_NotSent</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus%27"><span class="hs-identifier hs-type">EmailStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NotSent&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_Sent"><span class="hs-identifier hs-type">EmailStatus_Sent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus"><span class="hs-identifier hs-type">EmailStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEmailStatus_Sent"><span id="%24mEmailStatus_Sent"><span id="EmailStatus_Sent"><span class="annot"><span class="annottext">$bEmailStatus_Sent :: EmailStatus
+$mEmailStatus_Sent :: forall r. EmailStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.EmailStatus.html#%24bEmailStatus_Sent"><span class="hs-identifier hs-var hs-var hs-var">EmailStatus_Sent</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus%27"><span class="hs-identifier hs-type">EmailStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Sent&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_Failed"><span class="hs-pragma hs-type">EmailStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_NotSent"><span class="hs-pragma hs-type">EmailStatus_NotSent</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus_Sent"><span class="hs-pragma hs-type">EmailStatus_Sent</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus%27"><span class="hs-pragma hs-type">EmailStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

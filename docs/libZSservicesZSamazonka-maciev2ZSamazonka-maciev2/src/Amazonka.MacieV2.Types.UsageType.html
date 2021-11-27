@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.UsageType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.UsageType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType"><span class="hs-identifier">UsageType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType_DATA_INVENTORY_EVALUATION"><span class="hs-identifier">UsageType_DATA_INVENTORY_EVALUATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType_SENSITIVE_DATA_DISCOVERY"><span class="hs-identifier">UsageType_SENSITIVE_DATA_DISCOVERY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The name of an Amazon Macie usage metric for an account. Possible values</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- are:</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679401986"><span id="local-6989586621679401987"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageType"><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType"><span class="hs-identifier hs-var">UsageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageType%27"><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType%27"><span class="hs-identifier hs-var">UsageType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageType"><span class="annot"><span class="annottext">UsageType -&gt; Text
+</span><a href="Amazonka.MacieV2.Types.UsageType.html#fromUsageType"><span class="hs-identifier hs-var hs-var">fromUsageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401978"><span id="local-6989586621679401980"><span id="local-6989586621679401982"><span class="annot"><span class="annottext">Int -&gt; UsageType -&gt; ShowS
+[UsageType] -&gt; ShowS
+UsageType -&gt; String
+(Int -&gt; UsageType -&gt; ShowS)
+-&gt; (UsageType -&gt; String)
+-&gt; ([UsageType] -&gt; ShowS)
+-&gt; Show UsageType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UsageType] -&gt; ShowS
+$cshowList :: [UsageType] -&gt; ShowS
+show :: UsageType -&gt; String
+$cshow :: UsageType -&gt; String
+showsPrec :: Int -&gt; UsageType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UsageType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679401969"><span id="local-6989586621679401971"><span id="local-6989586621679401973"><span id="local-6989586621679401975"><span class="annot"><span class="annottext">ReadPrec [UsageType]
+ReadPrec UsageType
+Int -&gt; ReadS UsageType
+ReadS [UsageType]
+(Int -&gt; ReadS UsageType)
+-&gt; ReadS [UsageType]
+-&gt; ReadPrec UsageType
+-&gt; ReadPrec [UsageType]
+-&gt; Read UsageType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UsageType]
+$creadListPrec :: ReadPrec [UsageType]
+readPrec :: ReadPrec UsageType
+$creadPrec :: ReadPrec UsageType
+readList :: ReadS [UsageType]
+$creadList :: ReadS [UsageType]
+readsPrec :: Int -&gt; ReadS UsageType
+$creadsPrec :: Int -&gt; ReadS UsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679401964"><span id="local-6989586621679401966"><span class="annot"><span class="annottext">UsageType -&gt; UsageType -&gt; Bool
+(UsageType -&gt; UsageType -&gt; Bool)
+-&gt; (UsageType -&gt; UsageType -&gt; Bool) -&gt; Eq UsageType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UsageType -&gt; UsageType -&gt; Bool
+$c/= :: UsageType -&gt; UsageType -&gt; Bool
+== :: UsageType -&gt; UsageType -&gt; Bool
+$c== :: UsageType -&gt; UsageType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679401948"><span id="local-6989586621679401950"><span id="local-6989586621679401952"><span id="local-6989586621679401954"><span id="local-6989586621679401956"><span id="local-6989586621679401958"><span id="local-6989586621679401960"><span class="annot"><span class="annottext">Eq UsageType
+Eq UsageType
+-&gt; (UsageType -&gt; UsageType -&gt; Ordering)
+-&gt; (UsageType -&gt; UsageType -&gt; Bool)
+-&gt; (UsageType -&gt; UsageType -&gt; Bool)
+-&gt; (UsageType -&gt; UsageType -&gt; Bool)
+-&gt; (UsageType -&gt; UsageType -&gt; Bool)
+-&gt; (UsageType -&gt; UsageType -&gt; UsageType)
+-&gt; (UsageType -&gt; UsageType -&gt; UsageType)
+-&gt; Ord UsageType
+UsageType -&gt; UsageType -&gt; Bool
+UsageType -&gt; UsageType -&gt; Ordering
+UsageType -&gt; UsageType -&gt; UsageType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UsageType -&gt; UsageType -&gt; UsageType
+$cmin :: UsageType -&gt; UsageType -&gt; UsageType
+max :: UsageType -&gt; UsageType -&gt; UsageType
+$cmax :: UsageType -&gt; UsageType -&gt; UsageType
+&gt;= :: UsageType -&gt; UsageType -&gt; Bool
+$c&gt;= :: UsageType -&gt; UsageType -&gt; Bool
+&gt; :: UsageType -&gt; UsageType -&gt; Bool
+$c&gt; :: UsageType -&gt; UsageType -&gt; Bool
+&lt;= :: UsageType -&gt; UsageType -&gt; Bool
+$c&lt;= :: UsageType -&gt; UsageType -&gt; Bool
+&lt; :: UsageType -&gt; UsageType -&gt; Bool
+$c&lt; :: UsageType -&gt; UsageType -&gt; Bool
+compare :: UsageType -&gt; UsageType -&gt; Ordering
+$ccompare :: UsageType -&gt; UsageType -&gt; Ordering
+$cp1Ord :: Eq UsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UsageType -&gt; Rep UsageType x)
+-&gt; (forall x. Rep UsageType x -&gt; UsageType) -&gt; Generic UsageType
+forall x. Rep UsageType x -&gt; UsageType
+forall x. UsageType -&gt; Rep UsageType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UsageType x -&gt; UsageType
+$cfrom :: forall x. UsageType -&gt; Rep UsageType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401940"><span id="local-6989586621679401942"><span class="annot"><span class="annottext">Int -&gt; UsageType -&gt; Int
+UsageType -&gt; Int
+(Int -&gt; UsageType -&gt; Int)
+-&gt; (UsageType -&gt; Int) -&gt; Hashable UsageType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UsageType -&gt; Int
+$chash :: UsageType -&gt; Int
+hashWithSalt :: Int -&gt; UsageType -&gt; Int
+$chashWithSalt :: Int -&gt; UsageType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401937"><span class="annot"><span class="annottext">UsageType -&gt; ()
+(UsageType -&gt; ()) -&gt; NFData UsageType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UsageType -&gt; ()
+$crnf :: UsageType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401934"><span class="annot"><span class="annottext">Text -&gt; Either String UsageType
+(Text -&gt; Either String UsageType) -&gt; FromText UsageType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UsageType
+$cfromText :: Text -&gt; Either String UsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401931"><span class="annot"><span class="annottext">UsageType -&gt; Text
+(UsageType -&gt; Text) -&gt; ToText UsageType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UsageType -&gt; Text
+$ctoText :: UsageType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401928"><span class="annot"><span class="annottext">UsageType -&gt; ByteString
+(UsageType -&gt; ByteString) -&gt; ToByteString UsageType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UsageType -&gt; ByteString
+$ctoBS :: UsageType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401925"><span class="annot"><span class="annottext">UsageType -&gt; ByteStringBuilder
+(UsageType -&gt; ByteStringBuilder) -&gt; ToLog UsageType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UsageType -&gt; ByteStringBuilder
+$cbuild :: UsageType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401922"><span class="annot"><span class="annottext">HeaderName -&gt; UsageType -&gt; [Header]
+(HeaderName -&gt; UsageType -&gt; [Header]) -&gt; ToHeader UsageType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UsageType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UsageType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401919"><span class="annot"><span class="annottext">UsageType -&gt; QueryString
+(UsageType -&gt; QueryString) -&gt; ToQuery UsageType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UsageType -&gt; QueryString
+$ctoQuery :: UsageType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401914"><span id="local-6989586621679401916"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageType]
+Value -&gt; Parser UsageType
+(Value -&gt; Parser UsageType)
+-&gt; (Value -&gt; Parser [UsageType]) -&gt; FromJSON UsageType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UsageType]
+$cparseJSONList :: Value -&gt; Parser [UsageType]
+parseJSON :: Value -&gt; Parser UsageType
+$cparseJSON :: Value -&gt; Parser UsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401909"><span id="local-6989586621679401911"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageType]
+FromJSONKeyFunction UsageType
+FromJSONKeyFunction UsageType
+-&gt; FromJSONKeyFunction [UsageType] -&gt; FromJSONKey UsageType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UsageType]
+$cfromJSONKeyList :: FromJSONKeyFunction [UsageType]
+fromJSONKey :: FromJSONKeyFunction UsageType
+$cfromJSONKey :: FromJSONKeyFunction UsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401900"><span id="local-6989586621679401902"><span id="local-6989586621679401904"><span id="local-6989586621679401906"><span class="annot"><span class="annottext">[UsageType] -&gt; Encoding
+[UsageType] -&gt; Value
+UsageType -&gt; Encoding
+UsageType -&gt; Value
+(UsageType -&gt; Value)
+-&gt; (UsageType -&gt; Encoding)
+-&gt; ([UsageType] -&gt; Value)
+-&gt; ([UsageType] -&gt; Encoding)
+-&gt; ToJSON UsageType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UsageType] -&gt; Encoding
+$ctoEncodingList :: [UsageType] -&gt; Encoding
+toJSONList :: [UsageType] -&gt; Value
+$ctoJSONList :: [UsageType] -&gt; Value
+toEncoding :: UsageType -&gt; Encoding
+$ctoEncoding :: UsageType -&gt; Encoding
+toJSON :: UsageType -&gt; Value
+$ctoJSON :: UsageType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401895"><span id="local-6989586621679401897"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageType]
+ToJSONKeyFunction UsageType
+ToJSONKeyFunction UsageType
+-&gt; ToJSONKeyFunction [UsageType] -&gt; ToJSONKey UsageType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UsageType]
+$ctoJSONKeyList :: ToJSONKeyFunction [UsageType]
+toJSONKey :: ToJSONKeyFunction UsageType
+$ctoJSONKey :: ToJSONKeyFunction UsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679401892"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageType
+([Node] -&gt; Either String UsageType) -&gt; FromXML UsageType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UsageType
+$cparseXML :: [Node] -&gt; Either String UsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679401889"><span class="annot"><span class="annottext">UsageType -&gt; XML
+(UsageType -&gt; XML) -&gt; ToXML UsageType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UsageType -&gt; XML
+$ctoXML :: UsageType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType_DATA_INVENTORY_EVALUATION"><span class="hs-identifier hs-type">UsageType_DATA_INVENTORY_EVALUATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType"><span class="hs-identifier hs-type">UsageType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageType_DATA_INVENTORY_EVALUATION"><span id="%24mUsageType_DATA_INVENTORY_EVALUATION"><span id="UsageType_DATA_INVENTORY_EVALUATION"><span class="annot"><span class="annottext">$bUsageType_DATA_INVENTORY_EVALUATION :: UsageType
+$mUsageType_DATA_INVENTORY_EVALUATION :: forall r. UsageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UsageType.html#%24bUsageType_DATA_INVENTORY_EVALUATION"><span class="hs-identifier hs-var hs-var hs-var">UsageType_DATA_INVENTORY_EVALUATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType%27"><span class="hs-identifier hs-type">UsageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATA_INVENTORY_EVALUATION&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType_SENSITIVE_DATA_DISCOVERY"><span class="hs-identifier hs-type">UsageType_SENSITIVE_DATA_DISCOVERY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType"><span class="hs-identifier hs-type">UsageType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageType_SENSITIVE_DATA_DISCOVERY"><span id="%24mUsageType_SENSITIVE_DATA_DISCOVERY"><span id="UsageType_SENSITIVE_DATA_DISCOVERY"><span class="annot"><span class="annottext">$bUsageType_SENSITIVE_DATA_DISCOVERY :: UsageType
+$mUsageType_SENSITIVE_DATA_DISCOVERY :: forall r. UsageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UsageType.html#%24bUsageType_SENSITIVE_DATA_DISCOVERY"><span class="hs-identifier hs-var hs-var hs-var">UsageType_SENSITIVE_DATA_DISCOVERY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType%27"><span class="hs-identifier hs-type">UsageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SENSITIVE_DATA_DISCOVERY&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType_DATA_INVENTORY_EVALUATION"><span class="hs-pragma hs-type">UsageType_DATA_INVENTORY_EVALUATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType_SENSITIVE_DATA_DISCOVERY"><span class="hs-pragma hs-type">UsageType_SENSITIVE_DATA_DISCOVERY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UsageType.html#UsageType%27"><span class="hs-pragma hs-type">UsageType'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.BatchGetBuilds</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about one or more builds.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.BatchGetBuilds</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier">BatchGetBuilds</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#newBatchGetBuilds"><span class="hs-identifier">newBatchGetBuilds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuilds_ids"><span class="hs-identifier">batchGetBuilds_ids</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier">BatchGetBuildsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#newBatchGetBuildsResponse"><span class="hs-identifier">newBatchGetBuildsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_builds"><span class="hs-identifier">batchGetBuildsResponse_builds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_buildsNotFound"><span class="hs-identifier">batchGetBuildsResponse_buildsNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_httpStatus"><span class="hs-identifier">batchGetBuildsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.html"><span class="hs-identifier">Amazonka.CodeBuild.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchGetBuilds' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679392685"><span id="local-6989586621679392686"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetBuilds"><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-var">BatchGetBuilds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetBuilds%27"><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds%27"><span class="hs-identifier hs-var">BatchGetBuilds'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the builds.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aids%3ABatchGetBuilds%27"><span class="annot"><span class="annottext">BatchGetBuilds -&gt; NonEmpty Text
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3Aids%3ABatchGetBuilds%27"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392679"><span id="local-6989586621679392681"><span class="annot"><span class="annottext">BatchGetBuilds -&gt; BatchGetBuilds -&gt; Bool
+(BatchGetBuilds -&gt; BatchGetBuilds -&gt; Bool)
+-&gt; (BatchGetBuilds -&gt; BatchGetBuilds -&gt; Bool) -&gt; Eq BatchGetBuilds
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetBuilds -&gt; BatchGetBuilds -&gt; Bool
+$c/= :: BatchGetBuilds -&gt; BatchGetBuilds -&gt; Bool
+== :: BatchGetBuilds -&gt; BatchGetBuilds -&gt; Bool
+$c== :: BatchGetBuilds -&gt; BatchGetBuilds -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392670"><span id="local-6989586621679392672"><span id="local-6989586621679392674"><span id="local-6989586621679392676"><span class="annot"><span class="annottext">ReadPrec [BatchGetBuilds]
+ReadPrec BatchGetBuilds
+Int -&gt; ReadS BatchGetBuilds
+ReadS [BatchGetBuilds]
+(Int -&gt; ReadS BatchGetBuilds)
+-&gt; ReadS [BatchGetBuilds]
+-&gt; ReadPrec BatchGetBuilds
+-&gt; ReadPrec [BatchGetBuilds]
+-&gt; Read BatchGetBuilds
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetBuilds]
+$creadListPrec :: ReadPrec [BatchGetBuilds]
+readPrec :: ReadPrec BatchGetBuilds
+$creadPrec :: ReadPrec BatchGetBuilds
+readList :: ReadS [BatchGetBuilds]
+$creadList :: ReadS [BatchGetBuilds]
+readsPrec :: Int -&gt; ReadS BatchGetBuilds
+$creadsPrec :: Int -&gt; ReadS BatchGetBuilds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392663"><span id="local-6989586621679392665"><span id="local-6989586621679392667"><span class="annot"><span class="annottext">Int -&gt; BatchGetBuilds -&gt; ShowS
+[BatchGetBuilds] -&gt; ShowS
+BatchGetBuilds -&gt; String
+(Int -&gt; BatchGetBuilds -&gt; ShowS)
+-&gt; (BatchGetBuilds -&gt; String)
+-&gt; ([BatchGetBuilds] -&gt; ShowS)
+-&gt; Show BatchGetBuilds
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetBuilds] -&gt; ShowS
+$cshowList :: [BatchGetBuilds] -&gt; ShowS
+show :: BatchGetBuilds -&gt; String
+$cshow :: BatchGetBuilds -&gt; String
+showsPrec :: Int -&gt; BatchGetBuilds -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetBuilds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchGetBuilds -&gt; Rep BatchGetBuilds x)
+-&gt; (forall x. Rep BatchGetBuilds x -&gt; BatchGetBuilds)
+-&gt; Generic BatchGetBuilds
+forall x. Rep BatchGetBuilds x -&gt; BatchGetBuilds
+forall x. BatchGetBuilds -&gt; Rep BatchGetBuilds x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetBuilds x -&gt; BatchGetBuilds
+$cfrom :: forall x. BatchGetBuilds -&gt; Rep BatchGetBuilds x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'BatchGetBuilds' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'ids', 'batchGetBuilds_ids' - The IDs of the builds.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#newBatchGetBuilds"><span class="hs-identifier hs-type">newBatchGetBuilds</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'ids'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span>
+</span><span id="line-70"></span><span id="newBatchGetBuilds"><span class="annot"><span class="annottext">newBatchGetBuilds :: NonEmpty Text -&gt; BatchGetBuilds
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#newBatchGetBuilds"><span class="hs-identifier hs-var hs-var">newBatchGetBuilds</span></a></span></span><span> </span><span id="local-6989586621679392658"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392658"><span class="hs-identifier hs-var">pIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">BatchGetBuilds' :: NonEmpty Text -&gt; BatchGetBuilds
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds%27"><span class="hs-identifier hs-type">BatchGetBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:BatchGetBuilds' :: NonEmpty Text
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3Aids%3ABatchGetBuilds%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392658"><span class="hs-identifier hs-var">pIds_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The IDs of the builds.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuilds_ids"><span class="hs-identifier hs-type">batchGetBuilds_ids</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="batchGetBuilds_ids"><span class="annot"><span class="annottext">batchGetBuilds_ids :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; BatchGetBuilds -&gt; f BatchGetBuilds
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuilds_ids"><span class="hs-identifier hs-var hs-var">batchGetBuilds_ids</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetBuilds -&gt; NonEmpty Text)
+-&gt; (BatchGetBuilds -&gt; NonEmpty Text -&gt; BatchGetBuilds)
+-&gt; Lens
+     BatchGetBuilds BatchGetBuilds (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds%27"><span class="hs-identifier hs-type">BatchGetBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392653"><span class="annot"><span class="annottext">NonEmpty Text
+ids :: NonEmpty Text
+$sel:ids:BatchGetBuilds' :: BatchGetBuilds -&gt; NonEmpty Text
+</span><a href="#local-6989586621679392653"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392653"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392652"><span class="annot"><span class="annottext">s :: BatchGetBuilds
+</span><a href="#local-6989586621679392652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds%27"><span class="hs-identifier hs-type">BatchGetBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392651"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBuilds
+</span><a href="#local-6989586621679392652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:BatchGetBuilds' :: NonEmpty Text
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3Aids%3ABatchGetBuilds%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; BatchGetBuilds -&gt; f BatchGetBuilds)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; BatchGetBuilds
+-&gt; f BatchGetBuilds
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679392646"><span class="annot"><span class="annottext">request :: BatchGetBuilds -&gt; Request BatchGetBuilds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetBuilds -&gt; Request BatchGetBuilds
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679392642"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchGetBuilds
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchGetBuilds)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchGetBuilds))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchGetBuilds
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchGetBuilds)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392639"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392638"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392638"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392637"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Build]
+-&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetBuildsResponse
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-var">BatchGetBuildsResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Build]
+ -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetBuildsResponse)
+-&gt; Either String (Maybe [Build])
+-&gt; Either
+     String (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetBuildsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Build]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;builds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Build]))
+-&gt; Maybe [Build] -&gt; Either String (Maybe [Build])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Build]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetBuildsResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
+-&gt; Either String (Int -&gt; BatchGetBuildsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildsNotFound&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetBuildsResponse)
+-&gt; Either String Int -&gt; Either String BatchGetBuildsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392639"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392628"><span id="local-6989586621679392630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679392621"><span class="annot"><span class="annottext">toHeaders :: BatchGetBuilds -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetBuilds -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeBuild_20161006.BatchGetBuilds&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392611"><span id="local-6989586621679392613"><span id="local-6989586621679392615"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679392609"><span class="annot"><span class="annottext">toJSON :: BatchGetBuilds -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds%27"><span class="hs-identifier hs-type">BatchGetBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392607"><span class="annot"><span class="annottext">NonEmpty Text
+ids :: NonEmpty Text
+$sel:ids:BatchGetBuilds' :: BatchGetBuilds -&gt; NonEmpty Text
+</span><a href="#local-6989586621679392607"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ids&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392607"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679392601"><span class="annot"><span class="annottext">toPath :: BatchGetBuilds -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetBuilds -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuilds"><span class="hs-identifier hs-type">BatchGetBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679392597"><span class="annot"><span class="annottext">toQuery :: BatchGetBuilds -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetBuilds -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newBatchGetBuildsResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679392594"><span id="local-6989586621679392595"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetBuildsResponse"><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-var">BatchGetBuildsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetBuildsResponse%27"><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-var">BatchGetBuildsResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the requested builds.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3Abuilds%3ABatchGetBuildsResponse%27"><span class="annot"><span class="annottext">BatchGetBuildsResponse -&gt; Maybe [Build]
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3Abuilds%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var hs-var">builds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The IDs of builds for which information could not be found.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AbuildsNotFound%3ABatchGetBuildsResponse%27"><span class="annot"><span class="annottext">BatchGetBuildsResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3AbuildsNotFound%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var hs-var">buildsNotFound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetBuildsResponse%27"><span class="annot"><span class="annottext">BatchGetBuildsResponse -&gt; Int
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3AhttpStatus%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392587"><span id="local-6989586621679392589"><span class="annot"><span class="annottext">BatchGetBuildsResponse -&gt; BatchGetBuildsResponse -&gt; Bool
+(BatchGetBuildsResponse -&gt; BatchGetBuildsResponse -&gt; Bool)
+-&gt; (BatchGetBuildsResponse -&gt; BatchGetBuildsResponse -&gt; Bool)
+-&gt; Eq BatchGetBuildsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetBuildsResponse -&gt; BatchGetBuildsResponse -&gt; Bool
+$c/= :: BatchGetBuildsResponse -&gt; BatchGetBuildsResponse -&gt; Bool
+== :: BatchGetBuildsResponse -&gt; BatchGetBuildsResponse -&gt; Bool
+$c== :: BatchGetBuildsResponse -&gt; BatchGetBuildsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392579"><span id="local-6989586621679392581"><span id="local-6989586621679392583"><span id="local-6989586621679392585"><span class="annot"><span class="annottext">ReadPrec [BatchGetBuildsResponse]
+ReadPrec BatchGetBuildsResponse
+Int -&gt; ReadS BatchGetBuildsResponse
+ReadS [BatchGetBuildsResponse]
+(Int -&gt; ReadS BatchGetBuildsResponse)
+-&gt; ReadS [BatchGetBuildsResponse]
+-&gt; ReadPrec BatchGetBuildsResponse
+-&gt; ReadPrec [BatchGetBuildsResponse]
+-&gt; Read BatchGetBuildsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetBuildsResponse]
+$creadListPrec :: ReadPrec [BatchGetBuildsResponse]
+readPrec :: ReadPrec BatchGetBuildsResponse
+$creadPrec :: ReadPrec BatchGetBuildsResponse
+readList :: ReadS [BatchGetBuildsResponse]
+$creadList :: ReadS [BatchGetBuildsResponse]
+readsPrec :: Int -&gt; ReadS BatchGetBuildsResponse
+$creadsPrec :: Int -&gt; ReadS BatchGetBuildsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392573"><span id="local-6989586621679392575"><span id="local-6989586621679392577"><span class="annot"><span class="annottext">Int -&gt; BatchGetBuildsResponse -&gt; ShowS
+[BatchGetBuildsResponse] -&gt; ShowS
+BatchGetBuildsResponse -&gt; String
+(Int -&gt; BatchGetBuildsResponse -&gt; ShowS)
+-&gt; (BatchGetBuildsResponse -&gt; String)
+-&gt; ([BatchGetBuildsResponse] -&gt; ShowS)
+-&gt; Show BatchGetBuildsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetBuildsResponse] -&gt; ShowS
+$cshowList :: [BatchGetBuildsResponse] -&gt; ShowS
+show :: BatchGetBuildsResponse -&gt; String
+$cshow :: BatchGetBuildsResponse -&gt; String
+showsPrec :: Int -&gt; BatchGetBuildsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetBuildsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchGetBuildsResponse -&gt; Rep BatchGetBuildsResponse x)
+-&gt; (forall x.
+    Rep BatchGetBuildsResponse x -&gt; BatchGetBuildsResponse)
+-&gt; Generic BatchGetBuildsResponse
+forall x. Rep BatchGetBuildsResponse x -&gt; BatchGetBuildsResponse
+forall x. BatchGetBuildsResponse -&gt; Rep BatchGetBuildsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetBuildsResponse x -&gt; BatchGetBuildsResponse
+$cfrom :: forall x. BatchGetBuildsResponse -&gt; Rep BatchGetBuildsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'BatchGetBuildsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'builds', 'batchGetBuildsResponse_builds' - Information about the requested builds.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'buildsNotFound', 'batchGetBuildsResponse_buildsNotFound' - The IDs of builds for which information could not be found.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'httpStatus', 'batchGetBuildsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#newBatchGetBuildsResponse"><span class="hs-identifier hs-type">newBatchGetBuildsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span>
+</span><span id="line-151"></span><span id="newBatchGetBuildsResponse"><span class="annot"><span class="annottext">newBatchGetBuildsResponse :: Int -&gt; BatchGetBuildsResponse
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#newBatchGetBuildsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetBuildsResponse</span></a></span></span><span> </span><span id="local-6989586621679392570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">BatchGetBuildsResponse' :: Maybe [Build]
+-&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetBuildsResponse
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-type">BatchGetBuildsResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:builds:BatchGetBuildsResponse' :: Maybe [Build]
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3Abuilds%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var">builds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Build]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildsNotFound:BatchGetBuildsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3AbuildsNotFound%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var">buildsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetBuildsResponse' :: Int
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3AhttpStatus%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Information about the requested builds.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_builds"><span class="hs-identifier hs-type">batchGetBuildsResponse_builds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="batchGetBuildsResponse_builds"><span class="annot"><span class="annottext">batchGetBuildsResponse_builds :: (Maybe [Build] -&gt; f (Maybe [Build]))
+-&gt; BatchGetBuildsResponse -&gt; f BatchGetBuildsResponse
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_builds"><span class="hs-identifier hs-var hs-var">batchGetBuildsResponse_builds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetBuildsResponse -&gt; Maybe [Build])
+-&gt; (BatchGetBuildsResponse
+    -&gt; Maybe [Build] -&gt; BatchGetBuildsResponse)
+-&gt; Lens
+     BatchGetBuildsResponse
+     BatchGetBuildsResponse
+     (Maybe [Build])
+     (Maybe [Build])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-type">BatchGetBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392569"><span class="annot"><span class="annottext">Maybe [Build]
+builds :: Maybe [Build]
+$sel:builds:BatchGetBuildsResponse' :: BatchGetBuildsResponse -&gt; Maybe [Build]
+</span><a href="#local-6989586621679392569"><span class="hs-identifier hs-var hs-var">builds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Build]
+</span><a href="#local-6989586621679392569"><span class="hs-identifier hs-var">builds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392568"><span class="annot"><span class="annottext">s :: BatchGetBuildsResponse
+</span><a href="#local-6989586621679392568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-type">BatchGetBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392567"><span class="annot"><span class="annottext">Maybe [Build]
+</span><a href="#local-6989586621679392567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBuildsResponse
+</span><a href="#local-6989586621679392568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:builds:BatchGetBuildsResponse' :: Maybe [Build]
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3Abuilds%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var">builds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Build]
+</span><a href="#local-6989586621679392567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Build] -&gt; f (Maybe [Build]))
+ -&gt; BatchGetBuildsResponse -&gt; f BatchGetBuildsResponse)
+-&gt; ((Maybe [Build] -&gt; f (Maybe [Build]))
+    -&gt; Maybe [Build] -&gt; f (Maybe [Build]))
+-&gt; (Maybe [Build] -&gt; f (Maybe [Build]))
+-&gt; BatchGetBuildsResponse
+-&gt; f BatchGetBuildsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Build] [Build] [Build] [Build]
+-&gt; Iso
+     (Maybe [Build]) (Maybe [Build]) (Maybe [Build]) (Maybe [Build])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Build] [Build] [Build] [Build]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The IDs of builds for which information could not be found.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_buildsNotFound"><span class="hs-identifier hs-type">batchGetBuildsResponse_buildsNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="batchGetBuildsResponse_buildsNotFound"><span class="annot"><span class="annottext">batchGetBuildsResponse_buildsNotFound :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; BatchGetBuildsResponse -&gt; f BatchGetBuildsResponse
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_buildsNotFound"><span class="hs-identifier hs-var hs-var">batchGetBuildsResponse_buildsNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetBuildsResponse -&gt; Maybe (NonEmpty Text))
+-&gt; (BatchGetBuildsResponse
+    -&gt; Maybe (NonEmpty Text) -&gt; BatchGetBuildsResponse)
+-&gt; Lens
+     BatchGetBuildsResponse
+     BatchGetBuildsResponse
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-type">BatchGetBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392565"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+buildsNotFound :: Maybe (NonEmpty Text)
+$sel:buildsNotFound:BatchGetBuildsResponse' :: BatchGetBuildsResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679392565"><span class="hs-identifier hs-var hs-var">buildsNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679392565"><span class="hs-identifier hs-var">buildsNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392564"><span class="annot"><span class="annottext">s :: BatchGetBuildsResponse
+</span><a href="#local-6989586621679392564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-type">BatchGetBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392563"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679392563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBuildsResponse
+</span><a href="#local-6989586621679392564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildsNotFound:BatchGetBuildsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3AbuildsNotFound%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var">buildsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679392563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; BatchGetBuildsResponse -&gt; f BatchGetBuildsResponse)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; BatchGetBuildsResponse
+-&gt; f BatchGetBuildsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_httpStatus"><span class="hs-identifier hs-type">batchGetBuildsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="batchGetBuildsResponse_httpStatus"><span class="annot"><span class="annottext">batchGetBuildsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchGetBuildsResponse -&gt; f BatchGetBuildsResponse
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#batchGetBuildsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchGetBuildsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetBuildsResponse -&gt; Int)
+-&gt; (BatchGetBuildsResponse -&gt; Int -&gt; BatchGetBuildsResponse)
+-&gt; Lens BatchGetBuildsResponse BatchGetBuildsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-type">BatchGetBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392562"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchGetBuildsResponse' :: BatchGetBuildsResponse -&gt; Int
+</span><a href="#local-6989586621679392562"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392562"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392561"><span class="annot"><span class="annottext">s :: BatchGetBuildsResponse
+</span><a href="#local-6989586621679392561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse%27"><span class="hs-identifier hs-type">BatchGetBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392560"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBuildsResponse
+</span><a href="#local-6989586621679392561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetBuildsResponse' :: Int
+</span><a href="Amazonka.CodeBuild.BatchGetBuilds.html#%24sel%3AhttpStatus%3ABatchGetBuildsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.BatchGetBuilds.html#BatchGetBuildsResponse"><span class="hs-identifier hs-type">BatchGetBuildsResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

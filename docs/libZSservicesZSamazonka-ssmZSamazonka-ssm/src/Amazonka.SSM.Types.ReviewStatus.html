@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.ReviewStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.ReviewStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier">ReviewStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_APPROVED"><span class="hs-identifier">ReviewStatus_APPROVED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_NOT_REVIEWED"><span class="hs-identifier">ReviewStatus_NOT_REVIEWED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_PENDING"><span class="hs-identifier">ReviewStatus_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_REJECTED"><span class="hs-identifier">ReviewStatus_REJECTED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679813423"><span id="local-6989586621679813424"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReviewStatus"><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier hs-var">ReviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewStatus%27"><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus%27"><span class="hs-identifier hs-var">ReviewStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReviewStatus"><span class="annot"><span class="annottext">ReviewStatus -&gt; Text
+</span><a href="Amazonka.SSM.Types.ReviewStatus.html#fromReviewStatus"><span class="hs-identifier hs-var hs-var">fromReviewStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679813415"><span id="local-6989586621679813417"><span id="local-6989586621679813419"><span class="annot"><span class="annottext">Int -&gt; ReviewStatus -&gt; ShowS
+[ReviewStatus] -&gt; ShowS
+ReviewStatus -&gt; String
+(Int -&gt; ReviewStatus -&gt; ShowS)
+-&gt; (ReviewStatus -&gt; String)
+-&gt; ([ReviewStatus] -&gt; ShowS)
+-&gt; Show ReviewStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReviewStatus] -&gt; ShowS
+$cshowList :: [ReviewStatus] -&gt; ShowS
+show :: ReviewStatus -&gt; String
+$cshow :: ReviewStatus -&gt; String
+showsPrec :: Int -&gt; ReviewStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReviewStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679813406"><span id="local-6989586621679813408"><span id="local-6989586621679813410"><span id="local-6989586621679813412"><span class="annot"><span class="annottext">ReadPrec [ReviewStatus]
+ReadPrec ReviewStatus
+Int -&gt; ReadS ReviewStatus
+ReadS [ReviewStatus]
+(Int -&gt; ReadS ReviewStatus)
+-&gt; ReadS [ReviewStatus]
+-&gt; ReadPrec ReviewStatus
+-&gt; ReadPrec [ReviewStatus]
+-&gt; Read ReviewStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReviewStatus]
+$creadListPrec :: ReadPrec [ReviewStatus]
+readPrec :: ReadPrec ReviewStatus
+$creadPrec :: ReadPrec ReviewStatus
+readList :: ReadS [ReviewStatus]
+$creadList :: ReadS [ReviewStatus]
+readsPrec :: Int -&gt; ReadS ReviewStatus
+$creadsPrec :: Int -&gt; ReadS ReviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679813401"><span id="local-6989586621679813403"><span class="annot"><span class="annottext">ReviewStatus -&gt; ReviewStatus -&gt; Bool
+(ReviewStatus -&gt; ReviewStatus -&gt; Bool)
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; Bool) -&gt; Eq ReviewStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+$c/= :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+== :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+$c== :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679813385"><span id="local-6989586621679813387"><span id="local-6989586621679813389"><span id="local-6989586621679813391"><span id="local-6989586621679813393"><span id="local-6989586621679813395"><span id="local-6989586621679813397"><span class="annot"><span class="annottext">Eq ReviewStatus
+Eq ReviewStatus
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; Ordering)
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; Bool)
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; Bool)
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; Bool)
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; Bool)
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; ReviewStatus)
+-&gt; (ReviewStatus -&gt; ReviewStatus -&gt; ReviewStatus)
+-&gt; Ord ReviewStatus
+ReviewStatus -&gt; ReviewStatus -&gt; Bool
+ReviewStatus -&gt; ReviewStatus -&gt; Ordering
+ReviewStatus -&gt; ReviewStatus -&gt; ReviewStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReviewStatus -&gt; ReviewStatus -&gt; ReviewStatus
+$cmin :: ReviewStatus -&gt; ReviewStatus -&gt; ReviewStatus
+max :: ReviewStatus -&gt; ReviewStatus -&gt; ReviewStatus
+$cmax :: ReviewStatus -&gt; ReviewStatus -&gt; ReviewStatus
+&gt;= :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+$c&gt;= :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+&gt; :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+$c&gt; :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+&lt;= :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+$c&lt;= :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+&lt; :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+$c&lt; :: ReviewStatus -&gt; ReviewStatus -&gt; Bool
+compare :: ReviewStatus -&gt; ReviewStatus -&gt; Ordering
+$ccompare :: ReviewStatus -&gt; ReviewStatus -&gt; Ordering
+$cp1Ord :: Eq ReviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReviewStatus -&gt; Rep ReviewStatus x)
+-&gt; (forall x. Rep ReviewStatus x -&gt; ReviewStatus)
+-&gt; Generic ReviewStatus
+forall x. Rep ReviewStatus x -&gt; ReviewStatus
+forall x. ReviewStatus -&gt; Rep ReviewStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReviewStatus x -&gt; ReviewStatus
+$cfrom :: forall x. ReviewStatus -&gt; Rep ReviewStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679813377"><span id="local-6989586621679813379"><span class="annot"><span class="annottext">Int -&gt; ReviewStatus -&gt; Int
+ReviewStatus -&gt; Int
+(Int -&gt; ReviewStatus -&gt; Int)
+-&gt; (ReviewStatus -&gt; Int) -&gt; Hashable ReviewStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReviewStatus -&gt; Int
+$chash :: ReviewStatus -&gt; Int
+hashWithSalt :: Int -&gt; ReviewStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ReviewStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679813374"><span class="annot"><span class="annottext">ReviewStatus -&gt; ()
+(ReviewStatus -&gt; ()) -&gt; NFData ReviewStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReviewStatus -&gt; ()
+$crnf :: ReviewStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679813371"><span class="annot"><span class="annottext">Text -&gt; Either String ReviewStatus
+(Text -&gt; Either String ReviewStatus) -&gt; FromText ReviewStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReviewStatus
+$cfromText :: Text -&gt; Either String ReviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679813368"><span class="annot"><span class="annottext">ReviewStatus -&gt; Text
+(ReviewStatus -&gt; Text) -&gt; ToText ReviewStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReviewStatus -&gt; Text
+$ctoText :: ReviewStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679813365"><span class="annot"><span class="annottext">ReviewStatus -&gt; ByteString
+(ReviewStatus -&gt; ByteString) -&gt; ToByteString ReviewStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReviewStatus -&gt; ByteString
+$ctoBS :: ReviewStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679813362"><span class="annot"><span class="annottext">ReviewStatus -&gt; ByteStringBuilder
+(ReviewStatus -&gt; ByteStringBuilder) -&gt; ToLog ReviewStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReviewStatus -&gt; ByteStringBuilder
+$cbuild :: ReviewStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679813359"><span class="annot"><span class="annottext">HeaderName -&gt; ReviewStatus -&gt; [Header]
+(HeaderName -&gt; ReviewStatus -&gt; [Header]) -&gt; ToHeader ReviewStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReviewStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReviewStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679813356"><span class="annot"><span class="annottext">ReviewStatus -&gt; QueryString
+(ReviewStatus -&gt; QueryString) -&gt; ToQuery ReviewStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReviewStatus -&gt; QueryString
+$ctoQuery :: ReviewStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679813351"><span id="local-6989586621679813353"><span class="annot"><span class="annottext">Value -&gt; Parser [ReviewStatus]
+Value -&gt; Parser ReviewStatus
+(Value -&gt; Parser ReviewStatus)
+-&gt; (Value -&gt; Parser [ReviewStatus]) -&gt; FromJSON ReviewStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReviewStatus]
+$cparseJSONList :: Value -&gt; Parser [ReviewStatus]
+parseJSON :: Value -&gt; Parser ReviewStatus
+$cparseJSON :: Value -&gt; Parser ReviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679813346"><span id="local-6989586621679813348"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReviewStatus]
+FromJSONKeyFunction ReviewStatus
+FromJSONKeyFunction ReviewStatus
+-&gt; FromJSONKeyFunction [ReviewStatus] -&gt; FromJSONKey ReviewStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReviewStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReviewStatus]
+fromJSONKey :: FromJSONKeyFunction ReviewStatus
+$cfromJSONKey :: FromJSONKeyFunction ReviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679813337"><span id="local-6989586621679813339"><span id="local-6989586621679813341"><span id="local-6989586621679813343"><span class="annot"><span class="annottext">[ReviewStatus] -&gt; Encoding
+[ReviewStatus] -&gt; Value
+ReviewStatus -&gt; Encoding
+ReviewStatus -&gt; Value
+(ReviewStatus -&gt; Value)
+-&gt; (ReviewStatus -&gt; Encoding)
+-&gt; ([ReviewStatus] -&gt; Value)
+-&gt; ([ReviewStatus] -&gt; Encoding)
+-&gt; ToJSON ReviewStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReviewStatus] -&gt; Encoding
+$ctoEncodingList :: [ReviewStatus] -&gt; Encoding
+toJSONList :: [ReviewStatus] -&gt; Value
+$ctoJSONList :: [ReviewStatus] -&gt; Value
+toEncoding :: ReviewStatus -&gt; Encoding
+$ctoEncoding :: ReviewStatus -&gt; Encoding
+toJSON :: ReviewStatus -&gt; Value
+$ctoJSON :: ReviewStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679813332"><span id="local-6989586621679813334"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReviewStatus]
+ToJSONKeyFunction ReviewStatus
+ToJSONKeyFunction ReviewStatus
+-&gt; ToJSONKeyFunction [ReviewStatus] -&gt; ToJSONKey ReviewStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReviewStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReviewStatus]
+toJSONKey :: ToJSONKeyFunction ReviewStatus
+$ctoJSONKey :: ToJSONKeyFunction ReviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679813329"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReviewStatus
+([Node] -&gt; Either String ReviewStatus) -&gt; FromXML ReviewStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReviewStatus
+$cparseXML :: [Node] -&gt; Either String ReviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679813326"><span class="annot"><span class="annottext">ReviewStatus -&gt; XML
+(ReviewStatus -&gt; XML) -&gt; ToXML ReviewStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReviewStatus -&gt; XML
+$ctoXML :: ReviewStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_APPROVED"><span class="hs-identifier hs-type">ReviewStatus_APPROVED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier hs-type">ReviewStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewStatus_APPROVED"><span id="%24mReviewStatus_APPROVED"><span id="ReviewStatus_APPROVED"><span class="annot"><span class="annottext">$bReviewStatus_APPROVED :: ReviewStatus
+$mReviewStatus_APPROVED :: forall r. ReviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.ReviewStatus.html#%24bReviewStatus_APPROVED"><span class="hs-identifier hs-var hs-var hs-var">ReviewStatus_APPROVED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus%27"><span class="hs-identifier hs-type">ReviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APPROVED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_NOT_REVIEWED"><span class="hs-identifier hs-type">ReviewStatus_NOT_REVIEWED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier hs-type">ReviewStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewStatus_NOT_REVIEWED"><span id="%24mReviewStatus_NOT_REVIEWED"><span id="ReviewStatus_NOT_REVIEWED"><span class="annot"><span class="annottext">$bReviewStatus_NOT_REVIEWED :: ReviewStatus
+$mReviewStatus_NOT_REVIEWED :: forall r. ReviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.ReviewStatus.html#%24bReviewStatus_NOT_REVIEWED"><span class="hs-identifier hs-var hs-var hs-var">ReviewStatus_NOT_REVIEWED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus%27"><span class="hs-identifier hs-type">ReviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_REVIEWED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_PENDING"><span class="hs-identifier hs-type">ReviewStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier hs-type">ReviewStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewStatus_PENDING"><span id="%24mReviewStatus_PENDING"><span id="ReviewStatus_PENDING"><span class="annot"><span class="annottext">$bReviewStatus_PENDING :: ReviewStatus
+$mReviewStatus_PENDING :: forall r. ReviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.ReviewStatus.html#%24bReviewStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">ReviewStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus%27"><span class="hs-identifier hs-type">ReviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_REJECTED"><span class="hs-identifier hs-type">ReviewStatus_REJECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus"><span class="hs-identifier hs-type">ReviewStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewStatus_REJECTED"><span id="%24mReviewStatus_REJECTED"><span id="ReviewStatus_REJECTED"><span class="annot"><span class="annottext">$bReviewStatus_REJECTED :: ReviewStatus
+$mReviewStatus_REJECTED :: forall r. ReviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.ReviewStatus.html#%24bReviewStatus_REJECTED"><span class="hs-identifier hs-var hs-var hs-var">ReviewStatus_REJECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus%27"><span class="hs-identifier hs-type">ReviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REJECTED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_APPROVED"><span class="hs-pragma hs-type">ReviewStatus_APPROVED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_NOT_REVIEWED"><span class="hs-pragma hs-type">ReviewStatus_NOT_REVIEWED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_PENDING"><span class="hs-pragma hs-type">ReviewStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus_REJECTED"><span class="hs-pragma hs-type">ReviewStatus_REJECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ReviewStatus.html#ReviewStatus%27"><span class="hs-pragma hs-type">ReviewStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

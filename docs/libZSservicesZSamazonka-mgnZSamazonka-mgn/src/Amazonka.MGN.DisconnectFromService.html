@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MGN.DisconnectFromService</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disconnects specific Source Servers from Application Migration Service.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Data replication is stopped immediately. All AWS resources created by</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Application Migration Service for enabling the replication of these</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- source servers will be terminated \/ deleted within 90 minutes. Launched</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Test or Cutover instances will NOT be terminated. If the agent on the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- source server has not been prevented from communciating with the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Application Migration Service service, then it will receive a command to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- uninstall itself (within approximately 10 minutes). The following</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- properties of the SourceServer will be changed immediately:</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- dataReplicationInfo.dataReplicationState will be set to DISCONNECTED;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- The totalStorageBytes property for each of</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- dataReplicationInfo.replicatedDisks will be set to zero;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- be nullified.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MGN.DisconnectFromService</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier">DisconnectFromService</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#newDisconnectFromService"><span class="hs-identifier">newDisconnectFromService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#disconnectFromService_sourceServerID"><span class="hs-identifier">disconnectFromService_sourceServerID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#SourceServer"><span class="hs-identifier">SourceServer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#newSourceServer"><span class="hs-identifier">newSourceServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_sourceProperties"><span class="hs-identifier">sourceServer_sourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_arn"><span class="hs-identifier">sourceServer_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_launchedInstance"><span class="hs-identifier">sourceServer_launchedInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_lifeCycle"><span class="hs-identifier">sourceServer_lifeCycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_isArchived"><span class="hs-identifier">sourceServer_isArchived</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_dataReplicationInfo"><span class="hs-identifier">sourceServer_dataReplicationInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_sourceServerID"><span class="hs-identifier">sourceServer_sourceServerID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#sourceServer_tags"><span class="hs-identifier">sourceServer_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.html"><span class="hs-identifier">Amazonka.MGN.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newDisconnectFromService' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679233272"><span id="local-6989586621679233273"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisconnectFromService"><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-var">DisconnectFromService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisconnectFromService%27"><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService%27"><span class="hs-identifier hs-var">DisconnectFromService'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Request to disconnect Source Server from service by Server ID.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsourceServerID%3ADisconnectFromService%27"><span class="annot"><span class="annottext">DisconnectFromService -&gt; Text
+</span><a href="Amazonka.MGN.DisconnectFromService.html#%24sel%3AsourceServerID%3ADisconnectFromService%27"><span class="hs-identifier hs-var hs-var">sourceServerID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233266"><span id="local-6989586621679233268"><span class="annot"><span class="annottext">DisconnectFromService -&gt; DisconnectFromService -&gt; Bool
+(DisconnectFromService -&gt; DisconnectFromService -&gt; Bool)
+-&gt; (DisconnectFromService -&gt; DisconnectFromService -&gt; Bool)
+-&gt; Eq DisconnectFromService
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisconnectFromService -&gt; DisconnectFromService -&gt; Bool
+$c/= :: DisconnectFromService -&gt; DisconnectFromService -&gt; Bool
+== :: DisconnectFromService -&gt; DisconnectFromService -&gt; Bool
+$c== :: DisconnectFromService -&gt; DisconnectFromService -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233257"><span id="local-6989586621679233259"><span id="local-6989586621679233261"><span id="local-6989586621679233263"><span class="annot"><span class="annottext">ReadPrec [DisconnectFromService]
+ReadPrec DisconnectFromService
+Int -&gt; ReadS DisconnectFromService
+ReadS [DisconnectFromService]
+(Int -&gt; ReadS DisconnectFromService)
+-&gt; ReadS [DisconnectFromService]
+-&gt; ReadPrec DisconnectFromService
+-&gt; ReadPrec [DisconnectFromService]
+-&gt; Read DisconnectFromService
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisconnectFromService]
+$creadListPrec :: ReadPrec [DisconnectFromService]
+readPrec :: ReadPrec DisconnectFromService
+$creadPrec :: ReadPrec DisconnectFromService
+readList :: ReadS [DisconnectFromService]
+$creadList :: ReadS [DisconnectFromService]
+readsPrec :: Int -&gt; ReadS DisconnectFromService
+$creadsPrec :: Int -&gt; ReadS DisconnectFromService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233250"><span id="local-6989586621679233252"><span id="local-6989586621679233254"><span class="annot"><span class="annottext">Int -&gt; DisconnectFromService -&gt; ShowS
+[DisconnectFromService] -&gt; ShowS
+DisconnectFromService -&gt; String
+(Int -&gt; DisconnectFromService -&gt; ShowS)
+-&gt; (DisconnectFromService -&gt; String)
+-&gt; ([DisconnectFromService] -&gt; ShowS)
+-&gt; Show DisconnectFromService
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisconnectFromService] -&gt; ShowS
+$cshowList :: [DisconnectFromService] -&gt; ShowS
+show :: DisconnectFromService -&gt; String
+$cshow :: DisconnectFromService -&gt; String
+showsPrec :: Int -&gt; DisconnectFromService -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisconnectFromService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisconnectFromService -&gt; Rep DisconnectFromService x)
+-&gt; (forall x. Rep DisconnectFromService x -&gt; DisconnectFromService)
+-&gt; Generic DisconnectFromService
+forall x. Rep DisconnectFromService x -&gt; DisconnectFromService
+forall x. DisconnectFromService -&gt; Rep DisconnectFromService x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisconnectFromService x -&gt; DisconnectFromService
+$cfrom :: forall x. DisconnectFromService -&gt; Rep DisconnectFromService x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'DisconnectFromService' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'sourceServerID', 'disconnectFromService_sourceServerID' - Request to disconnect Source Server from service by Server ID.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#newDisconnectFromService"><span class="hs-identifier hs-type">newDisconnectFromService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'sourceServerID'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span>
+</span><span id="line-88"></span><span id="newDisconnectFromService"><span class="annot"><span class="annottext">newDisconnectFromService :: Text -&gt; DisconnectFromService
+</span><a href="Amazonka.MGN.DisconnectFromService.html#newDisconnectFromService"><span class="hs-identifier hs-var hs-var">newDisconnectFromService</span></a></span></span><span> </span><span id="local-6989586621679233245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233245"><span class="hs-identifier hs-var">pSourceServerID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DisconnectFromService' :: Text -&gt; DisconnectFromService
+</span><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService%27"><span class="hs-identifier hs-type">DisconnectFromService'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceServerID:DisconnectFromService' :: Text
+</span><a href="Amazonka.MGN.DisconnectFromService.html#%24sel%3AsourceServerID%3ADisconnectFromService%27"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233245"><span class="hs-identifier hs-var">pSourceServerID_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Request to disconnect Source Server from service by Server ID.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#disconnectFromService_sourceServerID"><span class="hs-identifier hs-type">disconnectFromService_sourceServerID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="disconnectFromService_sourceServerID"><span class="annot"><span class="annottext">disconnectFromService_sourceServerID :: (Text -&gt; f Text)
+-&gt; DisconnectFromService -&gt; f DisconnectFromService
+</span><a href="Amazonka.MGN.DisconnectFromService.html#disconnectFromService_sourceServerID"><span class="hs-identifier hs-var hs-var">disconnectFromService_sourceServerID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisconnectFromService -&gt; Text)
+-&gt; (DisconnectFromService -&gt; Text -&gt; DisconnectFromService)
+-&gt; Lens DisconnectFromService DisconnectFromService Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService%27"><span class="hs-identifier hs-type">DisconnectFromService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233242"><span class="annot"><span class="annottext">Text
+sourceServerID :: Text
+$sel:sourceServerID:DisconnectFromService' :: DisconnectFromService -&gt; Text
+</span><a href="#local-6989586621679233242"><span class="hs-identifier hs-var hs-var">sourceServerID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233242"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233241"><span class="annot"><span class="annottext">s :: DisconnectFromService
+</span><a href="#local-6989586621679233241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService%27"><span class="hs-identifier hs-type">DisconnectFromService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisconnectFromService
+</span><a href="#local-6989586621679233241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceServerID:DisconnectFromService' :: Text
+</span><a href="Amazonka.MGN.DisconnectFromService.html#%24sel%3AsourceServerID%3ADisconnectFromService%27"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.SourceServer.html#SourceServer"><span class="hs-identifier hs-type">SourceServer</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679233236"><span class="annot"><span class="annottext">request :: DisconnectFromService -&gt; Request DisconnectFromService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisconnectFromService -&gt; Request DisconnectFromService
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MGN.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679233232"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisconnectFromService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisconnectFromService)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DisconnectFromService))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisconnectFromService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisconnectFromService)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233229"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233229"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679233228"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679233228"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679233227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String SourceServer
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233227"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233222"><span id="local-6989586621679233224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679233215"><span class="annot"><span class="annottext">toHeaders :: DisconnectFromService -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisconnectFromService -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233205"><span id="local-6989586621679233207"><span id="local-6989586621679233209"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679233203"><span class="annot"><span class="annottext">toJSON :: DisconnectFromService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService%27"><span class="hs-identifier hs-type">DisconnectFromService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233201"><span class="annot"><span class="annottext">Text
+sourceServerID :: Text
+$sel:sourceServerID:DisconnectFromService' :: DisconnectFromService -&gt; Text
+</span><a href="#local-6989586621679233201"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceServerID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233201"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679233195"><span class="annot"><span class="annottext">toPath :: DisconnectFromService -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisconnectFromService -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/DisconnectFromService&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.DisconnectFromService.html#DisconnectFromService"><span class="hs-identifier hs-type">DisconnectFromService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679233191"><span class="annot"><span class="annottext">toQuery :: DisconnectFromService -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisconnectFromService -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span></pre></body></html>

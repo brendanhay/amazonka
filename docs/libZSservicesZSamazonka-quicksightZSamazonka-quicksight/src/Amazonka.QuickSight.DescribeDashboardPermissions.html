@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.DescribeDashboardPermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes read and write permissions for a dashboard.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.DescribeDashboardPermissions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier">DescribeDashboardPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#newDescribeDashboardPermissions"><span class="hs-identifier">newDescribeDashboardPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissions_awsAccountId"><span class="hs-identifier">describeDashboardPermissions_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissions_dashboardId"><span class="hs-identifier">describeDashboardPermissions_dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier">DescribeDashboardPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#newDescribeDashboardPermissionsResponse"><span class="hs-identifier">newDescribeDashboardPermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_requestId"><span class="hs-identifier">describeDashboardPermissionsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_dashboardId"><span class="hs-identifier">describeDashboardPermissionsResponse_dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_permissions"><span class="hs-identifier">describeDashboardPermissionsResponse_permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_dashboardArn"><span class="hs-identifier">describeDashboardPermissionsResponse_dashboardArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_status"><span class="hs-identifier">describeDashboardPermissionsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeDashboardPermissions' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679587413"><span id="local-6989586621679587414"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDashboardPermissions"><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-var">DescribeDashboardPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDashboardPermissions%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions%27"><span class="hs-identifier hs-var">DescribeDashboardPermissions'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- that you\'re describing permissions for.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeDashboardPermissions%27"><span class="annot"><span class="annottext">DescribeDashboardPermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AawsAccountId%3ADescribeDashboardPermissions%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID for the dashboard, also added to the IAMpolicy.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdashboardId%3ADescribeDashboardPermissions%27"><span class="annot"><span class="annottext">DescribeDashboardPermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardId%3ADescribeDashboardPermissions%27"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679587406"><span id="local-6989586621679587408"><span class="annot"><span class="annottext">DescribeDashboardPermissions
+-&gt; DescribeDashboardPermissions -&gt; Bool
+(DescribeDashboardPermissions
+ -&gt; DescribeDashboardPermissions -&gt; Bool)
+-&gt; (DescribeDashboardPermissions
+    -&gt; DescribeDashboardPermissions -&gt; Bool)
+-&gt; Eq DescribeDashboardPermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDashboardPermissions
+-&gt; DescribeDashboardPermissions -&gt; Bool
+$c/= :: DescribeDashboardPermissions
+-&gt; DescribeDashboardPermissions -&gt; Bool
+== :: DescribeDashboardPermissions
+-&gt; DescribeDashboardPermissions -&gt; Bool
+$c== :: DescribeDashboardPermissions
+-&gt; DescribeDashboardPermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587397"><span id="local-6989586621679587399"><span id="local-6989586621679587401"><span id="local-6989586621679587403"><span class="annot"><span class="annottext">ReadPrec [DescribeDashboardPermissions]
+ReadPrec DescribeDashboardPermissions
+Int -&gt; ReadS DescribeDashboardPermissions
+ReadS [DescribeDashboardPermissions]
+(Int -&gt; ReadS DescribeDashboardPermissions)
+-&gt; ReadS [DescribeDashboardPermissions]
+-&gt; ReadPrec DescribeDashboardPermissions
+-&gt; ReadPrec [DescribeDashboardPermissions]
+-&gt; Read DescribeDashboardPermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDashboardPermissions]
+$creadListPrec :: ReadPrec [DescribeDashboardPermissions]
+readPrec :: ReadPrec DescribeDashboardPermissions
+$creadPrec :: ReadPrec DescribeDashboardPermissions
+readList :: ReadS [DescribeDashboardPermissions]
+$creadList :: ReadS [DescribeDashboardPermissions]
+readsPrec :: Int -&gt; ReadS DescribeDashboardPermissions
+$creadsPrec :: Int -&gt; ReadS DescribeDashboardPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587390"><span id="local-6989586621679587392"><span id="local-6989586621679587394"><span class="annot"><span class="annottext">Int -&gt; DescribeDashboardPermissions -&gt; ShowS
+[DescribeDashboardPermissions] -&gt; ShowS
+DescribeDashboardPermissions -&gt; String
+(Int -&gt; DescribeDashboardPermissions -&gt; ShowS)
+-&gt; (DescribeDashboardPermissions -&gt; String)
+-&gt; ([DescribeDashboardPermissions] -&gt; ShowS)
+-&gt; Show DescribeDashboardPermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDashboardPermissions] -&gt; ShowS
+$cshowList :: [DescribeDashboardPermissions] -&gt; ShowS
+show :: DescribeDashboardPermissions -&gt; String
+$cshow :: DescribeDashboardPermissions -&gt; String
+showsPrec :: Int -&gt; DescribeDashboardPermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDashboardPermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDashboardPermissions -&gt; Rep DescribeDashboardPermissions x)
+-&gt; (forall x.
+    Rep DescribeDashboardPermissions x -&gt; DescribeDashboardPermissions)
+-&gt; Generic DescribeDashboardPermissions
+forall x.
+Rep DescribeDashboardPermissions x -&gt; DescribeDashboardPermissions
+forall x.
+DescribeDashboardPermissions -&gt; Rep DescribeDashboardPermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDashboardPermissions x -&gt; DescribeDashboardPermissions
+$cfrom :: forall x.
+DescribeDashboardPermissions -&gt; Rep DescribeDashboardPermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeDashboardPermissions' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'awsAccountId', 'describeDashboardPermissions_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- that you\'re describing permissions for.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'dashboardId', 'describeDashboardPermissions_dashboardId' - The ID for the dashboard, also added to the IAMpolicy.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#newDescribeDashboardPermissions"><span class="hs-identifier hs-type">newDescribeDashboardPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'dashboardId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span>
+</span><span id="line-81"></span><span id="newDescribeDashboardPermissions"><span class="annot"><span class="annottext">newDescribeDashboardPermissions :: Text -&gt; Text -&gt; DescribeDashboardPermissions
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#newDescribeDashboardPermissions"><span class="hs-identifier hs-var hs-var">newDescribeDashboardPermissions</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679587385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587385"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679587384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587384"><span class="hs-identifier hs-var">pDashboardId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">DescribeDashboardPermissions' :: Text -&gt; Text -&gt; DescribeDashboardPermissions
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions%27"><span class="hs-identifier hs-type">DescribeDashboardPermissions'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeDashboardPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AawsAccountId%3ADescribeDashboardPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587385"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardId:DescribeDashboardPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardId%3ADescribeDashboardPermissions%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587384"><span class="hs-identifier hs-var">pDashboardId_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- that you\'re describing permissions for.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissions_awsAccountId"><span class="hs-identifier hs-type">describeDashboardPermissions_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="describeDashboardPermissions_awsAccountId"><span class="annot"><span class="annottext">describeDashboardPermissions_awsAccountId :: (Text -&gt; f Text)
+-&gt; DescribeDashboardPermissions -&gt; f DescribeDashboardPermissions
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissions_awsAccountId"><span class="hs-identifier hs-var hs-var">describeDashboardPermissions_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDashboardPermissions -&gt; Text)
+-&gt; (DescribeDashboardPermissions
+    -&gt; Text -&gt; DescribeDashboardPermissions)
+-&gt; Lens
+     DescribeDashboardPermissions DescribeDashboardPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions%27"><span class="hs-identifier hs-type">DescribeDashboardPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587381"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeDashboardPermissions' :: DescribeDashboardPermissions -&gt; Text
+</span><a href="#local-6989586621679587381"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587381"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587380"><span class="annot"><span class="annottext">s :: DescribeDashboardPermissions
+</span><a href="#local-6989586621679587380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions%27"><span class="hs-identifier hs-type">DescribeDashboardPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDashboardPermissions
+</span><a href="#local-6989586621679587380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeDashboardPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AawsAccountId%3ADescribeDashboardPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The ID for the dashboard, also added to the IAMpolicy.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissions_dashboardId"><span class="hs-identifier hs-type">describeDashboardPermissions_dashboardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="describeDashboardPermissions_dashboardId"><span class="annot"><span class="annottext">describeDashboardPermissions_dashboardId :: (Text -&gt; f Text)
+-&gt; DescribeDashboardPermissions -&gt; f DescribeDashboardPermissions
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissions_dashboardId"><span class="hs-identifier hs-var hs-var">describeDashboardPermissions_dashboardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDashboardPermissions -&gt; Text)
+-&gt; (DescribeDashboardPermissions
+    -&gt; Text -&gt; DescribeDashboardPermissions)
+-&gt; Lens
+     DescribeDashboardPermissions DescribeDashboardPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions%27"><span class="hs-identifier hs-type">DescribeDashboardPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587378"><span class="annot"><span class="annottext">Text
+dashboardId :: Text
+$sel:dashboardId:DescribeDashboardPermissions' :: DescribeDashboardPermissions -&gt; Text
+</span><a href="#local-6989586621679587378"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587378"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587377"><span class="annot"><span class="annottext">s :: DescribeDashboardPermissions
+</span><a href="#local-6989586621679587377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions%27"><span class="hs-identifier hs-type">DescribeDashboardPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587376"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDashboardPermissions
+</span><a href="#local-6989586621679587377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardId:DescribeDashboardPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardId%3ADescribeDashboardPermissions%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679587372"><span class="annot"><span class="annottext">request :: DescribeDashboardPermissions
+-&gt; Request DescribeDashboardPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeDashboardPermissions
+-&gt; Request DescribeDashboardPermissions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679587368"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDashboardPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDashboardPermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDashboardPermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDashboardPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDashboardPermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679587365"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679587364"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679587364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679587363"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">DescribeDashboardPermissionsResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty ResourcePermission)
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeDashboardPermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (NonEmpty ResourcePermission)
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeDashboardPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty ResourcePermission)
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Either String (Maybe (NonEmpty ResourcePermission))
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeDashboardPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (NonEmpty ResourcePermission))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Permissions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeDashboardPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeDashboardPermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679587355"><span id="local-6989586621679587357"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679587352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679587348"><span class="annot"><span class="annottext">toHeaders :: DescribeDashboardPermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDashboardPermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679587342"><span class="annot"><span class="annottext">toPath :: DescribeDashboardPermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions%27"><span class="hs-identifier hs-type">DescribeDashboardPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587339"><span id="local-6989586621679587340"><span class="annot"><span class="annottext">Text
+dashboardId :: Text
+awsAccountId :: Text
+$sel:dashboardId:DescribeDashboardPermissions' :: DescribeDashboardPermissions -&gt; Text
+$sel:awsAccountId:DescribeDashboardPermissions' :: DescribeDashboardPermissions -&gt; Text
+</span><a href="#local-6989586621679587339"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587340"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/dashboards/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587339"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/permissions&quot;</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissions"><span class="hs-identifier hs-type">DescribeDashboardPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679587335"><span class="annot"><span class="annottext">toQuery :: DescribeDashboardPermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDashboardPermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDescribeDashboardPermissionsResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679587332"><span id="local-6989586621679587333"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDashboardPermissionsResponse"><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-var">DescribeDashboardPermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDashboardPermissionsResponse%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">DescribeDashboardPermissionsResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeDashboardPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3ArequestId%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The ID for the dashboard.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AdashboardId%3ADescribeDashboardPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardId%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | A structure that contains the permissions for the dashboard.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Apermissions%3ADescribeDashboardPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3Apermissions%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dashboard.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AdashboardArn%3ADescribeDashboardPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardArn%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">dashboardArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeDashboardPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3Astatus%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679587323"><span id="local-6989586621679587325"><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse
+-&gt; DescribeDashboardPermissionsResponse -&gt; Bool
+(DescribeDashboardPermissionsResponse
+ -&gt; DescribeDashboardPermissionsResponse -&gt; Bool)
+-&gt; (DescribeDashboardPermissionsResponse
+    -&gt; DescribeDashboardPermissionsResponse -&gt; Bool)
+-&gt; Eq DescribeDashboardPermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDashboardPermissionsResponse
+-&gt; DescribeDashboardPermissionsResponse -&gt; Bool
+$c/= :: DescribeDashboardPermissionsResponse
+-&gt; DescribeDashboardPermissionsResponse -&gt; Bool
+== :: DescribeDashboardPermissionsResponse
+-&gt; DescribeDashboardPermissionsResponse -&gt; Bool
+$c== :: DescribeDashboardPermissionsResponse
+-&gt; DescribeDashboardPermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587315"><span id="local-6989586621679587317"><span id="local-6989586621679587319"><span id="local-6989586621679587321"><span class="annot"><span class="annottext">ReadPrec [DescribeDashboardPermissionsResponse]
+ReadPrec DescribeDashboardPermissionsResponse
+Int -&gt; ReadS DescribeDashboardPermissionsResponse
+ReadS [DescribeDashboardPermissionsResponse]
+(Int -&gt; ReadS DescribeDashboardPermissionsResponse)
+-&gt; ReadS [DescribeDashboardPermissionsResponse]
+-&gt; ReadPrec DescribeDashboardPermissionsResponse
+-&gt; ReadPrec [DescribeDashboardPermissionsResponse]
+-&gt; Read DescribeDashboardPermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDashboardPermissionsResponse]
+$creadListPrec :: ReadPrec [DescribeDashboardPermissionsResponse]
+readPrec :: ReadPrec DescribeDashboardPermissionsResponse
+$creadPrec :: ReadPrec DescribeDashboardPermissionsResponse
+readList :: ReadS [DescribeDashboardPermissionsResponse]
+$creadList :: ReadS [DescribeDashboardPermissionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeDashboardPermissionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDashboardPermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587309"><span id="local-6989586621679587311"><span id="local-6989586621679587313"><span class="annot"><span class="annottext">Int -&gt; DescribeDashboardPermissionsResponse -&gt; ShowS
+[DescribeDashboardPermissionsResponse] -&gt; ShowS
+DescribeDashboardPermissionsResponse -&gt; String
+(Int -&gt; DescribeDashboardPermissionsResponse -&gt; ShowS)
+-&gt; (DescribeDashboardPermissionsResponse -&gt; String)
+-&gt; ([DescribeDashboardPermissionsResponse] -&gt; ShowS)
+-&gt; Show DescribeDashboardPermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDashboardPermissionsResponse] -&gt; ShowS
+$cshowList :: [DescribeDashboardPermissionsResponse] -&gt; ShowS
+show :: DescribeDashboardPermissionsResponse -&gt; String
+$cshow :: DescribeDashboardPermissionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDashboardPermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDashboardPermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDashboardPermissionsResponse
+ -&gt; Rep DescribeDashboardPermissionsResponse x)
+-&gt; (forall x.
+    Rep DescribeDashboardPermissionsResponse x
+    -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Generic DescribeDashboardPermissionsResponse
+forall x.
+Rep DescribeDashboardPermissionsResponse x
+-&gt; DescribeDashboardPermissionsResponse
+forall x.
+DescribeDashboardPermissionsResponse
+-&gt; Rep DescribeDashboardPermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDashboardPermissionsResponse x
+-&gt; DescribeDashboardPermissionsResponse
+$cfrom :: forall x.
+DescribeDashboardPermissionsResponse
+-&gt; Rep DescribeDashboardPermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'DescribeDashboardPermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'requestId', 'describeDashboardPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'dashboardId', 'describeDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'permissions', 'describeDashboardPermissionsResponse_permissions' - A structure that contains the permissions for the dashboard.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'dashboardArn', 'describeDashboardPermissionsResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'status', 'describeDashboardPermissionsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#newDescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">newDescribeDashboardPermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span>
+</span><span id="line-181"></span><span id="newDescribeDashboardPermissionsResponse"><span class="annot"><span class="annottext">newDescribeDashboardPermissionsResponse :: Int -&gt; DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#newDescribeDashboardPermissionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDashboardPermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679587306"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587306"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeDashboardPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3ArequestId%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardId:DescribeDashboardPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardId%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:DescribeDashboardPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3Apermissions%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardArn:DescribeDashboardPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardArn%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeDashboardPermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3Astatus%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587306"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_requestId"><span class="hs-identifier hs-type">describeDashboardPermissionsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="describeDashboardPermissionsResponse_requestId"><span class="annot"><span class="annottext">describeDashboardPermissionsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDashboardPermissionsResponse
+-&gt; f DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_requestId"><span class="hs-identifier hs-var hs-var">describeDashboardPermissionsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDashboardPermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeDashboardPermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Lens
+     DescribeDashboardPermissionsResponse
+     DescribeDashboardPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587305"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeDashboardPermissionsResponse' :: DescribeDashboardPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679587305"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587305"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587304"><span class="annot"><span class="annottext">s :: DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeDashboardPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3ArequestId%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The ID for the dashboard.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_dashboardId"><span class="hs-identifier hs-type">describeDashboardPermissionsResponse_dashboardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="describeDashboardPermissionsResponse_dashboardId"><span class="annot"><span class="annottext">describeDashboardPermissionsResponse_dashboardId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDashboardPermissionsResponse
+-&gt; f DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_dashboardId"><span class="hs-identifier hs-var hs-var">describeDashboardPermissionsResponse_dashboardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDashboardPermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeDashboardPermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Lens
+     DescribeDashboardPermissionsResponse
+     DescribeDashboardPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587302"><span class="annot"><span class="annottext">Maybe Text
+dashboardId :: Maybe Text
+$sel:dashboardId:DescribeDashboardPermissionsResponse' :: DescribeDashboardPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679587302"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587302"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587301"><span class="annot"><span class="annottext">s :: DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587300"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardId:DescribeDashboardPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardId%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | A structure that contains the permissions for the dashboard.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_permissions"><span class="hs-identifier hs-type">describeDashboardPermissionsResponse_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="describeDashboardPermissionsResponse_permissions"><span class="annot"><span class="annottext">describeDashboardPermissionsResponse_permissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; DescribeDashboardPermissionsResponse
+-&gt; f DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_permissions"><span class="hs-identifier hs-var hs-var">describeDashboardPermissionsResponse_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDashboardPermissionsResponse
+ -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (DescribeDashboardPermissionsResponse
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Lens
+     DescribeDashboardPermissionsResponse
+     DescribeDashboardPermissionsResponse
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587299"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+permissions :: Maybe (NonEmpty ResourcePermission)
+$sel:permissions:DescribeDashboardPermissionsResponse' :: DescribeDashboardPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587299"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587299"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587298"><span class="annot"><span class="annottext">s :: DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587297"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:DescribeDashboardPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3Apermissions%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; DescribeDashboardPermissionsResponse
+ -&gt; f DescribeDashboardPermissionsResponse)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; DescribeDashboardPermissionsResponse
+-&gt; f DescribeDashboardPermissionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dashboard.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_dashboardArn"><span class="hs-identifier hs-type">describeDashboardPermissionsResponse_dashboardArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="describeDashboardPermissionsResponse_dashboardArn"><span class="annot"><span class="annottext">describeDashboardPermissionsResponse_dashboardArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDashboardPermissionsResponse
+-&gt; f DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_dashboardArn"><span class="hs-identifier hs-var hs-var">describeDashboardPermissionsResponse_dashboardArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDashboardPermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeDashboardPermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Lens
+     DescribeDashboardPermissionsResponse
+     DescribeDashboardPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587293"><span class="annot"><span class="annottext">Maybe Text
+dashboardArn :: Maybe Text
+$sel:dashboardArn:DescribeDashboardPermissionsResponse' :: DescribeDashboardPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679587293"><span class="hs-identifier hs-var hs-var">dashboardArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587293"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587292"><span class="annot"><span class="annottext">s :: DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardArn:DescribeDashboardPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3AdashboardArn%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_status"><span class="hs-identifier hs-type">describeDashboardPermissionsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span id="describeDashboardPermissionsResponse_status"><span class="annot"><span class="annottext">describeDashboardPermissionsResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeDashboardPermissionsResponse
+-&gt; f DescribeDashboardPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#describeDashboardPermissionsResponse_status"><span class="hs-identifier hs-var hs-var">describeDashboardPermissionsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDashboardPermissionsResponse -&gt; Int)
+-&gt; (DescribeDashboardPermissionsResponse
+    -&gt; Int -&gt; DescribeDashboardPermissionsResponse)
+-&gt; Lens
+     DescribeDashboardPermissionsResponse
+     DescribeDashboardPermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587290"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeDashboardPermissionsResponse' :: DescribeDashboardPermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679587290"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587290"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587289"><span class="annot"><span class="annottext">s :: DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587288"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDashboardPermissionsResponse
+</span><a href="#local-6989586621679587289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeDashboardPermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#%24sel%3Astatus%3ADescribeDashboardPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679587286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDashboardPermissions.html#DescribeDashboardPermissionsResponse"><span class="hs-identifier hs-type">DescribeDashboardPermissionsResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeDeploy.Types.BundleType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeDeploy.Types.BundleType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType"><span class="hs-identifier">BundleType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_JSON"><span class="hs-identifier">BundleType_JSON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Tar"><span class="hs-identifier">BundleType_Tar</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Tgz"><span class="hs-identifier">BundleType_Tgz</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_YAML"><span class="hs-identifier">BundleType_YAML</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Zip"><span class="hs-identifier">BundleType_Zip</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679305266"><span id="local-6989586621679305267"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BundleType"><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType"><span class="hs-identifier hs-var">BundleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BundleType%27"><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType%27"><span class="hs-identifier hs-var">BundleType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBundleType"><span class="annot"><span class="annottext">BundleType -&gt; Text
+</span><a href="Amazonka.CodeDeploy.Types.BundleType.html#fromBundleType"><span class="hs-identifier hs-var hs-var">fromBundleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305258"><span id="local-6989586621679305260"><span id="local-6989586621679305262"><span class="annot"><span class="annottext">Int -&gt; BundleType -&gt; ShowS
+[BundleType] -&gt; ShowS
+BundleType -&gt; String
+(Int -&gt; BundleType -&gt; ShowS)
+-&gt; (BundleType -&gt; String)
+-&gt; ([BundleType] -&gt; ShowS)
+-&gt; Show BundleType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BundleType] -&gt; ShowS
+$cshowList :: [BundleType] -&gt; ShowS
+show :: BundleType -&gt; String
+$cshow :: BundleType -&gt; String
+showsPrec :: Int -&gt; BundleType -&gt; ShowS
+$cshowsPrec :: Int -&gt; BundleType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679305249"><span id="local-6989586621679305251"><span id="local-6989586621679305253"><span id="local-6989586621679305255"><span class="annot"><span class="annottext">ReadPrec [BundleType]
+ReadPrec BundleType
+Int -&gt; ReadS BundleType
+ReadS [BundleType]
+(Int -&gt; ReadS BundleType)
+-&gt; ReadS [BundleType]
+-&gt; ReadPrec BundleType
+-&gt; ReadPrec [BundleType]
+-&gt; Read BundleType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BundleType]
+$creadListPrec :: ReadPrec [BundleType]
+readPrec :: ReadPrec BundleType
+$creadPrec :: ReadPrec BundleType
+readList :: ReadS [BundleType]
+$creadList :: ReadS [BundleType]
+readsPrec :: Int -&gt; ReadS BundleType
+$creadsPrec :: Int -&gt; ReadS BundleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679305244"><span id="local-6989586621679305246"><span class="annot"><span class="annottext">BundleType -&gt; BundleType -&gt; Bool
+(BundleType -&gt; BundleType -&gt; Bool)
+-&gt; (BundleType -&gt; BundleType -&gt; Bool) -&gt; Eq BundleType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BundleType -&gt; BundleType -&gt; Bool
+$c/= :: BundleType -&gt; BundleType -&gt; Bool
+== :: BundleType -&gt; BundleType -&gt; Bool
+$c== :: BundleType -&gt; BundleType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679305228"><span id="local-6989586621679305230"><span id="local-6989586621679305232"><span id="local-6989586621679305234"><span id="local-6989586621679305236"><span id="local-6989586621679305238"><span id="local-6989586621679305240"><span class="annot"><span class="annottext">Eq BundleType
+Eq BundleType
+-&gt; (BundleType -&gt; BundleType -&gt; Ordering)
+-&gt; (BundleType -&gt; BundleType -&gt; Bool)
+-&gt; (BundleType -&gt; BundleType -&gt; Bool)
+-&gt; (BundleType -&gt; BundleType -&gt; Bool)
+-&gt; (BundleType -&gt; BundleType -&gt; Bool)
+-&gt; (BundleType -&gt; BundleType -&gt; BundleType)
+-&gt; (BundleType -&gt; BundleType -&gt; BundleType)
+-&gt; Ord BundleType
+BundleType -&gt; BundleType -&gt; Bool
+BundleType -&gt; BundleType -&gt; Ordering
+BundleType -&gt; BundleType -&gt; BundleType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BundleType -&gt; BundleType -&gt; BundleType
+$cmin :: BundleType -&gt; BundleType -&gt; BundleType
+max :: BundleType -&gt; BundleType -&gt; BundleType
+$cmax :: BundleType -&gt; BundleType -&gt; BundleType
+&gt;= :: BundleType -&gt; BundleType -&gt; Bool
+$c&gt;= :: BundleType -&gt; BundleType -&gt; Bool
+&gt; :: BundleType -&gt; BundleType -&gt; Bool
+$c&gt; :: BundleType -&gt; BundleType -&gt; Bool
+&lt;= :: BundleType -&gt; BundleType -&gt; Bool
+$c&lt;= :: BundleType -&gt; BundleType -&gt; Bool
+&lt; :: BundleType -&gt; BundleType -&gt; Bool
+$c&lt; :: BundleType -&gt; BundleType -&gt; Bool
+compare :: BundleType -&gt; BundleType -&gt; Ordering
+$ccompare :: BundleType -&gt; BundleType -&gt; Ordering
+$cp1Ord :: Eq BundleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BundleType -&gt; Rep BundleType x)
+-&gt; (forall x. Rep BundleType x -&gt; BundleType) -&gt; Generic BundleType
+forall x. Rep BundleType x -&gt; BundleType
+forall x. BundleType -&gt; Rep BundleType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BundleType x -&gt; BundleType
+$cfrom :: forall x. BundleType -&gt; Rep BundleType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305220"><span id="local-6989586621679305222"><span class="annot"><span class="annottext">Int -&gt; BundleType -&gt; Int
+BundleType -&gt; Int
+(Int -&gt; BundleType -&gt; Int)
+-&gt; (BundleType -&gt; Int) -&gt; Hashable BundleType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BundleType -&gt; Int
+$chash :: BundleType -&gt; Int
+hashWithSalt :: Int -&gt; BundleType -&gt; Int
+$chashWithSalt :: Int -&gt; BundleType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679305217"><span class="annot"><span class="annottext">BundleType -&gt; ()
+(BundleType -&gt; ()) -&gt; NFData BundleType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BundleType -&gt; ()
+$crnf :: BundleType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679305214"><span class="annot"><span class="annottext">Text -&gt; Either String BundleType
+(Text -&gt; Either String BundleType) -&gt; FromText BundleType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BundleType
+$cfromText :: Text -&gt; Either String BundleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679305211"><span class="annot"><span class="annottext">BundleType -&gt; Text
+(BundleType -&gt; Text) -&gt; ToText BundleType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BundleType -&gt; Text
+$ctoText :: BundleType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679305208"><span class="annot"><span class="annottext">BundleType -&gt; ByteString
+(BundleType -&gt; ByteString) -&gt; ToByteString BundleType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BundleType -&gt; ByteString
+$ctoBS :: BundleType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679305205"><span class="annot"><span class="annottext">BundleType -&gt; ByteStringBuilder
+(BundleType -&gt; ByteStringBuilder) -&gt; ToLog BundleType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BundleType -&gt; ByteStringBuilder
+$cbuild :: BundleType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679305202"><span class="annot"><span class="annottext">HeaderName -&gt; BundleType -&gt; [Header]
+(HeaderName -&gt; BundleType -&gt; [Header]) -&gt; ToHeader BundleType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BundleType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BundleType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679305199"><span class="annot"><span class="annottext">BundleType -&gt; QueryString
+(BundleType -&gt; QueryString) -&gt; ToQuery BundleType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BundleType -&gt; QueryString
+$ctoQuery :: BundleType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679305194"><span id="local-6989586621679305196"><span class="annot"><span class="annottext">Value -&gt; Parser [BundleType]
+Value -&gt; Parser BundleType
+(Value -&gt; Parser BundleType)
+-&gt; (Value -&gt; Parser [BundleType]) -&gt; FromJSON BundleType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BundleType]
+$cparseJSONList :: Value -&gt; Parser [BundleType]
+parseJSON :: Value -&gt; Parser BundleType
+$cparseJSON :: Value -&gt; Parser BundleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679305189"><span id="local-6989586621679305191"><span class="annot"><span class="annottext">FromJSONKeyFunction [BundleType]
+FromJSONKeyFunction BundleType
+FromJSONKeyFunction BundleType
+-&gt; FromJSONKeyFunction [BundleType] -&gt; FromJSONKey BundleType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BundleType]
+$cfromJSONKeyList :: FromJSONKeyFunction [BundleType]
+fromJSONKey :: FromJSONKeyFunction BundleType
+$cfromJSONKey :: FromJSONKeyFunction BundleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679305180"><span id="local-6989586621679305182"><span id="local-6989586621679305184"><span id="local-6989586621679305186"><span class="annot"><span class="annottext">[BundleType] -&gt; Encoding
+[BundleType] -&gt; Value
+BundleType -&gt; Encoding
+BundleType -&gt; Value
+(BundleType -&gt; Value)
+-&gt; (BundleType -&gt; Encoding)
+-&gt; ([BundleType] -&gt; Value)
+-&gt; ([BundleType] -&gt; Encoding)
+-&gt; ToJSON BundleType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BundleType] -&gt; Encoding
+$ctoEncodingList :: [BundleType] -&gt; Encoding
+toJSONList :: [BundleType] -&gt; Value
+$ctoJSONList :: [BundleType] -&gt; Value
+toEncoding :: BundleType -&gt; Encoding
+$ctoEncoding :: BundleType -&gt; Encoding
+toJSON :: BundleType -&gt; Value
+$ctoJSON :: BundleType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679305175"><span id="local-6989586621679305177"><span class="annot"><span class="annottext">ToJSONKeyFunction [BundleType]
+ToJSONKeyFunction BundleType
+ToJSONKeyFunction BundleType
+-&gt; ToJSONKeyFunction [BundleType] -&gt; ToJSONKey BundleType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BundleType]
+$ctoJSONKeyList :: ToJSONKeyFunction [BundleType]
+toJSONKey :: ToJSONKeyFunction BundleType
+$ctoJSONKey :: ToJSONKeyFunction BundleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679305172"><span class="annot"><span class="annottext">[Node] -&gt; Either String BundleType
+([Node] -&gt; Either String BundleType) -&gt; FromXML BundleType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BundleType
+$cparseXML :: [Node] -&gt; Either String BundleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679305169"><span class="annot"><span class="annottext">BundleType -&gt; XML
+(BundleType -&gt; XML) -&gt; ToXML BundleType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BundleType -&gt; XML
+$ctoXML :: BundleType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_JSON"><span class="hs-identifier hs-type">BundleType_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType"><span class="hs-identifier hs-type">BundleType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleType_JSON"><span id="%24mBundleType_JSON"><span id="BundleType_JSON"><span class="annot"><span class="annottext">$bBundleType_JSON :: BundleType
+$mBundleType_JSON :: forall r. BundleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.BundleType.html#%24bBundleType_JSON"><span class="hs-identifier hs-var hs-var hs-var">BundleType_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType%27"><span class="hs-identifier hs-type">BundleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Tar"><span class="hs-identifier hs-type">BundleType_Tar</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType"><span class="hs-identifier hs-type">BundleType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleType_Tar"><span id="%24mBundleType_Tar"><span id="BundleType_Tar"><span class="annot"><span class="annottext">$bBundleType_Tar :: BundleType
+$mBundleType_Tar :: forall r. BundleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.BundleType.html#%24bBundleType_Tar"><span class="hs-identifier hs-var hs-var hs-var">BundleType_Tar</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType%27"><span class="hs-identifier hs-type">BundleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;tar&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Tgz"><span class="hs-identifier hs-type">BundleType_Tgz</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType"><span class="hs-identifier hs-type">BundleType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleType_Tgz"><span id="%24mBundleType_Tgz"><span id="BundleType_Tgz"><span class="annot"><span class="annottext">$bBundleType_Tgz :: BundleType
+$mBundleType_Tgz :: forall r. BundleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.BundleType.html#%24bBundleType_Tgz"><span class="hs-identifier hs-var hs-var hs-var">BundleType_Tgz</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType%27"><span class="hs-identifier hs-type">BundleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;tgz&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_YAML"><span class="hs-identifier hs-type">BundleType_YAML</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType"><span class="hs-identifier hs-type">BundleType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleType_YAML"><span id="%24mBundleType_YAML"><span id="BundleType_YAML"><span class="annot"><span class="annottext">$bBundleType_YAML :: BundleType
+$mBundleType_YAML :: forall r. BundleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.BundleType.html#%24bBundleType_YAML"><span class="hs-identifier hs-var hs-var hs-var">BundleType_YAML</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType%27"><span class="hs-identifier hs-type">BundleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;YAML&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Zip"><span class="hs-identifier hs-type">BundleType_Zip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType"><span class="hs-identifier hs-type">BundleType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleType_Zip"><span id="%24mBundleType_Zip"><span id="BundleType_Zip"><span class="annot"><span class="annottext">$bBundleType_Zip :: BundleType
+$mBundleType_Zip :: forall r. BundleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.BundleType.html#%24bBundleType_Zip"><span class="hs-identifier hs-var hs-var hs-var">BundleType_Zip</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType%27"><span class="hs-identifier hs-type">BundleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;zip&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_JSON"><span class="hs-pragma hs-type">BundleType_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Tar"><span class="hs-pragma hs-type">BundleType_Tar</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Tgz"><span class="hs-pragma hs-type">BundleType_Tgz</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_YAML"><span class="hs-pragma hs-type">BundleType_YAML</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType_Zip"><span class="hs-pragma hs-type">BundleType_Zip</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.BundleType.html#BundleType%27"><span class="hs-pragma hs-type">BundleType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

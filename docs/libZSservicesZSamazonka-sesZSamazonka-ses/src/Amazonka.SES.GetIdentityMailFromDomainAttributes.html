@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.GetIdentityMailFromDomainAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the custom MAIL FROM attributes for a list of identities (email</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- addresses : domains).</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation is throttled at one request per second and can only get</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- custom MAIL FROM attributes for up to 100 identities at a time.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.GetIdentityMailFromDomainAttributes</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier">GetIdentityMailFromDomainAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#newGetIdentityMailFromDomainAttributes"><span class="hs-identifier">newGetIdentityMailFromDomainAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributes_identities"><span class="hs-identifier">getIdentityMailFromDomainAttributes_identities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier">GetIdentityMailFromDomainAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#newGetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier">newGetIdentityMailFromDomainAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributesResponse_httpStatus"><span class="hs-identifier">getIdentityMailFromDomainAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes"><span class="hs-identifier">getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Represents a request to return the Amazon SES custom MAIL FROM</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- attributes for a list of identities. For information about using a</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- custom MAIL FROM domain, see the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newGetIdentityMailFromDomainAttributes' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679284311"><span id="local-6989586621679284312"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityMailFromDomainAttributes"><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-var">GetIdentityMailFromDomainAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityMailFromDomainAttributes%27"><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">GetIdentityMailFromDomainAttributes'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of one or more identities.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aidentities%3AGetIdentityMailFromDomainAttributes%27"><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributes -&gt; [Text]
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3Aidentities%3AGetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284305"><span id="local-6989586621679284307"><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributes
+-&gt; GetIdentityMailFromDomainAttributes -&gt; Bool
+(GetIdentityMailFromDomainAttributes
+ -&gt; GetIdentityMailFromDomainAttributes -&gt; Bool)
+-&gt; (GetIdentityMailFromDomainAttributes
+    -&gt; GetIdentityMailFromDomainAttributes -&gt; Bool)
+-&gt; Eq GetIdentityMailFromDomainAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIdentityMailFromDomainAttributes
+-&gt; GetIdentityMailFromDomainAttributes -&gt; Bool
+$c/= :: GetIdentityMailFromDomainAttributes
+-&gt; GetIdentityMailFromDomainAttributes -&gt; Bool
+== :: GetIdentityMailFromDomainAttributes
+-&gt; GetIdentityMailFromDomainAttributes -&gt; Bool
+$c== :: GetIdentityMailFromDomainAttributes
+-&gt; GetIdentityMailFromDomainAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284296"><span id="local-6989586621679284298"><span id="local-6989586621679284300"><span id="local-6989586621679284302"><span class="annot"><span class="annottext">ReadPrec [GetIdentityMailFromDomainAttributes]
+ReadPrec GetIdentityMailFromDomainAttributes
+Int -&gt; ReadS GetIdentityMailFromDomainAttributes
+ReadS [GetIdentityMailFromDomainAttributes]
+(Int -&gt; ReadS GetIdentityMailFromDomainAttributes)
+-&gt; ReadS [GetIdentityMailFromDomainAttributes]
+-&gt; ReadPrec GetIdentityMailFromDomainAttributes
+-&gt; ReadPrec [GetIdentityMailFromDomainAttributes]
+-&gt; Read GetIdentityMailFromDomainAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIdentityMailFromDomainAttributes]
+$creadListPrec :: ReadPrec [GetIdentityMailFromDomainAttributes]
+readPrec :: ReadPrec GetIdentityMailFromDomainAttributes
+$creadPrec :: ReadPrec GetIdentityMailFromDomainAttributes
+readList :: ReadS [GetIdentityMailFromDomainAttributes]
+$creadList :: ReadS [GetIdentityMailFromDomainAttributes]
+readsPrec :: Int -&gt; ReadS GetIdentityMailFromDomainAttributes
+$creadsPrec :: Int -&gt; ReadS GetIdentityMailFromDomainAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284289"><span id="local-6989586621679284291"><span id="local-6989586621679284293"><span class="annot"><span class="annottext">Int -&gt; GetIdentityMailFromDomainAttributes -&gt; ShowS
+[GetIdentityMailFromDomainAttributes] -&gt; ShowS
+GetIdentityMailFromDomainAttributes -&gt; String
+(Int -&gt; GetIdentityMailFromDomainAttributes -&gt; ShowS)
+-&gt; (GetIdentityMailFromDomainAttributes -&gt; String)
+-&gt; ([GetIdentityMailFromDomainAttributes] -&gt; ShowS)
+-&gt; Show GetIdentityMailFromDomainAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIdentityMailFromDomainAttributes] -&gt; ShowS
+$cshowList :: [GetIdentityMailFromDomainAttributes] -&gt; ShowS
+show :: GetIdentityMailFromDomainAttributes -&gt; String
+$cshow :: GetIdentityMailFromDomainAttributes -&gt; String
+showsPrec :: Int -&gt; GetIdentityMailFromDomainAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIdentityMailFromDomainAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetIdentityMailFromDomainAttributes
+ -&gt; Rep GetIdentityMailFromDomainAttributes x)
+-&gt; (forall x.
+    Rep GetIdentityMailFromDomainAttributes x
+    -&gt; GetIdentityMailFromDomainAttributes)
+-&gt; Generic GetIdentityMailFromDomainAttributes
+forall x.
+Rep GetIdentityMailFromDomainAttributes x
+-&gt; GetIdentityMailFromDomainAttributes
+forall x.
+GetIdentityMailFromDomainAttributes
+-&gt; Rep GetIdentityMailFromDomainAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetIdentityMailFromDomainAttributes x
+-&gt; GetIdentityMailFromDomainAttributes
+$cfrom :: forall x.
+GetIdentityMailFromDomainAttributes
+-&gt; Rep GetIdentityMailFromDomainAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'GetIdentityMailFromDomainAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'identities', 'getIdentityMailFromDomainAttributes_identities' - A list of one or more identities.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#newGetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">newGetIdentityMailFromDomainAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetIdentityMailFromDomainAttributes"><span class="annot"><span class="annottext">newGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributes
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#newGetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-var hs-var">newGetIdentityMailFromDomainAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributes' :: [Text] -&gt; GetIdentityMailFromDomainAttributes
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identities:GetIdentityMailFromDomainAttributes' :: [Text]
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3Aidentities%3AGetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">identities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | A list of one or more identities.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributes_identities"><span class="hs-identifier hs-type">getIdentityMailFromDomainAttributes_identities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span><span id="getIdentityMailFromDomainAttributes_identities"><span class="annot"><span class="annottext">getIdentityMailFromDomainAttributes_identities :: ([Text] -&gt; f [Text])
+-&gt; GetIdentityMailFromDomainAttributes
+-&gt; f GetIdentityMailFromDomainAttributes
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributes_identities"><span class="hs-identifier hs-var hs-var">getIdentityMailFromDomainAttributes_identities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityMailFromDomainAttributes -&gt; [Text])
+-&gt; (GetIdentityMailFromDomainAttributes
+    -&gt; [Text] -&gt; GetIdentityMailFromDomainAttributes)
+-&gt; Lens
+     GetIdentityMailFromDomainAttributes
+     GetIdentityMailFromDomainAttributes
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284282"><span class="annot"><span class="annottext">[Text]
+identities :: [Text]
+$sel:identities:GetIdentityMailFromDomainAttributes' :: GetIdentityMailFromDomainAttributes -&gt; [Text]
+</span><a href="#local-6989586621679284282"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284282"><span class="hs-identifier hs-var">identities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284281"><span class="annot"><span class="annottext">s :: GetIdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679284281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284280"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679284281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identities:GetIdentityMailFromDomainAttributes' :: [Text]
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3Aidentities%3AGetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">identities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GetIdentityMailFromDomainAttributes
+ -&gt; f GetIdentityMailFromDomainAttributes)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetIdentityMailFromDomainAttributes
+-&gt; f GetIdentityMailFromDomainAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679284274"><span class="annot"><span class="annottext">request :: GetIdentityMailFromDomainAttributes
+-&gt; Request GetIdentityMailFromDomainAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetIdentityMailFromDomainAttributes
+-&gt; Request GetIdentityMailFromDomainAttributes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679284270"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetIdentityMailFromDomainAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetIdentityMailFromDomainAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetIdentityMailFromDomainAttributes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetIdentityMailFromDomainAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetIdentityMailFromDomainAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetIdentityMailFromDomainAttributesResult&quot;</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284267"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284266"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284266"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284265"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679284265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; HashMap Text IdentityMailFromDomainAttributes
+-&gt; GetIdentityMailFromDomainAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var">GetIdentityMailFromDomainAttributesResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; HashMap Text IdentityMailFromDomainAttributes
+ -&gt; GetIdentityMailFromDomainAttributesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (HashMap Text IdentityMailFromDomainAttributes
+      -&gt; GetIdentityMailFromDomainAttributesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284267"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (HashMap Text IdentityMailFromDomainAttributes
+   -&gt; GetIdentityMailFromDomainAttributesResponse)
+-&gt; Either String (HashMap Text IdentityMailFromDomainAttributes)
+-&gt; Either String GetIdentityMailFromDomainAttributesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679284265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MailFromDomainAttributes&quot;</span></span><span>
+</span><span id="line-101"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>                              </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (HashMap Text IdentityMailFromDomainAttributes))
+-&gt; Either String (HashMap Text IdentityMailFromDomainAttributes)
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; Text
+-&gt; Text
+-&gt; [Node]
+-&gt; Either String (HashMap Text IdentityMailFromDomainAttributes)
+forall k v.
+(Eq k, Hashable k, FromText k, FromXML v) =&gt;
+Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
+</span><span class="hs-identifier hs-var">Core.parseXMLMap</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span>
+</span><span id="line-103"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679284255"><span id="local-6989586621679284257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679284252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679284248"><span class="annot"><span class="annottext">toHeaders :: GetIdentityMailFromDomainAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetIdentityMailFromDomainAttributes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284243"><span class="annot"><span class="annottext">toPath :: GetIdentityMailFromDomainAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetIdentityMailFromDomainAttributes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679284239"><span class="annot"><span class="annottext">toQuery :: GetIdentityMailFromDomainAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284237"><span class="annot"><span class="annottext">[Text]
+identities :: [Text]
+$sel:identities:GetIdentityMailFromDomainAttributes' :: GetIdentityMailFromDomainAttributes -&gt; [Text]
+</span><a href="#local-6989586621679284237"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetIdentityMailFromDomainAttributes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Identities&quot;</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284237"><span class="hs-identifier hs-var">identities</span></a></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Represents the custom MAIL FROM attributes for a list of identities.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newGetIdentityMailFromDomainAttributesResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679284233"><span id="local-6989586621679284234"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityMailFromDomainAttributesResponse"><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-var">GetIdentityMailFromDomainAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityMailFromDomainAttributesResponse%27"><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var">GetIdentityMailFromDomainAttributesResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributesResponse -&gt; Int
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3AhttpStatus%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | A map of identities to custom MAIL FROM attributes.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AmailFromDomainAttributes%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributesResponse
+-&gt; HashMap Text IdentityMailFromDomainAttributes
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomainAttributes%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var hs-var">mailFromDomainAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284227"><span id="local-6989586621679284229"><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributesResponse
+-&gt; GetIdentityMailFromDomainAttributesResponse -&gt; Bool
+(GetIdentityMailFromDomainAttributesResponse
+ -&gt; GetIdentityMailFromDomainAttributesResponse -&gt; Bool)
+-&gt; (GetIdentityMailFromDomainAttributesResponse
+    -&gt; GetIdentityMailFromDomainAttributesResponse -&gt; Bool)
+-&gt; Eq GetIdentityMailFromDomainAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIdentityMailFromDomainAttributesResponse
+-&gt; GetIdentityMailFromDomainAttributesResponse -&gt; Bool
+$c/= :: GetIdentityMailFromDomainAttributesResponse
+-&gt; GetIdentityMailFromDomainAttributesResponse -&gt; Bool
+== :: GetIdentityMailFromDomainAttributesResponse
+-&gt; GetIdentityMailFromDomainAttributesResponse -&gt; Bool
+$c== :: GetIdentityMailFromDomainAttributesResponse
+-&gt; GetIdentityMailFromDomainAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284219"><span id="local-6989586621679284221"><span id="local-6989586621679284223"><span id="local-6989586621679284225"><span class="annot"><span class="annottext">ReadPrec [GetIdentityMailFromDomainAttributesResponse]
+ReadPrec GetIdentityMailFromDomainAttributesResponse
+Int -&gt; ReadS GetIdentityMailFromDomainAttributesResponse
+ReadS [GetIdentityMailFromDomainAttributesResponse]
+(Int -&gt; ReadS GetIdentityMailFromDomainAttributesResponse)
+-&gt; ReadS [GetIdentityMailFromDomainAttributesResponse]
+-&gt; ReadPrec GetIdentityMailFromDomainAttributesResponse
+-&gt; ReadPrec [GetIdentityMailFromDomainAttributesResponse]
+-&gt; Read GetIdentityMailFromDomainAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIdentityMailFromDomainAttributesResponse]
+$creadListPrec :: ReadPrec [GetIdentityMailFromDomainAttributesResponse]
+readPrec :: ReadPrec GetIdentityMailFromDomainAttributesResponse
+$creadPrec :: ReadPrec GetIdentityMailFromDomainAttributesResponse
+readList :: ReadS [GetIdentityMailFromDomainAttributesResponse]
+$creadList :: ReadS [GetIdentityMailFromDomainAttributesResponse]
+readsPrec :: Int -&gt; ReadS GetIdentityMailFromDomainAttributesResponse
+$creadsPrec :: Int -&gt; ReadS GetIdentityMailFromDomainAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284213"><span id="local-6989586621679284215"><span id="local-6989586621679284217"><span class="annot"><span class="annottext">Int -&gt; GetIdentityMailFromDomainAttributesResponse -&gt; ShowS
+[GetIdentityMailFromDomainAttributesResponse] -&gt; ShowS
+GetIdentityMailFromDomainAttributesResponse -&gt; String
+(Int -&gt; GetIdentityMailFromDomainAttributesResponse -&gt; ShowS)
+-&gt; (GetIdentityMailFromDomainAttributesResponse -&gt; String)
+-&gt; ([GetIdentityMailFromDomainAttributesResponse] -&gt; ShowS)
+-&gt; Show GetIdentityMailFromDomainAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIdentityMailFromDomainAttributesResponse] -&gt; ShowS
+$cshowList :: [GetIdentityMailFromDomainAttributesResponse] -&gt; ShowS
+show :: GetIdentityMailFromDomainAttributesResponse -&gt; String
+$cshow :: GetIdentityMailFromDomainAttributesResponse -&gt; String
+showsPrec :: Int -&gt; GetIdentityMailFromDomainAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIdentityMailFromDomainAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetIdentityMailFromDomainAttributesResponse
+ -&gt; Rep GetIdentityMailFromDomainAttributesResponse x)
+-&gt; (forall x.
+    Rep GetIdentityMailFromDomainAttributesResponse x
+    -&gt; GetIdentityMailFromDomainAttributesResponse)
+-&gt; Generic GetIdentityMailFromDomainAttributesResponse
+forall x.
+Rep GetIdentityMailFromDomainAttributesResponse x
+-&gt; GetIdentityMailFromDomainAttributesResponse
+forall x.
+GetIdentityMailFromDomainAttributesResponse
+-&gt; Rep GetIdentityMailFromDomainAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetIdentityMailFromDomainAttributesResponse x
+-&gt; GetIdentityMailFromDomainAttributesResponse
+$cfrom :: forall x.
+GetIdentityMailFromDomainAttributesResponse
+-&gt; Rep GetIdentityMailFromDomainAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'GetIdentityMailFromDomainAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'httpStatus', 'getIdentityMailFromDomainAttributesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'mailFromDomainAttributes', 'getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes' - A map of identities to custom MAIL FROM attributes.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#newGetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">newGetIdentityMailFromDomainAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newGetIdentityMailFromDomainAttributesResponse"><span class="annot"><span class="annottext">newGetIdentityMailFromDomainAttributesResponse :: Int -&gt; GetIdentityMailFromDomainAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#newGetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetIdentityMailFromDomainAttributesResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679284210"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributesResponse' :: Int
+-&gt; HashMap Text IdentityMailFromDomainAttributes
+-&gt; GetIdentityMailFromDomainAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityMailFromDomainAttributesResponse' :: Int
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3AhttpStatus%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:mailFromDomainAttributes:GetIdentityMailFromDomainAttributesResponse' :: HashMap Text IdentityMailFromDomainAttributes
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomainAttributes%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var">mailFromDomainAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">HashMap Text IdentityMailFromDomainAttributes
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributesResponse_httpStatus"><span class="hs-identifier hs-type">getIdentityMailFromDomainAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="getIdentityMailFromDomainAttributesResponse_httpStatus"><span class="annot"><span class="annottext">getIdentityMailFromDomainAttributesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetIdentityMailFromDomainAttributesResponse
+-&gt; f GetIdentityMailFromDomainAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getIdentityMailFromDomainAttributesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityMailFromDomainAttributesResponse -&gt; Int)
+-&gt; (GetIdentityMailFromDomainAttributesResponse
+    -&gt; Int -&gt; GetIdentityMailFromDomainAttributesResponse)
+-&gt; Lens
+     GetIdentityMailFromDomainAttributesResponse
+     GetIdentityMailFromDomainAttributesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284209"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetIdentityMailFromDomainAttributesResponse' :: GetIdentityMailFromDomainAttributesResponse -&gt; Int
+</span><a href="#local-6989586621679284209"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284209"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284208"><span class="annot"><span class="annottext">s :: GetIdentityMailFromDomainAttributesResponse
+</span><a href="#local-6989586621679284208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284207"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributesResponse
+</span><a href="#local-6989586621679284208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityMailFromDomainAttributesResponse' :: Int
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3AhttpStatus%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | A map of identities to custom MAIL FROM attributes.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes"><span class="hs-identifier hs-type">getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes"><span class="annot"><span class="annottext">getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes :: (HashMap Text IdentityMailFromDomainAttributes
+ -&gt; f (HashMap Text IdentityMailFromDomainAttributes))
+-&gt; GetIdentityMailFromDomainAttributesResponse
+-&gt; f GetIdentityMailFromDomainAttributesResponse
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes"><span class="hs-identifier hs-var hs-var">getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityMailFromDomainAttributesResponse
+ -&gt; HashMap Text IdentityMailFromDomainAttributes)
+-&gt; (GetIdentityMailFromDomainAttributesResponse
+    -&gt; HashMap Text IdentityMailFromDomainAttributes
+    -&gt; GetIdentityMailFromDomainAttributesResponse)
+-&gt; Lens
+     GetIdentityMailFromDomainAttributesResponse
+     GetIdentityMailFromDomainAttributesResponse
+     (HashMap Text IdentityMailFromDomainAttributes)
+     (HashMap Text IdentityMailFromDomainAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284206"><span class="annot"><span class="annottext">HashMap Text IdentityMailFromDomainAttributes
+mailFromDomainAttributes :: HashMap Text IdentityMailFromDomainAttributes
+$sel:mailFromDomainAttributes:GetIdentityMailFromDomainAttributesResponse' :: GetIdentityMailFromDomainAttributesResponse
+-&gt; HashMap Text IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679284206"><span class="hs-identifier hs-var hs-var">mailFromDomainAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679284206"><span class="hs-identifier hs-var">mailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284205"><span class="annot"><span class="annottext">s :: GetIdentityMailFromDomainAttributesResponse
+</span><a href="#local-6989586621679284205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284204"><span class="annot"><span class="annottext">HashMap Text IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679284204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityMailFromDomainAttributesResponse
+</span><a href="#local-6989586621679284205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomainAttributes:GetIdentityMailFromDomainAttributesResponse' :: HashMap Text IdentityMailFromDomainAttributes
+</span><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomainAttributes%3AGetIdentityMailFromDomainAttributesResponse%27"><span class="hs-identifier hs-var">mailFromDomainAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679284204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text IdentityMailFromDomainAttributes
+  -&gt; f (HashMap Text IdentityMailFromDomainAttributes))
+ -&gt; GetIdentityMailFromDomainAttributesResponse
+ -&gt; f GetIdentityMailFromDomainAttributesResponse)
+-&gt; ((HashMap Text IdentityMailFromDomainAttributes
+     -&gt; f (HashMap Text IdentityMailFromDomainAttributes))
+    -&gt; HashMap Text IdentityMailFromDomainAttributes
+    -&gt; f (HashMap Text IdentityMailFromDomainAttributes))
+-&gt; (HashMap Text IdentityMailFromDomainAttributes
+    -&gt; f (HashMap Text IdentityMailFromDomainAttributes))
+-&gt; GetIdentityMailFromDomainAttributesResponse
+-&gt; f GetIdentityMailFromDomainAttributesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text IdentityMailFromDomainAttributes
+ -&gt; f (HashMap Text IdentityMailFromDomainAttributes))
+-&gt; HashMap Text IdentityMailFromDomainAttributes
+-&gt; f (HashMap Text IdentityMailFromDomainAttributes)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679284202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetIdentityMailFromDomainAttributes.html#GetIdentityMailFromDomainAttributesResponse"><span class="hs-identifier hs-type">GetIdentityMailFromDomainAttributesResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

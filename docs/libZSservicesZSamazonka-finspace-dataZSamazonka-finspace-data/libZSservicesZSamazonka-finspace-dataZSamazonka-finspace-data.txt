@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.FinSpaceData.Types.ChangeType
+module Amazonka.FinSpaceData.Types.ChangeType
 newtype ChangeType
 ChangeType' :: Text -> ChangeType
 [fromChangeType] :: ChangeType -> Text
 pattern ChangeType_APPEND :: ChangeType
 pattern ChangeType_MODIFY :: ChangeType
 pattern ChangeType_REPLACE :: ChangeType
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance GHC.Classes.Ord Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.Text.ToText Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Amazonka.Data.Text.FromText Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance GHC.Classes.Ord Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.ChangeType.ChangeType
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.ChangeType.ChangeType
 
 
-module Network.AWS.FinSpaceData.Types.ChangesetStatus
+module Amazonka.FinSpaceData.Types.ChangesetStatus
 newtype ChangesetStatus
 ChangesetStatus' :: Text -> ChangesetStatus
 [fromChangesetStatus] :: ChangesetStatus -> Text
@@ -42,28 +42,28 @@ pattern ChangesetStatus_PENDING :: ChangesetStatus
 pattern ChangesetStatus_RUNNING :: ChangesetStatus
 pattern ChangesetStatus_STOP_REQUESTED :: ChangesetStatus
 pattern ChangesetStatus_SUCCESS :: ChangesetStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance GHC.Classes.Ord Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.Text.ToText Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Amazonka.Data.Text.FromText Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance GHC.Classes.Ord Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.ChangesetStatus.ChangesetStatus
 
 
-module Network.AWS.FinSpaceData.Types.Credentials
+module Amazonka.FinSpaceData.Types.Credentials
 
 -- | Set short term API credentials.
 --   
@@ -106,16 +106,16 @@ credentials_sessionToken :: Lens' Credentials (Maybe Text)
 
 -- | The access key identifier.
 credentials_accessKeyId :: Lens' Credentials (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.Credentials.Credentials
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.Credentials.Credentials
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.Credentials.Credentials
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.Credentials.Credentials
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.Credentials.Credentials
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.Credentials.Credentials
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.Credentials.Credentials
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.Credentials.Credentials
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.Credentials.Credentials
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.Credentials.Credentials
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.Credentials.Credentials
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.Credentials.Credentials
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.Credentials.Credentials
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.Credentials.Credentials
 
 
-module Network.AWS.FinSpaceData.Types.ErrorCategory
+module Amazonka.FinSpaceData.Types.ErrorCategory
 newtype ErrorCategory
 ErrorCategory' :: Text -> ErrorCategory
 [fromErrorCategory] :: ErrorCategory -> Text
@@ -127,28 +127,28 @@ pattern ErrorCategory_One_or_more_inputs_to_this_request_were_not_found :: Error
 pattern ErrorCategory_Service_limits_have_been_exceeded :: ErrorCategory
 pattern ErrorCategory_The_inputs_to_this_request_are_invalid :: ErrorCategory
 pattern ErrorCategory_The_system_temporarily_lacks_sufficient_resources_to_process_the_request :: ErrorCategory
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance GHC.Classes.Ord Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.Text.ToText Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Amazonka.Data.Text.FromText Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance GHC.Classes.Ord Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.ErrorCategory.ErrorCategory
 
 
-module Network.AWS.FinSpaceData.Types.ErrorInfo
+module Amazonka.FinSpaceData.Types.ErrorInfo
 
 -- | Error message.
 --   
@@ -227,16 +227,16 @@ errorInfo_errorCategory :: Lens' ErrorInfo (Maybe ErrorCategory)
 
 -- | The text of the error message.
 errorInfo_errorMessage :: Lens' ErrorInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.ErrorInfo.ErrorInfo
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.ErrorInfo.ErrorInfo
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.ErrorInfo.ErrorInfo
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.ErrorInfo.ErrorInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.ErrorInfo.ErrorInfo
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.ErrorInfo.ErrorInfo
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.ErrorInfo.ErrorInfo
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.ErrorInfo.ErrorInfo
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.ErrorInfo.ErrorInfo
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.ErrorInfo.ErrorInfo
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.ErrorInfo.ErrorInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.ErrorInfo.ErrorInfo
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.ErrorInfo.ErrorInfo
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.ErrorInfo.ErrorInfo
 
 
-module Network.AWS.FinSpaceData.Types.FormatType
+module Amazonka.FinSpaceData.Types.FormatType
 newtype FormatType
 FormatType' :: Text -> FormatType
 [fromFormatType] :: FormatType -> Text
@@ -244,81 +244,81 @@ pattern FormatType_CSV :: FormatType
 pattern FormatType_JSON :: FormatType
 pattern FormatType_PARQUET :: FormatType
 pattern FormatType_XML :: FormatType
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance GHC.Classes.Ord Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.FormatType.FormatType
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.Text.ToText Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Amazonka.Data.Text.FromText Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance GHC.Classes.Ord Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.FormatType.FormatType
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.FormatType.FormatType
 
 
-module Network.AWS.FinSpaceData.Types.LocationType
+module Amazonka.FinSpaceData.Types.LocationType
 newtype LocationType
 LocationType' :: Text -> LocationType
 [fromLocationType] :: LocationType -> Text
 pattern LocationType_INGESTION :: LocationType
 pattern LocationType_SAGEMAKER :: LocationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance GHC.Classes.Ord Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.LocationType.LocationType
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.Text.ToText Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Amazonka.Data.Text.FromText Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance GHC.Classes.Ord Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.LocationType.LocationType
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.LocationType.LocationType
 
 
-module Network.AWS.FinSpaceData.Types.SourceType
+module Amazonka.FinSpaceData.Types.SourceType
 newtype SourceType
 SourceType' :: Text -> SourceType
 [fromSourceType] :: SourceType -> Text
 pattern SourceType_S3 :: SourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance GHC.Classes.Ord Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.SourceType.SourceType
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.Text.ToText Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Amazonka.Data.Text.FromText Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance GHC.Classes.Ord Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.SourceType.SourceType
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.SourceType.SourceType
 
 
-module Network.AWS.FinSpaceData.Types.ChangesetInfo
+module Amazonka.FinSpaceData.Types.ChangesetInfo
 
 -- | A changeset is unit of data in a dataset.
 --   
@@ -512,16 +512,16 @@ changesetInfo_errorInfo :: Lens' ChangesetInfo (Maybe ErrorInfo)
 
 -- | The ARN identifier of the changeset.
 changesetInfo_changesetArn :: Lens' ChangesetInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
-instance GHC.Show.Show Network.AWS.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
-instance GHC.Read.Read Network.AWS.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
+instance GHC.Generics.Generic Amazonka.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
+instance GHC.Show.Show Amazonka.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
+instance GHC.Read.Read Amazonka.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
+instance GHC.Classes.Eq Amazonka.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.Types.ChangesetInfo.ChangesetInfo
 
 
-module Network.AWS.FinSpaceData.Types
+module Amazonka.FinSpaceData.Types
 
 -- | API version <tt>2020-07-13</tt> of the Amazon FinSpace Public API SDK
 --   configuration.
@@ -901,7 +901,7 @@ errorInfo_errorMessage :: Lens' ErrorInfo (Maybe Text)
 
 -- | A temporary Amazon S3 location to copy your files from a source
 --   location to stage or use as a scratch space in Habanero notebook.
-module Network.AWS.FinSpaceData.GetWorkingLocation
+module Amazonka.FinSpaceData.GetWorkingLocation
 
 -- | <i>See:</i> <a>newGetWorkingLocation</a> smart constructor.
 data GetWorkingLocation
@@ -1007,26 +1007,26 @@ getWorkingLocationResponse_s3Bucket :: Lens' GetWorkingLocationResponse (Maybe T
 
 -- | The response's http status code.
 getWorkingLocationResponse_httpStatus :: Lens' GetWorkingLocationResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance GHC.Show.Show Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance GHC.Read.Read Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
-instance GHC.Show.Show Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
-instance GHC.Read.Read Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance GHC.Generics.Generic Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance GHC.Show.Show Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance GHC.Read.Read Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance GHC.Classes.Eq Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance GHC.Generics.Generic Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
+instance GHC.Show.Show Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
+instance GHC.Read.Read Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
+instance GHC.Classes.Eq Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocationResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.GetWorkingLocation.GetWorkingLocation
 
 
 -- | Request programmatic credentials to use with Habanero SDK.
-module Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials
+module Amazonka.FinSpaceData.GetProgrammaticAccessCredentials
 
 -- | <i>See:</i> <a>newGetProgrammaticAccessCredentials</a> smart
 --   constructor.
@@ -1107,25 +1107,25 @@ getProgrammaticAccessCredentialsResponse_durationInMinutes :: Lens' GetProgramma
 
 -- | The response's http status code.
 getProgrammaticAccessCredentialsResponse_httpStatus :: Lens' GetProgrammaticAccessCredentialsResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance GHC.Show.Show Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance GHC.Read.Read Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
-instance GHC.Show.Show Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
-instance GHC.Read.Read Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance GHC.Generics.Generic Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance GHC.Show.Show Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance GHC.Read.Read Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance GHC.Classes.Eq Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance GHC.Generics.Generic Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
+instance GHC.Show.Show Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
+instance GHC.Read.Read Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
+instance GHC.Classes.Eq Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentialsResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.GetProgrammaticAccessCredentials.GetProgrammaticAccessCredentials
 
 
 -- | Creates a new changeset in a FinSpace dataset.
-module Network.AWS.FinSpaceData.CreateChangeset
+module Amazonka.FinSpaceData.CreateChangeset
 
 -- | <i>See:</i> <a>newCreateChangeset</a> smart constructor.
 data CreateChangeset
@@ -1282,25 +1282,25 @@ createChangesetResponse_changeset :: Lens' CreateChangesetResponse (Maybe Change
 
 -- | The response's http status code.
 createChangesetResponse_httpStatus :: Lens' CreateChangesetResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance GHC.Show.Show Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance GHC.Read.Read Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance GHC.Generics.Generic Network.AWS.FinSpaceData.CreateChangeset.CreateChangesetResponse
-instance GHC.Show.Show Network.AWS.FinSpaceData.CreateChangeset.CreateChangesetResponse
-instance GHC.Read.Read Network.AWS.FinSpaceData.CreateChangeset.CreateChangesetResponse
-instance GHC.Classes.Eq Network.AWS.FinSpaceData.CreateChangeset.CreateChangesetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.CreateChangeset.CreateChangesetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance Control.DeepSeq.NFData Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpaceData.CreateChangeset.CreateChangeset
+instance GHC.Generics.Generic Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance GHC.Show.Show Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance GHC.Read.Read Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance GHC.Classes.Eq Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance GHC.Generics.Generic Amazonka.FinSpaceData.CreateChangeset.CreateChangesetResponse
+instance GHC.Show.Show Amazonka.FinSpaceData.CreateChangeset.CreateChangesetResponse
+instance GHC.Read.Read Amazonka.FinSpaceData.CreateChangeset.CreateChangesetResponse
+instance GHC.Classes.Eq Amazonka.FinSpaceData.CreateChangeset.CreateChangesetResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.CreateChangeset.CreateChangesetResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance Control.DeepSeq.NFData Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpaceData.CreateChangeset.CreateChangeset
 
 
-module Network.AWS.FinSpaceData.Lens
+module Amazonka.FinSpaceData.Lens
 
 -- | Options that define the structure of the source file(s).
 createChangeset_formatParams :: Lens' CreateChangeset (Maybe (HashMap Text Text))
@@ -1470,7 +1470,7 @@ errorInfo_errorCategory :: Lens' ErrorInfo (Maybe ErrorCategory)
 errorInfo_errorMessage :: Lens' ErrorInfo (Maybe Text)
 
 
-module Network.AWS.FinSpaceData.Waiters
+module Amazonka.FinSpaceData.Waiters
 
 
 -- | Derived from API version <tt>2020-07-13</tt> of the AWS service
@@ -1478,7 +1478,7 @@ module Network.AWS.FinSpaceData.Waiters
 --   
 --   The FinSpace APIs let you take actions inside the FinSpace
 --   environment.
-module Network.AWS.FinSpaceData
+module Amazonka.FinSpaceData
 
 -- | API version <tt>2020-07-13</tt> of the Amazon FinSpace Public API SDK
 --   configuration.

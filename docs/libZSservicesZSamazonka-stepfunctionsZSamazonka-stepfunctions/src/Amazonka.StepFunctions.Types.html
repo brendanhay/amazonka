@@ -1,0 +1,1057 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.StepFunctions.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StepFunctions.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ExecutionLimitExceeded"><span class="hs-identifier">_ExecutionLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidDefinition"><span class="hs-identifier">_InvalidDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineLimitExceeded"><span class="hs-identifier">_StateMachineLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ExecutionAlreadyExists"><span class="hs-identifier">_ExecutionAlreadyExists</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineAlreadyExists"><span class="hs-identifier">_StateMachineAlreadyExists</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_TaskTimedOut"><span class="hs-identifier">_TaskTimedOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidExecutionInput"><span class="hs-identifier">_InvalidExecutionInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidOutput"><span class="hs-identifier">_InvalidOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidName"><span class="hs-identifier">_InvalidName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_TaskDoesNotExist"><span class="hs-identifier">_TaskDoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ActivityDoesNotExist"><span class="hs-identifier">_ActivityDoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineDeleting"><span class="hs-identifier">_StateMachineDeleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineTypeNotSupported"><span class="hs-identifier">_StateMachineTypeNotSupported</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_MissingRequiredParameter"><span class="hs-identifier">_MissingRequiredParameter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidArn"><span class="hs-identifier">_InvalidArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidToken"><span class="hs-identifier">_InvalidToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidLoggingConfiguration"><span class="hs-identifier">_InvalidLoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ActivityWorkerLimitExceeded"><span class="hs-identifier">_ActivityWorkerLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidTracingConfiguration"><span class="hs-identifier">_InvalidTracingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ActivityLimitExceeded"><span class="hs-identifier">_ActivityLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_TooManyTags"><span class="hs-identifier">_TooManyTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ExecutionDoesNotExist"><span class="hs-identifier">_ExecutionDoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineDoesNotExist"><span class="hs-identifier">_StateMachineDoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ResourceNotFound"><span class="hs-identifier">_ResourceNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionStatus</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier">ExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HistoryEventType</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventType.html#HistoryEventType"><span class="hs-identifier">HistoryEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogLevel</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogLevel.html#LogLevel"><span class="hs-identifier">LogLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StateMachineStatus</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineStatus.html#StateMachineStatus"><span class="hs-identifier">StateMachineStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StateMachineType</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType"><span class="hs-identifier">StateMachineType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SyncExecutionStatus</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.SyncExecutionStatus.html#SyncExecutionStatus"><span class="hs-identifier">SyncExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActivityFailedEventDetails</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityFailedEventDetails.html#ActivityFailedEventDetails"><span class="hs-identifier">ActivityFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityFailedEventDetails.html#newActivityFailedEventDetails"><span class="hs-identifier">newActivityFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityFailedEventDetails.html#activityFailedEventDetails_error"><span class="hs-identifier">activityFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityFailedEventDetails.html#activityFailedEventDetails_cause"><span class="hs-identifier">activityFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActivityListItem</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier">ActivityListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityListItem.html#newActivityListItem"><span class="hs-identifier">newActivityListItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityListItem.html#activityListItem_activityArn"><span class="hs-identifier">activityListItem_activityArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityListItem.html#activityListItem_name"><span class="hs-identifier">activityListItem_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityListItem.html#activityListItem_creationDate"><span class="hs-identifier">activityListItem_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActivityScheduleFailedEventDetails</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier">ActivityScheduleFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#newActivityScheduleFailedEventDetails"><span class="hs-identifier">newActivityScheduleFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#activityScheduleFailedEventDetails_error"><span class="hs-identifier">activityScheduleFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#activityScheduleFailedEventDetails_cause"><span class="hs-identifier">activityScheduleFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActivityScheduledEventDetails</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html#ActivityScheduledEventDetails"><span class="hs-identifier">ActivityScheduledEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html#newActivityScheduledEventDetails"><span class="hs-identifier">newActivityScheduledEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html#activityScheduledEventDetails_heartbeatInSeconds"><span class="hs-identifier">activityScheduledEventDetails_heartbeatInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html#activityScheduledEventDetails_inputDetails"><span class="hs-identifier">activityScheduledEventDetails_inputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html#activityScheduledEventDetails_input"><span class="hs-identifier">activityScheduledEventDetails_input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html#activityScheduledEventDetails_timeoutInSeconds"><span class="hs-identifier">activityScheduledEventDetails_timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html#activityScheduledEventDetails_resource"><span class="hs-identifier">activityScheduledEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActivityStartedEventDetails</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityStartedEventDetails.html#ActivityStartedEventDetails"><span class="hs-identifier">ActivityStartedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityStartedEventDetails.html#newActivityStartedEventDetails"><span class="hs-identifier">newActivityStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityStartedEventDetails.html#activityStartedEventDetails_workerName"><span class="hs-identifier">activityStartedEventDetails_workerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActivitySucceededEventDetails</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.html#ActivitySucceededEventDetails"><span class="hs-identifier">ActivitySucceededEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.html#newActivitySucceededEventDetails"><span class="hs-identifier">newActivitySucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.html#activitySucceededEventDetails_output"><span class="hs-identifier">activitySucceededEventDetails_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.html#activitySucceededEventDetails_outputDetails"><span class="hs-identifier">activitySucceededEventDetails_outputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActivityTimedOutEventDetails</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.html#ActivityTimedOutEventDetails"><span class="hs-identifier">ActivityTimedOutEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.html#newActivityTimedOutEventDetails"><span class="hs-identifier">newActivityTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.html#activityTimedOutEventDetails_error"><span class="hs-identifier">activityTimedOutEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.html#activityTimedOutEventDetails_cause"><span class="hs-identifier">activityTimedOutEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BillingDetails</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.BillingDetails.html#BillingDetails"><span class="hs-identifier">BillingDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.BillingDetails.html#newBillingDetails"><span class="hs-identifier">newBillingDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.BillingDetails.html#billingDetails_billedMemoryUsedInMB"><span class="hs-identifier">billingDetails_billedMemoryUsedInMB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.BillingDetails.html#billingDetails_billedDurationInMilliseconds"><span class="hs-identifier">billingDetails_billedDurationInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CloudWatchEventsExecutionDataDetails</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.html#CloudWatchEventsExecutionDataDetails"><span class="hs-identifier">CloudWatchEventsExecutionDataDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.html#newCloudWatchEventsExecutionDataDetails"><span class="hs-identifier">newCloudWatchEventsExecutionDataDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.html#cloudWatchEventsExecutionDataDetails_included"><span class="hs-identifier">cloudWatchEventsExecutionDataDetails_included</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CloudWatchLogsLogGroup</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier">CloudWatchLogsLogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.html#newCloudWatchLogsLogGroup"><span class="hs-identifier">newCloudWatchLogsLogGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.html#cloudWatchLogsLogGroup_logGroupArn"><span class="hs-identifier">cloudWatchLogsLogGroup_logGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionAbortedEventDetails</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.html#ExecutionAbortedEventDetails"><span class="hs-identifier">ExecutionAbortedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.html#newExecutionAbortedEventDetails"><span class="hs-identifier">newExecutionAbortedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.html#executionAbortedEventDetails_error"><span class="hs-identifier">executionAbortedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.html#executionAbortedEventDetails_cause"><span class="hs-identifier">executionAbortedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionFailedEventDetails</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.html#ExecutionFailedEventDetails"><span class="hs-identifier">ExecutionFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.html#newExecutionFailedEventDetails"><span class="hs-identifier">newExecutionFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.html#executionFailedEventDetails_error"><span class="hs-identifier">executionFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.html#executionFailedEventDetails_cause"><span class="hs-identifier">executionFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionListItem</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier">ExecutionListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#newExecutionListItem"><span class="hs-identifier">newExecutionListItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#executionListItem_stopDate"><span class="hs-identifier">executionListItem_stopDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#executionListItem_executionArn"><span class="hs-identifier">executionListItem_executionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#executionListItem_stateMachineArn"><span class="hs-identifier">executionListItem_stateMachineArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#executionListItem_name"><span class="hs-identifier">executionListItem_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#executionListItem_status"><span class="hs-identifier">executionListItem_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html#executionListItem_startDate"><span class="hs-identifier">executionListItem_startDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionStartedEventDetails</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.html#ExecutionStartedEventDetails"><span class="hs-identifier">ExecutionStartedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.html#newExecutionStartedEventDetails"><span class="hs-identifier">newExecutionStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.html#executionStartedEventDetails_inputDetails"><span class="hs-identifier">executionStartedEventDetails_inputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.html#executionStartedEventDetails_input"><span class="hs-identifier">executionStartedEventDetails_input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.html#executionStartedEventDetails_roleArn"><span class="hs-identifier">executionStartedEventDetails_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionSucceededEventDetails</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.html#ExecutionSucceededEventDetails"><span class="hs-identifier">ExecutionSucceededEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.html#newExecutionSucceededEventDetails"><span class="hs-identifier">newExecutionSucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.html#executionSucceededEventDetails_output"><span class="hs-identifier">executionSucceededEventDetails_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.html#executionSucceededEventDetails_outputDetails"><span class="hs-identifier">executionSucceededEventDetails_outputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionTimedOutEventDetails</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.html#ExecutionTimedOutEventDetails"><span class="hs-identifier">ExecutionTimedOutEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.html#newExecutionTimedOutEventDetails"><span class="hs-identifier">newExecutionTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.html#executionTimedOutEventDetails_error"><span class="hs-identifier">executionTimedOutEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.html#executionTimedOutEventDetails_cause"><span class="hs-identifier">executionTimedOutEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HistoryEvent</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#HistoryEvent"><span class="hs-identifier">HistoryEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#newHistoryEvent"><span class="hs-identifier">newHistoryEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_mapStateStartedEventDetails"><span class="hs-identifier">historyEvent_mapStateStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskSubmitFailedEventDetails"><span class="hs-identifier">historyEvent_taskSubmitFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskStartedEventDetails"><span class="hs-identifier">historyEvent_taskStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_activityStartedEventDetails"><span class="hs-identifier">historyEvent_activityStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskSubmittedEventDetails"><span class="hs-identifier">historyEvent_taskSubmittedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_lambdaFunctionStartFailedEventDetails"><span class="hs-identifier">historyEvent_lambdaFunctionStartFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskStartFailedEventDetails"><span class="hs-identifier">historyEvent_taskStartFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_stateExitedEventDetails"><span class="hs-identifier">historyEvent_stateExitedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_lambdaFunctionSucceededEventDetails"><span class="hs-identifier">historyEvent_lambdaFunctionSucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskSucceededEventDetails"><span class="hs-identifier">historyEvent_taskSucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_activitySucceededEventDetails"><span class="hs-identifier">historyEvent_activitySucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_mapIterationAbortedEventDetails"><span class="hs-identifier">historyEvent_mapIterationAbortedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_mapIterationSucceededEventDetails"><span class="hs-identifier">historyEvent_mapIterationSucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_mapIterationStartedEventDetails"><span class="hs-identifier">historyEvent_mapIterationStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_lambdaFunctionTimedOutEventDetails"><span class="hs-identifier">historyEvent_lambdaFunctionTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskTimedOutEventDetails"><span class="hs-identifier">historyEvent_taskTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_activityTimedOutEventDetails"><span class="hs-identifier">historyEvent_activityTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_executionFailedEventDetails"><span class="hs-identifier">historyEvent_executionFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_executionAbortedEventDetails"><span class="hs-identifier">historyEvent_executionAbortedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_executionSucceededEventDetails"><span class="hs-identifier">historyEvent_executionSucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_lambdaFunctionScheduledEventDetails"><span class="hs-identifier">historyEvent_lambdaFunctionScheduledEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskScheduledEventDetails"><span class="hs-identifier">historyEvent_taskScheduledEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_activityScheduledEventDetails"><span class="hs-identifier">historyEvent_activityScheduledEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_executionStartedEventDetails"><span class="hs-identifier">historyEvent_executionStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_activityScheduleFailedEventDetails"><span class="hs-identifier">historyEvent_activityScheduleFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_lambdaFunctionScheduleFailedEventDetails"><span class="hs-identifier">historyEvent_lambdaFunctionScheduleFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_stateEnteredEventDetails"><span class="hs-identifier">historyEvent_stateEnteredEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_previousEventId"><span class="hs-identifier">historyEvent_previousEventId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_activityFailedEventDetails"><span class="hs-identifier">historyEvent_activityFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_taskFailedEventDetails"><span class="hs-identifier">historyEvent_taskFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_lambdaFunctionFailedEventDetails"><span class="hs-identifier">historyEvent_lambdaFunctionFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_executionTimedOutEventDetails"><span class="hs-identifier">historyEvent_executionTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_mapIterationFailedEventDetails"><span class="hs-identifier">historyEvent_mapIterationFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_timestamp"><span class="hs-identifier">historyEvent_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_type"><span class="hs-identifier">historyEvent_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html#historyEvent_id"><span class="hs-identifier">historyEvent_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HistoryEventExecutionDataDetails</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.html#HistoryEventExecutionDataDetails"><span class="hs-identifier">HistoryEventExecutionDataDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.html#newHistoryEventExecutionDataDetails"><span class="hs-identifier">newHistoryEventExecutionDataDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.html#historyEventExecutionDataDetails_truncated"><span class="hs-identifier">historyEventExecutionDataDetails_truncated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaFunctionFailedEventDetails</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.html#LambdaFunctionFailedEventDetails"><span class="hs-identifier">LambdaFunctionFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.html#newLambdaFunctionFailedEventDetails"><span class="hs-identifier">newLambdaFunctionFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.html#lambdaFunctionFailedEventDetails_error"><span class="hs-identifier">lambdaFunctionFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.html#lambdaFunctionFailedEventDetails_cause"><span class="hs-identifier">lambdaFunctionFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaFunctionScheduleFailedEventDetails</span></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.html#LambdaFunctionScheduleFailedEventDetails"><span class="hs-identifier">LambdaFunctionScheduleFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.html#newLambdaFunctionScheduleFailedEventDetails"><span class="hs-identifier">newLambdaFunctionScheduleFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.html#lambdaFunctionScheduleFailedEventDetails_error"><span class="hs-identifier">lambdaFunctionScheduleFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.html#lambdaFunctionScheduleFailedEventDetails_cause"><span class="hs-identifier">lambdaFunctionScheduleFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaFunctionScheduledEventDetails</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier">LambdaFunctionScheduledEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#newLambdaFunctionScheduledEventDetails"><span class="hs-identifier">newLambdaFunctionScheduledEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_inputDetails"><span class="hs-identifier">lambdaFunctionScheduledEventDetails_inputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_input"><span class="hs-identifier">lambdaFunctionScheduledEventDetails_input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_timeoutInSeconds"><span class="hs-identifier">lambdaFunctionScheduledEventDetails_timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_resource"><span class="hs-identifier">lambdaFunctionScheduledEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaFunctionStartFailedEventDetails</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.html#LambdaFunctionStartFailedEventDetails"><span class="hs-identifier">LambdaFunctionStartFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.html#newLambdaFunctionStartFailedEventDetails"><span class="hs-identifier">newLambdaFunctionStartFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.html#lambdaFunctionStartFailedEventDetails_error"><span class="hs-identifier">lambdaFunctionStartFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.html#lambdaFunctionStartFailedEventDetails_cause"><span class="hs-identifier">lambdaFunctionStartFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaFunctionSucceededEventDetails</span></span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.html#LambdaFunctionSucceededEventDetails"><span class="hs-identifier">LambdaFunctionSucceededEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.html#newLambdaFunctionSucceededEventDetails"><span class="hs-identifier">newLambdaFunctionSucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.html#lambdaFunctionSucceededEventDetails_output"><span class="hs-identifier">lambdaFunctionSucceededEventDetails_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.html#lambdaFunctionSucceededEventDetails_outputDetails"><span class="hs-identifier">lambdaFunctionSucceededEventDetails_outputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaFunctionTimedOutEventDetails</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.html#LambdaFunctionTimedOutEventDetails"><span class="hs-identifier">LambdaFunctionTimedOutEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.html#newLambdaFunctionTimedOutEventDetails"><span class="hs-identifier">newLambdaFunctionTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.html#lambdaFunctionTimedOutEventDetails_error"><span class="hs-identifier">lambdaFunctionTimedOutEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.html#lambdaFunctionTimedOutEventDetails_cause"><span class="hs-identifier">lambdaFunctionTimedOutEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogDestination</span></span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogDestination.html#LogDestination"><span class="hs-identifier">LogDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogDestination.html#newLogDestination"><span class="hs-identifier">newLogDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogDestination.html#logDestination_cloudWatchLogsLogGroup"><span class="hs-identifier">logDestination_cloudWatchLogsLogGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoggingConfiguration</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#newLoggingConfiguration"><span class="hs-identifier">newLoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_includeExecutionData"><span class="hs-identifier">loggingConfiguration_includeExecutionData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_destinations"><span class="hs-identifier">loggingConfiguration_destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_level"><span class="hs-identifier">loggingConfiguration_level</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MapIterationEventDetails</span></span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier">MapIterationEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#newMapIterationEventDetails"><span class="hs-identifier">newMapIterationEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#mapIterationEventDetails_name"><span class="hs-identifier">mapIterationEventDetails_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#mapIterationEventDetails_index"><span class="hs-identifier">mapIterationEventDetails_index</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MapStateStartedEventDetails</span></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapStateStartedEventDetails.html#MapStateStartedEventDetails"><span class="hs-identifier">MapStateStartedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapStateStartedEventDetails.html#newMapStateStartedEventDetails"><span class="hs-identifier">newMapStateStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapStateStartedEventDetails.html#mapStateStartedEventDetails_length"><span class="hs-identifier">mapStateStartedEventDetails_length</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StateEnteredEventDetails</span></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateEnteredEventDetails.html#StateEnteredEventDetails"><span class="hs-identifier">StateEnteredEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateEnteredEventDetails.html#newStateEnteredEventDetails"><span class="hs-identifier">newStateEnteredEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateEnteredEventDetails.html#stateEnteredEventDetails_inputDetails"><span class="hs-identifier">stateEnteredEventDetails_inputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateEnteredEventDetails.html#stateEnteredEventDetails_input"><span class="hs-identifier">stateEnteredEventDetails_input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateEnteredEventDetails.html#stateEnteredEventDetails_name"><span class="hs-identifier">stateEnteredEventDetails_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StateExitedEventDetails</span></span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateExitedEventDetails.html#StateExitedEventDetails"><span class="hs-identifier">StateExitedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateExitedEventDetails.html#newStateExitedEventDetails"><span class="hs-identifier">newStateExitedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateExitedEventDetails.html#stateExitedEventDetails_output"><span class="hs-identifier">stateExitedEventDetails_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateExitedEventDetails.html#stateExitedEventDetails_outputDetails"><span class="hs-identifier">stateExitedEventDetails_outputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateExitedEventDetails.html#stateExitedEventDetails_name"><span class="hs-identifier">stateExitedEventDetails_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StateMachineListItem</span></span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier">StateMachineListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineListItem.html#newStateMachineListItem"><span class="hs-identifier">newStateMachineListItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineListItem.html#stateMachineListItem_stateMachineArn"><span class="hs-identifier">stateMachineListItem_stateMachineArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineListItem.html#stateMachineListItem_name"><span class="hs-identifier">stateMachineListItem_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineListItem.html#stateMachineListItem_type"><span class="hs-identifier">stateMachineListItem_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineListItem.html#stateMachineListItem_creationDate"><span class="hs-identifier">stateMachineListItem_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskFailedEventDetails</span></span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskFailedEventDetails.html#TaskFailedEventDetails"><span class="hs-identifier">TaskFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskFailedEventDetails.html#newTaskFailedEventDetails"><span class="hs-identifier">newTaskFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskFailedEventDetails.html#taskFailedEventDetails_error"><span class="hs-identifier">taskFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskFailedEventDetails.html#taskFailedEventDetails_cause"><span class="hs-identifier">taskFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskFailedEventDetails.html#taskFailedEventDetails_resourceType"><span class="hs-identifier">taskFailedEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskFailedEventDetails.html#taskFailedEventDetails_resource"><span class="hs-identifier">taskFailedEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskScheduledEventDetails</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#TaskScheduledEventDetails"><span class="hs-identifier">TaskScheduledEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#newTaskScheduledEventDetails"><span class="hs-identifier">newTaskScheduledEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#taskScheduledEventDetails_heartbeatInSeconds"><span class="hs-identifier">taskScheduledEventDetails_heartbeatInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#taskScheduledEventDetails_timeoutInSeconds"><span class="hs-identifier">taskScheduledEventDetails_timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#taskScheduledEventDetails_resourceType"><span class="hs-identifier">taskScheduledEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#taskScheduledEventDetails_resource"><span class="hs-identifier">taskScheduledEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#taskScheduledEventDetails_region"><span class="hs-identifier">taskScheduledEventDetails_region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html#taskScheduledEventDetails_parameters"><span class="hs-identifier">taskScheduledEventDetails_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskStartFailedEventDetails</span></span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.html#TaskStartFailedEventDetails"><span class="hs-identifier">TaskStartFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.html#newTaskStartFailedEventDetails"><span class="hs-identifier">newTaskStartFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.html#taskStartFailedEventDetails_error"><span class="hs-identifier">taskStartFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.html#taskStartFailedEventDetails_cause"><span class="hs-identifier">taskStartFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.html#taskStartFailedEventDetails_resourceType"><span class="hs-identifier">taskStartFailedEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.html#taskStartFailedEventDetails_resource"><span class="hs-identifier">taskStartFailedEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskStartedEventDetails</span></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartedEventDetails.html#TaskStartedEventDetails"><span class="hs-identifier">TaskStartedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartedEventDetails.html#newTaskStartedEventDetails"><span class="hs-identifier">newTaskStartedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartedEventDetails.html#taskStartedEventDetails_resourceType"><span class="hs-identifier">taskStartedEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartedEventDetails.html#taskStartedEventDetails_resource"><span class="hs-identifier">taskStartedEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskSubmitFailedEventDetails</span></span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.html#TaskSubmitFailedEventDetails"><span class="hs-identifier">TaskSubmitFailedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.html#newTaskSubmitFailedEventDetails"><span class="hs-identifier">newTaskSubmitFailedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.html#taskSubmitFailedEventDetails_error"><span class="hs-identifier">taskSubmitFailedEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.html#taskSubmitFailedEventDetails_cause"><span class="hs-identifier">taskSubmitFailedEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.html#taskSubmitFailedEventDetails_resourceType"><span class="hs-identifier">taskSubmitFailedEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.html#taskSubmitFailedEventDetails_resource"><span class="hs-identifier">taskSubmitFailedEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskSubmittedEventDetails</span></span><span>
+</span><span id="line-340"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.html#TaskSubmittedEventDetails"><span class="hs-identifier">TaskSubmittedEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.html#newTaskSubmittedEventDetails"><span class="hs-identifier">newTaskSubmittedEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.html#taskSubmittedEventDetails_output"><span class="hs-identifier">taskSubmittedEventDetails_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.html#taskSubmittedEventDetails_outputDetails"><span class="hs-identifier">taskSubmittedEventDetails_outputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.html#taskSubmittedEventDetails_resourceType"><span class="hs-identifier">taskSubmittedEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.html#taskSubmittedEventDetails_resource"><span class="hs-identifier">taskSubmittedEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskSucceededEventDetails</span></span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSucceededEventDetails.html#TaskSucceededEventDetails"><span class="hs-identifier">TaskSucceededEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSucceededEventDetails.html#newTaskSucceededEventDetails"><span class="hs-identifier">newTaskSucceededEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSucceededEventDetails.html#taskSucceededEventDetails_output"><span class="hs-identifier">taskSucceededEventDetails_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSucceededEventDetails.html#taskSucceededEventDetails_outputDetails"><span class="hs-identifier">taskSucceededEventDetails_outputDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSucceededEventDetails.html#taskSucceededEventDetails_resourceType"><span class="hs-identifier">taskSucceededEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSucceededEventDetails.html#taskSucceededEventDetails_resource"><span class="hs-identifier">taskSucceededEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskTimedOutEventDetails</span></span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.html#TaskTimedOutEventDetails"><span class="hs-identifier">TaskTimedOutEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.html#newTaskTimedOutEventDetails"><span class="hs-identifier">newTaskTimedOutEventDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.html#taskTimedOutEventDetails_error"><span class="hs-identifier">taskTimedOutEventDetails_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.html#taskTimedOutEventDetails_cause"><span class="hs-identifier">taskTimedOutEventDetails_cause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.html#taskTimedOutEventDetails_resourceType"><span class="hs-identifier">taskTimedOutEventDetails_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.html#taskTimedOutEventDetails_resource"><span class="hs-identifier">taskTimedOutEventDetails_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TracingConfiguration</span></span><span>
+</span><span id="line-364"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier">TracingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TracingConfiguration.html#newTracingConfiguration"><span class="hs-identifier">newTracingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TracingConfiguration.html#tracingConfiguration_enabled"><span class="hs-identifier">tracingConfiguration_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ActivityFailedEventDetails</span></a></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityListItem.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ActivityListItem</span></a></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails</span></a></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ActivityScheduledEventDetails</span></a></span><span>
+</span><span id="line-378"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityStartedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ActivityStartedEventDetails</span></a></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ActivitySucceededEventDetails</span></a></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails</span></a></span><span>
+</span><span id="line-381"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.BillingDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.BillingDetails</span></a></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails</span></a></span><span>
+</span><span id="line-383"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup</span></a></span><span>
+</span><span id="line-384"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails</span></a></span><span>
+</span><span id="line-385"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionFailedEventDetails</span></a></span><span>
+</span><span id="line-386"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionListItem.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionListItem</span></a></span><span>
+</span><span id="line-387"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionStartedEventDetails</span></a></span><span>
+</span><span id="line-388"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionStatus</span></a></span><span>
+</span><span id="line-389"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails</span></a></span><span>
+</span><span id="line-390"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails</span></a></span><span>
+</span><span id="line-391"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEvent.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.HistoryEvent</span></a></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails</span></a></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventType.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.HistoryEventType</span></a></span><span>
+</span><span id="line-394"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails</span></a></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails</span></a></span><span>
+</span><span id="line-396"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails</span></a></span><span>
+</span><span id="line-397"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails</span></a></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails</span></a></span><span>
+</span><span id="line-399"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails</span></a></span><span>
+</span><span id="line-400"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogDestination.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LogDestination</span></a></span><span>
+</span><span id="line-401"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogLevel.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LogLevel</span></a></span><span>
+</span><span id="line-402"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LoggingConfiguration</span></a></span><span>
+</span><span id="line-403"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.MapIterationEventDetails</span></a></span><span>
+</span><span id="line-404"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapStateStartedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.MapStateStartedEventDetails</span></a></span><span>
+</span><span id="line-405"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateEnteredEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.StateEnteredEventDetails</span></a></span><span>
+</span><span id="line-406"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateExitedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.StateExitedEventDetails</span></a></span><span>
+</span><span id="line-407"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineListItem.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.StateMachineListItem</span></a></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineStatus.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.StateMachineStatus</span></a></span><span>
+</span><span id="line-409"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.StateMachineType</span></a></span><span>
+</span><span id="line-410"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.SyncExecutionStatus.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.SyncExecutionStatus</span></a></span><span>
+</span><span id="line-411"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.Tag.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.Tag</span></a></span><span>
+</span><span id="line-412"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskFailedEventDetails</span></a></span><span>
+</span><span id="line-413"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskScheduledEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskScheduledEventDetails</span></a></span><span>
+</span><span id="line-414"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskStartFailedEventDetails</span></a></span><span>
+</span><span id="line-415"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskStartedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskStartedEventDetails</span></a></span><span>
+</span><span id="line-416"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails</span></a></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskSubmittedEventDetails</span></a></span><span>
+</span><span id="line-418"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskSucceededEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskSucceededEventDetails</span></a></span><span>
+</span><span id="line-419"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TaskTimedOutEventDetails</span></a></span><span>
+</span><span id="line-420"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.TracingConfiguration.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.TracingConfiguration</span></a></span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | API version @2016-11-23@ of the Amazon Step Functions SDK configuration.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-424"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-425"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-426"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;StepFunctions&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-427"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;states&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;states&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-23&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-433"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-436"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;StepFunctions&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679228623"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-439"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-440"></span><span>    </span><span id="local-6989586621679228623"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679228623"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-441"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-442"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-443"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-444"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-445"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679228617"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-446"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-447"></span><span>    </span><span id="local-6989586621679228617"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679228617"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679228616"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-448"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-449"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-450"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-451"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-453"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-454"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-455"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-456"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-457"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-458"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-459"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-461"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-462"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-463"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-464"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-465"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-466"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-467"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-468"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-469"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-470"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-471"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-472"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-474"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-475"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-476"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-477"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-478"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-479"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-480"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-481"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-482"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-483"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-484"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-485"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-486"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-487"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-488"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-489"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679228616"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-490"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-491"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-492"></span><span>
+</span><span id="line-493"></span><span class="hs-comment">-- | The maximum number of running executions has been reached. Running</span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- executions must end or be stopped before a new execution can be started.</span><span>
+</span><span id="line-495"></span><span id="local-6989586621679228611"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ExecutionLimitExceeded"><span class="hs-identifier hs-type">_ExecutionLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228611"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228611"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-496"></span><span id="_ExecutionLimitExceeded"><span class="annot"><span class="annottext">_ExecutionLimitExceeded :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_ExecutionLimitExceeded"><span class="hs-identifier hs-var hs-var">_ExecutionLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-497"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-498"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-499"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ExecutionLimitExceeded&quot;</span></span><span>
+</span><span id="line-500"></span><span>
+</span><span id="line-501"></span><span class="hs-comment">-- | The provided Amazon States Language definition is invalid.</span><span>
+</span><span id="line-502"></span><span id="local-6989586621679228609"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidDefinition"><span class="hs-identifier hs-type">_InvalidDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228609"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228609"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-503"></span><span id="_InvalidDefinition"><span class="annot"><span class="annottext">_InvalidDefinition :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidDefinition"><span class="hs-identifier hs-var hs-var">_InvalidDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-504"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-505"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-506"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidDefinition&quot;</span></span><span>
+</span><span id="line-507"></span><span>
+</span><span id="line-508"></span><span class="hs-comment">-- | The maximum number of state machines has been reached. Existing state</span><span>
+</span><span id="line-509"></span><span class="hs-comment">-- machines must be deleted before a new state machine can be created.</span><span>
+</span><span id="line-510"></span><span id="local-6989586621679228608"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineLimitExceeded"><span class="hs-identifier hs-type">_StateMachineLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228608"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228608"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-511"></span><span id="_StateMachineLimitExceeded"><span class="annot"><span class="annottext">_StateMachineLimitExceeded :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_StateMachineLimitExceeded"><span class="hs-identifier hs-var hs-var">_StateMachineLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-512"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-513"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-514"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;StateMachineLimitExceeded&quot;</span></span><span>
+</span><span id="line-515"></span><span>
+</span><span id="line-516"></span><span class="hs-comment">-- | The execution has the same @name@ as another execution (but a different</span><span>
+</span><span id="line-517"></span><span class="hs-comment">-- @input@).</span><span>
+</span><span id="line-518"></span><span class="hs-comment">--</span><span>
+</span><span id="line-519"></span><span class="hs-comment">-- Executions with the same @name@ and @input@ are considered idempotent.</span><span>
+</span><span id="line-520"></span><span id="local-6989586621679228607"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ExecutionAlreadyExists"><span class="hs-identifier hs-type">_ExecutionAlreadyExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228607"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228607"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-521"></span><span id="_ExecutionAlreadyExists"><span class="annot"><span class="annottext">_ExecutionAlreadyExists :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_ExecutionAlreadyExists"><span class="hs-identifier hs-var hs-var">_ExecutionAlreadyExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-522"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-523"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-524"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ExecutionAlreadyExists&quot;</span></span><span>
+</span><span id="line-525"></span><span>
+</span><span id="line-526"></span><span class="hs-comment">-- | A state machine with the same name but a different definition or role</span><span>
+</span><span id="line-527"></span><span class="hs-comment">-- ARN already exists.</span><span>
+</span><span id="line-528"></span><span id="local-6989586621679228606"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineAlreadyExists"><span class="hs-identifier hs-type">_StateMachineAlreadyExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228606"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228606"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-529"></span><span id="_StateMachineAlreadyExists"><span class="annot"><span class="annottext">_StateMachineAlreadyExists :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_StateMachineAlreadyExists"><span class="hs-identifier hs-var hs-var">_StateMachineAlreadyExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-530"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-531"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-532"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;StateMachineAlreadyExists&quot;</span></span><span>
+</span><span id="line-533"></span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- | Prism for TaskTimedOut' errors.</span><span>
+</span><span id="line-535"></span><span id="local-6989586621679228605"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_TaskTimedOut"><span class="hs-identifier hs-type">_TaskTimedOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228605"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228605"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-536"></span><span id="_TaskTimedOut"><span class="annot"><span class="annottext">_TaskTimedOut :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_TaskTimedOut"><span class="hs-identifier hs-var hs-var">_TaskTimedOut</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-537"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-538"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-539"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TaskTimedOut&quot;</span></span><span>
+</span><span id="line-540"></span><span>
+</span><span id="line-541"></span><span class="hs-comment">-- | The provided JSON input data is invalid.</span><span>
+</span><span id="line-542"></span><span id="local-6989586621679228604"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidExecutionInput"><span class="hs-identifier hs-type">_InvalidExecutionInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228604"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228604"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-543"></span><span id="_InvalidExecutionInput"><span class="annot"><span class="annottext">_InvalidExecutionInput :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidExecutionInput"><span class="hs-identifier hs-var hs-var">_InvalidExecutionInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-544"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-545"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-546"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidExecutionInput&quot;</span></span><span>
+</span><span id="line-547"></span><span>
+</span><span id="line-548"></span><span class="hs-comment">-- | The provided JSON output data is invalid.</span><span>
+</span><span id="line-549"></span><span id="local-6989586621679228603"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidOutput"><span class="hs-identifier hs-type">_InvalidOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228603"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228603"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-550"></span><span id="_InvalidOutput"><span class="annot"><span class="annottext">_InvalidOutput :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidOutput"><span class="hs-identifier hs-var hs-var">_InvalidOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-551"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-552"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-553"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidOutput&quot;</span></span><span>
+</span><span id="line-554"></span><span>
+</span><span id="line-555"></span><span class="hs-comment">-- | The provided name is invalid.</span><span>
+</span><span id="line-556"></span><span id="local-6989586621679228602"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidName"><span class="hs-identifier hs-type">_InvalidName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228602"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228602"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-557"></span><span id="_InvalidName"><span class="annot"><span class="annottext">_InvalidName :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidName"><span class="hs-identifier hs-var hs-var">_InvalidName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-558"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-559"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-560"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidName&quot;</span></span><span>
+</span><span id="line-561"></span><span>
+</span><span id="line-562"></span><span class="hs-comment">-- | Prism for TaskDoesNotExist' errors.</span><span>
+</span><span id="line-563"></span><span id="local-6989586621679228601"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_TaskDoesNotExist"><span class="hs-identifier hs-type">_TaskDoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228601"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228601"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-564"></span><span id="_TaskDoesNotExist"><span class="annot"><span class="annottext">_TaskDoesNotExist :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_TaskDoesNotExist"><span class="hs-identifier hs-var hs-var">_TaskDoesNotExist</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-565"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-566"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-567"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TaskDoesNotExist&quot;</span></span><span>
+</span><span id="line-568"></span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- | The specified activity does not exist.</span><span>
+</span><span id="line-570"></span><span id="local-6989586621679228600"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ActivityDoesNotExist"><span class="hs-identifier hs-type">_ActivityDoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228600"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228600"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-571"></span><span id="_ActivityDoesNotExist"><span class="annot"><span class="annottext">_ActivityDoesNotExist :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_ActivityDoesNotExist"><span class="hs-identifier hs-var hs-var">_ActivityDoesNotExist</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-572"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-573"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-574"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ActivityDoesNotExist&quot;</span></span><span>
+</span><span id="line-575"></span><span>
+</span><span id="line-576"></span><span class="hs-comment">-- | The specified state machine is being deleted.</span><span>
+</span><span id="line-577"></span><span id="local-6989586621679228599"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineDeleting"><span class="hs-identifier hs-type">_StateMachineDeleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228599"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228599"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-578"></span><span id="_StateMachineDeleting"><span class="annot"><span class="annottext">_StateMachineDeleting :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_StateMachineDeleting"><span class="hs-identifier hs-var hs-var">_StateMachineDeleting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-579"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-580"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-581"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;StateMachineDeleting&quot;</span></span><span>
+</span><span id="line-582"></span><span>
+</span><span id="line-583"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-584"></span><span id="local-6989586621679228598"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineTypeNotSupported"><span class="hs-identifier hs-type">_StateMachineTypeNotSupported</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228598"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228598"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-585"></span><span id="_StateMachineTypeNotSupported"><span class="annot"><span class="annottext">_StateMachineTypeNotSupported :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_StateMachineTypeNotSupported"><span class="hs-identifier hs-var hs-var">_StateMachineTypeNotSupported</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-586"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-587"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-588"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;StateMachineTypeNotSupported&quot;</span></span><span>
+</span><span id="line-589"></span><span>
+</span><span id="line-590"></span><span class="hs-comment">-- | Request is missing a required parameter. This error occurs if both</span><span>
+</span><span id="line-591"></span><span class="hs-comment">-- @definition@ and @roleArn@ are not specified.</span><span>
+</span><span id="line-592"></span><span id="local-6989586621679228597"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_MissingRequiredParameter"><span class="hs-identifier hs-type">_MissingRequiredParameter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228597"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228597"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-593"></span><span id="_MissingRequiredParameter"><span class="annot"><span class="annottext">_MissingRequiredParameter :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_MissingRequiredParameter"><span class="hs-identifier hs-var hs-var">_MissingRequiredParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-594"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-595"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-596"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;MissingRequiredParameter&quot;</span></span><span>
+</span><span id="line-597"></span><span>
+</span><span id="line-598"></span><span class="hs-comment">-- | The provided Amazon Resource Name (ARN) is invalid.</span><span>
+</span><span id="line-599"></span><span id="local-6989586621679228596"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidArn"><span class="hs-identifier hs-type">_InvalidArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228596"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228596"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-600"></span><span id="_InvalidArn"><span class="annot"><span class="annottext">_InvalidArn :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidArn"><span class="hs-identifier hs-var hs-var">_InvalidArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-601"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidArn&quot;</span></span><span>
+</span><span id="line-602"></span><span>
+</span><span id="line-603"></span><span class="hs-comment">-- | The provided token is invalid.</span><span>
+</span><span id="line-604"></span><span id="local-6989586621679228595"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidToken"><span class="hs-identifier hs-type">_InvalidToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228595"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228595"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-605"></span><span id="_InvalidToken"><span class="annot"><span class="annottext">_InvalidToken :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidToken"><span class="hs-identifier hs-var hs-var">_InvalidToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-606"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-607"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-608"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidToken&quot;</span></span><span>
+</span><span id="line-609"></span><span>
+</span><span id="line-610"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-611"></span><span id="local-6989586621679228594"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidLoggingConfiguration"><span class="hs-identifier hs-type">_InvalidLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228594"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228594"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-612"></span><span id="_InvalidLoggingConfiguration"><span class="annot"><span class="annottext">_InvalidLoggingConfiguration :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidLoggingConfiguration"><span class="hs-identifier hs-var hs-var">_InvalidLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-613"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-614"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-615"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidLoggingConfiguration&quot;</span></span><span>
+</span><span id="line-616"></span><span>
+</span><span id="line-617"></span><span class="hs-comment">-- | The maximum number of workers concurrently polling for activity tasks</span><span>
+</span><span id="line-618"></span><span class="hs-comment">-- has been reached.</span><span>
+</span><span id="line-619"></span><span id="local-6989586621679228593"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ActivityWorkerLimitExceeded"><span class="hs-identifier hs-type">_ActivityWorkerLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228593"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228593"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-620"></span><span id="_ActivityWorkerLimitExceeded"><span class="annot"><span class="annottext">_ActivityWorkerLimitExceeded :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_ActivityWorkerLimitExceeded"><span class="hs-identifier hs-var hs-var">_ActivityWorkerLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-621"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-622"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-623"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ActivityWorkerLimitExceeded&quot;</span></span><span>
+</span><span id="line-624"></span><span>
+</span><span id="line-625"></span><span class="hs-comment">-- | Your @tracingConfiguration@ key does not match, or @enabled@ has not</span><span>
+</span><span id="line-626"></span><span class="hs-comment">-- been set to @true@ or @false@.</span><span>
+</span><span id="line-627"></span><span id="local-6989586621679228592"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_InvalidTracingConfiguration"><span class="hs-identifier hs-type">_InvalidTracingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228592"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228592"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-628"></span><span id="_InvalidTracingConfiguration"><span class="annot"><span class="annottext">_InvalidTracingConfiguration :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_InvalidTracingConfiguration"><span class="hs-identifier hs-var hs-var">_InvalidTracingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-629"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-630"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-631"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidTracingConfiguration&quot;</span></span><span>
+</span><span id="line-632"></span><span>
+</span><span id="line-633"></span><span class="hs-comment">-- | The maximum number of activities has been reached. Existing activities</span><span>
+</span><span id="line-634"></span><span class="hs-comment">-- must be deleted before a new activity can be created.</span><span>
+</span><span id="line-635"></span><span id="local-6989586621679228591"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ActivityLimitExceeded"><span class="hs-identifier hs-type">_ActivityLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228591"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228591"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-636"></span><span id="_ActivityLimitExceeded"><span class="annot"><span class="annottext">_ActivityLimitExceeded :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_ActivityLimitExceeded"><span class="hs-identifier hs-var hs-var">_ActivityLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-637"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-638"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-639"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ActivityLimitExceeded&quot;</span></span><span>
+</span><span id="line-640"></span><span>
+</span><span id="line-641"></span><span class="hs-comment">-- | You\'ve exceeded the number of tags allowed for a resource. See the</span><span>
+</span><span id="line-642"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/step-functions/latest/dg/limits.html Limits Topic&gt;</span><span>
+</span><span id="line-643"></span><span class="hs-comment">-- in the AWS Step Functions Developer Guide.</span><span>
+</span><span id="line-644"></span><span id="local-6989586621679228590"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_TooManyTags"><span class="hs-identifier hs-type">_TooManyTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228590"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228590"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-645"></span><span id="_TooManyTags"><span class="annot"><span class="annottext">_TooManyTags :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_TooManyTags"><span class="hs-identifier hs-var hs-var">_TooManyTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-646"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-647"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-648"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TooManyTags&quot;</span></span><span>
+</span><span id="line-649"></span><span>
+</span><span id="line-650"></span><span class="hs-comment">-- | The specified execution does not exist.</span><span>
+</span><span id="line-651"></span><span id="local-6989586621679228589"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ExecutionDoesNotExist"><span class="hs-identifier hs-type">_ExecutionDoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228589"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228589"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-652"></span><span id="_ExecutionDoesNotExist"><span class="annot"><span class="annottext">_ExecutionDoesNotExist :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_ExecutionDoesNotExist"><span class="hs-identifier hs-var hs-var">_ExecutionDoesNotExist</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-653"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-654"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-655"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ExecutionDoesNotExist&quot;</span></span><span>
+</span><span id="line-656"></span><span>
+</span><span id="line-657"></span><span class="hs-comment">-- | The specified state machine does not exist.</span><span>
+</span><span id="line-658"></span><span id="local-6989586621679228588"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_StateMachineDoesNotExist"><span class="hs-identifier hs-type">_StateMachineDoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228588"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228588"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-659"></span><span id="_StateMachineDoesNotExist"><span class="annot"><span class="annottext">_StateMachineDoesNotExist :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_StateMachineDoesNotExist"><span class="hs-identifier hs-var hs-var">_StateMachineDoesNotExist</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-660"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-661"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-662"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;StateMachineDoesNotExist&quot;</span></span><span>
+</span><span id="line-663"></span><span>
+</span><span id="line-664"></span><span class="hs-comment">-- | Could not find the referenced resource. Only state machine and activity</span><span>
+</span><span id="line-665"></span><span class="hs-comment">-- ARNs are supported.</span><span>
+</span><span id="line-666"></span><span id="local-6989586621679228587"><span class="annot"><a href="Amazonka.StepFunctions.Types.html#_ResourceNotFound"><span class="hs-identifier hs-type">_ResourceNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679228587"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679228587"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-667"></span><span id="_ResourceNotFound"><span class="annot"><span class="annottext">_ResourceNotFound :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.StepFunctions.Types.html#_ResourceNotFound"><span class="hs-identifier hs-var hs-var">_ResourceNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-668"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-669"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-670"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFound&quot;</span></span><span>
+</span><span id="line-671"></span></pre></body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.SchemaDiffType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.SchemaDiffType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType"><span class="hs-identifier">SchemaDiffType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType_SYNTAX_DIFF"><span class="hs-identifier">SchemaDiffType_SYNTAX_DIFF</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679696787"><span id="local-6989586621679696788"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SchemaDiffType"><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType"><span class="hs-identifier hs-var">SchemaDiffType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaDiffType%27"><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType%27"><span class="hs-identifier hs-var">SchemaDiffType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSchemaDiffType"><span class="annot"><span class="annottext">SchemaDiffType -&gt; Text
+</span><a href="Amazonka.Glue.Types.SchemaDiffType.html#fromSchemaDiffType"><span class="hs-identifier hs-var hs-var">fromSchemaDiffType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679696779"><span id="local-6989586621679696781"><span id="local-6989586621679696783"><span class="annot"><span class="annottext">Int -&gt; SchemaDiffType -&gt; ShowS
+[SchemaDiffType] -&gt; ShowS
+SchemaDiffType -&gt; String
+(Int -&gt; SchemaDiffType -&gt; ShowS)
+-&gt; (SchemaDiffType -&gt; String)
+-&gt; ([SchemaDiffType] -&gt; ShowS)
+-&gt; Show SchemaDiffType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SchemaDiffType] -&gt; ShowS
+$cshowList :: [SchemaDiffType] -&gt; ShowS
+show :: SchemaDiffType -&gt; String
+$cshow :: SchemaDiffType -&gt; String
+showsPrec :: Int -&gt; SchemaDiffType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SchemaDiffType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679696770"><span id="local-6989586621679696772"><span id="local-6989586621679696774"><span id="local-6989586621679696776"><span class="annot"><span class="annottext">ReadPrec [SchemaDiffType]
+ReadPrec SchemaDiffType
+Int -&gt; ReadS SchemaDiffType
+ReadS [SchemaDiffType]
+(Int -&gt; ReadS SchemaDiffType)
+-&gt; ReadS [SchemaDiffType]
+-&gt; ReadPrec SchemaDiffType
+-&gt; ReadPrec [SchemaDiffType]
+-&gt; Read SchemaDiffType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SchemaDiffType]
+$creadListPrec :: ReadPrec [SchemaDiffType]
+readPrec :: ReadPrec SchemaDiffType
+$creadPrec :: ReadPrec SchemaDiffType
+readList :: ReadS [SchemaDiffType]
+$creadList :: ReadS [SchemaDiffType]
+readsPrec :: Int -&gt; ReadS SchemaDiffType
+$creadsPrec :: Int -&gt; ReadS SchemaDiffType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679696765"><span id="local-6989586621679696767"><span class="annot"><span class="annottext">SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+(SchemaDiffType -&gt; SchemaDiffType -&gt; Bool)
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool) -&gt; Eq SchemaDiffType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+$c/= :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+== :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+$c== :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679696749"><span id="local-6989586621679696751"><span id="local-6989586621679696753"><span id="local-6989586621679696755"><span id="local-6989586621679696757"><span id="local-6989586621679696759"><span id="local-6989586621679696761"><span class="annot"><span class="annottext">Eq SchemaDiffType
+Eq SchemaDiffType
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Ordering)
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool)
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool)
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool)
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool)
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; SchemaDiffType)
+-&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; SchemaDiffType)
+-&gt; Ord SchemaDiffType
+SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+SchemaDiffType -&gt; SchemaDiffType -&gt; Ordering
+SchemaDiffType -&gt; SchemaDiffType -&gt; SchemaDiffType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SchemaDiffType -&gt; SchemaDiffType -&gt; SchemaDiffType
+$cmin :: SchemaDiffType -&gt; SchemaDiffType -&gt; SchemaDiffType
+max :: SchemaDiffType -&gt; SchemaDiffType -&gt; SchemaDiffType
+$cmax :: SchemaDiffType -&gt; SchemaDiffType -&gt; SchemaDiffType
+&gt;= :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+$c&gt;= :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+&gt; :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+$c&gt; :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+&lt;= :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+$c&lt;= :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+&lt; :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+$c&lt; :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+compare :: SchemaDiffType -&gt; SchemaDiffType -&gt; Ordering
+$ccompare :: SchemaDiffType -&gt; SchemaDiffType -&gt; Ordering
+$cp1Ord :: Eq SchemaDiffType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SchemaDiffType -&gt; Rep SchemaDiffType x)
+-&gt; (forall x. Rep SchemaDiffType x -&gt; SchemaDiffType)
+-&gt; Generic SchemaDiffType
+forall x. Rep SchemaDiffType x -&gt; SchemaDiffType
+forall x. SchemaDiffType -&gt; Rep SchemaDiffType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SchemaDiffType x -&gt; SchemaDiffType
+$cfrom :: forall x. SchemaDiffType -&gt; Rep SchemaDiffType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679696741"><span id="local-6989586621679696743"><span class="annot"><span class="annottext">Int -&gt; SchemaDiffType -&gt; Int
+SchemaDiffType -&gt; Int
+(Int -&gt; SchemaDiffType -&gt; Int)
+-&gt; (SchemaDiffType -&gt; Int) -&gt; Hashable SchemaDiffType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SchemaDiffType -&gt; Int
+$chash :: SchemaDiffType -&gt; Int
+hashWithSalt :: Int -&gt; SchemaDiffType -&gt; Int
+$chashWithSalt :: Int -&gt; SchemaDiffType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679696738"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ()
+(SchemaDiffType -&gt; ()) -&gt; NFData SchemaDiffType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SchemaDiffType -&gt; ()
+$crnf :: SchemaDiffType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679696735"><span class="annot"><span class="annottext">Text -&gt; Either String SchemaDiffType
+(Text -&gt; Either String SchemaDiffType) -&gt; FromText SchemaDiffType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SchemaDiffType
+$cfromText :: Text -&gt; Either String SchemaDiffType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679696732"><span class="annot"><span class="annottext">SchemaDiffType -&gt; Text
+(SchemaDiffType -&gt; Text) -&gt; ToText SchemaDiffType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SchemaDiffType -&gt; Text
+$ctoText :: SchemaDiffType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679696729"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ByteString
+(SchemaDiffType -&gt; ByteString) -&gt; ToByteString SchemaDiffType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SchemaDiffType -&gt; ByteString
+$ctoBS :: SchemaDiffType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679696726"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ByteStringBuilder
+(SchemaDiffType -&gt; ByteStringBuilder) -&gt; ToLog SchemaDiffType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SchemaDiffType -&gt; ByteStringBuilder
+$cbuild :: SchemaDiffType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679696723"><span class="annot"><span class="annottext">HeaderName -&gt; SchemaDiffType -&gt; [Header]
+(HeaderName -&gt; SchemaDiffType -&gt; [Header])
+-&gt; ToHeader SchemaDiffType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SchemaDiffType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SchemaDiffType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679696720"><span class="annot"><span class="annottext">SchemaDiffType -&gt; QueryString
+(SchemaDiffType -&gt; QueryString) -&gt; ToQuery SchemaDiffType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SchemaDiffType -&gt; QueryString
+$ctoQuery :: SchemaDiffType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679696715"><span id="local-6989586621679696717"><span class="annot"><span class="annottext">Value -&gt; Parser [SchemaDiffType]
+Value -&gt; Parser SchemaDiffType
+(Value -&gt; Parser SchemaDiffType)
+-&gt; (Value -&gt; Parser [SchemaDiffType]) -&gt; FromJSON SchemaDiffType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SchemaDiffType]
+$cparseJSONList :: Value -&gt; Parser [SchemaDiffType]
+parseJSON :: Value -&gt; Parser SchemaDiffType
+$cparseJSON :: Value -&gt; Parser SchemaDiffType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679696710"><span id="local-6989586621679696712"><span class="annot"><span class="annottext">FromJSONKeyFunction [SchemaDiffType]
+FromJSONKeyFunction SchemaDiffType
+FromJSONKeyFunction SchemaDiffType
+-&gt; FromJSONKeyFunction [SchemaDiffType]
+-&gt; FromJSONKey SchemaDiffType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SchemaDiffType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SchemaDiffType]
+fromJSONKey :: FromJSONKeyFunction SchemaDiffType
+$cfromJSONKey :: FromJSONKeyFunction SchemaDiffType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679696701"><span id="local-6989586621679696703"><span id="local-6989586621679696705"><span id="local-6989586621679696707"><span class="annot"><span class="annottext">[SchemaDiffType] -&gt; Encoding
+[SchemaDiffType] -&gt; Value
+SchemaDiffType -&gt; Encoding
+SchemaDiffType -&gt; Value
+(SchemaDiffType -&gt; Value)
+-&gt; (SchemaDiffType -&gt; Encoding)
+-&gt; ([SchemaDiffType] -&gt; Value)
+-&gt; ([SchemaDiffType] -&gt; Encoding)
+-&gt; ToJSON SchemaDiffType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SchemaDiffType] -&gt; Encoding
+$ctoEncodingList :: [SchemaDiffType] -&gt; Encoding
+toJSONList :: [SchemaDiffType] -&gt; Value
+$ctoJSONList :: [SchemaDiffType] -&gt; Value
+toEncoding :: SchemaDiffType -&gt; Encoding
+$ctoEncoding :: SchemaDiffType -&gt; Encoding
+toJSON :: SchemaDiffType -&gt; Value
+$ctoJSON :: SchemaDiffType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679696696"><span id="local-6989586621679696698"><span class="annot"><span class="annottext">ToJSONKeyFunction [SchemaDiffType]
+ToJSONKeyFunction SchemaDiffType
+ToJSONKeyFunction SchemaDiffType
+-&gt; ToJSONKeyFunction [SchemaDiffType] -&gt; ToJSONKey SchemaDiffType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SchemaDiffType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SchemaDiffType]
+toJSONKey :: ToJSONKeyFunction SchemaDiffType
+$ctoJSONKey :: ToJSONKeyFunction SchemaDiffType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679696693"><span class="annot"><span class="annottext">[Node] -&gt; Either String SchemaDiffType
+([Node] -&gt; Either String SchemaDiffType) -&gt; FromXML SchemaDiffType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SchemaDiffType
+$cparseXML :: [Node] -&gt; Either String SchemaDiffType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679696690"><span class="annot"><span class="annottext">SchemaDiffType -&gt; XML
+(SchemaDiffType -&gt; XML) -&gt; ToXML SchemaDiffType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SchemaDiffType -&gt; XML
+$ctoXML :: SchemaDiffType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType_SYNTAX_DIFF"><span class="hs-identifier hs-type">SchemaDiffType_SYNTAX_DIFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType"><span class="hs-identifier hs-type">SchemaDiffType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSchemaDiffType_SYNTAX_DIFF"><span id="%24mSchemaDiffType_SYNTAX_DIFF"><span id="SchemaDiffType_SYNTAX_DIFF"><span class="annot"><span class="annottext">$bSchemaDiffType_SYNTAX_DIFF :: SchemaDiffType
+$mSchemaDiffType_SYNTAX_DIFF :: forall r. SchemaDiffType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.SchemaDiffType.html#%24bSchemaDiffType_SYNTAX_DIFF"><span class="hs-identifier hs-var hs-var hs-var">SchemaDiffType_SYNTAX_DIFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType%27"><span class="hs-identifier hs-type">SchemaDiffType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYNTAX_DIFF&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType_SYNTAX_DIFF"><span class="hs-pragma hs-type">SchemaDiffType_SYNTAX_DIFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.SchemaDiffType.html#SchemaDiffType%27"><span class="hs-pragma hs-type">SchemaDiffType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

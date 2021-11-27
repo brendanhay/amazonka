@@ -1,0 +1,872 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.UpdateFirewallRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified firewall rule.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.UpdateFirewallRule</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#newUpdateFirewallRule"><span class="hs-identifier">newUpdateFirewallRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideDnsType"><span class="hs-identifier">updateFirewallRule_blockOverrideDnsType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_priority"><span class="hs-identifier">updateFirewallRule_priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockResponse"><span class="hs-identifier">updateFirewallRule_blockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_action"><span class="hs-identifier">updateFirewallRule_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideTtl"><span class="hs-identifier">updateFirewallRule_blockOverrideTtl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_name"><span class="hs-identifier">updateFirewallRule_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideDomain"><span class="hs-identifier">updateFirewallRule_blockOverrideDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_firewallRuleGroupId"><span class="hs-identifier">updateFirewallRule_firewallRuleGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_firewallDomainListId"><span class="hs-identifier">updateFirewallRule_firewallDomainListId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier">UpdateFirewallRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#newUpdateFirewallRuleResponse"><span class="hs-identifier">newUpdateFirewallRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRuleResponse_firewallRule"><span class="hs-identifier">updateFirewallRuleResponse_firewallRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRuleResponse_httpStatus"><span class="hs-identifier">updateFirewallRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.html"><span class="hs-identifier">Amazonka.Route53Resolver.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateFirewallRule' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679301532"><span id="local-6989586621679301533"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFirewallRule"><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-var">UpdateFirewallRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFirewallRule%27"><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-var">UpdateFirewallRule'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DNS record\'s type. This determines the format of the record value</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- that you provided in @BlockOverrideDomain@. Used for the rule action</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AblockOverrideDnsType%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Maybe BlockOverrideDnsType
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideDnsType%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">blockOverrideDnsType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.BlockOverrideDnsType.html#BlockOverrideDnsType"><span class="hs-identifier hs-type">BlockOverrideDnsType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The setting that determines the processing order of the rule in the rule</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- group. DNS Firewall processes the rules in a rule group by order of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- priority, starting from the lowest setting.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- You must specify a unique priority for each rule in a rule group. To</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- make it easier to insert rules later, leave space between the numbers,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- for example, use 100, 200, and so on. You can change the priority</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- setting for the rules in a rule group at any time.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Apriority%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Maybe Int
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Apriority%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The way that you want DNS Firewall to block the request. Used for the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- rule action setting @BLOCK@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @NODATA@ - Respond indicating that the query was successful, but no</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     response is available for it.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @NXDOMAIN@ - Respond indicating that the domain name that\'s in the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     query doesn\'t exist.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @OVERRIDE@ - Provide a custom override in the response. This option</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     requires custom handling details in the rule\'s @BlockOverride*@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     settings.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AblockResponse%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Maybe BlockResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockResponse%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">blockResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.BlockResponse.html#BlockResponse"><span class="hs-identifier hs-type">BlockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The action that DNS Firewall should take on a DNS query when it matches</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- one of the domains in the rule\'s domain list:</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   @ALLOW@ - Permit the request to go through.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   @ALERT@ - Permit the request to go through but send an alert to the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     logs.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @BLOCK@ - Disallow the request. This option requires additional</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     details in the rule\'s @BlockResponse@.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Aaction%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Maybe Action
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Aaction%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The recommended amount of time, in seconds, for the DNS resolver or web</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- browser to cache the provided override record. Used for the rule action</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AblockOverrideTtl%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Maybe Natural
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideTtl%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">blockOverrideTtl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The name of the rule.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Aname%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Aname%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The custom DNS record to send back in response to the query. Used for</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AblockOverrideDomain%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideDomain%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">blockOverrideDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the firewall rule group for the rule.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AfirewallRuleGroupId%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallRuleGroupId%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">firewallRuleGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The ID of the domain list to use in the rule.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AfirewallDomainListId%3AUpdateFirewallRule%27"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallDomainListId%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var hs-var">firewallDomainListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301518"><span id="local-6989586621679301520"><span class="annot"><span class="annottext">UpdateFirewallRule -&gt; UpdateFirewallRule -&gt; Bool
+(UpdateFirewallRule -&gt; UpdateFirewallRule -&gt; Bool)
+-&gt; (UpdateFirewallRule -&gt; UpdateFirewallRule -&gt; Bool)
+-&gt; Eq UpdateFirewallRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFirewallRule -&gt; UpdateFirewallRule -&gt; Bool
+$c/= :: UpdateFirewallRule -&gt; UpdateFirewallRule -&gt; Bool
+== :: UpdateFirewallRule -&gt; UpdateFirewallRule -&gt; Bool
+$c== :: UpdateFirewallRule -&gt; UpdateFirewallRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301509"><span id="local-6989586621679301511"><span id="local-6989586621679301513"><span id="local-6989586621679301515"><span class="annot"><span class="annottext">ReadPrec [UpdateFirewallRule]
+ReadPrec UpdateFirewallRule
+Int -&gt; ReadS UpdateFirewallRule
+ReadS [UpdateFirewallRule]
+(Int -&gt; ReadS UpdateFirewallRule)
+-&gt; ReadS [UpdateFirewallRule]
+-&gt; ReadPrec UpdateFirewallRule
+-&gt; ReadPrec [UpdateFirewallRule]
+-&gt; Read UpdateFirewallRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFirewallRule]
+$creadListPrec :: ReadPrec [UpdateFirewallRule]
+readPrec :: ReadPrec UpdateFirewallRule
+$creadPrec :: ReadPrec UpdateFirewallRule
+readList :: ReadS [UpdateFirewallRule]
+$creadList :: ReadS [UpdateFirewallRule]
+readsPrec :: Int -&gt; ReadS UpdateFirewallRule
+$creadsPrec :: Int -&gt; ReadS UpdateFirewallRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301502"><span id="local-6989586621679301504"><span id="local-6989586621679301506"><span class="annot"><span class="annottext">Int -&gt; UpdateFirewallRule -&gt; ShowS
+[UpdateFirewallRule] -&gt; ShowS
+UpdateFirewallRule -&gt; String
+(Int -&gt; UpdateFirewallRule -&gt; ShowS)
+-&gt; (UpdateFirewallRule -&gt; String)
+-&gt; ([UpdateFirewallRule] -&gt; ShowS)
+-&gt; Show UpdateFirewallRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFirewallRule] -&gt; ShowS
+$cshowList :: [UpdateFirewallRule] -&gt; ShowS
+show :: UpdateFirewallRule -&gt; String
+$cshow :: UpdateFirewallRule -&gt; String
+showsPrec :: Int -&gt; UpdateFirewallRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFirewallRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateFirewallRule -&gt; Rep UpdateFirewallRule x)
+-&gt; (forall x. Rep UpdateFirewallRule x -&gt; UpdateFirewallRule)
+-&gt; Generic UpdateFirewallRule
+forall x. Rep UpdateFirewallRule x -&gt; UpdateFirewallRule
+forall x. UpdateFirewallRule -&gt; Rep UpdateFirewallRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateFirewallRule x -&gt; UpdateFirewallRule
+$cfrom :: forall x. UpdateFirewallRule -&gt; Rep UpdateFirewallRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'UpdateFirewallRule' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'blockOverrideDnsType', 'updateFirewallRule_blockOverrideDnsType' - The DNS record\'s type. This determines the format of the record value</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- that you provided in @BlockOverrideDomain@. Used for the rule action</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'priority', 'updateFirewallRule_priority' - The setting that determines the processing order of the rule in the rule</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- group. DNS Firewall processes the rules in a rule group by order of</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- priority, starting from the lowest setting.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- You must specify a unique priority for each rule in a rule group. To</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- make it easier to insert rules later, leave space between the numbers,</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for example, use 100, 200, and so on. You can change the priority</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- setting for the rules in a rule group at any time.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'blockResponse', 'updateFirewallRule_blockResponse' - The way that you want DNS Firewall to block the request. Used for the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- rule action setting @BLOCK@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @NODATA@ - Respond indicating that the query was successful, but no</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     response is available for it.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @NXDOMAIN@ - Respond indicating that the domain name that\'s in the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     query doesn\'t exist.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @OVERRIDE@ - Provide a custom override in the response. This option</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     requires custom handling details in the rule\'s @BlockOverride*@</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     settings.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'action', 'updateFirewallRule_action' - The action that DNS Firewall should take on a DNS query when it matches</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- one of the domains in the rule\'s domain list:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @ALLOW@ - Permit the request to go through.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @ALERT@ - Permit the request to go through but send an alert to the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     logs.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @BLOCK@ - Disallow the request. This option requires additional</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     details in the rule\'s @BlockResponse@.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'blockOverrideTtl', 'updateFirewallRule_blockOverrideTtl' - The recommended amount of time, in seconds, for the DNS resolver or web</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- browser to cache the provided override record. Used for the rule action</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'name', 'updateFirewallRule_name' - The name of the rule.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'blockOverrideDomain', 'updateFirewallRule_blockOverrideDomain' - The custom DNS record to send back in response to the query. Used for</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'firewallRuleGroupId', 'updateFirewallRule_firewallRuleGroupId' - The unique identifier of the firewall rule group for the rule.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'firewallDomainListId', 'updateFirewallRule_firewallDomainListId' - The ID of the domain list to use in the rule.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#newUpdateFirewallRule"><span class="hs-identifier hs-type">newUpdateFirewallRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'firewallRuleGroupId'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'firewallDomainListId'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span>
+</span><span id="line-175"></span><span id="newUpdateFirewallRule"><span class="annot"><span class="annottext">newUpdateFirewallRule :: Text -&gt; Text -&gt; UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#newUpdateFirewallRule"><span class="hs-identifier hs-var hs-var">newUpdateFirewallRule</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679301497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301497"><span class="hs-identifier hs-var">pFirewallRuleGroupId_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679301496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301496"><span class="hs-identifier hs-var">pFirewallDomainListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">UpdateFirewallRule' :: Maybe BlockOverrideDnsType
+-&gt; Maybe Int
+-&gt; Maybe BlockResponse
+-&gt; Maybe Action
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:blockOverrideDnsType:UpdateFirewallRule' :: Maybe BlockOverrideDnsType
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideDnsType%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockOverrideDnsType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe BlockOverrideDnsType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:priority:UpdateFirewallRule' :: Maybe Int
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Apriority%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockResponse:UpdateFirewallRule' :: Maybe BlockResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockResponse%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlockResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:action:UpdateFirewallRule' :: Maybe Action
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Aaction%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockOverrideTtl:UpdateFirewallRule' :: Maybe Natural
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideTtl%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockOverrideTtl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:UpdateFirewallRule' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Aname%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockOverrideDomain:UpdateFirewallRule' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideDomain%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockOverrideDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:firewallRuleGroupId:UpdateFirewallRule' :: Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallRuleGroupId%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">firewallRuleGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301497"><span class="hs-identifier hs-var">pFirewallRuleGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:firewallDomainListId:UpdateFirewallRule' :: Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallDomainListId%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301496"><span class="hs-identifier hs-var">pFirewallDomainListId_</span></a></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The DNS record\'s type. This determines the format of the record value</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- that you provided in @BlockOverrideDomain@. Used for the rule action</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideDnsType"><span class="hs-identifier hs-type">updateFirewallRule_blockOverrideDnsType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.BlockOverrideDnsType.html#BlockOverrideDnsType"><span class="hs-identifier hs-type">BlockOverrideDnsType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="updateFirewallRule_blockOverrideDnsType"><span class="annot"><span class="annottext">updateFirewallRule_blockOverrideDnsType :: (Maybe BlockOverrideDnsType -&gt; f (Maybe BlockOverrideDnsType))
+-&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideDnsType"><span class="hs-identifier hs-var hs-var">updateFirewallRule_blockOverrideDnsType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Maybe BlockOverrideDnsType)
+-&gt; (UpdateFirewallRule
+    -&gt; Maybe BlockOverrideDnsType -&gt; UpdateFirewallRule)
+-&gt; Lens
+     UpdateFirewallRule
+     UpdateFirewallRule
+     (Maybe BlockOverrideDnsType)
+     (Maybe BlockOverrideDnsType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301493"><span class="annot"><span class="annottext">Maybe BlockOverrideDnsType
+blockOverrideDnsType :: Maybe BlockOverrideDnsType
+$sel:blockOverrideDnsType:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe BlockOverrideDnsType
+</span><a href="#local-6989586621679301493"><span class="hs-identifier hs-var hs-var">blockOverrideDnsType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlockOverrideDnsType
+</span><a href="#local-6989586621679301493"><span class="hs-identifier hs-var">blockOverrideDnsType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301492"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301491"><span class="annot"><span class="annottext">Maybe BlockOverrideDnsType
+</span><a href="#local-6989586621679301491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockOverrideDnsType:UpdateFirewallRule' :: Maybe BlockOverrideDnsType
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideDnsType%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockOverrideDnsType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlockOverrideDnsType
+</span><a href="#local-6989586621679301491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The setting that determines the processing order of the rule in the rule</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- group. DNS Firewall processes the rules in a rule group by order of</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- priority, starting from the lowest setting.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- You must specify a unique priority for each rule in a rule group. To</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- make it easier to insert rules later, leave space between the numbers,</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for example, use 100, 200, and so on. You can change the priority</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- setting for the rules in a rule group at any time.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_priority"><span class="hs-identifier hs-type">updateFirewallRule_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="updateFirewallRule_priority"><span class="annot"><span class="annottext">updateFirewallRule_priority :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_priority"><span class="hs-identifier hs-var hs-var">updateFirewallRule_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Maybe Int)
+-&gt; (UpdateFirewallRule -&gt; Maybe Int -&gt; UpdateFirewallRule)
+-&gt; Lens
+     UpdateFirewallRule UpdateFirewallRule (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301490"><span class="annot"><span class="annottext">Maybe Int
+priority :: Maybe Int
+$sel:priority:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Int
+</span><a href="#local-6989586621679301490"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679301490"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301489"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301488"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:UpdateFirewallRule' :: Maybe Int
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Apriority%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The way that you want DNS Firewall to block the request. Used for the</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- rule action setting @BLOCK@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   @NODATA@ - Respond indicating that the query was successful, but no</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     response is available for it.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   @NXDOMAIN@ - Respond indicating that the domain name that\'s in the</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     query doesn\'t exist.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @OVERRIDE@ - Provide a custom override in the response. This option</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     requires custom handling details in the rule\'s @BlockOverride*@</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     settings.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockResponse"><span class="hs-identifier hs-type">updateFirewallRule_blockResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.BlockResponse.html#BlockResponse"><span class="hs-identifier hs-type">BlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="updateFirewallRule_blockResponse"><span class="annot"><span class="annottext">updateFirewallRule_blockResponse :: (Maybe BlockResponse -&gt; f (Maybe BlockResponse))
+-&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockResponse"><span class="hs-identifier hs-var hs-var">updateFirewallRule_blockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Maybe BlockResponse)
+-&gt; (UpdateFirewallRule
+    -&gt; Maybe BlockResponse -&gt; UpdateFirewallRule)
+-&gt; Lens
+     UpdateFirewallRule
+     UpdateFirewallRule
+     (Maybe BlockResponse)
+     (Maybe BlockResponse)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301487"><span class="annot"><span class="annottext">Maybe BlockResponse
+blockResponse :: Maybe BlockResponse
+$sel:blockResponse:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe BlockResponse
+</span><a href="#local-6989586621679301487"><span class="hs-identifier hs-var hs-var">blockResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlockResponse
+</span><a href="#local-6989586621679301487"><span class="hs-identifier hs-var">blockResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301486"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301485"><span class="annot"><span class="annottext">Maybe BlockResponse
+</span><a href="#local-6989586621679301485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockResponse:UpdateFirewallRule' :: Maybe BlockResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockResponse%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlockResponse
+</span><a href="#local-6989586621679301485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The action that DNS Firewall should take on a DNS query when it matches</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- one of the domains in the rule\'s domain list:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   @ALLOW@ - Permit the request to go through.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   @ALERT@ - Permit the request to go through but send an alert to the</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     logs.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   @BLOCK@ - Disallow the request. This option requires additional</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     details in the rule\'s @BlockResponse@.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_action"><span class="hs-identifier hs-type">updateFirewallRule_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="updateFirewallRule_action"><span class="annot"><span class="annottext">updateFirewallRule_action :: (Maybe Action -&gt; f (Maybe Action))
+-&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_action"><span class="hs-identifier hs-var hs-var">updateFirewallRule_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Maybe Action)
+-&gt; (UpdateFirewallRule -&gt; Maybe Action -&gt; UpdateFirewallRule)
+-&gt; Lens
+     UpdateFirewallRule UpdateFirewallRule (Maybe Action) (Maybe Action)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301484"><span class="annot"><span class="annottext">Maybe Action
+action :: Maybe Action
+$sel:action:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Action
+</span><a href="#local-6989586621679301484"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679301484"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301483"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301482"><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679301482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:UpdateFirewallRule' :: Maybe Action
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Aaction%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679301482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The recommended amount of time, in seconds, for the DNS resolver or web</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- browser to cache the provided override record. Used for the rule action</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideTtl"><span class="hs-identifier hs-type">updateFirewallRule_blockOverrideTtl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="updateFirewallRule_blockOverrideTtl"><span class="annot"><span class="annottext">updateFirewallRule_blockOverrideTtl :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideTtl"><span class="hs-identifier hs-var hs-var">updateFirewallRule_blockOverrideTtl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Maybe Natural)
+-&gt; (UpdateFirewallRule -&gt; Maybe Natural -&gt; UpdateFirewallRule)
+-&gt; Lens
+     UpdateFirewallRule
+     UpdateFirewallRule
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301481"><span class="annot"><span class="annottext">Maybe Natural
+blockOverrideTtl :: Maybe Natural
+$sel:blockOverrideTtl:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Natural
+</span><a href="#local-6989586621679301481"><span class="hs-identifier hs-var hs-var">blockOverrideTtl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679301481"><span class="hs-identifier hs-var">blockOverrideTtl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301480"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301479"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679301479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockOverrideTtl:UpdateFirewallRule' :: Maybe Natural
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideTtl%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockOverrideTtl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679301479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The name of the rule.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_name"><span class="hs-identifier hs-type">updateFirewallRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="updateFirewallRule_name"><span class="annot"><span class="annottext">updateFirewallRule_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_name"><span class="hs-identifier hs-var hs-var">updateFirewallRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Maybe Text)
+-&gt; (UpdateFirewallRule -&gt; Maybe Text -&gt; UpdateFirewallRule)
+-&gt; Lens
+     UpdateFirewallRule UpdateFirewallRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301478"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Text
+</span><a href="#local-6989586621679301478"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301478"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301477"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateFirewallRule' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3Aname%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The custom DNS record to send back in response to the query. Used for</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideDomain"><span class="hs-identifier hs-type">updateFirewallRule_blockOverrideDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="updateFirewallRule_blockOverrideDomain"><span class="annot"><span class="annottext">updateFirewallRule_blockOverrideDomain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_blockOverrideDomain"><span class="hs-identifier hs-var hs-var">updateFirewallRule_blockOverrideDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Maybe Text)
+-&gt; (UpdateFirewallRule -&gt; Maybe Text -&gt; UpdateFirewallRule)
+-&gt; Lens
+     UpdateFirewallRule UpdateFirewallRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301475"><span class="annot"><span class="annottext">Maybe Text
+blockOverrideDomain :: Maybe Text
+$sel:blockOverrideDomain:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Text
+</span><a href="#local-6989586621679301475"><span class="hs-identifier hs-var hs-var">blockOverrideDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301475"><span class="hs-identifier hs-var">blockOverrideDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301474"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockOverrideDomain:UpdateFirewallRule' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AblockOverrideDomain%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">blockOverrideDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The unique identifier of the firewall rule group for the rule.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_firewallRuleGroupId"><span class="hs-identifier hs-type">updateFirewallRule_firewallRuleGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-253"></span><span id="updateFirewallRule_firewallRuleGroupId"><span class="annot"><span class="annottext">updateFirewallRule_firewallRuleGroupId :: (Text -&gt; f Text) -&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_firewallRuleGroupId"><span class="hs-identifier hs-var hs-var">updateFirewallRule_firewallRuleGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Text)
+-&gt; (UpdateFirewallRule -&gt; Text -&gt; UpdateFirewallRule)
+-&gt; Lens UpdateFirewallRule UpdateFirewallRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301472"><span class="annot"><span class="annottext">Text
+firewallRuleGroupId :: Text
+$sel:firewallRuleGroupId:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Text
+</span><a href="#local-6989586621679301472"><span class="hs-identifier hs-var hs-var">firewallRuleGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301472"><span class="hs-identifier hs-var">firewallRuleGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301471"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301470"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallRuleGroupId:UpdateFirewallRule' :: Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallRuleGroupId%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">firewallRuleGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The ID of the domain list to use in the rule.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_firewallDomainListId"><span class="hs-identifier hs-type">updateFirewallRule_firewallDomainListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-257"></span><span id="updateFirewallRule_firewallDomainListId"><span class="annot"><span class="annottext">updateFirewallRule_firewallDomainListId :: (Text -&gt; f Text) -&gt; UpdateFirewallRule -&gt; f UpdateFirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRule_firewallDomainListId"><span class="hs-identifier hs-var hs-var">updateFirewallRule_firewallDomainListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRule -&gt; Text)
+-&gt; (UpdateFirewallRule -&gt; Text -&gt; UpdateFirewallRule)
+-&gt; Lens UpdateFirewallRule UpdateFirewallRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301469"><span class="annot"><span class="annottext">Text
+firewallDomainListId :: Text
+$sel:firewallDomainListId:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Text
+</span><a href="#local-6989586621679301469"><span class="hs-identifier hs-var hs-var">firewallDomainListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301469"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301468"><span class="annot"><span class="annottext">s :: UpdateFirewallRule
+</span><a href="#local-6989586621679301468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRule
+</span><a href="#local-6989586621679301468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallDomainListId:UpdateFirewallRule' :: Text
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallDomainListId%3AUpdateFirewallRule%27"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-261"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse</span></a></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679301463"><span class="annot"><span class="annottext">request :: UpdateFirewallRule -&gt; Request UpdateFirewallRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateFirewallRule -&gt; Request UpdateFirewallRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53Resolver.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679301459"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateFirewallRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFirewallRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateFirewallRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateFirewallRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFirewallRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679301455"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679301455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679301454"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-267"></span><span>          </span><span class="annot"><span class="annottext">Maybe FirewallRule -&gt; Int -&gt; UpdateFirewallRuleResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var">UpdateFirewallRuleResponse'</span></a></span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FirewallRule -&gt; Int -&gt; UpdateFirewallRuleResponse)
+-&gt; Either String (Maybe FirewallRule)
+-&gt; Either String (Int -&gt; UpdateFirewallRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FirewallRule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateFirewallRuleResponse)
+-&gt; Either String Int -&gt; Either String UpdateFirewallRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301446"><span id="local-6989586621679301448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span></span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679301439"><span class="annot"><span class="annottext">toHeaders :: UpdateFirewallRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFirewallRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-280"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Resolver.UpdateFirewallRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-282"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-283"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-286"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-287"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-289"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301429"><span id="local-6989586621679301431"><span id="local-6989586621679301433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679301427"><span class="annot"><span class="annottext">toJSON :: UpdateFirewallRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule%27"><span class="hs-identifier hs-type">UpdateFirewallRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301417"><span id="local-6989586621679301418"><span id="local-6989586621679301419"><span id="local-6989586621679301420"><span id="local-6989586621679301421"><span id="local-6989586621679301422"><span id="local-6989586621679301423"><span id="local-6989586621679301424"><span id="local-6989586621679301425"><span class="annot"><span class="annottext">Maybe Int
+Maybe Natural
+Maybe Text
+Maybe Action
+Maybe BlockOverrideDnsType
+Maybe BlockResponse
+Text
+firewallDomainListId :: Text
+firewallRuleGroupId :: Text
+blockOverrideDomain :: Maybe Text
+name :: Maybe Text
+blockOverrideTtl :: Maybe Natural
+action :: Maybe Action
+blockResponse :: Maybe BlockResponse
+priority :: Maybe Int
+blockOverrideDnsType :: Maybe BlockOverrideDnsType
+$sel:firewallDomainListId:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Text
+$sel:firewallRuleGroupId:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Text
+$sel:blockOverrideDomain:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Text
+$sel:name:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Text
+$sel:blockOverrideTtl:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Natural
+$sel:action:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Action
+$sel:blockResponse:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe BlockResponse
+$sel:priority:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe Int
+$sel:blockOverrideDnsType:UpdateFirewallRule' :: UpdateFirewallRule -&gt; Maybe BlockOverrideDnsType
+</span><a href="#local-6989586621679301417"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-295"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlockOverrideDnsType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlockOverrideDnsType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>              </span><span class="annot"><span class="annottext">(BlockOverrideDnsType -&gt; Pair)
+-&gt; Maybe BlockOverrideDnsType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BlockOverrideDnsType
+</span><a href="#local-6989586621679301425"><span class="hs-identifier hs-var">blockOverrideDnsType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679301424"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlockResponse&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlockResponse -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BlockResponse -&gt; Pair) -&gt; Maybe BlockResponse -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BlockResponse
+</span><a href="#local-6989586621679301423"><span class="hs-identifier hs-var">blockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Action -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Pair) -&gt; Maybe Action -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679301422"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlockOverrideTtl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679301421"><span class="hs-identifier hs-var">blockOverrideTtl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301420"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlockOverrideDomain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301419"><span class="hs-identifier hs-var">blockOverrideDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-306"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallRuleGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301418"><span class="hs-identifier hs-var">firewallRuleGroupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-308"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallDomainListId&quot;</span></span><span>
+</span><span id="line-309"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301417"><span class="hs-identifier hs-var">firewallDomainListId</span></a></span><span>
+</span><span id="line-310"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679301411"><span class="annot"><span class="annottext">toPath :: UpdateFirewallRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateFirewallRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRule"><span class="hs-identifier hs-type">UpdateFirewallRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679301407"><span class="annot"><span class="annottext">toQuery :: UpdateFirewallRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFirewallRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | /See:/ 'newUpdateFirewallRuleResponse' smart constructor.</span><span>
+</span><span id="line-321"></span><span id="local-6989586621679301404"><span id="local-6989586621679301405"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFirewallRuleResponse"><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-var">UpdateFirewallRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFirewallRuleResponse%27"><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var">UpdateFirewallRuleResponse'</span></a></span></span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The firewall rule that you just updated.</span><span>
+</span><span id="line-323"></span><span>    </span><span id="%24sel%3AfirewallRule%3AUpdateFirewallRuleResponse%27"><span class="annot"><span class="annottext">UpdateFirewallRuleResponse -&gt; Maybe FirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallRule%3AUpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var hs-var">firewallRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallRule.html#FirewallRule"><span class="hs-identifier hs-type">FirewallRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-325"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFirewallRuleResponse%27"><span class="annot"><span class="annottext">UpdateFirewallRuleResponse -&gt; Int
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AhttpStatus%3AUpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-326"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-327"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301398"><span id="local-6989586621679301400"><span class="annot"><span class="annottext">UpdateFirewallRuleResponse -&gt; UpdateFirewallRuleResponse -&gt; Bool
+(UpdateFirewallRuleResponse -&gt; UpdateFirewallRuleResponse -&gt; Bool)
+-&gt; (UpdateFirewallRuleResponse
+    -&gt; UpdateFirewallRuleResponse -&gt; Bool)
+-&gt; Eq UpdateFirewallRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFirewallRuleResponse -&gt; UpdateFirewallRuleResponse -&gt; Bool
+$c/= :: UpdateFirewallRuleResponse -&gt; UpdateFirewallRuleResponse -&gt; Bool
+== :: UpdateFirewallRuleResponse -&gt; UpdateFirewallRuleResponse -&gt; Bool
+$c== :: UpdateFirewallRuleResponse -&gt; UpdateFirewallRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301390"><span id="local-6989586621679301392"><span id="local-6989586621679301394"><span id="local-6989586621679301396"><span class="annot"><span class="annottext">ReadPrec [UpdateFirewallRuleResponse]
+ReadPrec UpdateFirewallRuleResponse
+Int -&gt; ReadS UpdateFirewallRuleResponse
+ReadS [UpdateFirewallRuleResponse]
+(Int -&gt; ReadS UpdateFirewallRuleResponse)
+-&gt; ReadS [UpdateFirewallRuleResponse]
+-&gt; ReadPrec UpdateFirewallRuleResponse
+-&gt; ReadPrec [UpdateFirewallRuleResponse]
+-&gt; Read UpdateFirewallRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFirewallRuleResponse]
+$creadListPrec :: ReadPrec [UpdateFirewallRuleResponse]
+readPrec :: ReadPrec UpdateFirewallRuleResponse
+$creadPrec :: ReadPrec UpdateFirewallRuleResponse
+readList :: ReadS [UpdateFirewallRuleResponse]
+$creadList :: ReadS [UpdateFirewallRuleResponse]
+readsPrec :: Int -&gt; ReadS UpdateFirewallRuleResponse
+$creadsPrec :: Int -&gt; ReadS UpdateFirewallRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301384"><span id="local-6989586621679301386"><span id="local-6989586621679301388"><span class="annot"><span class="annottext">Int -&gt; UpdateFirewallRuleResponse -&gt; ShowS
+[UpdateFirewallRuleResponse] -&gt; ShowS
+UpdateFirewallRuleResponse -&gt; String
+(Int -&gt; UpdateFirewallRuleResponse -&gt; ShowS)
+-&gt; (UpdateFirewallRuleResponse -&gt; String)
+-&gt; ([UpdateFirewallRuleResponse] -&gt; ShowS)
+-&gt; Show UpdateFirewallRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFirewallRuleResponse] -&gt; ShowS
+$cshowList :: [UpdateFirewallRuleResponse] -&gt; ShowS
+show :: UpdateFirewallRuleResponse -&gt; String
+$cshow :: UpdateFirewallRuleResponse -&gt; String
+showsPrec :: Int -&gt; UpdateFirewallRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFirewallRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFirewallRuleResponse -&gt; Rep UpdateFirewallRuleResponse x)
+-&gt; (forall x.
+    Rep UpdateFirewallRuleResponse x -&gt; UpdateFirewallRuleResponse)
+-&gt; Generic UpdateFirewallRuleResponse
+forall x.
+Rep UpdateFirewallRuleResponse x -&gt; UpdateFirewallRuleResponse
+forall x.
+UpdateFirewallRuleResponse -&gt; Rep UpdateFirewallRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateFirewallRuleResponse x -&gt; UpdateFirewallRuleResponse
+$cfrom :: forall x.
+UpdateFirewallRuleResponse -&gt; Rep UpdateFirewallRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- Create a value of 'UpdateFirewallRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- 'firewallRule', 'updateFirewallRuleResponse_firewallRule' - The firewall rule that you just updated.</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- 'httpStatus', 'updateFirewallRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-340"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#newUpdateFirewallRuleResponse"><span class="hs-identifier hs-type">newUpdateFirewallRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-341"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-342"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-343"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse</span></a></span><span>
+</span><span id="line-344"></span><span id="newUpdateFirewallRuleResponse"><span class="annot"><span class="annottext">newUpdateFirewallRuleResponse :: Int -&gt; UpdateFirewallRuleResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#newUpdateFirewallRuleResponse"><span class="hs-identifier hs-var hs-var">newUpdateFirewallRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679301381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-345"></span><span>  </span><span class="annot"><span class="annottext">UpdateFirewallRuleResponse' :: Maybe FirewallRule -&gt; Int -&gt; UpdateFirewallRuleResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse%27"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse'</span></a></span><span>
+</span><span id="line-346"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:firewallRule:UpdateFirewallRuleResponse' :: Maybe FirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallRule%3AUpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var">firewallRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-347"></span><span>        </span><span class="annot"><span class="annottext">Maybe FirewallRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFirewallRuleResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AhttpStatus%3AUpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-349"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- | The firewall rule that you just updated.</span><span>
+</span><span id="line-352"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRuleResponse_firewallRule"><span class="hs-identifier hs-type">updateFirewallRuleResponse_firewallRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallRule.html#FirewallRule"><span class="hs-identifier hs-type">FirewallRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span id="updateFirewallRuleResponse_firewallRule"><span class="annot"><span class="annottext">updateFirewallRuleResponse_firewallRule :: (Maybe FirewallRule -&gt; f (Maybe FirewallRule))
+-&gt; UpdateFirewallRuleResponse -&gt; f UpdateFirewallRuleResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRuleResponse_firewallRule"><span class="hs-identifier hs-var hs-var">updateFirewallRuleResponse_firewallRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRuleResponse -&gt; Maybe FirewallRule)
+-&gt; (UpdateFirewallRuleResponse
+    -&gt; Maybe FirewallRule -&gt; UpdateFirewallRuleResponse)
+-&gt; Lens
+     UpdateFirewallRuleResponse
+     UpdateFirewallRuleResponse
+     (Maybe FirewallRule)
+     (Maybe FirewallRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse%27"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301380"><span class="annot"><span class="annottext">Maybe FirewallRule
+firewallRule :: Maybe FirewallRule
+$sel:firewallRule:UpdateFirewallRuleResponse' :: UpdateFirewallRuleResponse -&gt; Maybe FirewallRule
+</span><a href="#local-6989586621679301380"><span class="hs-identifier hs-var hs-var">firewallRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FirewallRule
+</span><a href="#local-6989586621679301380"><span class="hs-identifier hs-var">firewallRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301379"><span class="annot"><span class="annottext">s :: UpdateFirewallRuleResponse
+</span><a href="#local-6989586621679301379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse%27"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301378"><span class="annot"><span class="annottext">Maybe FirewallRule
+</span><a href="#local-6989586621679301378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRuleResponse
+</span><a href="#local-6989586621679301379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallRule:UpdateFirewallRuleResponse' :: Maybe FirewallRule
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AfirewallRule%3AUpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var">firewallRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirewallRule
+</span><a href="#local-6989586621679301378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-356"></span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRuleResponse_httpStatus"><span class="hs-identifier hs-type">updateFirewallRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-357"></span><span id="updateFirewallRuleResponse_httpStatus"><span class="annot"><span class="annottext">updateFirewallRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateFirewallRuleResponse -&gt; f UpdateFirewallRuleResponse
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#updateFirewallRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateFirewallRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallRuleResponse -&gt; Int)
+-&gt; (UpdateFirewallRuleResponse
+    -&gt; Int -&gt; UpdateFirewallRuleResponse)
+-&gt; Lens
+     UpdateFirewallRuleResponse UpdateFirewallRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse%27"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301377"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateFirewallRuleResponse' :: UpdateFirewallRuleResponse -&gt; Int
+</span><a href="#local-6989586621679301377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301376"><span class="annot"><span class="annottext">s :: UpdateFirewallRuleResponse
+</span><a href="#local-6989586621679301376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse%27"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallRuleResponse
+</span><a href="#local-6989586621679301376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFirewallRuleResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#%24sel%3AhttpStatus%3AUpdateFirewallRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.UpdateFirewallRule.html#UpdateFirewallRuleResponse"><span class="hs-identifier hs-type">UpdateFirewallRuleResponse</span></a></span></span><span>
+</span><span id="line-360"></span></pre></body></html>

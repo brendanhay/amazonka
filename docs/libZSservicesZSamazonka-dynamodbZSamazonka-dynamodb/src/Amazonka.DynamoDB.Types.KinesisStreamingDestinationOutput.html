@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html"><span class="hs-identifier">Amazonka.DynamoDB.Types.DestinationStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newKinesisStreamingDestinationOutput' smart constructor.</span><span>
+</span><span id="line-28"></span><span id="local-6989586621679374194"><span id="local-6989586621679374195"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisStreamingDestinationOutput"><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-var">KinesisStreamingDestinationOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisStreamingDestinationOutput%27"><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">KinesisStreamingDestinationOutput'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the replication.</span><span>
+</span><span id="line-30"></span><span>    </span><span id="%24sel%3AdestinationStatus%3AKinesisStreamingDestinationOutput%27"><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput -&gt; Maybe DestinationStatus
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AdestinationStatus%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var hs-var">destinationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-type">DestinationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- | The ARN for the specific Kinesis data stream.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstreamArn%3AKinesisStreamingDestinationOutput%27"><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AstreamArn%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the table being modified.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtableName%3AKinesisStreamingDestinationOutput%27"><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AtableName%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374186"><span id="local-6989586621679374188"><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput
+-&gt; KinesisStreamingDestinationOutput -&gt; Bool
+(KinesisStreamingDestinationOutput
+ -&gt; KinesisStreamingDestinationOutput -&gt; Bool)
+-&gt; (KinesisStreamingDestinationOutput
+    -&gt; KinesisStreamingDestinationOutput -&gt; Bool)
+-&gt; Eq KinesisStreamingDestinationOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KinesisStreamingDestinationOutput
+-&gt; KinesisStreamingDestinationOutput -&gt; Bool
+$c/= :: KinesisStreamingDestinationOutput
+-&gt; KinesisStreamingDestinationOutput -&gt; Bool
+== :: KinesisStreamingDestinationOutput
+-&gt; KinesisStreamingDestinationOutput -&gt; Bool
+$c== :: KinesisStreamingDestinationOutput
+-&gt; KinesisStreamingDestinationOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374177"><span id="local-6989586621679374179"><span id="local-6989586621679374181"><span id="local-6989586621679374183"><span class="annot"><span class="annottext">ReadPrec [KinesisStreamingDestinationOutput]
+ReadPrec KinesisStreamingDestinationOutput
+Int -&gt; ReadS KinesisStreamingDestinationOutput
+ReadS [KinesisStreamingDestinationOutput]
+(Int -&gt; ReadS KinesisStreamingDestinationOutput)
+-&gt; ReadS [KinesisStreamingDestinationOutput]
+-&gt; ReadPrec KinesisStreamingDestinationOutput
+-&gt; ReadPrec [KinesisStreamingDestinationOutput]
+-&gt; Read KinesisStreamingDestinationOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KinesisStreamingDestinationOutput]
+$creadListPrec :: ReadPrec [KinesisStreamingDestinationOutput]
+readPrec :: ReadPrec KinesisStreamingDestinationOutput
+$creadPrec :: ReadPrec KinesisStreamingDestinationOutput
+readList :: ReadS [KinesisStreamingDestinationOutput]
+$creadList :: ReadS [KinesisStreamingDestinationOutput]
+readsPrec :: Int -&gt; ReadS KinesisStreamingDestinationOutput
+$creadsPrec :: Int -&gt; ReadS KinesisStreamingDestinationOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374170"><span id="local-6989586621679374172"><span id="local-6989586621679374174"><span class="annot"><span class="annottext">Int -&gt; KinesisStreamingDestinationOutput -&gt; ShowS
+[KinesisStreamingDestinationOutput] -&gt; ShowS
+KinesisStreamingDestinationOutput -&gt; String
+(Int -&gt; KinesisStreamingDestinationOutput -&gt; ShowS)
+-&gt; (KinesisStreamingDestinationOutput -&gt; String)
+-&gt; ([KinesisStreamingDestinationOutput] -&gt; ShowS)
+-&gt; Show KinesisStreamingDestinationOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KinesisStreamingDestinationOutput] -&gt; ShowS
+$cshowList :: [KinesisStreamingDestinationOutput] -&gt; ShowS
+show :: KinesisStreamingDestinationOutput -&gt; String
+$cshow :: KinesisStreamingDestinationOutput -&gt; String
+showsPrec :: Int -&gt; KinesisStreamingDestinationOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; KinesisStreamingDestinationOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ KinesisStreamingDestinationOutput
+ -&gt; Rep KinesisStreamingDestinationOutput x)
+-&gt; (forall x.
+    Rep KinesisStreamingDestinationOutput x
+    -&gt; KinesisStreamingDestinationOutput)
+-&gt; Generic KinesisStreamingDestinationOutput
+forall x.
+Rep KinesisStreamingDestinationOutput x
+-&gt; KinesisStreamingDestinationOutput
+forall x.
+KinesisStreamingDestinationOutput
+-&gt; Rep KinesisStreamingDestinationOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep KinesisStreamingDestinationOutput x
+-&gt; KinesisStreamingDestinationOutput
+$cfrom :: forall x.
+KinesisStreamingDestinationOutput
+-&gt; Rep KinesisStreamingDestinationOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'KinesisStreamingDestinationOutput' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'destinationStatus', 'kinesisStreamingDestinationOutput_destinationStatus' - The current status of the replication.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'streamArn', 'kinesisStreamingDestinationOutput_streamArn' - The ARN for the specific Kinesis data stream.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'tableName', 'kinesisStreamingDestinationOutput_tableName' - The name of the table being modified.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#newKinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">newKinesisStreamingDestinationOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span><span>
+</span><span id="line-53"></span><span id="newKinesisStreamingDestinationOutput"><span class="annot"><span class="annottext">newKinesisStreamingDestinationOutput :: KinesisStreamingDestinationOutput
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#newKinesisStreamingDestinationOutput"><span class="hs-identifier hs-var hs-var">newKinesisStreamingDestinationOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput' :: Maybe DestinationStatus
+-&gt; Maybe Text -&gt; Maybe Text -&gt; KinesisStreamingDestinationOutput
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationStatus:KinesisStreamingDestinationOutput' :: Maybe DestinationStatus
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AdestinationStatus%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">destinationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe DestinationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamArn:KinesisStreamingDestinationOutput' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AstreamArn%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:KinesisStreamingDestinationOutput' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AtableName%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The current status of the replication.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#kinesisStreamingDestinationOutput_destinationStatus"><span class="hs-identifier hs-type">kinesisStreamingDestinationOutput_destinationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-type">DestinationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="kinesisStreamingDestinationOutput_destinationStatus"><span class="annot"><span class="annottext">kinesisStreamingDestinationOutput_destinationStatus :: (Maybe DestinationStatus -&gt; f (Maybe DestinationStatus))
+-&gt; KinesisStreamingDestinationOutput
+-&gt; f KinesisStreamingDestinationOutput
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#kinesisStreamingDestinationOutput_destinationStatus"><span class="hs-identifier hs-var hs-var">kinesisStreamingDestinationOutput_destinationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KinesisStreamingDestinationOutput -&gt; Maybe DestinationStatus)
+-&gt; (KinesisStreamingDestinationOutput
+    -&gt; Maybe DestinationStatus -&gt; KinesisStreamingDestinationOutput)
+-&gt; Lens
+     KinesisStreamingDestinationOutput
+     KinesisStreamingDestinationOutput
+     (Maybe DestinationStatus)
+     (Maybe DestinationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374161"><span class="annot"><span class="annottext">Maybe DestinationStatus
+destinationStatus :: Maybe DestinationStatus
+$sel:destinationStatus:KinesisStreamingDestinationOutput' :: KinesisStreamingDestinationOutput -&gt; Maybe DestinationStatus
+</span><a href="#local-6989586621679374161"><span class="hs-identifier hs-var hs-var">destinationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationStatus
+</span><a href="#local-6989586621679374161"><span class="hs-identifier hs-var">destinationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374160"><span class="annot"><span class="annottext">s :: KinesisStreamingDestinationOutput
+</span><a href="#local-6989586621679374160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374159"><span class="annot"><span class="annottext">Maybe DestinationStatus
+</span><a href="#local-6989586621679374159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput
+</span><a href="#local-6989586621679374160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationStatus:KinesisStreamingDestinationOutput' :: Maybe DestinationStatus
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AdestinationStatus%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">destinationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationStatus
+</span><a href="#local-6989586621679374159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The ARN for the specific Kinesis data stream.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#kinesisStreamingDestinationOutput_streamArn"><span class="hs-identifier hs-type">kinesisStreamingDestinationOutput_streamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="kinesisStreamingDestinationOutput_streamArn"><span class="annot"><span class="annottext">kinesisStreamingDestinationOutput_streamArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; KinesisStreamingDestinationOutput
+-&gt; f KinesisStreamingDestinationOutput
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#kinesisStreamingDestinationOutput_streamArn"><span class="hs-identifier hs-var hs-var">kinesisStreamingDestinationOutput_streamArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KinesisStreamingDestinationOutput -&gt; Maybe Text)
+-&gt; (KinesisStreamingDestinationOutput
+    -&gt; Maybe Text -&gt; KinesisStreamingDestinationOutput)
+-&gt; Lens
+     KinesisStreamingDestinationOutput
+     KinesisStreamingDestinationOutput
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374157"><span class="annot"><span class="annottext">Maybe Text
+streamArn :: Maybe Text
+$sel:streamArn:KinesisStreamingDestinationOutput' :: KinesisStreamingDestinationOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679374157"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374157"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374156"><span class="annot"><span class="annottext">s :: KinesisStreamingDestinationOutput
+</span><a href="#local-6989586621679374156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374155"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput
+</span><a href="#local-6989586621679374156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisStreamingDestinationOutput' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AstreamArn%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The name of the table being modified.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#kinesisStreamingDestinationOutput_tableName"><span class="hs-identifier hs-type">kinesisStreamingDestinationOutput_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="kinesisStreamingDestinationOutput_tableName"><span class="annot"><span class="annottext">kinesisStreamingDestinationOutput_tableName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; KinesisStreamingDestinationOutput
+-&gt; f KinesisStreamingDestinationOutput
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#kinesisStreamingDestinationOutput_tableName"><span class="hs-identifier hs-var hs-var">kinesisStreamingDestinationOutput_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KinesisStreamingDestinationOutput -&gt; Maybe Text)
+-&gt; (KinesisStreamingDestinationOutput
+    -&gt; Maybe Text -&gt; KinesisStreamingDestinationOutput)
+-&gt; Lens
+     KinesisStreamingDestinationOutput
+     KinesisStreamingDestinationOutput
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374153"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:KinesisStreamingDestinationOutput' :: KinesisStreamingDestinationOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679374153"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374153"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374152"><span class="annot"><span class="annottext">s :: KinesisStreamingDestinationOutput
+</span><a href="#local-6989586621679374152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisStreamingDestinationOutput
+</span><a href="#local-6989586621679374152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:KinesisStreamingDestinationOutput' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#%24sel%3AtableName%3AKinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679374148"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679374146"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisStreamingDestinationOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser KinesisStreamingDestinationOutput)
+-&gt; Value
+-&gt; Parser KinesisStreamingDestinationOutput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;KinesisStreamingDestinationOutput&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374143"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe DestinationStatus
+-&gt; Maybe Text -&gt; Maybe Text -&gt; KinesisStreamingDestinationOutput
+</span><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput%27"><span class="hs-identifier hs-var">KinesisStreamingDestinationOutput'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DestinationStatus
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; KinesisStreamingDestinationOutput)
+-&gt; Parser (Maybe DestinationStatus)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; KinesisStreamingDestinationOutput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; KinesisStreamingDestinationOutput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; KinesisStreamingDestinationOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; KinesisStreamingDestinationOutput)
+-&gt; Parser (Maybe Text) -&gt; Parser KinesisStreamingDestinationOutput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679374137"><span id="local-6989586621679374139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679374134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput.html#KinesisStreamingDestinationOutput"><span class="hs-identifier hs-type">KinesisStreamingDestinationOutput</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

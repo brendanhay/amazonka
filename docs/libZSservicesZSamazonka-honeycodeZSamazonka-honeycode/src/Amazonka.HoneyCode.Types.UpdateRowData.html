@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.HoneyCode.Types.UpdateRowData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HoneyCode.Types.UpdateRowData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.CellInput.html"><span class="hs-identifier">Amazonka.HoneyCode.Types.CellInput</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Data needed to create a single row in a table as part of the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- BatchCreateTableRows request.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUpdateRowData' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679180641"><span id="local-6989586621679180642"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRowData"><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-var">UpdateRowData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRowData%27"><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData%27"><span class="hs-identifier hs-var">UpdateRowData'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The id of the row that needs to be updated.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArowId%3AUpdateRowData%27"><span class="annot"><span class="annottext">UpdateRowData -&gt; Text
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#%24sel%3ArowId%3AUpdateRowData%27"><span class="hs-identifier hs-var hs-var">rowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A map representing the cells to update in the given row. The key is the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- column id of the cell and the value is the CellInput object that</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- represents the data to set in that cell.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcellsToUpdate%3AUpdateRowData%27"><span class="annot"><span class="annottext">UpdateRowData -&gt; HashMap Text CellInput
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#%24sel%3AcellsToUpdate%3AUpdateRowData%27"><span class="hs-identifier hs-var hs-var">cellsToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180634"><span id="local-6989586621679180636"><span class="annot"><span class="annottext">UpdateRowData -&gt; UpdateRowData -&gt; Bool
+(UpdateRowData -&gt; UpdateRowData -&gt; Bool)
+-&gt; (UpdateRowData -&gt; UpdateRowData -&gt; Bool) -&gt; Eq UpdateRowData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRowData -&gt; UpdateRowData -&gt; Bool
+$c/= :: UpdateRowData -&gt; UpdateRowData -&gt; Bool
+== :: UpdateRowData -&gt; UpdateRowData -&gt; Bool
+$c== :: UpdateRowData -&gt; UpdateRowData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180627"><span id="local-6989586621679180629"><span id="local-6989586621679180631"><span class="annot"><span class="annottext">Int -&gt; UpdateRowData -&gt; ShowS
+[UpdateRowData] -&gt; ShowS
+UpdateRowData -&gt; String
+(Int -&gt; UpdateRowData -&gt; ShowS)
+-&gt; (UpdateRowData -&gt; String)
+-&gt; ([UpdateRowData] -&gt; ShowS)
+-&gt; Show UpdateRowData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRowData] -&gt; ShowS
+$cshowList :: [UpdateRowData] -&gt; ShowS
+show :: UpdateRowData -&gt; String
+$cshow :: UpdateRowData -&gt; String
+showsPrec :: Int -&gt; UpdateRowData -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRowData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRowData -&gt; Rep UpdateRowData x)
+-&gt; (forall x. Rep UpdateRowData x -&gt; UpdateRowData)
+-&gt; Generic UpdateRowData
+forall x. Rep UpdateRowData x -&gt; UpdateRowData
+forall x. UpdateRowData -&gt; Rep UpdateRowData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRowData x -&gt; UpdateRowData
+$cfrom :: forall x. UpdateRowData -&gt; Rep UpdateRowData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'UpdateRowData' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'rowId', 'updateRowData_rowId' - The id of the row that needs to be updated.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'cellsToUpdate', 'updateRowData_cellsToUpdate' - A map representing the cells to update in the given row. The key is the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- column id of the cell and the value is the CellInput object that</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- represents the data to set in that cell.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#newUpdateRowData"><span class="hs-identifier hs-type">newUpdateRowData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'rowId'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span><span>
+</span><span id="line-58"></span><span id="newUpdateRowData"><span class="annot"><span class="annottext">newUpdateRowData :: Text -&gt; UpdateRowData
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#newUpdateRowData"><span class="hs-identifier hs-var hs-var">newUpdateRowData</span></a></span></span><span> </span><span id="local-6989586621679180621"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180621"><span class="hs-identifier hs-var">pRowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">UpdateRowData' :: Text -&gt; HashMap Text CellInput -&gt; UpdateRowData
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData%27"><span class="hs-identifier hs-type">UpdateRowData'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rowId:UpdateRowData' :: Text
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#%24sel%3ArowId%3AUpdateRowData%27"><span class="hs-identifier hs-var">rowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180621"><span class="hs-identifier hs-var">pRowId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:cellsToUpdate:UpdateRowData' :: HashMap Text CellInput
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#%24sel%3AcellsToUpdate%3AUpdateRowData%27"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The id of the row that needs to be updated.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#updateRowData_rowId"><span class="hs-identifier hs-type">updateRowData_rowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span id="updateRowData_rowId"><span class="annot"><span class="annottext">updateRowData_rowId :: (Text -&gt; f Text) -&gt; UpdateRowData -&gt; f UpdateRowData
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#updateRowData_rowId"><span class="hs-identifier hs-var hs-var">updateRowData_rowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRowData -&gt; Text)
+-&gt; (UpdateRowData -&gt; Text -&gt; UpdateRowData)
+-&gt; Lens UpdateRowData UpdateRowData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData%27"><span class="hs-identifier hs-type">UpdateRowData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180617"><span class="annot"><span class="annottext">Text
+rowId :: Text
+$sel:rowId:UpdateRowData' :: UpdateRowData -&gt; Text
+</span><a href="#local-6989586621679180617"><span class="hs-identifier hs-var hs-var">rowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180617"><span class="hs-identifier hs-var">rowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180616"><span class="annot"><span class="annottext">s :: UpdateRowData
+</span><a href="#local-6989586621679180616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData%27"><span class="hs-identifier hs-type">UpdateRowData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180615"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRowData
+</span><a href="#local-6989586621679180616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowId:UpdateRowData' :: Text
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#%24sel%3ArowId%3AUpdateRowData%27"><span class="hs-identifier hs-var">rowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | A map representing the cells to update in the given row. The key is the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- column id of the cell and the value is the CellInput object that</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- represents the data to set in that cell.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#updateRowData_cellsToUpdate"><span class="hs-identifier hs-type">updateRowData_cellsToUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="updateRowData_cellsToUpdate"><span class="annot"><span class="annottext">updateRowData_cellsToUpdate :: (HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; UpdateRowData -&gt; f UpdateRowData
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#updateRowData_cellsToUpdate"><span class="hs-identifier hs-var hs-var">updateRowData_cellsToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRowData -&gt; HashMap Text CellInput)
+-&gt; (UpdateRowData -&gt; HashMap Text CellInput -&gt; UpdateRowData)
+-&gt; Lens
+     UpdateRowData
+     UpdateRowData
+     (HashMap Text CellInput)
+     (HashMap Text CellInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData%27"><span class="hs-identifier hs-type">UpdateRowData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180613"><span class="annot"><span class="annottext">HashMap Text CellInput
+cellsToUpdate :: HashMap Text CellInput
+$sel:cellsToUpdate:UpdateRowData' :: UpdateRowData -&gt; HashMap Text CellInput
+</span><a href="#local-6989586621679180613"><span class="hs-identifier hs-var hs-var">cellsToUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679180613"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180612"><span class="annot"><span class="annottext">s :: UpdateRowData
+</span><a href="#local-6989586621679180612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData%27"><span class="hs-identifier hs-type">UpdateRowData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180611"><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679180611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRowData
+</span><a href="#local-6989586621679180612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cellsToUpdate:UpdateRowData' :: HashMap Text CellInput
+</span><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#%24sel%3AcellsToUpdate%3AUpdateRowData%27"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679180611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+ -&gt; UpdateRowData -&gt; f UpdateRowData)
+-&gt; ((HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+    -&gt; HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; (HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; UpdateRowData
+-&gt; f UpdateRowData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; HashMap Text CellInput -&gt; f (HashMap Text CellInput)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180605"><span id="local-6989586621679180607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180594"><span id="local-6989586621679180596"><span id="local-6989586621679180598"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData"><span class="hs-identifier hs-type">UpdateRowData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679180592"><span class="annot"><span class="annottext">toJSON :: UpdateRowData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.UpdateRowData.html#UpdateRowData%27"><span class="hs-identifier hs-type">UpdateRowData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180589"><span id="local-6989586621679180590"><span class="annot"><span class="annottext">Text
+HashMap Text CellInput
+cellsToUpdate :: HashMap Text CellInput
+rowId :: Text
+$sel:cellsToUpdate:UpdateRowData' :: UpdateRowData -&gt; HashMap Text CellInput
+$sel:rowId:UpdateRowData' :: UpdateRowData -&gt; Text
+</span><a href="#local-6989586621679180589"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180590"><span class="hs-identifier hs-var">rowId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-84"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cellsToUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text CellInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679180589"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span></pre></body></html>

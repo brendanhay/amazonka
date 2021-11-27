@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.CreateContactMethod</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an email or SMS text message contact method.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- A contact method is used to send you notifications about your Amazon</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Lightsail resources. You can add one email address and one mobile phone</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- number contact method in each AWS Region. However, SMS text messaging is</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- not supported in some AWS Regions, and SMS text messages cannot be sent</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- to some countries\/regions. For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.CreateContactMethod</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier">CreateContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#newCreateContactMethod"><span class="hs-identifier">newCreateContactMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethod_protocol"><span class="hs-identifier">createContactMethod_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethod_contactEndpoint"><span class="hs-identifier">createContactMethod_contactEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier">CreateContactMethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#newCreateContactMethodResponse"><span class="hs-identifier">newCreateContactMethodResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethodResponse_operations"><span class="hs-identifier">createContactMethodResponse_operations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethodResponse_httpStatus"><span class="hs-identifier">createContactMethodResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newCreateContactMethod' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679660857"><span id="local-6989586621679660858"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContactMethod"><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-var">CreateContactMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContactMethod%27"><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod%27"><span class="hs-identifier hs-var">CreateContactMethod'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The protocol of the contact method, such as @Email@ or @SMS@ (text</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- messaging).</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- The @SMS@ protocol is supported only in the following AWS Regions.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   US East (N. Virginia) (@us-east-1@)</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   US West (Oregon) (@us-west-2@)</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   Europe (Ireland) (@eu-west-1@)</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   Asia Pacific (Tokyo) (@ap-northeast-1@)</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   Asia Pacific (Singapore) (@ap-southeast-1@)</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   Asia Pacific (Sydney) (@ap-southeast-2@)</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- For a list of countries\/regions where SMS text messages can be sent,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- and the latest AWS Regions where SMS text messaging is supported, see</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries&gt;</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- For more information about notifications in Amazon Lightsail, see</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail&gt;.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Aprotocol%3ACreateContactMethod%27"><span class="annot"><span class="annottext">CreateContactMethod -&gt; ContactProtocol
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3Aprotocol%3ACreateContactMethod%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The destination of the contact method, such as an email address or a</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- mobile phone number.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Use the E.164 format when specifying a mobile phone number. E.164 is a</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- standard for the phone number structure used for international</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- telecommunication. Phone numbers that follow this format can have a</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- maximum of 15 digits, and they are prefixed with the plus character (+)</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- and the country code. For example, a U.S. phone number in E.164 format</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- would be specified as +1XXX5550100. For more information, see</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/E.164 E.164&gt; on /Wikipedia/.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AcontactEndpoint%3ACreateContactMethod%27"><span class="annot"><span class="annottext">CreateContactMethod -&gt; Text
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3AcontactEndpoint%3ACreateContactMethod%27"><span class="hs-identifier hs-var hs-var">contactEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679660850"><span id="local-6989586621679660852"><span class="annot"><span class="annottext">CreateContactMethod -&gt; CreateContactMethod -&gt; Bool
+(CreateContactMethod -&gt; CreateContactMethod -&gt; Bool)
+-&gt; (CreateContactMethod -&gt; CreateContactMethod -&gt; Bool)
+-&gt; Eq CreateContactMethod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContactMethod -&gt; CreateContactMethod -&gt; Bool
+$c/= :: CreateContactMethod -&gt; CreateContactMethod -&gt; Bool
+== :: CreateContactMethod -&gt; CreateContactMethod -&gt; Bool
+$c== :: CreateContactMethod -&gt; CreateContactMethod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660841"><span id="local-6989586621679660843"><span id="local-6989586621679660845"><span id="local-6989586621679660847"><span class="annot"><span class="annottext">ReadPrec [CreateContactMethod]
+ReadPrec CreateContactMethod
+Int -&gt; ReadS CreateContactMethod
+ReadS [CreateContactMethod]
+(Int -&gt; ReadS CreateContactMethod)
+-&gt; ReadS [CreateContactMethod]
+-&gt; ReadPrec CreateContactMethod
+-&gt; ReadPrec [CreateContactMethod]
+-&gt; Read CreateContactMethod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContactMethod]
+$creadListPrec :: ReadPrec [CreateContactMethod]
+readPrec :: ReadPrec CreateContactMethod
+$creadPrec :: ReadPrec CreateContactMethod
+readList :: ReadS [CreateContactMethod]
+$creadList :: ReadS [CreateContactMethod]
+readsPrec :: Int -&gt; ReadS CreateContactMethod
+$creadsPrec :: Int -&gt; ReadS CreateContactMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660834"><span id="local-6989586621679660836"><span id="local-6989586621679660838"><span class="annot"><span class="annottext">Int -&gt; CreateContactMethod -&gt; ShowS
+[CreateContactMethod] -&gt; ShowS
+CreateContactMethod -&gt; String
+(Int -&gt; CreateContactMethod -&gt; ShowS)
+-&gt; (CreateContactMethod -&gt; String)
+-&gt; ([CreateContactMethod] -&gt; ShowS)
+-&gt; Show CreateContactMethod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContactMethod] -&gt; ShowS
+$cshowList :: [CreateContactMethod] -&gt; ShowS
+show :: CreateContactMethod -&gt; String
+$cshow :: CreateContactMethod -&gt; String
+showsPrec :: Int -&gt; CreateContactMethod -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContactMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateContactMethod -&gt; Rep CreateContactMethod x)
+-&gt; (forall x. Rep CreateContactMethod x -&gt; CreateContactMethod)
+-&gt; Generic CreateContactMethod
+forall x. Rep CreateContactMethod x -&gt; CreateContactMethod
+forall x. CreateContactMethod -&gt; Rep CreateContactMethod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateContactMethod x -&gt; CreateContactMethod
+$cfrom :: forall x. CreateContactMethod -&gt; Rep CreateContactMethod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'CreateContactMethod' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'protocol', 'createContactMethod_protocol' - The protocol of the contact method, such as @Email@ or @SMS@ (text</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- messaging).</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- The @SMS@ protocol is supported only in the following AWS Regions.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   US East (N. Virginia) (@us-east-1@)</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   US West (Oregon) (@us-west-2@)</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   Europe (Ireland) (@eu-west-1@)</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   Asia Pacific (Tokyo) (@ap-northeast-1@)</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   Asia Pacific (Singapore) (@ap-southeast-1@)</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   Asia Pacific (Sydney) (@ap-southeast-2@)</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- For a list of countries\/regions where SMS text messages can be sent,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- and the latest AWS Regions where SMS text messaging is supported, see</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries&gt;</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- For more information about notifications in Amazon Lightsail, see</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail&gt;.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'contactEndpoint', 'createContactMethod_contactEndpoint' - The destination of the contact method, such as an email address or a</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- mobile phone number.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use the E.164 format when specifying a mobile phone number. E.164 is a</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- standard for the phone number structure used for international</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- telecommunication. Phone numbers that follow this format can have a</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- maximum of 15 digits, and they are prefixed with the plus character (+)</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- and the country code. For example, a U.S. phone number in E.164 format</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- would be specified as +1XXX5550100. For more information, see</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/E.164 E.164&gt; on /Wikipedia/.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#newCreateContactMethod"><span class="hs-identifier hs-type">newCreateContactMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'protocol'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'contactEndpoint'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span>
+</span><span id="line-147"></span><span id="newCreateContactMethod"><span class="annot"><span class="annottext">newCreateContactMethod :: ContactProtocol -&gt; Text -&gt; CreateContactMethod
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#newCreateContactMethod"><span class="hs-identifier hs-var hs-var">newCreateContactMethod</span></a></span></span><span> </span><span id="local-6989586621679660829"><span class="annot"><span class="annottext">ContactProtocol
+</span><a href="#local-6989586621679660829"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span id="local-6989586621679660828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660828"><span class="hs-identifier hs-var">pContactEndpoint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">CreateContactMethod' :: ContactProtocol -&gt; Text -&gt; CreateContactMethod
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod%27"><span class="hs-identifier hs-type">CreateContactMethod'</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protocol:CreateContactMethod' :: ContactProtocol
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3Aprotocol%3ACreateContactMethod%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactProtocol
+</span><a href="#local-6989586621679660829"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactEndpoint:CreateContactMethod' :: Text
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3AcontactEndpoint%3ACreateContactMethod%27"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660828"><span class="hs-identifier hs-var">pContactEndpoint_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The protocol of the contact method, such as @Email@ or @SMS@ (text</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- messaging).</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The @SMS@ protocol is supported only in the following AWS Regions.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   US East (N. Virginia) (@us-east-1@)</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   US West (Oregon) (@us-west-2@)</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   Europe (Ireland) (@eu-west-1@)</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   Asia Pacific (Tokyo) (@ap-northeast-1@)</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   Asia Pacific (Singapore) (@ap-southeast-1@)</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   Asia Pacific (Sydney) (@ap-southeast-2@)</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- For a list of countries\/regions where SMS text messages can be sent,</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- and the latest AWS Regions where SMS text messaging is supported, see</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries&gt;</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- For more information about notifications in Amazon Lightsail, see</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail&gt;.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethod_protocol"><span class="hs-identifier hs-type">createContactMethod_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span>
+</span><span id="line-178"></span><span id="createContactMethod_protocol"><span class="annot"><span class="annottext">createContactMethod_protocol :: (ContactProtocol -&gt; f ContactProtocol)
+-&gt; CreateContactMethod -&gt; f CreateContactMethod
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethod_protocol"><span class="hs-identifier hs-var hs-var">createContactMethod_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactMethod -&gt; ContactProtocol)
+-&gt; (CreateContactMethod -&gt; ContactProtocol -&gt; CreateContactMethod)
+-&gt; Lens
+     CreateContactMethod
+     CreateContactMethod
+     ContactProtocol
+     ContactProtocol
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod%27"><span class="hs-identifier hs-type">CreateContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660825"><span class="annot"><span class="annottext">ContactProtocol
+protocol :: ContactProtocol
+$sel:protocol:CreateContactMethod' :: CreateContactMethod -&gt; ContactProtocol
+</span><a href="#local-6989586621679660825"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactProtocol
+</span><a href="#local-6989586621679660825"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660824"><span class="annot"><span class="annottext">s :: CreateContactMethod
+</span><a href="#local-6989586621679660824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod%27"><span class="hs-identifier hs-type">CreateContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660823"><span class="annot"><span class="annottext">ContactProtocol
+</span><a href="#local-6989586621679660823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactMethod
+</span><a href="#local-6989586621679660824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:CreateContactMethod' :: ContactProtocol
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3Aprotocol%3ACreateContactMethod%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactProtocol
+</span><a href="#local-6989586621679660823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The destination of the contact method, such as an email address or a</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- mobile phone number.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use the E.164 format when specifying a mobile phone number. E.164 is a</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- standard for the phone number structure used for international</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- telecommunication. Phone numbers that follow this format can have a</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- maximum of 15 digits, and they are prefixed with the plus character (+)</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- and the country code. For example, a U.S. phone number in E.164 format</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- would be specified as +1XXX5550100. For more information, see</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/E.164 E.164&gt; on /Wikipedia/.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethod_contactEndpoint"><span class="hs-identifier hs-type">createContactMethod_contactEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-191"></span><span id="createContactMethod_contactEndpoint"><span class="annot"><span class="annottext">createContactMethod_contactEndpoint :: (Text -&gt; f Text) -&gt; CreateContactMethod -&gt; f CreateContactMethod
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethod_contactEndpoint"><span class="hs-identifier hs-var hs-var">createContactMethod_contactEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactMethod -&gt; Text)
+-&gt; (CreateContactMethod -&gt; Text -&gt; CreateContactMethod)
+-&gt; Lens CreateContactMethod CreateContactMethod Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod%27"><span class="hs-identifier hs-type">CreateContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660822"><span class="annot"><span class="annottext">Text
+contactEndpoint :: Text
+$sel:contactEndpoint:CreateContactMethod' :: CreateContactMethod -&gt; Text
+</span><a href="#local-6989586621679660822"><span class="hs-identifier hs-var hs-var">contactEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660822"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660821"><span class="annot"><span class="annottext">s :: CreateContactMethod
+</span><a href="#local-6989586621679660821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod%27"><span class="hs-identifier hs-type">CreateContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660820"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactMethod
+</span><a href="#local-6989586621679660821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactEndpoint:CreateContactMethod' :: Text
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3AcontactEndpoint%3ACreateContactMethod%27"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-195"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-type">CreateContactMethodResponse</span></a></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679660816"><span class="annot"><span class="annottext">request :: CreateContactMethod -&gt; Request CreateContactMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateContactMethod -&gt; Request CreateContactMethod
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679660812"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateContactMethod
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateContactMethod)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateContactMethod))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateContactMethod
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateContactMethod)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679660809"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660809"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679660808"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679660808"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679660807"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679660807"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; CreateContactMethodResponse
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse%27"><span class="hs-identifier hs-var">CreateContactMethodResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; CreateContactMethodResponse)
+-&gt; Either String (Maybe [Operation])
+-&gt; Either String (Int -&gt; CreateContactMethodResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679660807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
+-&gt; Maybe [Operation] -&gt; Either String (Maybe [Operation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateContactMethodResponse)
+-&gt; Either String Int -&gt; Either String CreateContactMethodResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660809"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660798"><span id="local-6989586621679660800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679660791"><span class="annot"><span class="annottext">toHeaders :: CreateContactMethod -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateContactMethod -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.CreateContactMethod&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-217"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-220"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-221"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660781"><span id="local-6989586621679660783"><span id="local-6989586621679660785"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679660779"><span class="annot"><span class="annottext">toJSON :: CreateContactMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod%27"><span class="hs-identifier hs-type">CreateContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660776"><span id="local-6989586621679660777"><span class="annot"><span class="annottext">Text
+ContactProtocol
+contactEndpoint :: Text
+protocol :: ContactProtocol
+$sel:contactEndpoint:CreateContactMethod' :: CreateContactMethod -&gt; Text
+$sel:protocol:CreateContactMethod' :: CreateContactMethod -&gt; ContactProtocol
+</span><a href="#local-6989586621679660776"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContactProtocol -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContactProtocol
+</span><a href="#local-6989586621679660777"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-231"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contactEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660776"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679660770"><span class="annot"><span class="annottext">toPath :: CreateContactMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateContactMethod -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethod"><span class="hs-identifier hs-type">CreateContactMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679660766"><span class="annot"><span class="annottext">toQuery :: CreateContactMethod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateContactMethod -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | /See:/ 'newCreateContactMethodResponse' smart constructor.</span><span>
+</span><span id="line-242"></span><span id="local-6989586621679660763"><span id="local-6989586621679660764"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContactMethodResponse"><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-var">CreateContactMethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContactMethodResponse%27"><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse%27"><span class="hs-identifier hs-var">CreateContactMethodResponse'</span></a></span></span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-246"></span><span>    </span><span id="%24sel%3Aoperations%3ACreateContactMethodResponse%27"><span class="annot"><span class="annottext">CreateContactMethodResponse -&gt; Maybe [Operation]
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3Aoperations%3ACreateContactMethodResponse%27"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-248"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContactMethodResponse%27"><span class="annot"><span class="annottext">CreateContactMethodResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3AhttpStatus%3ACreateContactMethodResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679660757"><span id="local-6989586621679660759"><span class="annot"><span class="annottext">CreateContactMethodResponse -&gt; CreateContactMethodResponse -&gt; Bool
+(CreateContactMethodResponse
+ -&gt; CreateContactMethodResponse -&gt; Bool)
+-&gt; (CreateContactMethodResponse
+    -&gt; CreateContactMethodResponse -&gt; Bool)
+-&gt; Eq CreateContactMethodResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContactMethodResponse -&gt; CreateContactMethodResponse -&gt; Bool
+$c/= :: CreateContactMethodResponse -&gt; CreateContactMethodResponse -&gt; Bool
+== :: CreateContactMethodResponse -&gt; CreateContactMethodResponse -&gt; Bool
+$c== :: CreateContactMethodResponse -&gt; CreateContactMethodResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660749"><span id="local-6989586621679660751"><span id="local-6989586621679660753"><span id="local-6989586621679660755"><span class="annot"><span class="annottext">ReadPrec [CreateContactMethodResponse]
+ReadPrec CreateContactMethodResponse
+Int -&gt; ReadS CreateContactMethodResponse
+ReadS [CreateContactMethodResponse]
+(Int -&gt; ReadS CreateContactMethodResponse)
+-&gt; ReadS [CreateContactMethodResponse]
+-&gt; ReadPrec CreateContactMethodResponse
+-&gt; ReadPrec [CreateContactMethodResponse]
+-&gt; Read CreateContactMethodResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContactMethodResponse]
+$creadListPrec :: ReadPrec [CreateContactMethodResponse]
+readPrec :: ReadPrec CreateContactMethodResponse
+$creadPrec :: ReadPrec CreateContactMethodResponse
+readList :: ReadS [CreateContactMethodResponse]
+$creadList :: ReadS [CreateContactMethodResponse]
+readsPrec :: Int -&gt; ReadS CreateContactMethodResponse
+$creadsPrec :: Int -&gt; ReadS CreateContactMethodResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660743"><span id="local-6989586621679660745"><span id="local-6989586621679660747"><span class="annot"><span class="annottext">Int -&gt; CreateContactMethodResponse -&gt; ShowS
+[CreateContactMethodResponse] -&gt; ShowS
+CreateContactMethodResponse -&gt; String
+(Int -&gt; CreateContactMethodResponse -&gt; ShowS)
+-&gt; (CreateContactMethodResponse -&gt; String)
+-&gt; ([CreateContactMethodResponse] -&gt; ShowS)
+-&gt; Show CreateContactMethodResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContactMethodResponse] -&gt; ShowS
+$cshowList :: [CreateContactMethodResponse] -&gt; ShowS
+show :: CreateContactMethodResponse -&gt; String
+$cshow :: CreateContactMethodResponse -&gt; String
+showsPrec :: Int -&gt; CreateContactMethodResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContactMethodResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateContactMethodResponse -&gt; Rep CreateContactMethodResponse x)
+-&gt; (forall x.
+    Rep CreateContactMethodResponse x -&gt; CreateContactMethodResponse)
+-&gt; Generic CreateContactMethodResponse
+forall x.
+Rep CreateContactMethodResponse x -&gt; CreateContactMethodResponse
+forall x.
+CreateContactMethodResponse -&gt; Rep CreateContactMethodResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateContactMethodResponse x -&gt; CreateContactMethodResponse
+$cfrom :: forall x.
+CreateContactMethodResponse -&gt; Rep CreateContactMethodResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Create a value of 'CreateContactMethodResponse' with all optional fields omitted.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'operations', 'createContactMethodResponse_operations' - An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'httpStatus', 'createContactMethodResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#newCreateContactMethodResponse"><span class="hs-identifier hs-type">newCreateContactMethodResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-type">CreateContactMethodResponse</span></a></span><span>
+</span><span id="line-269"></span><span id="newCreateContactMethodResponse"><span class="annot"><span class="annottext">newCreateContactMethodResponse :: Int -&gt; CreateContactMethodResponse
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#newCreateContactMethodResponse"><span class="hs-identifier hs-var hs-var">newCreateContactMethodResponse</span></a></span></span><span> </span><span id="local-6989586621679660740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">CreateContactMethodResponse' :: Maybe [Operation] -&gt; Int -&gt; CreateContactMethodResponse
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse%27"><span class="hs-identifier hs-type">CreateContactMethodResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:CreateContactMethodResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3Aoperations%3ACreateContactMethodResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactMethodResponse' :: Int
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3AhttpStatus%3ACreateContactMethodResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethodResponse_operations"><span class="hs-identifier hs-type">createContactMethodResponse_operations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-type">CreateContactMethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="createContactMethodResponse_operations"><span class="annot"><span class="annottext">createContactMethodResponse_operations :: (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; CreateContactMethodResponse -&gt; f CreateContactMethodResponse
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethodResponse_operations"><span class="hs-identifier hs-var hs-var">createContactMethodResponse_operations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactMethodResponse -&gt; Maybe [Operation])
+-&gt; (CreateContactMethodResponse
+    -&gt; Maybe [Operation] -&gt; CreateContactMethodResponse)
+-&gt; Lens
+     CreateContactMethodResponse
+     CreateContactMethodResponse
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse%27"><span class="hs-identifier hs-type">CreateContactMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660739"><span class="annot"><span class="annottext">Maybe [Operation]
+operations :: Maybe [Operation]
+$sel:operations:CreateContactMethodResponse' :: CreateContactMethodResponse -&gt; Maybe [Operation]
+</span><a href="#local-6989586621679660739"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679660739"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660738"><span class="annot"><span class="annottext">s :: CreateContactMethodResponse
+</span><a href="#local-6989586621679660738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse%27"><span class="hs-identifier hs-type">CreateContactMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660737"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679660737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactMethodResponse
+</span><a href="#local-6989586621679660738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CreateContactMethodResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3Aoperations%3ACreateContactMethodResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679660737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-type">CreateContactMethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+ -&gt; CreateContactMethodResponse -&gt; f CreateContactMethodResponse)
+-&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
+    -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; CreateContactMethodResponse
+-&gt; f CreateContactMethodResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+-&gt; Iso
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethodResponse_httpStatus"><span class="hs-identifier hs-type">createContactMethodResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-type">CreateContactMethodResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-284"></span><span id="createContactMethodResponse_httpStatus"><span class="annot"><span class="annottext">createContactMethodResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateContactMethodResponse -&gt; f CreateContactMethodResponse
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#createContactMethodResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createContactMethodResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactMethodResponse -&gt; Int)
+-&gt; (CreateContactMethodResponse
+    -&gt; Int -&gt; CreateContactMethodResponse)
+-&gt; Lens
+     CreateContactMethodResponse CreateContactMethodResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse%27"><span class="hs-identifier hs-type">CreateContactMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660733"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateContactMethodResponse' :: CreateContactMethodResponse -&gt; Int
+</span><a href="#local-6989586621679660733"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660733"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660732"><span class="annot"><span class="annottext">s :: CreateContactMethodResponse
+</span><a href="#local-6989586621679660732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse%27"><span class="hs-identifier hs-type">CreateContactMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactMethodResponse
+</span><a href="#local-6989586621679660732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactMethodResponse' :: Int
+</span><a href="Amazonka.Lightsail.CreateContactMethod.html#%24sel%3AhttpStatus%3ACreateContactMethodResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-type">CreateContactMethodResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.CreateContactMethod.html#CreateContactMethodResponse"><span class="hs-identifier hs-type">CreateContactMethodResponse</span></a></span></span><span>
+</span><span id="line-287"></span></pre></body></html>

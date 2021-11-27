@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.DeleteHumanTaskUi</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Use this operation to delete a human task user interface (worker task</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- template).</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To see a list of human task user interfaces (work task templates) in</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- your account, use . When you delete a worker task template, it no longer</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- appears when you call @ListHumanTaskUis@.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.DeleteHumanTaskUi</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier">DeleteHumanTaskUi</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#newDeleteHumanTaskUi"><span class="hs-identifier">newDeleteHumanTaskUi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#deleteHumanTaskUi_humanTaskUiName"><span class="hs-identifier">deleteHumanTaskUi_humanTaskUiName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse"><span class="hs-identifier">DeleteHumanTaskUiResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#newDeleteHumanTaskUiResponse"><span class="hs-identifier">newDeleteHumanTaskUiResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#deleteHumanTaskUiResponse_httpStatus"><span class="hs-identifier">deleteHumanTaskUiResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteHumanTaskUi' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621680408584"><span id="local-6989586621680408585"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHumanTaskUi"><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-var">DeleteHumanTaskUi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHumanTaskUi%27"><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi%27"><span class="hs-identifier hs-var">DeleteHumanTaskUi'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the human task user interface (work task template) you want</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AhumanTaskUiName%3ADeleteHumanTaskUi%27"><span class="annot"><span class="annottext">DeleteHumanTaskUi -&gt; Text
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#%24sel%3AhumanTaskUiName%3ADeleteHumanTaskUi%27"><span class="hs-identifier hs-var hs-var">humanTaskUiName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408578"><span id="local-6989586621680408580"><span class="annot"><span class="annottext">DeleteHumanTaskUi -&gt; DeleteHumanTaskUi -&gt; Bool
+(DeleteHumanTaskUi -&gt; DeleteHumanTaskUi -&gt; Bool)
+-&gt; (DeleteHumanTaskUi -&gt; DeleteHumanTaskUi -&gt; Bool)
+-&gt; Eq DeleteHumanTaskUi
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteHumanTaskUi -&gt; DeleteHumanTaskUi -&gt; Bool
+$c/= :: DeleteHumanTaskUi -&gt; DeleteHumanTaskUi -&gt; Bool
+== :: DeleteHumanTaskUi -&gt; DeleteHumanTaskUi -&gt; Bool
+$c== :: DeleteHumanTaskUi -&gt; DeleteHumanTaskUi -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408569"><span id="local-6989586621680408571"><span id="local-6989586621680408573"><span id="local-6989586621680408575"><span class="annot"><span class="annottext">ReadPrec [DeleteHumanTaskUi]
+ReadPrec DeleteHumanTaskUi
+Int -&gt; ReadS DeleteHumanTaskUi
+ReadS [DeleteHumanTaskUi]
+(Int -&gt; ReadS DeleteHumanTaskUi)
+-&gt; ReadS [DeleteHumanTaskUi]
+-&gt; ReadPrec DeleteHumanTaskUi
+-&gt; ReadPrec [DeleteHumanTaskUi]
+-&gt; Read DeleteHumanTaskUi
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteHumanTaskUi]
+$creadListPrec :: ReadPrec [DeleteHumanTaskUi]
+readPrec :: ReadPrec DeleteHumanTaskUi
+$creadPrec :: ReadPrec DeleteHumanTaskUi
+readList :: ReadS [DeleteHumanTaskUi]
+$creadList :: ReadS [DeleteHumanTaskUi]
+readsPrec :: Int -&gt; ReadS DeleteHumanTaskUi
+$creadsPrec :: Int -&gt; ReadS DeleteHumanTaskUi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408562"><span id="local-6989586621680408564"><span id="local-6989586621680408566"><span class="annot"><span class="annottext">Int -&gt; DeleteHumanTaskUi -&gt; ShowS
+[DeleteHumanTaskUi] -&gt; ShowS
+DeleteHumanTaskUi -&gt; String
+(Int -&gt; DeleteHumanTaskUi -&gt; ShowS)
+-&gt; (DeleteHumanTaskUi -&gt; String)
+-&gt; ([DeleteHumanTaskUi] -&gt; ShowS)
+-&gt; Show DeleteHumanTaskUi
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteHumanTaskUi] -&gt; ShowS
+$cshowList :: [DeleteHumanTaskUi] -&gt; ShowS
+show :: DeleteHumanTaskUi -&gt; String
+$cshow :: DeleteHumanTaskUi -&gt; String
+showsPrec :: Int -&gt; DeleteHumanTaskUi -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteHumanTaskUi -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteHumanTaskUi -&gt; Rep DeleteHumanTaskUi x)
+-&gt; (forall x. Rep DeleteHumanTaskUi x -&gt; DeleteHumanTaskUi)
+-&gt; Generic DeleteHumanTaskUi
+forall x. Rep DeleteHumanTaskUi x -&gt; DeleteHumanTaskUi
+forall x. DeleteHumanTaskUi -&gt; Rep DeleteHumanTaskUi x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteHumanTaskUi x -&gt; DeleteHumanTaskUi
+$cfrom :: forall x. DeleteHumanTaskUi -&gt; Rep DeleteHumanTaskUi x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteHumanTaskUi' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'humanTaskUiName', 'deleteHumanTaskUi_humanTaskUiName' - The name of the human task user interface (work task template) you want</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#newDeleteHumanTaskUi"><span class="hs-identifier hs-type">newDeleteHumanTaskUi</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'humanTaskUiName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span>
+</span><span id="line-75"></span><span id="newDeleteHumanTaskUi"><span class="annot"><span class="annottext">newDeleteHumanTaskUi :: Text -&gt; DeleteHumanTaskUi
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#newDeleteHumanTaskUi"><span class="hs-identifier hs-var hs-var">newDeleteHumanTaskUi</span></a></span></span><span> </span><span id="local-6989586621680408557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408557"><span class="hs-identifier hs-var">pHumanTaskUiName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteHumanTaskUi' :: Text -&gt; DeleteHumanTaskUi
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi%27"><span class="hs-identifier hs-type">DeleteHumanTaskUi'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:humanTaskUiName:DeleteHumanTaskUi' :: Text
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#%24sel%3AhumanTaskUiName%3ADeleteHumanTaskUi%27"><span class="hs-identifier hs-var">humanTaskUiName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408557"><span class="hs-identifier hs-var">pHumanTaskUiName_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the human task user interface (work task template) you want</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#deleteHumanTaskUi_humanTaskUiName"><span class="hs-identifier hs-type">deleteHumanTaskUi_humanTaskUiName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="deleteHumanTaskUi_humanTaskUiName"><span class="annot"><span class="annottext">deleteHumanTaskUi_humanTaskUiName :: (Text -&gt; f Text) -&gt; DeleteHumanTaskUi -&gt; f DeleteHumanTaskUi
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#deleteHumanTaskUi_humanTaskUiName"><span class="hs-identifier hs-var hs-var">deleteHumanTaskUi_humanTaskUiName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteHumanTaskUi -&gt; Text)
+-&gt; (DeleteHumanTaskUi -&gt; Text -&gt; DeleteHumanTaskUi)
+-&gt; Lens DeleteHumanTaskUi DeleteHumanTaskUi Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi%27"><span class="hs-identifier hs-type">DeleteHumanTaskUi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408554"><span class="annot"><span class="annottext">Text
+humanTaskUiName :: Text
+$sel:humanTaskUiName:DeleteHumanTaskUi' :: DeleteHumanTaskUi -&gt; Text
+</span><a href="#local-6989586621680408554"><span class="hs-identifier hs-var hs-var">humanTaskUiName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408554"><span class="hs-identifier hs-var">humanTaskUiName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408553"><span class="annot"><span class="annottext">s :: DeleteHumanTaskUi
+</span><a href="#local-6989586621680408553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi%27"><span class="hs-identifier hs-type">DeleteHumanTaskUi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHumanTaskUi
+</span><a href="#local-6989586621680408553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanTaskUiName:DeleteHumanTaskUi' :: Text
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#%24sel%3AhumanTaskUiName%3ADeleteHumanTaskUi%27"><span class="hs-identifier hs-var">humanTaskUiName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680408548"><span class="annot"><span class="annottext">request :: DeleteHumanTaskUi -&gt; Request DeleteHumanTaskUi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteHumanTaskUi -&gt; Request DeleteHumanTaskUi
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680408544"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteHumanTaskUi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteHumanTaskUi)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteHumanTaskUi))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteHumanTaskUi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteHumanTaskUi)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680408541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680408540"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680408540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680408539"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680408539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteHumanTaskUiResponse
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-var">DeleteHumanTaskUiResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteHumanTaskUiResponse)
+-&gt; Either String Int -&gt; Either String DeleteHumanTaskUiResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408532"><span id="local-6989586621680408534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680408525"><span class="annot"><span class="annottext">toHeaders :: DeleteHumanTaskUi -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteHumanTaskUi -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DeleteHumanTaskUi&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408515"><span id="local-6989586621680408517"><span id="local-6989586621680408519"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621680408513"><span class="annot"><span class="annottext">toJSON :: DeleteHumanTaskUi -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi%27"><span class="hs-identifier hs-type">DeleteHumanTaskUi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408511"><span class="annot"><span class="annottext">Text
+humanTaskUiName :: Text
+$sel:humanTaskUiName:DeleteHumanTaskUi' :: DeleteHumanTaskUi -&gt; Text
+</span><a href="#local-6989586621680408511"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HumanTaskUiName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408511"><span class="hs-identifier hs-var">humanTaskUiName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621680408505"><span class="annot"><span class="annottext">toPath :: DeleteHumanTaskUi -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteHumanTaskUi -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUi"><span class="hs-identifier hs-type">DeleteHumanTaskUi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621680408501"><span class="annot"><span class="annottext">toQuery :: DeleteHumanTaskUi -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteHumanTaskUi -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDeleteHumanTaskUiResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621680408498"><span id="local-6989586621680408499"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHumanTaskUiResponse"><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse"><span class="hs-identifier hs-var">DeleteHumanTaskUiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHumanTaskUiResponse%27"><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-var">DeleteHumanTaskUiResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteHumanTaskUiResponse%27"><span class="annot"><span class="annottext">DeleteHumanTaskUiResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#%24sel%3AhttpStatus%3ADeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408493"><span id="local-6989586621680408495"><span class="annot"><span class="annottext">DeleteHumanTaskUiResponse -&gt; DeleteHumanTaskUiResponse -&gt; Bool
+(DeleteHumanTaskUiResponse -&gt; DeleteHumanTaskUiResponse -&gt; Bool)
+-&gt; (DeleteHumanTaskUiResponse -&gt; DeleteHumanTaskUiResponse -&gt; Bool)
+-&gt; Eq DeleteHumanTaskUiResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteHumanTaskUiResponse -&gt; DeleteHumanTaskUiResponse -&gt; Bool
+$c/= :: DeleteHumanTaskUiResponse -&gt; DeleteHumanTaskUiResponse -&gt; Bool
+== :: DeleteHumanTaskUiResponse -&gt; DeleteHumanTaskUiResponse -&gt; Bool
+$c== :: DeleteHumanTaskUiResponse -&gt; DeleteHumanTaskUiResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408485"><span id="local-6989586621680408487"><span id="local-6989586621680408489"><span id="local-6989586621680408491"><span class="annot"><span class="annottext">ReadPrec [DeleteHumanTaskUiResponse]
+ReadPrec DeleteHumanTaskUiResponse
+Int -&gt; ReadS DeleteHumanTaskUiResponse
+ReadS [DeleteHumanTaskUiResponse]
+(Int -&gt; ReadS DeleteHumanTaskUiResponse)
+-&gt; ReadS [DeleteHumanTaskUiResponse]
+-&gt; ReadPrec DeleteHumanTaskUiResponse
+-&gt; ReadPrec [DeleteHumanTaskUiResponse]
+-&gt; Read DeleteHumanTaskUiResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteHumanTaskUiResponse]
+$creadListPrec :: ReadPrec [DeleteHumanTaskUiResponse]
+readPrec :: ReadPrec DeleteHumanTaskUiResponse
+$creadPrec :: ReadPrec DeleteHumanTaskUiResponse
+readList :: ReadS [DeleteHumanTaskUiResponse]
+$creadList :: ReadS [DeleteHumanTaskUiResponse]
+readsPrec :: Int -&gt; ReadS DeleteHumanTaskUiResponse
+$creadsPrec :: Int -&gt; ReadS DeleteHumanTaskUiResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408479"><span id="local-6989586621680408481"><span id="local-6989586621680408483"><span class="annot"><span class="annottext">Int -&gt; DeleteHumanTaskUiResponse -&gt; ShowS
+[DeleteHumanTaskUiResponse] -&gt; ShowS
+DeleteHumanTaskUiResponse -&gt; String
+(Int -&gt; DeleteHumanTaskUiResponse -&gt; ShowS)
+-&gt; (DeleteHumanTaskUiResponse -&gt; String)
+-&gt; ([DeleteHumanTaskUiResponse] -&gt; ShowS)
+-&gt; Show DeleteHumanTaskUiResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteHumanTaskUiResponse] -&gt; ShowS
+$cshowList :: [DeleteHumanTaskUiResponse] -&gt; ShowS
+show :: DeleteHumanTaskUiResponse -&gt; String
+$cshow :: DeleteHumanTaskUiResponse -&gt; String
+showsPrec :: Int -&gt; DeleteHumanTaskUiResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteHumanTaskUiResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteHumanTaskUiResponse -&gt; Rep DeleteHumanTaskUiResponse x)
+-&gt; (forall x.
+    Rep DeleteHumanTaskUiResponse x -&gt; DeleteHumanTaskUiResponse)
+-&gt; Generic DeleteHumanTaskUiResponse
+forall x.
+Rep DeleteHumanTaskUiResponse x -&gt; DeleteHumanTaskUiResponse
+forall x.
+DeleteHumanTaskUiResponse -&gt; Rep DeleteHumanTaskUiResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteHumanTaskUiResponse x -&gt; DeleteHumanTaskUiResponse
+$cfrom :: forall x.
+DeleteHumanTaskUiResponse -&gt; Rep DeleteHumanTaskUiResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'DeleteHumanTaskUiResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'deleteHumanTaskUiResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#newDeleteHumanTaskUiResponse"><span class="hs-identifier hs-type">newDeleteHumanTaskUiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newDeleteHumanTaskUiResponse"><span class="annot"><span class="annottext">newDeleteHumanTaskUiResponse :: Int -&gt; DeleteHumanTaskUiResponse
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#newDeleteHumanTaskUiResponse"><span class="hs-identifier hs-var hs-var">newDeleteHumanTaskUiResponse</span></a></span></span><span> </span><span id="local-6989586621680408476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DeleteHumanTaskUiResponse' :: Int -&gt; DeleteHumanTaskUiResponse
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteHumanTaskUiResponse' :: Int
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#%24sel%3AhttpStatus%3ADeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#deleteHumanTaskUiResponse_httpStatus"><span class="hs-identifier hs-type">deleteHumanTaskUiResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span id="deleteHumanTaskUiResponse_httpStatus"><span class="annot"><span class="annottext">deleteHumanTaskUiResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteHumanTaskUiResponse -&gt; f DeleteHumanTaskUiResponse
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#deleteHumanTaskUiResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteHumanTaskUiResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteHumanTaskUiResponse -&gt; Int)
+-&gt; (DeleteHumanTaskUiResponse -&gt; Int -&gt; DeleteHumanTaskUiResponse)
+-&gt; Lens DeleteHumanTaskUiResponse DeleteHumanTaskUiResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408475"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteHumanTaskUiResponse' :: DeleteHumanTaskUiResponse -&gt; Int
+</span><a href="#local-6989586621680408475"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408475"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408474"><span class="annot"><span class="annottext">s :: DeleteHumanTaskUiResponse
+</span><a href="#local-6989586621680408474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHumanTaskUiResponse
+</span><a href="#local-6989586621680408474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteHumanTaskUiResponse' :: Int
+</span><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#%24sel%3AhttpStatus%3ADeleteHumanTaskUiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteHumanTaskUi.html#DeleteHumanTaskUiResponse"><span class="hs-identifier hs-type">DeleteHumanTaskUiResponse</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

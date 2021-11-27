@@ -1,0 +1,1015 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.Types.Evidence</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.Types.Evidence</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Resource</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A record that contains the information needed to demonstrate compliance</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- with the requirements specified by a control. Examples of evidence</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- include change activity triggered by a user, or a system configuration</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- snapshot.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEvidence' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679293857"><span id="local-6989586621679293858"></span></span><span class="hs-keyword">data</span><span> </span><span id="Evidence"><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-var">Evidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Evidence%27"><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-var">Evidence'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp that represents when the evidence was collected.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atime%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Atime%3AEvidence%27"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies whether the evidence is included in the assessment report.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AassessmentReportSelection%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AassessmentReportSelection%3AEvidence%27"><span class="hs-identifier hs-var hs-var">assessmentReportSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of automated evidence.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AevidenceByType%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceByType%3AEvidence%27"><span class="hs-identifier hs-var hs-var">evidenceByType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The evaluation status for evidence that falls under the compliance check</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- category. For evidence collected from Security Hub, a /Pass/ or /Fail/</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- result is shown. For evidence collected from Config, a /Compliant/ or</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- /Noncompliant/ result is shown.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcomplianceCheck%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AcomplianceCheck%3AEvidence%27"><span class="hs-identifier hs-var hs-var">complianceCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account from which the evidence is collected,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- and its organization path.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AawsOrganization%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AawsOrganization%3AEvidence%27"><span class="hs-identifier hs-var hs-var">awsOrganization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified Amazon Web Services account.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AawsAccountId%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AawsAccountId%3AEvidence%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The names and values used by the evidence event, including an attribute</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- name (such as @allowUsersToChangePassword@) and value (such as @true@ or</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @false@).</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aattributes%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Aattributes%3AEvidence%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified Amazon Web Services account.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AevidenceAwsAccountId%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceAwsAccountId%3AEvidence%27"><span class="hs-identifier hs-var hs-var">evidenceAwsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The identifier for the evidence.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aid%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Aid%3AEvidence%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The data source from which the specified evidence was collected.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdataSource%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AdataSource%3AEvidence%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The identifier for the folder in which the evidence is stored.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AevidenceFolderId%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceFolderId%3AEvidence%27"><span class="hs-identifier hs-var hs-var">evidenceFolderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the IAM user or role associated with the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- evidence.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AiamId%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AiamId%3AEvidence%27"><span class="hs-identifier hs-var hs-var">iamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the specified evidence event.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AeventName%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AeventName%3AEvidence%27"><span class="hs-identifier hs-var hs-var">eventName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The list of resources assessed to generate the evidence.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AresourcesIncluded%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe [Resource]
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AresourcesIncluded%3AEvidence%27"><span class="hs-identifier hs-var hs-var">resourcesIncluded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Service from which the evidence is collected.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AeventSource%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AeventSource%3AEvidence%27"><span class="hs-identifier hs-var hs-var">eventSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293837"><span id="local-6989586621679293839"><span class="annot"><span class="annottext">Evidence -&gt; Evidence -&gt; Bool
+(Evidence -&gt; Evidence -&gt; Bool)
+-&gt; (Evidence -&gt; Evidence -&gt; Bool) -&gt; Eq Evidence
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Evidence -&gt; Evidence -&gt; Bool
+$c/= :: Evidence -&gt; Evidence -&gt; Bool
+== :: Evidence -&gt; Evidence -&gt; Bool
+$c== :: Evidence -&gt; Evidence -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293828"><span id="local-6989586621679293830"><span id="local-6989586621679293832"><span id="local-6989586621679293834"><span class="annot"><span class="annottext">ReadPrec [Evidence]
+ReadPrec Evidence
+Int -&gt; ReadS Evidence
+ReadS [Evidence]
+(Int -&gt; ReadS Evidence)
+-&gt; ReadS [Evidence]
+-&gt; ReadPrec Evidence
+-&gt; ReadPrec [Evidence]
+-&gt; Read Evidence
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Evidence]
+$creadListPrec :: ReadPrec [Evidence]
+readPrec :: ReadPrec Evidence
+$creadPrec :: ReadPrec Evidence
+readList :: ReadS [Evidence]
+$creadList :: ReadS [Evidence]
+readsPrec :: Int -&gt; ReadS Evidence
+$creadsPrec :: Int -&gt; ReadS Evidence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293821"><span id="local-6989586621679293823"><span id="local-6989586621679293825"><span class="annot"><span class="annottext">Int -&gt; Evidence -&gt; ShowS
+[Evidence] -&gt; ShowS
+Evidence -&gt; String
+(Int -&gt; Evidence -&gt; ShowS)
+-&gt; (Evidence -&gt; String) -&gt; ([Evidence] -&gt; ShowS) -&gt; Show Evidence
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Evidence] -&gt; ShowS
+$cshowList :: [Evidence] -&gt; ShowS
+show :: Evidence -&gt; String
+$cshow :: Evidence -&gt; String
+showsPrec :: Int -&gt; Evidence -&gt; ShowS
+$cshowsPrec :: Int -&gt; Evidence -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Evidence -&gt; Rep Evidence x)
+-&gt; (forall x. Rep Evidence x -&gt; Evidence) -&gt; Generic Evidence
+forall x. Rep Evidence x -&gt; Evidence
+forall x. Evidence -&gt; Rep Evidence x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Evidence x -&gt; Evidence
+$cfrom :: forall x. Evidence -&gt; Rep Evidence x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'Evidence' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'time', 'evidence_time' - The timestamp that represents when the evidence was collected.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'assessmentReportSelection', 'evidence_assessmentReportSelection' - Specifies whether the evidence is included in the assessment report.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'evidenceByType', 'evidence_evidenceByType' - The type of automated evidence.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'complianceCheck', 'evidence_complianceCheck' - The evaluation status for evidence that falls under the compliance check</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- category. For evidence collected from Security Hub, a /Pass/ or /Fail/</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- result is shown. For evidence collected from Config, a /Compliant/ or</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- /Noncompliant/ result is shown.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'awsOrganization', 'evidence_awsOrganization' - The Amazon Web Services account from which the evidence is collected,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- and its organization path.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'awsAccountId', 'evidence_awsAccountId' - The identifier for the specified Amazon Web Services account.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'attributes', 'evidence_attributes' - The names and values used by the evidence event, including an attribute</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- name (such as @allowUsersToChangePassword@) and value (such as @true@ or</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @false@).</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'evidenceAwsAccountId', 'evidence_evidenceAwsAccountId' - The identifier for the specified Amazon Web Services account.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'id', 'evidence_id' - The identifier for the evidence.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'dataSource', 'evidence_dataSource' - The data source from which the specified evidence was collected.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'evidenceFolderId', 'evidence_evidenceFolderId' - The identifier for the folder in which the evidence is stored.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'iamId', 'evidence_iamId' - The unique identifier for the IAM user or role associated with the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- evidence.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'eventName', 'evidence_eventName' - The name of the specified evidence event.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'resourcesIncluded', 'evidence_resourcesIncluded' - The list of resources assessed to generate the evidence.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'eventSource', 'evidence_eventSource' - The Amazon Web Service from which the evidence is collected.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#newEvidence"><span class="hs-identifier hs-type">newEvidence</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span>
+</span><span id="line-120"></span><span id="newEvidence"><span class="annot"><span class="annottext">newEvidence :: Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#newEvidence"><span class="hs-identifier hs-var hs-var">newEvidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">Evidence' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Resource]
+-&gt; Maybe Text
+-&gt; Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:time:Evidence' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Atime%3AEvidence%27"><span class="hs-identifier hs-var">time</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentReportSelection:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AassessmentReportSelection%3AEvidence%27"><span class="hs-identifier hs-var">assessmentReportSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceByType:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceByType%3AEvidence%27"><span class="hs-identifier hs-var">evidenceByType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceCheck:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AcomplianceCheck%3AEvidence%27"><span class="hs-identifier hs-var">complianceCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsOrganization:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AawsOrganization%3AEvidence%27"><span class="hs-identifier hs-var">awsOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AawsAccountId%3AEvidence%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:Evidence' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Aattributes%3AEvidence%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceAwsAccountId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceAwsAccountId%3AEvidence%27"><span class="hs-identifier hs-var">evidenceAwsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Aid%3AEvidence%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSource:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AdataSource%3AEvidence%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceFolderId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceFolderId%3AEvidence%27"><span class="hs-identifier hs-var">evidenceFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AiamId%3AEvidence%27"><span class="hs-identifier hs-var">iamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventName:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AeventName%3AEvidence%27"><span class="hs-identifier hs-var">eventName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourcesIncluded:Evidence' :: Maybe [Resource]
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AresourcesIncluded%3AEvidence%27"><span class="hs-identifier hs-var">resourcesIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventSource:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AeventSource%3AEvidence%27"><span class="hs-identifier hs-var">eventSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The timestamp that represents when the evidence was collected.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_time"><span class="hs-identifier hs-type">evidence_time</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="evidence_time"><span class="annot"><span class="annottext">evidence_time :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_time"><span class="hs-identifier hs-var hs-var">evidence_time</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe POSIX)
+-&gt; (Evidence -&gt; Maybe POSIX -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293812"><span class="annot"><span class="annottext">Maybe POSIX
+time :: Maybe POSIX
+$sel:time:Evidence' :: Evidence -&gt; Maybe POSIX
+</span><a href="#local-6989586621679293812"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679293812"><span class="hs-identifier hs-var">time</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293811"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293810"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679293810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:time:Evidence' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Atime%3AEvidence%27"><span class="hs-identifier hs-var">time</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679293810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Evidence -&gt; f Evidence)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Evidence
+-&gt; f Evidence
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Specifies whether the evidence is included in the assessment report.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_assessmentReportSelection"><span class="hs-identifier hs-type">evidence_assessmentReportSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="evidence_assessmentReportSelection"><span class="annot"><span class="annottext">evidence_assessmentReportSelection :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_assessmentReportSelection"><span class="hs-identifier hs-var hs-var">evidence_assessmentReportSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293805"><span class="annot"><span class="annottext">Maybe Text
+assessmentReportSelection :: Maybe Text
+$sel:assessmentReportSelection:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293805"><span class="hs-identifier hs-var hs-var">assessmentReportSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293805"><span class="hs-identifier hs-var">assessmentReportSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293804"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentReportSelection:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AassessmentReportSelection%3AEvidence%27"><span class="hs-identifier hs-var">assessmentReportSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The type of automated evidence.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceByType"><span class="hs-identifier hs-type">evidence_evidenceByType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="evidence_evidenceByType"><span class="annot"><span class="annottext">evidence_evidenceByType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceByType"><span class="hs-identifier hs-var hs-var">evidence_evidenceByType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293801"><span class="annot"><span class="annottext">Maybe Text
+evidenceByType :: Maybe Text
+$sel:evidenceByType:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293801"><span class="hs-identifier hs-var hs-var">evidenceByType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293801"><span class="hs-identifier hs-var">evidenceByType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293800"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293799"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceByType:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceByType%3AEvidence%27"><span class="hs-identifier hs-var">evidenceByType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The evaluation status for evidence that falls under the compliance check</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- category. For evidence collected from Security Hub, a /Pass/ or /Fail/</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- result is shown. For evidence collected from Config, a /Compliant/ or</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- /Noncompliant/ result is shown.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_complianceCheck"><span class="hs-identifier hs-type">evidence_complianceCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="evidence_complianceCheck"><span class="annot"><span class="annottext">evidence_complianceCheck :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_complianceCheck"><span class="hs-identifier hs-var hs-var">evidence_complianceCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293797"><span class="annot"><span class="annottext">Maybe Text
+complianceCheck :: Maybe Text
+$sel:complianceCheck:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293797"><span class="hs-identifier hs-var hs-var">complianceCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293797"><span class="hs-identifier hs-var">complianceCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293796"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293795"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceCheck:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AcomplianceCheck%3AEvidence%27"><span class="hs-identifier hs-var">complianceCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The Amazon Web Services account from which the evidence is collected,</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- and its organization path.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_awsOrganization"><span class="hs-identifier hs-type">evidence_awsOrganization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="evidence_awsOrganization"><span class="annot"><span class="annottext">evidence_awsOrganization :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_awsOrganization"><span class="hs-identifier hs-var hs-var">evidence_awsOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293793"><span class="annot"><span class="annottext">Maybe Text
+awsOrganization :: Maybe Text
+$sel:awsOrganization:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293793"><span class="hs-identifier hs-var hs-var">awsOrganization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293793"><span class="hs-identifier hs-var">awsOrganization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293792"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsOrganization:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AawsOrganization%3AEvidence%27"><span class="hs-identifier hs-var">awsOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The identifier for the specified Amazon Web Services account.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_awsAccountId"><span class="hs-identifier hs-type">evidence_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="evidence_awsAccountId"><span class="annot"><span class="annottext">evidence_awsAccountId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_awsAccountId"><span class="hs-identifier hs-var hs-var">evidence_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293789"><span class="annot"><span class="annottext">Maybe Text
+awsAccountId :: Maybe Text
+$sel:awsAccountId:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293789"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293789"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293788"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AawsAccountId%3AEvidence%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The names and values used by the evidence event, including an attribute</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- name (such as @allowUsersToChangePassword@) and value (such as @true@ or</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @false@).</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_attributes"><span class="hs-identifier hs-type">evidence_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="evidence_attributes"><span class="annot"><span class="annottext">evidence_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_attributes"><span class="hs-identifier hs-var hs-var">evidence_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe (HashMap Text Text))
+-&gt; (Evidence -&gt; Maybe (HashMap Text Text) -&gt; Evidence)
+-&gt; Lens
+     Evidence
+     Evidence
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293785"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:Evidence' :: Evidence -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293784"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293783"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679293783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Evidence' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Aattributes%3AEvidence%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679293783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Evidence -&gt; f Evidence)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Evidence
+-&gt; f Evidence
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The identifier for the specified Amazon Web Services account.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceAwsAccountId"><span class="hs-identifier hs-type">evidence_evidenceAwsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="evidence_evidenceAwsAccountId"><span class="annot"><span class="annottext">evidence_evidenceAwsAccountId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceAwsAccountId"><span class="hs-identifier hs-var hs-var">evidence_evidenceAwsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293780"><span class="annot"><span class="annottext">Maybe Text
+evidenceAwsAccountId :: Maybe Text
+$sel:evidenceAwsAccountId:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293780"><span class="hs-identifier hs-var hs-var">evidenceAwsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293780"><span class="hs-identifier hs-var">evidenceAwsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293779"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceAwsAccountId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceAwsAccountId%3AEvidence%27"><span class="hs-identifier hs-var">evidenceAwsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The identifier for the evidence.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_id"><span class="hs-identifier hs-type">evidence_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="evidence_id"><span class="annot"><span class="annottext">evidence_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_id"><span class="hs-identifier hs-var hs-var">evidence_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293776"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293776"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293776"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293775"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293774"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3Aid%3AEvidence%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The data source from which the specified evidence was collected.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_dataSource"><span class="hs-identifier hs-type">evidence_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="evidence_dataSource"><span class="annot"><span class="annottext">evidence_dataSource :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_dataSource"><span class="hs-identifier hs-var hs-var">evidence_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293772"><span class="annot"><span class="annottext">Maybe Text
+dataSource :: Maybe Text
+$sel:dataSource:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293772"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293772"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293771"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AdataSource%3AEvidence%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The identifier for the folder in which the evidence is stored.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceFolderId"><span class="hs-identifier hs-type">evidence_evidenceFolderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="evidence_evidenceFolderId"><span class="annot"><span class="annottext">evidence_evidenceFolderId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_evidenceFolderId"><span class="hs-identifier hs-var hs-var">evidence_evidenceFolderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293768"><span class="annot"><span class="annottext">Maybe Text
+evidenceFolderId :: Maybe Text
+$sel:evidenceFolderId:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293768"><span class="hs-identifier hs-var hs-var">evidenceFolderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293768"><span class="hs-identifier hs-var">evidenceFolderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293767"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceFolderId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AevidenceFolderId%3AEvidence%27"><span class="hs-identifier hs-var">evidenceFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The unique identifier for the IAM user or role associated with the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- evidence.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_iamId"><span class="hs-identifier hs-type">evidence_iamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="evidence_iamId"><span class="annot"><span class="annottext">evidence_iamId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_iamId"><span class="hs-identifier hs-var hs-var">evidence_iamId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293764"><span class="annot"><span class="annottext">Maybe Text
+iamId :: Maybe Text
+$sel:iamId:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293764"><span class="hs-identifier hs-var hs-var">iamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293764"><span class="hs-identifier hs-var">iamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293763"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293762"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamId:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AiamId%3AEvidence%27"><span class="hs-identifier hs-var">iamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The name of the specified evidence event.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_eventName"><span class="hs-identifier hs-type">evidence_eventName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="evidence_eventName"><span class="annot"><span class="annottext">evidence_eventName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_eventName"><span class="hs-identifier hs-var hs-var">evidence_eventName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293760"><span class="annot"><span class="annottext">Maybe Text
+eventName :: Maybe Text
+$sel:eventName:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293760"><span class="hs-identifier hs-var hs-var">eventName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293760"><span class="hs-identifier hs-var">eventName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293759"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293758"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventName:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AeventName%3AEvidence%27"><span class="hs-identifier hs-var">eventName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The list of resources assessed to generate the evidence.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_resourcesIncluded"><span class="hs-identifier hs-type">evidence_resourcesIncluded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="evidence_resourcesIncluded"><span class="annot"><span class="annottext">evidence_resourcesIncluded :: (Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_resourcesIncluded"><span class="hs-identifier hs-var hs-var">evidence_resourcesIncluded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe [Resource])
+-&gt; (Evidence -&gt; Maybe [Resource] -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe [Resource]) (Maybe [Resource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293756"><span class="annot"><span class="annottext">Maybe [Resource]
+resourcesIncluded :: Maybe [Resource]
+$sel:resourcesIncluded:Evidence' :: Evidence -&gt; Maybe [Resource]
+</span><a href="#local-6989586621679293756"><span class="hs-identifier hs-var hs-var">resourcesIncluded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679293756"><span class="hs-identifier hs-var">resourcesIncluded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293755"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293754"><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679293754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcesIncluded:Evidence' :: Maybe [Resource]
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AresourcesIncluded%3AEvidence%27"><span class="hs-identifier hs-var">resourcesIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679293754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Resource] -&gt; f (Maybe [Resource]))
+ -&gt; Evidence -&gt; f Evidence)
+-&gt; ((Maybe [Resource] -&gt; f (Maybe [Resource]))
+    -&gt; Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; (Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; Evidence
+-&gt; f Evidence
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Resource] [Resource] [Resource] [Resource]
+-&gt; Iso
+     (Maybe [Resource])
+     (Maybe [Resource])
+     (Maybe [Resource])
+     (Maybe [Resource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Resource] [Resource] [Resource] [Resource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The Amazon Web Service from which the evidence is collected.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_eventSource"><span class="hs-identifier hs-type">evidence_eventSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="evidence_eventSource"><span class="annot"><span class="annottext">evidence_eventSource :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#evidence_eventSource"><span class="hs-identifier hs-var hs-var">evidence_eventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe Text)
+-&gt; (Evidence -&gt; Maybe Text -&gt; Evidence)
+-&gt; Lens Evidence Evidence (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293752"><span class="annot"><span class="annottext">Maybe Text
+eventSource :: Maybe Text
+$sel:eventSource:Evidence' :: Evidence -&gt; Maybe Text
+</span><a href="#local-6989586621679293752"><span class="hs-identifier hs-var hs-var">eventSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293752"><span class="hs-identifier hs-var">eventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293751"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679293751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293750"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679293751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSource:Evidence' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#%24sel%3AeventSource%3AEvidence%27"><span class="hs-identifier hs-var">eventSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293747"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679293745"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Evidence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Evidence) -&gt; Value -&gt; Parser Evidence
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Evidence&quot;</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293742"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Resource]
+-&gt; Maybe Text
+-&gt; Evidence
+</span><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-var">Evidence'</span></a></span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Resource]
+ -&gt; Maybe Text
+ -&gt; Evidence)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;time&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentReportSelection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceByType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;complianceCheck&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsOrganization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceAwsAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [Resource] -&gt; Maybe Text -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceFolderId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [Resource] -&gt; Maybe Text -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe [Resource] -&gt; Maybe Text -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Resource] -&gt; Maybe Text -&gt; Evidence)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Resource] -&gt; Maybe Text -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Resource] -&gt; Maybe Text -&gt; Evidence)
+-&gt; Parser (Maybe [Resource]) -&gt; Parser (Maybe Text -&gt; Evidence)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Resource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourcesIncluded&quot;</span></span><span>
+</span><span id="line-226"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Resource]))
+-&gt; Maybe [Resource] -&gt; Parser (Maybe [Resource])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-227"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Evidence)
+-&gt; Parser (Maybe Text) -&gt; Parser Evidence
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293735"><span id="local-6989586621679293737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span>
+</span><span id="line-234"></span></pre></body></html>

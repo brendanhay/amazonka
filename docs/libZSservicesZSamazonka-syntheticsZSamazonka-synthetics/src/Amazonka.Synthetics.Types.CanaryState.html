@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Synthetics.Types.CanaryState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Synthetics.Types.CanaryState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier">CanaryState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_CREATING"><span class="hs-identifier">CanaryState_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_DELETING"><span class="hs-identifier">CanaryState_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_ERROR"><span class="hs-identifier">CanaryState_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_READY"><span class="hs-identifier">CanaryState_READY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_RUNNING"><span class="hs-identifier">CanaryState_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STARTING"><span class="hs-identifier">CanaryState_STARTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STOPPED"><span class="hs-identifier">CanaryState_STOPPED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STOPPING"><span class="hs-identifier">CanaryState_STOPPING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_UPDATING"><span class="hs-identifier">CanaryState_UPDATING</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679181015"><span id="local-6989586621679181016"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CanaryState"><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-var">CanaryState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CanaryState%27"><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-var">CanaryState'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCanaryState"><span class="annot"><span class="annottext">CanaryState -&gt; Text
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#fromCanaryState"><span class="hs-identifier hs-var hs-var">fromCanaryState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679181007"><span id="local-6989586621679181009"><span id="local-6989586621679181011"><span class="annot"><span class="annottext">Int -&gt; CanaryState -&gt; ShowS
+[CanaryState] -&gt; ShowS
+CanaryState -&gt; String
+(Int -&gt; CanaryState -&gt; ShowS)
+-&gt; (CanaryState -&gt; String)
+-&gt; ([CanaryState] -&gt; ShowS)
+-&gt; Show CanaryState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CanaryState] -&gt; ShowS
+$cshowList :: [CanaryState] -&gt; ShowS
+show :: CanaryState -&gt; String
+$cshow :: CanaryState -&gt; String
+showsPrec :: Int -&gt; CanaryState -&gt; ShowS
+$cshowsPrec :: Int -&gt; CanaryState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679180998"><span id="local-6989586621679181000"><span id="local-6989586621679181002"><span id="local-6989586621679181004"><span class="annot"><span class="annottext">ReadPrec [CanaryState]
+ReadPrec CanaryState
+Int -&gt; ReadS CanaryState
+ReadS [CanaryState]
+(Int -&gt; ReadS CanaryState)
+-&gt; ReadS [CanaryState]
+-&gt; ReadPrec CanaryState
+-&gt; ReadPrec [CanaryState]
+-&gt; Read CanaryState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CanaryState]
+$creadListPrec :: ReadPrec [CanaryState]
+readPrec :: ReadPrec CanaryState
+$creadPrec :: ReadPrec CanaryState
+readList :: ReadS [CanaryState]
+$creadList :: ReadS [CanaryState]
+readsPrec :: Int -&gt; ReadS CanaryState
+$creadsPrec :: Int -&gt; ReadS CanaryState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679180993"><span id="local-6989586621679180995"><span class="annot"><span class="annottext">CanaryState -&gt; CanaryState -&gt; Bool
+(CanaryState -&gt; CanaryState -&gt; Bool)
+-&gt; (CanaryState -&gt; CanaryState -&gt; Bool) -&gt; Eq CanaryState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CanaryState -&gt; CanaryState -&gt; Bool
+$c/= :: CanaryState -&gt; CanaryState -&gt; Bool
+== :: CanaryState -&gt; CanaryState -&gt; Bool
+$c== :: CanaryState -&gt; CanaryState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679180977"><span id="local-6989586621679180979"><span id="local-6989586621679180981"><span id="local-6989586621679180983"><span id="local-6989586621679180985"><span id="local-6989586621679180987"><span id="local-6989586621679180989"><span class="annot"><span class="annottext">Eq CanaryState
+Eq CanaryState
+-&gt; (CanaryState -&gt; CanaryState -&gt; Ordering)
+-&gt; (CanaryState -&gt; CanaryState -&gt; Bool)
+-&gt; (CanaryState -&gt; CanaryState -&gt; Bool)
+-&gt; (CanaryState -&gt; CanaryState -&gt; Bool)
+-&gt; (CanaryState -&gt; CanaryState -&gt; Bool)
+-&gt; (CanaryState -&gt; CanaryState -&gt; CanaryState)
+-&gt; (CanaryState -&gt; CanaryState -&gt; CanaryState)
+-&gt; Ord CanaryState
+CanaryState -&gt; CanaryState -&gt; Bool
+CanaryState -&gt; CanaryState -&gt; Ordering
+CanaryState -&gt; CanaryState -&gt; CanaryState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CanaryState -&gt; CanaryState -&gt; CanaryState
+$cmin :: CanaryState -&gt; CanaryState -&gt; CanaryState
+max :: CanaryState -&gt; CanaryState -&gt; CanaryState
+$cmax :: CanaryState -&gt; CanaryState -&gt; CanaryState
+&gt;= :: CanaryState -&gt; CanaryState -&gt; Bool
+$c&gt;= :: CanaryState -&gt; CanaryState -&gt; Bool
+&gt; :: CanaryState -&gt; CanaryState -&gt; Bool
+$c&gt; :: CanaryState -&gt; CanaryState -&gt; Bool
+&lt;= :: CanaryState -&gt; CanaryState -&gt; Bool
+$c&lt;= :: CanaryState -&gt; CanaryState -&gt; Bool
+&lt; :: CanaryState -&gt; CanaryState -&gt; Bool
+$c&lt; :: CanaryState -&gt; CanaryState -&gt; Bool
+compare :: CanaryState -&gt; CanaryState -&gt; Ordering
+$ccompare :: CanaryState -&gt; CanaryState -&gt; Ordering
+$cp1Ord :: Eq CanaryState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CanaryState -&gt; Rep CanaryState x)
+-&gt; (forall x. Rep CanaryState x -&gt; CanaryState)
+-&gt; Generic CanaryState
+forall x. Rep CanaryState x -&gt; CanaryState
+forall x. CanaryState -&gt; Rep CanaryState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CanaryState x -&gt; CanaryState
+$cfrom :: forall x. CanaryState -&gt; Rep CanaryState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180969"><span id="local-6989586621679180971"><span class="annot"><span class="annottext">Int -&gt; CanaryState -&gt; Int
+CanaryState -&gt; Int
+(Int -&gt; CanaryState -&gt; Int)
+-&gt; (CanaryState -&gt; Int) -&gt; Hashable CanaryState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CanaryState -&gt; Int
+$chash :: CanaryState -&gt; Int
+hashWithSalt :: Int -&gt; CanaryState -&gt; Int
+$chashWithSalt :: Int -&gt; CanaryState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679180966"><span class="annot"><span class="annottext">CanaryState -&gt; ()
+(CanaryState -&gt; ()) -&gt; NFData CanaryState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CanaryState -&gt; ()
+$crnf :: CanaryState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679180963"><span class="annot"><span class="annottext">Text -&gt; Either String CanaryState
+(Text -&gt; Either String CanaryState) -&gt; FromText CanaryState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CanaryState
+$cfromText :: Text -&gt; Either String CanaryState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679180960"><span class="annot"><span class="annottext">CanaryState -&gt; Text
+(CanaryState -&gt; Text) -&gt; ToText CanaryState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CanaryState -&gt; Text
+$ctoText :: CanaryState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679180957"><span class="annot"><span class="annottext">CanaryState -&gt; ByteString
+(CanaryState -&gt; ByteString) -&gt; ToByteString CanaryState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CanaryState -&gt; ByteString
+$ctoBS :: CanaryState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679180954"><span class="annot"><span class="annottext">CanaryState -&gt; ByteStringBuilder
+(CanaryState -&gt; ByteStringBuilder) -&gt; ToLog CanaryState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CanaryState -&gt; ByteStringBuilder
+$cbuild :: CanaryState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679180951"><span class="annot"><span class="annottext">HeaderName -&gt; CanaryState -&gt; [Header]
+(HeaderName -&gt; CanaryState -&gt; [Header]) -&gt; ToHeader CanaryState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CanaryState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CanaryState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679180948"><span class="annot"><span class="annottext">CanaryState -&gt; QueryString
+(CanaryState -&gt; QueryString) -&gt; ToQuery CanaryState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CanaryState -&gt; QueryString
+$ctoQuery :: CanaryState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679180943"><span id="local-6989586621679180945"><span class="annot"><span class="annottext">Value -&gt; Parser [CanaryState]
+Value -&gt; Parser CanaryState
+(Value -&gt; Parser CanaryState)
+-&gt; (Value -&gt; Parser [CanaryState]) -&gt; FromJSON CanaryState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CanaryState]
+$cparseJSONList :: Value -&gt; Parser [CanaryState]
+parseJSON :: Value -&gt; Parser CanaryState
+$cparseJSON :: Value -&gt; Parser CanaryState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679180938"><span id="local-6989586621679180940"><span class="annot"><span class="annottext">FromJSONKeyFunction [CanaryState]
+FromJSONKeyFunction CanaryState
+FromJSONKeyFunction CanaryState
+-&gt; FromJSONKeyFunction [CanaryState] -&gt; FromJSONKey CanaryState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CanaryState]
+$cfromJSONKeyList :: FromJSONKeyFunction [CanaryState]
+fromJSONKey :: FromJSONKeyFunction CanaryState
+$cfromJSONKey :: FromJSONKeyFunction CanaryState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679180929"><span id="local-6989586621679180931"><span id="local-6989586621679180933"><span id="local-6989586621679180935"><span class="annot"><span class="annottext">[CanaryState] -&gt; Encoding
+[CanaryState] -&gt; Value
+CanaryState -&gt; Encoding
+CanaryState -&gt; Value
+(CanaryState -&gt; Value)
+-&gt; (CanaryState -&gt; Encoding)
+-&gt; ([CanaryState] -&gt; Value)
+-&gt; ([CanaryState] -&gt; Encoding)
+-&gt; ToJSON CanaryState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CanaryState] -&gt; Encoding
+$ctoEncodingList :: [CanaryState] -&gt; Encoding
+toJSONList :: [CanaryState] -&gt; Value
+$ctoJSONList :: [CanaryState] -&gt; Value
+toEncoding :: CanaryState -&gt; Encoding
+$ctoEncoding :: CanaryState -&gt; Encoding
+toJSON :: CanaryState -&gt; Value
+$ctoJSON :: CanaryState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679180924"><span id="local-6989586621679180926"><span class="annot"><span class="annottext">ToJSONKeyFunction [CanaryState]
+ToJSONKeyFunction CanaryState
+ToJSONKeyFunction CanaryState
+-&gt; ToJSONKeyFunction [CanaryState] -&gt; ToJSONKey CanaryState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CanaryState]
+$ctoJSONKeyList :: ToJSONKeyFunction [CanaryState]
+toJSONKey :: ToJSONKeyFunction CanaryState
+$ctoJSONKey :: ToJSONKeyFunction CanaryState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679180921"><span class="annot"><span class="annottext">[Node] -&gt; Either String CanaryState
+([Node] -&gt; Either String CanaryState) -&gt; FromXML CanaryState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CanaryState
+$cparseXML :: [Node] -&gt; Either String CanaryState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679180918"><span class="annot"><span class="annottext">CanaryState -&gt; XML
+(CanaryState -&gt; XML) -&gt; ToXML CanaryState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CanaryState -&gt; XML
+$ctoXML :: CanaryState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_CREATING"><span class="hs-identifier hs-type">CanaryState_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_CREATING"><span id="%24mCanaryState_CREATING"><span id="CanaryState_CREATING"><span class="annot"><span class="annottext">$bCanaryState_CREATING :: CanaryState
+$mCanaryState_CREATING :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_CREATING"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_DELETING"><span class="hs-identifier hs-type">CanaryState_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_DELETING"><span id="%24mCanaryState_DELETING"><span id="CanaryState_DELETING"><span class="annot"><span class="annottext">$bCanaryState_DELETING :: CanaryState
+$mCanaryState_DELETING :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_DELETING"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_ERROR"><span class="hs-identifier hs-type">CanaryState_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_ERROR"><span id="%24mCanaryState_ERROR"><span id="CanaryState_ERROR"><span class="annot"><span class="annottext">$bCanaryState_ERROR :: CanaryState
+$mCanaryState_ERROR :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_ERROR"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_READY"><span class="hs-identifier hs-type">CanaryState_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_READY"><span id="%24mCanaryState_READY"><span id="CanaryState_READY"><span class="annot"><span class="annottext">$bCanaryState_READY :: CanaryState
+$mCanaryState_READY :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_READY"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_RUNNING"><span class="hs-identifier hs-type">CanaryState_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_RUNNING"><span id="%24mCanaryState_RUNNING"><span id="CanaryState_RUNNING"><span class="annot"><span class="annottext">$bCanaryState_RUNNING :: CanaryState
+$mCanaryState_RUNNING :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STARTING"><span class="hs-identifier hs-type">CanaryState_STARTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_STARTING"><span id="%24mCanaryState_STARTING"><span id="CanaryState_STARTING"><span class="annot"><span class="annottext">$bCanaryState_STARTING :: CanaryState
+$mCanaryState_STARTING :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_STARTING"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_STARTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STARTING&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STOPPED"><span class="hs-identifier hs-type">CanaryState_STOPPED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_STOPPED"><span id="%24mCanaryState_STOPPED"><span id="CanaryState_STOPPED"><span class="annot"><span class="annottext">$bCanaryState_STOPPED :: CanaryState
+$mCanaryState_STOPPED :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_STOPPED"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_STOPPED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STOPPING"><span class="hs-identifier hs-type">CanaryState_STOPPING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_STOPPING"><span id="%24mCanaryState_STOPPING"><span id="CanaryState_STOPPING"><span class="annot"><span class="annottext">$bCanaryState_STOPPING :: CanaryState
+$mCanaryState_STOPPING :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_STOPPING"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_STOPPING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPING&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_UPDATING"><span class="hs-identifier hs-type">CanaryState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState"><span class="hs-identifier hs-type">CanaryState</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryState_UPDATING"><span id="%24mCanaryState_UPDATING"><span id="CanaryState_UPDATING"><span class="annot"><span class="annottext">$bCanaryState_UPDATING :: CanaryState
+$mCanaryState_UPDATING :: forall r. CanaryState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Synthetics.Types.CanaryState.html#%24bCanaryState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">CanaryState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-identifier hs-type">CanaryState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_CREATING"><span class="hs-pragma hs-type">CanaryState_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_DELETING"><span class="hs-pragma hs-type">CanaryState_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_ERROR"><span class="hs-pragma hs-type">CanaryState_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_READY"><span class="hs-pragma hs-type">CanaryState_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_RUNNING"><span class="hs-pragma hs-type">CanaryState_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STARTING"><span class="hs-pragma hs-type">CanaryState_STARTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STOPPED"><span class="hs-pragma hs-type">CanaryState_STOPPED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_STOPPING"><span class="hs-pragma hs-type">CanaryState_STOPPING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState_UPDATING"><span class="hs-pragma hs-type">CanaryState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryState.html#CanaryState%27"><span class="hs-pragma hs-type">CanaryState'</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-106"></span></pre></body></html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.BatchCreateRoomMembership</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds up to 50 members to a chat room in an Amazon Chime Enterprise</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account. Members can be users or bots. The member role designates</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- whether the member is a chat room administrator or a general chat room</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- member.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.BatchCreateRoomMembership</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier">BatchCreateRoomMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#newBatchCreateRoomMembership"><span class="hs-identifier">newBatchCreateRoomMembership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_accountId"><span class="hs-identifier">batchCreateRoomMembership_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_roomId"><span class="hs-identifier">batchCreateRoomMembership_roomId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_membershipItemList"><span class="hs-identifier">batchCreateRoomMembership_membershipItemList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier">BatchCreateRoomMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#newBatchCreateRoomMembershipResponse"><span class="hs-identifier">newBatchCreateRoomMembershipResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembershipResponse_errors"><span class="hs-identifier">batchCreateRoomMembershipResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembershipResponse_httpStatus"><span class="hs-identifier">batchCreateRoomMembershipResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newBatchCreateRoomMembership' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679557338"><span id="local-6989586621679557339"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCreateRoomMembership"><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-var">BatchCreateRoomMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCreateRoomMembership%27"><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-var">BatchCreateRoomMembership'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AaccountId%3ABatchCreateRoomMembership%27"><span class="annot"><span class="annottext">BatchCreateRoomMembership -&gt; Text
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AaccountId%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The room ID.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AroomId%3ABatchCreateRoomMembership%27"><span class="annot"><span class="annottext">BatchCreateRoomMembership -&gt; Text
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AroomId%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var hs-var">roomId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The list of membership items.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmembershipItemList%3ABatchCreateRoomMembership%27"><span class="annot"><span class="annottext">BatchCreateRoomMembership -&gt; [MembershipItem]
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AmembershipItemList%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var hs-var">membershipItemList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.MembershipItem.html#MembershipItem"><span class="hs-identifier hs-type">MembershipItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557330"><span id="local-6989586621679557332"><span class="annot"><span class="annottext">BatchCreateRoomMembership -&gt; BatchCreateRoomMembership -&gt; Bool
+(BatchCreateRoomMembership -&gt; BatchCreateRoomMembership -&gt; Bool)
+-&gt; (BatchCreateRoomMembership -&gt; BatchCreateRoomMembership -&gt; Bool)
+-&gt; Eq BatchCreateRoomMembership
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchCreateRoomMembership -&gt; BatchCreateRoomMembership -&gt; Bool
+$c/= :: BatchCreateRoomMembership -&gt; BatchCreateRoomMembership -&gt; Bool
+== :: BatchCreateRoomMembership -&gt; BatchCreateRoomMembership -&gt; Bool
+$c== :: BatchCreateRoomMembership -&gt; BatchCreateRoomMembership -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557321"><span id="local-6989586621679557323"><span id="local-6989586621679557325"><span id="local-6989586621679557327"><span class="annot"><span class="annottext">ReadPrec [BatchCreateRoomMembership]
+ReadPrec BatchCreateRoomMembership
+Int -&gt; ReadS BatchCreateRoomMembership
+ReadS [BatchCreateRoomMembership]
+(Int -&gt; ReadS BatchCreateRoomMembership)
+-&gt; ReadS [BatchCreateRoomMembership]
+-&gt; ReadPrec BatchCreateRoomMembership
+-&gt; ReadPrec [BatchCreateRoomMembership]
+-&gt; Read BatchCreateRoomMembership
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchCreateRoomMembership]
+$creadListPrec :: ReadPrec [BatchCreateRoomMembership]
+readPrec :: ReadPrec BatchCreateRoomMembership
+$creadPrec :: ReadPrec BatchCreateRoomMembership
+readList :: ReadS [BatchCreateRoomMembership]
+$creadList :: ReadS [BatchCreateRoomMembership]
+readsPrec :: Int -&gt; ReadS BatchCreateRoomMembership
+$creadsPrec :: Int -&gt; ReadS BatchCreateRoomMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557314"><span id="local-6989586621679557316"><span id="local-6989586621679557318"><span class="annot"><span class="annottext">Int -&gt; BatchCreateRoomMembership -&gt; ShowS
+[BatchCreateRoomMembership] -&gt; ShowS
+BatchCreateRoomMembership -&gt; String
+(Int -&gt; BatchCreateRoomMembership -&gt; ShowS)
+-&gt; (BatchCreateRoomMembership -&gt; String)
+-&gt; ([BatchCreateRoomMembership] -&gt; ShowS)
+-&gt; Show BatchCreateRoomMembership
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchCreateRoomMembership] -&gt; ShowS
+$cshowList :: [BatchCreateRoomMembership] -&gt; ShowS
+show :: BatchCreateRoomMembership -&gt; String
+$cshow :: BatchCreateRoomMembership -&gt; String
+showsPrec :: Int -&gt; BatchCreateRoomMembership -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchCreateRoomMembership -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchCreateRoomMembership -&gt; Rep BatchCreateRoomMembership x)
+-&gt; (forall x.
+    Rep BatchCreateRoomMembership x -&gt; BatchCreateRoomMembership)
+-&gt; Generic BatchCreateRoomMembership
+forall x.
+Rep BatchCreateRoomMembership x -&gt; BatchCreateRoomMembership
+forall x.
+BatchCreateRoomMembership -&gt; Rep BatchCreateRoomMembership x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchCreateRoomMembership x -&gt; BatchCreateRoomMembership
+$cfrom :: forall x.
+BatchCreateRoomMembership -&gt; Rep BatchCreateRoomMembership x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'BatchCreateRoomMembership' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'accountId', 'batchCreateRoomMembership_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'roomId', 'batchCreateRoomMembership_roomId' - The room ID.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'membershipItemList', 'batchCreateRoomMembership_membershipItemList' - The list of membership items.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#newBatchCreateRoomMembership"><span class="hs-identifier hs-type">newBatchCreateRoomMembership</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'roomId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span>
+</span><span id="line-84"></span><span id="newBatchCreateRoomMembership"><span class="annot"><span class="annottext">newBatchCreateRoomMembership :: Text -&gt; Text -&gt; BatchCreateRoomMembership
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#newBatchCreateRoomMembership"><span class="hs-identifier hs-var hs-var">newBatchCreateRoomMembership</span></a></span></span><span> </span><span id="local-6989586621679557309"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557309"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679557308"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557308"><span class="hs-identifier hs-var">pRoomId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">BatchCreateRoomMembership' :: Text -&gt; Text -&gt; [MembershipItem] -&gt; BatchCreateRoomMembership
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:BatchCreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AaccountId%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557309"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomId:BatchCreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AroomId%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var">roomId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557308"><span class="hs-identifier hs-var">pRoomId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:membershipItemList:BatchCreateRoomMembership' :: [MembershipItem]
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AmembershipItemList%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var">membershipItemList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MembershipItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_accountId"><span class="hs-identifier hs-type">batchCreateRoomMembership_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="batchCreateRoomMembership_accountId"><span class="annot"><span class="annottext">batchCreateRoomMembership_accountId :: (Text -&gt; f Text)
+-&gt; BatchCreateRoomMembership -&gt; f BatchCreateRoomMembership
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_accountId"><span class="hs-identifier hs-var hs-var">batchCreateRoomMembership_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateRoomMembership -&gt; Text)
+-&gt; (BatchCreateRoomMembership -&gt; Text -&gt; BatchCreateRoomMembership)
+-&gt; Lens
+     BatchCreateRoomMembership BatchCreateRoomMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557305"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; Text
+</span><a href="#local-6989586621679557305"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557305"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557304"><span class="annot"><span class="annottext">s :: BatchCreateRoomMembership
+</span><a href="#local-6989586621679557304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557303"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateRoomMembership
+</span><a href="#local-6989586621679557304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:BatchCreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AaccountId%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The room ID.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_roomId"><span class="hs-identifier hs-type">batchCreateRoomMembership_roomId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="batchCreateRoomMembership_roomId"><span class="annot"><span class="annottext">batchCreateRoomMembership_roomId :: (Text -&gt; f Text)
+-&gt; BatchCreateRoomMembership -&gt; f BatchCreateRoomMembership
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_roomId"><span class="hs-identifier hs-var hs-var">batchCreateRoomMembership_roomId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateRoomMembership -&gt; Text)
+-&gt; (BatchCreateRoomMembership -&gt; Text -&gt; BatchCreateRoomMembership)
+-&gt; Lens
+     BatchCreateRoomMembership BatchCreateRoomMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557302"><span class="annot"><span class="annottext">Text
+roomId :: Text
+$sel:roomId:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; Text
+</span><a href="#local-6989586621679557302"><span class="hs-identifier hs-var hs-var">roomId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557302"><span class="hs-identifier hs-var">roomId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557301"><span class="annot"><span class="annottext">s :: BatchCreateRoomMembership
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateRoomMembership
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomId:BatchCreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AroomId%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var">roomId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The list of membership items.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_membershipItemList"><span class="hs-identifier hs-type">batchCreateRoomMembership_membershipItemList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.MembershipItem.html#MembershipItem"><span class="hs-identifier hs-type">MembershipItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span id="batchCreateRoomMembership_membershipItemList"><span class="annot"><span class="annottext">batchCreateRoomMembership_membershipItemList :: ([MembershipItem] -&gt; f [MembershipItem])
+-&gt; BatchCreateRoomMembership -&gt; f BatchCreateRoomMembership
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembership_membershipItemList"><span class="hs-identifier hs-var hs-var">batchCreateRoomMembership_membershipItemList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateRoomMembership -&gt; [MembershipItem])
+-&gt; (BatchCreateRoomMembership
+    -&gt; [MembershipItem] -&gt; BatchCreateRoomMembership)
+-&gt; Lens
+     BatchCreateRoomMembership
+     BatchCreateRoomMembership
+     [MembershipItem]
+     [MembershipItem]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557299"><span class="annot"><span class="annottext">[MembershipItem]
+membershipItemList :: [MembershipItem]
+$sel:membershipItemList:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; [MembershipItem]
+</span><a href="#local-6989586621679557299"><span class="hs-identifier hs-var hs-var">membershipItemList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MembershipItem]
+</span><a href="#local-6989586621679557299"><span class="hs-identifier hs-var">membershipItemList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557298"><span class="annot"><span class="annottext">s :: BatchCreateRoomMembership
+</span><a href="#local-6989586621679557298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557297"><span class="annot"><span class="annottext">[MembershipItem]
+</span><a href="#local-6989586621679557297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateRoomMembership
+</span><a href="#local-6989586621679557298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:membershipItemList:BatchCreateRoomMembership' :: [MembershipItem]
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AmembershipItemList%3ABatchCreateRoomMembership%27"><span class="hs-identifier hs-var">membershipItemList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MembershipItem]
+</span><a href="#local-6989586621679557297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MembershipItem] -&gt; f [MembershipItem])
+ -&gt; BatchCreateRoomMembership -&gt; f BatchCreateRoomMembership)
+-&gt; (([MembershipItem] -&gt; f [MembershipItem])
+    -&gt; [MembershipItem] -&gt; f [MembershipItem])
+-&gt; ([MembershipItem] -&gt; f [MembershipItem])
+-&gt; BatchCreateRoomMembership
+-&gt; f BatchCreateRoomMembership
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([MembershipItem] -&gt; f [MembershipItem])
+-&gt; [MembershipItem] -&gt; f [MembershipItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679557291"><span class="annot"><span class="annottext">request :: BatchCreateRoomMembership -&gt; Request BatchCreateRoomMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; BatchCreateRoomMembership -&gt; Request BatchCreateRoomMembership
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679557287"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchCreateRoomMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchCreateRoomMembership)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchCreateRoomMembership))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchCreateRoomMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchCreateRoomMembership)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679557284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557284"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679557283"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679557283"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679557282"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MemberError] -&gt; Int -&gt; BatchCreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">BatchCreateRoomMembershipResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MemberError] -&gt; Int -&gt; BatchCreateRoomMembershipResponse)
+-&gt; Either String (Maybe [MemberError])
+-&gt; Either String (Int -&gt; BatchCreateRoomMembershipResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MemberError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MemberError]))
+-&gt; Maybe [MemberError] -&gt; Either String (Maybe [MemberError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MemberError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchCreateRoomMembershipResponse)
+-&gt; Either String Int
+-&gt; Either String BatchCreateRoomMembershipResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557284"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557273"><span id="local-6989586621679557275"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679557266"><span class="annot"><span class="annottext">toHeaders :: BatchCreateRoomMembership -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchCreateRoomMembership -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557257"><span id="local-6989586621679557259"><span id="local-6989586621679557261"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679557255"><span class="annot"><span class="annottext">toJSON :: BatchCreateRoomMembership -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557251"><span id="local-6989586621679557252"><span id="local-6989586621679557253"><span class="annot"><span class="annottext">[MembershipItem]
+Text
+membershipItemList :: [MembershipItem]
+roomId :: Text
+accountId :: Text
+$sel:membershipItemList:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; [MembershipItem]
+$sel:roomId:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; Text
+$sel:accountId:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; Text
+</span><a href="#local-6989586621679557251"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MembershipItemList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MembershipItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[MembershipItem]
+</span><a href="#local-6989586621679557251"><span class="hs-identifier hs-var">membershipItemList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679557245"><span class="annot"><span class="annottext">toPath :: BatchCreateRoomMembership -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership%27"><span class="hs-identifier hs-type">BatchCreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557241"><span id="local-6989586621679557242"><span id="local-6989586621679557243"><span class="annot"><span class="annottext">[MembershipItem]
+Text
+membershipItemList :: [MembershipItem]
+roomId :: Text
+accountId :: Text
+$sel:membershipItemList:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; [MembershipItem]
+$sel:roomId:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; Text
+$sel:accountId:BatchCreateRoomMembership' :: BatchCreateRoomMembership -&gt; Text
+</span><a href="#local-6989586621679557241"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557243"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/rooms/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557242"><span class="hs-identifier hs-var">roomId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/memberships&quot;</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembership"><span class="hs-identifier hs-type">BatchCreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679557237"><span class="annot"><span class="annottext">toQuery :: BatchCreateRoomMembership -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; BatchCreateRoomMembership -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;operation=batch-create&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newBatchCreateRoomMembershipResponse' smart constructor.</span><span>
+</span><span id="line-148"></span><span id="local-6989586621679557234"><span id="local-6989586621679557235"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCreateRoomMembershipResponse"><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-var">BatchCreateRoomMembershipResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCreateRoomMembershipResponse%27"><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">BatchCreateRoomMembershipResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the action fails for one or more of the member IDs in the request, a</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- list of the member IDs is returned, along with error codes and error</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- messages.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchCreateRoomMembershipResponse%27"><span class="annot"><span class="annottext">BatchCreateRoomMembershipResponse -&gt; Maybe [MemberError]
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3Aerrors%3ABatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.MemberError.html#MemberError"><span class="hs-identifier hs-type">MemberError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchCreateRoomMembershipResponse%27"><span class="annot"><span class="annottext">BatchCreateRoomMembershipResponse -&gt; Int
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AhttpStatus%3ABatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557228"><span id="local-6989586621679557230"><span class="annot"><span class="annottext">BatchCreateRoomMembershipResponse
+-&gt; BatchCreateRoomMembershipResponse -&gt; Bool
+(BatchCreateRoomMembershipResponse
+ -&gt; BatchCreateRoomMembershipResponse -&gt; Bool)
+-&gt; (BatchCreateRoomMembershipResponse
+    -&gt; BatchCreateRoomMembershipResponse -&gt; Bool)
+-&gt; Eq BatchCreateRoomMembershipResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchCreateRoomMembershipResponse
+-&gt; BatchCreateRoomMembershipResponse -&gt; Bool
+$c/= :: BatchCreateRoomMembershipResponse
+-&gt; BatchCreateRoomMembershipResponse -&gt; Bool
+== :: BatchCreateRoomMembershipResponse
+-&gt; BatchCreateRoomMembershipResponse -&gt; Bool
+$c== :: BatchCreateRoomMembershipResponse
+-&gt; BatchCreateRoomMembershipResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557220"><span id="local-6989586621679557222"><span id="local-6989586621679557224"><span id="local-6989586621679557226"><span class="annot"><span class="annottext">ReadPrec [BatchCreateRoomMembershipResponse]
+ReadPrec BatchCreateRoomMembershipResponse
+Int -&gt; ReadS BatchCreateRoomMembershipResponse
+ReadS [BatchCreateRoomMembershipResponse]
+(Int -&gt; ReadS BatchCreateRoomMembershipResponse)
+-&gt; ReadS [BatchCreateRoomMembershipResponse]
+-&gt; ReadPrec BatchCreateRoomMembershipResponse
+-&gt; ReadPrec [BatchCreateRoomMembershipResponse]
+-&gt; Read BatchCreateRoomMembershipResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchCreateRoomMembershipResponse]
+$creadListPrec :: ReadPrec [BatchCreateRoomMembershipResponse]
+readPrec :: ReadPrec BatchCreateRoomMembershipResponse
+$creadPrec :: ReadPrec BatchCreateRoomMembershipResponse
+readList :: ReadS [BatchCreateRoomMembershipResponse]
+$creadList :: ReadS [BatchCreateRoomMembershipResponse]
+readsPrec :: Int -&gt; ReadS BatchCreateRoomMembershipResponse
+$creadsPrec :: Int -&gt; ReadS BatchCreateRoomMembershipResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557214"><span id="local-6989586621679557216"><span id="local-6989586621679557218"><span class="annot"><span class="annottext">Int -&gt; BatchCreateRoomMembershipResponse -&gt; ShowS
+[BatchCreateRoomMembershipResponse] -&gt; ShowS
+BatchCreateRoomMembershipResponse -&gt; String
+(Int -&gt; BatchCreateRoomMembershipResponse -&gt; ShowS)
+-&gt; (BatchCreateRoomMembershipResponse -&gt; String)
+-&gt; ([BatchCreateRoomMembershipResponse] -&gt; ShowS)
+-&gt; Show BatchCreateRoomMembershipResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchCreateRoomMembershipResponse] -&gt; ShowS
+$cshowList :: [BatchCreateRoomMembershipResponse] -&gt; ShowS
+show :: BatchCreateRoomMembershipResponse -&gt; String
+$cshow :: BatchCreateRoomMembershipResponse -&gt; String
+showsPrec :: Int -&gt; BatchCreateRoomMembershipResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchCreateRoomMembershipResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchCreateRoomMembershipResponse
+ -&gt; Rep BatchCreateRoomMembershipResponse x)
+-&gt; (forall x.
+    Rep BatchCreateRoomMembershipResponse x
+    -&gt; BatchCreateRoomMembershipResponse)
+-&gt; Generic BatchCreateRoomMembershipResponse
+forall x.
+Rep BatchCreateRoomMembershipResponse x
+-&gt; BatchCreateRoomMembershipResponse
+forall x.
+BatchCreateRoomMembershipResponse
+-&gt; Rep BatchCreateRoomMembershipResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchCreateRoomMembershipResponse x
+-&gt; BatchCreateRoomMembershipResponse
+$cfrom :: forall x.
+BatchCreateRoomMembershipResponse
+-&gt; Rep BatchCreateRoomMembershipResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'BatchCreateRoomMembershipResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'errors', 'batchCreateRoomMembershipResponse_errors' - If the action fails for one or more of the member IDs in the request, a</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- list of the member IDs is returned, along with error codes and error</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- messages.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'batchCreateRoomMembershipResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#newBatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">newBatchCreateRoomMembershipResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newBatchCreateRoomMembershipResponse"><span class="annot"><span class="annottext">newBatchCreateRoomMembershipResponse :: Int -&gt; BatchCreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#newBatchCreateRoomMembershipResponse"><span class="hs-identifier hs-var hs-var">newBatchCreateRoomMembershipResponse</span></a></span></span><span> </span><span id="local-6989586621679557211"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">BatchCreateRoomMembershipResponse' :: Maybe [MemberError] -&gt; Int -&gt; BatchCreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errors:BatchCreateRoomMembershipResponse' :: Maybe [MemberError]
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3Aerrors%3ABatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MemberError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCreateRoomMembershipResponse' :: Int
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AhttpStatus%3ABatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | If the action fails for one or more of the member IDs in the request, a</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- list of the member IDs is returned, along with error codes and error</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- messages.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembershipResponse_errors"><span class="hs-identifier hs-type">batchCreateRoomMembershipResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.MemberError.html#MemberError"><span class="hs-identifier hs-type">MemberError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="batchCreateRoomMembershipResponse_errors"><span class="annot"><span class="annottext">batchCreateRoomMembershipResponse_errors :: (Maybe [MemberError] -&gt; f (Maybe [MemberError]))
+-&gt; BatchCreateRoomMembershipResponse
+-&gt; f BatchCreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembershipResponse_errors"><span class="hs-identifier hs-var hs-var">batchCreateRoomMembershipResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateRoomMembershipResponse -&gt; Maybe [MemberError])
+-&gt; (BatchCreateRoomMembershipResponse
+    -&gt; Maybe [MemberError] -&gt; BatchCreateRoomMembershipResponse)
+-&gt; Lens
+     BatchCreateRoomMembershipResponse
+     BatchCreateRoomMembershipResponse
+     (Maybe [MemberError])
+     (Maybe [MemberError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557210"><span class="annot"><span class="annottext">Maybe [MemberError]
+errors :: Maybe [MemberError]
+$sel:errors:BatchCreateRoomMembershipResponse' :: BatchCreateRoomMembershipResponse -&gt; Maybe [MemberError]
+</span><a href="#local-6989586621679557210"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MemberError]
+</span><a href="#local-6989586621679557210"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557209"><span class="annot"><span class="annottext">s :: BatchCreateRoomMembershipResponse
+</span><a href="#local-6989586621679557209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557208"><span class="annot"><span class="annottext">Maybe [MemberError]
+</span><a href="#local-6989586621679557208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateRoomMembershipResponse
+</span><a href="#local-6989586621679557209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchCreateRoomMembershipResponse' :: Maybe [MemberError]
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3Aerrors%3ABatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MemberError]
+</span><a href="#local-6989586621679557208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MemberError] -&gt; f (Maybe [MemberError]))
+ -&gt; BatchCreateRoomMembershipResponse
+ -&gt; f BatchCreateRoomMembershipResponse)
+-&gt; ((Maybe [MemberError] -&gt; f (Maybe [MemberError]))
+    -&gt; Maybe [MemberError] -&gt; f (Maybe [MemberError]))
+-&gt; (Maybe [MemberError] -&gt; f (Maybe [MemberError]))
+-&gt; BatchCreateRoomMembershipResponse
+-&gt; f BatchCreateRoomMembershipResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MemberError] [MemberError] [MemberError] [MemberError]
+-&gt; Iso
+     (Maybe [MemberError])
+     (Maybe [MemberError])
+     (Maybe [MemberError])
+     (Maybe [MemberError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MemberError] [MemberError] [MemberError] [MemberError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembershipResponse_httpStatus"><span class="hs-identifier hs-type">batchCreateRoomMembershipResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span id="batchCreateRoomMembershipResponse_httpStatus"><span class="annot"><span class="annottext">batchCreateRoomMembershipResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchCreateRoomMembershipResponse
+-&gt; f BatchCreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#batchCreateRoomMembershipResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchCreateRoomMembershipResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateRoomMembershipResponse -&gt; Int)
+-&gt; (BatchCreateRoomMembershipResponse
+    -&gt; Int -&gt; BatchCreateRoomMembershipResponse)
+-&gt; Lens
+     BatchCreateRoomMembershipResponse
+     BatchCreateRoomMembershipResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557206"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchCreateRoomMembershipResponse' :: BatchCreateRoomMembershipResponse -&gt; Int
+</span><a href="#local-6989586621679557206"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557206"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557205"><span class="annot"><span class="annottext">s :: BatchCreateRoomMembershipResponse
+</span><a href="#local-6989586621679557205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateRoomMembershipResponse
+</span><a href="#local-6989586621679557205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCreateRoomMembershipResponse' :: Int
+</span><a href="Amazonka.Chime.BatchCreateRoomMembership.html#%24sel%3AhttpStatus%3ABatchCreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679557202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchCreateRoomMembership.html#BatchCreateRoomMembershipResponse"><span class="hs-identifier hs-type">BatchCreateRoomMembershipResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

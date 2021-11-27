@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.AwsJobAbortConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.AwsJobAbortConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortCriteria.html"><span class="hs-identifier">Amazonka.IoT.Types.AwsJobAbortCriteria</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The criteria that determine when and how a job abort takes place.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAwsJobAbortConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679778052"><span id="local-6989586621679778053"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsJobAbortConfig"><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-var">AwsJobAbortConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsJobAbortConfig%27"><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig%27"><span class="hs-identifier hs-var">AwsJobAbortConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of criteria that determine when and how to abort the job.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AabortCriteriaList%3AAwsJobAbortConfig%27"><span class="annot"><span class="annottext">AwsJobAbortConfig -&gt; NonEmpty AwsJobAbortCriteria
+</span><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#%24sel%3AabortCriteriaList%3AAwsJobAbortConfig%27"><span class="hs-identifier hs-var hs-var">abortCriteriaList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778046"><span id="local-6989586621679778048"><span class="annot"><span class="annottext">AwsJobAbortConfig -&gt; AwsJobAbortConfig -&gt; Bool
+(AwsJobAbortConfig -&gt; AwsJobAbortConfig -&gt; Bool)
+-&gt; (AwsJobAbortConfig -&gt; AwsJobAbortConfig -&gt; Bool)
+-&gt; Eq AwsJobAbortConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsJobAbortConfig -&gt; AwsJobAbortConfig -&gt; Bool
+$c/= :: AwsJobAbortConfig -&gt; AwsJobAbortConfig -&gt; Bool
+== :: AwsJobAbortConfig -&gt; AwsJobAbortConfig -&gt; Bool
+$c== :: AwsJobAbortConfig -&gt; AwsJobAbortConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778037"><span id="local-6989586621679778039"><span id="local-6989586621679778041"><span id="local-6989586621679778043"><span class="annot"><span class="annottext">ReadPrec [AwsJobAbortConfig]
+ReadPrec AwsJobAbortConfig
+Int -&gt; ReadS AwsJobAbortConfig
+ReadS [AwsJobAbortConfig]
+(Int -&gt; ReadS AwsJobAbortConfig)
+-&gt; ReadS [AwsJobAbortConfig]
+-&gt; ReadPrec AwsJobAbortConfig
+-&gt; ReadPrec [AwsJobAbortConfig]
+-&gt; Read AwsJobAbortConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsJobAbortConfig]
+$creadListPrec :: ReadPrec [AwsJobAbortConfig]
+readPrec :: ReadPrec AwsJobAbortConfig
+$creadPrec :: ReadPrec AwsJobAbortConfig
+readList :: ReadS [AwsJobAbortConfig]
+$creadList :: ReadS [AwsJobAbortConfig]
+readsPrec :: Int -&gt; ReadS AwsJobAbortConfig
+$creadsPrec :: Int -&gt; ReadS AwsJobAbortConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778030"><span id="local-6989586621679778032"><span id="local-6989586621679778034"><span class="annot"><span class="annottext">Int -&gt; AwsJobAbortConfig -&gt; ShowS
+[AwsJobAbortConfig] -&gt; ShowS
+AwsJobAbortConfig -&gt; String
+(Int -&gt; AwsJobAbortConfig -&gt; ShowS)
+-&gt; (AwsJobAbortConfig -&gt; String)
+-&gt; ([AwsJobAbortConfig] -&gt; ShowS)
+-&gt; Show AwsJobAbortConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsJobAbortConfig] -&gt; ShowS
+$cshowList :: [AwsJobAbortConfig] -&gt; ShowS
+show :: AwsJobAbortConfig -&gt; String
+$cshow :: AwsJobAbortConfig -&gt; String
+showsPrec :: Int -&gt; AwsJobAbortConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsJobAbortConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AwsJobAbortConfig -&gt; Rep AwsJobAbortConfig x)
+-&gt; (forall x. Rep AwsJobAbortConfig x -&gt; AwsJobAbortConfig)
+-&gt; Generic AwsJobAbortConfig
+forall x. Rep AwsJobAbortConfig x -&gt; AwsJobAbortConfig
+forall x. AwsJobAbortConfig -&gt; Rep AwsJobAbortConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsJobAbortConfig x -&gt; AwsJobAbortConfig
+$cfrom :: forall x. AwsJobAbortConfig -&gt; Rep AwsJobAbortConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'AwsJobAbortConfig' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'abortCriteriaList', 'awsJobAbortConfig_abortCriteriaList' - The list of criteria that determine when and how to abort the job.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#newAwsJobAbortConfig"><span class="hs-identifier hs-type">newAwsJobAbortConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-comment">-- | 'abortCriteriaList'</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span><span>
+</span><span id="line-49"></span><span id="newAwsJobAbortConfig"><span class="annot"><span class="annottext">newAwsJobAbortConfig :: NonEmpty AwsJobAbortCriteria -&gt; AwsJobAbortConfig
+</span><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#newAwsJobAbortConfig"><span class="hs-identifier hs-var hs-var">newAwsJobAbortConfig</span></a></span></span><span> </span><span id="local-6989586621679778024"><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679778024"><span class="hs-identifier hs-var">pAbortCriteriaList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">AwsJobAbortConfig' :: NonEmpty AwsJobAbortCriteria -&gt; AwsJobAbortConfig
+</span><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig%27"><span class="hs-identifier hs-type">AwsJobAbortConfig'</span></a></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:abortCriteriaList:AwsJobAbortConfig' :: NonEmpty AwsJobAbortCriteria
+</span><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#%24sel%3AabortCriteriaList%3AAwsJobAbortConfig%27"><span class="hs-identifier hs-var">abortCriteriaList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty AwsJobAbortCriteria)
+  (Identity (NonEmpty AwsJobAbortCriteria))
+-&gt; Tagged
+     (NonEmpty AwsJobAbortCriteria)
+     (Identity (NonEmpty AwsJobAbortCriteria))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty AwsJobAbortCriteria)
+   (Identity (NonEmpty AwsJobAbortCriteria))
+ -&gt; Tagged
+      (NonEmpty AwsJobAbortCriteria)
+      (Identity (NonEmpty AwsJobAbortCriteria)))
+-&gt; NonEmpty AwsJobAbortCriteria -&gt; NonEmpty AwsJobAbortCriteria
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679778024"><span class="hs-identifier hs-var">pAbortCriteriaList_</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | The list of criteria that determine when and how to abort the job.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#awsJobAbortConfig_abortCriteriaList"><span class="hs-identifier hs-type">awsJobAbortConfig_abortCriteriaList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span id="awsJobAbortConfig_abortCriteriaList"><span class="annot"><span class="annottext">awsJobAbortConfig_abortCriteriaList :: (NonEmpty AwsJobAbortCriteria -&gt; f (NonEmpty AwsJobAbortCriteria))
+-&gt; AwsJobAbortConfig -&gt; f AwsJobAbortConfig
+</span><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#awsJobAbortConfig_abortCriteriaList"><span class="hs-identifier hs-var hs-var">awsJobAbortConfig_abortCriteriaList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsJobAbortConfig -&gt; NonEmpty AwsJobAbortCriteria)
+-&gt; (AwsJobAbortConfig
+    -&gt; NonEmpty AwsJobAbortCriteria -&gt; AwsJobAbortConfig)
+-&gt; Lens
+     AwsJobAbortConfig
+     AwsJobAbortConfig
+     (NonEmpty AwsJobAbortCriteria)
+     (NonEmpty AwsJobAbortCriteria)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig%27"><span class="hs-identifier hs-type">AwsJobAbortConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778018"><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+abortCriteriaList :: NonEmpty AwsJobAbortCriteria
+$sel:abortCriteriaList:AwsJobAbortConfig' :: AwsJobAbortConfig -&gt; NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679778018"><span class="hs-identifier hs-var hs-var">abortCriteriaList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679778018"><span class="hs-identifier hs-var">abortCriteriaList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778017"><span class="annot"><span class="annottext">s :: AwsJobAbortConfig
+</span><a href="#local-6989586621679778017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig%27"><span class="hs-identifier hs-type">AwsJobAbortConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778016"><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679778016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortConfig
+</span><a href="#local-6989586621679778017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortCriteriaList:AwsJobAbortConfig' :: NonEmpty AwsJobAbortCriteria
+</span><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#%24sel%3AabortCriteriaList%3AAwsJobAbortConfig%27"><span class="hs-identifier hs-var">abortCriteriaList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679778016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AwsJobAbortCriteria -&gt; f (NonEmpty AwsJobAbortCriteria))
+ -&gt; AwsJobAbortConfig -&gt; f AwsJobAbortConfig)
+-&gt; ((NonEmpty AwsJobAbortCriteria
+     -&gt; f (NonEmpty AwsJobAbortCriteria))
+    -&gt; NonEmpty AwsJobAbortCriteria
+    -&gt; f (NonEmpty AwsJobAbortCriteria))
+-&gt; (NonEmpty AwsJobAbortCriteria
+    -&gt; f (NonEmpty AwsJobAbortCriteria))
+-&gt; AwsJobAbortConfig
+-&gt; f AwsJobAbortConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty AwsJobAbortCriteria -&gt; f (NonEmpty AwsJobAbortCriteria))
+-&gt; NonEmpty AwsJobAbortCriteria -&gt; f (NonEmpty AwsJobAbortCriteria)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778011"><span id="local-6989586621679778013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span></span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778000"><span id="local-6989586621679778002"><span id="local-6989586621679778004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679777998"><span class="annot"><span class="annottext">toJSON :: AwsJobAbortConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig%27"><span class="hs-identifier hs-type">AwsJobAbortConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777996"><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+abortCriteriaList :: NonEmpty AwsJobAbortCriteria
+$sel:abortCriteriaList:AwsJobAbortConfig' :: AwsJobAbortConfig -&gt; NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679777996"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-67"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-68"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;abortCriteriaList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AwsJobAbortCriteria -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AwsJobAbortCriteria
+</span><a href="#local-6989586621679777996"><span class="hs-identifier hs-var">abortCriteriaList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span></pre></body></html>

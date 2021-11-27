@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ElasticTranscoder.Types.AudioCodecOptions
+module Amazonka.ElasticTranscoder.Types.AudioCodecOptions
 
 -- | Options associated with your audio codec.
 --   
@@ -188,17 +188,17 @@ audioCodecOptions_profile :: Lens' AudioCodecOptions (Maybe Text)
 --   
 --   The supported value is <tt>LittleEndian</tt>.
 audioCodecOptions_bitOrder :: Lens' AudioCodecOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.AudioCodecOptions.AudioCodecOptions
 
 
-module Network.AWS.ElasticTranscoder.Types.AudioParameters
+module Amazonka.ElasticTranscoder.Types.AudioParameters
 
 -- | Parameters required for transcoding audio.
 --   
@@ -690,17 +690,17 @@ audioParameters_bitRate :: Lens' AudioParameters (Maybe Text)
 --   If you specify <tt>auto</tt>, Elastic Transcoder chooses a profile
 --   based on the bit rate of the output file.
 audioParameters_codecOptions :: Lens' AudioParameters (Maybe AudioCodecOptions)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.AudioParameters.AudioParameters
 
 
-module Network.AWS.ElasticTranscoder.Types.DetectedProperties
+module Amazonka.ElasticTranscoder.Types.DetectedProperties
 
 -- | The detected properties of the input file. Elastic Transcoder
 --   identifies these values from the input file.
@@ -767,17 +767,17 @@ detectedProperties_width :: Lens' DetectedProperties (Maybe Int)
 
 -- | The detected duration of the input file, in milliseconds.
 detectedProperties_durationMillis :: Lens' DetectedProperties (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.DetectedProperties.DetectedProperties
 
 
-module Network.AWS.ElasticTranscoder.Types.Encryption
+module Amazonka.ElasticTranscoder.Types.Encryption
 
 -- | The encryption settings, if any, that are used for decrypting your
 --   input files or encrypting your output files. If your input file is
@@ -981,17 +981,17 @@ encryption_key :: Lens' Encryption (Maybe Text)
 --   output files. The initialization vector must be base64-encoded, and it
 --   must be exactly 16 bytes long before being base64-encoded.
 encryption_initializationVector :: Lens' Encryption (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.Encryption.Encryption
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Encryption.Encryption
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Encryption.Encryption
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Encryption.Encryption
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Encryption.Encryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Encryption.Encryption
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Encryption.Encryption
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Encryption.Encryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.Encryption.Encryption
 
 
-module Network.AWS.ElasticTranscoder.Types.CaptionSource
+module Amazonka.ElasticTranscoder.Types.CaptionSource
 
 -- | A source file for the input sidecar captions used during the
 --   transcoding process.
@@ -1111,17 +1111,17 @@ captionSource_language :: Lens' CaptionSource (Maybe Text)
 --   We recommend that you put the caption language name here, in the
 --   language of the captions.
 captionSource_label :: Lens' CaptionSource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.CaptionSource.CaptionSource
 
 
-module Network.AWS.ElasticTranscoder.Types.CaptionFormat
+module Amazonka.ElasticTranscoder.Types.CaptionFormat
 
 -- | The file format of the output captions. If you leave this value blank,
 --   Elastic Transcoder returns an error.
@@ -1268,17 +1268,17 @@ captionFormat_format :: Lens' CaptionFormat (Maybe Text)
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 --   apply to your caption formats.
 captionFormat_encryption :: Lens' CaptionFormat (Maybe Encryption)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.CaptionFormat.CaptionFormat
 
 
-module Network.AWS.ElasticTranscoder.Types.Captions
+module Amazonka.ElasticTranscoder.Types.Captions
 
 -- | The captions to be created, if any.
 --   
@@ -1387,17 +1387,17 @@ captions_captionSources :: Lens' Captions (Maybe [CaptionSource])
 -- | The array of file formats for the output captions. If you leave this
 --   value blank, Elastic Transcoder returns an error.
 captions_captionFormats :: Lens' Captions (Maybe [CaptionFormat])
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Captions.Captions
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Captions.Captions
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Captions.Captions
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Captions.Captions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Captions.Captions
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Captions.Captions
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Captions.Captions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.Captions.Captions
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Captions.Captions
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Captions.Captions
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Captions.Captions
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Captions.Captions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Captions.Captions
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Captions.Captions
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Captions.Captions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.Captions.Captions
 
 
-module Network.AWS.ElasticTranscoder.Types.Artwork
+module Amazonka.ElasticTranscoder.Types.Artwork
 
 -- | The file to be used as album art. There can be multiple artworks
 --   associated with an audio file, to a maximum of 20.
@@ -1631,17 +1631,17 @@ artwork_encryption :: Lens' Artwork (Maybe Encryption)
 --   you specify a numeric value, enter an even integer between 32 and
 --   4096, inclusive.
 artwork_maxWidth :: Lens' Artwork (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.Artwork.Artwork
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Artwork.Artwork
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Artwork.Artwork
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Artwork.Artwork
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Artwork.Artwork
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Artwork.Artwork
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Artwork.Artwork
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Artwork.Artwork
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.Artwork.Artwork
 
 
-module Network.AWS.ElasticTranscoder.Types.HlsContentProtection
+module Amazonka.ElasticTranscoder.Types.HlsContentProtection
 
 -- | The HLS content protection settings, if any, that you want Elastic
 --   Transcoder to apply to your output files.
@@ -1809,17 +1809,17 @@ hlsContentProtection_initializationVector :: Lens' HlsContentProtection (Maybe T
 --   The URL must be an absolute path, and is referenced in the URI
 --   attribute of the EXT-X-KEY metadata tag in the playlist file.
 hlsContentProtection_licenseAcquisitionUrl :: Lens' HlsContentProtection (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.HlsContentProtection.HlsContentProtection
 
 
-module Network.AWS.ElasticTranscoder.Types.InputCaptions
+module Amazonka.ElasticTranscoder.Types.InputCaptions
 
 -- | The captions to be created, if any.
 --   
@@ -1917,17 +1917,17 @@ inputCaptions_mergePolicy :: Lens' InputCaptions (Maybe Text)
 --   transcoding process. To omit all sidecar captions, leave
 --   <tt>CaptionSources</tt> blank.
 inputCaptions_captionSources :: Lens' InputCaptions (Maybe [CaptionSource])
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.InputCaptions.InputCaptions
 
 
-module Network.AWS.ElasticTranscoder.Types.JobAlbumArt
+module Amazonka.ElasticTranscoder.Types.JobAlbumArt
 
 -- | The .jpg or .png file associated with an audio file.
 --   
@@ -2009,17 +2009,17 @@ jobAlbumArt_mergePolicy :: Lens' JobAlbumArt (Maybe Text)
 --   associated with an audio file, to a maximum of 20. Valid formats are
 --   <tt>.jpg</tt> and <tt>.png</tt>
 jobAlbumArt_artwork :: Lens' JobAlbumArt (Maybe [Artwork])
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.JobAlbumArt.JobAlbumArt
 
 
-module Network.AWS.ElasticTranscoder.Types.JobWatermark
+module Amazonka.ElasticTranscoder.Types.JobWatermark
 
 -- | Watermarks can be in .png or .jpg format. If you want to display a
 --   watermark that is not rectangular, use the .png format, which supports
@@ -2102,17 +2102,17 @@ jobWatermark_inputKey :: Lens' JobWatermark (Maybe Text)
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 --   apply to your watermarks.
 jobWatermark_encryption :: Lens' JobWatermark (Maybe Encryption)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.JobWatermark.JobWatermark
 
 
-module Network.AWS.ElasticTranscoder.Types.Notifications
+module Amazonka.ElasticTranscoder.Types.Notifications
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to
 --   notify in order to report job status.
@@ -2182,17 +2182,17 @@ notifications_progressing :: Lens' Notifications (Maybe Text)
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 --   has finished processing the job.
 notifications_completed :: Lens' Notifications (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.Notifications.Notifications
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Notifications.Notifications
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Notifications.Notifications
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Notifications.Notifications
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Notifications.Notifications
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Notifications.Notifications
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Notifications.Notifications
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Notifications.Notifications
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.Notifications.Notifications
 
 
-module Network.AWS.ElasticTranscoder.Types.Permission
+module Amazonka.ElasticTranscoder.Types.Permission
 
 -- | The <tt>Permission</tt> structure.
 --   
@@ -2325,17 +2325,17 @@ permission_granteeType :: Lens' Permission (Maybe Text)
 --   CloudFront distribution, the registered email address of an AWS
 --   account, or a predefined Amazon S3 group.
 permission_grantee :: Lens' Permission (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Permission.Permission
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Permission.Permission
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Permission.Permission
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Permission.Permission
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Permission.Permission
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Permission.Permission
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Permission.Permission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.Permission.Permission
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Permission.Permission
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Permission.Permission
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Permission.Permission
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Permission.Permission
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Permission.Permission
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Permission.Permission
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Permission.Permission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.Permission.Permission
 
 
-module Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig
+module Amazonka.ElasticTranscoder.Types.PipelineOutputConfig
 
 -- | The <tt>PipelineOutputConfig</tt> structure.
 --   
@@ -2491,17 +2491,17 @@ pipelineOutputConfig_storageClass :: Lens' PipelineOutputConfig (Maybe Text)
 --   role specified by <tt>Role</tt>, and grants no other permissions to
 --   any other user or group.
 pipelineOutputConfig_permissions :: Lens' PipelineOutputConfig (Maybe [Permission])
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.PipelineOutputConfig.PipelineOutputConfig
 
 
-module Network.AWS.ElasticTranscoder.Types.Pipeline
+module Amazonka.ElasticTranscoder.Types.Pipeline
 
 -- | The pipeline (queue) that is used to manage jobs.
 --   
@@ -2955,16 +2955,16 @@ pipeline_notifications :: Lens' Pipeline (Maybe Notifications)
 --   S3 bucket.</li>
 --   </ul>
 pipeline_thumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Pipeline.Pipeline
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Pipeline.Pipeline
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Pipeline.Pipeline
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Pipeline.Pipeline
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Pipeline.Pipeline
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Pipeline.Pipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Pipeline.Pipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Pipeline.Pipeline
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Pipeline.Pipeline
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Pipeline.Pipeline
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Pipeline.Pipeline
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Pipeline.Pipeline
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Pipeline.Pipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Pipeline.Pipeline
 
 
-module Network.AWS.ElasticTranscoder.Types.PlayReadyDrm
+module Amazonka.ElasticTranscoder.Types.PlayReadyDrm
 
 -- | The PlayReady DRM settings, if any, that you want Elastic Transcoder
 --   to apply to the output files associated with this playlist.
@@ -3122,17 +3122,17 @@ playReadyDrm_initializationVector :: Lens' PlayReadyDrm (Maybe Text)
 --   and EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example
 --   URL looks like this: <tt>https://www.example.com/exampleKey/</tt>
 playReadyDrm_licenseAcquisitionUrl :: Lens' PlayReadyDrm (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.PlayReadyDrm.PlayReadyDrm
 
 
-module Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist
+module Amazonka.ElasticTranscoder.Types.CreateJobPlaylist
 
 -- | Information about the master playlist.
 --   
@@ -3332,16 +3332,16 @@ createJobPlaylist_name :: Lens' CreateJobPlaylist (Maybe Text)
 -- | The HLS content protection settings, if any, that you want Elastic
 --   Transcoder to apply to the output files associated with this playlist.
 createJobPlaylist_hlsContentProtection :: Lens' CreateJobPlaylist (Maybe HlsContentProtection)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.CreateJobPlaylist.CreateJobPlaylist
 
 
-module Network.AWS.ElasticTranscoder.Types.Playlist
+module Amazonka.ElasticTranscoder.Types.Playlist
 
 -- | Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a
 --   preset for which the value of Container is <tt>fmp4</tt> (Fragmented
@@ -3560,16 +3560,16 @@ playlist_statusDetail :: Lens' Playlist (Maybe Text)
 -- | The HLS content protection settings, if any, that you want Elastic
 --   Transcoder to apply to the output files associated with this playlist.
 playlist_hlsContentProtection :: Lens' Playlist (Maybe HlsContentProtection)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Playlist.Playlist
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Playlist.Playlist
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Playlist.Playlist
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Playlist.Playlist
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Playlist.Playlist
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Playlist.Playlist
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Playlist.Playlist
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Playlist.Playlist
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Playlist.Playlist
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Playlist.Playlist
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Playlist.Playlist
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Playlist.Playlist
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Playlist.Playlist
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Playlist.Playlist
 
 
-module Network.AWS.ElasticTranscoder.Types.PresetWatermark
+module Amazonka.ElasticTranscoder.Types.PresetWatermark
 
 -- | Settings for the size, location, and opacity of graphics that you want
 --   Elastic Transcoder to overlay over videos that are transcoded using
@@ -4110,17 +4110,17 @@ presetWatermark_horizontalAlign :: Lens' PresetWatermark (Maybe Text)
 --   black bars added by Elastic Transcoder, if any.</li>
 --   </ul>
 presetWatermark_target :: Lens' PresetWatermark (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.PresetWatermark.PresetWatermark
 
 
-module Network.AWS.ElasticTranscoder.Types.Thumbnails
+module Amazonka.ElasticTranscoder.Types.Thumbnails
 
 -- | Thumbnails for videos.
 --   
@@ -4396,17 +4396,17 @@ thumbnails_interval :: Lens' Thumbnails (Maybe Text)
 --   Elastic Transcoder uses 1920 (Full HD) as the default value. If you
 --   specify a numeric value, enter an even integer between 32 and 4096.
 thumbnails_maxWidth :: Lens' Thumbnails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.Thumbnails.Thumbnails
 
 
-module Network.AWS.ElasticTranscoder.Types.TimeSpan
+module Amazonka.ElasticTranscoder.Types.TimeSpan
 
 -- | Settings that determine when a clip begins and how long it lasts.
 --   
@@ -4473,17 +4473,17 @@ timeSpan_startTime :: Lens' TimeSpan (Maybe Text)
 --   If you specify a value longer than the duration of the input file,
 --   Elastic Transcoder transcodes the file and returns a warning message.
 timeSpan_duration :: Lens' TimeSpan (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.TimeSpan.TimeSpan
 
 
-module Network.AWS.ElasticTranscoder.Types.JobInput
+module Amazonka.ElasticTranscoder.Types.JobInput
 
 -- | Information about the file that you're transcoding.
 --   
@@ -4853,17 +4853,17 @@ jobInput_interlaced :: Lens' JobInput (Maybe Text)
 --   For more information on sidecar files, see the Extensible Metadata
 --   Platform and Sidecar file Wikipedia pages.
 jobInput_inputCaptions :: Lens' JobInput (Maybe InputCaptions)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.JobInput.JobInput
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.JobInput.JobInput
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.JobInput.JobInput
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.JobInput.JobInput
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.JobInput.JobInput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.JobInput.JobInput
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.JobInput.JobInput
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.JobInput.JobInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.JobInput.JobInput
 
 
-module Network.AWS.ElasticTranscoder.Types.Clip
+module Amazonka.ElasticTranscoder.Types.Clip
 
 -- | Settings for one clip in a composition. All jobs in a playlist must
 --   have the same clip settings.
@@ -4889,17 +4889,17 @@ newClip :: Clip
 
 -- | Settings that determine when a clip begins and how long it lasts.
 clip_timeSpan :: Lens' Clip (Maybe TimeSpan)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Clip.Clip
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Clip.Clip
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Clip.Clip
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Clip.Clip
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Clip.Clip
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Clip.Clip
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Clip.Clip
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.Clip.Clip
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Clip.Clip
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Clip.Clip
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Clip.Clip
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Clip.Clip
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Clip.Clip
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Clip.Clip
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Clip.Clip
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.Clip.Clip
 
 
-module Network.AWS.ElasticTranscoder.Types.JobOutput
+module Amazonka.ElasticTranscoder.Types.JobOutput
 
 -- | Outputs recommended instead.
 --   
@@ -5599,16 +5599,16 @@ jobOutput_duration :: Lens' JobOutput (Maybe Integer)
 --   The value <tt>auto</tt> generally works only if the file that you're
 --   transcoding contains rotation metadata.
 jobOutput_rotate :: Lens' JobOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.JobOutput.JobOutput
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.JobOutput.JobOutput
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.JobOutput.JobOutput
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.JobOutput.JobOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.JobOutput.JobOutput
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.JobOutput.JobOutput
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.JobOutput.JobOutput
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.JobOutput.JobOutput
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.JobOutput.JobOutput
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.JobOutput.JobOutput
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.JobOutput.JobOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.JobOutput.JobOutput
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.JobOutput.JobOutput
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.JobOutput.JobOutput
 
 
-module Network.AWS.ElasticTranscoder.Types.CreateJobOutput
+module Amazonka.ElasticTranscoder.Types.CreateJobOutput
 
 -- | The <tt>CreateJobOutput</tt> structure.
 --   
@@ -6089,16 +6089,16 @@ createJobOutput_thumbnailEncryption :: Lens' CreateJobOutput (Maybe Encryption)
 --   <tt>270</tt>. The value <tt>auto</tt> generally works only if the file
 --   that you're transcoding contains rotation metadata.
 createJobOutput_rotate :: Lens' CreateJobOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.CreateJobOutput.CreateJobOutput
 
 
-module Network.AWS.ElasticTranscoder.Types.Timing
+module Amazonka.ElasticTranscoder.Types.Timing
 
 -- | Details about the timing of a job.
 --   
@@ -6144,16 +6144,16 @@ timing_finishTimeMillis :: Lens' Timing (Maybe Integer)
 
 -- | The time the job began transcoding, in epoch milliseconds.
 timing_startTimeMillis :: Lens' Timing (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Timing.Timing
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Timing.Timing
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Timing.Timing
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Timing.Timing
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Timing.Timing
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Timing.Timing
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Timing.Timing
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Timing.Timing
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Timing.Timing
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Timing.Timing
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Timing.Timing
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Timing.Timing
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Timing.Timing
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Timing.Timing
 
 
-module Network.AWS.ElasticTranscoder.Types.Job
+module Amazonka.ElasticTranscoder.Types.Job
 
 -- | A section of the response body that provides information about the job
 --   that is created.
@@ -6425,16 +6425,16 @@ job_outputKeyPrefix :: Lens' Job (Maybe Text)
 
 -- | Details about the timing of a job.
 job_timing :: Lens' Job (Maybe Timing)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Job.Job
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Job.Job
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Job.Job
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Job.Job
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Job.Job
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Job.Job
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Job.Job
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Job.Job
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Job.Job
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Job.Job
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Job.Job
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Job.Job
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Job.Job
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Job.Job
 
 
-module Network.AWS.ElasticTranscoder.Types.VideoParameters
+module Amazonka.ElasticTranscoder.Types.VideoParameters
 
 -- | The <tt>VideoParameters</tt> structure.
 --   
@@ -7710,17 +7710,17 @@ videoParameters_fixedGOP :: Lens' VideoParameters (Maybe Text)
 --   include <tt>Infinite</tt> and integers between <tt>0</tt> and
 --   <tt>100</tt>, inclusive.
 videoParameters_codecOptions :: Lens' VideoParameters (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.Types.VideoParameters.VideoParameters
 
 
-module Network.AWS.ElasticTranscoder.Types.Preset
+module Amazonka.ElasticTranscoder.Types.Preset
 
 -- | Presets are templates that contain most of the settings for
 --   transcoding media files from one format to another. Elastic Transcoder
@@ -7843,16 +7843,16 @@ preset_description :: Lens' Preset (Maybe Text)
 -- | A section of the response body that provides information about the
 --   audio preset values.
 preset_audio :: Lens' Preset (Maybe AudioParameters)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Preset.Preset
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Preset.Preset
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Preset.Preset
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Preset.Preset
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Preset.Preset
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Preset.Preset
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Preset.Preset
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Preset.Preset
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Preset.Preset
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Preset.Preset
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Preset.Preset
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Preset.Preset
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Preset.Preset
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Preset.Preset
 
 
-module Network.AWS.ElasticTranscoder.Types.Warning
+module Amazonka.ElasticTranscoder.Types.Warning
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 --   pipeline are not in the same region as the pipeline.
@@ -7899,16 +7899,16 @@ warning_code :: Lens' Warning (Maybe Text)
 --   
 --   AWS KMS keys must be in the same region as the pipeline.
 warning_message :: Lens' Warning (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.Types.Warning.Warning
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.Types.Warning.Warning
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.Types.Warning.Warning
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.Types.Warning.Warning
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticTranscoder.Types.Warning.Warning
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.Types.Warning.Warning
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.Types.Warning.Warning
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.Types.Warning.Warning
+instance GHC.Show.Show Amazonka.ElasticTranscoder.Types.Warning.Warning
+instance GHC.Read.Read Amazonka.ElasticTranscoder.Types.Warning.Warning
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.Types.Warning.Warning
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticTranscoder.Types.Warning.Warning
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.Types.Warning.Warning
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.Types.Warning.Warning
 
 
-module Network.AWS.ElasticTranscoder.Types
+module Amazonka.ElasticTranscoder.Types
 
 -- | API version <tt>2012-09-25</tt> of the Amazon Elastic Transcoder SDK
 --   configuration.
@@ -15514,7 +15514,7 @@ warning_message :: Lens' Warning (Maybe Text)
 
 
 -- | The ReadPreset operation gets detailed information about a preset.
-module Network.AWS.ElasticTranscoder.ReadPreset
+module Amazonka.ElasticTranscoder.ReadPreset
 
 -- | The <tt>ReadPresetRequest</tt> structure.
 --   
@@ -15579,25 +15579,25 @@ readPresetResponse_preset :: Lens' ReadPresetResponse (Maybe Preset)
 
 -- | The response's http status code.
 readPresetResponse_httpStatus :: Lens' ReadPresetResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ReadPreset.ReadPresetResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ReadPreset.ReadPresetResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ReadPreset.ReadPresetResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ReadPreset.ReadPresetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ReadPreset.ReadPresetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ReadPreset.ReadPreset
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ReadPreset.ReadPresetResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ReadPreset.ReadPresetResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ReadPreset.ReadPresetResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ReadPreset.ReadPresetResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ReadPreset.ReadPresetResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.ReadPreset.ReadPreset
 
 
 -- | The ReadPipeline operation gets detailed information about a pipeline.
-module Network.AWS.ElasticTranscoder.ReadPipeline
+module Amazonka.ElasticTranscoder.ReadPipeline
 
 -- | The <tt>ReadPipelineRequest</tt> structure.
 --   
@@ -15686,25 +15686,25 @@ readPipelineResponse_pipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 
 -- | The response's http status code.
 readPipelineResponse_httpStatus :: Lens' ReadPipelineResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ReadPipeline.ReadPipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.ReadPipeline.ReadPipeline
 
 
 -- | The ReadJob operation returns detailed information about a job.
-module Network.AWS.ElasticTranscoder.ReadJob
+module Amazonka.ElasticTranscoder.ReadJob
 
 -- | The <tt>ReadJobRequest</tt> structure.
 --   
@@ -15767,21 +15767,21 @@ readJobResponse_httpStatus :: Lens' ReadJobResponse Int
 -- | A section of the response body that provides information about the
 --   job.
 readJobResponse_job :: Lens' ReadJobResponse Job
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ReadJob.ReadJobResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ReadJob.ReadJobResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ReadJob.ReadJobResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ReadJob.ReadJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ReadJob.ReadJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.ReadJob.ReadJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ReadJob.ReadJob
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ReadJob.ReadJobResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ReadJob.ReadJobResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ReadJob.ReadJobResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ReadJob.ReadJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ReadJob.ReadJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.ReadJob.ReadJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.ReadJob.ReadJob
 
 
 -- | The ListPresets operation gets a list of the default presets included
@@ -15789,7 +15789,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ReadJob.Re
 --   region.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ElasticTranscoder.ListPresets
+module Amazonka.ElasticTranscoder.ListPresets
 
 -- | The <tt>ListPresetsRequest</tt> structure.
 --   
@@ -15889,29 +15889,29 @@ listPresetsResponse_presets :: Lens' ListPresetsResponse (Maybe [Preset])
 
 -- | The response's http status code.
 listPresetsResponse_httpStatus :: Lens' ListPresetsResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListPresets.ListPresetsResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListPresets.ListPresetsResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListPresets.ListPresetsResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListPresets.ListPresetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListPresets.ListPresetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.ListPresets.ListPresets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ListPresets.ListPresets
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListPresets.ListPresetsResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListPresets.ListPresetsResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListPresets.ListPresetsResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListPresets.ListPresetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListPresets.ListPresetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.ListPresets.ListPresets
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.ListPresets.ListPresets
 
 
 -- | The ListPipelines operation gets a list of the pipelines associated
 --   with the current AWS account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ElasticTranscoder.ListPipelines
+module Amazonka.ElasticTranscoder.ListPipelines
 
 -- | The <tt>ListPipelineRequest</tt> structure.
 --   
@@ -16012,22 +16012,22 @@ listPipelinesResponse_pipelines :: Lens' ListPipelinesResponse (Maybe [Pipeline]
 
 -- | The response's http status code.
 listPipelinesResponse_httpStatus :: Lens' ListPipelinesResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListPipelines.ListPipelinesResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListPipelines.ListPipelinesResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListPipelines.ListPipelinesResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListPipelines.ListPipelinesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListPipelines.ListPipelinesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ListPipelines.ListPipelines
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListPipelines.ListPipelinesResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListPipelines.ListPipelinesResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListPipelines.ListPipelinesResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListPipelines.ListPipelinesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListPipelines.ListPipelinesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.ListPipelines.ListPipelines
 
 
 -- | The ListJobsByStatus operation gets a list of jobs that have a
@@ -16035,7 +16035,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ListPipeli
 --   that satisfies the search criteria.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ElasticTranscoder.ListJobsByStatus
+module Amazonka.ElasticTranscoder.ListJobsByStatus
 
 -- | The <tt>ListJobsByStatusRequest</tt> structure.
 --   
@@ -16156,22 +16156,22 @@ listJobsByStatusResponse_jobs :: Lens' ListJobsByStatusResponse (Maybe [Job])
 
 -- | The response's http status code.
 listJobsByStatusResponse_httpStatus :: Lens' ListJobsByStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatusResponse
+instance Amazonka.Pager.AWSPager Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.ListJobsByStatus.ListJobsByStatus
 
 
 -- | The ListJobsByPipeline operation gets a list of the jobs currently in
@@ -16182,7 +16182,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ListJobsBy
 --   satisfies the search criteria.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ElasticTranscoder.ListJobsByPipeline
+module Amazonka.ElasticTranscoder.ListJobsByPipeline
 
 -- | The <tt>ListJobsByPipelineRequest</tt> structure.
 --   
@@ -16295,22 +16295,22 @@ listJobsByPipelineResponse_jobs :: Lens' ListJobsByPipelineResponse (Maybe [Job]
 
 -- | The response's http status code.
 listJobsByPipelineResponse_httpStatus :: Lens' ListJobsByPipelineResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipelineResponse
+instance Amazonka.Pager.AWSPager Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.ListJobsByPipeline.ListJobsByPipeline
 
 
 -- | The DeletePreset operation removes a preset that you've added in an
@@ -16318,7 +16318,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.ListJobsBy
 --   
 --   You can't delete the default presets that are included with Elastic
 --   Transcoder.
-module Network.AWS.ElasticTranscoder.DeletePreset
+module Amazonka.ElasticTranscoder.DeletePreset
 
 -- | The <tt>DeletePresetRequest</tt> structure.
 --   
@@ -16372,21 +16372,21 @@ newDeletePresetResponse :: Int -> DeletePresetResponse
 
 -- | The response's http status code.
 deletePresetResponse_httpStatus :: Lens' DeletePresetResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.DeletePreset.DeletePresetResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.DeletePreset.DeletePresetResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.DeletePreset.DeletePresetResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.DeletePreset.DeletePresetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.DeletePreset.DeletePresetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.DeletePreset.DeletePreset
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance GHC.Show.Show Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance GHC.Read.Read Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.DeletePreset.DeletePresetResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.DeletePreset.DeletePresetResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.DeletePreset.DeletePresetResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.DeletePreset.DeletePresetResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.DeletePreset.DeletePresetResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.DeletePreset.DeletePreset
 
 
 -- | The DeletePipeline operation removes a pipeline.
@@ -16394,7 +16394,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.DeletePres
 --   You can only delete a pipeline that has never been used or that is not
 --   currently in use (doesn't contain any active jobs). If the pipeline is
 --   currently in use, <tt>DeletePipeline</tt> returns an error.
-module Network.AWS.ElasticTranscoder.DeletePipeline
+module Amazonka.ElasticTranscoder.DeletePipeline
 
 -- | The <tt>DeletePipelineRequest</tt> structure.
 --   
@@ -16446,21 +16446,21 @@ newDeletePipelineResponse :: Int -> DeletePipelineResponse
 
 -- | The response's http status code.
 deletePipelineResponse_httpStatus :: Lens' DeletePipelineResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance GHC.Show.Show Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance GHC.Read.Read Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.DeletePipeline.DeletePipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.DeletePipeline.DeletePipeline
 
 
 -- | The CreatePreset operation creates a preset with settings that you
@@ -16482,7 +16482,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.DeletePipe
 --   information, see the International Telecommunication Union publication
 --   /Recommendation ITU-T H.264: Advanced video coding for generic
 --   audiovisual services/.
-module Network.AWS.ElasticTranscoder.CreatePreset
+module Amazonka.ElasticTranscoder.CreatePreset
 
 -- | The <tt>CreatePresetRequest</tt> structure.
 --   
@@ -16627,27 +16627,27 @@ createPresetResponse_preset :: Lens' CreatePresetResponse (Maybe Preset)
 
 -- | The response's http status code.
 createPresetResponse_httpStatus :: Lens' CreatePresetResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CreatePreset.CreatePresetResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CreatePreset.CreatePresetResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CreatePreset.CreatePresetResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CreatePreset.CreatePresetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CreatePreset.CreatePresetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.CreatePreset.CreatePreset
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CreatePreset.CreatePresetResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CreatePreset.CreatePresetResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CreatePreset.CreatePresetResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CreatePreset.CreatePresetResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CreatePreset.CreatePresetResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.CreatePreset.CreatePreset
 
 
 -- | The CreatePipeline operation creates a pipeline with settings that you
 --   specify.
-module Network.AWS.ElasticTranscoder.CreatePipeline
+module Amazonka.ElasticTranscoder.CreatePipeline
 
 -- | The <tt>CreatePipelineRequest</tt> structure.
 --   
@@ -17325,22 +17325,22 @@ createPipelineResponse_pipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 
 -- | The response's http status code.
 createPipelineResponse_httpStatus :: Lens' CreatePipelineResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CreatePipeline.CreatePipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.CreatePipeline.CreatePipeline
 
 
 -- | When you create a job, Elastic Transcoder returns JSON data that
@@ -17351,7 +17351,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.CreatePipe
 --   one output for the Kindle Fire and another output for the Apple iPhone
 --   4s), you currently must use the Elastic Transcoder API to list the
 --   jobs (as opposed to the AWS Console).
-module Network.AWS.ElasticTranscoder.CreateJob
+module Amazonka.ElasticTranscoder.CreateJob
 
 -- | The <tt>CreateJobRequest</tt> structure.
 --   
@@ -17539,22 +17539,22 @@ createJobResponse_job :: Lens' CreateJobResponse (Maybe Job)
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens' CreateJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CreateJob.CreateJobResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CreateJob.CreateJobResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CreateJob.CreateJobResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CreateJob.CreateJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CreateJob.CreateJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.CreateJob.CreateJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CreateJob.CreateJobResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CreateJob.CreateJobResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CreateJob.CreateJobResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CreateJob.CreateJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CreateJob.CreateJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.CreateJob.CreateJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.CreateJob.CreateJob
 
 
 -- | The CancelJob operation cancels an unfinished job.
@@ -17563,7 +17563,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.CreateJob.
 --   prevent a pipeline from starting to process a job while you're getting
 --   the job identifier, use UpdatePipelineStatus to temporarily pause the
 --   pipeline.
-module Network.AWS.ElasticTranscoder.CancelJob
+module Amazonka.ElasticTranscoder.CancelJob
 
 -- | The <tt>CancelJobRequest</tt> structure.
 --   
@@ -17623,21 +17623,21 @@ newCancelJobResponse :: Int -> CancelJobResponse
 
 -- | The response's http status code.
 cancelJobResponse_httpStatus :: Lens' CancelJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.CancelJob.CancelJobResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.CancelJob.CancelJobResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.CancelJob.CancelJobResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.CancelJob.CancelJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CancelJob.CancelJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.CancelJob.CancelJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.CancelJob.CancelJobResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.CancelJob.CancelJobResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.CancelJob.CancelJobResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.CancelJob.CancelJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CancelJob.CancelJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.CancelJob.CancelJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.CancelJob.CancelJob
 
 
 -- | Use the <tt>UpdatePipeline</tt> operation to update settings for a
@@ -17647,7 +17647,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.CancelJob.
 --   immediately. Jobs that you have already submitted and that Elastic
 --   Transcoder has not started to process are affected in addition to jobs
 --   that you submit after you change settings.
-module Network.AWS.ElasticTranscoder.UpdatePipeline
+module Amazonka.ElasticTranscoder.UpdatePipeline
 
 -- | The <tt>UpdatePipelineRequest</tt> structure.
 --   
@@ -18246,22 +18246,22 @@ updatePipelineResponse_pipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 
 -- | The response's http status code.
 updatePipelineResponse_httpStatus :: Lens' UpdatePipelineResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance GHC.Show.Show Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance GHC.Read.Read Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipelineResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.UpdatePipeline.UpdatePipeline
 
 
 -- | With the UpdatePipelineNotifications operation, you can update Amazon
@@ -18269,7 +18269,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.UpdatePipe
 --   
 --   When you update notifications for a pipeline, Elastic Transcoder
 --   returns the values that you specified in the request.
-module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
+module Amazonka.ElasticTranscoder.UpdatePipelineNotifications
 
 -- | The <tt>UpdatePipelineNotificationsRequest</tt> structure.
 --   
@@ -18417,22 +18417,22 @@ updatePipelineNotificationsResponse_pipeline :: Lens' UpdatePipelineNotification
 
 -- | The response's http status code.
 updatePipelineNotificationsResponse_httpStatus :: Lens' UpdatePipelineNotificationsResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance GHC.Show.Show Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance GHC.Read.Read Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotificationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.UpdatePipelineNotifications.UpdatePipelineNotifications
 
 
 -- | The UpdatePipelineStatus operation pauses or reactivates a pipeline,
@@ -18443,7 +18443,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.UpdatePipe
 --   processing them; if you pause the pipeline to which you submitted the
 --   jobs, you have more time to get the job IDs for the jobs that you want
 --   to cancel, and to send a CancelJob request.
-module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+module Amazonka.ElasticTranscoder.UpdatePipelineStatus
 
 -- | The <tt>UpdatePipelineStatusRequest</tt> structure.
 --   
@@ -18536,25 +18536,25 @@ updatePipelineStatusResponse_pipeline :: Lens' UpdatePipelineStatusResponse (May
 
 -- | The response's http status code.
 updatePipelineStatusResponse_httpStatus :: Lens' UpdatePipelineStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance GHC.Generics.Generic Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
-instance GHC.Show.Show Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
-instance GHC.Read.Read Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
-instance GHC.Classes.Eq Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance Control.DeepSeq.NFData Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance GHC.Show.Show Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance GHC.Read.Read Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance GHC.Generics.Generic Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
+instance GHC.Show.Show Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
+instance GHC.Read.Read Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
+instance GHC.Classes.Eq Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance Control.DeepSeq.NFData Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticTranscoder.UpdatePipelineStatus.UpdatePipelineStatus
 
 
-module Network.AWS.ElasticTranscoder.Lens
+module Amazonka.ElasticTranscoder.Lens
 
 -- | The identifier of the preset for which you want to get detailed
 --   information.
@@ -21593,7 +21593,7 @@ warning_code :: Lens' Warning (Maybe Text)
 warning_message :: Lens' Warning (Maybe Text)
 
 
-module Network.AWS.ElasticTranscoder.Waiters
+module Amazonka.ElasticTranscoder.Waiters
 
 -- | Polls <a>ReadJob</a> every 30 seconds until a successful state is
 --   reached. An error is returned after 120 failed checks.
@@ -21606,7 +21606,7 @@ newJobComplete :: Wait ReadJob
 --   AWS Elastic Transcoder Service
 --   
 --   The AWS Elastic Transcoder Service.
-module Network.AWS.ElasticTranscoder
+module Amazonka.ElasticTranscoder
 
 -- | API version <tt>2012-09-25</tt> of the Amazon Elastic Transcoder SDK
 --   configuration.

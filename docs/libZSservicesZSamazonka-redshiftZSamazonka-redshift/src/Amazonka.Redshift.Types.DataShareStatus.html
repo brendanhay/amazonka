@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.Types.DataShareStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.Types.DataShareStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier">DataShareStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_ACTIVE"><span class="hs-identifier">DataShareStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_AUTHORIZED"><span class="hs-identifier">DataShareStatus_AUTHORIZED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_AVAILABLE"><span class="hs-identifier">DataShareStatus_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_DEAUTHORIZED"><span class="hs-identifier">DataShareStatus_DEAUTHORIZED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_PENDING_AUTHORIZATION"><span class="hs-identifier">DataShareStatus_PENDING_AUTHORIZATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_REJECTED"><span class="hs-identifier">DataShareStatus_REJECTED</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Internal.html"><span class="hs-identifier">Amazonka.Redshift.Internal</span></a></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679491024"><span id="local-6989586621679491025"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataShareStatus"><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-var">DataShareStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShareStatus%27"><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-identifier hs-var">DataShareStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataShareStatus"><span class="annot"><span class="annottext">DataShareStatus -&gt; Text
+</span><a href="Amazonka.Redshift.Types.DataShareStatus.html#fromDataShareStatus"><span class="hs-identifier hs-var hs-var">fromDataShareStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491016"><span id="local-6989586621679491018"><span id="local-6989586621679491020"><span class="annot"><span class="annottext">Int -&gt; DataShareStatus -&gt; ShowS
+[DataShareStatus] -&gt; ShowS
+DataShareStatus -&gt; String
+(Int -&gt; DataShareStatus -&gt; ShowS)
+-&gt; (DataShareStatus -&gt; String)
+-&gt; ([DataShareStatus] -&gt; ShowS)
+-&gt; Show DataShareStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataShareStatus] -&gt; ShowS
+$cshowList :: [DataShareStatus] -&gt; ShowS
+show :: DataShareStatus -&gt; String
+$cshow :: DataShareStatus -&gt; String
+showsPrec :: Int -&gt; DataShareStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataShareStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679491007"><span id="local-6989586621679491009"><span id="local-6989586621679491011"><span id="local-6989586621679491013"><span class="annot"><span class="annottext">ReadPrec [DataShareStatus]
+ReadPrec DataShareStatus
+Int -&gt; ReadS DataShareStatus
+ReadS [DataShareStatus]
+(Int -&gt; ReadS DataShareStatus)
+-&gt; ReadS [DataShareStatus]
+-&gt; ReadPrec DataShareStatus
+-&gt; ReadPrec [DataShareStatus]
+-&gt; Read DataShareStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataShareStatus]
+$creadListPrec :: ReadPrec [DataShareStatus]
+readPrec :: ReadPrec DataShareStatus
+$creadPrec :: ReadPrec DataShareStatus
+readList :: ReadS [DataShareStatus]
+$creadList :: ReadS [DataShareStatus]
+readsPrec :: Int -&gt; ReadS DataShareStatus
+$creadsPrec :: Int -&gt; ReadS DataShareStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679491002"><span id="local-6989586621679491004"><span class="annot"><span class="annottext">DataShareStatus -&gt; DataShareStatus -&gt; Bool
+(DataShareStatus -&gt; DataShareStatus -&gt; Bool)
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; Bool)
+-&gt; Eq DataShareStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+$c/= :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+== :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+$c== :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679490986"><span id="local-6989586621679490988"><span id="local-6989586621679490990"><span id="local-6989586621679490992"><span id="local-6989586621679490994"><span id="local-6989586621679490996"><span id="local-6989586621679490998"><span class="annot"><span class="annottext">Eq DataShareStatus
+Eq DataShareStatus
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; Ordering)
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; Bool)
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; Bool)
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; Bool)
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; Bool)
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; DataShareStatus)
+-&gt; (DataShareStatus -&gt; DataShareStatus -&gt; DataShareStatus)
+-&gt; Ord DataShareStatus
+DataShareStatus -&gt; DataShareStatus -&gt; Bool
+DataShareStatus -&gt; DataShareStatus -&gt; Ordering
+DataShareStatus -&gt; DataShareStatus -&gt; DataShareStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataShareStatus -&gt; DataShareStatus -&gt; DataShareStatus
+$cmin :: DataShareStatus -&gt; DataShareStatus -&gt; DataShareStatus
+max :: DataShareStatus -&gt; DataShareStatus -&gt; DataShareStatus
+$cmax :: DataShareStatus -&gt; DataShareStatus -&gt; DataShareStatus
+&gt;= :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+$c&gt;= :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+&gt; :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+$c&gt; :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+&lt;= :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+$c&lt;= :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+&lt; :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+$c&lt; :: DataShareStatus -&gt; DataShareStatus -&gt; Bool
+compare :: DataShareStatus -&gt; DataShareStatus -&gt; Ordering
+$ccompare :: DataShareStatus -&gt; DataShareStatus -&gt; Ordering
+$cp1Ord :: Eq DataShareStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DataShareStatus -&gt; Rep DataShareStatus x)
+-&gt; (forall x. Rep DataShareStatus x -&gt; DataShareStatus)
+-&gt; Generic DataShareStatus
+forall x. Rep DataShareStatus x -&gt; DataShareStatus
+forall x. DataShareStatus -&gt; Rep DataShareStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataShareStatus x -&gt; DataShareStatus
+$cfrom :: forall x. DataShareStatus -&gt; Rep DataShareStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679490978"><span id="local-6989586621679490980"><span class="annot"><span class="annottext">Int -&gt; DataShareStatus -&gt; Int
+DataShareStatus -&gt; Int
+(Int -&gt; DataShareStatus -&gt; Int)
+-&gt; (DataShareStatus -&gt; Int) -&gt; Hashable DataShareStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataShareStatus -&gt; Int
+$chash :: DataShareStatus -&gt; Int
+hashWithSalt :: Int -&gt; DataShareStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DataShareStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679490975"><span class="annot"><span class="annottext">DataShareStatus -&gt; ()
+(DataShareStatus -&gt; ()) -&gt; NFData DataShareStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataShareStatus -&gt; ()
+$crnf :: DataShareStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679490972"><span class="annot"><span class="annottext">Text -&gt; Either String DataShareStatus
+(Text -&gt; Either String DataShareStatus) -&gt; FromText DataShareStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataShareStatus
+$cfromText :: Text -&gt; Either String DataShareStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679490969"><span class="annot"><span class="annottext">DataShareStatus -&gt; Text
+(DataShareStatus -&gt; Text) -&gt; ToText DataShareStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataShareStatus -&gt; Text
+$ctoText :: DataShareStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679490966"><span class="annot"><span class="annottext">DataShareStatus -&gt; ByteString
+(DataShareStatus -&gt; ByteString) -&gt; ToByteString DataShareStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataShareStatus -&gt; ByteString
+$ctoBS :: DataShareStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679490963"><span class="annot"><span class="annottext">DataShareStatus -&gt; ByteStringBuilder
+(DataShareStatus -&gt; ByteStringBuilder) -&gt; ToLog DataShareStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataShareStatus -&gt; ByteStringBuilder
+$cbuild :: DataShareStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679490960"><span class="annot"><span class="annottext">HeaderName -&gt; DataShareStatus -&gt; [Header]
+(HeaderName -&gt; DataShareStatus -&gt; [Header])
+-&gt; ToHeader DataShareStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataShareStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataShareStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679490957"><span class="annot"><span class="annottext">DataShareStatus -&gt; QueryString
+(DataShareStatus -&gt; QueryString) -&gt; ToQuery DataShareStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataShareStatus -&gt; QueryString
+$ctoQuery :: DataShareStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679490952"><span id="local-6989586621679490954"><span class="annot"><span class="annottext">Value -&gt; Parser [DataShareStatus]
+Value -&gt; Parser DataShareStatus
+(Value -&gt; Parser DataShareStatus)
+-&gt; (Value -&gt; Parser [DataShareStatus]) -&gt; FromJSON DataShareStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataShareStatus]
+$cparseJSONList :: Value -&gt; Parser [DataShareStatus]
+parseJSON :: Value -&gt; Parser DataShareStatus
+$cparseJSON :: Value -&gt; Parser DataShareStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679490947"><span id="local-6989586621679490949"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataShareStatus]
+FromJSONKeyFunction DataShareStatus
+FromJSONKeyFunction DataShareStatus
+-&gt; FromJSONKeyFunction [DataShareStatus]
+-&gt; FromJSONKey DataShareStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataShareStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataShareStatus]
+fromJSONKey :: FromJSONKeyFunction DataShareStatus
+$cfromJSONKey :: FromJSONKeyFunction DataShareStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679490938"><span id="local-6989586621679490940"><span id="local-6989586621679490942"><span id="local-6989586621679490944"><span class="annot"><span class="annottext">[DataShareStatus] -&gt; Encoding
+[DataShareStatus] -&gt; Value
+DataShareStatus -&gt; Encoding
+DataShareStatus -&gt; Value
+(DataShareStatus -&gt; Value)
+-&gt; (DataShareStatus -&gt; Encoding)
+-&gt; ([DataShareStatus] -&gt; Value)
+-&gt; ([DataShareStatus] -&gt; Encoding)
+-&gt; ToJSON DataShareStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataShareStatus] -&gt; Encoding
+$ctoEncodingList :: [DataShareStatus] -&gt; Encoding
+toJSONList :: [DataShareStatus] -&gt; Value
+$ctoJSONList :: [DataShareStatus] -&gt; Value
+toEncoding :: DataShareStatus -&gt; Encoding
+$ctoEncoding :: DataShareStatus -&gt; Encoding
+toJSON :: DataShareStatus -&gt; Value
+$ctoJSON :: DataShareStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679490933"><span id="local-6989586621679490935"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataShareStatus]
+ToJSONKeyFunction DataShareStatus
+ToJSONKeyFunction DataShareStatus
+-&gt; ToJSONKeyFunction [DataShareStatus] -&gt; ToJSONKey DataShareStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataShareStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataShareStatus]
+toJSONKey :: ToJSONKeyFunction DataShareStatus
+$ctoJSONKey :: ToJSONKeyFunction DataShareStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679490930"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShareStatus
+([Node] -&gt; Either String DataShareStatus)
+-&gt; FromXML DataShareStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataShareStatus
+$cparseXML :: [Node] -&gt; Either String DataShareStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679490927"><span class="annot"><span class="annottext">DataShareStatus -&gt; XML
+(DataShareStatus -&gt; XML) -&gt; ToXML DataShareStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataShareStatus -&gt; XML
+$ctoXML :: DataShareStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_ACTIVE"><span class="hs-identifier hs-type">DataShareStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataShareStatus_ACTIVE"><span id="%24mDataShareStatus_ACTIVE"><span id="DataShareStatus_ACTIVE"><span class="annot"><span class="annottext">$bDataShareStatus_ACTIVE :: DataShareStatus
+$mDataShareStatus_ACTIVE :: forall r. DataShareStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Redshift.Types.DataShareStatus.html#%24bDataShareStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DataShareStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-identifier hs-type">DataShareStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_AUTHORIZED"><span class="hs-identifier hs-type">DataShareStatus_AUTHORIZED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataShareStatus_AUTHORIZED"><span id="%24mDataShareStatus_AUTHORIZED"><span id="DataShareStatus_AUTHORIZED"><span class="annot"><span class="annottext">$bDataShareStatus_AUTHORIZED :: DataShareStatus
+$mDataShareStatus_AUTHORIZED :: forall r. DataShareStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Redshift.Types.DataShareStatus.html#%24bDataShareStatus_AUTHORIZED"><span class="hs-identifier hs-var hs-var hs-var">DataShareStatus_AUTHORIZED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-identifier hs-type">DataShareStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTHORIZED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_AVAILABLE"><span class="hs-identifier hs-type">DataShareStatus_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataShareStatus_AVAILABLE"><span id="%24mDataShareStatus_AVAILABLE"><span id="DataShareStatus_AVAILABLE"><span class="annot"><span class="annottext">$bDataShareStatus_AVAILABLE :: DataShareStatus
+$mDataShareStatus_AVAILABLE :: forall r. DataShareStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Redshift.Types.DataShareStatus.html#%24bDataShareStatus_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">DataShareStatus_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-identifier hs-type">DataShareStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABLE&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_DEAUTHORIZED"><span class="hs-identifier hs-type">DataShareStatus_DEAUTHORIZED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataShareStatus_DEAUTHORIZED"><span id="%24mDataShareStatus_DEAUTHORIZED"><span id="DataShareStatus_DEAUTHORIZED"><span class="annot"><span class="annottext">$bDataShareStatus_DEAUTHORIZED :: DataShareStatus
+$mDataShareStatus_DEAUTHORIZED :: forall r. DataShareStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Redshift.Types.DataShareStatus.html#%24bDataShareStatus_DEAUTHORIZED"><span class="hs-identifier hs-var hs-var hs-var">DataShareStatus_DEAUTHORIZED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-identifier hs-type">DataShareStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEAUTHORIZED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_PENDING_AUTHORIZATION"><span class="hs-identifier hs-type">DataShareStatus_PENDING_AUTHORIZATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataShareStatus_PENDING_AUTHORIZATION"><span id="%24mDataShareStatus_PENDING_AUTHORIZATION"><span id="DataShareStatus_PENDING_AUTHORIZATION"><span class="annot"><span class="annottext">$bDataShareStatus_PENDING_AUTHORIZATION :: DataShareStatus
+$mDataShareStatus_PENDING_AUTHORIZATION :: forall r. DataShareStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Redshift.Types.DataShareStatus.html#%24bDataShareStatus_PENDING_AUTHORIZATION"><span class="hs-identifier hs-var hs-var hs-var">DataShareStatus_PENDING_AUTHORIZATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-identifier hs-type">DataShareStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_AUTHORIZATION&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_REJECTED"><span class="hs-identifier hs-type">DataShareStatus_REJECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataShareStatus_REJECTED"><span id="%24mDataShareStatus_REJECTED"><span id="DataShareStatus_REJECTED"><span class="annot"><span class="annottext">$bDataShareStatus_REJECTED :: DataShareStatus
+$mDataShareStatus_REJECTED :: forall r. DataShareStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Redshift.Types.DataShareStatus.html#%24bDataShareStatus_REJECTED"><span class="hs-identifier hs-var hs-var hs-var">DataShareStatus_REJECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-identifier hs-type">DataShareStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REJECTED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_ACTIVE"><span class="hs-pragma hs-type">DataShareStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_AUTHORIZED"><span class="hs-pragma hs-type">DataShareStatus_AUTHORIZED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_AVAILABLE"><span class="hs-pragma hs-type">DataShareStatus_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_DEAUTHORIZED"><span class="hs-pragma hs-type">DataShareStatus_DEAUTHORIZED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_PENDING_AUTHORIZATION"><span class="hs-pragma hs-type">DataShareStatus_PENDING_AUTHORIZATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus_REJECTED"><span class="hs-pragma hs-type">DataShareStatus_REJECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DataShareStatus.html#DataShareStatus%27"><span class="hs-pragma hs-type">DataShareStatus'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

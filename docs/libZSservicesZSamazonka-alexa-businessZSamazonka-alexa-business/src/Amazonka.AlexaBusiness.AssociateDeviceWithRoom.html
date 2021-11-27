@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.AssociateDeviceWithRoom</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates a device with a given room. This applies all the settings</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- from the room profile to the device, and all the skills in any skill</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- groups added to that room. This operation requires the device to be</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- online, or else a manual sync is required.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.AssociateDeviceWithRoom</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#newAssociateDeviceWithRoom"><span class="hs-identifier">newAssociateDeviceWithRoom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoom_deviceArn"><span class="hs-identifier">associateDeviceWithRoom_deviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoom_roomArn"><span class="hs-identifier">associateDeviceWithRoom_roomArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse"><span class="hs-identifier">AssociateDeviceWithRoomResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#newAssociateDeviceWithRoomResponse"><span class="hs-identifier">newAssociateDeviceWithRoomResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoomResponse_httpStatus"><span class="hs-identifier">associateDeviceWithRoomResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newAssociateDeviceWithRoom' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679393605"><span id="local-6989586621679393606"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateDeviceWithRoom"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-var">AssociateDeviceWithRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateDeviceWithRoom%27"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom%27"><span class="hs-identifier hs-var">AssociateDeviceWithRoom'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the device to associate to a room. Required.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdeviceArn%3AAssociateDeviceWithRoom%27"><span class="annot"><span class="annottext">AssociateDeviceWithRoom -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AdeviceArn%3AAssociateDeviceWithRoom%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ARN of the room with which to associate the device. Required.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AroomArn%3AAssociateDeviceWithRoom%27"><span class="annot"><span class="annottext">AssociateDeviceWithRoom -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AroomArn%3AAssociateDeviceWithRoom%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393598"><span id="local-6989586621679393600"><span class="annot"><span class="annottext">AssociateDeviceWithRoom -&gt; AssociateDeviceWithRoom -&gt; Bool
+(AssociateDeviceWithRoom -&gt; AssociateDeviceWithRoom -&gt; Bool)
+-&gt; (AssociateDeviceWithRoom -&gt; AssociateDeviceWithRoom -&gt; Bool)
+-&gt; Eq AssociateDeviceWithRoom
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateDeviceWithRoom -&gt; AssociateDeviceWithRoom -&gt; Bool
+$c/= :: AssociateDeviceWithRoom -&gt; AssociateDeviceWithRoom -&gt; Bool
+== :: AssociateDeviceWithRoom -&gt; AssociateDeviceWithRoom -&gt; Bool
+$c== :: AssociateDeviceWithRoom -&gt; AssociateDeviceWithRoom -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393589"><span id="local-6989586621679393591"><span id="local-6989586621679393593"><span id="local-6989586621679393595"><span class="annot"><span class="annottext">ReadPrec [AssociateDeviceWithRoom]
+ReadPrec AssociateDeviceWithRoom
+Int -&gt; ReadS AssociateDeviceWithRoom
+ReadS [AssociateDeviceWithRoom]
+(Int -&gt; ReadS AssociateDeviceWithRoom)
+-&gt; ReadS [AssociateDeviceWithRoom]
+-&gt; ReadPrec AssociateDeviceWithRoom
+-&gt; ReadPrec [AssociateDeviceWithRoom]
+-&gt; Read AssociateDeviceWithRoom
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateDeviceWithRoom]
+$creadListPrec :: ReadPrec [AssociateDeviceWithRoom]
+readPrec :: ReadPrec AssociateDeviceWithRoom
+$creadPrec :: ReadPrec AssociateDeviceWithRoom
+readList :: ReadS [AssociateDeviceWithRoom]
+$creadList :: ReadS [AssociateDeviceWithRoom]
+readsPrec :: Int -&gt; ReadS AssociateDeviceWithRoom
+$creadsPrec :: Int -&gt; ReadS AssociateDeviceWithRoom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393582"><span id="local-6989586621679393584"><span id="local-6989586621679393586"><span class="annot"><span class="annottext">Int -&gt; AssociateDeviceWithRoom -&gt; ShowS
+[AssociateDeviceWithRoom] -&gt; ShowS
+AssociateDeviceWithRoom -&gt; String
+(Int -&gt; AssociateDeviceWithRoom -&gt; ShowS)
+-&gt; (AssociateDeviceWithRoom -&gt; String)
+-&gt; ([AssociateDeviceWithRoom] -&gt; ShowS)
+-&gt; Show AssociateDeviceWithRoom
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateDeviceWithRoom] -&gt; ShowS
+$cshowList :: [AssociateDeviceWithRoom] -&gt; ShowS
+show :: AssociateDeviceWithRoom -&gt; String
+$cshow :: AssociateDeviceWithRoom -&gt; String
+showsPrec :: Int -&gt; AssociateDeviceWithRoom -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateDeviceWithRoom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateDeviceWithRoom -&gt; Rep AssociateDeviceWithRoom x)
+-&gt; (forall x.
+    Rep AssociateDeviceWithRoom x -&gt; AssociateDeviceWithRoom)
+-&gt; Generic AssociateDeviceWithRoom
+forall x. Rep AssociateDeviceWithRoom x -&gt; AssociateDeviceWithRoom
+forall x. AssociateDeviceWithRoom -&gt; Rep AssociateDeviceWithRoom x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateDeviceWithRoom x -&gt; AssociateDeviceWithRoom
+$cfrom :: forall x. AssociateDeviceWithRoom -&gt; Rep AssociateDeviceWithRoom x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'AssociateDeviceWithRoom' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'deviceArn', 'associateDeviceWithRoom_deviceArn' - The ARN of the device to associate to a room. Required.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'roomArn', 'associateDeviceWithRoom_roomArn' - The ARN of the room with which to associate the device. Required.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#newAssociateDeviceWithRoom"><span class="hs-identifier hs-type">newAssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span>
+</span><span id="line-74"></span><span id="newAssociateDeviceWithRoom"><span class="annot"><span class="annottext">newAssociateDeviceWithRoom :: AssociateDeviceWithRoom
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#newAssociateDeviceWithRoom"><span class="hs-identifier hs-var hs-var">newAssociateDeviceWithRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">AssociateDeviceWithRoom' :: Maybe Text -&gt; Maybe Text -&gt; AssociateDeviceWithRoom
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoom'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceArn:AssociateDeviceWithRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AdeviceArn%3AAssociateDeviceWithRoom%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomArn:AssociateDeviceWithRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AroomArn%3AAssociateDeviceWithRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ARN of the device to associate to a room. Required.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoom_deviceArn"><span class="hs-identifier hs-type">associateDeviceWithRoom_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="associateDeviceWithRoom_deviceArn"><span class="annot"><span class="annottext">associateDeviceWithRoom_deviceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociateDeviceWithRoom -&gt; f AssociateDeviceWithRoom
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoom_deviceArn"><span class="hs-identifier hs-var hs-var">associateDeviceWithRoom_deviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateDeviceWithRoom -&gt; Maybe Text)
+-&gt; (AssociateDeviceWithRoom
+    -&gt; Maybe Text -&gt; AssociateDeviceWithRoom)
+-&gt; Lens
+     AssociateDeviceWithRoom
+     AssociateDeviceWithRoom
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393575"><span class="annot"><span class="annottext">Maybe Text
+deviceArn :: Maybe Text
+$sel:deviceArn:AssociateDeviceWithRoom' :: AssociateDeviceWithRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679393575"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393575"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393574"><span class="annot"><span class="annottext">s :: AssociateDeviceWithRoom
+</span><a href="#local-6989586621679393574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDeviceWithRoom
+</span><a href="#local-6989586621679393574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:AssociateDeviceWithRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AdeviceArn%3AAssociateDeviceWithRoom%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ARN of the room with which to associate the device. Required.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoom_roomArn"><span class="hs-identifier hs-type">associateDeviceWithRoom_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="associateDeviceWithRoom_roomArn"><span class="annot"><span class="annottext">associateDeviceWithRoom_roomArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociateDeviceWithRoom -&gt; f AssociateDeviceWithRoom
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoom_roomArn"><span class="hs-identifier hs-var hs-var">associateDeviceWithRoom_roomArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateDeviceWithRoom -&gt; Maybe Text)
+-&gt; (AssociateDeviceWithRoom
+    -&gt; Maybe Text -&gt; AssociateDeviceWithRoom)
+-&gt; Lens
+     AssociateDeviceWithRoom
+     AssociateDeviceWithRoom
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393572"><span class="annot"><span class="annottext">Maybe Text
+roomArn :: Maybe Text
+$sel:roomArn:AssociateDeviceWithRoom' :: AssociateDeviceWithRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679393572"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393572"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393571"><span class="annot"><span class="annottext">s :: AssociateDeviceWithRoom
+</span><a href="#local-6989586621679393571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDeviceWithRoom
+</span><a href="#local-6989586621679393571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:AssociateDeviceWithRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AroomArn%3AAssociateDeviceWithRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679393566"><span class="annot"><span class="annottext">request :: AssociateDeviceWithRoom -&gt; Request AssociateDeviceWithRoom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AssociateDeviceWithRoom -&gt; Request AssociateDeviceWithRoom
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679393562"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateDeviceWithRoom
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateDeviceWithRoom)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateDeviceWithRoom))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateDeviceWithRoom
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateDeviceWithRoom)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393559"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393559"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393558"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393558"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393557"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679393557"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateDeviceWithRoomResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-var">AssociateDeviceWithRoomResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateDeviceWithRoomResponse)
+-&gt; Either String Int
+-&gt; Either String AssociateDeviceWithRoomResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393559"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393550"><span id="local-6989586621679393552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679393543"><span class="annot"><span class="annottext">toHeaders :: AssociateDeviceWithRoom -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateDeviceWithRoom -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.AssociateDeviceWithRoom&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393533"><span id="local-6989586621679393535"><span id="local-6989586621679393537"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679393531"><span class="annot"><span class="annottext">toJSON :: AssociateDeviceWithRoom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393528"><span id="local-6989586621679393529"><span class="annot"><span class="annottext">Maybe Text
+roomArn :: Maybe Text
+deviceArn :: Maybe Text
+$sel:roomArn:AssociateDeviceWithRoom' :: AssociateDeviceWithRoom -&gt; Maybe Text
+$sel:deviceArn:AssociateDeviceWithRoom' :: AssociateDeviceWithRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679393528"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393529"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393528"><span class="hs-identifier hs-var">roomArn</span></a></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679393522"><span class="annot"><span class="annottext">toPath :: AssociateDeviceWithRoom -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateDeviceWithRoom -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoom"><span class="hs-identifier hs-type">AssociateDeviceWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679393518"><span class="annot"><span class="annottext">toQuery :: AssociateDeviceWithRoom -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateDeviceWithRoom -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newAssociateDeviceWithRoomResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679393515"><span id="local-6989586621679393516"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateDeviceWithRoomResponse"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse"><span class="hs-identifier hs-var">AssociateDeviceWithRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateDeviceWithRoomResponse%27"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-var">AssociateDeviceWithRoomResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateDeviceWithRoomResponse%27"><span class="annot"><span class="annottext">AssociateDeviceWithRoomResponse -&gt; Int
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AhttpStatus%3AAssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393510"><span id="local-6989586621679393512"><span class="annot"><span class="annottext">AssociateDeviceWithRoomResponse
+-&gt; AssociateDeviceWithRoomResponse -&gt; Bool
+(AssociateDeviceWithRoomResponse
+ -&gt; AssociateDeviceWithRoomResponse -&gt; Bool)
+-&gt; (AssociateDeviceWithRoomResponse
+    -&gt; AssociateDeviceWithRoomResponse -&gt; Bool)
+-&gt; Eq AssociateDeviceWithRoomResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateDeviceWithRoomResponse
+-&gt; AssociateDeviceWithRoomResponse -&gt; Bool
+$c/= :: AssociateDeviceWithRoomResponse
+-&gt; AssociateDeviceWithRoomResponse -&gt; Bool
+== :: AssociateDeviceWithRoomResponse
+-&gt; AssociateDeviceWithRoomResponse -&gt; Bool
+$c== :: AssociateDeviceWithRoomResponse
+-&gt; AssociateDeviceWithRoomResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393502"><span id="local-6989586621679393504"><span id="local-6989586621679393506"><span id="local-6989586621679393508"><span class="annot"><span class="annottext">ReadPrec [AssociateDeviceWithRoomResponse]
+ReadPrec AssociateDeviceWithRoomResponse
+Int -&gt; ReadS AssociateDeviceWithRoomResponse
+ReadS [AssociateDeviceWithRoomResponse]
+(Int -&gt; ReadS AssociateDeviceWithRoomResponse)
+-&gt; ReadS [AssociateDeviceWithRoomResponse]
+-&gt; ReadPrec AssociateDeviceWithRoomResponse
+-&gt; ReadPrec [AssociateDeviceWithRoomResponse]
+-&gt; Read AssociateDeviceWithRoomResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateDeviceWithRoomResponse]
+$creadListPrec :: ReadPrec [AssociateDeviceWithRoomResponse]
+readPrec :: ReadPrec AssociateDeviceWithRoomResponse
+$creadPrec :: ReadPrec AssociateDeviceWithRoomResponse
+readList :: ReadS [AssociateDeviceWithRoomResponse]
+$creadList :: ReadS [AssociateDeviceWithRoomResponse]
+readsPrec :: Int -&gt; ReadS AssociateDeviceWithRoomResponse
+$creadsPrec :: Int -&gt; ReadS AssociateDeviceWithRoomResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393496"><span id="local-6989586621679393498"><span id="local-6989586621679393500"><span class="annot"><span class="annottext">Int -&gt; AssociateDeviceWithRoomResponse -&gt; ShowS
+[AssociateDeviceWithRoomResponse] -&gt; ShowS
+AssociateDeviceWithRoomResponse -&gt; String
+(Int -&gt; AssociateDeviceWithRoomResponse -&gt; ShowS)
+-&gt; (AssociateDeviceWithRoomResponse -&gt; String)
+-&gt; ([AssociateDeviceWithRoomResponse] -&gt; ShowS)
+-&gt; Show AssociateDeviceWithRoomResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateDeviceWithRoomResponse] -&gt; ShowS
+$cshowList :: [AssociateDeviceWithRoomResponse] -&gt; ShowS
+show :: AssociateDeviceWithRoomResponse -&gt; String
+$cshow :: AssociateDeviceWithRoomResponse -&gt; String
+showsPrec :: Int -&gt; AssociateDeviceWithRoomResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateDeviceWithRoomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateDeviceWithRoomResponse
+ -&gt; Rep AssociateDeviceWithRoomResponse x)
+-&gt; (forall x.
+    Rep AssociateDeviceWithRoomResponse x
+    -&gt; AssociateDeviceWithRoomResponse)
+-&gt; Generic AssociateDeviceWithRoomResponse
+forall x.
+Rep AssociateDeviceWithRoomResponse x
+-&gt; AssociateDeviceWithRoomResponse
+forall x.
+AssociateDeviceWithRoomResponse
+-&gt; Rep AssociateDeviceWithRoomResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateDeviceWithRoomResponse x
+-&gt; AssociateDeviceWithRoomResponse
+$cfrom :: forall x.
+AssociateDeviceWithRoomResponse
+-&gt; Rep AssociateDeviceWithRoomResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'AssociateDeviceWithRoomResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'associateDeviceWithRoomResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#newAssociateDeviceWithRoomResponse"><span class="hs-identifier hs-type">newAssociateDeviceWithRoomResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newAssociateDeviceWithRoomResponse"><span class="annot"><span class="annottext">newAssociateDeviceWithRoomResponse :: Int -&gt; AssociateDeviceWithRoomResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#newAssociateDeviceWithRoomResponse"><span class="hs-identifier hs-var hs-var">newAssociateDeviceWithRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679393493"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393493"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">AssociateDeviceWithRoomResponse' :: Int -&gt; AssociateDeviceWithRoomResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateDeviceWithRoomResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AhttpStatus%3AAssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393493"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoomResponse_httpStatus"><span class="hs-identifier hs-type">associateDeviceWithRoomResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="associateDeviceWithRoomResponse_httpStatus"><span class="annot"><span class="annottext">associateDeviceWithRoomResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateDeviceWithRoomResponse
+-&gt; f AssociateDeviceWithRoomResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#associateDeviceWithRoomResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateDeviceWithRoomResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateDeviceWithRoomResponse -&gt; Int)
+-&gt; (AssociateDeviceWithRoomResponse
+    -&gt; Int -&gt; AssociateDeviceWithRoomResponse)
+-&gt; Lens
+     AssociateDeviceWithRoomResponse
+     AssociateDeviceWithRoomResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393492"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateDeviceWithRoomResponse' :: AssociateDeviceWithRoomResponse -&gt; Int
+</span><a href="#local-6989586621679393492"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393492"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393491"><span class="annot"><span class="annottext">s :: AssociateDeviceWithRoomResponse
+</span><a href="#local-6989586621679393491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393490"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDeviceWithRoomResponse
+</span><a href="#local-6989586621679393491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateDeviceWithRoomResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#%24sel%3AhttpStatus%3AAssociateDeviceWithRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679393488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithRoom.html#AssociateDeviceWithRoomResponse"><span class="hs-identifier hs-type">AssociateDeviceWithRoomResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

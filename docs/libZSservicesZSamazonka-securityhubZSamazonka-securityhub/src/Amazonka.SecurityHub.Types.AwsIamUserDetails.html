@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsIamUserDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsIamUserDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamPermissionsBoundary.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsIamPermissionsBoundary</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserPolicy.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsIamUserPolicy</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Information about an IAM user.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAwsIamUserDetails' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679960587"><span id="local-6989586621679960588"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsIamUserDetails"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-var">AwsIamUserDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsIamUserDetails%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-var">AwsIamUserDetails'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of IAM groups that the user belongs to.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AgroupList%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe [Text]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AgroupList%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">groupList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The path to the user.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apath%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3Apath%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Indicates when the user was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcreateDate%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AcreateDate%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the user.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AuserName%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserName%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the user.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AuserId%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserId%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The permissions boundary for the user.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ApermissionsBoundary%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe AwsIamPermissionsBoundary
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3ApermissionsBoundary%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamPermissionsBoundary.html#AwsIamPermissionsBoundary"><span class="hs-identifier hs-type">AwsIamPermissionsBoundary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The list of inline policies that are embedded in the user.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AuserPolicyList%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe [AwsIamUserPolicy]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserPolicyList%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">userPolicyList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserPolicy.html#AwsIamUserPolicy"><span class="hs-identifier hs-type">AwsIamUserPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A list of the managed policies that are attached to the user.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AattachedManagedPolicies%3AAwsIamUserDetails%27"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AattachedManagedPolicies%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var hs-var">attachedManagedPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy.html#AwsIamAttachedManagedPolicy"><span class="hs-identifier hs-type">AwsIamAttachedManagedPolicy</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679960574"><span id="local-6989586621679960576"><span class="annot"><span class="annottext">AwsIamUserDetails -&gt; AwsIamUserDetails -&gt; Bool
+(AwsIamUserDetails -&gt; AwsIamUserDetails -&gt; Bool)
+-&gt; (AwsIamUserDetails -&gt; AwsIamUserDetails -&gt; Bool)
+-&gt; Eq AwsIamUserDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsIamUserDetails -&gt; AwsIamUserDetails -&gt; Bool
+$c/= :: AwsIamUserDetails -&gt; AwsIamUserDetails -&gt; Bool
+== :: AwsIamUserDetails -&gt; AwsIamUserDetails -&gt; Bool
+$c== :: AwsIamUserDetails -&gt; AwsIamUserDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679960565"><span id="local-6989586621679960567"><span id="local-6989586621679960569"><span id="local-6989586621679960571"><span class="annot"><span class="annottext">ReadPrec [AwsIamUserDetails]
+ReadPrec AwsIamUserDetails
+Int -&gt; ReadS AwsIamUserDetails
+ReadS [AwsIamUserDetails]
+(Int -&gt; ReadS AwsIamUserDetails)
+-&gt; ReadS [AwsIamUserDetails]
+-&gt; ReadPrec AwsIamUserDetails
+-&gt; ReadPrec [AwsIamUserDetails]
+-&gt; Read AwsIamUserDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsIamUserDetails]
+$creadListPrec :: ReadPrec [AwsIamUserDetails]
+readPrec :: ReadPrec AwsIamUserDetails
+$creadPrec :: ReadPrec AwsIamUserDetails
+readList :: ReadS [AwsIamUserDetails]
+$creadList :: ReadS [AwsIamUserDetails]
+readsPrec :: Int -&gt; ReadS AwsIamUserDetails
+$creadsPrec :: Int -&gt; ReadS AwsIamUserDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679960558"><span id="local-6989586621679960560"><span id="local-6989586621679960562"><span class="annot"><span class="annottext">Int -&gt; AwsIamUserDetails -&gt; ShowS
+[AwsIamUserDetails] -&gt; ShowS
+AwsIamUserDetails -&gt; String
+(Int -&gt; AwsIamUserDetails -&gt; ShowS)
+-&gt; (AwsIamUserDetails -&gt; String)
+-&gt; ([AwsIamUserDetails] -&gt; ShowS)
+-&gt; Show AwsIamUserDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsIamUserDetails] -&gt; ShowS
+$cshowList :: [AwsIamUserDetails] -&gt; ShowS
+show :: AwsIamUserDetails -&gt; String
+$cshow :: AwsIamUserDetails -&gt; String
+showsPrec :: Int -&gt; AwsIamUserDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsIamUserDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AwsIamUserDetails -&gt; Rep AwsIamUserDetails x)
+-&gt; (forall x. Rep AwsIamUserDetails x -&gt; AwsIamUserDetails)
+-&gt; Generic AwsIamUserDetails
+forall x. Rep AwsIamUserDetails x -&gt; AwsIamUserDetails
+forall x. AwsIamUserDetails -&gt; Rep AwsIamUserDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsIamUserDetails x -&gt; AwsIamUserDetails
+$cfrom :: forall x. AwsIamUserDetails -&gt; Rep AwsIamUserDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'AwsIamUserDetails' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'groupList', 'awsIamUserDetails_groupList' - A list of IAM groups that the user belongs to.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'path', 'awsIamUserDetails_path' - The path to the user.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'createDate', 'awsIamUserDetails_createDate' - Indicates when the user was created.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'userName', 'awsIamUserDetails_userName' - The name of the user.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'userId', 'awsIamUserDetails_userId' - The unique identifier for the user.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'permissionsBoundary', 'awsIamUserDetails_permissionsBoundary' - The permissions boundary for the user.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'userPolicyList', 'awsIamUserDetails_userPolicyList' - The list of inline policies that are embedded in the user.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'attachedManagedPolicies', 'awsIamUserDetails_attachedManagedPolicies' - A list of the managed policies that are attached to the user.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#newAwsIamUserDetails"><span class="hs-identifier hs-type">newAwsIamUserDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span>
+</span><span id="line-87"></span><span id="newAwsIamUserDetails"><span class="annot"><span class="annottext">newAwsIamUserDetails :: AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#newAwsIamUserDetails"><span class="hs-identifier hs-var hs-var">newAwsIamUserDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">AwsIamUserDetails' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsIamPermissionsBoundary
+-&gt; Maybe [AwsIamUserPolicy]
+-&gt; Maybe [AwsIamAttachedManagedPolicy]
+-&gt; AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupList:AwsIamUserDetails' :: Maybe [Text]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AgroupList%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">groupList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3Apath%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDate:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AcreateDate%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserName%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserId%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionsBoundary:AwsIamUserDetails' :: Maybe AwsIamPermissionsBoundary
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3ApermissionsBoundary%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsIamPermissionsBoundary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPolicyList:AwsIamUserDetails' :: Maybe [AwsIamUserPolicy]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserPolicyList%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">userPolicyList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamUserPolicy]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachedManagedPolicies:AwsIamUserDetails' :: Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AattachedManagedPolicies%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamAttachedManagedPolicy]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A list of IAM groups that the user belongs to.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_groupList"><span class="hs-identifier hs-type">awsIamUserDetails_groupList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="awsIamUserDetails_groupList"><span class="annot"><span class="annottext">awsIamUserDetails_groupList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_groupList"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_groupList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe [Text])
+-&gt; (AwsIamUserDetails -&gt; Maybe [Text] -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails AwsIamUserDetails (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960549"><span class="annot"><span class="annottext">Maybe [Text]
+groupList :: Maybe [Text]
+$sel:groupList:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe [Text]
+</span><a href="#local-6989586621679960549"><span class="hs-identifier hs-var hs-var">groupList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679960549"><span class="hs-identifier hs-var">groupList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960548"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960547"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679960547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupList:AwsIamUserDetails' :: Maybe [Text]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AgroupList%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">groupList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679960547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AwsIamUserDetails
+-&gt; f AwsIamUserDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The path to the user.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_path"><span class="hs-identifier hs-type">awsIamUserDetails_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="awsIamUserDetails_path"><span class="annot"><span class="annottext">awsIamUserDetails_path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_path"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe Text)
+-&gt; (AwsIamUserDetails -&gt; Maybe Text -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails AwsIamUserDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960542"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679960542"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960542"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960541"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960540"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3Apath%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Indicates when the user was created.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_createDate"><span class="hs-identifier hs-type">awsIamUserDetails_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="awsIamUserDetails_createDate"><span class="annot"><span class="annottext">awsIamUserDetails_createDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_createDate"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe Text)
+-&gt; (AwsIamUserDetails -&gt; Maybe Text -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails AwsIamUserDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960538"><span class="annot"><span class="annottext">Maybe Text
+createDate :: Maybe Text
+$sel:createDate:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679960538"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960538"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960537"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AcreateDate%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the user.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_userName"><span class="hs-identifier hs-type">awsIamUserDetails_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="awsIamUserDetails_userName"><span class="annot"><span class="annottext">awsIamUserDetails_userName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_userName"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe Text)
+-&gt; (AwsIamUserDetails -&gt; Maybe Text -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails AwsIamUserDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960534"><span class="annot"><span class="annottext">Maybe Text
+userName :: Maybe Text
+$sel:userName:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679960534"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960534"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960533"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960532"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserName%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The unique identifier for the user.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_userId"><span class="hs-identifier hs-type">awsIamUserDetails_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="awsIamUserDetails_userId"><span class="annot"><span class="annottext">awsIamUserDetails_userId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_userId"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe Text)
+-&gt; (AwsIamUserDetails -&gt; Maybe Text -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails AwsIamUserDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960530"><span class="annot"><span class="annottext">Maybe Text
+userId :: Maybe Text
+$sel:userId:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679960530"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960530"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960529"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:AwsIamUserDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserId%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The permissions boundary for the user.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_permissionsBoundary"><span class="hs-identifier hs-type">awsIamUserDetails_permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamPermissionsBoundary.html#AwsIamPermissionsBoundary"><span class="hs-identifier hs-type">AwsIamPermissionsBoundary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="awsIamUserDetails_permissionsBoundary"><span class="annot"><span class="annottext">awsIamUserDetails_permissionsBoundary :: (Maybe AwsIamPermissionsBoundary
+ -&gt; f (Maybe AwsIamPermissionsBoundary))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_permissionsBoundary"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_permissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe AwsIamPermissionsBoundary)
+-&gt; (AwsIamUserDetails
+    -&gt; Maybe AwsIamPermissionsBoundary -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails
+     AwsIamUserDetails
+     (Maybe AwsIamPermissionsBoundary)
+     (Maybe AwsIamPermissionsBoundary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960526"><span class="annot"><span class="annottext">Maybe AwsIamPermissionsBoundary
+permissionsBoundary :: Maybe AwsIamPermissionsBoundary
+$sel:permissionsBoundary:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe AwsIamPermissionsBoundary
+</span><a href="#local-6989586621679960526"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsIamPermissionsBoundary
+</span><a href="#local-6989586621679960526"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960525"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960524"><span class="annot"><span class="annottext">Maybe AwsIamPermissionsBoundary
+</span><a href="#local-6989586621679960524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionsBoundary:AwsIamUserDetails' :: Maybe AwsIamPermissionsBoundary
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3ApermissionsBoundary%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsIamPermissionsBoundary
+</span><a href="#local-6989586621679960524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The list of inline policies that are embedded in the user.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_userPolicyList"><span class="hs-identifier hs-type">awsIamUserDetails_userPolicyList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserPolicy.html#AwsIamUserPolicy"><span class="hs-identifier hs-type">AwsIamUserPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="awsIamUserDetails_userPolicyList"><span class="annot"><span class="annottext">awsIamUserDetails_userPolicyList :: (Maybe [AwsIamUserPolicy] -&gt; f (Maybe [AwsIamUserPolicy]))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_userPolicyList"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_userPolicyList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe [AwsIamUserPolicy])
+-&gt; (AwsIamUserDetails
+    -&gt; Maybe [AwsIamUserPolicy] -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails
+     AwsIamUserDetails
+     (Maybe [AwsIamUserPolicy])
+     (Maybe [AwsIamUserPolicy])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960522"><span class="annot"><span class="annottext">Maybe [AwsIamUserPolicy]
+userPolicyList :: Maybe [AwsIamUserPolicy]
+$sel:userPolicyList:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe [AwsIamUserPolicy]
+</span><a href="#local-6989586621679960522"><span class="hs-identifier hs-var hs-var">userPolicyList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamUserPolicy]
+</span><a href="#local-6989586621679960522"><span class="hs-identifier hs-var">userPolicyList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960521"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960520"><span class="annot"><span class="annottext">Maybe [AwsIamUserPolicy]
+</span><a href="#local-6989586621679960520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPolicyList:AwsIamUserDetails' :: Maybe [AwsIamUserPolicy]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AuserPolicyList%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">userPolicyList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamUserPolicy]
+</span><a href="#local-6989586621679960520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsIamUserPolicy] -&gt; f (Maybe [AwsIamUserPolicy]))
+ -&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails)
+-&gt; ((Maybe [AwsIamUserPolicy] -&gt; f (Maybe [AwsIamUserPolicy]))
+    -&gt; Maybe [AwsIamUserPolicy] -&gt; f (Maybe [AwsIamUserPolicy]))
+-&gt; (Maybe [AwsIamUserPolicy] -&gt; f (Maybe [AwsIamUserPolicy]))
+-&gt; AwsIamUserDetails
+-&gt; f AwsIamUserDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsIamUserPolicy]
+  [AwsIamUserPolicy]
+  [AwsIamUserPolicy]
+  [AwsIamUserPolicy]
+-&gt; Iso
+     (Maybe [AwsIamUserPolicy])
+     (Maybe [AwsIamUserPolicy])
+     (Maybe [AwsIamUserPolicy])
+     (Maybe [AwsIamUserPolicy])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsIamUserPolicy]
+  [AwsIamUserPolicy]
+  [AwsIamUserPolicy]
+  [AwsIamUserPolicy]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | A list of the managed policies that are attached to the user.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_attachedManagedPolicies"><span class="hs-identifier hs-type">awsIamUserDetails_attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy.html#AwsIamAttachedManagedPolicy"><span class="hs-identifier hs-type">AwsIamAttachedManagedPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="awsIamUserDetails_attachedManagedPolicies"><span class="annot"><span class="annottext">awsIamUserDetails_attachedManagedPolicies :: (Maybe [AwsIamAttachedManagedPolicy]
+ -&gt; f (Maybe [AwsIamAttachedManagedPolicy]))
+-&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#awsIamUserDetails_attachedManagedPolicies"><span class="hs-identifier hs-var hs-var">awsIamUserDetails_attachedManagedPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsIamUserDetails -&gt; Maybe [AwsIamAttachedManagedPolicy])
+-&gt; (AwsIamUserDetails
+    -&gt; Maybe [AwsIamAttachedManagedPolicy] -&gt; AwsIamUserDetails)
+-&gt; Lens
+     AwsIamUserDetails
+     AwsIamUserDetails
+     (Maybe [AwsIamAttachedManagedPolicy])
+     (Maybe [AwsIamAttachedManagedPolicy])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960518"><span class="annot"><span class="annottext">Maybe [AwsIamAttachedManagedPolicy]
+attachedManagedPolicies :: Maybe [AwsIamAttachedManagedPolicy]
+$sel:attachedManagedPolicies:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="#local-6989586621679960518"><span class="hs-identifier hs-var hs-var">attachedManagedPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="#local-6989586621679960518"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679960517"><span class="annot"><span class="annottext">s :: AwsIamUserDetails
+</span><a href="#local-6989586621679960517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679960516"><span class="annot"><span class="annottext">Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="#local-6989586621679960516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsIamUserDetails
+</span><a href="#local-6989586621679960517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedManagedPolicies:AwsIamUserDetails' :: Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#%24sel%3AattachedManagedPolicies%3AAwsIamUserDetails%27"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="#local-6989586621679960516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsIamAttachedManagedPolicy]
+  -&gt; f (Maybe [AwsIamAttachedManagedPolicy]))
+ -&gt; AwsIamUserDetails -&gt; f AwsIamUserDetails)
+-&gt; ((Maybe [AwsIamAttachedManagedPolicy]
+     -&gt; f (Maybe [AwsIamAttachedManagedPolicy]))
+    -&gt; Maybe [AwsIamAttachedManagedPolicy]
+    -&gt; f (Maybe [AwsIamAttachedManagedPolicy]))
+-&gt; (Maybe [AwsIamAttachedManagedPolicy]
+    -&gt; f (Maybe [AwsIamAttachedManagedPolicy]))
+-&gt; AwsIamUserDetails
+-&gt; f AwsIamUserDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsIamAttachedManagedPolicy]
+  [AwsIamAttachedManagedPolicy]
+  [AwsIamAttachedManagedPolicy]
+  [AwsIamAttachedManagedPolicy]
+-&gt; Iso
+     (Maybe [AwsIamAttachedManagedPolicy])
+     (Maybe [AwsIamAttachedManagedPolicy])
+     (Maybe [AwsIamAttachedManagedPolicy])
+     (Maybe [AwsIamAttachedManagedPolicy])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsIamAttachedManagedPolicy]
+  [AwsIamAttachedManagedPolicy]
+  [AwsIamAttachedManagedPolicy]
+  [AwsIamAttachedManagedPolicy]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679960513"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679960511"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsIamUserDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsIamUserDetails)
+-&gt; Value
+-&gt; Parser AwsIamUserDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsIamUserDetails&quot;</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679960508"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsIamPermissionsBoundary
+-&gt; Maybe [AwsIamUserPolicy]
+-&gt; Maybe [AwsIamAttachedManagedPolicy]
+-&gt; AwsIamUserDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-var">AwsIamUserDetails'</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AwsIamPermissionsBoundary
+ -&gt; Maybe [AwsIamUserPolicy]
+ -&gt; Maybe [AwsIamAttachedManagedPolicy]
+ -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsIamPermissionsBoundary
+      -&gt; Maybe [AwsIamUserPolicy]
+      -&gt; Maybe [AwsIamAttachedManagedPolicy]
+      -&gt; AwsIamUserDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsIamPermissionsBoundary
+   -&gt; Maybe [AwsIamUserPolicy]
+   -&gt; Maybe [AwsIamAttachedManagedPolicy]
+   -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsIamPermissionsBoundary
+      -&gt; Maybe [AwsIamUserPolicy]
+      -&gt; Maybe [AwsIamAttachedManagedPolicy]
+      -&gt; AwsIamUserDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsIamPermissionsBoundary
+   -&gt; Maybe [AwsIamUserPolicy]
+   -&gt; Maybe [AwsIamAttachedManagedPolicy]
+   -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsIamPermissionsBoundary
+      -&gt; Maybe [AwsIamUserPolicy]
+      -&gt; Maybe [AwsIamAttachedManagedPolicy]
+      -&gt; AwsIamUserDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsIamPermissionsBoundary
+   -&gt; Maybe [AwsIamUserPolicy]
+   -&gt; Maybe [AwsIamAttachedManagedPolicy]
+   -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AwsIamPermissionsBoundary
+      -&gt; Maybe [AwsIamUserPolicy]
+      -&gt; Maybe [AwsIamAttachedManagedPolicy]
+      -&gt; AwsIamUserDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AwsIamPermissionsBoundary
+   -&gt; Maybe [AwsIamUserPolicy]
+   -&gt; Maybe [AwsIamAttachedManagedPolicy]
+   -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AwsIamPermissionsBoundary
+      -&gt; Maybe [AwsIamUserPolicy]
+      -&gt; Maybe [AwsIamAttachedManagedPolicy]
+      -&gt; AwsIamUserDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsIamPermissionsBoundary
+   -&gt; Maybe [AwsIamUserPolicy]
+   -&gt; Maybe [AwsIamAttachedManagedPolicy]
+   -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe AwsIamPermissionsBoundary)
+-&gt; Parser
+     (Maybe [AwsIamUserPolicy]
+      -&gt; Maybe [AwsIamAttachedManagedPolicy] -&gt; AwsIamUserDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsIamPermissionsBoundary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionsBoundary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsIamUserPolicy]
+   -&gt; Maybe [AwsIamAttachedManagedPolicy] -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe [AwsIamUserPolicy])
+-&gt; Parser
+     (Maybe [AwsIamAttachedManagedPolicy] -&gt; AwsIamUserDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AwsIamUserPolicy]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPolicyList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsIamUserPolicy]))
+-&gt; Maybe [AwsIamUserPolicy] -&gt; Parser (Maybe [AwsIamUserPolicy])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamUserPolicy]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [AwsIamAttachedManagedPolicy] -&gt; AwsIamUserDetails)
+-&gt; Parser (Maybe [AwsIamAttachedManagedPolicy])
+-&gt; Parser AwsIamUserDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679960508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [AwsIamAttachedManagedPolicy]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttachedManagedPolicies&quot;</span></span><span>
+</span><span id="line-150"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsIamAttachedManagedPolicy]))
+-&gt; Maybe [AwsIamAttachedManagedPolicy]
+-&gt; Parser (Maybe [AwsIamAttachedManagedPolicy])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamAttachedManagedPolicy]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679960501"><span id="local-6989586621679960503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679960498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679960490"><span id="local-6989586621679960492"><span id="local-6989586621679960494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails"><span class="hs-identifier hs-type">AwsIamUserDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679960488"><span class="annot"><span class="annottext">toJSON :: AwsIamUserDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsIamUserDetails.html#AwsIamUserDetails%27"><span class="hs-identifier hs-type">AwsIamUserDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679960479"><span id="local-6989586621679960480"><span id="local-6989586621679960481"><span id="local-6989586621679960482"><span id="local-6989586621679960483"><span id="local-6989586621679960484"><span id="local-6989586621679960485"><span id="local-6989586621679960486"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [AwsIamAttachedManagedPolicy]
+Maybe [AwsIamUserPolicy]
+Maybe Text
+Maybe AwsIamPermissionsBoundary
+attachedManagedPolicies :: Maybe [AwsIamAttachedManagedPolicy]
+userPolicyList :: Maybe [AwsIamUserPolicy]
+permissionsBoundary :: Maybe AwsIamPermissionsBoundary
+userId :: Maybe Text
+userName :: Maybe Text
+createDate :: Maybe Text
+path :: Maybe Text
+groupList :: Maybe [Text]
+$sel:attachedManagedPolicies:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe [AwsIamAttachedManagedPolicy]
+$sel:userPolicyList:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe [AwsIamUserPolicy]
+$sel:permissionsBoundary:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe AwsIamPermissionsBoundary
+$sel:userId:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+$sel:userName:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+$sel:createDate:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+$sel:path:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe Text
+$sel:groupList:AwsIamUserDetails' :: AwsIamUserDetails -&gt; Maybe [Text]
+</span><a href="#local-6989586621679960479"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679960486"><span class="hs-identifier hs-var">groupList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960485"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960484"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960483"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679960482"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionsBoundary&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsIamPermissionsBoundary -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(AwsIamPermissionsBoundary -&gt; Pair)
+-&gt; Maybe AwsIamPermissionsBoundary -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsIamPermissionsBoundary
+</span><a href="#local-6989586621679960481"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPolicyList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsIamUserPolicy] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">([AwsIamUserPolicy] -&gt; Pair)
+-&gt; Maybe [AwsIamUserPolicy] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamUserPolicy]
+</span><a href="#local-6989586621679960480"><span class="hs-identifier hs-var">userPolicyList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttachedManagedPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsIamAttachedManagedPolicy] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">([AwsIamAttachedManagedPolicy] -&gt; Pair)
+-&gt; Maybe [AwsIamAttachedManagedPolicy] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsIamAttachedManagedPolicy]
+</span><a href="#local-6989586621679960479"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span></pre></body></html>

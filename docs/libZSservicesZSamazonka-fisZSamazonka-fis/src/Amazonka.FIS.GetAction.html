@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FIS.GetAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about the specified AWS FIS action.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FIS.GetAction</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier">GetAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#newGetAction"><span class="hs-identifier">newGetAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#getAction_id"><span class="hs-identifier">getAction_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier">GetActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#newGetActionResponse"><span class="hs-identifier">newGetActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#getActionResponse_action"><span class="hs-identifier">getActionResponse_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#getActionResponse_httpStatus"><span class="hs-identifier">getActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.html"><span class="hs-identifier">Amazonka.FIS.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetAction' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679188447"><span id="local-6989586621679188448"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAction"><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-var">GetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAction%27"><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction%27"><span class="hs-identifier hs-var">GetAction'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the action.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AGetAction%27"><span class="annot"><span class="annottext">GetAction -&gt; Text
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3Aid%3AGetAction%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188441"><span id="local-6989586621679188443"><span class="annot"><span class="annottext">GetAction -&gt; GetAction -&gt; Bool
+(GetAction -&gt; GetAction -&gt; Bool)
+-&gt; (GetAction -&gt; GetAction -&gt; Bool) -&gt; Eq GetAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAction -&gt; GetAction -&gt; Bool
+$c/= :: GetAction -&gt; GetAction -&gt; Bool
+== :: GetAction -&gt; GetAction -&gt; Bool
+$c== :: GetAction -&gt; GetAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188432"><span id="local-6989586621679188434"><span id="local-6989586621679188436"><span id="local-6989586621679188438"><span class="annot"><span class="annottext">ReadPrec [GetAction]
+ReadPrec GetAction
+Int -&gt; ReadS GetAction
+ReadS [GetAction]
+(Int -&gt; ReadS GetAction)
+-&gt; ReadS [GetAction]
+-&gt; ReadPrec GetAction
+-&gt; ReadPrec [GetAction]
+-&gt; Read GetAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAction]
+$creadListPrec :: ReadPrec [GetAction]
+readPrec :: ReadPrec GetAction
+$creadPrec :: ReadPrec GetAction
+readList :: ReadS [GetAction]
+$creadList :: ReadS [GetAction]
+readsPrec :: Int -&gt; ReadS GetAction
+$creadsPrec :: Int -&gt; ReadS GetAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188425"><span id="local-6989586621679188427"><span id="local-6989586621679188429"><span class="annot"><span class="annottext">Int -&gt; GetAction -&gt; ShowS
+[GetAction] -&gt; ShowS
+GetAction -&gt; String
+(Int -&gt; GetAction -&gt; ShowS)
+-&gt; (GetAction -&gt; String)
+-&gt; ([GetAction] -&gt; ShowS)
+-&gt; Show GetAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAction] -&gt; ShowS
+$cshowList :: [GetAction] -&gt; ShowS
+show :: GetAction -&gt; String
+$cshow :: GetAction -&gt; String
+showsPrec :: Int -&gt; GetAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAction -&gt; Rep GetAction x)
+-&gt; (forall x. Rep GetAction x -&gt; GetAction) -&gt; Generic GetAction
+forall x. Rep GetAction x -&gt; GetAction
+forall x. GetAction -&gt; Rep GetAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAction x -&gt; GetAction
+$cfrom :: forall x. GetAction -&gt; Rep GetAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetAction' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'id', 'getAction_id' - The ID of the action.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.FIS.GetAction.html#newGetAction"><span class="hs-identifier hs-type">newGetAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetAction"><span class="annot"><span class="annottext">newGetAction :: Text -&gt; GetAction
+</span><a href="Amazonka.FIS.GetAction.html#newGetAction"><span class="hs-identifier hs-var hs-var">newGetAction</span></a></span></span><span> </span><span id="local-6989586621679188420"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188420"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetAction' :: Text -&gt; GetAction
+</span><a href="Amazonka.FIS.GetAction.html#GetAction%27"><span class="hs-identifier hs-type">GetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetAction' :: Text
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3Aid%3AGetAction%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188420"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ID of the action.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.FIS.GetAction.html#getAction_id"><span class="hs-identifier hs-type">getAction_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="getAction_id"><span class="annot"><span class="annottext">getAction_id :: (Text -&gt; f Text) -&gt; GetAction -&gt; f GetAction
+</span><a href="Amazonka.FIS.GetAction.html#getAction_id"><span class="hs-identifier hs-var hs-var">getAction_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAction -&gt; Text)
+-&gt; (GetAction -&gt; Text -&gt; GetAction)
+-&gt; Lens GetAction GetAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction%27"><span class="hs-identifier hs-type">GetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188417"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetAction' :: GetAction -&gt; Text
+</span><a href="#local-6989586621679188417"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188417"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188416"><span class="annot"><span class="annottext">s :: GetAction
+</span><a href="#local-6989586621679188416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction%27"><span class="hs-identifier hs-type">GetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188415"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAction
+</span><a href="#local-6989586621679188416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetAction' :: Text
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3Aid%3AGetAction%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-type">GetActionResponse</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679188411"><span class="annot"><span class="annottext">request :: GetAction -&gt; Request GetAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAction -&gt; Request GetAction
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FIS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679188407"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetAction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188404"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188404"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188403"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679188403"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188402"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188402"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Action -&gt; Int -&gt; GetActionResponse
+</span><a href="Amazonka.FIS.GetAction.html#GetActionResponse%27"><span class="hs-identifier hs-var">GetActionResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Action -&gt; Int -&gt; GetActionResponse)
+-&gt; Either String (Maybe Action)
+-&gt; Either String (Int -&gt; GetActionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Action)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;action&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetActionResponse)
+-&gt; Either String Int -&gt; Either String GetActionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188404"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188394"><span id="local-6989586621679188396"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679188387"><span class="annot"><span class="annottext">toHeaders :: GetAction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679188381"><span class="annot"><span class="annottext">toPath :: GetAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction%27"><span class="hs-identifier hs-type">GetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188379"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetAction' :: GetAction -&gt; Text
+</span><a href="#local-6989586621679188379"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/actions/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188379"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetAction"><span class="hs-identifier hs-type">GetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679188375"><span class="annot"><span class="annottext">toQuery :: GetAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newGetActionResponse' smart constructor.</span><span>
+</span><span id="line-109"></span><span id="local-6989586621679188372"><span id="local-6989586621679188373"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetActionResponse"><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-var">GetActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetActionResponse%27"><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse%27"><span class="hs-identifier hs-var">GetActionResponse'</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the action.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3Aaction%3AGetActionResponse%27"><span class="annot"><span class="annottext">GetActionResponse -&gt; Maybe Action
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3Aaction%3AGetActionResponse%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetActionResponse%27"><span class="annot"><span class="annottext">GetActionResponse -&gt; Int
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3AhttpStatus%3AGetActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188366"><span id="local-6989586621679188368"><span class="annot"><span class="annottext">GetActionResponse -&gt; GetActionResponse -&gt; Bool
+(GetActionResponse -&gt; GetActionResponse -&gt; Bool)
+-&gt; (GetActionResponse -&gt; GetActionResponse -&gt; Bool)
+-&gt; Eq GetActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetActionResponse -&gt; GetActionResponse -&gt; Bool
+$c/= :: GetActionResponse -&gt; GetActionResponse -&gt; Bool
+== :: GetActionResponse -&gt; GetActionResponse -&gt; Bool
+$c== :: GetActionResponse -&gt; GetActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188358"><span id="local-6989586621679188360"><span id="local-6989586621679188362"><span id="local-6989586621679188364"><span class="annot"><span class="annottext">ReadPrec [GetActionResponse]
+ReadPrec GetActionResponse
+Int -&gt; ReadS GetActionResponse
+ReadS [GetActionResponse]
+(Int -&gt; ReadS GetActionResponse)
+-&gt; ReadS [GetActionResponse]
+-&gt; ReadPrec GetActionResponse
+-&gt; ReadPrec [GetActionResponse]
+-&gt; Read GetActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetActionResponse]
+$creadListPrec :: ReadPrec [GetActionResponse]
+readPrec :: ReadPrec GetActionResponse
+$creadPrec :: ReadPrec GetActionResponse
+readList :: ReadS [GetActionResponse]
+$creadList :: ReadS [GetActionResponse]
+readsPrec :: Int -&gt; ReadS GetActionResponse
+$creadsPrec :: Int -&gt; ReadS GetActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188352"><span id="local-6989586621679188354"><span id="local-6989586621679188356"><span class="annot"><span class="annottext">Int -&gt; GetActionResponse -&gt; ShowS
+[GetActionResponse] -&gt; ShowS
+GetActionResponse -&gt; String
+(Int -&gt; GetActionResponse -&gt; ShowS)
+-&gt; (GetActionResponse -&gt; String)
+-&gt; ([GetActionResponse] -&gt; ShowS)
+-&gt; Show GetActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetActionResponse] -&gt; ShowS
+$cshowList :: [GetActionResponse] -&gt; ShowS
+show :: GetActionResponse -&gt; String
+$cshow :: GetActionResponse -&gt; String
+showsPrec :: Int -&gt; GetActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetActionResponse -&gt; Rep GetActionResponse x)
+-&gt; (forall x. Rep GetActionResponse x -&gt; GetActionResponse)
+-&gt; Generic GetActionResponse
+forall x. Rep GetActionResponse x -&gt; GetActionResponse
+forall x. GetActionResponse -&gt; Rep GetActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetActionResponse x -&gt; GetActionResponse
+$cfrom :: forall x. GetActionResponse -&gt; Rep GetActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'GetActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'action', 'getActionResponse_action' - Information about the action.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'httpStatus', 'getActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.FIS.GetAction.html#newGetActionResponse"><span class="hs-identifier hs-type">newGetActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-type">GetActionResponse</span></a></span><span>
+</span><span id="line-132"></span><span id="newGetActionResponse"><span class="annot"><span class="annottext">newGetActionResponse :: Int -&gt; GetActionResponse
+</span><a href="Amazonka.FIS.GetAction.html#newGetActionResponse"><span class="hs-identifier hs-var hs-var">newGetActionResponse</span></a></span></span><span> </span><span id="local-6989586621679188349"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188349"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">GetActionResponse' :: Maybe Action -&gt; Int -&gt; GetActionResponse
+</span><a href="Amazonka.FIS.GetAction.html#GetActionResponse%27"><span class="hs-identifier hs-type">GetActionResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:action:GetActionResponse' :: Maybe Action
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3Aaction%3AGetActionResponse%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetActionResponse' :: Int
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3AhttpStatus%3AGetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188349"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Information about the action.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.FIS.GetAction.html#getActionResponse_action"><span class="hs-identifier hs-type">getActionResponse_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-type">GetActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="getActionResponse_action"><span class="annot"><span class="annottext">getActionResponse_action :: (Maybe Action -&gt; f (Maybe Action))
+-&gt; GetActionResponse -&gt; f GetActionResponse
+</span><a href="Amazonka.FIS.GetAction.html#getActionResponse_action"><span class="hs-identifier hs-var hs-var">getActionResponse_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionResponse -&gt; Maybe Action)
+-&gt; (GetActionResponse -&gt; Maybe Action -&gt; GetActionResponse)
+-&gt; Lens
+     GetActionResponse GetActionResponse (Maybe Action) (Maybe Action)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse%27"><span class="hs-identifier hs-type">GetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188348"><span class="annot"><span class="annottext">Maybe Action
+action :: Maybe Action
+$sel:action:GetActionResponse' :: GetActionResponse -&gt; Maybe Action
+</span><a href="#local-6989586621679188348"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679188348"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188347"><span class="annot"><span class="annottext">s :: GetActionResponse
+</span><a href="#local-6989586621679188347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse%27"><span class="hs-identifier hs-type">GetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188346"><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679188346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionResponse
+</span><a href="#local-6989586621679188347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:GetActionResponse' :: Maybe Action
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3Aaction%3AGetActionResponse%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679188346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-type">GetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.FIS.GetAction.html#getActionResponse_httpStatus"><span class="hs-identifier hs-type">getActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-type">GetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-144"></span><span id="getActionResponse_httpStatus"><span class="annot"><span class="annottext">getActionResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetActionResponse -&gt; f GetActionResponse
+</span><a href="Amazonka.FIS.GetAction.html#getActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionResponse -&gt; Int)
+-&gt; (GetActionResponse -&gt; Int -&gt; GetActionResponse)
+-&gt; Lens GetActionResponse GetActionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse%27"><span class="hs-identifier hs-type">GetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188345"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetActionResponse' :: GetActionResponse -&gt; Int
+</span><a href="#local-6989586621679188345"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188345"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188344"><span class="annot"><span class="annottext">s :: GetActionResponse
+</span><a href="#local-6989586621679188344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse%27"><span class="hs-identifier hs-type">GetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionResponse
+</span><a href="#local-6989586621679188344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetActionResponse' :: Int
+</span><a href="Amazonka.FIS.GetAction.html#%24sel%3AhttpStatus%3AGetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-type">GetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.GetAction.html#GetActionResponse"><span class="hs-identifier hs-type">GetActionResponse</span></a></span></span><span>
+</span><span id="line-147"></span></pre></body></html>

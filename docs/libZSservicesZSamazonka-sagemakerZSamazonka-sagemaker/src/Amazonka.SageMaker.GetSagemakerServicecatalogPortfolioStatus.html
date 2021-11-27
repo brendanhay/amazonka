@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the status of Service Catalog in SageMaker. Service Catalog is used</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to create SageMaker projects.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier">GetSagemakerServicecatalogPortfolioStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#newGetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier">newGetSagemakerServicecatalogPortfolioStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#newGetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier">newGetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#getSagemakerServicecatalogPortfolioStatusResponse_status"><span class="hs-identifier">getSagemakerServicecatalogPortfolioStatusResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#getSagemakerServicecatalogPortfolioStatusResponse_httpStatus"><span class="hs-identifier">getSagemakerServicecatalogPortfolioStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newGetSagemakerServicecatalogPortfolioStatus' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621680388980"><span id="local-6989586621680388981"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSagemakerServicecatalogPortfolioStatus"><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-var">GetSagemakerServicecatalogPortfolioStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSagemakerServicecatalogPortfolioStatus%27"><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus%27"><span class="hs-identifier hs-var">GetSagemakerServicecatalogPortfolioStatus'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680388975"><span id="local-6989586621680388977"><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatus
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Bool
+(GetSagemakerServicecatalogPortfolioStatus
+ -&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Bool)
+-&gt; (GetSagemakerServicecatalogPortfolioStatus
+    -&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Bool)
+-&gt; Eq GetSagemakerServicecatalogPortfolioStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSagemakerServicecatalogPortfolioStatus
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Bool
+$c/= :: GetSagemakerServicecatalogPortfolioStatus
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Bool
+== :: GetSagemakerServicecatalogPortfolioStatus
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Bool
+$c== :: GetSagemakerServicecatalogPortfolioStatus
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388966"><span id="local-6989586621680388968"><span id="local-6989586621680388970"><span id="local-6989586621680388972"><span class="annot"><span class="annottext">ReadPrec [GetSagemakerServicecatalogPortfolioStatus]
+ReadPrec GetSagemakerServicecatalogPortfolioStatus
+Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatus
+ReadS [GetSagemakerServicecatalogPortfolioStatus]
+(Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatus)
+-&gt; ReadS [GetSagemakerServicecatalogPortfolioStatus]
+-&gt; ReadPrec GetSagemakerServicecatalogPortfolioStatus
+-&gt; ReadPrec [GetSagemakerServicecatalogPortfolioStatus]
+-&gt; Read GetSagemakerServicecatalogPortfolioStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSagemakerServicecatalogPortfolioStatus]
+$creadListPrec :: ReadPrec [GetSagemakerServicecatalogPortfolioStatus]
+readPrec :: ReadPrec GetSagemakerServicecatalogPortfolioStatus
+$creadPrec :: ReadPrec GetSagemakerServicecatalogPortfolioStatus
+readList :: ReadS [GetSagemakerServicecatalogPortfolioStatus]
+$creadList :: ReadS [GetSagemakerServicecatalogPortfolioStatus]
+readsPrec :: Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatus
+$creadsPrec :: Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388959"><span id="local-6989586621680388961"><span id="local-6989586621680388963"><span class="annot"><span class="annottext">Int -&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; ShowS
+[GetSagemakerServicecatalogPortfolioStatus] -&gt; ShowS
+GetSagemakerServicecatalogPortfolioStatus -&gt; String
+(Int -&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; ShowS)
+-&gt; (GetSagemakerServicecatalogPortfolioStatus -&gt; String)
+-&gt; ([GetSagemakerServicecatalogPortfolioStatus] -&gt; ShowS)
+-&gt; Show GetSagemakerServicecatalogPortfolioStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSagemakerServicecatalogPortfolioStatus] -&gt; ShowS
+$cshowList :: [GetSagemakerServicecatalogPortfolioStatus] -&gt; ShowS
+show :: GetSagemakerServicecatalogPortfolioStatus -&gt; String
+$cshow :: GetSagemakerServicecatalogPortfolioStatus -&gt; String
+showsPrec :: Int -&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSagemakerServicecatalogPortfolioStatus
+ -&gt; Rep GetSagemakerServicecatalogPortfolioStatus x)
+-&gt; (forall x.
+    Rep GetSagemakerServicecatalogPortfolioStatus x
+    -&gt; GetSagemakerServicecatalogPortfolioStatus)
+-&gt; Generic GetSagemakerServicecatalogPortfolioStatus
+forall x.
+Rep GetSagemakerServicecatalogPortfolioStatus x
+-&gt; GetSagemakerServicecatalogPortfolioStatus
+forall x.
+GetSagemakerServicecatalogPortfolioStatus
+-&gt; Rep GetSagemakerServicecatalogPortfolioStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSagemakerServicecatalogPortfolioStatus x
+-&gt; GetSagemakerServicecatalogPortfolioStatus
+$cfrom :: forall x.
+GetSagemakerServicecatalogPortfolioStatus
+-&gt; Rep GetSagemakerServicecatalogPortfolioStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'GetSagemakerServicecatalogPortfolioStatus' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#newGetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">newGetSagemakerServicecatalogPortfolioStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span><span>
+</span><span id="line-59"></span><span id="newGetSagemakerServicecatalogPortfolioStatus"><span class="annot"><span class="annottext">newGetSagemakerServicecatalogPortfolioStatus :: GetSagemakerServicecatalogPortfolioStatus
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#newGetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-var hs-var">newGetSagemakerServicecatalogPortfolioStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatus
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus%27"><span class="hs-identifier hs-var">GetSagemakerServicecatalogPortfolioStatus'</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621680388951"><span class="annot"><span class="annottext">request :: GetSagemakerServicecatalogPortfolioStatus
+-&gt; Request GetSagemakerServicecatalogPortfolioStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetSagemakerServicecatalogPortfolioStatus
+-&gt; Request GetSagemakerServicecatalogPortfolioStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621680388947"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSagemakerServicecatalogPortfolioStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetSagemakerServicecatalogPortfolioStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse GetSagemakerServicecatalogPortfolioStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSagemakerServicecatalogPortfolioStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetSagemakerServicecatalogPortfolioStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680388944"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388944"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680388943"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680388943"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680388942"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680388942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe SagemakerServicecatalogStatus
+-&gt; Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var">GetSagemakerServicecatalogPortfolioStatusResponse'</span></a></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SagemakerServicecatalogStatus
+ -&gt; Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse)
+-&gt; Either String (Maybe SagemakerServicecatalogStatus)
+-&gt; Either
+     String (Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680388942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key -&gt; Either String (Maybe SagemakerServicecatalogStatus)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse)
+-&gt; Either String Int
+-&gt; Either String GetSagemakerServicecatalogPortfolioStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388944"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680388934"><span id="local-6989586621680388936"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680388931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680388927"><span class="annot"><span class="annottext">toHeaders :: GetSagemakerServicecatalogPortfolioStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.GetSagemakerServicecatalogPortfolioStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680388917"><span id="local-6989586621680388919"><span id="local-6989586621680388921"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span></span></span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621680388915"><span class="annot"><span class="annottext">toJSON :: GetSagemakerServicecatalogPortfolioStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680388910"><span class="annot"><span class="annottext">toPath :: GetSagemakerServicecatalogPortfolioStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatus"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatus</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621680388906"><span class="annot"><span class="annottext">toQuery :: GetSagemakerServicecatalogPortfolioStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; GetSagemakerServicecatalogPortfolioStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newGetSagemakerServicecatalogPortfolioStatusResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621680388903"><span id="local-6989586621680388904"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSagemakerServicecatalogPortfolioStatusResponse"><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-var">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var">GetSagemakerServicecatalogPortfolioStatusResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether Service Catalog is enabled or disabled in SageMaker.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3Astatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; Maybe SagemakerServicecatalogStatus
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#%24sel%3Astatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SagemakerServicecatalogStatus.html#SagemakerServicecatalogStatus"><span class="hs-identifier hs-type">SagemakerServicecatalogStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#%24sel%3AhttpStatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680388897"><span id="local-6989586621680388899"><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Bool
+(GetSagemakerServicecatalogPortfolioStatusResponse
+ -&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Bool)
+-&gt; (GetSagemakerServicecatalogPortfolioStatusResponse
+    -&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Bool)
+-&gt; Eq GetSagemakerServicecatalogPortfolioStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Bool
+$c/= :: GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Bool
+== :: GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Bool
+$c== :: GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388889"><span id="local-6989586621680388891"><span id="local-6989586621680388893"><span id="local-6989586621680388895"><span class="annot"><span class="annottext">ReadPrec [GetSagemakerServicecatalogPortfolioStatusResponse]
+ReadPrec GetSagemakerServicecatalogPortfolioStatusResponse
+Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatusResponse
+ReadS [GetSagemakerServicecatalogPortfolioStatusResponse]
+(Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatusResponse)
+-&gt; ReadS [GetSagemakerServicecatalogPortfolioStatusResponse]
+-&gt; ReadPrec GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; ReadPrec [GetSagemakerServicecatalogPortfolioStatusResponse]
+-&gt; Read GetSagemakerServicecatalogPortfolioStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSagemakerServicecatalogPortfolioStatusResponse]
+$creadListPrec :: ReadPrec [GetSagemakerServicecatalogPortfolioStatusResponse]
+readPrec :: ReadPrec GetSagemakerServicecatalogPortfolioStatusResponse
+$creadPrec :: ReadPrec GetSagemakerServicecatalogPortfolioStatusResponse
+readList :: ReadS [GetSagemakerServicecatalogPortfolioStatusResponse]
+$creadList :: ReadS [GetSagemakerServicecatalogPortfolioStatusResponse]
+readsPrec :: Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetSagemakerServicecatalogPortfolioStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388883"><span id="local-6989586621680388885"><span id="local-6989586621680388887"><span class="annot"><span class="annottext">Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; ShowS
+[GetSagemakerServicecatalogPortfolioStatusResponse] -&gt; ShowS
+GetSagemakerServicecatalogPortfolioStatusResponse -&gt; String
+(Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; ShowS)
+-&gt; (GetSagemakerServicecatalogPortfolioStatusResponse -&gt; String)
+-&gt; ([GetSagemakerServicecatalogPortfolioStatusResponse] -&gt; ShowS)
+-&gt; Show GetSagemakerServicecatalogPortfolioStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSagemakerServicecatalogPortfolioStatusResponse] -&gt; ShowS
+$cshowList :: [GetSagemakerServicecatalogPortfolioStatusResponse] -&gt; ShowS
+show :: GetSagemakerServicecatalogPortfolioStatusResponse -&gt; String
+$cshow :: GetSagemakerServicecatalogPortfolioStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSagemakerServicecatalogPortfolioStatusResponse
+ -&gt; Rep GetSagemakerServicecatalogPortfolioStatusResponse x)
+-&gt; (forall x.
+    Rep GetSagemakerServicecatalogPortfolioStatusResponse x
+    -&gt; GetSagemakerServicecatalogPortfolioStatusResponse)
+-&gt; Generic GetSagemakerServicecatalogPortfolioStatusResponse
+forall x.
+Rep GetSagemakerServicecatalogPortfolioStatusResponse x
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse
+forall x.
+GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; Rep GetSagemakerServicecatalogPortfolioStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSagemakerServicecatalogPortfolioStatusResponse x
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse
+$cfrom :: forall x.
+GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; Rep GetSagemakerServicecatalogPortfolioStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'GetSagemakerServicecatalogPortfolioStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'status', 'getSagemakerServicecatalogPortfolioStatusResponse_status' - Whether Service Catalog is enabled or disabled in SageMaker.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'getSagemakerServicecatalogPortfolioStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#newGetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">newGetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newGetSagemakerServicecatalogPortfolioStatusResponse"><span class="annot"><span class="annottext">newGetSagemakerServicecatalogPortfolioStatusResponse :: Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#newGetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-var hs-var">newGetSagemakerServicecatalogPortfolioStatusResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621680388880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatusResponse' :: Maybe SagemakerServicecatalogStatus
+-&gt; Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GetSagemakerServicecatalogPortfolioStatusResponse' :: Maybe SagemakerServicecatalogStatus
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#%24sel%3Astatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe SagemakerServicecatalogStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSagemakerServicecatalogPortfolioStatusResponse' :: Int
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#%24sel%3AhttpStatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Whether Service Catalog is enabled or disabled in SageMaker.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#getSagemakerServicecatalogPortfolioStatusResponse_status"><span class="hs-identifier hs-type">getSagemakerServicecatalogPortfolioStatusResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SagemakerServicecatalogStatus.html#SagemakerServicecatalogStatus"><span class="hs-identifier hs-type">SagemakerServicecatalogStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="getSagemakerServicecatalogPortfolioStatusResponse_status"><span class="annot"><span class="annottext">getSagemakerServicecatalogPortfolioStatusResponse_status :: (Maybe SagemakerServicecatalogStatus
+ -&gt; f (Maybe SagemakerServicecatalogStatus))
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; f GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#getSagemakerServicecatalogPortfolioStatusResponse_status"><span class="hs-identifier hs-var hs-var">getSagemakerServicecatalogPortfolioStatusResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSagemakerServicecatalogPortfolioStatusResponse
+ -&gt; Maybe SagemakerServicecatalogStatus)
+-&gt; (GetSagemakerServicecatalogPortfolioStatusResponse
+    -&gt; Maybe SagemakerServicecatalogStatus
+    -&gt; GetSagemakerServicecatalogPortfolioStatusResponse)
+-&gt; Lens
+     GetSagemakerServicecatalogPortfolioStatusResponse
+     GetSagemakerServicecatalogPortfolioStatusResponse
+     (Maybe SagemakerServicecatalogStatus)
+     (Maybe SagemakerServicecatalogStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388877"><span class="annot"><span class="annottext">Maybe SagemakerServicecatalogStatus
+status :: Maybe SagemakerServicecatalogStatus
+$sel:status:GetSagemakerServicecatalogPortfolioStatusResponse' :: GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; Maybe SagemakerServicecatalogStatus
+</span><a href="#local-6989586621680388877"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SagemakerServicecatalogStatus
+</span><a href="#local-6989586621680388877"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388876"><span class="annot"><span class="annottext">s :: GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="#local-6989586621680388876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388875"><span class="annot"><span class="annottext">Maybe SagemakerServicecatalogStatus
+</span><a href="#local-6989586621680388875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="#local-6989586621680388876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetSagemakerServicecatalogPortfolioStatusResponse' :: Maybe SagemakerServicecatalogStatus
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#%24sel%3Astatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SagemakerServicecatalogStatus
+</span><a href="#local-6989586621680388875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#getSagemakerServicecatalogPortfolioStatusResponse_httpStatus"><span class="hs-identifier hs-type">getSagemakerServicecatalogPortfolioStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="getSagemakerServicecatalogPortfolioStatusResponse_httpStatus"><span class="annot"><span class="annottext">getSagemakerServicecatalogPortfolioStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetSagemakerServicecatalogPortfolioStatusResponse
+-&gt; f GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#getSagemakerServicecatalogPortfolioStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSagemakerServicecatalogPortfolioStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Int)
+-&gt; (GetSagemakerServicecatalogPortfolioStatusResponse
+    -&gt; Int -&gt; GetSagemakerServicecatalogPortfolioStatusResponse)
+-&gt; Lens
+     GetSagemakerServicecatalogPortfolioStatusResponse
+     GetSagemakerServicecatalogPortfolioStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388874"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSagemakerServicecatalogPortfolioStatusResponse' :: GetSagemakerServicecatalogPortfolioStatusResponse -&gt; Int
+</span><a href="#local-6989586621680388874"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388874"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388873"><span class="annot"><span class="annottext">s :: GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="#local-6989586621680388873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388872"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSagemakerServicecatalogPortfolioStatusResponse
+</span><a href="#local-6989586621680388873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSagemakerServicecatalogPortfolioStatusResponse' :: Int
+</span><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#%24sel%3AhttpStatus%3AGetSagemakerServicecatalogPortfolioStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621680388870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus.html#GetSagemakerServicecatalogPortfolioStatusResponse"><span class="hs-identifier hs-type">GetSagemakerServicecatalogPortfolioStatusResponse</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

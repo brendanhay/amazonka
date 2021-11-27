@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary
+module Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary
 
 -- | A nested application summary.
 --   
@@ -42,16 +42,16 @@ applicationDependencySummary_applicationId :: Lens' ApplicationDependencySummary
 
 -- | The semantic version of the nested application.
 applicationDependencySummary_semanticVersion :: Lens' ApplicationDependencySummary Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary.ApplicationDependencySummary
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
+module Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
 
 -- | Policy statement applied to the application.
 --   
@@ -113,17 +113,17 @@ applicationPolicyStatement_principals :: Lens' ApplicationPolicyStatement [Text]
 -- | For the list of actions supported for this operation, see
 --   <a>Application Permissions</a>.
 applicationPolicyStatement_actions :: Lens' ApplicationPolicyStatement [Text]
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.ApplicationPolicyStatement
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary
+module Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary
 
 -- | Summary of details about the application.
 --   
@@ -264,16 +264,16 @@ applicationSummary_applicationId :: Lens' ApplicationSummary Text
 --   
 --   Pattern: "[a-zA-Z0-9\\-]+";
 applicationSummary_name :: Lens' ApplicationSummary Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary.ApplicationSummary
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.Capability
+module Amazonka.ServerlessApplicationRepository.Types.Capability
 
 -- | Values that must be specified in order to deploy some applications.
 newtype Capability
@@ -283,28 +283,28 @@ pattern Capability_CAPABILITY_AUTO_EXPAND :: Capability
 pattern Capability_CAPABILITY_IAM :: Capability
 pattern Capability_CAPABILITY_NAMED_IAM :: Capability
 pattern Capability_CAPABILITY_RESOURCE_POLICY :: Capability
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Network.AWS.Data.Text.ToText Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Network.AWS.Data.Text.FromText Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance GHC.Classes.Ord Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.XML.ToXML Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.XML.FromXML Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.Log.ToLog Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.Text.ToText Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Amazonka.Data.Text.FromText Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance GHC.Classes.Ord Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.Capability.Capability
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
+module Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition
 
 -- | Parameters supported by the application.
 --   
@@ -599,16 +599,16 @@ parameterDefinition_referencedByResources :: Lens' ParameterDefinition [Text]
 
 -- | The name of the parameter.
 parameterDefinition_name :: Lens' ParameterDefinition Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition.ParameterDefinition
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.ParameterValue
+module Amazonka.ServerlessApplicationRepository.Types.ParameterValue
 
 -- | Parameter value of the application.
 --   
@@ -649,16 +649,16 @@ parameterValue_value :: Lens' ParameterValue Text
 --   value for a particular parameter, AWS CloudFormation uses the default
 --   value that is specified in your template.
 parameterValue_name :: Lens' ParameterValue Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.Types.ParameterValue.ParameterValue
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
+module Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger
 
 -- | This property corresponds to the /AWS CloudFormation
 --   <a>RollbackTrigger</a>/ Data Type.
@@ -700,16 +700,16 @@ rollbackTrigger_type :: Lens' RollbackTrigger Text
 -- | This property corresponds to the content of the same name for the /AWS
 --   CloudFormation <a>RollbackTrigger</a>/ Data Type.
 rollbackTrigger_arn :: Lens' RollbackTrigger Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger.RollbackTrigger
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration
+module Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration
 
 -- | This property corresponds to the /AWS CloudFormation
 --   <a>RollbackConfiguration</a>/ Data Type.
@@ -753,44 +753,44 @@ rollbackConfiguration_rollbackTriggers :: Lens' RollbackConfiguration (Maybe [Ro
 -- | This property corresponds to the content of the same name for the /AWS
 --   CloudFormation <a>RollbackConfiguration</a>/ Data Type.
 rollbackConfiguration_monitoringTimeInMinutes :: Lens' RollbackConfiguration (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration.RollbackConfiguration
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.Status
+module Amazonka.ServerlessApplicationRepository.Types.Status
 newtype Status
 Status' :: Text -> Status
 [fromStatus] :: Status -> Text
 pattern Status_ACTIVE :: Status
 pattern Status_EXPIRED :: Status
 pattern Status_PREPARING :: Status
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Network.AWS.Data.Text.ToText Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Network.AWS.Data.Text.FromText Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance GHC.Classes.Ord Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.Status.Status
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.XML.ToXML Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.XML.FromXML Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.Log.ToLog Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.Text.ToText Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Amazonka.Data.Text.FromText Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance GHC.Classes.Ord Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.Status.Status
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.Status.Status
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.Tag
+module Amazonka.ServerlessApplicationRepository.Types.Tag
 
 -- | This property corresponds to the /AWS CloudFormation <a>Tag</a>/ Data
 --   Type.
@@ -831,16 +831,16 @@ tag_value :: Lens' Tag Text
 -- | This property corresponds to the content of the same name for the /AWS
 --   CloudFormation <a>Tag</a>/ Data Type.
 tag_key :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.Types.Tag.Tag
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.Version
+module Amazonka.ServerlessApplicationRepository.Types.Version
 
 -- | Application version details.
 --   
@@ -1054,16 +1054,16 @@ version_applicationId :: Lens' Version Text
 --   
 --   <a>https://semver.org/</a>
 version_semanticVersion :: Lens' Version Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.Version.Version
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.Version.Version
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.Version.Version
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.Version.Version
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.Version.Version
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.Version.Version
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.Version.Version
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.Version.Version
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.Version.Version
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.Version.Version
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.Version.Version
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.Version.Version
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.Version.Version
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.Version.Version
 
 
-module Network.AWS.ServerlessApplicationRepository.Types.VersionSummary
+module Amazonka.ServerlessApplicationRepository.Types.VersionSummary
 
 -- | An application version summary.
 --   
@@ -1129,16 +1129,16 @@ versionSummary_applicationId :: Lens' VersionSummary Text
 --   
 --   <a>https://semver.org/</a>
 versionSummary_semanticVersion :: Lens' VersionSummary Text
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.Types.VersionSummary.VersionSummary
 
 
-module Network.AWS.ServerlessApplicationRepository.Types
+module Amazonka.ServerlessApplicationRepository.Types
 
 -- | API version <tt>2017-09-08</tt> of the Amazon
 --   ServerlessApplicationRepository SDK configuration.
@@ -2156,7 +2156,7 @@ versionSummary_semanticVersion :: Lens' VersionSummary Text
 
 -- | Sets the permission policy for an application. For the list of actions
 --   supported for this operation, see <a>Application Permissions</a> .
-module Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
+module Amazonka.ServerlessApplicationRepository.PutApplicationPolicy
 
 -- | <i>See:</i> <a>newPutApplicationPolicy</a> smart constructor.
 data PutApplicationPolicy
@@ -2225,28 +2225,28 @@ putApplicationPolicyResponse_statements :: Lens' PutApplicationPolicyResponse (M
 
 -- | The response's http status code.
 putApplicationPolicyResponse_httpStatus :: Lens' PutApplicationPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.PutApplicationPolicy.PutApplicationPolicy
 
 
 -- | Lists applications owned by the requester.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServerlessApplicationRepository.ListApplications
+module Amazonka.ServerlessApplicationRepository.ListApplications
 
 -- | <i>See:</i> <a>newListApplications</a> smart constructor.
 data ListApplications
@@ -2325,28 +2325,28 @@ listApplicationsResponse_applications :: Lens' ListApplicationsResponse (Maybe [
 
 -- | The response's http status code.
 listApplicationsResponse_httpStatus :: Lens' ListApplicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.ListApplications.ListApplicationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.ListApplications.ListApplications
 
 
 -- | Lists versions for the specified application.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
+module Amazonka.ServerlessApplicationRepository.ListApplicationVersions
 
 -- | <i>See:</i> <a>newListApplicationVersions</a> smart constructor.
 data ListApplicationVersions
@@ -2436,29 +2436,29 @@ listApplicationVersionsResponse_nextToken :: Lens' ListApplicationVersionsRespon
 
 -- | The response's http status code.
 listApplicationVersionsResponse_httpStatus :: Lens' ListApplicationVersionsResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.ListApplicationVersions.ListApplicationVersions
 
 
 -- | Retrieves the list of applications nested in the containing
 --   application.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies
+module Amazonka.ServerlessApplicationRepository.ListApplicationDependencies
 
 -- | <i>See:</i> <a>newListApplicationDependencies</a> smart constructor.
 data ListApplicationDependencies
@@ -2558,26 +2558,26 @@ listApplicationDependenciesResponse_nextToken :: Lens' ListApplicationDependenci
 
 -- | The response's http status code.
 listApplicationDependenciesResponse_httpStatus :: Lens' ListApplicationDependenciesResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependenciesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.ListApplicationDependencies.ListApplicationDependencies
 
 
 -- | Gets the specified AWS CloudFormation template.
-module Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate
+module Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate
 
 -- | <i>See:</i> <a>newGetCloudFormationTemplate</a> smart constructor.
 data GetCloudFormationTemplate
@@ -2742,25 +2742,25 @@ getCloudFormationTemplateResponse_expirationTime :: Lens' GetCloudFormationTempl
 
 -- | The response's http status code.
 getCloudFormationTemplateResponse_httpStatus :: Lens' GetCloudFormationTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate.GetCloudFormationTemplate
 
 
 -- | Retrieves the policy for the application.
-module Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy
+module Amazonka.ServerlessApplicationRepository.GetApplicationPolicy
 
 -- | <i>See:</i> <a>newGetApplicationPolicy</a> smart constructor.
 data GetApplicationPolicy
@@ -2819,25 +2819,25 @@ getApplicationPolicyResponse_statements :: Lens' GetApplicationPolicyResponse (M
 
 -- | The response's http status code.
 getApplicationPolicyResponse_httpStatus :: Lens' GetApplicationPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.GetApplicationPolicy.GetApplicationPolicy
 
 
 -- | Gets the specified application.
-module Network.AWS.ServerlessApplicationRepository.GetApplication
+module Amazonka.ServerlessApplicationRepository.GetApplication
 
 -- | <i>See:</i> <a>newGetApplication</a> smart constructor.
 data GetApplication
@@ -3099,25 +3099,25 @@ getApplicationResponse_isVerifiedAuthor :: Lens' GetApplicationResponse (Maybe B
 
 -- | The response's http status code.
 getApplicationResponse_httpStatus :: Lens' GetApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.GetApplication.GetApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.GetApplication.GetApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.GetApplication.GetApplication
 
 
 -- | Deletes the specified application.
-module Network.AWS.ServerlessApplicationRepository.DeleteApplication
+module Amazonka.ServerlessApplicationRepository.DeleteApplication
 
 -- | <i>See:</i> <a>newDeleteApplication</a> smart constructor.
 data DeleteApplication
@@ -3153,25 +3153,25 @@ DeleteApplicationResponse' :: DeleteApplicationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteApplicationResponse :: DeleteApplicationResponse
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.DeleteApplication.DeleteApplication
 
 
 -- | Creates an AWS CloudFormation template.
-module Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate
+module Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate
 
 -- | <i>See:</i> <a>newCreateCloudFormationTemplate</a> smart constructor.
 data CreateCloudFormationTemplate
@@ -3334,26 +3334,26 @@ createCloudFormationTemplateResponse_expirationTime :: Lens' CreateCloudFormatio
 
 -- | The response's http status code.
 createCloudFormationTemplateResponse_httpStatus :: Lens' CreateCloudFormationTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate.CreateCloudFormationTemplate
 
 
 -- | Creates an AWS CloudFormation change set for the given application.
-module Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
+module Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
 
 -- | <i>See:</i> <a>newCreateCloudFormationChangeSet</a> smart constructor.
 data CreateCloudFormationChangeSet
@@ -3712,26 +3712,26 @@ createCloudFormationChangeSetResponse_stackId :: Lens' CreateCloudFormationChang
 
 -- | The response's http status code.
 createCloudFormationChangeSetResponse_httpStatus :: Lens' CreateCloudFormationChangeSetResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet.CreateCloudFormationChangeSet
 
 
 -- | Creates an application version.
-module Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
+module Amazonka.ServerlessApplicationRepository.CreateApplicationVersion
 
 -- | <i>See:</i> <a>newCreateApplicationVersion</a> smart constructor.
 data CreateApplicationVersion
@@ -4047,27 +4047,27 @@ createApplicationVersionResponse_sourceCodeArchiveUrl :: Lens' CreateApplication
 
 -- | The response's http status code.
 createApplicationVersionResponse_httpStatus :: Lens' CreateApplicationVersionResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.CreateApplicationVersion.CreateApplicationVersion
 
 
 -- | Creates an application, optionally including an AWS SAM file to create
 --   the first application version in the same call.
-module Network.AWS.ServerlessApplicationRepository.CreateApplication
+module Amazonka.ServerlessApplicationRepository.CreateApplication
 
 -- | <i>See:</i> <a>newCreateApplication</a> smart constructor.
 data CreateApplication
@@ -4620,29 +4620,29 @@ createApplicationResponse_isVerifiedAuthor :: Lens' CreateApplicationResponse (M
 
 -- | The response's http status code.
 createApplicationResponse_httpStatus :: Lens' CreateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.CreateApplication.CreateApplication
 
 
 -- | Unshares an application from an AWS Organization.
 --   
 --   This operation can be called only from the organization's master
 --   account.
-module Network.AWS.ServerlessApplicationRepository.UnshareApplication
+module Amazonka.ServerlessApplicationRepository.UnshareApplication
 
 -- | <i>See:</i> <a>newUnshareApplication</a> smart constructor.
 data UnshareApplication
@@ -4688,26 +4688,26 @@ UnshareApplicationResponse' :: UnshareApplicationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUnshareApplicationResponse :: UnshareApplicationResponse
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.UnshareApplication.UnshareApplication
 
 
 -- | Updates the specified application.
-module Network.AWS.ServerlessApplicationRepository.UpdateApplication
+module Amazonka.ServerlessApplicationRepository.UpdateApplication
 
 -- | <i>See:</i> <a>newUpdateApplication</a> smart constructor.
 data UpdateApplication
@@ -5068,25 +5068,25 @@ updateApplicationResponse_isVerifiedAuthor :: Lens' UpdateApplicationResponse (M
 
 -- | The response's http status code.
 updateApplicationResponse_httpStatus :: Lens' UpdateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance GHC.Generics.Generic Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
-instance GHC.Show.Show Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
-instance GHC.Read.Read Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
+instance GHC.Show.Show Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
+instance GHC.Read.Read Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServerlessApplicationRepository.UpdateApplication.UpdateApplication
 
 
-module Network.AWS.ServerlessApplicationRepository.Lens
+module Amazonka.ServerlessApplicationRepository.Lens
 
 -- | The Amazon Resource Name (ARN) of the application.
 getApplicationPolicy_applicationId :: Lens' GetApplicationPolicy Text
@@ -6056,7 +6056,7 @@ versionSummary_applicationId :: Lens' VersionSummary Text
 versionSummary_semanticVersion :: Lens' VersionSummary Text
 
 
-module Network.AWS.ServerlessApplicationRepository.Waiters
+module Amazonka.ServerlessApplicationRepository.Waiters
 
 
 -- | Derived from API version <tt>2017-09-08</tt> of the AWS service
@@ -6097,7 +6097,7 @@ module Network.AWS.ServerlessApplicationRepository.Waiters
 --   to make them available to other developers, and publish new versions
 --   of applications.</li>
 --   </ul>
-module Network.AWS.ServerlessApplicationRepository
+module Amazonka.ServerlessApplicationRepository
 
 -- | API version <tt>2017-09-08</tt> of the Amazon
 --   ServerlessApplicationRepository SDK configuration.

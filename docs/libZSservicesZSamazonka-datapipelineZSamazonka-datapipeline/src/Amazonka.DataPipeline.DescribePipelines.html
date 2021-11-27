@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DataPipeline.DescribePipelines</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves metadata about one or more pipelines. The information</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- retrieved includes the name of the pipeline, the pipeline identifier,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- its current state, and the user account that owns the pipeline. Using</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- account credentials, you can retrieve metadata about pipelines that you</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- or your IAM users have created. If you are using an IAM user account,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- you can retrieve metadata about only those pipelines for which you have</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- read permissions.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- To retrieve the full pipeline definition instead of metadata about the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- pipeline, call GetPipelineDefinition.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataPipeline.DescribePipelines</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier">DescribePipelines</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#newDescribePipelines"><span class="hs-identifier">newDescribePipelines</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelines_pipelineIds"><span class="hs-identifier">describePipelines_pipelineIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier">DescribePipelinesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#newDescribePipelinesResponse"><span class="hs-identifier">newDescribePipelinesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelinesResponse_httpStatus"><span class="hs-identifier">describePipelinesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelinesResponse_pipelineDescriptionList"><span class="hs-identifier">describePipelinesResponse_pipelineDescriptionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.Types.html"><span class="hs-identifier">Amazonka.DataPipeline.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Contains the parameters for DescribePipelines.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newDescribePipelines' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679179686"><span id="local-6989586621679179687"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipelines"><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-var">DescribePipelines</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipelines%27"><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines%27"><span class="hs-identifier hs-var">DescribePipelines'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the pipelines to describe. You can pass as many as 25</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- identifiers in a single call. To obtain pipeline IDs, call</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- ListPipelines.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3ApipelineIds%3ADescribePipelines%27"><span class="annot"><span class="annottext">DescribePipelines -&gt; [Text]
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3ApipelineIds%3ADescribePipelines%27"><span class="hs-identifier hs-var hs-var">pipelineIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179680"><span id="local-6989586621679179682"><span class="annot"><span class="annottext">DescribePipelines -&gt; DescribePipelines -&gt; Bool
+(DescribePipelines -&gt; DescribePipelines -&gt; Bool)
+-&gt; (DescribePipelines -&gt; DescribePipelines -&gt; Bool)
+-&gt; Eq DescribePipelines
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePipelines -&gt; DescribePipelines -&gt; Bool
+$c/= :: DescribePipelines -&gt; DescribePipelines -&gt; Bool
+== :: DescribePipelines -&gt; DescribePipelines -&gt; Bool
+$c== :: DescribePipelines -&gt; DescribePipelines -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179671"><span id="local-6989586621679179673"><span id="local-6989586621679179675"><span id="local-6989586621679179677"><span class="annot"><span class="annottext">ReadPrec [DescribePipelines]
+ReadPrec DescribePipelines
+Int -&gt; ReadS DescribePipelines
+ReadS [DescribePipelines]
+(Int -&gt; ReadS DescribePipelines)
+-&gt; ReadS [DescribePipelines]
+-&gt; ReadPrec DescribePipelines
+-&gt; ReadPrec [DescribePipelines]
+-&gt; Read DescribePipelines
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePipelines]
+$creadListPrec :: ReadPrec [DescribePipelines]
+readPrec :: ReadPrec DescribePipelines
+$creadPrec :: ReadPrec DescribePipelines
+readList :: ReadS [DescribePipelines]
+$creadList :: ReadS [DescribePipelines]
+readsPrec :: Int -&gt; ReadS DescribePipelines
+$creadsPrec :: Int -&gt; ReadS DescribePipelines
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179664"><span id="local-6989586621679179666"><span id="local-6989586621679179668"><span class="annot"><span class="annottext">Int -&gt; DescribePipelines -&gt; ShowS
+[DescribePipelines] -&gt; ShowS
+DescribePipelines -&gt; String
+(Int -&gt; DescribePipelines -&gt; ShowS)
+-&gt; (DescribePipelines -&gt; String)
+-&gt; ([DescribePipelines] -&gt; ShowS)
+-&gt; Show DescribePipelines
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePipelines] -&gt; ShowS
+$cshowList :: [DescribePipelines] -&gt; ShowS
+show :: DescribePipelines -&gt; String
+$cshow :: DescribePipelines -&gt; String
+showsPrec :: Int -&gt; DescribePipelines -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePipelines -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribePipelines -&gt; Rep DescribePipelines x)
+-&gt; (forall x. Rep DescribePipelines x -&gt; DescribePipelines)
+-&gt; Generic DescribePipelines
+forall x. Rep DescribePipelines x -&gt; DescribePipelines
+forall x. DescribePipelines -&gt; Rep DescribePipelines x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribePipelines x -&gt; DescribePipelines
+$cfrom :: forall x. DescribePipelines -&gt; Rep DescribePipelines x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DescribePipelines' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'pipelineIds', 'describePipelines_pipelineIds' - The IDs of the pipelines to describe. You can pass as many as 25</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- identifiers in a single call. To obtain pipeline IDs, call</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- ListPipelines.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#newDescribePipelines"><span class="hs-identifier hs-type">newDescribePipelines</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span>
+</span><span id="line-82"></span><span id="newDescribePipelines"><span class="annot"><span class="annottext">newDescribePipelines :: DescribePipelines
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#newDescribePipelines"><span class="hs-identifier hs-var hs-var">newDescribePipelines</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DescribePipelines' :: [Text] -&gt; DescribePipelines
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines%27"><span class="hs-identifier hs-type">DescribePipelines'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineIds:DescribePipelines' :: [Text]
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3ApipelineIds%3ADescribePipelines%27"><span class="hs-identifier hs-var">pipelineIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The IDs of the pipelines to describe. You can pass as many as 25</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- identifiers in a single call. To obtain pipeline IDs, call</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- ListPipelines.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelines_pipelineIds"><span class="hs-identifier hs-type">describePipelines_pipelineIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span id="describePipelines_pipelineIds"><span class="annot"><span class="annottext">describePipelines_pipelineIds :: ([Text] -&gt; f [Text]) -&gt; DescribePipelines -&gt; f DescribePipelines
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelines_pipelineIds"><span class="hs-identifier hs-var hs-var">describePipelines_pipelineIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelines -&gt; [Text])
+-&gt; (DescribePipelines -&gt; [Text] -&gt; DescribePipelines)
+-&gt; Lens DescribePipelines DescribePipelines [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines%27"><span class="hs-identifier hs-type">DescribePipelines'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179657"><span class="annot"><span class="annottext">[Text]
+pipelineIds :: [Text]
+$sel:pipelineIds:DescribePipelines' :: DescribePipelines -&gt; [Text]
+</span><a href="#local-6989586621679179657"><span class="hs-identifier hs-var hs-var">pipelineIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679179657"><span class="hs-identifier hs-var">pipelineIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179656"><span class="annot"><span class="annottext">s :: DescribePipelines
+</span><a href="#local-6989586621679179656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines%27"><span class="hs-identifier hs-type">DescribePipelines'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179655"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679179655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelines
+</span><a href="#local-6989586621679179656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineIds:DescribePipelines' :: [Text]
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3ApipelineIds%3ADescribePipelines%27"><span class="hs-identifier hs-var">pipelineIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679179655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DescribePipelines -&gt; f DescribePipelines)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DescribePipelines
+-&gt; f DescribePipelines
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-type">DescribePipelinesResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679179649"><span class="annot"><span class="annottext">request :: DescribePipelines -&gt; Request DescribePipelines
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribePipelines -&gt; Request DescribePipelines
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataPipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679179645"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePipelines
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePipelines)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribePipelines))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePipelines
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePipelines)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179642"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179642"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179641"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179641"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179640"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179640"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [PipelineDescription] -&gt; DescribePipelinesResponse
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse%27"><span class="hs-identifier hs-var">DescribePipelinesResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [PipelineDescription] -&gt; DescribePipelinesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String ([PipelineDescription] -&gt; DescribePipelinesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179642"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String ([PipelineDescription] -&gt; DescribePipelinesResponse)
+-&gt; Either String [PipelineDescription]
+-&gt; Either String DescribePipelinesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [PipelineDescription])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineDescriptionList&quot;</span></span><span>
+</span><span id="line-102"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [PipelineDescription])
+-&gt; [PipelineDescription] -&gt; Either String [PipelineDescription]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[PipelineDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179631"><span id="local-6989586621679179633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679179624"><span class="annot"><span class="annottext">toHeaders :: DescribePipelines -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePipelines -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DataPipeline.DescribePipelines&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179614"><span id="local-6989586621679179616"><span id="local-6989586621679179618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679179612"><span class="annot"><span class="annottext">toJSON :: DescribePipelines -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines%27"><span class="hs-identifier hs-type">DescribePipelines'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179610"><span class="annot"><span class="annottext">[Text]
+pipelineIds :: [Text]
+$sel:pipelineIds:DescribePipelines' :: DescribePipelines -&gt; [Text]
+</span><a href="#local-6989586621679179610"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679179610"><span class="hs-identifier hs-var">pipelineIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679179604"><span class="annot"><span class="annottext">toPath :: DescribePipelines -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePipelines -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelines"><span class="hs-identifier hs-type">DescribePipelines</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679179600"><span class="annot"><span class="annottext">toQuery :: DescribePipelines -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePipelines -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Contains the output of DescribePipelines.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- /See:/ 'newDescribePipelinesResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621679179597"><span id="local-6989586621679179598"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipelinesResponse"><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-var">DescribePipelinesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipelinesResponse%27"><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse%27"><span class="hs-identifier hs-var">DescribePipelinesResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePipelinesResponse%27"><span class="annot"><span class="annottext">DescribePipelinesResponse -&gt; Int
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3AhttpStatus%3ADescribePipelinesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | An array of descriptions for the specified pipelines.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3ApipelineDescriptionList%3ADescribePipelinesResponse%27"><span class="annot"><span class="annottext">DescribePipelinesResponse -&gt; [PipelineDescription]
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3ApipelineDescriptionList%3ADescribePipelinesResponse%27"><span class="hs-identifier hs-var hs-var">pipelineDescriptionList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataPipeline.Types.PipelineDescription.html#PipelineDescription"><span class="hs-identifier hs-type">PipelineDescription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179591"><span id="local-6989586621679179593"><span class="annot"><span class="annottext">DescribePipelinesResponse -&gt; DescribePipelinesResponse -&gt; Bool
+(DescribePipelinesResponse -&gt; DescribePipelinesResponse -&gt; Bool)
+-&gt; (DescribePipelinesResponse -&gt; DescribePipelinesResponse -&gt; Bool)
+-&gt; Eq DescribePipelinesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePipelinesResponse -&gt; DescribePipelinesResponse -&gt; Bool
+$c/= :: DescribePipelinesResponse -&gt; DescribePipelinesResponse -&gt; Bool
+== :: DescribePipelinesResponse -&gt; DescribePipelinesResponse -&gt; Bool
+$c== :: DescribePipelinesResponse -&gt; DescribePipelinesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179583"><span id="local-6989586621679179585"><span id="local-6989586621679179587"><span id="local-6989586621679179589"><span class="annot"><span class="annottext">ReadPrec [DescribePipelinesResponse]
+ReadPrec DescribePipelinesResponse
+Int -&gt; ReadS DescribePipelinesResponse
+ReadS [DescribePipelinesResponse]
+(Int -&gt; ReadS DescribePipelinesResponse)
+-&gt; ReadS [DescribePipelinesResponse]
+-&gt; ReadPrec DescribePipelinesResponse
+-&gt; ReadPrec [DescribePipelinesResponse]
+-&gt; Read DescribePipelinesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePipelinesResponse]
+$creadListPrec :: ReadPrec [DescribePipelinesResponse]
+readPrec :: ReadPrec DescribePipelinesResponse
+$creadPrec :: ReadPrec DescribePipelinesResponse
+readList :: ReadS [DescribePipelinesResponse]
+$creadList :: ReadS [DescribePipelinesResponse]
+readsPrec :: Int -&gt; ReadS DescribePipelinesResponse
+$creadsPrec :: Int -&gt; ReadS DescribePipelinesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179577"><span id="local-6989586621679179579"><span id="local-6989586621679179581"><span class="annot"><span class="annottext">Int -&gt; DescribePipelinesResponse -&gt; ShowS
+[DescribePipelinesResponse] -&gt; ShowS
+DescribePipelinesResponse -&gt; String
+(Int -&gt; DescribePipelinesResponse -&gt; ShowS)
+-&gt; (DescribePipelinesResponse -&gt; String)
+-&gt; ([DescribePipelinesResponse] -&gt; ShowS)
+-&gt; Show DescribePipelinesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePipelinesResponse] -&gt; ShowS
+$cshowList :: [DescribePipelinesResponse] -&gt; ShowS
+show :: DescribePipelinesResponse -&gt; String
+$cshow :: DescribePipelinesResponse -&gt; String
+showsPrec :: Int -&gt; DescribePipelinesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePipelinesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePipelinesResponse -&gt; Rep DescribePipelinesResponse x)
+-&gt; (forall x.
+    Rep DescribePipelinesResponse x -&gt; DescribePipelinesResponse)
+-&gt; Generic DescribePipelinesResponse
+forall x.
+Rep DescribePipelinesResponse x -&gt; DescribePipelinesResponse
+forall x.
+DescribePipelinesResponse -&gt; Rep DescribePipelinesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePipelinesResponse x -&gt; DescribePipelinesResponse
+$cfrom :: forall x.
+DescribePipelinesResponse -&gt; Rep DescribePipelinesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'DescribePipelinesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'describePipelinesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'pipelineDescriptionList', 'describePipelinesResponse_pipelineDescriptionList' - An array of descriptions for the specified pipelines.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#newDescribePipelinesResponse"><span class="hs-identifier hs-type">newDescribePipelinesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-type">DescribePipelinesResponse</span></a></span><span>
+</span><span id="line-164"></span><span id="newDescribePipelinesResponse"><span class="annot"><span class="annottext">newDescribePipelinesResponse :: Int -&gt; DescribePipelinesResponse
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#newDescribePipelinesResponse"><span class="hs-identifier hs-var hs-var">newDescribePipelinesResponse</span></a></span></span><span> </span><span id="local-6989586621679179574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">DescribePipelinesResponse' :: Int -&gt; [PipelineDescription] -&gt; DescribePipelinesResponse
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse%27"><span class="hs-identifier hs-type">DescribePipelinesResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePipelinesResponse' :: Int
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3AhttpStatus%3ADescribePipelinesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineDescriptionList:DescribePipelinesResponse' :: [PipelineDescription]
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3ApipelineDescriptionList%3ADescribePipelinesResponse%27"><span class="hs-identifier hs-var">pipelineDescriptionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PipelineDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelinesResponse_httpStatus"><span class="hs-identifier hs-type">describePipelinesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-type">DescribePipelinesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="describePipelinesResponse_httpStatus"><span class="annot"><span class="annottext">describePipelinesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePipelinesResponse -&gt; f DescribePipelinesResponse
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelinesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePipelinesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelinesResponse -&gt; Int)
+-&gt; (DescribePipelinesResponse -&gt; Int -&gt; DescribePipelinesResponse)
+-&gt; Lens DescribePipelinesResponse DescribePipelinesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse%27"><span class="hs-identifier hs-type">DescribePipelinesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179573"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePipelinesResponse' :: DescribePipelinesResponse -&gt; Int
+</span><a href="#local-6989586621679179573"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179573"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179572"><span class="annot"><span class="annottext">s :: DescribePipelinesResponse
+</span><a href="#local-6989586621679179572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse%27"><span class="hs-identifier hs-type">DescribePipelinesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179571"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelinesResponse
+</span><a href="#local-6989586621679179572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePipelinesResponse' :: Int
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3AhttpStatus%3ADescribePipelinesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-type">DescribePipelinesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | An array of descriptions for the specified pipelines.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelinesResponse_pipelineDescriptionList"><span class="hs-identifier hs-type">describePipelinesResponse_pipelineDescriptionList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-type">DescribePipelinesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataPipeline.Types.PipelineDescription.html#PipelineDescription"><span class="hs-identifier hs-type">PipelineDescription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span id="describePipelinesResponse_pipelineDescriptionList"><span class="annot"><span class="annottext">describePipelinesResponse_pipelineDescriptionList :: ([PipelineDescription] -&gt; f [PipelineDescription])
+-&gt; DescribePipelinesResponse -&gt; f DescribePipelinesResponse
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#describePipelinesResponse_pipelineDescriptionList"><span class="hs-identifier hs-var hs-var">describePipelinesResponse_pipelineDescriptionList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelinesResponse -&gt; [PipelineDescription])
+-&gt; (DescribePipelinesResponse
+    -&gt; [PipelineDescription] -&gt; DescribePipelinesResponse)
+-&gt; Lens
+     DescribePipelinesResponse
+     DescribePipelinesResponse
+     [PipelineDescription]
+     [PipelineDescription]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse%27"><span class="hs-identifier hs-type">DescribePipelinesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179570"><span class="annot"><span class="annottext">[PipelineDescription]
+pipelineDescriptionList :: [PipelineDescription]
+$sel:pipelineDescriptionList:DescribePipelinesResponse' :: DescribePipelinesResponse -&gt; [PipelineDescription]
+</span><a href="#local-6989586621679179570"><span class="hs-identifier hs-var hs-var">pipelineDescriptionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PipelineDescription]
+</span><a href="#local-6989586621679179570"><span class="hs-identifier hs-var">pipelineDescriptionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179569"><span class="annot"><span class="annottext">s :: DescribePipelinesResponse
+</span><a href="#local-6989586621679179569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse%27"><span class="hs-identifier hs-type">DescribePipelinesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179568"><span class="annot"><span class="annottext">[PipelineDescription]
+</span><a href="#local-6989586621679179568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelinesResponse
+</span><a href="#local-6989586621679179569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineDescriptionList:DescribePipelinesResponse' :: [PipelineDescription]
+</span><a href="Amazonka.DataPipeline.DescribePipelines.html#%24sel%3ApipelineDescriptionList%3ADescribePipelinesResponse%27"><span class="hs-identifier hs-var">pipelineDescriptionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PipelineDescription]
+</span><a href="#local-6989586621679179568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-type">DescribePipelinesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PipelineDescription] -&gt; f [PipelineDescription])
+ -&gt; DescribePipelinesResponse -&gt; f DescribePipelinesResponse)
+-&gt; (([PipelineDescription] -&gt; f [PipelineDescription])
+    -&gt; [PipelineDescription] -&gt; f [PipelineDescription])
+-&gt; ([PipelineDescription] -&gt; f [PipelineDescription])
+-&gt; DescribePipelinesResponse
+-&gt; f DescribePipelinesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PipelineDescription] -&gt; f [PipelineDescription])
+-&gt; [PipelineDescription] -&gt; f [PipelineDescription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataPipeline.DescribePipelines.html#DescribePipelinesResponse"><span class="hs-identifier hs-type">DescribePipelinesResponse</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

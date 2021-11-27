@@ -1,0 +1,1276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.MaintenanceWindowTask</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowTask</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.LoggingInfo.html"><span class="hs-identifier">Amazonka.SSM.Types.LoggingInfo</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskCutoffBehavior.html"><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowTaskCutoffBehavior</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskParameterValueExpression.html"><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowTaskParameterValueExpression</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html"><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowTaskType</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Target.html"><span class="hs-identifier">Amazonka.SSM.Types.Target</span></a></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Information about a task defined for a maintenance window.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newMaintenanceWindowTask' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679817982"><span id="local-6989586621679817983"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowTask"><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-var">MaintenanceWindowTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowTask%27"><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-var">MaintenanceWindowTask'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (IAM) service role to use to publish Amazon Simple Notification Service</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- (Amazon SNS) notifications for maintenance window Run Command tasks.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AserviceRoleArn%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AserviceRoleArn%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">serviceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The task ID.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AwindowTaskId%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AwindowTaskId%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">windowTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The parameters that should be passed to the task when it is run.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @TaskParameters@ has been deprecated. To specify parameters to pass to a</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- task when it runs, instead use the @Parameters@ option in the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @TaskInvocationParameters@ structure. For information about how Systems</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Manager handles these options for the supported maintenance window task</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- types, see MaintenanceWindowTaskInvocationParameters.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtaskParameters%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask
+-&gt; Maybe
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AtaskParameters%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">taskParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskParameterValueExpression.html#MaintenanceWindowTaskParameterValueExpression"><span class="hs-identifier hs-type">MaintenanceWindowTaskParameterValueExpression</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The priority of the task in the maintenance window. The lower the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- number, the higher the priority. Tasks that have the same priority are</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- scheduled in parallel.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Apriority%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Natural
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Apriority%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The resource that the task uses during execution. For @RUN_COMMAND@ and</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @AUTOMATION@ task types, @TaskArn@ is the Amazon Web Services Systems</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Manager (SSM document) name or ARN. For @LAMBDA@ tasks, it\'s the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- function name or ARN. For @STEP_FUNCTIONS@ tasks, it\'s the state</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- machine ARN.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtaskArn%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AtaskArn%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The specification for whether tasks should continue to run after the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- cutoff time specified in the maintenance windows is reached.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcutoffBehavior%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AcutoffBehavior%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">cutoffBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskCutoffBehavior.html#MaintenanceWindowTaskCutoffBehavior"><span class="hs-identifier hs-type">MaintenanceWindowTaskCutoffBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of errors allowed before this task stops being</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- scheduled.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxErrors%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AmaxErrors%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">maxErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The task name.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aname%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Aname%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The targets (either instances or tags). Instances are specified using</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@. Tags are</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- specified using @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Atargets%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe [Target]
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Atargets%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Information about an S3 bucket to write task-level logs to.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Service (Amazon S3) bucket to contain logs, instead use the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @TaskInvocationParameters@ structure. For information about how Amazon</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Web Services Systems Manager handles these options for the supported</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- maintenance window task types, see</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- MaintenanceWindowTaskInvocationParameters.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AloggingInfo%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe LoggingInfo
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AloggingInfo%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">loggingInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The type of task.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Atype%27%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe MaintenanceWindowTaskType
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Atype%27%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier hs-type">MaintenanceWindowTaskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | A description of the task.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Adescription%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Adescription%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The maximum number of targets this task can be run for, in parallel.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AmaxConcurrency%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AmaxConcurrency%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">maxConcurrency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The ID of the maintenance window where the task is registered.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AwindowId%3AMaintenanceWindowTask%27"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AwindowId%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679817963"><span id="local-6989586621679817965"><span class="annot"><span class="annottext">MaintenanceWindowTask -&gt; MaintenanceWindowTask -&gt; Bool
+(MaintenanceWindowTask -&gt; MaintenanceWindowTask -&gt; Bool)
+-&gt; (MaintenanceWindowTask -&gt; MaintenanceWindowTask -&gt; Bool)
+-&gt; Eq MaintenanceWindowTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MaintenanceWindowTask -&gt; MaintenanceWindowTask -&gt; Bool
+$c/= :: MaintenanceWindowTask -&gt; MaintenanceWindowTask -&gt; Bool
+== :: MaintenanceWindowTask -&gt; MaintenanceWindowTask -&gt; Bool
+$c== :: MaintenanceWindowTask -&gt; MaintenanceWindowTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679817956"><span id="local-6989586621679817958"><span id="local-6989586621679817960"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowTask -&gt; ShowS
+[MaintenanceWindowTask] -&gt; ShowS
+MaintenanceWindowTask -&gt; String
+(Int -&gt; MaintenanceWindowTask -&gt; ShowS)
+-&gt; (MaintenanceWindowTask -&gt; String)
+-&gt; ([MaintenanceWindowTask] -&gt; ShowS)
+-&gt; Show MaintenanceWindowTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MaintenanceWindowTask] -&gt; ShowS
+$cshowList :: [MaintenanceWindowTask] -&gt; ShowS
+show :: MaintenanceWindowTask -&gt; String
+$cshow :: MaintenanceWindowTask -&gt; String
+showsPrec :: Int -&gt; MaintenanceWindowTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; MaintenanceWindowTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MaintenanceWindowTask -&gt; Rep MaintenanceWindowTask x)
+-&gt; (forall x. Rep MaintenanceWindowTask x -&gt; MaintenanceWindowTask)
+-&gt; Generic MaintenanceWindowTask
+forall x. Rep MaintenanceWindowTask x -&gt; MaintenanceWindowTask
+forall x. MaintenanceWindowTask -&gt; Rep MaintenanceWindowTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MaintenanceWindowTask x -&gt; MaintenanceWindowTask
+$cfrom :: forall x. MaintenanceWindowTask -&gt; Rep MaintenanceWindowTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'MaintenanceWindowTask' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'serviceRoleArn', 'maintenanceWindowTask_serviceRoleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- (IAM) service role to use to publish Amazon Simple Notification Service</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- (Amazon SNS) notifications for maintenance window Run Command tasks.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'windowTaskId', 'maintenanceWindowTask_windowTaskId' - The task ID.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'taskParameters', 'maintenanceWindowTask_taskParameters' - The parameters that should be passed to the task when it is run.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @TaskParameters@ has been deprecated. To specify parameters to pass to a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- task when it runs, instead use the @Parameters@ option in the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @TaskInvocationParameters@ structure. For information about how Systems</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Manager handles these options for the supported maintenance window task</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- types, see MaintenanceWindowTaskInvocationParameters.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'priority', 'maintenanceWindowTask_priority' - The priority of the task in the maintenance window. The lower the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- number, the higher the priority. Tasks that have the same priority are</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- scheduled in parallel.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'taskArn', 'maintenanceWindowTask_taskArn' - The resource that the task uses during execution. For @RUN_COMMAND@ and</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @AUTOMATION@ task types, @TaskArn@ is the Amazon Web Services Systems</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Manager (SSM document) name or ARN. For @LAMBDA@ tasks, it\'s the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- function name or ARN. For @STEP_FUNCTIONS@ tasks, it\'s the state</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- machine ARN.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'cutoffBehavior', 'maintenanceWindowTask_cutoffBehavior' - The specification for whether tasks should continue to run after the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- cutoff time specified in the maintenance windows is reached.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'maxErrors', 'maintenanceWindowTask_maxErrors' - The maximum number of errors allowed before this task stops being</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- scheduled.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'name', 'maintenanceWindowTask_name' - The task name.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'targets', 'maintenanceWindowTask_targets' - The targets (either instances or tags). Instances are specified using</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@. Tags are</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- specified using @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'loggingInfo', 'maintenanceWindowTask_loggingInfo' - Information about an S3 bucket to write task-level logs to.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Service (Amazon S3) bucket to contain logs, instead use the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @TaskInvocationParameters@ structure. For information about how Amazon</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Web Services Systems Manager handles these options for the supported</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- maintenance window task types, see</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- MaintenanceWindowTaskInvocationParameters.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'type'', 'maintenanceWindowTask_type' - The type of task.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'description', 'maintenanceWindowTask_description' - A description of the task.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'maxConcurrency', 'maintenanceWindowTask_maxConcurrency' - The maximum number of targets this task can be run for, in parallel.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'windowId', 'maintenanceWindowTask_windowId' - The ID of the maintenance window where the task is registered.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#newMaintenanceWindowTask"><span class="hs-identifier hs-type">newMaintenanceWindowTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span>
+</span><span id="line-155"></span><span id="newMaintenanceWindowTask"><span class="annot"><span class="annottext">newMaintenanceWindowTask :: MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#newMaintenanceWindowTask"><span class="hs-identifier hs-var hs-var">newMaintenanceWindowTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">MaintenanceWindowTask' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Target]
+-&gt; Maybe LoggingInfo
+-&gt; Maybe MaintenanceWindowTaskType
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceRoleArn:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AserviceRoleArn%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">serviceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowTaskId:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AwindowTaskId%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">windowTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskParameters:MaintenanceWindowTask' :: Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AtaskParameters%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">taskParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:MaintenanceWindowTask' :: Maybe Natural
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Apriority%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskArn:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AtaskArn%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:cutoffBehavior:MaintenanceWindowTask' :: Maybe MaintenanceWindowTaskCutoffBehavior
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AcutoffBehavior%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">cutoffBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskCutoffBehavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxErrors:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AmaxErrors%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">maxErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Aname%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:targets:MaintenanceWindowTask' :: Maybe [Target]
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Atargets%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:loggingInfo:MaintenanceWindowTask' :: Maybe LoggingInfo
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AloggingInfo%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">loggingInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':MaintenanceWindowTask' :: Maybe MaintenanceWindowTaskType
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Atype%27%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowTask' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Adescription%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxConcurrency:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AmaxConcurrency%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">maxConcurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AwindowId%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- (IAM) service role to use to publish Amazon Simple Notification Service</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- (Amazon SNS) notifications for maintenance window Run Command tasks.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_serviceRoleArn"><span class="hs-identifier hs-type">maintenanceWindowTask_serviceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="maintenanceWindowTask_serviceRoleArn"><span class="annot"><span class="annottext">maintenanceWindowTask_serviceRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_serviceRoleArn"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_serviceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTask -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817947"><span class="annot"><span class="annottext">Maybe Text
+serviceRoleArn :: Maybe Text
+$sel:serviceRoleArn:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="#local-6989586621679817947"><span class="hs-identifier hs-var hs-var">serviceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817947"><span class="hs-identifier hs-var">serviceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817946"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817945"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRoleArn:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AserviceRoleArn%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">serviceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The task ID.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_windowTaskId"><span class="hs-identifier hs-type">maintenanceWindowTask_windowTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="maintenanceWindowTask_windowTaskId"><span class="annot"><span class="annottext">maintenanceWindowTask_windowTaskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_windowTaskId"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_windowTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTask -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817943"><span class="annot"><span class="annottext">Maybe Text
+windowTaskId :: Maybe Text
+$sel:windowTaskId:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="#local-6989586621679817943"><span class="hs-identifier hs-var hs-var">windowTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817943"><span class="hs-identifier hs-var">windowTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817942"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowTaskId:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AwindowTaskId%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">windowTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The parameters that should be passed to the task when it is run.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- @TaskParameters@ has been deprecated. To specify parameters to pass to a</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- task when it runs, instead use the @Parameters@ option in the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- @TaskInvocationParameters@ structure. For information about how Systems</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Manager handles these options for the supported maintenance window task</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- types, see MaintenanceWindowTaskInvocationParameters.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_taskParameters"><span class="hs-identifier hs-type">maintenanceWindowTask_taskParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskParameterValueExpression.html#MaintenanceWindowTaskParameterValueExpression"><span class="hs-identifier hs-type">MaintenanceWindowTaskParameterValueExpression</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="maintenanceWindowTask_taskParameters"><span class="annot"><span class="annottext">maintenanceWindowTask_taskParameters :: (Maybe (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+ -&gt; f (Maybe
+         (HashMap Text MaintenanceWindowTaskParameterValueExpression)))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_taskParameters"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_taskParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask
+ -&gt; Maybe
+      (Sensitive
+         (HashMap
+            Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+-&gt; (MaintenanceWindowTask
+    -&gt; Maybe
+         (Sensitive
+            (HashMap
+               Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+    -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817939"><span class="annot"><span class="annottext">Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+taskParameters :: Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+$sel:taskParameters:MaintenanceWindowTask' :: MaintenanceWindowTask
+-&gt; Maybe
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+</span><a href="#local-6989586621679817939"><span class="hs-identifier hs-var hs-var">taskParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+</span><a href="#local-6989586621679817939"><span class="hs-identifier hs-var">taskParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817938"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817937"><span class="annot"><span class="annottext">Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+</span><a href="#local-6989586621679817937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskParameters:MaintenanceWindowTask' :: Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AtaskParameters%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">taskParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+</span><a href="#local-6989586621679817937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe
+    (Sensitive
+       (HashMap
+          Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+  -&gt; f (Maybe
+          (Sensitive
+             (HashMap
+                Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))))
+ -&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask)
+-&gt; ((Maybe
+       (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+     -&gt; f (Maybe
+             (HashMap Text MaintenanceWindowTaskParameterValueExpression)))
+    -&gt; Maybe
+         (Sensitive
+            (HashMap
+               Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+    -&gt; f (Maybe
+            (Sensitive
+               (HashMap
+                  Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))))
+-&gt; (Maybe
+      (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+    -&gt; f (Maybe
+            (HashMap Text MaintenanceWindowTaskParameterValueExpression)))
+-&gt; MaintenanceWindowTask
+-&gt; f MaintenanceWindowTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+  (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+  (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+-&gt; Iso
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+     (Maybe
+        (HashMap Text MaintenanceWindowTaskParameterValueExpression))
+     (Maybe
+        (HashMap Text MaintenanceWindowTaskParameterValueExpression))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+  (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+  (HashMap
+     Text (Sensitive MaintenanceWindowTaskParameterValueExpression))
+  (Identity
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+-&gt; Exchange
+     (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+     (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+     (Identity
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Exchange
+   (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+   (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+   (HashMap
+      Text (Sensitive MaintenanceWindowTaskParameterValueExpression))
+   (Identity
+      (HashMap
+         Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+ -&gt; Exchange
+      (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+      (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+      (Sensitive
+         (HashMap
+            Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+      (Identity
+         (Sensitive
+            (HashMap
+               Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))))
+-&gt; (Exchange
+      (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+      (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+      (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+      (Identity
+         (HashMap Text MaintenanceWindowTaskParameterValueExpression))
+    -&gt; Exchange
+         (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+         (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+         (HashMap
+            Text (Sensitive MaintenanceWindowTaskParameterValueExpression))
+         (Identity
+            (HashMap
+               Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+-&gt; AnIso
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+     (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+     (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+  (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+  (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+  (Identity
+     (HashMap Text MaintenanceWindowTaskParameterValueExpression))
+-&gt; Exchange
+     (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+     (HashMap Text MaintenanceWindowTaskParameterValueExpression)
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression))
+     (Identity
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The priority of the task in the maintenance window. The lower the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- number, the higher the priority. Tasks that have the same priority are</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- scheduled in parallel.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_priority"><span class="hs-identifier hs-type">maintenanceWindowTask_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="maintenanceWindowTask_priority"><span class="annot"><span class="annottext">maintenanceWindowTask_priority :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_priority"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Natural)
+-&gt; (MaintenanceWindowTask
+    -&gt; Maybe Natural -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817931"><span class="annot"><span class="annottext">Maybe Natural
+priority :: Maybe Natural
+$sel:priority:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Natural
+</span><a href="#local-6989586621679817931"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679817931"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817930"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817929"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679817929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:MaintenanceWindowTask' :: Maybe Natural
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Apriority%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679817929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The resource that the task uses during execution. For @RUN_COMMAND@ and</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- @AUTOMATION@ task types, @TaskArn@ is the Amazon Web Services Systems</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Manager (SSM document) name or ARN. For @LAMBDA@ tasks, it\'s the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- function name or ARN. For @STEP_FUNCTIONS@ tasks, it\'s the state</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- machine ARN.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_taskArn"><span class="hs-identifier hs-type">maintenanceWindowTask_taskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="maintenanceWindowTask_taskArn"><span class="annot"><span class="annottext">maintenanceWindowTask_taskArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_taskArn"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_taskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTask -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817927"><span class="annot"><span class="annottext">Maybe Text
+taskArn :: Maybe Text
+$sel:taskArn:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="#local-6989586621679817927"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817927"><span class="hs-identifier hs-var">taskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817926"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817925"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskArn:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AtaskArn%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The specification for whether tasks should continue to run after the</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- cutoff time specified in the maintenance windows is reached.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_cutoffBehavior"><span class="hs-identifier hs-type">maintenanceWindowTask_cutoffBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskCutoffBehavior.html#MaintenanceWindowTaskCutoffBehavior"><span class="hs-identifier hs-type">MaintenanceWindowTaskCutoffBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="maintenanceWindowTask_cutoffBehavior"><span class="annot"><span class="annottext">maintenanceWindowTask_cutoffBehavior :: (Maybe MaintenanceWindowTaskCutoffBehavior
+ -&gt; f (Maybe MaintenanceWindowTaskCutoffBehavior))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_cutoffBehavior"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_cutoffBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask
+ -&gt; Maybe MaintenanceWindowTaskCutoffBehavior)
+-&gt; (MaintenanceWindowTask
+    -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+    -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe MaintenanceWindowTaskCutoffBehavior)
+     (Maybe MaintenanceWindowTaskCutoffBehavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817923"><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskCutoffBehavior
+cutoffBehavior :: Maybe MaintenanceWindowTaskCutoffBehavior
+$sel:cutoffBehavior:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+</span><a href="#local-6989586621679817923"><span class="hs-identifier hs-var hs-var">cutoffBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskCutoffBehavior
+</span><a href="#local-6989586621679817923"><span class="hs-identifier hs-var">cutoffBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817922"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817921"><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskCutoffBehavior
+</span><a href="#local-6989586621679817921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cutoffBehavior:MaintenanceWindowTask' :: Maybe MaintenanceWindowTaskCutoffBehavior
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AcutoffBehavior%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">cutoffBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskCutoffBehavior
+</span><a href="#local-6989586621679817921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The maximum number of errors allowed before this task stops being</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- scheduled.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_maxErrors"><span class="hs-identifier hs-type">maintenanceWindowTask_maxErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="maintenanceWindowTask_maxErrors"><span class="annot"><span class="annottext">maintenanceWindowTask_maxErrors :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_maxErrors"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_maxErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTask -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817919"><span class="annot"><span class="annottext">Maybe Text
+maxErrors :: Maybe Text
+$sel:maxErrors:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="#local-6989586621679817919"><span class="hs-identifier hs-var hs-var">maxErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817919"><span class="hs-identifier hs-var">maxErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817918"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxErrors:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AmaxErrors%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">maxErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The task name.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_name"><span class="hs-identifier hs-type">maintenanceWindowTask_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="maintenanceWindowTask_name"><span class="annot"><span class="annottext">maintenanceWindowTask_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_name"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTask -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817915"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="#local-6989586621679817915"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817915"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817914"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817913"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Aname%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The targets (either instances or tags). Instances are specified using</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@. Tags are</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- specified using @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_targets"><span class="hs-identifier hs-type">maintenanceWindowTask_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="maintenanceWindowTask_targets"><span class="annot"><span class="annottext">maintenanceWindowTask_targets :: (Maybe [Target] -&gt; f (Maybe [Target]))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_targets"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe [Target])
+-&gt; (MaintenanceWindowTask
+    -&gt; Maybe [Target] -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe [Target])
+     (Maybe [Target])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817911"><span class="annot"><span class="annottext">Maybe [Target]
+targets :: Maybe [Target]
+$sel:targets:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe [Target]
+</span><a href="#local-6989586621679817911"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679817911"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817910"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817909"><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679817909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:MaintenanceWindowTask' :: Maybe [Target]
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Atargets%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679817909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Target] -&gt; f (Maybe [Target]))
+ -&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask)
+-&gt; ((Maybe [Target] -&gt; f (Maybe [Target]))
+    -&gt; Maybe [Target] -&gt; f (Maybe [Target]))
+-&gt; (Maybe [Target] -&gt; f (Maybe [Target]))
+-&gt; MaintenanceWindowTask
+-&gt; f MaintenanceWindowTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Target] [Target] [Target] [Target]
+-&gt; Iso
+     (Maybe [Target]) (Maybe [Target]) (Maybe [Target]) (Maybe [Target])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Target] [Target] [Target] [Target]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Information about an S3 bucket to write task-level logs to.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Service (Amazon S3) bucket to contain logs, instead use the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- @TaskInvocationParameters@ structure. For information about how Amazon</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Web Services Systems Manager handles these options for the supported</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- maintenance window task types, see</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- MaintenanceWindowTaskInvocationParameters.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_loggingInfo"><span class="hs-identifier hs-type">maintenanceWindowTask_loggingInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="maintenanceWindowTask_loggingInfo"><span class="annot"><span class="annottext">maintenanceWindowTask_loggingInfo :: (Maybe LoggingInfo -&gt; f (Maybe LoggingInfo))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_loggingInfo"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_loggingInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe LoggingInfo)
+-&gt; (MaintenanceWindowTask
+    -&gt; Maybe LoggingInfo -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe LoggingInfo)
+     (Maybe LoggingInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817907"><span class="annot"><span class="annottext">Maybe LoggingInfo
+loggingInfo :: Maybe LoggingInfo
+$sel:loggingInfo:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe LoggingInfo
+</span><a href="#local-6989586621679817907"><span class="hs-identifier hs-var hs-var">loggingInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingInfo
+</span><a href="#local-6989586621679817907"><span class="hs-identifier hs-var">loggingInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817906"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817905"><span class="annot"><span class="annottext">Maybe LoggingInfo
+</span><a href="#local-6989586621679817905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingInfo:MaintenanceWindowTask' :: Maybe LoggingInfo
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AloggingInfo%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">loggingInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingInfo
+</span><a href="#local-6989586621679817905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The type of task.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_type"><span class="hs-identifier hs-type">maintenanceWindowTask_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier hs-type">MaintenanceWindowTaskType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="maintenanceWindowTask_type"><span class="annot"><span class="annottext">maintenanceWindowTask_type :: (Maybe MaintenanceWindowTaskType
+ -&gt; f (Maybe MaintenanceWindowTaskType))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_type"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe MaintenanceWindowTaskType)
+-&gt; (MaintenanceWindowTask
+    -&gt; Maybe MaintenanceWindowTaskType -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe MaintenanceWindowTaskType)
+     (Maybe MaintenanceWindowTaskType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817903"><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskType
+type' :: Maybe MaintenanceWindowTaskType
+$sel:type':MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe MaintenanceWindowTaskType
+</span><a href="#local-6989586621679817903"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskType
+</span><a href="#local-6989586621679817903"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817902"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817901"><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskType
+</span><a href="#local-6989586621679817901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':MaintenanceWindowTask' :: Maybe MaintenanceWindowTaskType
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Atype%27%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowTaskType
+</span><a href="#local-6989586621679817901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | A description of the task.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_description"><span class="hs-identifier hs-type">maintenanceWindowTask_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="maintenanceWindowTask_description"><span class="annot"><span class="annottext">maintenanceWindowTask_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_description"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe (Sensitive Text))
+-&gt; (MaintenanceWindowTask
+    -&gt; Maybe (Sensitive Text) -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817899"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679817899"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679817899"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817898"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817897"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679817897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowTask' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3Adescription%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679817897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask
+-&gt; f MaintenanceWindowTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The maximum number of targets this task can be run for, in parallel.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_maxConcurrency"><span class="hs-identifier hs-type">maintenanceWindowTask_maxConcurrency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="maintenanceWindowTask_maxConcurrency"><span class="annot"><span class="annottext">maintenanceWindowTask_maxConcurrency :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_maxConcurrency"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_maxConcurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTask -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817895"><span class="annot"><span class="annottext">Maybe Text
+maxConcurrency :: Maybe Text
+$sel:maxConcurrency:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="#local-6989586621679817895"><span class="hs-identifier hs-var hs-var">maxConcurrency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817895"><span class="hs-identifier hs-var">maxConcurrency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817894"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817893"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConcurrency:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AmaxConcurrency%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">maxConcurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The ID of the maintenance window where the task is registered.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_windowId"><span class="hs-identifier hs-type">maintenanceWindowTask_windowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="maintenanceWindowTask_windowId"><span class="annot"><span class="annottext">maintenanceWindowTask_windowId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTask -&gt; f MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#maintenanceWindowTask_windowId"><span class="hs-identifier hs-var hs-var">maintenanceWindowTask_windowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTask -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTask -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Lens
+     MaintenanceWindowTask
+     MaintenanceWindowTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817891"><span class="annot"><span class="annottext">Maybe Text
+windowId :: Maybe Text
+$sel:windowId:MaintenanceWindowTask' :: MaintenanceWindowTask -&gt; Maybe Text
+</span><a href="#local-6989586621679817891"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817891"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817890"><span class="annot"><span class="annottext">s :: MaintenanceWindowTask
+</span><a href="#local-6989586621679817890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-type">MaintenanceWindowTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTask
+</span><a href="#local-6989586621679817890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowTask' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#%24sel%3AwindowId%3AMaintenanceWindowTask%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817886"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679817884"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MaintenanceWindowTask)
+-&gt; Value
+-&gt; Parser MaintenanceWindowTask
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MaintenanceWindowTask&quot;</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679817881"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Target]
+-&gt; Maybe LoggingInfo
+-&gt; Maybe MaintenanceWindowTaskType
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; MaintenanceWindowTask
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask%27"><span class="hs-identifier hs-var">MaintenanceWindowTask'</span></a></span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe
+      (Sensitive
+         (HashMap
+            Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Target]
+ -&gt; Maybe LoggingInfo
+ -&gt; Maybe MaintenanceWindowTaskType
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe
+           (Sensitive
+              (HashMap
+                 Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WindowTaskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe
+        (Maybe
+           (Sensitive
+              (HashMap
+                 Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser
+  (Maybe
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))))
+-&gt; Maybe
+     (Sensitive
+        (HashMap
+           Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+-&gt; Parser
+     (Maybe
+        (Sensitive
+           (HashMap
+              Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe
+  (Sensitive
+     (HashMap
+        Text (Sensitive MaintenanceWindowTaskParameterValueExpression)))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe MaintenanceWindowTaskCutoffBehavior
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe MaintenanceWindowTaskCutoffBehavior
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MaintenanceWindowTaskCutoffBehavior
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe MaintenanceWindowTaskCutoffBehavior)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe MaintenanceWindowTaskCutoffBehavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CutoffBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxErrors&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Target]
+      -&gt; Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Target]
+   -&gt; Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe [Target])
+-&gt; Parser
+     (Maybe LoggingInfo
+      -&gt; Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Target]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Target]))
+-&gt; Maybe [Target] -&gt; Parser (Maybe [Target])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LoggingInfo
+   -&gt; Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe LoggingInfo)
+-&gt; Parser
+     (Maybe MaintenanceWindowTaskType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LoggingInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoggingInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MaintenanceWindowTaskType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe MaintenanceWindowTaskType)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MaintenanceWindowTaskType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; MaintenanceWindowTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxConcurrency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MaintenanceWindowTask)
+-&gt; Parser (Maybe Text) -&gt; Parser MaintenanceWindowTask
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WindowId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817874"><span id="local-6989586621679817876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span></span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTask.html#MaintenanceWindowTask"><span class="hs-identifier hs-type">MaintenanceWindowTask</span></a></span></span><span>
+</span><span id="line-281"></span></pre></body></html>

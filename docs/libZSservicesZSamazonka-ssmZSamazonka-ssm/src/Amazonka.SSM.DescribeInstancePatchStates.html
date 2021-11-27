@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.DescribeInstancePatchStates</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the high-level patch state of one or more instances.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.DescribeInstancePatchStates</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#newDescribeInstancePatchStates"><span class="hs-identifier">newDescribeInstancePatchStates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_nextToken"><span class="hs-identifier">describeInstancePatchStates_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_maxResults"><span class="hs-identifier">describeInstancePatchStates_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_instanceIds"><span class="hs-identifier">describeInstancePatchStates_instanceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier">DescribeInstancePatchStatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#newDescribeInstancePatchStatesResponse"><span class="hs-identifier">newDescribeInstancePatchStatesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_nextToken"><span class="hs-identifier">describeInstancePatchStatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_instancePatchStates"><span class="hs-identifier">describeInstancePatchStatesResponse_instancePatchStates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_httpStatus"><span class="hs-identifier">describeInstancePatchStatesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstancePatchStates' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679845494"><span id="local-6989586621679845495"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancePatchStates"><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-var">DescribeInstancePatchStates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancePatchStates%27"><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-var">DescribeInstancePatchStates'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstancePatchStates%27"><span class="annot"><span class="annottext">DescribeInstancePatchStates -&gt; Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AnextToken%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances to return (per page).</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInstancePatchStates%27"><span class="annot"><span class="annottext">DescribeInstancePatchStates -&gt; Maybe Natural
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AmaxResults%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ID of the instance for which patch state information should be</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- retrieved.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AinstanceIds%3ADescribeInstancePatchStates%27"><span class="annot"><span class="annottext">DescribeInstancePatchStates -&gt; [Text]
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AinstanceIds%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845486"><span id="local-6989586621679845488"><span class="annot"><span class="annottext">DescribeInstancePatchStates -&gt; DescribeInstancePatchStates -&gt; Bool
+(DescribeInstancePatchStates
+ -&gt; DescribeInstancePatchStates -&gt; Bool)
+-&gt; (DescribeInstancePatchStates
+    -&gt; DescribeInstancePatchStates -&gt; Bool)
+-&gt; Eq DescribeInstancePatchStates
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeInstancePatchStates -&gt; DescribeInstancePatchStates -&gt; Bool
+$c/= :: DescribeInstancePatchStates -&gt; DescribeInstancePatchStates -&gt; Bool
+== :: DescribeInstancePatchStates -&gt; DescribeInstancePatchStates -&gt; Bool
+$c== :: DescribeInstancePatchStates -&gt; DescribeInstancePatchStates -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845477"><span id="local-6989586621679845479"><span id="local-6989586621679845481"><span id="local-6989586621679845483"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancePatchStates]
+ReadPrec DescribeInstancePatchStates
+Int -&gt; ReadS DescribeInstancePatchStates
+ReadS [DescribeInstancePatchStates]
+(Int -&gt; ReadS DescribeInstancePatchStates)
+-&gt; ReadS [DescribeInstancePatchStates]
+-&gt; ReadPrec DescribeInstancePatchStates
+-&gt; ReadPrec [DescribeInstancePatchStates]
+-&gt; Read DescribeInstancePatchStates
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeInstancePatchStates]
+$creadListPrec :: ReadPrec [DescribeInstancePatchStates]
+readPrec :: ReadPrec DescribeInstancePatchStates
+$creadPrec :: ReadPrec DescribeInstancePatchStates
+readList :: ReadS [DescribeInstancePatchStates]
+$creadList :: ReadS [DescribeInstancePatchStates]
+readsPrec :: Int -&gt; ReadS DescribeInstancePatchStates
+$creadsPrec :: Int -&gt; ReadS DescribeInstancePatchStates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845470"><span id="local-6989586621679845472"><span id="local-6989586621679845474"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancePatchStates -&gt; ShowS
+[DescribeInstancePatchStates] -&gt; ShowS
+DescribeInstancePatchStates -&gt; String
+(Int -&gt; DescribeInstancePatchStates -&gt; ShowS)
+-&gt; (DescribeInstancePatchStates -&gt; String)
+-&gt; ([DescribeInstancePatchStates] -&gt; ShowS)
+-&gt; Show DescribeInstancePatchStates
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeInstancePatchStates] -&gt; ShowS
+$cshowList :: [DescribeInstancePatchStates] -&gt; ShowS
+show :: DescribeInstancePatchStates -&gt; String
+$cshow :: DescribeInstancePatchStates -&gt; String
+showsPrec :: Int -&gt; DescribeInstancePatchStates -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeInstancePatchStates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeInstancePatchStates -&gt; Rep DescribeInstancePatchStates x)
+-&gt; (forall x.
+    Rep DescribeInstancePatchStates x -&gt; DescribeInstancePatchStates)
+-&gt; Generic DescribeInstancePatchStates
+forall x.
+Rep DescribeInstancePatchStates x -&gt; DescribeInstancePatchStates
+forall x.
+DescribeInstancePatchStates -&gt; Rep DescribeInstancePatchStates x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeInstancePatchStates x -&gt; DescribeInstancePatchStates
+$cfrom :: forall x.
+DescribeInstancePatchStates -&gt; Rep DescribeInstancePatchStates x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DescribeInstancePatchStates' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'nextToken', 'describeInstancePatchStates_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'maxResults', 'describeInstancePatchStates_maxResults' - The maximum number of instances to return (per page).</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'instanceIds', 'describeInstancePatchStates_instanceIds' - The ID of the instance for which patch state information should be</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- retrieved.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#newDescribeInstancePatchStates"><span class="hs-identifier hs-type">newDescribeInstancePatchStates</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span>
+</span><span id="line-84"></span><span id="newDescribeInstancePatchStates"><span class="annot"><span class="annottext">newDescribeInstancePatchStates :: DescribeInstancePatchStates
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#newDescribeInstancePatchStates"><span class="hs-identifier hs-var hs-var">newDescribeInstancePatchStates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstancePatchStates' :: Maybe Text
+-&gt; Maybe Natural -&gt; [Text] -&gt; DescribeInstancePatchStates
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStates' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AnextToken%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstancePatchStates' :: Maybe Natural
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AmaxResults%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeInstancePatchStates' :: [Text]
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AinstanceIds%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_nextToken"><span class="hs-identifier hs-type">describeInstancePatchStates_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="describeInstancePatchStates_nextToken"><span class="annot"><span class="annottext">describeInstancePatchStates_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstancePatchStates -&gt; f DescribeInstancePatchStates
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_nextToken"><span class="hs-identifier hs-var hs-var">describeInstancePatchStates_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStates -&gt; Maybe Text)
+-&gt; (DescribeInstancePatchStates
+    -&gt; Maybe Text -&gt; DescribeInstancePatchStates)
+-&gt; Lens
+     DescribeInstancePatchStates
+     DescribeInstancePatchStates
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845464"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeInstancePatchStates' :: DescribeInstancePatchStates -&gt; Maybe Text
+</span><a href="#local-6989586621679845464"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845464"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845463"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStates
+</span><a href="#local-6989586621679845463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStates
+</span><a href="#local-6989586621679845463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStates' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AnextToken%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The maximum number of instances to return (per page).</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_maxResults"><span class="hs-identifier hs-type">describeInstancePatchStates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="describeInstancePatchStates_maxResults"><span class="annot"><span class="annottext">describeInstancePatchStates_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeInstancePatchStates -&gt; f DescribeInstancePatchStates
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_maxResults"><span class="hs-identifier hs-var hs-var">describeInstancePatchStates_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStates -&gt; Maybe Natural)
+-&gt; (DescribeInstancePatchStates
+    -&gt; Maybe Natural -&gt; DescribeInstancePatchStates)
+-&gt; Lens
+     DescribeInstancePatchStates
+     DescribeInstancePatchStates
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845461"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeInstancePatchStates' :: DescribeInstancePatchStates -&gt; Maybe Natural
+</span><a href="#local-6989586621679845461"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845461"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845460"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStates
+</span><a href="#local-6989586621679845460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845459"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStates
+</span><a href="#local-6989586621679845460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstancePatchStates' :: Maybe Natural
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AmaxResults%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the instance for which patch state information should be</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- retrieved.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_instanceIds"><span class="hs-identifier hs-type">describeInstancePatchStates_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span id="describeInstancePatchStates_instanceIds"><span class="annot"><span class="annottext">describeInstancePatchStates_instanceIds :: ([Text] -&gt; f [Text])
+-&gt; DescribeInstancePatchStates -&gt; f DescribeInstancePatchStates
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_instanceIds"><span class="hs-identifier hs-var hs-var">describeInstancePatchStates_instanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStates -&gt; [Text])
+-&gt; (DescribeInstancePatchStates
+    -&gt; [Text] -&gt; DescribeInstancePatchStates)
+-&gt; Lens
+     DescribeInstancePatchStates
+     DescribeInstancePatchStates
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845458"><span class="annot"><span class="annottext">[Text]
+instanceIds :: [Text]
+$sel:instanceIds:DescribeInstancePatchStates' :: DescribeInstancePatchStates -&gt; [Text]
+</span><a href="#local-6989586621679845458"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679845458"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845457"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStates
+</span><a href="#local-6989586621679845457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845456"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679845456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStates
+</span><a href="#local-6989586621679845457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeInstancePatchStates' :: [Text]
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AinstanceIds%3ADescribeInstancePatchStates%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679845456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DescribeInstancePatchStates -&gt; f DescribeInstancePatchStates)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DescribeInstancePatchStates
+-&gt; f DescribeInstancePatchStates
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679845450"><span class="annot"><span class="annottext">page :: DescribeInstancePatchStates
+-&gt; AWSResponse DescribeInstancePatchStates
+-&gt; Maybe DescribeInstancePatchStates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679845448"><span class="annot"><span class="annottext">DescribeInstancePatchStates
+</span><a href="#local-6989586621679845448"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679845447"><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStates
+</span><a href="#local-6989586621679845447"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStates
+DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845447"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse
+-&gt; Getting (First Text) DescribeInstancePatchStatesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeInstancePatchStatesResponse
+-&gt; Const (First Text) DescribeInstancePatchStatesResponse
+Lens' DescribeInstancePatchStatesResponse (Maybe Text)
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_nextToken"><span class="hs-identifier hs-var">describeInstancePatchStatesResponse_nextToken</span></a></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeInstancePatchStatesResponse
+ -&gt; Const (First Text) DescribeInstancePatchStatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeInstancePatchStatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstancePatchStates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchState] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStates
+DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845447"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse
+-&gt; Getting
+     (First [InstancePatchState])
+     DescribeInstancePatchStatesResponse
+     [InstancePatchState]
+-&gt; Maybe [InstancePatchState]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [InstancePatchState]
+ -&gt; Const (First [InstancePatchState]) (Maybe [InstancePatchState]))
+-&gt; DescribeInstancePatchStatesResponse
+-&gt; Const
+     (First [InstancePatchState]) DescribeInstancePatchStatesResponse
+Lens'
+  DescribeInstancePatchStatesResponse (Maybe [InstancePatchState])
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_instancePatchStates"><span class="hs-identifier hs-var">describeInstancePatchStatesResponse_instancePatchStates</span></a></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [InstancePatchState]
+  -&gt; Const (First [InstancePatchState]) (Maybe [InstancePatchState]))
+ -&gt; DescribeInstancePatchStatesResponse
+ -&gt; Const
+      (First [InstancePatchState]) DescribeInstancePatchStatesResponse)
+-&gt; (([InstancePatchState]
+     -&gt; Const (First [InstancePatchState]) [InstancePatchState])
+    -&gt; Maybe [InstancePatchState]
+    -&gt; Const (First [InstancePatchState]) (Maybe [InstancePatchState]))
+-&gt; Getting
+     (First [InstancePatchState])
+     DescribeInstancePatchStatesResponse
+     [InstancePatchState]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InstancePatchState]
+ -&gt; Const (First [InstancePatchState]) [InstancePatchState])
+-&gt; Maybe [InstancePatchState]
+-&gt; Const (First [InstancePatchState]) (Maybe [InstancePatchState])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstancePatchStates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">DescribeInstancePatchStates -&gt; Maybe DescribeInstancePatchStates
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStates -&gt; Maybe DescribeInstancePatchStates)
+-&gt; DescribeInstancePatchStates -&gt; Maybe DescribeInstancePatchStates
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">DescribeInstancePatchStates
+</span><a href="#local-6989586621679845448"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstancePatchStates
+-&gt; (DescribeInstancePatchStates -&gt; DescribeInstancePatchStates)
+-&gt; DescribeInstancePatchStates
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeInstancePatchStates
+-&gt; Identity DescribeInstancePatchStates
+Lens
+  DescribeInstancePatchStates
+  DescribeInstancePatchStates
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStates_nextToken"><span class="hs-identifier hs-var">describeInstancePatchStates_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeInstancePatchStates
+ -&gt; Identity DescribeInstancePatchStates)
+-&gt; Maybe Text
+-&gt; DescribeInstancePatchStates
+-&gt; DescribeInstancePatchStates
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStates
+DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845447"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse
+-&gt; Getting (First Text) DescribeInstancePatchStatesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeInstancePatchStatesResponse
+-&gt; Const (First Text) DescribeInstancePatchStatesResponse
+Lens' DescribeInstancePatchStatesResponse (Maybe Text)
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_nextToken"><span class="hs-identifier hs-var">describeInstancePatchStatesResponse_nextToken</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeInstancePatchStatesResponse
+ -&gt; Const (First Text) DescribeInstancePatchStatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeInstancePatchStatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679845438"><span class="annot"><span class="annottext">request :: DescribeInstancePatchStates -&gt; Request DescribeInstancePatchStates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeInstancePatchStates
+-&gt; Request DescribeInstancePatchStates
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679845434"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeInstancePatchStates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeInstancePatchStates)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeInstancePatchStates))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeInstancePatchStates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeInstancePatchStates)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679845431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845431"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679845430"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679845430"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679845429"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679845429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [InstancePatchState]
+-&gt; Int
+-&gt; DescribeInstancePatchStatesResponse
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">DescribeInstancePatchStatesResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [InstancePatchState]
+ -&gt; Int
+ -&gt; DescribeInstancePatchStatesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [InstancePatchState]
+      -&gt; Int -&gt; DescribeInstancePatchStatesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679845429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InstancePatchState]
+   -&gt; Int -&gt; DescribeInstancePatchStatesResponse)
+-&gt; Either String (Maybe [InstancePatchState])
+-&gt; Either String (Int -&gt; DescribeInstancePatchStatesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679845429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [InstancePatchState]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstancePatchStates&quot;</span></span><span>
+</span><span id="line-139"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InstancePatchState]))
+-&gt; Maybe [InstancePatchState]
+-&gt; Either String (Maybe [InstancePatchState])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchState]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeInstancePatchStatesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeInstancePatchStatesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845431"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845420"><span id="local-6989586621679845422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679845413"><span class="annot"><span class="annottext">toHeaders :: DescribeInstancePatchStates -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInstancePatchStates -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.DescribeInstancePatchStates&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845403"><span id="local-6989586621679845405"><span id="local-6989586621679845407"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679845401"><span class="annot"><span class="annottext">toJSON :: DescribeInstancePatchStates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates%27"><span class="hs-identifier hs-type">DescribeInstancePatchStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845397"><span id="local-6989586621679845398"><span id="local-6989586621679845399"><span class="annot"><span class="annottext">[Text]
+Maybe Natural
+Maybe Text
+instanceIds :: [Text]
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceIds:DescribeInstancePatchStates' :: DescribeInstancePatchStates -&gt; [Text]
+$sel:maxResults:DescribeInstancePatchStates' :: DescribeInstancePatchStates -&gt; Maybe Natural
+$sel:nextToken:DescribeInstancePatchStates' :: DescribeInstancePatchStates -&gt; Maybe Text
+</span><a href="#local-6989586621679845397"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845399"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845398"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679845397"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679845391"><span class="annot"><span class="annottext">toPath :: DescribeInstancePatchStates -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInstancePatchStates -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStates"><span class="hs-identifier hs-type">DescribeInstancePatchStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679845387"><span class="annot"><span class="annottext">toQuery :: DescribeInstancePatchStates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeInstancePatchStates -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstancePatchStatesResponse' smart constructor.</span><span>
+</span><span id="line-180"></span><span id="local-6989586621679845384"><span id="local-6989586621679845385"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancePatchStatesResponse"><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-var">DescribeInstancePatchStatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancePatchStatesResponse%27"><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">DescribeInstancePatchStatesResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstancePatchStatesResponse%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The high-level patch state for the requested instances.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AinstancePatchStates%3ADescribeInstancePatchStatesResponse%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse -&gt; Maybe [InstancePatchState]
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AinstancePatchStates%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var hs-var">instancePatchStates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.InstancePatchState.html#InstancePatchState"><span class="hs-identifier hs-type">InstancePatchState</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstancePatchStatesResponse%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse -&gt; Int
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AhttpStatus%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845377"><span id="local-6989586621679845379"><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse
+-&gt; DescribeInstancePatchStatesResponse -&gt; Bool
+(DescribeInstancePatchStatesResponse
+ -&gt; DescribeInstancePatchStatesResponse -&gt; Bool)
+-&gt; (DescribeInstancePatchStatesResponse
+    -&gt; DescribeInstancePatchStatesResponse -&gt; Bool)
+-&gt; Eq DescribeInstancePatchStatesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeInstancePatchStatesResponse
+-&gt; DescribeInstancePatchStatesResponse -&gt; Bool
+$c/= :: DescribeInstancePatchStatesResponse
+-&gt; DescribeInstancePatchStatesResponse -&gt; Bool
+== :: DescribeInstancePatchStatesResponse
+-&gt; DescribeInstancePatchStatesResponse -&gt; Bool
+$c== :: DescribeInstancePatchStatesResponse
+-&gt; DescribeInstancePatchStatesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845371"><span id="local-6989586621679845373"><span id="local-6989586621679845375"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancePatchStatesResponse -&gt; ShowS
+[DescribeInstancePatchStatesResponse] -&gt; ShowS
+DescribeInstancePatchStatesResponse -&gt; String
+(Int -&gt; DescribeInstancePatchStatesResponse -&gt; ShowS)
+-&gt; (DescribeInstancePatchStatesResponse -&gt; String)
+-&gt; ([DescribeInstancePatchStatesResponse] -&gt; ShowS)
+-&gt; Show DescribeInstancePatchStatesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeInstancePatchStatesResponse] -&gt; ShowS
+$cshowList :: [DescribeInstancePatchStatesResponse] -&gt; ShowS
+show :: DescribeInstancePatchStatesResponse -&gt; String
+$cshow :: DescribeInstancePatchStatesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeInstancePatchStatesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeInstancePatchStatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeInstancePatchStatesResponse
+ -&gt; Rep DescribeInstancePatchStatesResponse x)
+-&gt; (forall x.
+    Rep DescribeInstancePatchStatesResponse x
+    -&gt; DescribeInstancePatchStatesResponse)
+-&gt; Generic DescribeInstancePatchStatesResponse
+forall x.
+Rep DescribeInstancePatchStatesResponse x
+-&gt; DescribeInstancePatchStatesResponse
+forall x.
+DescribeInstancePatchStatesResponse
+-&gt; Rep DescribeInstancePatchStatesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeInstancePatchStatesResponse x
+-&gt; DescribeInstancePatchStatesResponse
+$cfrom :: forall x.
+DescribeInstancePatchStatesResponse
+-&gt; Rep DescribeInstancePatchStatesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Create a value of 'DescribeInstancePatchStatesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'nextToken', 'describeInstancePatchStatesResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'instancePatchStates', 'describeInstancePatchStatesResponse_instancePatchStates' - The high-level patch state for the requested instances.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'httpStatus', 'describeInstancePatchStatesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#newDescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">newDescribeInstancePatchStatesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span>
+</span><span id="line-209"></span><span id="newDescribeInstancePatchStatesResponse"><span class="annot"><span class="annottext">newDescribeInstancePatchStatesResponse :: Int -&gt; DescribeInstancePatchStatesResponse
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#newDescribeInstancePatchStatesResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstancePatchStatesResponse</span></a></span></span><span> </span><span id="local-6989586621679845368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse' :: Maybe Text
+-&gt; Maybe [InstancePatchState]
+-&gt; Int
+-&gt; DescribeInstancePatchStatesResponse
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse'</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:instancePatchStates:DescribeInstancePatchStatesResponse' :: Maybe [InstancePatchState]
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AinstancePatchStates%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">instancePatchStates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchState]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancePatchStatesResponse' :: Int
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AhttpStatus%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_nextToken"><span class="hs-identifier hs-type">describeInstancePatchStatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="describeInstancePatchStatesResponse_nextToken"><span class="annot"><span class="annottext">describeInstancePatchStatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstancePatchStatesResponse
+-&gt; f DescribeInstancePatchStatesResponse
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeInstancePatchStatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStatesResponse -&gt; Maybe Text)
+-&gt; (DescribeInstancePatchStatesResponse
+    -&gt; Maybe Text -&gt; DescribeInstancePatchStatesResponse)
+-&gt; Lens' DescribeInstancePatchStatesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845367"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeInstancePatchStatesResponse' :: DescribeInstancePatchStatesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679845367"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845367"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845366"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The high-level patch state for the requested instances.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_instancePatchStates"><span class="hs-identifier hs-type">describeInstancePatchStatesResponse_instancePatchStates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.InstancePatchState.html#InstancePatchState"><span class="hs-identifier hs-type">InstancePatchState</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="describeInstancePatchStatesResponse_instancePatchStates"><span class="annot"><span class="annottext">describeInstancePatchStatesResponse_instancePatchStates :: (Maybe [InstancePatchState] -&gt; f (Maybe [InstancePatchState]))
+-&gt; DescribeInstancePatchStatesResponse
+-&gt; f DescribeInstancePatchStatesResponse
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_instancePatchStates"><span class="hs-identifier hs-var hs-var">describeInstancePatchStatesResponse_instancePatchStates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStatesResponse -&gt; Maybe [InstancePatchState])
+-&gt; (DescribeInstancePatchStatesResponse
+    -&gt; Maybe [InstancePatchState]
+    -&gt; DescribeInstancePatchStatesResponse)
+-&gt; Lens'
+     DescribeInstancePatchStatesResponse (Maybe [InstancePatchState])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845364"><span class="annot"><span class="annottext">Maybe [InstancePatchState]
+instancePatchStates :: Maybe [InstancePatchState]
+$sel:instancePatchStates:DescribeInstancePatchStatesResponse' :: DescribeInstancePatchStatesResponse -&gt; Maybe [InstancePatchState]
+</span><a href="#local-6989586621679845364"><span class="hs-identifier hs-var hs-var">instancePatchStates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchState]
+</span><a href="#local-6989586621679845364"><span class="hs-identifier hs-var">instancePatchStates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845363"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845362"><span class="annot"><span class="annottext">Maybe [InstancePatchState]
+</span><a href="#local-6989586621679845362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancePatchStates:DescribeInstancePatchStatesResponse' :: Maybe [InstancePatchState]
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AinstancePatchStates%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">instancePatchStates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchState]
+</span><a href="#local-6989586621679845362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePatchState] -&gt; f (Maybe [InstancePatchState]))
+ -&gt; DescribeInstancePatchStatesResponse
+ -&gt; f DescribeInstancePatchStatesResponse)
+-&gt; ((Maybe [InstancePatchState] -&gt; f (Maybe [InstancePatchState]))
+    -&gt; Maybe [InstancePatchState] -&gt; f (Maybe [InstancePatchState]))
+-&gt; (Maybe [InstancePatchState] -&gt; f (Maybe [InstancePatchState]))
+-&gt; DescribeInstancePatchStatesResponse
+-&gt; f DescribeInstancePatchStatesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstancePatchState]
+  [InstancePatchState]
+  [InstancePatchState]
+  [InstancePatchState]
+-&gt; Iso
+     (Maybe [InstancePatchState])
+     (Maybe [InstancePatchState])
+     (Maybe [InstancePatchState])
+     (Maybe [InstancePatchState])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstancePatchState]
+  [InstancePatchState]
+  [InstancePatchState]
+  [InstancePatchState]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_httpStatus"><span class="hs-identifier hs-type">describeInstancePatchStatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span id="describeInstancePatchStatesResponse_httpStatus"><span class="annot"><span class="annottext">describeInstancePatchStatesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeInstancePatchStatesResponse
+-&gt; f DescribeInstancePatchStatesResponse
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#describeInstancePatchStatesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeInstancePatchStatesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStatesResponse -&gt; Int)
+-&gt; (DescribeInstancePatchStatesResponse
+    -&gt; Int -&gt; DescribeInstancePatchStatesResponse)
+-&gt; Lens
+     DescribeInstancePatchStatesResponse
+     DescribeInstancePatchStatesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845360"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeInstancePatchStatesResponse' :: DescribeInstancePatchStatesResponse -&gt; Int
+</span><a href="#local-6989586621679845360"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845360"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845359"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesResponse
+</span><a href="#local-6989586621679845359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancePatchStatesResponse' :: Int
+</span><a href="Amazonka.SSM.DescribeInstancePatchStates.html#%24sel%3AhttpStatus%3ADescribeInstancePatchStatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679845356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstancePatchStates.html#DescribeInstancePatchStatesResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesResponse</span></a></span></span><span>
+</span><span id="line-233"></span></pre></body></html>

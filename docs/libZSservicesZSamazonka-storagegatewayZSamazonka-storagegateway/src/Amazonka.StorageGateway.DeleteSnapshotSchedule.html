@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.DeleteSnapshotSchedule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a snapshot of a volume.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can take snapshots of your gateway volumes on a scheduled or ad hoc</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- basis. This API action enables you to delete a snapshot schedule for a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- volume. For more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html Backing up your volumes&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- In the @DeleteSnapshotSchedule@ request, you identify the volume by</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- providing its Amazon Resource Name (ARN). This operation is only</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- supported in stored and cached volume gateway types.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- To list or delete a snapshot, you must use the Amazon EC2 API. For more</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- information, go to</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html DescribeSnapshots&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud API Reference/.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.DeleteSnapshotSchedule</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier">DeleteSnapshotSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#newDeleteSnapshotSchedule"><span class="hs-identifier">newDeleteSnapshotSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotSchedule_volumeARN"><span class="hs-identifier">deleteSnapshotSchedule_volumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier">DeleteSnapshotScheduleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#newDeleteSnapshotScheduleResponse"><span class="hs-identifier">newDeleteSnapshotScheduleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotScheduleResponse_volumeARN"><span class="hs-identifier">deleteSnapshotScheduleResponse_volumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotScheduleResponse_httpStatus"><span class="hs-identifier">deleteSnapshotScheduleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.html"><span class="hs-identifier">Amazonka.StorageGateway.Types</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDeleteSnapshotSchedule' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679388958"><span id="local-6989586621679388959"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSnapshotSchedule"><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-var">DeleteSnapshotSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSnapshotSchedule%27"><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule%27"><span class="hs-identifier hs-var">DeleteSnapshotSchedule'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The volume which snapshot schedule to delete.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AvolumeARN%3ADeleteSnapshotSchedule%27"><span class="annot"><span class="annottext">DeleteSnapshotSchedule -&gt; Text
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AvolumeARN%3ADeleteSnapshotSchedule%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388952"><span id="local-6989586621679388954"><span class="annot"><span class="annottext">DeleteSnapshotSchedule -&gt; DeleteSnapshotSchedule -&gt; Bool
+(DeleteSnapshotSchedule -&gt; DeleteSnapshotSchedule -&gt; Bool)
+-&gt; (DeleteSnapshotSchedule -&gt; DeleteSnapshotSchedule -&gt; Bool)
+-&gt; Eq DeleteSnapshotSchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSnapshotSchedule -&gt; DeleteSnapshotSchedule -&gt; Bool
+$c/= :: DeleteSnapshotSchedule -&gt; DeleteSnapshotSchedule -&gt; Bool
+== :: DeleteSnapshotSchedule -&gt; DeleteSnapshotSchedule -&gt; Bool
+$c== :: DeleteSnapshotSchedule -&gt; DeleteSnapshotSchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388943"><span id="local-6989586621679388945"><span id="local-6989586621679388947"><span id="local-6989586621679388949"><span class="annot"><span class="annottext">ReadPrec [DeleteSnapshotSchedule]
+ReadPrec DeleteSnapshotSchedule
+Int -&gt; ReadS DeleteSnapshotSchedule
+ReadS [DeleteSnapshotSchedule]
+(Int -&gt; ReadS DeleteSnapshotSchedule)
+-&gt; ReadS [DeleteSnapshotSchedule]
+-&gt; ReadPrec DeleteSnapshotSchedule
+-&gt; ReadPrec [DeleteSnapshotSchedule]
+-&gt; Read DeleteSnapshotSchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSnapshotSchedule]
+$creadListPrec :: ReadPrec [DeleteSnapshotSchedule]
+readPrec :: ReadPrec DeleteSnapshotSchedule
+$creadPrec :: ReadPrec DeleteSnapshotSchedule
+readList :: ReadS [DeleteSnapshotSchedule]
+$creadList :: ReadS [DeleteSnapshotSchedule]
+readsPrec :: Int -&gt; ReadS DeleteSnapshotSchedule
+$creadsPrec :: Int -&gt; ReadS DeleteSnapshotSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388936"><span id="local-6989586621679388938"><span id="local-6989586621679388940"><span class="annot"><span class="annottext">Int -&gt; DeleteSnapshotSchedule -&gt; ShowS
+[DeleteSnapshotSchedule] -&gt; ShowS
+DeleteSnapshotSchedule -&gt; String
+(Int -&gt; DeleteSnapshotSchedule -&gt; ShowS)
+-&gt; (DeleteSnapshotSchedule -&gt; String)
+-&gt; ([DeleteSnapshotSchedule] -&gt; ShowS)
+-&gt; Show DeleteSnapshotSchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSnapshotSchedule] -&gt; ShowS
+$cshowList :: [DeleteSnapshotSchedule] -&gt; ShowS
+show :: DeleteSnapshotSchedule -&gt; String
+$cshow :: DeleteSnapshotSchedule -&gt; String
+showsPrec :: Int -&gt; DeleteSnapshotSchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSnapshotSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteSnapshotSchedule -&gt; Rep DeleteSnapshotSchedule x)
+-&gt; (forall x.
+    Rep DeleteSnapshotSchedule x -&gt; DeleteSnapshotSchedule)
+-&gt; Generic DeleteSnapshotSchedule
+forall x. Rep DeleteSnapshotSchedule x -&gt; DeleteSnapshotSchedule
+forall x. DeleteSnapshotSchedule -&gt; Rep DeleteSnapshotSchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteSnapshotSchedule x -&gt; DeleteSnapshotSchedule
+$cfrom :: forall x. DeleteSnapshotSchedule -&gt; Rep DeleteSnapshotSchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DeleteSnapshotSchedule' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'volumeARN', 'deleteSnapshotSchedule_volumeARN' - The volume which snapshot schedule to delete.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#newDeleteSnapshotSchedule"><span class="hs-identifier hs-type">newDeleteSnapshotSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'volumeARN'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span>
+</span><span id="line-82"></span><span id="newDeleteSnapshotSchedule"><span class="annot"><span class="annottext">newDeleteSnapshotSchedule :: Text -&gt; DeleteSnapshotSchedule
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#newDeleteSnapshotSchedule"><span class="hs-identifier hs-var hs-var">newDeleteSnapshotSchedule</span></a></span></span><span> </span><span id="local-6989586621679388931"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388931"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DeleteSnapshotSchedule' :: Text -&gt; DeleteSnapshotSchedule
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule%27"><span class="hs-identifier hs-type">DeleteSnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteSnapshotSchedule' :: Text
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AvolumeARN%3ADeleteSnapshotSchedule%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388931"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The volume which snapshot schedule to delete.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotSchedule_volumeARN"><span class="hs-identifier hs-type">deleteSnapshotSchedule_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteSnapshotSchedule_volumeARN"><span class="annot"><span class="annottext">deleteSnapshotSchedule_volumeARN :: (Text -&gt; f Text)
+-&gt; DeleteSnapshotSchedule -&gt; f DeleteSnapshotSchedule
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotSchedule_volumeARN"><span class="hs-identifier hs-var hs-var">deleteSnapshotSchedule_volumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSnapshotSchedule -&gt; Text)
+-&gt; (DeleteSnapshotSchedule -&gt; Text -&gt; DeleteSnapshotSchedule)
+-&gt; Lens DeleteSnapshotSchedule DeleteSnapshotSchedule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule%27"><span class="hs-identifier hs-type">DeleteSnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388928"><span class="annot"><span class="annottext">Text
+volumeARN :: Text
+$sel:volumeARN:DeleteSnapshotSchedule' :: DeleteSnapshotSchedule -&gt; Text
+</span><a href="#local-6989586621679388928"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388928"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388927"><span class="annot"><span class="annottext">s :: DeleteSnapshotSchedule
+</span><a href="#local-6989586621679388927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule%27"><span class="hs-identifier hs-type">DeleteSnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSnapshotSchedule
+</span><a href="#local-6989586621679388927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteSnapshotSchedule' :: Text
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AvolumeARN%3ADeleteSnapshotSchedule%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679388922"><span class="annot"><span class="annottext">request :: DeleteSnapshotSchedule -&gt; Request DeleteSnapshotSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSnapshotSchedule -&gt; Request DeleteSnapshotSchedule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679388918"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteSnapshotSchedule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSnapshotSchedule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteSnapshotSchedule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteSnapshotSchedule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSnapshotSchedule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388915"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388914"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388914"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388913"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteSnapshotScheduleResponse
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var">DeleteSnapshotScheduleResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteSnapshotScheduleResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DeleteSnapshotScheduleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteSnapshotScheduleResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteSnapshotScheduleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388915"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388905"><span id="local-6989586621679388907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679388898"><span class="annot"><span class="annottext">toHeaders :: DeleteSnapshotSchedule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSnapshotSchedule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.DeleteSnapshotSchedule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388888"><span id="local-6989586621679388890"><span id="local-6989586621679388892"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679388886"><span class="annot"><span class="annottext">toJSON :: DeleteSnapshotSchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule%27"><span class="hs-identifier hs-type">DeleteSnapshotSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388884"><span class="annot"><span class="annottext">Text
+volumeARN :: Text
+$sel:volumeARN:DeleteSnapshotSchedule' :: DeleteSnapshotSchedule -&gt; Text
+</span><a href="#local-6989586621679388884"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388884"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679388878"><span class="annot"><span class="annottext">toPath :: DeleteSnapshotSchedule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSnapshotSchedule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotSchedule"><span class="hs-identifier hs-type">DeleteSnapshotSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679388874"><span class="annot"><span class="annottext">toQuery :: DeleteSnapshotSchedule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSnapshotSchedule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDeleteSnapshotScheduleResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679388871"><span id="local-6989586621679388872"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSnapshotScheduleResponse"><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-var">DeleteSnapshotScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSnapshotScheduleResponse%27"><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var">DeleteSnapshotScheduleResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The volume which snapshot schedule was deleted.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AvolumeARN%3ADeleteSnapshotScheduleResponse%27"><span class="annot"><span class="annottext">DeleteSnapshotScheduleResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AvolumeARN%3ADeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSnapshotScheduleResponse%27"><span class="annot"><span class="annottext">DeleteSnapshotScheduleResponse -&gt; Int
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AhttpStatus%3ADeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388865"><span id="local-6989586621679388867"><span class="annot"><span class="annottext">DeleteSnapshotScheduleResponse
+-&gt; DeleteSnapshotScheduleResponse -&gt; Bool
+(DeleteSnapshotScheduleResponse
+ -&gt; DeleteSnapshotScheduleResponse -&gt; Bool)
+-&gt; (DeleteSnapshotScheduleResponse
+    -&gt; DeleteSnapshotScheduleResponse -&gt; Bool)
+-&gt; Eq DeleteSnapshotScheduleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSnapshotScheduleResponse
+-&gt; DeleteSnapshotScheduleResponse -&gt; Bool
+$c/= :: DeleteSnapshotScheduleResponse
+-&gt; DeleteSnapshotScheduleResponse -&gt; Bool
+== :: DeleteSnapshotScheduleResponse
+-&gt; DeleteSnapshotScheduleResponse -&gt; Bool
+$c== :: DeleteSnapshotScheduleResponse
+-&gt; DeleteSnapshotScheduleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388857"><span id="local-6989586621679388859"><span id="local-6989586621679388861"><span id="local-6989586621679388863"><span class="annot"><span class="annottext">ReadPrec [DeleteSnapshotScheduleResponse]
+ReadPrec DeleteSnapshotScheduleResponse
+Int -&gt; ReadS DeleteSnapshotScheduleResponse
+ReadS [DeleteSnapshotScheduleResponse]
+(Int -&gt; ReadS DeleteSnapshotScheduleResponse)
+-&gt; ReadS [DeleteSnapshotScheduleResponse]
+-&gt; ReadPrec DeleteSnapshotScheduleResponse
+-&gt; ReadPrec [DeleteSnapshotScheduleResponse]
+-&gt; Read DeleteSnapshotScheduleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSnapshotScheduleResponse]
+$creadListPrec :: ReadPrec [DeleteSnapshotScheduleResponse]
+readPrec :: ReadPrec DeleteSnapshotScheduleResponse
+$creadPrec :: ReadPrec DeleteSnapshotScheduleResponse
+readList :: ReadS [DeleteSnapshotScheduleResponse]
+$creadList :: ReadS [DeleteSnapshotScheduleResponse]
+readsPrec :: Int -&gt; ReadS DeleteSnapshotScheduleResponse
+$creadsPrec :: Int -&gt; ReadS DeleteSnapshotScheduleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388851"><span id="local-6989586621679388853"><span id="local-6989586621679388855"><span class="annot"><span class="annottext">Int -&gt; DeleteSnapshotScheduleResponse -&gt; ShowS
+[DeleteSnapshotScheduleResponse] -&gt; ShowS
+DeleteSnapshotScheduleResponse -&gt; String
+(Int -&gt; DeleteSnapshotScheduleResponse -&gt; ShowS)
+-&gt; (DeleteSnapshotScheduleResponse -&gt; String)
+-&gt; ([DeleteSnapshotScheduleResponse] -&gt; ShowS)
+-&gt; Show DeleteSnapshotScheduleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSnapshotScheduleResponse] -&gt; ShowS
+$cshowList :: [DeleteSnapshotScheduleResponse] -&gt; ShowS
+show :: DeleteSnapshotScheduleResponse -&gt; String
+$cshow :: DeleteSnapshotScheduleResponse -&gt; String
+showsPrec :: Int -&gt; DeleteSnapshotScheduleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSnapshotScheduleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteSnapshotScheduleResponse
+ -&gt; Rep DeleteSnapshotScheduleResponse x)
+-&gt; (forall x.
+    Rep DeleteSnapshotScheduleResponse x
+    -&gt; DeleteSnapshotScheduleResponse)
+-&gt; Generic DeleteSnapshotScheduleResponse
+forall x.
+Rep DeleteSnapshotScheduleResponse x
+-&gt; DeleteSnapshotScheduleResponse
+forall x.
+DeleteSnapshotScheduleResponse
+-&gt; Rep DeleteSnapshotScheduleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteSnapshotScheduleResponse x
+-&gt; DeleteSnapshotScheduleResponse
+$cfrom :: forall x.
+DeleteSnapshotScheduleResponse
+-&gt; Rep DeleteSnapshotScheduleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'DeleteSnapshotScheduleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'volumeARN', 'deleteSnapshotScheduleResponse_volumeARN' - The volume which snapshot schedule was deleted.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'deleteSnapshotScheduleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#newDeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">newDeleteSnapshotScheduleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse</span></a></span><span>
+</span><span id="line-158"></span><span id="newDeleteSnapshotScheduleResponse"><span class="annot"><span class="annottext">newDeleteSnapshotScheduleResponse :: Int -&gt; DeleteSnapshotScheduleResponse
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#newDeleteSnapshotScheduleResponse"><span class="hs-identifier hs-var hs-var">newDeleteSnapshotScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679388848"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388848"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">DeleteSnapshotScheduleResponse' :: Maybe Text -&gt; Int -&gt; DeleteSnapshotScheduleResponse
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteSnapshotScheduleResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AvolumeARN%3ADeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSnapshotScheduleResponse' :: Int
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AhttpStatus%3ADeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388848"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The volume which snapshot schedule was deleted.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotScheduleResponse_volumeARN"><span class="hs-identifier hs-type">deleteSnapshotScheduleResponse_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="deleteSnapshotScheduleResponse_volumeARN"><span class="annot"><span class="annottext">deleteSnapshotScheduleResponse_volumeARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteSnapshotScheduleResponse
+-&gt; f DeleteSnapshotScheduleResponse
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotScheduleResponse_volumeARN"><span class="hs-identifier hs-var hs-var">deleteSnapshotScheduleResponse_volumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSnapshotScheduleResponse -&gt; Maybe Text)
+-&gt; (DeleteSnapshotScheduleResponse
+    -&gt; Maybe Text -&gt; DeleteSnapshotScheduleResponse)
+-&gt; Lens
+     DeleteSnapshotScheduleResponse
+     DeleteSnapshotScheduleResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388847"><span class="annot"><span class="annottext">Maybe Text
+volumeARN :: Maybe Text
+$sel:volumeARN:DeleteSnapshotScheduleResponse' :: DeleteSnapshotScheduleResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679388847"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388847"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388846"><span class="annot"><span class="annottext">s :: DeleteSnapshotScheduleResponse
+</span><a href="#local-6989586621679388846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSnapshotScheduleResponse
+</span><a href="#local-6989586621679388846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteSnapshotScheduleResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AvolumeARN%3ADeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotScheduleResponse_httpStatus"><span class="hs-identifier hs-type">deleteSnapshotScheduleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span id="deleteSnapshotScheduleResponse_httpStatus"><span class="annot"><span class="annottext">deleteSnapshotScheduleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteSnapshotScheduleResponse
+-&gt; f DeleteSnapshotScheduleResponse
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#deleteSnapshotScheduleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteSnapshotScheduleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSnapshotScheduleResponse -&gt; Int)
+-&gt; (DeleteSnapshotScheduleResponse
+    -&gt; Int -&gt; DeleteSnapshotScheduleResponse)
+-&gt; Lens
+     DeleteSnapshotScheduleResponse
+     DeleteSnapshotScheduleResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388844"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteSnapshotScheduleResponse' :: DeleteSnapshotScheduleResponse -&gt; Int
+</span><a href="#local-6989586621679388844"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388844"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388843"><span class="annot"><span class="annottext">s :: DeleteSnapshotScheduleResponse
+</span><a href="#local-6989586621679388843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSnapshotScheduleResponse
+</span><a href="#local-6989586621679388843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSnapshotScheduleResponse' :: Int
+</span><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#%24sel%3AhttpStatus%3ADeleteSnapshotScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679388840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DeleteSnapshotSchedule.html#DeleteSnapshotScheduleResponse"><span class="hs-identifier hs-type">DeleteSnapshotScheduleResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

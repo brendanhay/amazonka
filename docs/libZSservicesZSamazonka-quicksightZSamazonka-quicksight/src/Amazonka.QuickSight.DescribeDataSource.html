@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.DescribeDataSource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes a data source.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.DescribeDataSource</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier">DescribeDataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#newDescribeDataSource"><span class="hs-identifier">newDescribeDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSource_awsAccountId"><span class="hs-identifier">describeDataSource_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSource_dataSourceId"><span class="hs-identifier">describeDataSource_dataSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier">DescribeDataSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#newDescribeDataSourceResponse"><span class="hs-identifier">newDescribeDataSourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_requestId"><span class="hs-identifier">describeDataSourceResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_dataSource"><span class="hs-identifier">describeDataSourceResponse_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_status"><span class="hs-identifier">describeDataSourceResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeDataSource' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679586770"><span id="local-6989586621679586771"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDataSource"><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-var">DescribeDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDataSource%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource%27"><span class="hs-identifier hs-var">DescribeDataSource'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeDataSource%27"><span class="annot"><span class="annottext">DescribeDataSource -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AawsAccountId%3ADescribeDataSource%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdataSourceId%3ADescribeDataSource%27"><span class="annot"><span class="annottext">DescribeDataSource -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AdataSourceId%3ADescribeDataSource%27"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679586763"><span id="local-6989586621679586765"><span class="annot"><span class="annottext">DescribeDataSource -&gt; DescribeDataSource -&gt; Bool
+(DescribeDataSource -&gt; DescribeDataSource -&gt; Bool)
+-&gt; (DescribeDataSource -&gt; DescribeDataSource -&gt; Bool)
+-&gt; Eq DescribeDataSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDataSource -&gt; DescribeDataSource -&gt; Bool
+$c/= :: DescribeDataSource -&gt; DescribeDataSource -&gt; Bool
+== :: DescribeDataSource -&gt; DescribeDataSource -&gt; Bool
+$c== :: DescribeDataSource -&gt; DescribeDataSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679586754"><span id="local-6989586621679586756"><span id="local-6989586621679586758"><span id="local-6989586621679586760"><span class="annot"><span class="annottext">ReadPrec [DescribeDataSource]
+ReadPrec DescribeDataSource
+Int -&gt; ReadS DescribeDataSource
+ReadS [DescribeDataSource]
+(Int -&gt; ReadS DescribeDataSource)
+-&gt; ReadS [DescribeDataSource]
+-&gt; ReadPrec DescribeDataSource
+-&gt; ReadPrec [DescribeDataSource]
+-&gt; Read DescribeDataSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDataSource]
+$creadListPrec :: ReadPrec [DescribeDataSource]
+readPrec :: ReadPrec DescribeDataSource
+$creadPrec :: ReadPrec DescribeDataSource
+readList :: ReadS [DescribeDataSource]
+$creadList :: ReadS [DescribeDataSource]
+readsPrec :: Int -&gt; ReadS DescribeDataSource
+$creadsPrec :: Int -&gt; ReadS DescribeDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679586747"><span id="local-6989586621679586749"><span id="local-6989586621679586751"><span class="annot"><span class="annottext">Int -&gt; DescribeDataSource -&gt; ShowS
+[DescribeDataSource] -&gt; ShowS
+DescribeDataSource -&gt; String
+(Int -&gt; DescribeDataSource -&gt; ShowS)
+-&gt; (DescribeDataSource -&gt; String)
+-&gt; ([DescribeDataSource] -&gt; ShowS)
+-&gt; Show DescribeDataSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDataSource] -&gt; ShowS
+$cshowList :: [DescribeDataSource] -&gt; ShowS
+show :: DescribeDataSource -&gt; String
+$cshow :: DescribeDataSource -&gt; String
+showsPrec :: Int -&gt; DescribeDataSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeDataSource -&gt; Rep DescribeDataSource x)
+-&gt; (forall x. Rep DescribeDataSource x -&gt; DescribeDataSource)
+-&gt; Generic DescribeDataSource
+forall x. Rep DescribeDataSource x -&gt; DescribeDataSource
+forall x. DescribeDataSource -&gt; Rep DescribeDataSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeDataSource x -&gt; DescribeDataSource
+$cfrom :: forall x. DescribeDataSource -&gt; Rep DescribeDataSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DescribeDataSource' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'awsAccountId', 'describeDataSource_awsAccountId' - The Amazon Web Services account ID.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'dataSourceId', 'describeDataSource_dataSourceId' - The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#newDescribeDataSource"><span class="hs-identifier hs-type">newDescribeDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'dataSourceId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span>
+</span><span id="line-79"></span><span id="newDescribeDataSource"><span class="annot"><span class="annottext">newDescribeDataSource :: Text -&gt; Text -&gt; DescribeDataSource
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#newDescribeDataSource"><span class="hs-identifier hs-var hs-var">newDescribeDataSource</span></a></span></span><span> </span><span id="local-6989586621679586742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586742"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679586741"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586741"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DescribeDataSource' :: Text -&gt; Text -&gt; DescribeDataSource
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource%27"><span class="hs-identifier hs-type">DescribeDataSource'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeDataSource' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AawsAccountId%3ADescribeDataSource%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586742"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceId:DescribeDataSource' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AdataSourceId%3ADescribeDataSource%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586741"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSource_awsAccountId"><span class="hs-identifier hs-type">describeDataSource_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="describeDataSource_awsAccountId"><span class="annot"><span class="annottext">describeDataSource_awsAccountId :: (Text -&gt; f Text) -&gt; DescribeDataSource -&gt; f DescribeDataSource
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSource_awsAccountId"><span class="hs-identifier hs-var hs-var">describeDataSource_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataSource -&gt; Text)
+-&gt; (DescribeDataSource -&gt; Text -&gt; DescribeDataSource)
+-&gt; Lens DescribeDataSource DescribeDataSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource%27"><span class="hs-identifier hs-type">DescribeDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679586738"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeDataSource' :: DescribeDataSource -&gt; Text
+</span><a href="#local-6989586621679586738"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586738"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679586737"><span class="annot"><span class="annottext">s :: DescribeDataSource
+</span><a href="#local-6989586621679586737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource%27"><span class="hs-identifier hs-type">DescribeDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679586736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataSource
+</span><a href="#local-6989586621679586737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeDataSource' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AawsAccountId%3ADescribeDataSource%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSource_dataSourceId"><span class="hs-identifier hs-type">describeDataSource_dataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="describeDataSource_dataSourceId"><span class="annot"><span class="annottext">describeDataSource_dataSourceId :: (Text -&gt; f Text) -&gt; DescribeDataSource -&gt; f DescribeDataSource
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSource_dataSourceId"><span class="hs-identifier hs-var hs-var">describeDataSource_dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataSource -&gt; Text)
+-&gt; (DescribeDataSource -&gt; Text -&gt; DescribeDataSource)
+-&gt; Lens DescribeDataSource DescribeDataSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource%27"><span class="hs-identifier hs-type">DescribeDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679586735"><span class="annot"><span class="annottext">Text
+dataSourceId :: Text
+$sel:dataSourceId:DescribeDataSource' :: DescribeDataSource -&gt; Text
+</span><a href="#local-6989586621679586735"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586735"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679586734"><span class="annot"><span class="annottext">s :: DescribeDataSource
+</span><a href="#local-6989586621679586734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource%27"><span class="hs-identifier hs-type">DescribeDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679586733"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataSource
+</span><a href="#local-6989586621679586734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:DescribeDataSource' :: Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AdataSourceId%3ADescribeDataSource%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679586729"><span class="annot"><span class="annottext">request :: DescribeDataSource -&gt; Request DescribeDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeDataSource -&gt; Request DescribeDataSource
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679586725"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDataSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDataSource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDataSource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDataSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDataSource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679586722"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679586722"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679586721"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679586721"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679586720"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679586720"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe DataSource -&gt; Int -&gt; DescribeDataSourceResponse
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-var">DescribeDataSourceResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe DataSource -&gt; Int -&gt; DescribeDataSourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe DataSource -&gt; Int -&gt; DescribeDataSourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679586720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe DataSource -&gt; Int -&gt; DescribeDataSourceResponse)
+-&gt; Either String (Maybe DataSource)
+-&gt; Either String (Int -&gt; DescribeDataSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679586720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDataSourceResponse)
+-&gt; Either String Int -&gt; Either String DescribeDataSourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679586722"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679586712"><span id="local-6989586621679586714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679586709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679586705"><span class="annot"><span class="annottext">toHeaders :: DescribeDataSource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDataSource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679586699"><span class="annot"><span class="annottext">toPath :: DescribeDataSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource%27"><span class="hs-identifier hs-type">DescribeDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679586696"><span id="local-6989586621679586697"><span class="annot"><span class="annottext">Text
+dataSourceId :: Text
+awsAccountId :: Text
+$sel:dataSourceId:DescribeDataSource' :: DescribeDataSource -&gt; Text
+$sel:awsAccountId:DescribeDataSource' :: DescribeDataSource -&gt; Text
+</span><a href="#local-6989586621679586696"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586697"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/data-sources/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679586696"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSource"><span class="hs-identifier hs-type">DescribeDataSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679586692"><span class="annot"><span class="annottext">toQuery :: DescribeDataSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDataSource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDescribeDataSourceResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679586689"><span id="local-6989586621679586690"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDataSourceResponse"><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-var">DescribeDataSourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDataSourceResponse%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-var">DescribeDataSourceResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeDataSourceResponse%27"><span class="annot"><span class="annottext">DescribeDataSourceResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3ArequestId%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The information on the data source.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AdataSource%3ADescribeDataSourceResponse%27"><span class="annot"><span class="annottext">DescribeDataSourceResponse -&gt; Maybe DataSource
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AdataSource%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeDataSourceResponse%27"><span class="annot"><span class="annottext">DescribeDataSourceResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3Astatus%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679586682"><span id="local-6989586621679586684"><span class="annot"><span class="annottext">DescribeDataSourceResponse -&gt; DescribeDataSourceResponse -&gt; Bool
+(DescribeDataSourceResponse -&gt; DescribeDataSourceResponse -&gt; Bool)
+-&gt; (DescribeDataSourceResponse
+    -&gt; DescribeDataSourceResponse -&gt; Bool)
+-&gt; Eq DescribeDataSourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDataSourceResponse -&gt; DescribeDataSourceResponse -&gt; Bool
+$c/= :: DescribeDataSourceResponse -&gt; DescribeDataSourceResponse -&gt; Bool
+== :: DescribeDataSourceResponse -&gt; DescribeDataSourceResponse -&gt; Bool
+$c== :: DescribeDataSourceResponse -&gt; DescribeDataSourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679586674"><span id="local-6989586621679586676"><span id="local-6989586621679586678"><span id="local-6989586621679586680"><span class="annot"><span class="annottext">ReadPrec [DescribeDataSourceResponse]
+ReadPrec DescribeDataSourceResponse
+Int -&gt; ReadS DescribeDataSourceResponse
+ReadS [DescribeDataSourceResponse]
+(Int -&gt; ReadS DescribeDataSourceResponse)
+-&gt; ReadS [DescribeDataSourceResponse]
+-&gt; ReadPrec DescribeDataSourceResponse
+-&gt; ReadPrec [DescribeDataSourceResponse]
+-&gt; Read DescribeDataSourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDataSourceResponse]
+$creadListPrec :: ReadPrec [DescribeDataSourceResponse]
+readPrec :: ReadPrec DescribeDataSourceResponse
+$creadPrec :: ReadPrec DescribeDataSourceResponse
+readList :: ReadS [DescribeDataSourceResponse]
+$creadList :: ReadS [DescribeDataSourceResponse]
+readsPrec :: Int -&gt; ReadS DescribeDataSourceResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDataSourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679586668"><span id="local-6989586621679586670"><span id="local-6989586621679586672"><span class="annot"><span class="annottext">Int -&gt; DescribeDataSourceResponse -&gt; ShowS
+[DescribeDataSourceResponse] -&gt; ShowS
+DescribeDataSourceResponse -&gt; String
+(Int -&gt; DescribeDataSourceResponse -&gt; ShowS)
+-&gt; (DescribeDataSourceResponse -&gt; String)
+-&gt; ([DescribeDataSourceResponse] -&gt; ShowS)
+-&gt; Show DescribeDataSourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDataSourceResponse] -&gt; ShowS
+$cshowList :: [DescribeDataSourceResponse] -&gt; ShowS
+show :: DescribeDataSourceResponse -&gt; String
+$cshow :: DescribeDataSourceResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDataSourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDataSourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDataSourceResponse -&gt; Rep DescribeDataSourceResponse x)
+-&gt; (forall x.
+    Rep DescribeDataSourceResponse x -&gt; DescribeDataSourceResponse)
+-&gt; Generic DescribeDataSourceResponse
+forall x.
+Rep DescribeDataSourceResponse x -&gt; DescribeDataSourceResponse
+forall x.
+DescribeDataSourceResponse -&gt; Rep DescribeDataSourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDataSourceResponse x -&gt; DescribeDataSourceResponse
+$cfrom :: forall x.
+DescribeDataSourceResponse -&gt; Rep DescribeDataSourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'DescribeDataSourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'requestId', 'describeDataSourceResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'dataSource', 'describeDataSourceResponse_dataSource' - The information on the data source.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'status', 'describeDataSourceResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#newDescribeDataSourceResponse"><span class="hs-identifier hs-type">newDescribeDataSourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newDescribeDataSourceResponse"><span class="annot"><span class="annottext">newDescribeDataSourceResponse :: Int -&gt; DescribeDataSourceResponse
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#newDescribeDataSourceResponse"><span class="hs-identifier hs-var hs-var">newDescribeDataSourceResponse</span></a></span></span><span> </span><span id="local-6989586621679586665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679586665"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">DescribeDataSourceResponse' :: Maybe Text -&gt; Maybe DataSource -&gt; Int -&gt; DescribeDataSourceResponse
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-type">DescribeDataSourceResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeDataSourceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3ArequestId%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSource:DescribeDataSourceResponse' :: Maybe DataSource
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AdataSource%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeDataSourceResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3Astatus%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679586665"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_requestId"><span class="hs-identifier hs-type">describeDataSourceResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeDataSourceResponse_requestId"><span class="annot"><span class="annottext">describeDataSourceResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDataSourceResponse -&gt; f DescribeDataSourceResponse
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_requestId"><span class="hs-identifier hs-var hs-var">describeDataSourceResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataSourceResponse -&gt; Maybe Text)
+-&gt; (DescribeDataSourceResponse
+    -&gt; Maybe Text -&gt; DescribeDataSourceResponse)
+-&gt; Lens
+     DescribeDataSourceResponse
+     DescribeDataSourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-type">DescribeDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679586664"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeDataSourceResponse' :: DescribeDataSourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679586664"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679586664"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679586663"><span class="annot"><span class="annottext">s :: DescribeDataSourceResponse
+</span><a href="#local-6989586621679586663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-type">DescribeDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679586662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679586662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataSourceResponse
+</span><a href="#local-6989586621679586663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeDataSourceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3ArequestId%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679586662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The information on the data source.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_dataSource"><span class="hs-identifier hs-type">describeDataSourceResponse_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="describeDataSourceResponse_dataSource"><span class="annot"><span class="annottext">describeDataSourceResponse_dataSource :: (Maybe DataSource -&gt; f (Maybe DataSource))
+-&gt; DescribeDataSourceResponse -&gt; f DescribeDataSourceResponse
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_dataSource"><span class="hs-identifier hs-var hs-var">describeDataSourceResponse_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataSourceResponse -&gt; Maybe DataSource)
+-&gt; (DescribeDataSourceResponse
+    -&gt; Maybe DataSource -&gt; DescribeDataSourceResponse)
+-&gt; Lens
+     DescribeDataSourceResponse
+     DescribeDataSourceResponse
+     (Maybe DataSource)
+     (Maybe DataSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-type">DescribeDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679586661"><span class="annot"><span class="annottext">Maybe DataSource
+dataSource :: Maybe DataSource
+$sel:dataSource:DescribeDataSourceResponse' :: DescribeDataSourceResponse -&gt; Maybe DataSource
+</span><a href="#local-6989586621679586661"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679586661"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679586660"><span class="annot"><span class="annottext">s :: DescribeDataSourceResponse
+</span><a href="#local-6989586621679586660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-type">DescribeDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679586659"><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679586659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataSourceResponse
+</span><a href="#local-6989586621679586660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:DescribeDataSourceResponse' :: Maybe DataSource
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3AdataSource%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679586659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_status"><span class="hs-identifier hs-type">describeDataSourceResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="describeDataSourceResponse_status"><span class="annot"><span class="annottext">describeDataSourceResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeDataSourceResponse -&gt; f DescribeDataSourceResponse
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#describeDataSourceResponse_status"><span class="hs-identifier hs-var hs-var">describeDataSourceResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataSourceResponse -&gt; Int)
+-&gt; (DescribeDataSourceResponse
+    -&gt; Int -&gt; DescribeDataSourceResponse)
+-&gt; Lens
+     DescribeDataSourceResponse DescribeDataSourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-type">DescribeDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679586658"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeDataSourceResponse' :: DescribeDataSourceResponse -&gt; Int
+</span><a href="#local-6989586621679586658"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679586658"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679586657"><span class="annot"><span class="annottext">s :: DescribeDataSourceResponse
+</span><a href="#local-6989586621679586657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse%27"><span class="hs-identifier hs-type">DescribeDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679586656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679586656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataSourceResponse
+</span><a href="#local-6989586621679586657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeDataSourceResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeDataSource.html#%24sel%3Astatus%3ADescribeDataSourceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679586656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679586654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeDataSource.html#DescribeDataSourceResponse"><span class="hs-identifier hs-type">DescribeDataSourceResponse</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

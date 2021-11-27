@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.WeeklySchedule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.WeeklySchedule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.DayOfWeek.html"><span class="hs-identifier">Amazonka.MacieV2.Types.DayOfWeek</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies a weekly recurrence pattern for running a classification job.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWeeklySchedule' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679403593"><span id="local-6989586621679403594"></span></span><span class="hs-keyword">data</span><span> </span><span id="WeeklySchedule"><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-var">WeeklySchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WeeklySchedule%27"><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule%27"><span class="hs-identifier hs-var">WeeklySchedule'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The day of the week when Amazon Macie runs the job.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdayOfWeek%3AWeeklySchedule%27"><span class="annot"><span class="annottext">WeeklySchedule -&gt; Maybe DayOfWeek
+</span><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#%24sel%3AdayOfWeek%3AWeeklySchedule%27"><span class="hs-identifier hs-var hs-var">dayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.DayOfWeek.html#DayOfWeek"><span class="hs-identifier hs-type">DayOfWeek</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403587"><span id="local-6989586621679403589"><span class="annot"><span class="annottext">WeeklySchedule -&gt; WeeklySchedule -&gt; Bool
+(WeeklySchedule -&gt; WeeklySchedule -&gt; Bool)
+-&gt; (WeeklySchedule -&gt; WeeklySchedule -&gt; Bool) -&gt; Eq WeeklySchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WeeklySchedule -&gt; WeeklySchedule -&gt; Bool
+$c/= :: WeeklySchedule -&gt; WeeklySchedule -&gt; Bool
+== :: WeeklySchedule -&gt; WeeklySchedule -&gt; Bool
+$c== :: WeeklySchedule -&gt; WeeklySchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403578"><span id="local-6989586621679403580"><span id="local-6989586621679403582"><span id="local-6989586621679403584"><span class="annot"><span class="annottext">ReadPrec [WeeklySchedule]
+ReadPrec WeeklySchedule
+Int -&gt; ReadS WeeklySchedule
+ReadS [WeeklySchedule]
+(Int -&gt; ReadS WeeklySchedule)
+-&gt; ReadS [WeeklySchedule]
+-&gt; ReadPrec WeeklySchedule
+-&gt; ReadPrec [WeeklySchedule]
+-&gt; Read WeeklySchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WeeklySchedule]
+$creadListPrec :: ReadPrec [WeeklySchedule]
+readPrec :: ReadPrec WeeklySchedule
+$creadPrec :: ReadPrec WeeklySchedule
+readList :: ReadS [WeeklySchedule]
+$creadList :: ReadS [WeeklySchedule]
+readsPrec :: Int -&gt; ReadS WeeklySchedule
+$creadsPrec :: Int -&gt; ReadS WeeklySchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403571"><span id="local-6989586621679403573"><span id="local-6989586621679403575"><span class="annot"><span class="annottext">Int -&gt; WeeklySchedule -&gt; ShowS
+[WeeklySchedule] -&gt; ShowS
+WeeklySchedule -&gt; String
+(Int -&gt; WeeklySchedule -&gt; ShowS)
+-&gt; (WeeklySchedule -&gt; String)
+-&gt; ([WeeklySchedule] -&gt; ShowS)
+-&gt; Show WeeklySchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WeeklySchedule] -&gt; ShowS
+$cshowList :: [WeeklySchedule] -&gt; ShowS
+show :: WeeklySchedule -&gt; String
+$cshow :: WeeklySchedule -&gt; String
+showsPrec :: Int -&gt; WeeklySchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; WeeklySchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WeeklySchedule -&gt; Rep WeeklySchedule x)
+-&gt; (forall x. Rep WeeklySchedule x -&gt; WeeklySchedule)
+-&gt; Generic WeeklySchedule
+forall x. Rep WeeklySchedule x -&gt; WeeklySchedule
+forall x. WeeklySchedule -&gt; Rep WeeklySchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WeeklySchedule x -&gt; WeeklySchedule
+$cfrom :: forall x. WeeklySchedule -&gt; Rep WeeklySchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'WeeklySchedule' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'dayOfWeek', 'weeklySchedule_dayOfWeek' - The day of the week when Amazon Macie runs the job.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#newWeeklySchedule"><span class="hs-identifier hs-type">newWeeklySchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-type">WeeklySchedule</span></a></span><span>
+</span><span id="line-47"></span><span id="newWeeklySchedule"><span class="annot"><span class="annottext">newWeeklySchedule :: WeeklySchedule
+</span><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#newWeeklySchedule"><span class="hs-identifier hs-var hs-var">newWeeklySchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">WeeklySchedule' :: Maybe DayOfWeek -&gt; WeeklySchedule
+</span><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule%27"><span class="hs-identifier hs-type">WeeklySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dayOfWeek:WeeklySchedule' :: Maybe DayOfWeek
+</span><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#%24sel%3AdayOfWeek%3AWeeklySchedule%27"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DayOfWeek
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | The day of the week when Amazon Macie runs the job.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#weeklySchedule_dayOfWeek"><span class="hs-identifier hs-type">weeklySchedule_dayOfWeek</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-type">WeeklySchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.DayOfWeek.html#DayOfWeek"><span class="hs-identifier hs-type">DayOfWeek</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span id="weeklySchedule_dayOfWeek"><span class="annot"><span class="annottext">weeklySchedule_dayOfWeek :: (Maybe DayOfWeek -&gt; f (Maybe DayOfWeek))
+-&gt; WeeklySchedule -&gt; f WeeklySchedule
+</span><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#weeklySchedule_dayOfWeek"><span class="hs-identifier hs-var hs-var">weeklySchedule_dayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WeeklySchedule -&gt; Maybe DayOfWeek)
+-&gt; (WeeklySchedule -&gt; Maybe DayOfWeek -&gt; WeeklySchedule)
+-&gt; Lens
+     WeeklySchedule WeeklySchedule (Maybe DayOfWeek) (Maybe DayOfWeek)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule%27"><span class="hs-identifier hs-type">WeeklySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403562"><span class="annot"><span class="annottext">Maybe DayOfWeek
+dayOfWeek :: Maybe DayOfWeek
+$sel:dayOfWeek:WeeklySchedule' :: WeeklySchedule -&gt; Maybe DayOfWeek
+</span><a href="#local-6989586621679403562"><span class="hs-identifier hs-var hs-var">dayOfWeek</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DayOfWeek
+</span><a href="#local-6989586621679403562"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403561"><span class="annot"><span class="annottext">s :: WeeklySchedule
+</span><a href="#local-6989586621679403561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule%27"><span class="hs-identifier hs-type">WeeklySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403560"><span class="annot"><span class="annottext">Maybe DayOfWeek
+</span><a href="#local-6989586621679403560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WeeklySchedule
+</span><a href="#local-6989586621679403561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dayOfWeek:WeeklySchedule' :: Maybe DayOfWeek
+</span><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#%24sel%3AdayOfWeek%3AWeeklySchedule%27"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DayOfWeek
+</span><a href="#local-6989586621679403560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-type">WeeklySchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403557"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-type">WeeklySchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679403555"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WeeklySchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WeeklySchedule)
+-&gt; Value
+-&gt; Parser WeeklySchedule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WeeklySchedule&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679403552"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403552"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe DayOfWeek -&gt; WeeklySchedule
+</span><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule%27"><span class="hs-identifier hs-var">WeeklySchedule'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe DayOfWeek -&gt; WeeklySchedule)
+-&gt; Parser (Maybe DayOfWeek) -&gt; Parser WeeklySchedule
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DayOfWeek)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dayOfWeek&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403546"><span id="local-6989586621679403548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-type">WeeklySchedule</span></a></span></span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-type">WeeklySchedule</span></a></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403535"><span id="local-6989586621679403537"><span id="local-6989586621679403539"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule"><span class="hs-identifier hs-type">WeeklySchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679403533"><span class="annot"><span class="annottext">toJSON :: WeeklySchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.WeeklySchedule.html#WeeklySchedule%27"><span class="hs-identifier hs-type">WeeklySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403531"><span class="annot"><span class="annottext">Maybe DayOfWeek
+dayOfWeek :: Maybe DayOfWeek
+$sel:dayOfWeek:WeeklySchedule' :: WeeklySchedule -&gt; Maybe DayOfWeek
+</span><a href="#local-6989586621679403531"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-70"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dayOfWeek&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DayOfWeek -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DayOfWeek -&gt; Pair) -&gt; Maybe DayOfWeek -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DayOfWeek
+</span><a href="#local-6989586621679403531"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span></pre></body></html>

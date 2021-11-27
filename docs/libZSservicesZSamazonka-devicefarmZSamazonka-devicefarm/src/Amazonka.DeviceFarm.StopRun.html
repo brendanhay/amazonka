@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.StopRun</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates a stop request for the current test run. AWS Device Farm</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- immediately stops the run on devices where tests have not started. You</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- are not billed for these devices. On devices where tests have started</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- executing, setup suite and teardown suite tests run to completion on</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- those devices. You are billed for setup, teardown, and any tests that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- were in progress or already completed.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.StopRun</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier">StopRun</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#newStopRun"><span class="hs-identifier">newStopRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#stopRun_arn"><span class="hs-identifier">stopRun_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier">StopRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#newStopRunResponse"><span class="hs-identifier">newStopRunResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#stopRunResponse_run"><span class="hs-identifier">stopRunResponse_run</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#stopRunResponse_httpStatus"><span class="hs-identifier">stopRunResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Represents the request to stop a specific run.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newStopRun' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679373238"><span id="local-6989586621679373239"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRun"><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-var">StopRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRun%27"><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-var">StopRun'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm run to</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- stop.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aarn%3AStopRun%27"><span class="annot"><span class="annottext">StopRun -&gt; Text
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3Aarn%3AStopRun%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373232"><span id="local-6989586621679373234"><span class="annot"><span class="annottext">StopRun -&gt; StopRun -&gt; Bool
+(StopRun -&gt; StopRun -&gt; Bool)
+-&gt; (StopRun -&gt; StopRun -&gt; Bool) -&gt; Eq StopRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopRun -&gt; StopRun -&gt; Bool
+$c/= :: StopRun -&gt; StopRun -&gt; Bool
+== :: StopRun -&gt; StopRun -&gt; Bool
+$c== :: StopRun -&gt; StopRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373223"><span id="local-6989586621679373225"><span id="local-6989586621679373227"><span id="local-6989586621679373229"><span class="annot"><span class="annottext">ReadPrec [StopRun]
+ReadPrec StopRun
+Int -&gt; ReadS StopRun
+ReadS [StopRun]
+(Int -&gt; ReadS StopRun)
+-&gt; ReadS [StopRun]
+-&gt; ReadPrec StopRun
+-&gt; ReadPrec [StopRun]
+-&gt; Read StopRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopRun]
+$creadListPrec :: ReadPrec [StopRun]
+readPrec :: ReadPrec StopRun
+$creadPrec :: ReadPrec StopRun
+readList :: ReadS [StopRun]
+$creadList :: ReadS [StopRun]
+readsPrec :: Int -&gt; ReadS StopRun
+$creadsPrec :: Int -&gt; ReadS StopRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373216"><span id="local-6989586621679373218"><span id="local-6989586621679373220"><span class="annot"><span class="annottext">Int -&gt; StopRun -&gt; ShowS
+[StopRun] -&gt; ShowS
+StopRun -&gt; String
+(Int -&gt; StopRun -&gt; ShowS)
+-&gt; (StopRun -&gt; String) -&gt; ([StopRun] -&gt; ShowS) -&gt; Show StopRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopRun] -&gt; ShowS
+$cshowList :: [StopRun] -&gt; ShowS
+show :: StopRun -&gt; String
+$cshow :: StopRun -&gt; String
+showsPrec :: Int -&gt; StopRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopRun -&gt; Rep StopRun x)
+-&gt; (forall x. Rep StopRun x -&gt; StopRun) -&gt; Generic StopRun
+forall x. Rep StopRun x -&gt; StopRun
+forall x. StopRun -&gt; Rep StopRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopRun x -&gt; StopRun
+$cfrom :: forall x. StopRun -&gt; Rep StopRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'StopRun' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'arn', 'stopRun_arn' - Represents the Amazon Resource Name (ARN) of the Device Farm run to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- stop.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#newStopRun"><span class="hs-identifier hs-type">newStopRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span>
+</span><span id="line-78"></span><span id="newStopRun"><span class="annot"><span class="annottext">newStopRun :: Text -&gt; StopRun
+</span><a href="Amazonka.DeviceFarm.StopRun.html#newStopRun"><span class="hs-identifier hs-var hs-var">newStopRun</span></a></span></span><span> </span><span id="local-6989586621679373211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373211"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopRun' :: Text -&gt; StopRun
+</span><a href="Amazonka.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRun' :: Text
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3Aarn%3AStopRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373211"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm run to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- stop.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#stopRun_arn"><span class="hs-identifier hs-type">stopRun_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="stopRun_arn"><span class="annot"><span class="annottext">stopRun_arn :: (Text -&gt; f Text) -&gt; StopRun -&gt; f StopRun
+</span><a href="Amazonka.DeviceFarm.StopRun.html#stopRun_arn"><span class="hs-identifier hs-var hs-var">stopRun_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopRun -&gt; Text)
+-&gt; (StopRun -&gt; Text -&gt; StopRun) -&gt; Lens StopRun StopRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373208"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:StopRun' :: StopRun -&gt; Text
+</span><a href="#local-6989586621679373208"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373208"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373207"><span class="annot"><span class="annottext">s :: StopRun
+</span><a href="#local-6989586621679373207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRun
+</span><a href="#local-6989586621679373207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRun' :: Text
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3Aarn%3AStopRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679373202"><span class="annot"><span class="annottext">request :: StopRun -&gt; Request StopRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopRun -&gt; Request StopRun
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679373198"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopRun)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StopRun))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopRun)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373195"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373195"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373194"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679373194"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373193"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Run -&gt; Int -&gt; StopRunResponse
+</span><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-var">StopRunResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Run -&gt; Int -&gt; StopRunResponse)
+-&gt; Either String (Maybe Run)
+-&gt; Either String (Int -&gt; StopRunResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Run)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;run&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopRunResponse)
+-&gt; Either String Int -&gt; Either String StopRunResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373195"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373185"><span id="local-6989586621679373187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679373178"><span class="annot"><span class="annottext">toHeaders :: StopRun -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopRun -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.StopRun&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373168"><span id="local-6989586621679373170"><span id="local-6989586621679373172"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679373166"><span class="annot"><span class="annottext">toJSON :: StopRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373164"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:StopRun' :: StopRun -&gt; Text
+</span><a href="#local-6989586621679373164"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373164"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679373158"><span class="annot"><span class="annottext">toPath :: StopRun -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopRun -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679373154"><span class="annot"><span class="annottext">toQuery :: StopRun -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopRun -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Represents the results of your stop run attempt.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newStopRunResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679373151"><span id="local-6989586621679373152"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRunResponse"><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-var">StopRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRunResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-var">StopRunResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The run that was stopped.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Arun%3AStopRunResponse%27"><span class="annot"><span class="annottext">StopRunResponse -&gt; Maybe Run
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3Arun%3AStopRunResponse%27"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Run.html#Run"><span class="hs-identifier hs-type">Run</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="annot"><span class="annottext">StopRunResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373145"><span id="local-6989586621679373147"><span class="annot"><span class="annottext">StopRunResponse -&gt; StopRunResponse -&gt; Bool
+(StopRunResponse -&gt; StopRunResponse -&gt; Bool)
+-&gt; (StopRunResponse -&gt; StopRunResponse -&gt; Bool)
+-&gt; Eq StopRunResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopRunResponse -&gt; StopRunResponse -&gt; Bool
+$c/= :: StopRunResponse -&gt; StopRunResponse -&gt; Bool
+== :: StopRunResponse -&gt; StopRunResponse -&gt; Bool
+$c== :: StopRunResponse -&gt; StopRunResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373137"><span id="local-6989586621679373139"><span id="local-6989586621679373141"><span id="local-6989586621679373143"><span class="annot"><span class="annottext">ReadPrec [StopRunResponse]
+ReadPrec StopRunResponse
+Int -&gt; ReadS StopRunResponse
+ReadS [StopRunResponse]
+(Int -&gt; ReadS StopRunResponse)
+-&gt; ReadS [StopRunResponse]
+-&gt; ReadPrec StopRunResponse
+-&gt; ReadPrec [StopRunResponse]
+-&gt; Read StopRunResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopRunResponse]
+$creadListPrec :: ReadPrec [StopRunResponse]
+readPrec :: ReadPrec StopRunResponse
+$creadPrec :: ReadPrec StopRunResponse
+readList :: ReadS [StopRunResponse]
+$creadList :: ReadS [StopRunResponse]
+readsPrec :: Int -&gt; ReadS StopRunResponse
+$creadsPrec :: Int -&gt; ReadS StopRunResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373131"><span id="local-6989586621679373133"><span id="local-6989586621679373135"><span class="annot"><span class="annottext">Int -&gt; StopRunResponse -&gt; ShowS
+[StopRunResponse] -&gt; ShowS
+StopRunResponse -&gt; String
+(Int -&gt; StopRunResponse -&gt; ShowS)
+-&gt; (StopRunResponse -&gt; String)
+-&gt; ([StopRunResponse] -&gt; ShowS)
+-&gt; Show StopRunResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopRunResponse] -&gt; ShowS
+$cshowList :: [StopRunResponse] -&gt; ShowS
+show :: StopRunResponse -&gt; String
+$cshow :: StopRunResponse -&gt; String
+showsPrec :: Int -&gt; StopRunResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopRunResponse -&gt; Rep StopRunResponse x)
+-&gt; (forall x. Rep StopRunResponse x -&gt; StopRunResponse)
+-&gt; Generic StopRunResponse
+forall x. Rep StopRunResponse x -&gt; StopRunResponse
+forall x. StopRunResponse -&gt; Rep StopRunResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopRunResponse x -&gt; StopRunResponse
+$cfrom :: forall x. StopRunResponse -&gt; Rep StopRunResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'StopRunResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'run', 'stopRunResponse_run' - The run that was stopped.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'stopRunResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#newStopRunResponse"><span class="hs-identifier hs-type">newStopRunResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newStopRunResponse"><span class="annot"><span class="annottext">newStopRunResponse :: Int -&gt; StopRunResponse
+</span><a href="Amazonka.DeviceFarm.StopRun.html#newStopRunResponse"><span class="hs-identifier hs-var hs-var">newStopRunResponse</span></a></span></span><span> </span><span id="local-6989586621679373128"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373128"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">StopRunResponse' :: Maybe Run -&gt; Int -&gt; StopRunResponse
+</span><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:run:StopRunResponse' :: Maybe Run
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3Arun%3AStopRunResponse%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopRunResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373128"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The run that was stopped.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#stopRunResponse_run"><span class="hs-identifier hs-type">stopRunResponse_run</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Run.html#Run"><span class="hs-identifier hs-type">Run</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="stopRunResponse_run"><span class="annot"><span class="annottext">stopRunResponse_run :: (Maybe Run -&gt; f (Maybe Run))
+-&gt; StopRunResponse -&gt; f StopRunResponse
+</span><a href="Amazonka.DeviceFarm.StopRun.html#stopRunResponse_run"><span class="hs-identifier hs-var hs-var">stopRunResponse_run</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopRunResponse -&gt; Maybe Run)
+-&gt; (StopRunResponse -&gt; Maybe Run -&gt; StopRunResponse)
+-&gt; Lens StopRunResponse StopRunResponse (Maybe Run) (Maybe Run)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373127"><span class="annot"><span class="annottext">Maybe Run
+run :: Maybe Run
+$sel:run:StopRunResponse' :: StopRunResponse -&gt; Maybe Run
+</span><a href="#local-6989586621679373127"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373127"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373126"><span class="annot"><span class="annottext">s :: StopRunResponse
+</span><a href="#local-6989586621679373126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373125"><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRunResponse
+</span><a href="#local-6989586621679373126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:StopRunResponse' :: Maybe Run
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3Arun%3AStopRunResponse%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#stopRunResponse_httpStatus"><span class="hs-identifier hs-type">stopRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span id="stopRunResponse_httpStatus"><span class="annot"><span class="annottext">stopRunResponse_httpStatus :: (Int -&gt; f Int) -&gt; StopRunResponse -&gt; f StopRunResponse
+</span><a href="Amazonka.DeviceFarm.StopRun.html#stopRunResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopRunResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopRunResponse -&gt; Int)
+-&gt; (StopRunResponse -&gt; Int -&gt; StopRunResponse)
+-&gt; Lens StopRunResponse StopRunResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373124"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopRunResponse' :: StopRunResponse -&gt; Int
+</span><a href="#local-6989586621679373124"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373124"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373123"><span class="annot"><span class="annottext">s :: StopRunResponse
+</span><a href="#local-6989586621679373123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373122"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRunResponse
+</span><a href="#local-6989586621679373123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopRunResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.StopRun.html#%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

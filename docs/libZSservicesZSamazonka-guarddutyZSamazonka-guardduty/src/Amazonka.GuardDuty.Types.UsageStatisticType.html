@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.Types.UsageStatisticType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.Types.UsageStatisticType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType"><span class="hs-identifier">UsageStatisticType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_ACCOUNT"><span class="hs-identifier">UsageStatisticType_SUM_BY_ACCOUNT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_DATA_SOURCE"><span class="hs-identifier">UsageStatisticType_SUM_BY_DATA_SOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_RESOURCE"><span class="hs-identifier">UsageStatisticType_SUM_BY_RESOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_TOP_RESOURCES"><span class="hs-identifier">UsageStatisticType_TOP_RESOURCES</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679302810"><span id="local-6989586621679302811"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageStatisticType"><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType"><span class="hs-identifier hs-var">UsageStatisticType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageStatisticType%27"><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType%27"><span class="hs-identifier hs-var">UsageStatisticType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageStatisticType"><span class="annot"><span class="annottext">UsageStatisticType -&gt; Text
+</span><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#fromUsageStatisticType"><span class="hs-identifier hs-var hs-var">fromUsageStatisticType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302802"><span id="local-6989586621679302804"><span id="local-6989586621679302806"><span class="annot"><span class="annottext">Int -&gt; UsageStatisticType -&gt; ShowS
+[UsageStatisticType] -&gt; ShowS
+UsageStatisticType -&gt; String
+(Int -&gt; UsageStatisticType -&gt; ShowS)
+-&gt; (UsageStatisticType -&gt; String)
+-&gt; ([UsageStatisticType] -&gt; ShowS)
+-&gt; Show UsageStatisticType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UsageStatisticType] -&gt; ShowS
+$cshowList :: [UsageStatisticType] -&gt; ShowS
+show :: UsageStatisticType -&gt; String
+$cshow :: UsageStatisticType -&gt; String
+showsPrec :: Int -&gt; UsageStatisticType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UsageStatisticType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679302793"><span id="local-6989586621679302795"><span id="local-6989586621679302797"><span id="local-6989586621679302799"><span class="annot"><span class="annottext">ReadPrec [UsageStatisticType]
+ReadPrec UsageStatisticType
+Int -&gt; ReadS UsageStatisticType
+ReadS [UsageStatisticType]
+(Int -&gt; ReadS UsageStatisticType)
+-&gt; ReadS [UsageStatisticType]
+-&gt; ReadPrec UsageStatisticType
+-&gt; ReadPrec [UsageStatisticType]
+-&gt; Read UsageStatisticType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UsageStatisticType]
+$creadListPrec :: ReadPrec [UsageStatisticType]
+readPrec :: ReadPrec UsageStatisticType
+$creadPrec :: ReadPrec UsageStatisticType
+readList :: ReadS [UsageStatisticType]
+$creadList :: ReadS [UsageStatisticType]
+readsPrec :: Int -&gt; ReadS UsageStatisticType
+$creadsPrec :: Int -&gt; ReadS UsageStatisticType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679302788"><span id="local-6989586621679302790"><span class="annot"><span class="annottext">UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+(UsageStatisticType -&gt; UsageStatisticType -&gt; Bool)
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; Bool)
+-&gt; Eq UsageStatisticType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+$c/= :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+== :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+$c== :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679302772"><span id="local-6989586621679302774"><span id="local-6989586621679302776"><span id="local-6989586621679302778"><span id="local-6989586621679302780"><span id="local-6989586621679302782"><span id="local-6989586621679302784"><span class="annot"><span class="annottext">Eq UsageStatisticType
+Eq UsageStatisticType
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; Ordering)
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; Bool)
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; Bool)
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; Bool)
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; Bool)
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; UsageStatisticType)
+-&gt; (UsageStatisticType -&gt; UsageStatisticType -&gt; UsageStatisticType)
+-&gt; Ord UsageStatisticType
+UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+UsageStatisticType -&gt; UsageStatisticType -&gt; Ordering
+UsageStatisticType -&gt; UsageStatisticType -&gt; UsageStatisticType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UsageStatisticType -&gt; UsageStatisticType -&gt; UsageStatisticType
+$cmin :: UsageStatisticType -&gt; UsageStatisticType -&gt; UsageStatisticType
+max :: UsageStatisticType -&gt; UsageStatisticType -&gt; UsageStatisticType
+$cmax :: UsageStatisticType -&gt; UsageStatisticType -&gt; UsageStatisticType
+&gt;= :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+$c&gt;= :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+&gt; :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+$c&gt; :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+&lt;= :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+$c&lt;= :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+&lt; :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+$c&lt; :: UsageStatisticType -&gt; UsageStatisticType -&gt; Bool
+compare :: UsageStatisticType -&gt; UsageStatisticType -&gt; Ordering
+$ccompare :: UsageStatisticType -&gt; UsageStatisticType -&gt; Ordering
+$cp1Ord :: Eq UsageStatisticType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UsageStatisticType -&gt; Rep UsageStatisticType x)
+-&gt; (forall x. Rep UsageStatisticType x -&gt; UsageStatisticType)
+-&gt; Generic UsageStatisticType
+forall x. Rep UsageStatisticType x -&gt; UsageStatisticType
+forall x. UsageStatisticType -&gt; Rep UsageStatisticType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UsageStatisticType x -&gt; UsageStatisticType
+$cfrom :: forall x. UsageStatisticType -&gt; Rep UsageStatisticType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302764"><span id="local-6989586621679302766"><span class="annot"><span class="annottext">Int -&gt; UsageStatisticType -&gt; Int
+UsageStatisticType -&gt; Int
+(Int -&gt; UsageStatisticType -&gt; Int)
+-&gt; (UsageStatisticType -&gt; Int) -&gt; Hashable UsageStatisticType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UsageStatisticType -&gt; Int
+$chash :: UsageStatisticType -&gt; Int
+hashWithSalt :: Int -&gt; UsageStatisticType -&gt; Int
+$chashWithSalt :: Int -&gt; UsageStatisticType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679302761"><span class="annot"><span class="annottext">UsageStatisticType -&gt; ()
+(UsageStatisticType -&gt; ()) -&gt; NFData UsageStatisticType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UsageStatisticType -&gt; ()
+$crnf :: UsageStatisticType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679302758"><span class="annot"><span class="annottext">Text -&gt; Either String UsageStatisticType
+(Text -&gt; Either String UsageStatisticType)
+-&gt; FromText UsageStatisticType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UsageStatisticType
+$cfromText :: Text -&gt; Either String UsageStatisticType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679302755"><span class="annot"><span class="annottext">UsageStatisticType -&gt; Text
+(UsageStatisticType -&gt; Text) -&gt; ToText UsageStatisticType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UsageStatisticType -&gt; Text
+$ctoText :: UsageStatisticType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679302752"><span class="annot"><span class="annottext">UsageStatisticType -&gt; ByteString
+(UsageStatisticType -&gt; ByteString)
+-&gt; ToByteString UsageStatisticType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UsageStatisticType -&gt; ByteString
+$ctoBS :: UsageStatisticType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679302749"><span class="annot"><span class="annottext">UsageStatisticType -&gt; ByteStringBuilder
+(UsageStatisticType -&gt; ByteStringBuilder)
+-&gt; ToLog UsageStatisticType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UsageStatisticType -&gt; ByteStringBuilder
+$cbuild :: UsageStatisticType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679302746"><span class="annot"><span class="annottext">HeaderName -&gt; UsageStatisticType -&gt; [Header]
+(HeaderName -&gt; UsageStatisticType -&gt; [Header])
+-&gt; ToHeader UsageStatisticType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UsageStatisticType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UsageStatisticType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679302743"><span class="annot"><span class="annottext">UsageStatisticType -&gt; QueryString
+(UsageStatisticType -&gt; QueryString) -&gt; ToQuery UsageStatisticType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UsageStatisticType -&gt; QueryString
+$ctoQuery :: UsageStatisticType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679302738"><span id="local-6989586621679302740"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageStatisticType]
+Value -&gt; Parser UsageStatisticType
+(Value -&gt; Parser UsageStatisticType)
+-&gt; (Value -&gt; Parser [UsageStatisticType])
+-&gt; FromJSON UsageStatisticType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UsageStatisticType]
+$cparseJSONList :: Value -&gt; Parser [UsageStatisticType]
+parseJSON :: Value -&gt; Parser UsageStatisticType
+$cparseJSON :: Value -&gt; Parser UsageStatisticType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679302733"><span id="local-6989586621679302735"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageStatisticType]
+FromJSONKeyFunction UsageStatisticType
+FromJSONKeyFunction UsageStatisticType
+-&gt; FromJSONKeyFunction [UsageStatisticType]
+-&gt; FromJSONKey UsageStatisticType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UsageStatisticType]
+$cfromJSONKeyList :: FromJSONKeyFunction [UsageStatisticType]
+fromJSONKey :: FromJSONKeyFunction UsageStatisticType
+$cfromJSONKey :: FromJSONKeyFunction UsageStatisticType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679302724"><span id="local-6989586621679302726"><span id="local-6989586621679302728"><span id="local-6989586621679302730"><span class="annot"><span class="annottext">[UsageStatisticType] -&gt; Encoding
+[UsageStatisticType] -&gt; Value
+UsageStatisticType -&gt; Encoding
+UsageStatisticType -&gt; Value
+(UsageStatisticType -&gt; Value)
+-&gt; (UsageStatisticType -&gt; Encoding)
+-&gt; ([UsageStatisticType] -&gt; Value)
+-&gt; ([UsageStatisticType] -&gt; Encoding)
+-&gt; ToJSON UsageStatisticType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UsageStatisticType] -&gt; Encoding
+$ctoEncodingList :: [UsageStatisticType] -&gt; Encoding
+toJSONList :: [UsageStatisticType] -&gt; Value
+$ctoJSONList :: [UsageStatisticType] -&gt; Value
+toEncoding :: UsageStatisticType -&gt; Encoding
+$ctoEncoding :: UsageStatisticType -&gt; Encoding
+toJSON :: UsageStatisticType -&gt; Value
+$ctoJSON :: UsageStatisticType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679302719"><span id="local-6989586621679302721"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageStatisticType]
+ToJSONKeyFunction UsageStatisticType
+ToJSONKeyFunction UsageStatisticType
+-&gt; ToJSONKeyFunction [UsageStatisticType]
+-&gt; ToJSONKey UsageStatisticType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UsageStatisticType]
+$ctoJSONKeyList :: ToJSONKeyFunction [UsageStatisticType]
+toJSONKey :: ToJSONKeyFunction UsageStatisticType
+$ctoJSONKey :: ToJSONKeyFunction UsageStatisticType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679302716"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageStatisticType
+([Node] -&gt; Either String UsageStatisticType)
+-&gt; FromXML UsageStatisticType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UsageStatisticType
+$cparseXML :: [Node] -&gt; Either String UsageStatisticType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679302713"><span class="annot"><span class="annottext">UsageStatisticType -&gt; XML
+(UsageStatisticType -&gt; XML) -&gt; ToXML UsageStatisticType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UsageStatisticType -&gt; XML
+$ctoXML :: UsageStatisticType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_ACCOUNT"><span class="hs-identifier hs-type">UsageStatisticType_SUM_BY_ACCOUNT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType"><span class="hs-identifier hs-type">UsageStatisticType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageStatisticType_SUM_BY_ACCOUNT"><span id="%24mUsageStatisticType_SUM_BY_ACCOUNT"><span id="UsageStatisticType_SUM_BY_ACCOUNT"><span class="annot"><span class="annottext">$bUsageStatisticType_SUM_BY_ACCOUNT :: UsageStatisticType
+$mUsageStatisticType_SUM_BY_ACCOUNT :: forall r. UsageStatisticType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#%24bUsageStatisticType_SUM_BY_ACCOUNT"><span class="hs-identifier hs-var hs-var hs-var">UsageStatisticType_SUM_BY_ACCOUNT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType%27"><span class="hs-identifier hs-type">UsageStatisticType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUM_BY_ACCOUNT&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_DATA_SOURCE"><span class="hs-identifier hs-type">UsageStatisticType_SUM_BY_DATA_SOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType"><span class="hs-identifier hs-type">UsageStatisticType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageStatisticType_SUM_BY_DATA_SOURCE"><span id="%24mUsageStatisticType_SUM_BY_DATA_SOURCE"><span id="UsageStatisticType_SUM_BY_DATA_SOURCE"><span class="annot"><span class="annottext">$bUsageStatisticType_SUM_BY_DATA_SOURCE :: UsageStatisticType
+$mUsageStatisticType_SUM_BY_DATA_SOURCE :: forall r. UsageStatisticType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#%24bUsageStatisticType_SUM_BY_DATA_SOURCE"><span class="hs-identifier hs-var hs-var hs-var">UsageStatisticType_SUM_BY_DATA_SOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType%27"><span class="hs-identifier hs-type">UsageStatisticType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUM_BY_DATA_SOURCE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_RESOURCE"><span class="hs-identifier hs-type">UsageStatisticType_SUM_BY_RESOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType"><span class="hs-identifier hs-type">UsageStatisticType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageStatisticType_SUM_BY_RESOURCE"><span id="%24mUsageStatisticType_SUM_BY_RESOURCE"><span id="UsageStatisticType_SUM_BY_RESOURCE"><span class="annot"><span class="annottext">$bUsageStatisticType_SUM_BY_RESOURCE :: UsageStatisticType
+$mUsageStatisticType_SUM_BY_RESOURCE :: forall r. UsageStatisticType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#%24bUsageStatisticType_SUM_BY_RESOURCE"><span class="hs-identifier hs-var hs-var hs-var">UsageStatisticType_SUM_BY_RESOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType%27"><span class="hs-identifier hs-type">UsageStatisticType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUM_BY_RESOURCE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_TOP_RESOURCES"><span class="hs-identifier hs-type">UsageStatisticType_TOP_RESOURCES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType"><span class="hs-identifier hs-type">UsageStatisticType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageStatisticType_TOP_RESOURCES"><span id="%24mUsageStatisticType_TOP_RESOURCES"><span id="UsageStatisticType_TOP_RESOURCES"><span class="annot"><span class="annottext">$bUsageStatisticType_TOP_RESOURCES :: UsageStatisticType
+$mUsageStatisticType_TOP_RESOURCES :: forall r. UsageStatisticType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#%24bUsageStatisticType_TOP_RESOURCES"><span class="hs-identifier hs-var hs-var hs-var">UsageStatisticType_TOP_RESOURCES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType%27"><span class="hs-identifier hs-type">UsageStatisticType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TOP_RESOURCES&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_ACCOUNT"><span class="hs-pragma hs-type">UsageStatisticType_SUM_BY_ACCOUNT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_DATA_SOURCE"><span class="hs-pragma hs-type">UsageStatisticType_SUM_BY_DATA_SOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_SUM_BY_RESOURCE"><span class="hs-pragma hs-type">UsageStatisticType_SUM_BY_RESOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType_TOP_RESOURCES"><span class="hs-pragma hs-type">UsageStatisticType_TOP_RESOURCES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.UsageStatisticType.html#UsageStatisticType%27"><span class="hs-pragma hs-type">UsageStatisticType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

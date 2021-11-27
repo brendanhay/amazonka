@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.S3.DeleteObject</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes the null version (if there is one) of an object and inserts a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- delete marker, which becomes the latest version of the object. If there</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- isn\'t a null version, Amazon S3 does not remove any objects but will</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- still respond that the command was successful.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- To remove a specific version, you must be the bucket owner and you must</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- use the version Id subresource. Using this subresource permanently</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- deletes the version. If the object deleted is a delete marker, Amazon S3</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- sets the response header, @x-amz-delete-marker@, to true.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- If the object you want to delete is in a bucket where the bucket</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- versioning configuration is MFA Delete enabled, you must include the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- @x-amz-mfa@ request header in the DELETE @versionId@ request. Requests</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- that include @x-amz-mfa@ must use HTTPS.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For more information about MFA Delete, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html Using MFA Delete&gt;.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- To see sample requests that use versioning, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete Sample Request&gt;.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- You can delete objects by explicitly calling DELETE Object or configure</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- its lifecycle</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html PutBucketLifecycle&gt;)</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- to enable Amazon S3 to remove them for you. If you want to block users</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- or accounts from removing or deleting objects from your bucket, you must</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- deny them the @s3:DeleteObject@, @s3:DeleteObjectVersion@, and</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- @s3:PutLifeCycleConfiguration@ actions.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following action is related to @DeleteObject@:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject&gt;</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.DeleteObject</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier">DeleteObject</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#newDeleteObject"><span class="hs-identifier">newDeleteObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_versionId"><span class="hs-identifier">deleteObject_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_mfa"><span class="hs-identifier">deleteObject_mfa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_requestPayer"><span class="hs-identifier">deleteObject_requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_bypassGovernanceRetention"><span class="hs-identifier">deleteObject_bypassGovernanceRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_expectedBucketOwner"><span class="hs-identifier">deleteObject_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_bucket"><span class="hs-identifier">deleteObject_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_key"><span class="hs-identifier">deleteObject_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier">DeleteObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#newDeleteObjectResponse"><span class="hs-identifier">newDeleteObjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_requestCharged"><span class="hs-identifier">deleteObjectResponse_requestCharged</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_versionId"><span class="hs-identifier">deleteObjectResponse_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_deleteMarker"><span class="hs-identifier">deleteObjectResponse_deleteMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_httpStatus"><span class="hs-identifier">deleteObjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.html"><span class="hs-identifier">Amazonka.S3.Types</span></a></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | /See:/ 'newDeleteObject' smart constructor.</span><span>
+</span><span id="line-88"></span><span id="local-6989586621679578893"><span id="local-6989586621679578894"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObject"><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-var">DeleteObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObject%27"><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-var">DeleteObject'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | VersionId used to reference a specific version of the object.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AversionId%3ADeleteObject%27"><span class="annot"><span class="annottext">DeleteObject -&gt; Maybe ObjectVersionId
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AversionId%3ADeleteObject%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The concatenation of the authentication device\'s serial number, a</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Amfa%3ADeleteObject%27"><span class="annot"><span class="annottext">DeleteObject -&gt; Maybe Text
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Amfa%3ADeleteObject%27"><span class="hs-identifier hs-var hs-var">mfa</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3ArequestPayer%3ADeleteObject%27"><span class="annot"><span class="annottext">DeleteObject -&gt; Maybe RequestPayer
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3ArequestPayer%3ADeleteObject%27"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | Indicates whether S3 Object Lock should bypass Governance-mode</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- restrictions to process this operation. To use this header, you must</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- have the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AbypassGovernanceRetention%3ADeleteObject%27"><span class="annot"><span class="annottext">DeleteObject -&gt; Maybe Bool
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AbypassGovernanceRetention%3ADeleteObject%27"><span class="hs-identifier hs-var hs-var">bypassGovernanceRetention</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3ADeleteObject%27"><span class="annot"><span class="annottext">DeleteObject -&gt; Maybe Text
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AexpectedBucketOwner%3ADeleteObject%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The bucket name of the bucket containing the object.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- takes the form</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3Abucket%3ADeleteObject%27"><span class="annot"><span class="annottext">DeleteObject -&gt; BucketName
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Abucket%3ADeleteObject%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | Key name of the object to delete.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3Akey%3ADeleteObject%27"><span class="annot"><span class="annottext">DeleteObject -&gt; ObjectKey
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Akey%3ADeleteObject%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578881"><span id="local-6989586621679578883"><span class="annot"><span class="annottext">DeleteObject -&gt; DeleteObject -&gt; Bool
+(DeleteObject -&gt; DeleteObject -&gt; Bool)
+-&gt; (DeleteObject -&gt; DeleteObject -&gt; Bool) -&gt; Eq DeleteObject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteObject -&gt; DeleteObject -&gt; Bool
+$c/= :: DeleteObject -&gt; DeleteObject -&gt; Bool
+== :: DeleteObject -&gt; DeleteObject -&gt; Bool
+$c== :: DeleteObject -&gt; DeleteObject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578872"><span id="local-6989586621679578874"><span id="local-6989586621679578876"><span id="local-6989586621679578878"><span class="annot"><span class="annottext">ReadPrec [DeleteObject]
+ReadPrec DeleteObject
+Int -&gt; ReadS DeleteObject
+ReadS [DeleteObject]
+(Int -&gt; ReadS DeleteObject)
+-&gt; ReadS [DeleteObject]
+-&gt; ReadPrec DeleteObject
+-&gt; ReadPrec [DeleteObject]
+-&gt; Read DeleteObject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteObject]
+$creadListPrec :: ReadPrec [DeleteObject]
+readPrec :: ReadPrec DeleteObject
+$creadPrec :: ReadPrec DeleteObject
+readList :: ReadS [DeleteObject]
+$creadList :: ReadS [DeleteObject]
+readsPrec :: Int -&gt; ReadS DeleteObject
+$creadsPrec :: Int -&gt; ReadS DeleteObject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578865"><span id="local-6989586621679578867"><span id="local-6989586621679578869"><span class="annot"><span class="annottext">Int -&gt; DeleteObject -&gt; ShowS
+[DeleteObject] -&gt; ShowS
+DeleteObject -&gt; String
+(Int -&gt; DeleteObject -&gt; ShowS)
+-&gt; (DeleteObject -&gt; String)
+-&gt; ([DeleteObject] -&gt; ShowS)
+-&gt; Show DeleteObject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteObject] -&gt; ShowS
+$cshowList :: [DeleteObject] -&gt; ShowS
+show :: DeleteObject -&gt; String
+$cshow :: DeleteObject -&gt; String
+showsPrec :: Int -&gt; DeleteObject -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteObject -&gt; Rep DeleteObject x)
+-&gt; (forall x. Rep DeleteObject x -&gt; DeleteObject)
+-&gt; Generic DeleteObject
+forall x. Rep DeleteObject x -&gt; DeleteObject
+forall x. DeleteObject -&gt; Rep DeleteObject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteObject x -&gt; DeleteObject
+$cfrom :: forall x. DeleteObject -&gt; Rep DeleteObject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'DeleteObject' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'versionId', 'deleteObject_versionId' - VersionId used to reference a specific version of the object.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'mfa', 'deleteObject_mfa' - The concatenation of the authentication device\'s serial number, a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'requestPayer', 'deleteObject_requestPayer' - Undocumented member.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'bypassGovernanceRetention', 'deleteObject_bypassGovernanceRetention' - Indicates whether S3 Object Lock should bypass Governance-mode</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- restrictions to process this operation. To use this header, you must</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- have the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'expectedBucketOwner', 'deleteObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'bucket', 'deleteObject_bucket' - The bucket name of the bucket containing the object.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- takes the form</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'key', 'deleteObject_key' - Key name of the object to delete.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#newDeleteObject"><span class="hs-identifier hs-type">newDeleteObject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span>
+</span><span id="line-184"></span><span id="newDeleteObject"><span class="annot"><span class="annottext">newDeleteObject :: BucketName -&gt; ObjectKey -&gt; DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#newDeleteObject"><span class="hs-identifier hs-var hs-var">newDeleteObject</span></a></span></span><span> </span><span id="local-6989586621679578860"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578860"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679578859"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578859"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">DeleteObject' :: Maybe ObjectVersionId
+-&gt; Maybe Text
+-&gt; Maybe RequestPayer
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; BucketName
+-&gt; ObjectKey
+-&gt; DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:DeleteObject' :: Maybe ObjectVersionId
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AversionId%3ADeleteObject%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:mfa:DeleteObject' :: Maybe Text
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Amfa%3ADeleteObject%27"><span class="hs-identifier hs-var">mfa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestPayer:DeleteObject' :: Maybe RequestPayer
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3ArequestPayer%3ADeleteObject%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:bypassGovernanceRetention:DeleteObject' :: Maybe Bool
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AbypassGovernanceRetention%3ADeleteObject%27"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObject' :: Maybe Text
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AexpectedBucketOwner%3ADeleteObject%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteObject' :: BucketName
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Abucket%3ADeleteObject%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578860"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:DeleteObject' :: ObjectKey
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Akey%3ADeleteObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578859"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | VersionId used to reference a specific version of the object.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_versionId"><span class="hs-identifier hs-type">deleteObject_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="deleteObject_versionId"><span class="annot"><span class="annottext">deleteObject_versionId :: (Maybe ObjectVersionId -&gt; f (Maybe ObjectVersionId))
+-&gt; DeleteObject -&gt; f DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObject_versionId"><span class="hs-identifier hs-var hs-var">deleteObject_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; Maybe ObjectVersionId)
+-&gt; (DeleteObject -&gt; Maybe ObjectVersionId -&gt; DeleteObject)
+-&gt; Lens
+     DeleteObject
+     DeleteObject
+     (Maybe ObjectVersionId)
+     (Maybe ObjectVersionId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578856"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+versionId :: Maybe ObjectVersionId
+$sel:versionId:DeleteObject' :: DeleteObject -&gt; Maybe ObjectVersionId
+</span><a href="#local-6989586621679578856"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578856"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578855"><span class="annot"><span class="annottext">s :: DeleteObject
+</span><a href="#local-6989586621679578855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578854"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObject
+</span><a href="#local-6989586621679578855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteObject' :: Maybe ObjectVersionId
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AversionId%3ADeleteObject%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The concatenation of the authentication device\'s serial number, a</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_mfa"><span class="hs-identifier hs-type">deleteObject_mfa</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="deleteObject_mfa"><span class="annot"><span class="annottext">deleteObject_mfa :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteObject -&gt; f DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObject_mfa"><span class="hs-identifier hs-var hs-var">deleteObject_mfa</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; Maybe Text)
+-&gt; (DeleteObject -&gt; Maybe Text -&gt; DeleteObject)
+-&gt; Lens DeleteObject DeleteObject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578853"><span class="annot"><span class="annottext">Maybe Text
+mfa :: Maybe Text
+$sel:mfa:DeleteObject' :: DeleteObject -&gt; Maybe Text
+</span><a href="#local-6989586621679578853"><span class="hs-identifier hs-var hs-var">mfa</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578853"><span class="hs-identifier hs-var">mfa</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578852"><span class="annot"><span class="annottext">s :: DeleteObject
+</span><a href="#local-6989586621679578852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578851"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObject
+</span><a href="#local-6989586621679578852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfa:DeleteObject' :: Maybe Text
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Amfa%3ADeleteObject%27"><span class="hs-identifier hs-var">mfa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_requestPayer"><span class="hs-identifier hs-type">deleteObject_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="deleteObject_requestPayer"><span class="annot"><span class="annottext">deleteObject_requestPayer :: (Maybe RequestPayer -&gt; f (Maybe RequestPayer))
+-&gt; DeleteObject -&gt; f DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObject_requestPayer"><span class="hs-identifier hs-var hs-var">deleteObject_requestPayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; Maybe RequestPayer)
+-&gt; (DeleteObject -&gt; Maybe RequestPayer -&gt; DeleteObject)
+-&gt; Lens
+     DeleteObject DeleteObject (Maybe RequestPayer) (Maybe RequestPayer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578850"><span class="annot"><span class="annottext">Maybe RequestPayer
+requestPayer :: Maybe RequestPayer
+$sel:requestPayer:DeleteObject' :: DeleteObject -&gt; Maybe RequestPayer
+</span><a href="#local-6989586621679578850"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679578850"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578849"><span class="annot"><span class="annottext">s :: DeleteObject
+</span><a href="#local-6989586621679578849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578848"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679578848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObject
+</span><a href="#local-6989586621679578849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:DeleteObject' :: Maybe RequestPayer
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3ArequestPayer%3ADeleteObject%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679578848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Indicates whether S3 Object Lock should bypass Governance-mode</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- restrictions to process this operation. To use this header, you must</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- have the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_bypassGovernanceRetention"><span class="hs-identifier hs-type">deleteObject_bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="deleteObject_bypassGovernanceRetention"><span class="annot"><span class="annottext">deleteObject_bypassGovernanceRetention :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeleteObject -&gt; f DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObject_bypassGovernanceRetention"><span class="hs-identifier hs-var hs-var">deleteObject_bypassGovernanceRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; Maybe Bool)
+-&gt; (DeleteObject -&gt; Maybe Bool -&gt; DeleteObject)
+-&gt; Lens DeleteObject DeleteObject (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578847"><span class="annot"><span class="annottext">Maybe Bool
+bypassGovernanceRetention :: Maybe Bool
+$sel:bypassGovernanceRetention:DeleteObject' :: DeleteObject -&gt; Maybe Bool
+</span><a href="#local-6989586621679578847"><span class="hs-identifier hs-var hs-var">bypassGovernanceRetention</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578847"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578846"><span class="annot"><span class="annottext">s :: DeleteObject
+</span><a href="#local-6989586621679578846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578845"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObject
+</span><a href="#local-6989586621679578846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassGovernanceRetention:DeleteObject' :: Maybe Bool
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AbypassGovernanceRetention%3ADeleteObject%27"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_expectedBucketOwner"><span class="hs-identifier hs-type">deleteObject_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="deleteObject_expectedBucketOwner"><span class="annot"><span class="annottext">deleteObject_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteObject -&gt; f DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObject_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">deleteObject_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; Maybe Text)
+-&gt; (DeleteObject -&gt; Maybe Text -&gt; DeleteObject)
+-&gt; Lens DeleteObject DeleteObject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578844"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:DeleteObject' :: DeleteObject -&gt; Maybe Text
+</span><a href="#local-6989586621679578844"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578844"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578843"><span class="annot"><span class="annottext">s :: DeleteObject
+</span><a href="#local-6989586621679578843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObject
+</span><a href="#local-6989586621679578843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObject' :: Maybe Text
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AexpectedBucketOwner%3ADeleteObject%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The bucket name of the bucket containing the object.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- takes the form</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_bucket"><span class="hs-identifier hs-type">deleteObject_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-243"></span><span id="deleteObject_bucket"><span class="annot"><span class="annottext">deleteObject_bucket :: (BucketName -&gt; f BucketName) -&gt; DeleteObject -&gt; f DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObject_bucket"><span class="hs-identifier hs-var hs-var">deleteObject_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; BucketName)
+-&gt; (DeleteObject -&gt; BucketName -&gt; DeleteObject)
+-&gt; Lens DeleteObject DeleteObject BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578841"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:DeleteObject' :: DeleteObject -&gt; BucketName
+</span><a href="#local-6989586621679578841"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578841"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578840"><span class="annot"><span class="annottext">s :: DeleteObject
+</span><a href="#local-6989586621679578840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578839"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObject
+</span><a href="#local-6989586621679578840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteObject' :: BucketName
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Abucket%3ADeleteObject%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | Key name of the object to delete.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObject_key"><span class="hs-identifier hs-type">deleteObject_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
+</span><span id="line-247"></span><span id="deleteObject_key"><span class="annot"><span class="annottext">deleteObject_key :: (ObjectKey -&gt; f ObjectKey) -&gt; DeleteObject -&gt; f DeleteObject
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObject_key"><span class="hs-identifier hs-var hs-var">deleteObject_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; ObjectKey)
+-&gt; (DeleteObject -&gt; ObjectKey -&gt; DeleteObject)
+-&gt; Lens DeleteObject DeleteObject ObjectKey ObjectKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578838"><span class="annot"><span class="annottext">ObjectKey
+key :: ObjectKey
+$sel:key:DeleteObject' :: DeleteObject -&gt; ObjectKey
+</span><a href="#local-6989586621679578838"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578838"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578837"><span class="annot"><span class="annottext">s :: DeleteObject
+</span><a href="#local-6989586621679578837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578836"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObject
+</span><a href="#local-6989586621679578837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:DeleteObject' :: ObjectKey
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3Akey%3ADeleteObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679578832"><span class="annot"><span class="annottext">request :: DeleteObject -&gt; Request DeleteObject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteObject -&gt; Request DeleteObject
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">(Request DeleteObject -&gt; Request DeleteObject)
+-&gt; (DeleteObject -&gt; Request DeleteObject)
+-&gt; DeleteObject
+-&gt; Request DeleteObject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteObject -&gt; Request DeleteObject
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679578826"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteObject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteObject)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteObject))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteObject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteObject)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679578823"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578823"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679578822"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578822"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679578821"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679578821"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestCharged
+-&gt; Maybe ObjectVersionId
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; DeleteObjectResponse
+</span><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-var">DeleteObjectResponse'</span></a></span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestCharged
+ -&gt; Maybe ObjectVersionId
+ -&gt; Maybe Bool
+ -&gt; Int
+ -&gt; DeleteObjectResponse)
+-&gt; Either String (Maybe RequestCharged)
+-&gt; Either
+     String
+     (Maybe ObjectVersionId
+      -&gt; Maybe Bool -&gt; Int -&gt; DeleteObjectResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578822"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; HeaderName -&gt; Either String (Maybe RequestCharged)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-request-charged&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ObjectVersionId
+   -&gt; Maybe Bool -&gt; Int -&gt; DeleteObjectResponse)
+-&gt; Either String (Maybe ObjectVersionId)
+-&gt; Either String (Maybe Bool -&gt; Int -&gt; DeleteObjectResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578822"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; HeaderName -&gt; Either String (Maybe ObjectVersionId)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-version-id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; DeleteObjectResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; DeleteObjectResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578822"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Bool)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-delete-marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteObjectResponse)
+-&gt; Either String Int -&gt; Either String DeleteObjectResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578823"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578813"><span id="local-6989586621679578815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span></span></span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span></span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679578806"><span class="annot"><span class="annottext">toHeaders :: DeleteObject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578798"><span id="local-6989586621679578799"><span id="local-6989586621679578800"><span id="local-6989586621679578801"><span id="local-6989586621679578802"><span id="local-6989586621679578803"><span id="local-6989586621679578804"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe ObjectVersionId
+Maybe RequestPayer
+ObjectKey
+BucketName
+key :: ObjectKey
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+bypassGovernanceRetention :: Maybe Bool
+requestPayer :: Maybe RequestPayer
+mfa :: Maybe Text
+versionId :: Maybe ObjectVersionId
+$sel:key:DeleteObject' :: DeleteObject -&gt; ObjectKey
+$sel:bucket:DeleteObject' :: DeleteObject -&gt; BucketName
+$sel:expectedBucketOwner:DeleteObject' :: DeleteObject -&gt; Maybe Text
+$sel:bypassGovernanceRetention:DeleteObject' :: DeleteObject -&gt; Maybe Bool
+$sel:requestPayer:DeleteObject' :: DeleteObject -&gt; Maybe RequestPayer
+$sel:mfa:DeleteObject' :: DeleteObject -&gt; Maybe Text
+$sel:versionId:DeleteObject' :: DeleteObject -&gt; Maybe ObjectVersionId
+</span><a href="#local-6989586621679578798"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-mfa&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578803"><span class="hs-identifier hs-var">mfa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679578802"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-bypass-governance-retention&quot;</span></span><span>
+</span><span id="line-274"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Bool -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578801"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578800"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679578794"><span class="annot"><span class="annottext">toPath :: DeleteObject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578786"><span id="local-6989586621679578787"><span id="local-6989586621679578788"><span id="local-6989586621679578789"><span id="local-6989586621679578790"><span id="local-6989586621679578791"><span id="local-6989586621679578792"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe ObjectVersionId
+Maybe RequestPayer
+ObjectKey
+BucketName
+key :: ObjectKey
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+bypassGovernanceRetention :: Maybe Bool
+requestPayer :: Maybe RequestPayer
+mfa :: Maybe Text
+versionId :: Maybe ObjectVersionId
+$sel:key:DeleteObject' :: DeleteObject -&gt; ObjectKey
+$sel:bucket:DeleteObject' :: DeleteObject -&gt; BucketName
+$sel:expectedBucketOwner:DeleteObject' :: DeleteObject -&gt; Maybe Text
+$sel:bypassGovernanceRetention:DeleteObject' :: DeleteObject -&gt; Maybe Bool
+$sel:requestPayer:DeleteObject' :: DeleteObject -&gt; Maybe RequestPayer
+$sel:mfa:DeleteObject' :: DeleteObject -&gt; Maybe Text
+$sel:versionId:DeleteObject' :: DeleteObject -&gt; Maybe ObjectVersionId
+</span><a href="#local-6989586621679578786"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-282"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578787"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578786"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject"><span class="hs-identifier hs-type">DeleteObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679578782"><span class="annot"><span class="annottext">toQuery :: DeleteObject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObject%27"><span class="hs-identifier hs-type">DeleteObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578774"><span id="local-6989586621679578775"><span id="local-6989586621679578776"><span id="local-6989586621679578777"><span id="local-6989586621679578778"><span id="local-6989586621679578779"><span id="local-6989586621679578780"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe ObjectVersionId
+Maybe RequestPayer
+ObjectKey
+BucketName
+key :: ObjectKey
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+bypassGovernanceRetention :: Maybe Bool
+requestPayer :: Maybe RequestPayer
+mfa :: Maybe Text
+versionId :: Maybe ObjectVersionId
+$sel:key:DeleteObject' :: DeleteObject -&gt; ObjectKey
+$sel:bucket:DeleteObject' :: DeleteObject -&gt; BucketName
+$sel:expectedBucketOwner:DeleteObject' :: DeleteObject -&gt; Maybe Text
+$sel:bypassGovernanceRetention:DeleteObject' :: DeleteObject -&gt; Maybe Bool
+$sel:requestPayer:DeleteObject' :: DeleteObject -&gt; Maybe RequestPayer
+$sel:mfa:DeleteObject' :: DeleteObject -&gt; Maybe Text
+$sel:versionId:DeleteObject' :: DeleteObject -&gt; Maybe ObjectVersionId
+</span><a href="#local-6989586621679578774"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ObjectVersionId -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578780"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | /See:/ 'newDeleteObjectResponse' smart constructor.</span><span>
+</span><span id="line-289"></span><span id="local-6989586621679578771"><span id="local-6989586621679578772"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjectResponse"><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-var">DeleteObjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjectResponse%27"><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-var">DeleteObjectResponse'</span></a></span></span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestCharged%3ADeleteObjectResponse%27"><span class="annot"><span class="annottext">DeleteObjectResponse -&gt; Maybe RequestCharged
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3ArequestCharged%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- | Returns the version ID of the delete marker created as a result of the</span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-comment">-- DELETE operation.</span><span>
+</span><span id="line-293"></span><span>    </span><span id="%24sel%3AversionId%3ADeleteObjectResponse%27"><span class="annot"><span class="annottext">DeleteObjectResponse -&gt; Maybe ObjectVersionId
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AversionId%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- | Specifies whether the versioned object that was permanently deleted was</span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-comment">-- (true) or was not (false) a delete marker.</span><span>
+</span><span id="line-296"></span><span>    </span><span id="%24sel%3AdeleteMarker%3ADeleteObjectResponse%27"><span class="annot"><span class="annottext">DeleteObjectResponse -&gt; Maybe Bool
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AdeleteMarker%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var hs-var">deleteMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-298"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteObjectResponse%27"><span class="annot"><span class="annottext">DeleteObjectResponse -&gt; Int
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AhttpStatus%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578763"><span id="local-6989586621679578765"><span class="annot"><span class="annottext">DeleteObjectResponse -&gt; DeleteObjectResponse -&gt; Bool
+(DeleteObjectResponse -&gt; DeleteObjectResponse -&gt; Bool)
+-&gt; (DeleteObjectResponse -&gt; DeleteObjectResponse -&gt; Bool)
+-&gt; Eq DeleteObjectResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteObjectResponse -&gt; DeleteObjectResponse -&gt; Bool
+$c/= :: DeleteObjectResponse -&gt; DeleteObjectResponse -&gt; Bool
+== :: DeleteObjectResponse -&gt; DeleteObjectResponse -&gt; Bool
+$c== :: DeleteObjectResponse -&gt; DeleteObjectResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578755"><span id="local-6989586621679578757"><span id="local-6989586621679578759"><span id="local-6989586621679578761"><span class="annot"><span class="annottext">ReadPrec [DeleteObjectResponse]
+ReadPrec DeleteObjectResponse
+Int -&gt; ReadS DeleteObjectResponse
+ReadS [DeleteObjectResponse]
+(Int -&gt; ReadS DeleteObjectResponse)
+-&gt; ReadS [DeleteObjectResponse]
+-&gt; ReadPrec DeleteObjectResponse
+-&gt; ReadPrec [DeleteObjectResponse]
+-&gt; Read DeleteObjectResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteObjectResponse]
+$creadListPrec :: ReadPrec [DeleteObjectResponse]
+readPrec :: ReadPrec DeleteObjectResponse
+$creadPrec :: ReadPrec DeleteObjectResponse
+readList :: ReadS [DeleteObjectResponse]
+$creadList :: ReadS [DeleteObjectResponse]
+readsPrec :: Int -&gt; ReadS DeleteObjectResponse
+$creadsPrec :: Int -&gt; ReadS DeleteObjectResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578749"><span id="local-6989586621679578751"><span id="local-6989586621679578753"><span class="annot"><span class="annottext">Int -&gt; DeleteObjectResponse -&gt; ShowS
+[DeleteObjectResponse] -&gt; ShowS
+DeleteObjectResponse -&gt; String
+(Int -&gt; DeleteObjectResponse -&gt; ShowS)
+-&gt; (DeleteObjectResponse -&gt; String)
+-&gt; ([DeleteObjectResponse] -&gt; ShowS)
+-&gt; Show DeleteObjectResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteObjectResponse] -&gt; ShowS
+$cshowList :: [DeleteObjectResponse] -&gt; ShowS
+show :: DeleteObjectResponse -&gt; String
+$cshow :: DeleteObjectResponse -&gt; String
+showsPrec :: Int -&gt; DeleteObjectResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteObjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteObjectResponse -&gt; Rep DeleteObjectResponse x)
+-&gt; (forall x. Rep DeleteObjectResponse x -&gt; DeleteObjectResponse)
+-&gt; Generic DeleteObjectResponse
+forall x. Rep DeleteObjectResponse x -&gt; DeleteObjectResponse
+forall x. DeleteObjectResponse -&gt; Rep DeleteObjectResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteObjectResponse x -&gt; DeleteObjectResponse
+$cfrom :: forall x. DeleteObjectResponse -&gt; Rep DeleteObjectResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- Create a value of 'DeleteObjectResponse' with all optional fields omitted.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- 'requestCharged', 'deleteObjectResponse_requestCharged' - Undocumented member.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- 'versionId', 'deleteObjectResponse_versionId' - Returns the version ID of the delete marker created as a result of the</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- DELETE operation.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- 'deleteMarker', 'deleteObjectResponse_deleteMarker' - Specifies whether the versioned object that was permanently deleted was</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- (true) or was not (false) a delete marker.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- 'httpStatus', 'deleteObjectResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#newDeleteObjectResponse"><span class="hs-identifier hs-type">newDeleteObjectResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-320"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-321"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span>
+</span><span id="line-323"></span><span id="newDeleteObjectResponse"><span class="annot"><span class="annottext">newDeleteObjectResponse :: Int -&gt; DeleteObjectResponse
+</span><a href="Amazonka.S3.DeleteObject.html#newDeleteObjectResponse"><span class="hs-identifier hs-var hs-var">newDeleteObjectResponse</span></a></span></span><span> </span><span id="local-6989586621679578746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578746"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">DeleteObjectResponse' :: Maybe RequestCharged
+-&gt; Maybe ObjectVersionId
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; DeleteObjectResponse
+</span><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestCharged:DeleteObjectResponse' :: Maybe RequestCharged
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3ArequestCharged%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestCharged
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:DeleteObjectResponse' :: Maybe ObjectVersionId
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AversionId%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteMarker:DeleteObjectResponse' :: Maybe Bool
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AdeleteMarker%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">deleteMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectResponse' :: Int
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AhttpStatus%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578746"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_requestCharged"><span class="hs-identifier hs-type">deleteObjectResponse_requestCharged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span id="deleteObjectResponse_requestCharged"><span class="annot"><span class="annottext">deleteObjectResponse_requestCharged :: (Maybe RequestCharged -&gt; f (Maybe RequestCharged))
+-&gt; DeleteObjectResponse -&gt; f DeleteObjectResponse
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_requestCharged"><span class="hs-identifier hs-var hs-var">deleteObjectResponse_requestCharged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjectResponse -&gt; Maybe RequestCharged)
+-&gt; (DeleteObjectResponse
+    -&gt; Maybe RequestCharged -&gt; DeleteObjectResponse)
+-&gt; Lens
+     DeleteObjectResponse
+     DeleteObjectResponse
+     (Maybe RequestCharged)
+     (Maybe RequestCharged)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578745"><span class="annot"><span class="annottext">Maybe RequestCharged
+requestCharged :: Maybe RequestCharged
+$sel:requestCharged:DeleteObjectResponse' :: DeleteObjectResponse -&gt; Maybe RequestCharged
+</span><a href="#local-6989586621679578745"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679578745"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578744"><span class="annot"><span class="annottext">s :: DeleteObjectResponse
+</span><a href="#local-6989586621679578744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578743"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679578743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectResponse
+</span><a href="#local-6989586621679578744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:DeleteObjectResponse' :: Maybe RequestCharged
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3ArequestCharged%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679578743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- | Returns the version ID of the delete marker created as a result of the</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- DELETE operation.</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_versionId"><span class="hs-identifier hs-type">deleteObjectResponse_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="deleteObjectResponse_versionId"><span class="annot"><span class="annottext">deleteObjectResponse_versionId :: (Maybe ObjectVersionId -&gt; f (Maybe ObjectVersionId))
+-&gt; DeleteObjectResponse -&gt; f DeleteObjectResponse
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_versionId"><span class="hs-identifier hs-var hs-var">deleteObjectResponse_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjectResponse -&gt; Maybe ObjectVersionId)
+-&gt; (DeleteObjectResponse
+    -&gt; Maybe ObjectVersionId -&gt; DeleteObjectResponse)
+-&gt; Lens
+     DeleteObjectResponse
+     DeleteObjectResponse
+     (Maybe ObjectVersionId)
+     (Maybe ObjectVersionId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578742"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+versionId :: Maybe ObjectVersionId
+$sel:versionId:DeleteObjectResponse' :: DeleteObjectResponse -&gt; Maybe ObjectVersionId
+</span><a href="#local-6989586621679578742"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578742"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578741"><span class="annot"><span class="annottext">s :: DeleteObjectResponse
+</span><a href="#local-6989586621679578741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578740"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectResponse
+</span><a href="#local-6989586621679578741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteObjectResponse' :: Maybe ObjectVersionId
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AversionId%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | Specifies whether the versioned object that was permanently deleted was</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- (true) or was not (false) a delete marker.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_deleteMarker"><span class="hs-identifier hs-type">deleteObjectResponse_deleteMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span id="deleteObjectResponse_deleteMarker"><span class="annot"><span class="annottext">deleteObjectResponse_deleteMarker :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteObjectResponse -&gt; f DeleteObjectResponse
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_deleteMarker"><span class="hs-identifier hs-var hs-var">deleteObjectResponse_deleteMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjectResponse -&gt; Maybe Bool)
+-&gt; (DeleteObjectResponse -&gt; Maybe Bool -&gt; DeleteObjectResponse)
+-&gt; Lens
+     DeleteObjectResponse DeleteObjectResponse (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578739"><span class="annot"><span class="annottext">Maybe Bool
+deleteMarker :: Maybe Bool
+$sel:deleteMarker:DeleteObjectResponse' :: DeleteObjectResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679578739"><span class="hs-identifier hs-var hs-var">deleteMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578739"><span class="hs-identifier hs-var">deleteMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578738"><span class="annot"><span class="annottext">s :: DeleteObjectResponse
+</span><a href="#local-6989586621679578738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578737"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectResponse
+</span><a href="#local-6989586621679578738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteMarker:DeleteObjectResponse' :: Maybe Bool
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AdeleteMarker%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">deleteMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_httpStatus"><span class="hs-identifier hs-type">deleteObjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-348"></span><span id="deleteObjectResponse_httpStatus"><span class="annot"><span class="annottext">deleteObjectResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteObjectResponse -&gt; f DeleteObjectResponse
+</span><a href="Amazonka.S3.DeleteObject.html#deleteObjectResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteObjectResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjectResponse -&gt; Int)
+-&gt; (DeleteObjectResponse -&gt; Int -&gt; DeleteObjectResponse)
+-&gt; Lens DeleteObjectResponse DeleteObjectResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578736"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteObjectResponse' :: DeleteObjectResponse -&gt; Int
+</span><a href="#local-6989586621679578736"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578736"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578735"><span class="annot"><span class="annottext">s :: DeleteObjectResponse
+</span><a href="#local-6989586621679578735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier hs-type">DeleteObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectResponse
+</span><a href="#local-6989586621679578735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectResponse' :: Int
+</span><a href="Amazonka.S3.DeleteObject.html#%24sel%3AhttpStatus%3ADeleteObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier hs-type">DeleteObjectResponse</span></a></span></span><span>
+</span><span id="line-351"></span></pre></body></html>

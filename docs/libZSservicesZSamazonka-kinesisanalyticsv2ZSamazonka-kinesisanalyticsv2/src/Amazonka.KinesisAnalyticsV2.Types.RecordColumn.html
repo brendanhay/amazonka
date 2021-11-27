@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.Types.RecordColumn</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.RecordColumn</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | For a SQL-based Kinesis Data Analytics application, describes the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- mapping of each data element in the streaming source to the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- corresponding column in the in-application stream.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Also used to describe the format of the reference data source.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRecordColumn' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679292379"><span id="local-6989586621679292380"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordColumn"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-var">RecordColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordColumn%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-var">RecordColumn'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A reference to the data element in the streaming input or the reference</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- data source.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Amapping%3ARecordColumn%27"><span class="annot"><span class="annottext">RecordColumn -&gt; Maybe Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3Amapping%3ARecordColumn%27"><span class="hs-identifier hs-var hs-var">mapping</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the column that is created in the in-application input</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- stream or reference table.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3ARecordColumn%27"><span class="annot"><span class="annottext">RecordColumn -&gt; Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3Aname%3ARecordColumn%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The type of column created in the in-application input stream or</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- reference table.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsqlType%3ARecordColumn%27"><span class="annot"><span class="annottext">RecordColumn -&gt; Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3AsqlType%3ARecordColumn%27"><span class="hs-identifier hs-var hs-var">sqlType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292371"><span id="local-6989586621679292373"><span class="annot"><span class="annottext">RecordColumn -&gt; RecordColumn -&gt; Bool
+(RecordColumn -&gt; RecordColumn -&gt; Bool)
+-&gt; (RecordColumn -&gt; RecordColumn -&gt; Bool) -&gt; Eq RecordColumn
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecordColumn -&gt; RecordColumn -&gt; Bool
+$c/= :: RecordColumn -&gt; RecordColumn -&gt; Bool
+== :: RecordColumn -&gt; RecordColumn -&gt; Bool
+$c== :: RecordColumn -&gt; RecordColumn -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292362"><span id="local-6989586621679292364"><span id="local-6989586621679292366"><span id="local-6989586621679292368"><span class="annot"><span class="annottext">ReadPrec [RecordColumn]
+ReadPrec RecordColumn
+Int -&gt; ReadS RecordColumn
+ReadS [RecordColumn]
+(Int -&gt; ReadS RecordColumn)
+-&gt; ReadS [RecordColumn]
+-&gt; ReadPrec RecordColumn
+-&gt; ReadPrec [RecordColumn]
+-&gt; Read RecordColumn
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecordColumn]
+$creadListPrec :: ReadPrec [RecordColumn]
+readPrec :: ReadPrec RecordColumn
+$creadPrec :: ReadPrec RecordColumn
+readList :: ReadS [RecordColumn]
+$creadList :: ReadS [RecordColumn]
+readsPrec :: Int -&gt; ReadS RecordColumn
+$creadsPrec :: Int -&gt; ReadS RecordColumn
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292355"><span id="local-6989586621679292357"><span id="local-6989586621679292359"><span class="annot"><span class="annottext">Int -&gt; RecordColumn -&gt; ShowS
+[RecordColumn] -&gt; ShowS
+RecordColumn -&gt; String
+(Int -&gt; RecordColumn -&gt; ShowS)
+-&gt; (RecordColumn -&gt; String)
+-&gt; ([RecordColumn] -&gt; ShowS)
+-&gt; Show RecordColumn
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecordColumn] -&gt; ShowS
+$cshowList :: [RecordColumn] -&gt; ShowS
+show :: RecordColumn -&gt; String
+$cshow :: RecordColumn -&gt; String
+showsPrec :: Int -&gt; RecordColumn -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecordColumn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RecordColumn -&gt; Rep RecordColumn x)
+-&gt; (forall x. Rep RecordColumn x -&gt; RecordColumn)
+-&gt; Generic RecordColumn
+forall x. Rep RecordColumn x -&gt; RecordColumn
+forall x. RecordColumn -&gt; Rep RecordColumn x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RecordColumn x -&gt; RecordColumn
+$cfrom :: forall x. RecordColumn -&gt; Rep RecordColumn x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'RecordColumn' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'mapping', 'recordColumn_mapping' - A reference to the data element in the streaming input or the reference</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- data source.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'name', 'recordColumn_name' - The name of the column that is created in the in-application input</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- stream or reference table.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'sqlType', 'recordColumn_sqlType' - The type of column created in the in-application input stream or</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- reference table.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#newRecordColumn"><span class="hs-identifier hs-type">newRecordColumn</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'sqlType'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span>
+</span><span id="line-68"></span><span id="newRecordColumn"><span class="annot"><span class="annottext">newRecordColumn :: Text -&gt; Text -&gt; RecordColumn
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#newRecordColumn"><span class="hs-identifier hs-var hs-var">newRecordColumn</span></a></span></span><span> </span><span id="local-6989586621679292349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292349"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679292348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292348"><span class="hs-identifier hs-var">pSqlType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">RecordColumn' :: Maybe Text -&gt; Text -&gt; Text -&gt; RecordColumn
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mapping:RecordColumn' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3Amapping%3ARecordColumn%27"><span class="hs-identifier hs-var">mapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RecordColumn' :: Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3Aname%3ARecordColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292349"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqlType:RecordColumn' :: Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3AsqlType%3ARecordColumn%27"><span class="hs-identifier hs-var">sqlType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292348"><span class="hs-identifier hs-var">pSqlType_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A reference to the data element in the streaming input or the reference</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- data source.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#recordColumn_mapping"><span class="hs-identifier hs-type">recordColumn_mapping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="recordColumn_mapping"><span class="annot"><span class="annottext">recordColumn_mapping :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordColumn -&gt; f RecordColumn
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#recordColumn_mapping"><span class="hs-identifier hs-var hs-var">recordColumn_mapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordColumn -&gt; Maybe Text)
+-&gt; (RecordColumn -&gt; Maybe Text -&gt; RecordColumn)
+-&gt; Lens RecordColumn RecordColumn (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292344"><span class="annot"><span class="annottext">Maybe Text
+mapping :: Maybe Text
+$sel:mapping:RecordColumn' :: RecordColumn -&gt; Maybe Text
+</span><a href="#local-6989586621679292344"><span class="hs-identifier hs-var hs-var">mapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292344"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292343"><span class="annot"><span class="annottext">s :: RecordColumn
+</span><a href="#local-6989586621679292343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
+</span><a href="#local-6989586621679292343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mapping:RecordColumn' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3Amapping%3ARecordColumn%27"><span class="hs-identifier hs-var">mapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the column that is created in the in-application input</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- stream or reference table.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#recordColumn_name"><span class="hs-identifier hs-type">recordColumn_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="recordColumn_name"><span class="annot"><span class="annottext">recordColumn_name :: (Text -&gt; f Text) -&gt; RecordColumn -&gt; f RecordColumn
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#recordColumn_name"><span class="hs-identifier hs-var hs-var">recordColumn_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordColumn -&gt; Text)
+-&gt; (RecordColumn -&gt; Text -&gt; RecordColumn)
+-&gt; Lens RecordColumn RecordColumn Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292340"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:RecordColumn' :: RecordColumn -&gt; Text
+</span><a href="#local-6989586621679292340"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292340"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292339"><span class="annot"><span class="annottext">s :: RecordColumn
+</span><a href="#local-6989586621679292339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
+</span><a href="#local-6989586621679292339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RecordColumn' :: Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3Aname%3ARecordColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The type of column created in the in-application input stream or</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- reference table.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#recordColumn_sqlType"><span class="hs-identifier hs-type">recordColumn_sqlType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="recordColumn_sqlType"><span class="annot"><span class="annottext">recordColumn_sqlType :: (Text -&gt; f Text) -&gt; RecordColumn -&gt; f RecordColumn
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#recordColumn_sqlType"><span class="hs-identifier hs-var hs-var">recordColumn_sqlType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordColumn -&gt; Text)
+-&gt; (RecordColumn -&gt; Text -&gt; RecordColumn)
+-&gt; Lens RecordColumn RecordColumn Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292336"><span class="annot"><span class="annottext">Text
+sqlType :: Text
+$sel:sqlType:RecordColumn' :: RecordColumn -&gt; Text
+</span><a href="#local-6989586621679292336"><span class="hs-identifier hs-var hs-var">sqlType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292336"><span class="hs-identifier hs-var">sqlType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292335"><span class="annot"><span class="annottext">s :: RecordColumn
+</span><a href="#local-6989586621679292335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
+</span><a href="#local-6989586621679292335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlType:RecordColumn' :: Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#%24sel%3AsqlType%3ARecordColumn%27"><span class="hs-identifier hs-var">sqlType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292331"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679292329"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordColumn
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RecordColumn) -&gt; Value -&gt; Parser RecordColumn
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RecordColumn&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292326"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292326"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; RecordColumn
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-var">RecordColumn'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; RecordColumn)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; RecordColumn)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mapping&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; RecordColumn)
+-&gt; Parser Text -&gt; Parser (Text -&gt; RecordColumn)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RecordColumn) -&gt; Parser Text -&gt; Parser RecordColumn
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SqlType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292319"><span id="local-6989586621679292321"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292316"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292308"><span id="local-6989586621679292310"><span id="local-6989586621679292312"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679292306"><span class="annot"><span class="annottext">toJSON :: RecordColumn -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292302"><span id="local-6989586621679292303"><span id="local-6989586621679292304"><span class="annot"><span class="annottext">Maybe Text
+Text
+sqlType :: Text
+name :: Text
+mapping :: Maybe Text
+$sel:sqlType:RecordColumn' :: RecordColumn -&gt; Text
+$sel:name:RecordColumn' :: RecordColumn -&gt; Text
+$sel:mapping:RecordColumn' :: RecordColumn -&gt; Maybe Text
+</span><a href="#local-6989586621679292302"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mapping&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292304"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292303"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SqlType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292302"><span class="hs-identifier hs-var">sqlType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span></pre></body></html>

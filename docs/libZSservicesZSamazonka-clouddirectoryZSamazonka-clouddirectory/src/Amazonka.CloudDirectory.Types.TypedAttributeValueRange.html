@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.Types.TypedAttributeValueRange</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.Types.TypedAttributeValueRange</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.RangeMode.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types.RangeMode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValue.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types.TypedAttributeValue</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A range of attribute values. For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_range_filters.html Range Filters&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTypedAttributeValueRange' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679330302"><span id="local-6989586621679330303"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypedAttributeValueRange"><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-var">TypedAttributeValueRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypedAttributeValueRange%27"><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-var">TypedAttributeValueRange'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attribute value to terminate the range at.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AendValue%3ATypedAttributeValueRange%27"><span class="annot"><span class="annottext">TypedAttributeValueRange -&gt; Maybe TypedAttributeValue
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AendValue%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var hs-var">endValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The value to start the range at.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstartValue%3ATypedAttributeValueRange%27"><span class="annot"><span class="annottext">TypedAttributeValueRange -&gt; Maybe TypedAttributeValue
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AstartValue%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var hs-var">startValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The inclusive or exclusive range start.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstartMode%3ATypedAttributeValueRange%27"><span class="annot"><span class="annottext">TypedAttributeValueRange -&gt; RangeMode
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AstartMode%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var hs-var">startMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-type">RangeMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The inclusive or exclusive range end.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AendMode%3ATypedAttributeValueRange%27"><span class="annot"><span class="annottext">TypedAttributeValueRange -&gt; RangeMode
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AendMode%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var hs-var">endMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-type">RangeMode</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330293"><span id="local-6989586621679330295"><span class="annot"><span class="annottext">TypedAttributeValueRange -&gt; TypedAttributeValueRange -&gt; Bool
+(TypedAttributeValueRange -&gt; TypedAttributeValueRange -&gt; Bool)
+-&gt; (TypedAttributeValueRange -&gt; TypedAttributeValueRange -&gt; Bool)
+-&gt; Eq TypedAttributeValueRange
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TypedAttributeValueRange -&gt; TypedAttributeValueRange -&gt; Bool
+$c/= :: TypedAttributeValueRange -&gt; TypedAttributeValueRange -&gt; Bool
+== :: TypedAttributeValueRange -&gt; TypedAttributeValueRange -&gt; Bool
+$c== :: TypedAttributeValueRange -&gt; TypedAttributeValueRange -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330284"><span id="local-6989586621679330286"><span id="local-6989586621679330288"><span id="local-6989586621679330290"><span class="annot"><span class="annottext">ReadPrec [TypedAttributeValueRange]
+ReadPrec TypedAttributeValueRange
+Int -&gt; ReadS TypedAttributeValueRange
+ReadS [TypedAttributeValueRange]
+(Int -&gt; ReadS TypedAttributeValueRange)
+-&gt; ReadS [TypedAttributeValueRange]
+-&gt; ReadPrec TypedAttributeValueRange
+-&gt; ReadPrec [TypedAttributeValueRange]
+-&gt; Read TypedAttributeValueRange
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TypedAttributeValueRange]
+$creadListPrec :: ReadPrec [TypedAttributeValueRange]
+readPrec :: ReadPrec TypedAttributeValueRange
+$creadPrec :: ReadPrec TypedAttributeValueRange
+readList :: ReadS [TypedAttributeValueRange]
+$creadList :: ReadS [TypedAttributeValueRange]
+readsPrec :: Int -&gt; ReadS TypedAttributeValueRange
+$creadsPrec :: Int -&gt; ReadS TypedAttributeValueRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330277"><span id="local-6989586621679330279"><span id="local-6989586621679330281"><span class="annot"><span class="annottext">Int -&gt; TypedAttributeValueRange -&gt; ShowS
+[TypedAttributeValueRange] -&gt; ShowS
+TypedAttributeValueRange -&gt; String
+(Int -&gt; TypedAttributeValueRange -&gt; ShowS)
+-&gt; (TypedAttributeValueRange -&gt; String)
+-&gt; ([TypedAttributeValueRange] -&gt; ShowS)
+-&gt; Show TypedAttributeValueRange
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TypedAttributeValueRange] -&gt; ShowS
+$cshowList :: [TypedAttributeValueRange] -&gt; ShowS
+show :: TypedAttributeValueRange -&gt; String
+$cshow :: TypedAttributeValueRange -&gt; String
+showsPrec :: Int -&gt; TypedAttributeValueRange -&gt; ShowS
+$cshowsPrec :: Int -&gt; TypedAttributeValueRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TypedAttributeValueRange -&gt; Rep TypedAttributeValueRange x)
+-&gt; (forall x.
+    Rep TypedAttributeValueRange x -&gt; TypedAttributeValueRange)
+-&gt; Generic TypedAttributeValueRange
+forall x.
+Rep TypedAttributeValueRange x -&gt; TypedAttributeValueRange
+forall x.
+TypedAttributeValueRange -&gt; Rep TypedAttributeValueRange x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TypedAttributeValueRange x -&gt; TypedAttributeValueRange
+$cfrom :: forall x.
+TypedAttributeValueRange -&gt; Rep TypedAttributeValueRange x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'TypedAttributeValueRange' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'endValue', 'typedAttributeValueRange_endValue' - The attribute value to terminate the range at.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'startValue', 'typedAttributeValueRange_startValue' - The value to start the range at.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'startMode', 'typedAttributeValueRange_startMode' - The inclusive or exclusive range start.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'endMode', 'typedAttributeValueRange_endMode' - The inclusive or exclusive range end.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#newTypedAttributeValueRange"><span class="hs-identifier hs-type">newTypedAttributeValueRange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'startMode'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-type">RangeMode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'endMode'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-type">RangeMode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span>
+</span><span id="line-65"></span><span id="newTypedAttributeValueRange"><span class="annot"><span class="annottext">newTypedAttributeValueRange :: RangeMode -&gt; RangeMode -&gt; TypedAttributeValueRange
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#newTypedAttributeValueRange"><span class="hs-identifier hs-var hs-var">newTypedAttributeValueRange</span></a></span></span><span> </span><span id="local-6989586621679330271"><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330271"><span class="hs-identifier hs-var">pStartMode_</span></a></span></span><span> </span><span id="local-6989586621679330270"><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330270"><span class="hs-identifier hs-var">pEndMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">TypedAttributeValueRange' :: Maybe TypedAttributeValue
+-&gt; Maybe TypedAttributeValue
+-&gt; RangeMode
+-&gt; RangeMode
+-&gt; TypedAttributeValueRange
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endValue:TypedAttributeValueRange' :: Maybe TypedAttributeValue
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AendValue%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">endValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:startValue:TypedAttributeValueRange' :: Maybe TypedAttributeValue
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AstartValue%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">startValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:startMode:TypedAttributeValueRange' :: RangeMode
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AstartMode%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">startMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330271"><span class="hs-identifier hs-var">pStartMode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:endMode:TypedAttributeValueRange' :: RangeMode
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AendMode%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">endMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330270"><span class="hs-identifier hs-var">pEndMode_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The attribute value to terminate the range at.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_endValue"><span class="hs-identifier hs-type">typedAttributeValueRange_endValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="typedAttributeValueRange_endValue"><span class="annot"><span class="annottext">typedAttributeValueRange_endValue :: (Maybe TypedAttributeValue -&gt; f (Maybe TypedAttributeValue))
+-&gt; TypedAttributeValueRange -&gt; f TypedAttributeValueRange
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_endValue"><span class="hs-identifier hs-var hs-var">typedAttributeValueRange_endValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValueRange -&gt; Maybe TypedAttributeValue)
+-&gt; (TypedAttributeValueRange
+    -&gt; Maybe TypedAttributeValue -&gt; TypedAttributeValueRange)
+-&gt; Lens
+     TypedAttributeValueRange
+     TypedAttributeValueRange
+     (Maybe TypedAttributeValue)
+     (Maybe TypedAttributeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330266"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+endValue :: Maybe TypedAttributeValue
+$sel:endValue:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330266"><span class="hs-identifier hs-var hs-var">endValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330266"><span class="hs-identifier hs-var">endValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330265"><span class="annot"><span class="annottext">s :: TypedAttributeValueRange
+</span><a href="#local-6989586621679330265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330264"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValueRange
+</span><a href="#local-6989586621679330265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endValue:TypedAttributeValueRange' :: Maybe TypedAttributeValue
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AendValue%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">endValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The value to start the range at.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_startValue"><span class="hs-identifier hs-type">typedAttributeValueRange_startValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="typedAttributeValueRange_startValue"><span class="annot"><span class="annottext">typedAttributeValueRange_startValue :: (Maybe TypedAttributeValue -&gt; f (Maybe TypedAttributeValue))
+-&gt; TypedAttributeValueRange -&gt; f TypedAttributeValueRange
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_startValue"><span class="hs-identifier hs-var hs-var">typedAttributeValueRange_startValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValueRange -&gt; Maybe TypedAttributeValue)
+-&gt; (TypedAttributeValueRange
+    -&gt; Maybe TypedAttributeValue -&gt; TypedAttributeValueRange)
+-&gt; Lens
+     TypedAttributeValueRange
+     TypedAttributeValueRange
+     (Maybe TypedAttributeValue)
+     (Maybe TypedAttributeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330262"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+startValue :: Maybe TypedAttributeValue
+$sel:startValue:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330262"><span class="hs-identifier hs-var hs-var">startValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330262"><span class="hs-identifier hs-var">startValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330261"><span class="annot"><span class="annottext">s :: TypedAttributeValueRange
+</span><a href="#local-6989586621679330261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330260"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValueRange
+</span><a href="#local-6989586621679330261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startValue:TypedAttributeValueRange' :: Maybe TypedAttributeValue
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AstartValue%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">startValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The inclusive or exclusive range start.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_startMode"><span class="hs-identifier hs-type">typedAttributeValueRange_startMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-type">RangeMode</span></a></span><span>
+</span><span id="line-84"></span><span id="typedAttributeValueRange_startMode"><span class="annot"><span class="annottext">typedAttributeValueRange_startMode :: (RangeMode -&gt; f RangeMode)
+-&gt; TypedAttributeValueRange -&gt; f TypedAttributeValueRange
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_startMode"><span class="hs-identifier hs-var hs-var">typedAttributeValueRange_startMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValueRange -&gt; RangeMode)
+-&gt; (TypedAttributeValueRange
+    -&gt; RangeMode -&gt; TypedAttributeValueRange)
+-&gt; Lens
+     TypedAttributeValueRange
+     TypedAttributeValueRange
+     RangeMode
+     RangeMode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330258"><span class="annot"><span class="annottext">RangeMode
+startMode :: RangeMode
+$sel:startMode:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; RangeMode
+</span><a href="#local-6989586621679330258"><span class="hs-identifier hs-var hs-var">startMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330258"><span class="hs-identifier hs-var">startMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330257"><span class="annot"><span class="annottext">s :: TypedAttributeValueRange
+</span><a href="#local-6989586621679330257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330256"><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValueRange
+</span><a href="#local-6989586621679330257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startMode:TypedAttributeValueRange' :: RangeMode
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AstartMode%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">startMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The inclusive or exclusive range end.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_endMode"><span class="hs-identifier hs-type">typedAttributeValueRange_endMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-type">RangeMode</span></a></span><span>
+</span><span id="line-88"></span><span id="typedAttributeValueRange_endMode"><span class="annot"><span class="annottext">typedAttributeValueRange_endMode :: (RangeMode -&gt; f RangeMode)
+-&gt; TypedAttributeValueRange -&gt; f TypedAttributeValueRange
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#typedAttributeValueRange_endMode"><span class="hs-identifier hs-var hs-var">typedAttributeValueRange_endMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValueRange -&gt; RangeMode)
+-&gt; (TypedAttributeValueRange
+    -&gt; RangeMode -&gt; TypedAttributeValueRange)
+-&gt; Lens
+     TypedAttributeValueRange
+     TypedAttributeValueRange
+     RangeMode
+     RangeMode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330254"><span class="annot"><span class="annottext">RangeMode
+endMode :: RangeMode
+$sel:endMode:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; RangeMode
+</span><a href="#local-6989586621679330254"><span class="hs-identifier hs-var hs-var">endMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330254"><span class="hs-identifier hs-var">endMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330253"><span class="annot"><span class="annottext">s :: TypedAttributeValueRange
+</span><a href="#local-6989586621679330253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330252"><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValueRange
+</span><a href="#local-6989586621679330253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endMode:TypedAttributeValueRange' :: RangeMode
+</span><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#%24sel%3AendMode%3ATypedAttributeValueRange%27"><span class="hs-identifier hs-var">endMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330248"><span id="local-6989586621679330250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330237"><span id="local-6989586621679330239"><span id="local-6989586621679330241"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange"><span class="hs-identifier hs-type">TypedAttributeValueRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679330235"><span class="annot"><span class="annottext">toJSON :: TypedAttributeValueRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.TypedAttributeValueRange.html#TypedAttributeValueRange%27"><span class="hs-identifier hs-type">TypedAttributeValueRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330230"><span id="local-6989586621679330231"><span id="local-6989586621679330232"><span id="local-6989586621679330233"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+RangeMode
+endMode :: RangeMode
+startMode :: RangeMode
+startValue :: Maybe TypedAttributeValue
+endValue :: Maybe TypedAttributeValue
+$sel:endMode:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; RangeMode
+$sel:startMode:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; RangeMode
+$sel:startValue:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; Maybe TypedAttributeValue
+$sel:endValue:TypedAttributeValueRange' :: TypedAttributeValueRange -&gt; Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330230"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedAttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValue -&gt; Pair)
+-&gt; Maybe TypedAttributeValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330233"><span class="hs-identifier hs-var">endValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedAttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValue -&gt; Pair)
+-&gt; Maybe TypedAttributeValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330232"><span class="hs-identifier hs-var">startValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RangeMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330231"><span class="hs-identifier hs-var">startMode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RangeMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RangeMode
+</span><a href="#local-6989586621679330230"><span class="hs-identifier hs-var">endMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span></pre></body></html>

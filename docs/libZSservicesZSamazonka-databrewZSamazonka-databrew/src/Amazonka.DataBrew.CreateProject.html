@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.CreateProject</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new DataBrew project.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.CreateProject</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#newCreateProject"><span class="hs-identifier">newCreateProject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_sample"><span class="hs-identifier">createProject_sample</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_tags"><span class="hs-identifier">createProject_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_datasetName"><span class="hs-identifier">createProject_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_name"><span class="hs-identifier">createProject_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_recipeName"><span class="hs-identifier">createProject_recipeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_roleArn"><span class="hs-identifier">createProject_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier">CreateProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier">newCreateProjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProjectResponse_httpStatus"><span class="hs-identifier">createProjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProjectResponse_name"><span class="hs-identifier">createProjectResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.html"><span class="hs-identifier">Amazonka.DataBrew.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateProject' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679308443"><span id="local-6989586621679308444"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProject"><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-var">CreateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProject%27"><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-var">CreateProject'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Asample%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Maybe Sample
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Asample%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">sample</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Sample.html#Sample"><span class="hs-identifier hs-type">Sample</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Metadata tags to apply to this project.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Atags%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Atags%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of an existing dataset to associate this project with.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdatasetName%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AdatasetName%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A unique name for the new project. Valid characters are alphanumeric</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aname%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Aname%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of an existing recipe to associate with the project.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3ArecipeName%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3ArecipeName%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">recipeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- (IAM) role to be assumed for this request.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AroleArn%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308432"><span id="local-6989586621679308434"><span class="annot"><span class="annottext">CreateProject -&gt; CreateProject -&gt; Bool
+(CreateProject -&gt; CreateProject -&gt; Bool)
+-&gt; (CreateProject -&gt; CreateProject -&gt; Bool) -&gt; Eq CreateProject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProject -&gt; CreateProject -&gt; Bool
+$c/= :: CreateProject -&gt; CreateProject -&gt; Bool
+== :: CreateProject -&gt; CreateProject -&gt; Bool
+$c== :: CreateProject -&gt; CreateProject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308423"><span id="local-6989586621679308425"><span id="local-6989586621679308427"><span id="local-6989586621679308429"><span class="annot"><span class="annottext">ReadPrec [CreateProject]
+ReadPrec CreateProject
+Int -&gt; ReadS CreateProject
+ReadS [CreateProject]
+(Int -&gt; ReadS CreateProject)
+-&gt; ReadS [CreateProject]
+-&gt; ReadPrec CreateProject
+-&gt; ReadPrec [CreateProject]
+-&gt; Read CreateProject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProject]
+$creadListPrec :: ReadPrec [CreateProject]
+readPrec :: ReadPrec CreateProject
+$creadPrec :: ReadPrec CreateProject
+readList :: ReadS [CreateProject]
+$creadList :: ReadS [CreateProject]
+readsPrec :: Int -&gt; ReadS CreateProject
+$creadsPrec :: Int -&gt; ReadS CreateProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308416"><span id="local-6989586621679308418"><span id="local-6989586621679308420"><span class="annot"><span class="annottext">Int -&gt; CreateProject -&gt; ShowS
+[CreateProject] -&gt; ShowS
+CreateProject -&gt; String
+(Int -&gt; CreateProject -&gt; ShowS)
+-&gt; (CreateProject -&gt; String)
+-&gt; ([CreateProject] -&gt; ShowS)
+-&gt; Show CreateProject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProject] -&gt; ShowS
+$cshowList :: [CreateProject] -&gt; ShowS
+show :: CreateProject -&gt; String
+$cshow :: CreateProject -&gt; String
+showsPrec :: Int -&gt; CreateProject -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateProject -&gt; Rep CreateProject x)
+-&gt; (forall x. Rep CreateProject x -&gt; CreateProject)
+-&gt; Generic CreateProject
+forall x. Rep CreateProject x -&gt; CreateProject
+forall x. CreateProject -&gt; Rep CreateProject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateProject x -&gt; CreateProject
+$cfrom :: forall x. CreateProject -&gt; Rep CreateProject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'CreateProject' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'sample', 'createProject_sample' - Undocumented member.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'tags', 'createProject_tags' - Metadata tags to apply to this project.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'datasetName', 'createProject_datasetName' - The name of an existing dataset to associate this project with.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'name', 'createProject_name' - A unique name for the new project. Valid characters are alphanumeric</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'recipeName', 'createProject_recipeName' - The name of an existing recipe to associate with the project.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'roleArn', 'createProject_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- (IAM) role to be assumed for this request.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#newCreateProject"><span class="hs-identifier hs-type">newCreateProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'datasetName'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'recipeName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span>
+</span><span id="line-103"></span><span id="newCreateProject"><span class="annot"><span class="annottext">newCreateProject :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#newCreateProject"><span class="hs-identifier hs-var hs-var">newCreateProject</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679308411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308411"><span class="hs-identifier hs-var">pDatasetName_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679308410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308410"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679308409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308409"><span class="hs-identifier hs-var">pRecipeName_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679308408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308408"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">CreateProject' :: Maybe Sample
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sample:CreateProject' :: Maybe Sample
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Asample%3ACreateProject%27"><span class="hs-identifier hs-var">sample</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Sample
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateProject' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Atags%3ACreateProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:datasetName:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AdatasetName%3ACreateProject%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308411"><span class="hs-identifier hs-var">pDatasetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Aname%3ACreateProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308410"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:recipeName:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3ArecipeName%3ACreateProject%27"><span class="hs-identifier hs-var">recipeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308409"><span class="hs-identifier hs-var">pRecipeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AroleArn%3ACreateProject%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308408"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_sample"><span class="hs-identifier hs-type">createProject_sample</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Sample.html#Sample"><span class="hs-identifier hs-type">Sample</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="createProject_sample"><span class="annot"><span class="annottext">createProject_sample :: (Maybe Sample -&gt; f (Maybe Sample))
+-&gt; CreateProject -&gt; f CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProject_sample"><span class="hs-identifier hs-var hs-var">createProject_sample</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Maybe Sample)
+-&gt; (CreateProject -&gt; Maybe Sample -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject (Maybe Sample) (Maybe Sample)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308405"><span class="annot"><span class="annottext">Maybe Sample
+sample :: Maybe Sample
+$sel:sample:CreateProject' :: CreateProject -&gt; Maybe Sample
+</span><a href="#local-6989586621679308405"><span class="hs-identifier hs-var hs-var">sample</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Sample
+</span><a href="#local-6989586621679308405"><span class="hs-identifier hs-var">sample</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308404"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679308404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308403"><span class="annot"><span class="annottext">Maybe Sample
+</span><a href="#local-6989586621679308403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679308404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sample:CreateProject' :: Maybe Sample
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Asample%3ACreateProject%27"><span class="hs-identifier hs-var">sample</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Sample
+</span><a href="#local-6989586621679308403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Metadata tags to apply to this project.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_tags"><span class="hs-identifier hs-type">createProject_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="createProject_tags"><span class="annot"><span class="annottext">createProject_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateProject -&gt; f CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProject_tags"><span class="hs-identifier hs-var hs-var">createProject_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateProject -&gt; Maybe (HashMap Text Text) -&gt; CreateProject)
+-&gt; Lens
+     CreateProject
+     CreateProject
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308402"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateProject' :: CreateProject -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679308402"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679308402"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308401"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679308401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308400"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679308400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679308401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateProject' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Atags%3ACreateProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679308400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateProject -&gt; f CreateProject)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateProject
+-&gt; f CreateProject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of an existing dataset to associate this project with.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_datasetName"><span class="hs-identifier hs-type">createProject_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="createProject_datasetName"><span class="annot"><span class="annottext">createProject_datasetName :: (Text -&gt; f Text) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProject_datasetName"><span class="hs-identifier hs-var hs-var">createProject_datasetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Text)
+-&gt; (CreateProject -&gt; Text -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308396"><span class="annot"><span class="annottext">Text
+datasetName :: Text
+$sel:datasetName:CreateProject' :: CreateProject -&gt; Text
+</span><a href="#local-6989586621679308396"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308396"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308395"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308394"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AdatasetName%3ACreateProject%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | A unique name for the new project. Valid characters are alphanumeric</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_name"><span class="hs-identifier hs-type">createProject_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-132"></span><span id="createProject_name"><span class="annot"><span class="annottext">createProject_name :: (Text -&gt; f Text) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProject_name"><span class="hs-identifier hs-var hs-var">createProject_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Text)
+-&gt; (CreateProject -&gt; Text -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308393"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateProject' :: CreateProject -&gt; Text
+</span><a href="#local-6989586621679308393"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308393"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308392"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679308392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679308392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Aname%3ACreateProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The name of an existing recipe to associate with the project.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_recipeName"><span class="hs-identifier hs-type">createProject_recipeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="createProject_recipeName"><span class="annot"><span class="annottext">createProject_recipeName :: (Text -&gt; f Text) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProject_recipeName"><span class="hs-identifier hs-var hs-var">createProject_recipeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Text)
+-&gt; (CreateProject -&gt; Text -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308390"><span class="annot"><span class="annottext">Text
+recipeName :: Text
+$sel:recipeName:CreateProject' :: CreateProject -&gt; Text
+</span><a href="#local-6989586621679308390"><span class="hs-identifier hs-var hs-var">recipeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308390"><span class="hs-identifier hs-var">recipeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308389"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679308389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679308389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recipeName:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3ArecipeName%3ACreateProject%27"><span class="hs-identifier hs-var">recipeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- (IAM) role to be assumed for this request.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProject_roleArn"><span class="hs-identifier hs-type">createProject_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="createProject_roleArn"><span class="annot"><span class="annottext">createProject_roleArn :: (Text -&gt; f Text) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProject_roleArn"><span class="hs-identifier hs-var hs-var">createProject_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Text)
+-&gt; (CreateProject -&gt; Text -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308387"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateProject' :: CreateProject -&gt; Text
+</span><a href="#local-6989586621679308387"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308387"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308386"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679308386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679308386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateProject' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AroleArn%3ACreateProject%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679308381"><span class="annot"><span class="annottext">request :: CreateProject -&gt; Request CreateProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateProject -&gt; Request CreateProject
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataBrew.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679308377"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateProject)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateProject))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateProject)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308374"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308373"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679308373"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308372"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateProjectResponse
+</span><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-var">CreateProjectResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateProjectResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308374"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateProjectResponse)
+-&gt; Either String Text -&gt; Either String CreateProjectResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308364"><span id="local-6989586621679308366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679308357"><span class="annot"><span class="annottext">toHeaders :: CreateProject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProject -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308347"><span id="local-6989586621679308349"><span id="local-6989586621679308351"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679308345"><span class="annot"><span class="annottext">toJSON :: CreateProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308338"><span id="local-6989586621679308339"><span id="local-6989586621679308340"><span id="local-6989586621679308341"><span id="local-6989586621679308342"><span id="local-6989586621679308343"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+Maybe Sample
+Text
+roleArn :: Text
+recipeName :: Text
+name :: Text
+datasetName :: Text
+tags :: Maybe (HashMap Text Text)
+sample :: Maybe Sample
+$sel:roleArn:CreateProject' :: CreateProject -&gt; Text
+$sel:recipeName:CreateProject' :: CreateProject -&gt; Text
+$sel:name:CreateProject' :: CreateProject -&gt; Text
+$sel:datasetName:CreateProject' :: CreateProject -&gt; Text
+$sel:tags:CreateProject' :: CreateProject -&gt; Maybe (HashMap Text Text)
+$sel:sample:CreateProject' :: CreateProject -&gt; Maybe Sample
+</span><a href="#local-6989586621679308338"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sample&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sample -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sample -&gt; Pair) -&gt; Maybe Sample -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Sample
+</span><a href="#local-6989586621679308343"><span class="hs-identifier hs-var">sample</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679308342"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatasetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308341"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308340"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecipeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308339"><span class="hs-identifier hs-var">recipeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308338"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679308332"><span class="annot"><span class="annottext">toPath :: CreateProject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateProject -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/projects&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679308328"><span class="annot"><span class="annottext">toQuery :: CreateProject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProject -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newCreateProjectResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679308325"><span id="local-6989586621679308326"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProjectResponse"><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-var">CreateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProjectResponse%27"><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-var">CreateProjectResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Int
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The name of the project that you created.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3Aname%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Aname%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308319"><span id="local-6989586621679308321"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+(CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool)
+-&gt; (CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool)
+-&gt; Eq CreateProjectResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+$c/= :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+== :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+$c== :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308311"><span id="local-6989586621679308313"><span id="local-6989586621679308315"><span id="local-6989586621679308317"><span class="annot"><span class="annottext">ReadPrec [CreateProjectResponse]
+ReadPrec CreateProjectResponse
+Int -&gt; ReadS CreateProjectResponse
+ReadS [CreateProjectResponse]
+(Int -&gt; ReadS CreateProjectResponse)
+-&gt; ReadS [CreateProjectResponse]
+-&gt; ReadPrec CreateProjectResponse
+-&gt; ReadPrec [CreateProjectResponse]
+-&gt; Read CreateProjectResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProjectResponse]
+$creadListPrec :: ReadPrec [CreateProjectResponse]
+readPrec :: ReadPrec CreateProjectResponse
+$creadPrec :: ReadPrec CreateProjectResponse
+readList :: ReadS [CreateProjectResponse]
+$creadList :: ReadS [CreateProjectResponse]
+readsPrec :: Int -&gt; ReadS CreateProjectResponse
+$creadsPrec :: Int -&gt; ReadS CreateProjectResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308305"><span id="local-6989586621679308307"><span id="local-6989586621679308309"><span class="annot"><span class="annottext">Int -&gt; CreateProjectResponse -&gt; ShowS
+[CreateProjectResponse] -&gt; ShowS
+CreateProjectResponse -&gt; String
+(Int -&gt; CreateProjectResponse -&gt; ShowS)
+-&gt; (CreateProjectResponse -&gt; String)
+-&gt; ([CreateProjectResponse] -&gt; ShowS)
+-&gt; Show CreateProjectResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProjectResponse] -&gt; ShowS
+$cshowList :: [CreateProjectResponse] -&gt; ShowS
+show :: CreateProjectResponse -&gt; String
+$cshow :: CreateProjectResponse -&gt; String
+showsPrec :: Int -&gt; CreateProjectResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateProjectResponse -&gt; Rep CreateProjectResponse x)
+-&gt; (forall x. Rep CreateProjectResponse x -&gt; CreateProjectResponse)
+-&gt; Generic CreateProjectResponse
+forall x. Rep CreateProjectResponse x -&gt; CreateProjectResponse
+forall x. CreateProjectResponse -&gt; Rep CreateProjectResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateProjectResponse x -&gt; CreateProjectResponse
+$cfrom :: forall x. CreateProjectResponse -&gt; Rep CreateProjectResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'CreateProjectResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'httpStatus', 'createProjectResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'name', 'createProjectResponse_name' - The name of the project that you created.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier hs-type">newCreateProjectResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span>
+</span><span id="line-216"></span><span id="newCreateProjectResponse"><span class="annot"><span class="annottext">newCreateProjectResponse :: Int -&gt; Text -&gt; CreateProjectResponse
+</span><a href="Amazonka.DataBrew.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier hs-var hs-var">newCreateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679308302"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679308301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308301"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">CreateProjectResponse' :: Int -&gt; Text -&gt; CreateProjectResponse
+</span><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProjectResponse' :: Int
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateProjectResponse' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Aname%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308301"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProjectResponse_httpStatus"><span class="hs-identifier hs-type">createProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="createProjectResponse_httpStatus"><span class="annot"><span class="annottext">createProjectResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateProjectResponse -&gt; f CreateProjectResponse
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProjectResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createProjectResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProjectResponse -&gt; Int)
+-&gt; (CreateProjectResponse -&gt; Int -&gt; CreateProjectResponse)
+-&gt; Lens CreateProjectResponse CreateProjectResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308300"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateProjectResponse' :: CreateProjectResponse -&gt; Int
+</span><a href="#local-6989586621679308300"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308300"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308299"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679308299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308298"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679308299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProjectResponse' :: Int
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The name of the project that you created.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#createProjectResponse_name"><span class="hs-identifier hs-type">createProjectResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-228"></span><span id="createProjectResponse_name"><span class="annot"><span class="annottext">createProjectResponse_name :: (Text -&gt; f Text)
+-&gt; CreateProjectResponse -&gt; f CreateProjectResponse
+</span><a href="Amazonka.DataBrew.CreateProject.html#createProjectResponse_name"><span class="hs-identifier hs-var hs-var">createProjectResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProjectResponse -&gt; Text)
+-&gt; (CreateProjectResponse -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Lens CreateProjectResponse CreateProjectResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308297"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateProjectResponse' :: CreateProjectResponse -&gt; Text
+</span><a href="#local-6989586621679308297"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308297"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308296"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679308296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308295"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679308296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateProjectResponse' :: Text
+</span><a href="Amazonka.DataBrew.CreateProject.html#%24sel%3Aname%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

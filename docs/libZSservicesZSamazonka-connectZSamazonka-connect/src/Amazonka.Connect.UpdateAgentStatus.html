@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Connect.UpdateAgentStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This API is in preview release for Amazon Connect and is subject to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- change.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Updates agent status.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.UpdateAgentStatus</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier">UpdateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#newUpdateAgentStatus"><span class="hs-identifier">newUpdateAgentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_displayOrder"><span class="hs-identifier">updateAgentStatus_displayOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_state"><span class="hs-identifier">updateAgentStatus_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_name"><span class="hs-identifier">updateAgentStatus_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_resetOrderNumber"><span class="hs-identifier">updateAgentStatus_resetOrderNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_description"><span class="hs-identifier">updateAgentStatus_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_instanceId"><span class="hs-identifier">updateAgentStatus_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_agentStatusId"><span class="hs-identifier">updateAgentStatus_agentStatusId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse"><span class="hs-identifier">UpdateAgentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#newUpdateAgentStatusResponse"><span class="hs-identifier">newUpdateAgentStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.html"><span class="hs-identifier">Amazonka.Connect.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateAgentStatus' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679428540"><span id="local-6989586621679428541"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAgentStatus"><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-var">UpdateAgentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAgentStatus%27"><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-var">UpdateAgentStatus'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The display order of the agent status.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdisplayOrder%3AUpdateAgentStatus%27"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; Maybe Natural
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AdisplayOrder%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var hs-var">displayOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The state of the agent status.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astate%3AUpdateAgentStatus%27"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; Maybe AgentStatusState
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Astate%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusState.html#AgentStatusState"><span class="hs-identifier hs-type">AgentStatusState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the agent status.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aname%3AUpdateAgentStatus%27"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; Maybe Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Aname%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A number indicating the reset order of the agent status.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AresetOrderNumber%3AUpdateAgentStatus%27"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; Maybe Bool
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AresetOrderNumber%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var hs-var">resetOrderNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The description of the agent status.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateAgentStatus%27"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; Maybe Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Adescription%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AinstanceId%3AUpdateAgentStatus%27"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AinstanceId%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The identifier of the agent status.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AagentStatusId%3AUpdateAgentStatus%27"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AagentStatusId%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var hs-var">agentStatusId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428528"><span id="local-6989586621679428530"><span class="annot"><span class="annottext">UpdateAgentStatus -&gt; UpdateAgentStatus -&gt; Bool
+(UpdateAgentStatus -&gt; UpdateAgentStatus -&gt; Bool)
+-&gt; (UpdateAgentStatus -&gt; UpdateAgentStatus -&gt; Bool)
+-&gt; Eq UpdateAgentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAgentStatus -&gt; UpdateAgentStatus -&gt; Bool
+$c/= :: UpdateAgentStatus -&gt; UpdateAgentStatus -&gt; Bool
+== :: UpdateAgentStatus -&gt; UpdateAgentStatus -&gt; Bool
+$c== :: UpdateAgentStatus -&gt; UpdateAgentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428519"><span id="local-6989586621679428521"><span id="local-6989586621679428523"><span id="local-6989586621679428525"><span class="annot"><span class="annottext">ReadPrec [UpdateAgentStatus]
+ReadPrec UpdateAgentStatus
+Int -&gt; ReadS UpdateAgentStatus
+ReadS [UpdateAgentStatus]
+(Int -&gt; ReadS UpdateAgentStatus)
+-&gt; ReadS [UpdateAgentStatus]
+-&gt; ReadPrec UpdateAgentStatus
+-&gt; ReadPrec [UpdateAgentStatus]
+-&gt; Read UpdateAgentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAgentStatus]
+$creadListPrec :: ReadPrec [UpdateAgentStatus]
+readPrec :: ReadPrec UpdateAgentStatus
+$creadPrec :: ReadPrec UpdateAgentStatus
+readList :: ReadS [UpdateAgentStatus]
+$creadList :: ReadS [UpdateAgentStatus]
+readsPrec :: Int -&gt; ReadS UpdateAgentStatus
+$creadsPrec :: Int -&gt; ReadS UpdateAgentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428512"><span id="local-6989586621679428514"><span id="local-6989586621679428516"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentStatus -&gt; ShowS
+[UpdateAgentStatus] -&gt; ShowS
+UpdateAgentStatus -&gt; String
+(Int -&gt; UpdateAgentStatus -&gt; ShowS)
+-&gt; (UpdateAgentStatus -&gt; String)
+-&gt; ([UpdateAgentStatus] -&gt; ShowS)
+-&gt; Show UpdateAgentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAgentStatus] -&gt; ShowS
+$cshowList :: [UpdateAgentStatus] -&gt; ShowS
+show :: UpdateAgentStatus -&gt; String
+$cshow :: UpdateAgentStatus -&gt; String
+showsPrec :: Int -&gt; UpdateAgentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAgentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAgentStatus -&gt; Rep UpdateAgentStatus x)
+-&gt; (forall x. Rep UpdateAgentStatus x -&gt; UpdateAgentStatus)
+-&gt; Generic UpdateAgentStatus
+forall x. Rep UpdateAgentStatus x -&gt; UpdateAgentStatus
+forall x. UpdateAgentStatus -&gt; Rep UpdateAgentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAgentStatus x -&gt; UpdateAgentStatus
+$cfrom :: forall x. UpdateAgentStatus -&gt; Rep UpdateAgentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'UpdateAgentStatus' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'displayOrder', 'updateAgentStatus_displayOrder' - The display order of the agent status.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'state', 'updateAgentStatus_state' - The state of the agent status.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'name', 'updateAgentStatus_name' - The name of the agent status.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'resetOrderNumber', 'updateAgentStatus_resetOrderNumber' - A number indicating the reset order of the agent status.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'description', 'updateAgentStatus_description' - The description of the agent status.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'instanceId', 'updateAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'agentStatusId', 'updateAgentStatus_agentStatusId' - The identifier of the agent status.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#newUpdateAgentStatus"><span class="hs-identifier hs-type">newUpdateAgentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'agentStatusId'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span>
+</span><span id="line-102"></span><span id="newUpdateAgentStatus"><span class="annot"><span class="annottext">newUpdateAgentStatus :: Text -&gt; Text -&gt; UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#newUpdateAgentStatus"><span class="hs-identifier hs-var hs-var">newUpdateAgentStatus</span></a></span></span><span> </span><span id="local-6989586621679428507"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428507"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679428506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428506"><span class="hs-identifier hs-var">pAgentStatusId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">UpdateAgentStatus' :: Maybe Natural
+-&gt; Maybe AgentStatusState
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:displayOrder:UpdateAgentStatus' :: Maybe Natural
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AdisplayOrder%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">displayOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:UpdateAgentStatus' :: Maybe AgentStatusState
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Astate%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AgentStatusState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateAgentStatus' :: Maybe Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Aname%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:resetOrderNumber:UpdateAgentStatus' :: Maybe Bool
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AresetOrderNumber%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">resetOrderNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateAgentStatus' :: Maybe Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Adescription%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:UpdateAgentStatus' :: Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AinstanceId%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428507"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:agentStatusId:UpdateAgentStatus' :: Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AagentStatusId%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">agentStatusId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428506"><span class="hs-identifier hs-var">pAgentStatusId_</span></a></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The display order of the agent status.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_displayOrder"><span class="hs-identifier hs-type">updateAgentStatus_displayOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="updateAgentStatus_displayOrder"><span class="annot"><span class="annottext">updateAgentStatus_displayOrder :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateAgentStatus -&gt; f UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_displayOrder"><span class="hs-identifier hs-var hs-var">updateAgentStatus_displayOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAgentStatus -&gt; Maybe Natural)
+-&gt; (UpdateAgentStatus -&gt; Maybe Natural -&gt; UpdateAgentStatus)
+-&gt; Lens
+     UpdateAgentStatus UpdateAgentStatus (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428503"><span class="annot"><span class="annottext">Maybe Natural
+displayOrder :: Maybe Natural
+$sel:displayOrder:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679428503"><span class="hs-identifier hs-var hs-var">displayOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679428503"><span class="hs-identifier hs-var">displayOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428502"><span class="annot"><span class="annottext">s :: UpdateAgentStatus
+</span><a href="#local-6989586621679428502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428501"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679428501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAgentStatus
+</span><a href="#local-6989586621679428502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayOrder:UpdateAgentStatus' :: Maybe Natural
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AdisplayOrder%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">displayOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679428501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The state of the agent status.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_state"><span class="hs-identifier hs-type">updateAgentStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusState.html#AgentStatusState"><span class="hs-identifier hs-type">AgentStatusState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="updateAgentStatus_state"><span class="annot"><span class="annottext">updateAgentStatus_state :: (Maybe AgentStatusState -&gt; f (Maybe AgentStatusState))
+-&gt; UpdateAgentStatus -&gt; f UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_state"><span class="hs-identifier hs-var hs-var">updateAgentStatus_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAgentStatus -&gt; Maybe AgentStatusState)
+-&gt; (UpdateAgentStatus
+    -&gt; Maybe AgentStatusState -&gt; UpdateAgentStatus)
+-&gt; Lens
+     UpdateAgentStatus
+     UpdateAgentStatus
+     (Maybe AgentStatusState)
+     (Maybe AgentStatusState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428500"><span class="annot"><span class="annottext">Maybe AgentStatusState
+state :: Maybe AgentStatusState
+$sel:state:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe AgentStatusState
+</span><a href="#local-6989586621679428500"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AgentStatusState
+</span><a href="#local-6989586621679428500"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428499"><span class="annot"><span class="annottext">s :: UpdateAgentStatus
+</span><a href="#local-6989586621679428499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428498"><span class="annot"><span class="annottext">Maybe AgentStatusState
+</span><a href="#local-6989586621679428498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAgentStatus
+</span><a href="#local-6989586621679428499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:UpdateAgentStatus' :: Maybe AgentStatusState
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Astate%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AgentStatusState
+</span><a href="#local-6989586621679428498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The name of the agent status.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_name"><span class="hs-identifier hs-type">updateAgentStatus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="updateAgentStatus_name"><span class="annot"><span class="annottext">updateAgentStatus_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAgentStatus -&gt; f UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_name"><span class="hs-identifier hs-var hs-var">updateAgentStatus_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAgentStatus -&gt; Maybe Text)
+-&gt; (UpdateAgentStatus -&gt; Maybe Text -&gt; UpdateAgentStatus)
+-&gt; Lens
+     UpdateAgentStatus UpdateAgentStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428497"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679428497"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428497"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428496"><span class="annot"><span class="annottext">s :: UpdateAgentStatus
+</span><a href="#local-6989586621679428496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAgentStatus
+</span><a href="#local-6989586621679428496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateAgentStatus' :: Maybe Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Aname%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A number indicating the reset order of the agent status.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_resetOrderNumber"><span class="hs-identifier hs-type">updateAgentStatus_resetOrderNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="updateAgentStatus_resetOrderNumber"><span class="annot"><span class="annottext">updateAgentStatus_resetOrderNumber :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateAgentStatus -&gt; f UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_resetOrderNumber"><span class="hs-identifier hs-var hs-var">updateAgentStatus_resetOrderNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAgentStatus -&gt; Maybe Bool)
+-&gt; (UpdateAgentStatus -&gt; Maybe Bool -&gt; UpdateAgentStatus)
+-&gt; Lens
+     UpdateAgentStatus UpdateAgentStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428494"><span class="annot"><span class="annottext">Maybe Bool
+resetOrderNumber :: Maybe Bool
+$sel:resetOrderNumber:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621679428494"><span class="hs-identifier hs-var hs-var">resetOrderNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679428494"><span class="hs-identifier hs-var">resetOrderNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428493"><span class="annot"><span class="annottext">s :: UpdateAgentStatus
+</span><a href="#local-6989586621679428493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428492"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679428492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAgentStatus
+</span><a href="#local-6989586621679428493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resetOrderNumber:UpdateAgentStatus' :: Maybe Bool
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AresetOrderNumber%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">resetOrderNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679428492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The description of the agent status.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_description"><span class="hs-identifier hs-type">updateAgentStatus_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="updateAgentStatus_description"><span class="annot"><span class="annottext">updateAgentStatus_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAgentStatus -&gt; f UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_description"><span class="hs-identifier hs-var hs-var">updateAgentStatus_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAgentStatus -&gt; Maybe Text)
+-&gt; (UpdateAgentStatus -&gt; Maybe Text -&gt; UpdateAgentStatus)
+-&gt; Lens
+     UpdateAgentStatus UpdateAgentStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428491"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679428491"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428491"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428490"><span class="annot"><span class="annottext">s :: UpdateAgentStatus
+</span><a href="#local-6989586621679428490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAgentStatus
+</span><a href="#local-6989586621679428490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateAgentStatus' :: Maybe Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3Adescription%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_instanceId"><span class="hs-identifier hs-type">updateAgentStatus_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="updateAgentStatus_instanceId"><span class="annot"><span class="annottext">updateAgentStatus_instanceId :: (Text -&gt; f Text) -&gt; UpdateAgentStatus -&gt; f UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_instanceId"><span class="hs-identifier hs-var hs-var">updateAgentStatus_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAgentStatus -&gt; Text)
+-&gt; (UpdateAgentStatus -&gt; Text -&gt; UpdateAgentStatus)
+-&gt; Lens UpdateAgentStatus UpdateAgentStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428488"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Text
+</span><a href="#local-6989586621679428488"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428488"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428487"><span class="annot"><span class="annottext">s :: UpdateAgentStatus
+</span><a href="#local-6989586621679428487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428486"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAgentStatus
+</span><a href="#local-6989586621679428487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateAgentStatus' :: Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AinstanceId%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The identifier of the agent status.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_agentStatusId"><span class="hs-identifier hs-type">updateAgentStatus_agentStatusId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="updateAgentStatus_agentStatusId"><span class="annot"><span class="annottext">updateAgentStatus_agentStatusId :: (Text -&gt; f Text) -&gt; UpdateAgentStatus -&gt; f UpdateAgentStatus
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#updateAgentStatus_agentStatusId"><span class="hs-identifier hs-var hs-var">updateAgentStatus_agentStatusId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAgentStatus -&gt; Text)
+-&gt; (UpdateAgentStatus -&gt; Text -&gt; UpdateAgentStatus)
+-&gt; Lens UpdateAgentStatus UpdateAgentStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428485"><span class="annot"><span class="annottext">Text
+agentStatusId :: Text
+$sel:agentStatusId:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Text
+</span><a href="#local-6989586621679428485"><span class="hs-identifier hs-var hs-var">agentStatusId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428485"><span class="hs-identifier hs-var">agentStatusId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428484"><span class="annot"><span class="annottext">s :: UpdateAgentStatus
+</span><a href="#local-6989586621679428484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAgentStatus
+</span><a href="#local-6989586621679428484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentStatusId:UpdateAgentStatus' :: Text
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#%24sel%3AagentStatusId%3AUpdateAgentStatus%27"><span class="hs-identifier hs-var">agentStatusId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse"><span class="hs-identifier hs-type">UpdateAgentStatusResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679428479"><span class="annot"><span class="annottext">request :: UpdateAgentStatus -&gt; Request UpdateAgentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAgentStatus -&gt; Request UpdateAgentStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679428475"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateAgentStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateAgentStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UpdateAgentStatus
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateAgentStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateAgentStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateAgentStatus
+UpdateAgentStatusResponse
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse%27"><span class="hs-identifier hs-var">UpdateAgentStatusResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428468"><span id="local-6989586621679428470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679428461"><span class="annot"><span class="annottext">toHeaders :: UpdateAgentStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateAgentStatus -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428451"><span id="local-6989586621679428453"><span id="local-6989586621679428455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679428449"><span class="annot"><span class="annottext">toJSON :: UpdateAgentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428441"><span id="local-6989586621679428442"><span id="local-6989586621679428443"><span id="local-6989586621679428444"><span id="local-6989586621679428445"><span id="local-6989586621679428446"><span id="local-6989586621679428447"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+Maybe AgentStatusState
+Text
+agentStatusId :: Text
+instanceId :: Text
+description :: Maybe Text
+resetOrderNumber :: Maybe Bool
+name :: Maybe Text
+state :: Maybe AgentStatusState
+displayOrder :: Maybe Natural
+$sel:agentStatusId:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Text
+$sel:instanceId:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Text
+$sel:description:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Text
+$sel:resetOrderNumber:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Bool
+$sel:name:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Text
+$sel:state:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe AgentStatusState
+$sel:displayOrder:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679428441"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679428447"><span class="hs-identifier hs-var">displayOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AgentStatusState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AgentStatusState -&gt; Pair) -&gt; Maybe AgentStatusState -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AgentStatusState
+</span><a href="#local-6989586621679428446"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428445"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResetOrderNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679428444"><span class="hs-identifier hs-var">resetOrderNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428443"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679428434"><span class="annot"><span class="annottext">toPath :: UpdateAgentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus%27"><span class="hs-identifier hs-type">UpdateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428426"><span id="local-6989586621679428427"><span id="local-6989586621679428428"><span id="local-6989586621679428429"><span id="local-6989586621679428430"><span id="local-6989586621679428431"><span id="local-6989586621679428432"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+Maybe AgentStatusState
+Text
+agentStatusId :: Text
+instanceId :: Text
+description :: Maybe Text
+resetOrderNumber :: Maybe Bool
+name :: Maybe Text
+state :: Maybe AgentStatusState
+displayOrder :: Maybe Natural
+$sel:agentStatusId:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Text
+$sel:instanceId:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Text
+$sel:description:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Text
+$sel:resetOrderNumber:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Bool
+$sel:name:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Text
+$sel:state:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe AgentStatusState
+$sel:displayOrder:UpdateAgentStatus' :: UpdateAgentStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679428426"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/agent-status/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428427"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428426"><span class="hs-identifier hs-var">agentStatusId</span></a></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatus"><span class="hs-identifier hs-type">UpdateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679428422"><span class="annot"><span class="annottext">toQuery :: UpdateAgentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAgentStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newUpdateAgentStatusResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679428419"><span id="local-6989586621679428420"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAgentStatusResponse"><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse"><span class="hs-identifier hs-var">UpdateAgentStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAgentStatusResponse%27"><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse%27"><span class="hs-identifier hs-var">UpdateAgentStatusResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428415"><span id="local-6989586621679428417"><span class="annot"><span class="annottext">UpdateAgentStatusResponse -&gt; UpdateAgentStatusResponse -&gt; Bool
+(UpdateAgentStatusResponse -&gt; UpdateAgentStatusResponse -&gt; Bool)
+-&gt; (UpdateAgentStatusResponse -&gt; UpdateAgentStatusResponse -&gt; Bool)
+-&gt; Eq UpdateAgentStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAgentStatusResponse -&gt; UpdateAgentStatusResponse -&gt; Bool
+$c/= :: UpdateAgentStatusResponse -&gt; UpdateAgentStatusResponse -&gt; Bool
+== :: UpdateAgentStatusResponse -&gt; UpdateAgentStatusResponse -&gt; Bool
+$c== :: UpdateAgentStatusResponse -&gt; UpdateAgentStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428407"><span id="local-6989586621679428409"><span id="local-6989586621679428411"><span id="local-6989586621679428413"><span class="annot"><span class="annottext">ReadPrec [UpdateAgentStatusResponse]
+ReadPrec UpdateAgentStatusResponse
+Int -&gt; ReadS UpdateAgentStatusResponse
+ReadS [UpdateAgentStatusResponse]
+(Int -&gt; ReadS UpdateAgentStatusResponse)
+-&gt; ReadS [UpdateAgentStatusResponse]
+-&gt; ReadPrec UpdateAgentStatusResponse
+-&gt; ReadPrec [UpdateAgentStatusResponse]
+-&gt; Read UpdateAgentStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAgentStatusResponse]
+$creadListPrec :: ReadPrec [UpdateAgentStatusResponse]
+readPrec :: ReadPrec UpdateAgentStatusResponse
+$creadPrec :: ReadPrec UpdateAgentStatusResponse
+readList :: ReadS [UpdateAgentStatusResponse]
+$creadList :: ReadS [UpdateAgentStatusResponse]
+readsPrec :: Int -&gt; ReadS UpdateAgentStatusResponse
+$creadsPrec :: Int -&gt; ReadS UpdateAgentStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428401"><span id="local-6989586621679428403"><span id="local-6989586621679428405"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentStatusResponse -&gt; ShowS
+[UpdateAgentStatusResponse] -&gt; ShowS
+UpdateAgentStatusResponse -&gt; String
+(Int -&gt; UpdateAgentStatusResponse -&gt; ShowS)
+-&gt; (UpdateAgentStatusResponse -&gt; String)
+-&gt; ([UpdateAgentStatusResponse] -&gt; ShowS)
+-&gt; Show UpdateAgentStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAgentStatusResponse] -&gt; ShowS
+$cshowList :: [UpdateAgentStatusResponse] -&gt; ShowS
+show :: UpdateAgentStatusResponse -&gt; String
+$cshow :: UpdateAgentStatusResponse -&gt; String
+showsPrec :: Int -&gt; UpdateAgentStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAgentStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateAgentStatusResponse -&gt; Rep UpdateAgentStatusResponse x)
+-&gt; (forall x.
+    Rep UpdateAgentStatusResponse x -&gt; UpdateAgentStatusResponse)
+-&gt; Generic UpdateAgentStatusResponse
+forall x.
+Rep UpdateAgentStatusResponse x -&gt; UpdateAgentStatusResponse
+forall x.
+UpdateAgentStatusResponse -&gt; Rep UpdateAgentStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateAgentStatusResponse x -&gt; UpdateAgentStatusResponse
+$cfrom :: forall x.
+UpdateAgentStatusResponse -&gt; Rep UpdateAgentStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'UpdateAgentStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#newUpdateAgentStatusResponse"><span class="hs-identifier hs-type">newUpdateAgentStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse"><span class="hs-identifier hs-type">UpdateAgentStatusResponse</span></a></span><span>
+</span><span id="line-202"></span><span id="newUpdateAgentStatusResponse"><span class="annot"><span class="annottext">newUpdateAgentStatusResponse :: UpdateAgentStatusResponse
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#newUpdateAgentStatusResponse"><span class="hs-identifier hs-var hs-var">newUpdateAgentStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">UpdateAgentStatusResponse
+</span><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse%27"><span class="hs-identifier hs-var">UpdateAgentStatusResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.UpdateAgentStatus.html#UpdateAgentStatusResponse"><span class="hs-identifier hs-type">UpdateAgentStatusResponse</span></a></span></span><span>
+</span><span id="line-206"></span></pre></body></html>

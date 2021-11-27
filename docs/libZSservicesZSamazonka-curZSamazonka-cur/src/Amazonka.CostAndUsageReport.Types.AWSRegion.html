@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CostAndUsageReport.Types.AWSRegion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CostAndUsageReport.Types.AWSRegion</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier">AWSRegion</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Af_south_1"><span class="hs-identifier">AWSRegion_Af_south_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_east_1"><span class="hs-identifier">AWSRegion_Ap_east_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_1"><span class="hs-identifier">AWSRegion_Ap_northeast_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_2"><span class="hs-identifier">AWSRegion_Ap_northeast_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_3"><span class="hs-identifier">AWSRegion_Ap_northeast_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_south_1"><span class="hs-identifier">AWSRegion_Ap_south_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_southeast_1"><span class="hs-identifier">AWSRegion_Ap_southeast_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_southeast_2"><span class="hs-identifier">AWSRegion_Ap_southeast_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ca_central_1"><span class="hs-identifier">AWSRegion_Ca_central_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Cn_north_1"><span class="hs-identifier">AWSRegion_Cn_north_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Cn_northwest_1"><span class="hs-identifier">AWSRegion_Cn_northwest_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_central_1"><span class="hs-identifier">AWSRegion_Eu_central_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_north_1"><span class="hs-identifier">AWSRegion_Eu_north_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_south_1"><span class="hs-identifier">AWSRegion_Eu_south_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_1"><span class="hs-identifier">AWSRegion_Eu_west_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_2"><span class="hs-identifier">AWSRegion_Eu_west_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_3"><span class="hs-identifier">AWSRegion_Eu_west_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Me_south_1"><span class="hs-identifier">AWSRegion_Me_south_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Sa_east_1"><span class="hs-identifier">AWSRegion_Sa_east_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_east_1"><span class="hs-identifier">AWSRegion_Us_east_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_east_2"><span class="hs-identifier">AWSRegion_Us_east_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_west_1"><span class="hs-identifier">AWSRegion_Us_west_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_west_2"><span class="hs-identifier">AWSRegion_Us_west_2</span></a></span><span>
+</span><span id="line-46"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | The region of the S3 bucket that AWS delivers the report into.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679149971"><span id="local-6989586621679149972"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AWSRegion"><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-var">AWSRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AWSRegion%27"><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-var">AWSRegion'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAWSRegion"><span class="annot"><span class="annottext">AWSRegion -&gt; Text
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#fromAWSRegion"><span class="hs-identifier hs-var hs-var">fromAWSRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149963"><span id="local-6989586621679149965"><span id="local-6989586621679149967"><span class="annot"><span class="annottext">Int -&gt; AWSRegion -&gt; ShowS
+[AWSRegion] -&gt; ShowS
+AWSRegion -&gt; String
+(Int -&gt; AWSRegion -&gt; ShowS)
+-&gt; (AWSRegion -&gt; String)
+-&gt; ([AWSRegion] -&gt; ShowS)
+-&gt; Show AWSRegion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AWSRegion] -&gt; ShowS
+$cshowList :: [AWSRegion] -&gt; ShowS
+show :: AWSRegion -&gt; String
+$cshow :: AWSRegion -&gt; String
+showsPrec :: Int -&gt; AWSRegion -&gt; ShowS
+$cshowsPrec :: Int -&gt; AWSRegion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679149954"><span id="local-6989586621679149956"><span id="local-6989586621679149958"><span id="local-6989586621679149960"><span class="annot"><span class="annottext">ReadPrec [AWSRegion]
+ReadPrec AWSRegion
+Int -&gt; ReadS AWSRegion
+ReadS [AWSRegion]
+(Int -&gt; ReadS AWSRegion)
+-&gt; ReadS [AWSRegion]
+-&gt; ReadPrec AWSRegion
+-&gt; ReadPrec [AWSRegion]
+-&gt; Read AWSRegion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AWSRegion]
+$creadListPrec :: ReadPrec [AWSRegion]
+readPrec :: ReadPrec AWSRegion
+$creadPrec :: ReadPrec AWSRegion
+readList :: ReadS [AWSRegion]
+$creadList :: ReadS [AWSRegion]
+readsPrec :: Int -&gt; ReadS AWSRegion
+$creadsPrec :: Int -&gt; ReadS AWSRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679149949"><span id="local-6989586621679149951"><span class="annot"><span class="annottext">AWSRegion -&gt; AWSRegion -&gt; Bool
+(AWSRegion -&gt; AWSRegion -&gt; Bool)
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; Bool) -&gt; Eq AWSRegion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AWSRegion -&gt; AWSRegion -&gt; Bool
+$c/= :: AWSRegion -&gt; AWSRegion -&gt; Bool
+== :: AWSRegion -&gt; AWSRegion -&gt; Bool
+$c== :: AWSRegion -&gt; AWSRegion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679149933"><span id="local-6989586621679149935"><span id="local-6989586621679149937"><span id="local-6989586621679149939"><span id="local-6989586621679149941"><span id="local-6989586621679149943"><span id="local-6989586621679149945"><span class="annot"><span class="annottext">Eq AWSRegion
+Eq AWSRegion
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; Ordering)
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; Bool)
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; Bool)
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; Bool)
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; Bool)
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; AWSRegion)
+-&gt; (AWSRegion -&gt; AWSRegion -&gt; AWSRegion)
+-&gt; Ord AWSRegion
+AWSRegion -&gt; AWSRegion -&gt; Bool
+AWSRegion -&gt; AWSRegion -&gt; Ordering
+AWSRegion -&gt; AWSRegion -&gt; AWSRegion
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AWSRegion -&gt; AWSRegion -&gt; AWSRegion
+$cmin :: AWSRegion -&gt; AWSRegion -&gt; AWSRegion
+max :: AWSRegion -&gt; AWSRegion -&gt; AWSRegion
+$cmax :: AWSRegion -&gt; AWSRegion -&gt; AWSRegion
+&gt;= :: AWSRegion -&gt; AWSRegion -&gt; Bool
+$c&gt;= :: AWSRegion -&gt; AWSRegion -&gt; Bool
+&gt; :: AWSRegion -&gt; AWSRegion -&gt; Bool
+$c&gt; :: AWSRegion -&gt; AWSRegion -&gt; Bool
+&lt;= :: AWSRegion -&gt; AWSRegion -&gt; Bool
+$c&lt;= :: AWSRegion -&gt; AWSRegion -&gt; Bool
+&lt; :: AWSRegion -&gt; AWSRegion -&gt; Bool
+$c&lt; :: AWSRegion -&gt; AWSRegion -&gt; Bool
+compare :: AWSRegion -&gt; AWSRegion -&gt; Ordering
+$ccompare :: AWSRegion -&gt; AWSRegion -&gt; Ordering
+$cp1Ord :: Eq AWSRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AWSRegion -&gt; Rep AWSRegion x)
+-&gt; (forall x. Rep AWSRegion x -&gt; AWSRegion) -&gt; Generic AWSRegion
+forall x. Rep AWSRegion x -&gt; AWSRegion
+forall x. AWSRegion -&gt; Rep AWSRegion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AWSRegion x -&gt; AWSRegion
+$cfrom :: forall x. AWSRegion -&gt; Rep AWSRegion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149925"><span id="local-6989586621679149927"><span class="annot"><span class="annottext">Int -&gt; AWSRegion -&gt; Int
+AWSRegion -&gt; Int
+(Int -&gt; AWSRegion -&gt; Int)
+-&gt; (AWSRegion -&gt; Int) -&gt; Hashable AWSRegion
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AWSRegion -&gt; Int
+$chash :: AWSRegion -&gt; Int
+hashWithSalt :: Int -&gt; AWSRegion -&gt; Int
+$chashWithSalt :: Int -&gt; AWSRegion -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679149922"><span class="annot"><span class="annottext">AWSRegion -&gt; ()
+(AWSRegion -&gt; ()) -&gt; NFData AWSRegion
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AWSRegion -&gt; ()
+$crnf :: AWSRegion -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679149919"><span class="annot"><span class="annottext">Text -&gt; Either String AWSRegion
+(Text -&gt; Either String AWSRegion) -&gt; FromText AWSRegion
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AWSRegion
+$cfromText :: Text -&gt; Either String AWSRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679149916"><span class="annot"><span class="annottext">AWSRegion -&gt; Text
+(AWSRegion -&gt; Text) -&gt; ToText AWSRegion
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AWSRegion -&gt; Text
+$ctoText :: AWSRegion -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679149913"><span class="annot"><span class="annottext">AWSRegion -&gt; ByteString
+(AWSRegion -&gt; ByteString) -&gt; ToByteString AWSRegion
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AWSRegion -&gt; ByteString
+$ctoBS :: AWSRegion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679149910"><span class="annot"><span class="annottext">AWSRegion -&gt; ByteStringBuilder
+(AWSRegion -&gt; ByteStringBuilder) -&gt; ToLog AWSRegion
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AWSRegion -&gt; ByteStringBuilder
+$cbuild :: AWSRegion -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679149907"><span class="annot"><span class="annottext">HeaderName -&gt; AWSRegion -&gt; [Header]
+(HeaderName -&gt; AWSRegion -&gt; [Header]) -&gt; ToHeader AWSRegion
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AWSRegion -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AWSRegion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679149904"><span class="annot"><span class="annottext">AWSRegion -&gt; QueryString
+(AWSRegion -&gt; QueryString) -&gt; ToQuery AWSRegion
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AWSRegion -&gt; QueryString
+$ctoQuery :: AWSRegion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679149899"><span id="local-6989586621679149901"><span class="annot"><span class="annottext">Value -&gt; Parser [AWSRegion]
+Value -&gt; Parser AWSRegion
+(Value -&gt; Parser AWSRegion)
+-&gt; (Value -&gt; Parser [AWSRegion]) -&gt; FromJSON AWSRegion
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AWSRegion]
+$cparseJSONList :: Value -&gt; Parser [AWSRegion]
+parseJSON :: Value -&gt; Parser AWSRegion
+$cparseJSON :: Value -&gt; Parser AWSRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679149894"><span id="local-6989586621679149896"><span class="annot"><span class="annottext">FromJSONKeyFunction [AWSRegion]
+FromJSONKeyFunction AWSRegion
+FromJSONKeyFunction AWSRegion
+-&gt; FromJSONKeyFunction [AWSRegion] -&gt; FromJSONKey AWSRegion
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AWSRegion]
+$cfromJSONKeyList :: FromJSONKeyFunction [AWSRegion]
+fromJSONKey :: FromJSONKeyFunction AWSRegion
+$cfromJSONKey :: FromJSONKeyFunction AWSRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679149885"><span id="local-6989586621679149887"><span id="local-6989586621679149889"><span id="local-6989586621679149891"><span class="annot"><span class="annottext">[AWSRegion] -&gt; Encoding
+[AWSRegion] -&gt; Value
+AWSRegion -&gt; Encoding
+AWSRegion -&gt; Value
+(AWSRegion -&gt; Value)
+-&gt; (AWSRegion -&gt; Encoding)
+-&gt; ([AWSRegion] -&gt; Value)
+-&gt; ([AWSRegion] -&gt; Encoding)
+-&gt; ToJSON AWSRegion
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AWSRegion] -&gt; Encoding
+$ctoEncodingList :: [AWSRegion] -&gt; Encoding
+toJSONList :: [AWSRegion] -&gt; Value
+$ctoJSONList :: [AWSRegion] -&gt; Value
+toEncoding :: AWSRegion -&gt; Encoding
+$ctoEncoding :: AWSRegion -&gt; Encoding
+toJSON :: AWSRegion -&gt; Value
+$ctoJSON :: AWSRegion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679149880"><span id="local-6989586621679149882"><span class="annot"><span class="annottext">ToJSONKeyFunction [AWSRegion]
+ToJSONKeyFunction AWSRegion
+ToJSONKeyFunction AWSRegion
+-&gt; ToJSONKeyFunction [AWSRegion] -&gt; ToJSONKey AWSRegion
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AWSRegion]
+$ctoJSONKeyList :: ToJSONKeyFunction [AWSRegion]
+toJSONKey :: ToJSONKeyFunction AWSRegion
+$ctoJSONKey :: ToJSONKeyFunction AWSRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679149877"><span class="annot"><span class="annottext">[Node] -&gt; Either String AWSRegion
+([Node] -&gt; Either String AWSRegion) -&gt; FromXML AWSRegion
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AWSRegion
+$cparseXML :: [Node] -&gt; Either String AWSRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679149874"><span class="annot"><span class="annottext">AWSRegion -&gt; XML
+(AWSRegion -&gt; XML) -&gt; ToXML AWSRegion
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AWSRegion -&gt; XML
+$ctoXML :: AWSRegion -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Af_south_1"><span class="hs-identifier hs-type">AWSRegion_Af_south_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Af_south_1"><span id="%24mAWSRegion_Af_south_1"><span id="AWSRegion_Af_south_1"><span class="annot"><span class="annottext">$bAWSRegion_Af_south_1 :: AWSRegion
+$mAWSRegion_Af_south_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Af_south_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Af_south_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;af-south-1&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_east_1"><span class="hs-identifier hs-type">AWSRegion_Ap_east_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ap_east_1"><span id="%24mAWSRegion_Ap_east_1"><span id="AWSRegion_Ap_east_1"><span class="annot"><span class="annottext">$bAWSRegion_Ap_east_1 :: AWSRegion
+$mAWSRegion_Ap_east_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ap_east_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ap_east_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-east-1&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_1"><span class="hs-identifier hs-type">AWSRegion_Ap_northeast_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ap_northeast_1"><span id="%24mAWSRegion_Ap_northeast_1"><span id="AWSRegion_Ap_northeast_1"><span class="annot"><span class="annottext">$bAWSRegion_Ap_northeast_1 :: AWSRegion
+$mAWSRegion_Ap_northeast_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ap_northeast_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ap_northeast_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-northeast-1&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_2"><span class="hs-identifier hs-type">AWSRegion_Ap_northeast_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ap_northeast_2"><span id="%24mAWSRegion_Ap_northeast_2"><span id="AWSRegion_Ap_northeast_2"><span class="annot"><span class="annottext">$bAWSRegion_Ap_northeast_2 :: AWSRegion
+$mAWSRegion_Ap_northeast_2 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ap_northeast_2"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ap_northeast_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-northeast-2&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_3"><span class="hs-identifier hs-type">AWSRegion_Ap_northeast_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ap_northeast_3"><span id="%24mAWSRegion_Ap_northeast_3"><span id="AWSRegion_Ap_northeast_3"><span class="annot"><span class="annottext">$bAWSRegion_Ap_northeast_3 :: AWSRegion
+$mAWSRegion_Ap_northeast_3 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ap_northeast_3"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ap_northeast_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-northeast-3&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_south_1"><span class="hs-identifier hs-type">AWSRegion_Ap_south_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ap_south_1"><span id="%24mAWSRegion_Ap_south_1"><span id="AWSRegion_Ap_south_1"><span class="annot"><span class="annottext">$bAWSRegion_Ap_south_1 :: AWSRegion
+$mAWSRegion_Ap_south_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ap_south_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ap_south_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-south-1&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_southeast_1"><span class="hs-identifier hs-type">AWSRegion_Ap_southeast_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ap_southeast_1"><span id="%24mAWSRegion_Ap_southeast_1"><span id="AWSRegion_Ap_southeast_1"><span class="annot"><span class="annottext">$bAWSRegion_Ap_southeast_1 :: AWSRegion
+$mAWSRegion_Ap_southeast_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ap_southeast_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ap_southeast_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-southeast-1&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_southeast_2"><span class="hs-identifier hs-type">AWSRegion_Ap_southeast_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ap_southeast_2"><span id="%24mAWSRegion_Ap_southeast_2"><span id="AWSRegion_Ap_southeast_2"><span class="annot"><span class="annottext">$bAWSRegion_Ap_southeast_2 :: AWSRegion
+$mAWSRegion_Ap_southeast_2 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ap_southeast_2"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ap_southeast_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-southeast-2&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ca_central_1"><span class="hs-identifier hs-type">AWSRegion_Ca_central_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Ca_central_1"><span id="%24mAWSRegion_Ca_central_1"><span id="AWSRegion_Ca_central_1"><span class="annot"><span class="annottext">$bAWSRegion_Ca_central_1 :: AWSRegion
+$mAWSRegion_Ca_central_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Ca_central_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Ca_central_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ca-central-1&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Cn_north_1"><span class="hs-identifier hs-type">AWSRegion_Cn_north_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Cn_north_1"><span id="%24mAWSRegion_Cn_north_1"><span id="AWSRegion_Cn_north_1"><span class="annot"><span class="annottext">$bAWSRegion_Cn_north_1 :: AWSRegion
+$mAWSRegion_Cn_north_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Cn_north_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Cn_north_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cn-north-1&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Cn_northwest_1"><span class="hs-identifier hs-type">AWSRegion_Cn_northwest_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Cn_northwest_1"><span id="%24mAWSRegion_Cn_northwest_1"><span id="AWSRegion_Cn_northwest_1"><span class="annot"><span class="annottext">$bAWSRegion_Cn_northwest_1 :: AWSRegion
+$mAWSRegion_Cn_northwest_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Cn_northwest_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Cn_northwest_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cn-northwest-1&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_central_1"><span class="hs-identifier hs-type">AWSRegion_Eu_central_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Eu_central_1"><span id="%24mAWSRegion_Eu_central_1"><span id="AWSRegion_Eu_central_1"><span class="annot"><span class="annottext">$bAWSRegion_Eu_central_1 :: AWSRegion
+$mAWSRegion_Eu_central_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Eu_central_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Eu_central_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-central-1&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_north_1"><span class="hs-identifier hs-type">AWSRegion_Eu_north_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Eu_north_1"><span id="%24mAWSRegion_Eu_north_1"><span id="AWSRegion_Eu_north_1"><span class="annot"><span class="annottext">$bAWSRegion_Eu_north_1 :: AWSRegion
+$mAWSRegion_Eu_north_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Eu_north_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Eu_north_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-north-1&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_south_1"><span class="hs-identifier hs-type">AWSRegion_Eu_south_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Eu_south_1"><span id="%24mAWSRegion_Eu_south_1"><span id="AWSRegion_Eu_south_1"><span class="annot"><span class="annottext">$bAWSRegion_Eu_south_1 :: AWSRegion
+$mAWSRegion_Eu_south_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Eu_south_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Eu_south_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-south-1&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_1"><span class="hs-identifier hs-type">AWSRegion_Eu_west_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Eu_west_1"><span id="%24mAWSRegion_Eu_west_1"><span id="AWSRegion_Eu_west_1"><span class="annot"><span class="annottext">$bAWSRegion_Eu_west_1 :: AWSRegion
+$mAWSRegion_Eu_west_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Eu_west_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Eu_west_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-west-1&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_2"><span class="hs-identifier hs-type">AWSRegion_Eu_west_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Eu_west_2"><span id="%24mAWSRegion_Eu_west_2"><span id="AWSRegion_Eu_west_2"><span class="annot"><span class="annottext">$bAWSRegion_Eu_west_2 :: AWSRegion
+$mAWSRegion_Eu_west_2 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Eu_west_2"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Eu_west_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-west-2&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_3"><span class="hs-identifier hs-type">AWSRegion_Eu_west_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Eu_west_3"><span id="%24mAWSRegion_Eu_west_3"><span id="AWSRegion_Eu_west_3"><span class="annot"><span class="annottext">$bAWSRegion_Eu_west_3 :: AWSRegion
+$mAWSRegion_Eu_west_3 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Eu_west_3"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Eu_west_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-west-3&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Me_south_1"><span class="hs-identifier hs-type">AWSRegion_Me_south_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Me_south_1"><span id="%24mAWSRegion_Me_south_1"><span id="AWSRegion_Me_south_1"><span class="annot"><span class="annottext">$bAWSRegion_Me_south_1 :: AWSRegion
+$mAWSRegion_Me_south_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Me_south_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Me_south_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;me-south-1&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Sa_east_1"><span class="hs-identifier hs-type">AWSRegion_Sa_east_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Sa_east_1"><span id="%24mAWSRegion_Sa_east_1"><span id="AWSRegion_Sa_east_1"><span class="annot"><span class="annottext">$bAWSRegion_Sa_east_1 :: AWSRegion
+$mAWSRegion_Sa_east_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Sa_east_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Sa_east_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;sa-east-1&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_east_1"><span class="hs-identifier hs-type">AWSRegion_Us_east_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Us_east_1"><span id="%24mAWSRegion_Us_east_1"><span id="AWSRegion_Us_east_1"><span class="annot"><span class="annottext">$bAWSRegion_Us_east_1 :: AWSRegion
+$mAWSRegion_Us_east_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Us_east_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Us_east_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-east-1&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_east_2"><span class="hs-identifier hs-type">AWSRegion_Us_east_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Us_east_2"><span id="%24mAWSRegion_Us_east_2"><span id="AWSRegion_Us_east_2"><span class="annot"><span class="annottext">$bAWSRegion_Us_east_2 :: AWSRegion
+$mAWSRegion_Us_east_2 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Us_east_2"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Us_east_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-east-2&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_west_1"><span class="hs-identifier hs-type">AWSRegion_Us_west_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Us_west_1"><span id="%24mAWSRegion_Us_west_1"><span id="AWSRegion_Us_west_1"><span class="annot"><span class="annottext">$bAWSRegion_Us_west_1 :: AWSRegion
+$mAWSRegion_Us_west_1 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Us_west_1"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Us_west_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-west-1&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_west_2"><span class="hs-identifier hs-type">AWSRegion_Us_west_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAWSRegion_Us_west_2"><span id="%24mAWSRegion_Us_west_2"><span id="AWSRegion_Us_west_2"><span class="annot"><span class="annottext">$bAWSRegion_Us_west_2 :: AWSRegion
+$mAWSRegion_Us_west_2 :: forall r. AWSRegion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#%24bAWSRegion_Us_west_2"><span class="hs-identifier hs-var hs-var hs-var">AWSRegion_Us_west_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-type">AWSRegion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-west-2&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Af_south_1"><span class="hs-pragma hs-type">AWSRegion_Af_south_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_east_1"><span class="hs-pragma hs-type">AWSRegion_Ap_east_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_1"><span class="hs-pragma hs-type">AWSRegion_Ap_northeast_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_2"><span class="hs-pragma hs-type">AWSRegion_Ap_northeast_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_northeast_3"><span class="hs-pragma hs-type">AWSRegion_Ap_northeast_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_south_1"><span class="hs-pragma hs-type">AWSRegion_Ap_south_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_southeast_1"><span class="hs-pragma hs-type">AWSRegion_Ap_southeast_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ap_southeast_2"><span class="hs-pragma hs-type">AWSRegion_Ap_southeast_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Ca_central_1"><span class="hs-pragma hs-type">AWSRegion_Ca_central_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Cn_north_1"><span class="hs-pragma hs-type">AWSRegion_Cn_north_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Cn_northwest_1"><span class="hs-pragma hs-type">AWSRegion_Cn_northwest_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_central_1"><span class="hs-pragma hs-type">AWSRegion_Eu_central_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_north_1"><span class="hs-pragma hs-type">AWSRegion_Eu_north_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_south_1"><span class="hs-pragma hs-type">AWSRegion_Eu_south_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_1"><span class="hs-pragma hs-type">AWSRegion_Eu_west_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_2"><span class="hs-pragma hs-type">AWSRegion_Eu_west_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Eu_west_3"><span class="hs-pragma hs-type">AWSRegion_Eu_west_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Me_south_1"><span class="hs-pragma hs-type">AWSRegion_Me_south_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Sa_east_1"><span class="hs-pragma hs-type">AWSRegion_Sa_east_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_east_1"><span class="hs-pragma hs-type">AWSRegion_Us_east_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_east_2"><span class="hs-pragma hs-type">AWSRegion_Us_east_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_west_1"><span class="hs-pragma hs-type">AWSRegion_Us_west_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion_Us_west_2"><span class="hs-pragma hs-type">AWSRegion_Us_west_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-pragma hs-type">AWSRegion'</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-177"></span></pre></body></html>

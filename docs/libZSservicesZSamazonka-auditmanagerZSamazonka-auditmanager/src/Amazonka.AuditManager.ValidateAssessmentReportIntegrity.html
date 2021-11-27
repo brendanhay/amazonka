@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.ValidateAssessmentReportIntegrity</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Validates the integrity of an assessment report in Audit Manager.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.ValidateAssessmentReportIntegrity</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier">ValidateAssessmentReportIntegrity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#newValidateAssessmentReportIntegrity"><span class="hs-identifier">newValidateAssessmentReportIntegrity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrity_s3RelativePath"><span class="hs-identifier">validateAssessmentReportIntegrity_s3RelativePath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier">ValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#newValidateAssessmentReportIntegrityResponse"><span class="hs-identifier">newValidateAssessmentReportIntegrityResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureValid"><span class="hs-identifier">validateAssessmentReportIntegrityResponse_signatureValid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_validationErrors"><span class="hs-identifier">validateAssessmentReportIntegrityResponse_validationErrors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureDateTime"><span class="hs-identifier">validateAssessmentReportIntegrityResponse_signatureDateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureAlgorithm"><span class="hs-identifier">validateAssessmentReportIntegrityResponse_signatureAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureKeyId"><span class="hs-identifier">validateAssessmentReportIntegrityResponse_signatureKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_httpStatus"><span class="hs-identifier">validateAssessmentReportIntegrityResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.html"><span class="hs-identifier">Amazonka.AuditManager.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newValidateAssessmentReportIntegrity' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679309775"><span id="local-6989586621679309776"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidateAssessmentReportIntegrity"><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-var">ValidateAssessmentReportIntegrity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidateAssessmentReportIntegrity%27"><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-var">ValidateAssessmentReportIntegrity'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The relative path of the specified Amazon S3 bucket in which the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- assessment report is stored.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3As3RelativePath%3AValidateAssessmentReportIntegrity%27"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrity -&gt; Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3As3RelativePath%3AValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-var hs-var">s3RelativePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309769"><span id="local-6989586621679309771"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrity
+-&gt; ValidateAssessmentReportIntegrity -&gt; Bool
+(ValidateAssessmentReportIntegrity
+ -&gt; ValidateAssessmentReportIntegrity -&gt; Bool)
+-&gt; (ValidateAssessmentReportIntegrity
+    -&gt; ValidateAssessmentReportIntegrity -&gt; Bool)
+-&gt; Eq ValidateAssessmentReportIntegrity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidateAssessmentReportIntegrity
+-&gt; ValidateAssessmentReportIntegrity -&gt; Bool
+$c/= :: ValidateAssessmentReportIntegrity
+-&gt; ValidateAssessmentReportIntegrity -&gt; Bool
+== :: ValidateAssessmentReportIntegrity
+-&gt; ValidateAssessmentReportIntegrity -&gt; Bool
+$c== :: ValidateAssessmentReportIntegrity
+-&gt; ValidateAssessmentReportIntegrity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309760"><span id="local-6989586621679309762"><span id="local-6989586621679309764"><span id="local-6989586621679309766"><span class="annot"><span class="annottext">ReadPrec [ValidateAssessmentReportIntegrity]
+ReadPrec ValidateAssessmentReportIntegrity
+Int -&gt; ReadS ValidateAssessmentReportIntegrity
+ReadS [ValidateAssessmentReportIntegrity]
+(Int -&gt; ReadS ValidateAssessmentReportIntegrity)
+-&gt; ReadS [ValidateAssessmentReportIntegrity]
+-&gt; ReadPrec ValidateAssessmentReportIntegrity
+-&gt; ReadPrec [ValidateAssessmentReportIntegrity]
+-&gt; Read ValidateAssessmentReportIntegrity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidateAssessmentReportIntegrity]
+$creadListPrec :: ReadPrec [ValidateAssessmentReportIntegrity]
+readPrec :: ReadPrec ValidateAssessmentReportIntegrity
+$creadPrec :: ReadPrec ValidateAssessmentReportIntegrity
+readList :: ReadS [ValidateAssessmentReportIntegrity]
+$creadList :: ReadS [ValidateAssessmentReportIntegrity]
+readsPrec :: Int -&gt; ReadS ValidateAssessmentReportIntegrity
+$creadsPrec :: Int -&gt; ReadS ValidateAssessmentReportIntegrity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309753"><span id="local-6989586621679309755"><span id="local-6989586621679309757"><span class="annot"><span class="annottext">Int -&gt; ValidateAssessmentReportIntegrity -&gt; ShowS
+[ValidateAssessmentReportIntegrity] -&gt; ShowS
+ValidateAssessmentReportIntegrity -&gt; String
+(Int -&gt; ValidateAssessmentReportIntegrity -&gt; ShowS)
+-&gt; (ValidateAssessmentReportIntegrity -&gt; String)
+-&gt; ([ValidateAssessmentReportIntegrity] -&gt; ShowS)
+-&gt; Show ValidateAssessmentReportIntegrity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidateAssessmentReportIntegrity] -&gt; ShowS
+$cshowList :: [ValidateAssessmentReportIntegrity] -&gt; ShowS
+show :: ValidateAssessmentReportIntegrity -&gt; String
+$cshow :: ValidateAssessmentReportIntegrity -&gt; String
+showsPrec :: Int -&gt; ValidateAssessmentReportIntegrity -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidateAssessmentReportIntegrity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ValidateAssessmentReportIntegrity
+ -&gt; Rep ValidateAssessmentReportIntegrity x)
+-&gt; (forall x.
+    Rep ValidateAssessmentReportIntegrity x
+    -&gt; ValidateAssessmentReportIntegrity)
+-&gt; Generic ValidateAssessmentReportIntegrity
+forall x.
+Rep ValidateAssessmentReportIntegrity x
+-&gt; ValidateAssessmentReportIntegrity
+forall x.
+ValidateAssessmentReportIntegrity
+-&gt; Rep ValidateAssessmentReportIntegrity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ValidateAssessmentReportIntegrity x
+-&gt; ValidateAssessmentReportIntegrity
+$cfrom :: forall x.
+ValidateAssessmentReportIntegrity
+-&gt; Rep ValidateAssessmentReportIntegrity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ValidateAssessmentReportIntegrity' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 's3RelativePath', 'validateAssessmentReportIntegrity_s3RelativePath' - The relative path of the specified Amazon S3 bucket in which the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- assessment report is stored.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#newValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">newValidateAssessmentReportIntegrity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 's3RelativePath'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span>
+</span><span id="line-75"></span><span id="newValidateAssessmentReportIntegrity"><span class="annot"><span class="annottext">newValidateAssessmentReportIntegrity :: Text -&gt; ValidateAssessmentReportIntegrity
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#newValidateAssessmentReportIntegrity"><span class="hs-identifier hs-var hs-var">newValidateAssessmentReportIntegrity</span></a></span></span><span> </span><span id="local-6989586621679309748"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309748"><span class="hs-identifier hs-var">pS3RelativePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrity' :: Text -&gt; ValidateAssessmentReportIntegrity
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3RelativePath:ValidateAssessmentReportIntegrity' :: Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3As3RelativePath%3AValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-var">s3RelativePath</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309748"><span class="hs-identifier hs-var">pS3RelativePath_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The relative path of the specified Amazon S3 bucket in which the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- assessment report is stored.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrity_s3RelativePath"><span class="hs-identifier hs-type">validateAssessmentReportIntegrity_s3RelativePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="validateAssessmentReportIntegrity_s3RelativePath"><span class="annot"><span class="annottext">validateAssessmentReportIntegrity_s3RelativePath :: (Text -&gt; f Text)
+-&gt; ValidateAssessmentReportIntegrity
+-&gt; f ValidateAssessmentReportIntegrity
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrity_s3RelativePath"><span class="hs-identifier hs-var hs-var">validateAssessmentReportIntegrity_s3RelativePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidateAssessmentReportIntegrity -&gt; Text)
+-&gt; (ValidateAssessmentReportIntegrity
+    -&gt; Text -&gt; ValidateAssessmentReportIntegrity)
+-&gt; Lens
+     ValidateAssessmentReportIntegrity
+     ValidateAssessmentReportIntegrity
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309745"><span class="annot"><span class="annottext">Text
+s3RelativePath :: Text
+$sel:s3RelativePath:ValidateAssessmentReportIntegrity' :: ValidateAssessmentReportIntegrity -&gt; Text
+</span><a href="#local-6989586621679309745"><span class="hs-identifier hs-var hs-var">s3RelativePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309745"><span class="hs-identifier hs-var">s3RelativePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309744"><span class="annot"><span class="annottext">s :: ValidateAssessmentReportIntegrity
+</span><a href="#local-6989586621679309744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrity
+</span><a href="#local-6989586621679309744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3RelativePath:ValidateAssessmentReportIntegrity' :: Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3As3RelativePath%3AValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-var">s3RelativePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679309739"><span class="annot"><span class="annottext">request :: ValidateAssessmentReportIntegrity
+-&gt; Request ValidateAssessmentReportIntegrity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ValidateAssessmentReportIntegrity
+-&gt; Request ValidateAssessmentReportIntegrity
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679309735"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ValidateAssessmentReportIntegrity
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ValidateAssessmentReportIntegrity)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ValidateAssessmentReportIntegrity))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ValidateAssessmentReportIntegrity
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ValidateAssessmentReportIntegrity)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309732"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309732"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309731"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309731"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309730"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309730"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">ValidateAssessmentReportIntegrityResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ValidateAssessmentReportIntegrityResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;signatureValid&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ValidateAssessmentReportIntegrityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;validationErrors&quot;</span></span><span>
+</span><span id="line-100"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-101"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; ValidateAssessmentReportIntegrityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;signatureDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; ValidateAssessmentReportIntegrityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;signatureAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ValidateAssessmentReportIntegrityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;signatureKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Either String Int
+-&gt; Either String ValidateAssessmentReportIntegrityResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309732"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679309721"><span id="local-6989586621679309723"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679309718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679309714"><span class="annot"><span class="annottext">toHeaders :: ValidateAssessmentReportIntegrity -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ValidateAssessmentReportIntegrity -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679309704"><span id="local-6989586621679309706"><span id="local-6989586621679309708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span></span></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679309702"><span class="annot"><span class="annottext">toJSON :: ValidateAssessmentReportIntegrity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309700"><span class="annot"><span class="annottext">Text
+s3RelativePath :: Text
+$sel:s3RelativePath:ValidateAssessmentReportIntegrity' :: ValidateAssessmentReportIntegrity -&gt; Text
+</span><a href="#local-6989586621679309700"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3RelativePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309700"><span class="hs-identifier hs-var">s3RelativePath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679309694"><span class="annot"><span class="annottext">toPath :: ValidateAssessmentReportIntegrity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ValidateAssessmentReportIntegrity -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assessmentReports/integrity&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrity"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrity</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679309690"><span class="annot"><span class="annottext">toQuery :: ValidateAssessmentReportIntegrity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ValidateAssessmentReportIntegrity -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newValidateAssessmentReportIntegrityResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679309687"><span id="local-6989586621679309688"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidateAssessmentReportIntegrityResponse"><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-var">ValidateAssessmentReportIntegrityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidateAssessmentReportIntegrityResponse%27"><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">ValidateAssessmentReportIntegrityResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the signature key is valid.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AsignatureValid%3AValidateAssessmentReportIntegrityResponse%27"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse -&gt; Maybe Bool
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureValid%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var hs-var">signatureValid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | Represents any errors that occurred when validating the assessment</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- report.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AvalidationErrors%3AValidateAssessmentReportIntegrityResponse%27"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AvalidationErrors%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var hs-var">validationErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The date and time signature that specifies when the assessment report</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- was created.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AsignatureDateTime%3AValidateAssessmentReportIntegrityResponse%27"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureDateTime%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var hs-var">signatureDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The signature algorithm used to code sign the assessment report file.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AsignatureAlgorithm%3AValidateAssessmentReportIntegrityResponse%27"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureAlgorithm%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var hs-var">signatureAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the validation signature key.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AsignatureKeyId%3AValidateAssessmentReportIntegrityResponse%27"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureKeyId%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var hs-var">signatureKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3AValidateAssessmentReportIntegrityResponse%27"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse -&gt; Int
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AhttpStatus%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309677"><span id="local-6989586621679309679"><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse
+-&gt; ValidateAssessmentReportIntegrityResponse -&gt; Bool
+(ValidateAssessmentReportIntegrityResponse
+ -&gt; ValidateAssessmentReportIntegrityResponse -&gt; Bool)
+-&gt; (ValidateAssessmentReportIntegrityResponse
+    -&gt; ValidateAssessmentReportIntegrityResponse -&gt; Bool)
+-&gt; Eq ValidateAssessmentReportIntegrityResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidateAssessmentReportIntegrityResponse
+-&gt; ValidateAssessmentReportIntegrityResponse -&gt; Bool
+$c/= :: ValidateAssessmentReportIntegrityResponse
+-&gt; ValidateAssessmentReportIntegrityResponse -&gt; Bool
+== :: ValidateAssessmentReportIntegrityResponse
+-&gt; ValidateAssessmentReportIntegrityResponse -&gt; Bool
+$c== :: ValidateAssessmentReportIntegrityResponse
+-&gt; ValidateAssessmentReportIntegrityResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309669"><span id="local-6989586621679309671"><span id="local-6989586621679309673"><span id="local-6989586621679309675"><span class="annot"><span class="annottext">ReadPrec [ValidateAssessmentReportIntegrityResponse]
+ReadPrec ValidateAssessmentReportIntegrityResponse
+Int -&gt; ReadS ValidateAssessmentReportIntegrityResponse
+ReadS [ValidateAssessmentReportIntegrityResponse]
+(Int -&gt; ReadS ValidateAssessmentReportIntegrityResponse)
+-&gt; ReadS [ValidateAssessmentReportIntegrityResponse]
+-&gt; ReadPrec ValidateAssessmentReportIntegrityResponse
+-&gt; ReadPrec [ValidateAssessmentReportIntegrityResponse]
+-&gt; Read ValidateAssessmentReportIntegrityResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidateAssessmentReportIntegrityResponse]
+$creadListPrec :: ReadPrec [ValidateAssessmentReportIntegrityResponse]
+readPrec :: ReadPrec ValidateAssessmentReportIntegrityResponse
+$creadPrec :: ReadPrec ValidateAssessmentReportIntegrityResponse
+readList :: ReadS [ValidateAssessmentReportIntegrityResponse]
+$creadList :: ReadS [ValidateAssessmentReportIntegrityResponse]
+readsPrec :: Int -&gt; ReadS ValidateAssessmentReportIntegrityResponse
+$creadsPrec :: Int -&gt; ReadS ValidateAssessmentReportIntegrityResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309663"><span id="local-6989586621679309665"><span id="local-6989586621679309667"><span class="annot"><span class="annottext">Int -&gt; ValidateAssessmentReportIntegrityResponse -&gt; ShowS
+[ValidateAssessmentReportIntegrityResponse] -&gt; ShowS
+ValidateAssessmentReportIntegrityResponse -&gt; String
+(Int -&gt; ValidateAssessmentReportIntegrityResponse -&gt; ShowS)
+-&gt; (ValidateAssessmentReportIntegrityResponse -&gt; String)
+-&gt; ([ValidateAssessmentReportIntegrityResponse] -&gt; ShowS)
+-&gt; Show ValidateAssessmentReportIntegrityResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidateAssessmentReportIntegrityResponse] -&gt; ShowS
+$cshowList :: [ValidateAssessmentReportIntegrityResponse] -&gt; ShowS
+show :: ValidateAssessmentReportIntegrityResponse -&gt; String
+$cshow :: ValidateAssessmentReportIntegrityResponse -&gt; String
+showsPrec :: Int -&gt; ValidateAssessmentReportIntegrityResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidateAssessmentReportIntegrityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ValidateAssessmentReportIntegrityResponse
+ -&gt; Rep ValidateAssessmentReportIntegrityResponse x)
+-&gt; (forall x.
+    Rep ValidateAssessmentReportIntegrityResponse x
+    -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Generic ValidateAssessmentReportIntegrityResponse
+forall x.
+Rep ValidateAssessmentReportIntegrityResponse x
+-&gt; ValidateAssessmentReportIntegrityResponse
+forall x.
+ValidateAssessmentReportIntegrityResponse
+-&gt; Rep ValidateAssessmentReportIntegrityResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ValidateAssessmentReportIntegrityResponse x
+-&gt; ValidateAssessmentReportIntegrityResponse
+$cfrom :: forall x.
+ValidateAssessmentReportIntegrityResponse
+-&gt; Rep ValidateAssessmentReportIntegrityResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Create a value of 'ValidateAssessmentReportIntegrityResponse' with all optional fields omitted.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'signatureValid', 'validateAssessmentReportIntegrityResponse_signatureValid' - Specifies whether the signature key is valid.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'validationErrors', 'validateAssessmentReportIntegrityResponse_validationErrors' - Represents any errors that occurred when validating the assessment</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- report.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'signatureDateTime', 'validateAssessmentReportIntegrityResponse_signatureDateTime' - The date and time signature that specifies when the assessment report</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- was created.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'signatureAlgorithm', 'validateAssessmentReportIntegrityResponse_signatureAlgorithm' - The signature algorithm used to code sign the assessment report file.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'signatureKeyId', 'validateAssessmentReportIntegrityResponse_signatureKeyId' - The unique identifier for the validation signature key.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'validateAssessmentReportIntegrityResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#newValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">newValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newValidateAssessmentReportIntegrityResponse"><span class="annot"><span class="annottext">newValidateAssessmentReportIntegrityResponse :: Int -&gt; ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#newValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-var hs-var">newValidateAssessmentReportIntegrityResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679309660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse' :: Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:signatureValid:ValidateAssessmentReportIntegrityResponse' :: Maybe Bool
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureValid%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureValid</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:validationErrors:ValidateAssessmentReportIntegrityResponse' :: Maybe [Text]
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AvalidationErrors%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">validationErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:signatureDateTime:ValidateAssessmentReportIntegrityResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureDateTime%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:signatureAlgorithm:ValidateAssessmentReportIntegrityResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureAlgorithm%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:signatureKeyId:ValidateAssessmentReportIntegrityResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureKeyId%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ValidateAssessmentReportIntegrityResponse' :: Int
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AhttpStatus%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Specifies whether the signature key is valid.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureValid"><span class="hs-identifier hs-type">validateAssessmentReportIntegrityResponse_signatureValid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="validateAssessmentReportIntegrityResponse_signatureValid"><span class="annot"><span class="annottext">validateAssessmentReportIntegrityResponse_signatureValid :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ValidateAssessmentReportIntegrityResponse
+-&gt; f ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureValid"><span class="hs-identifier hs-var hs-var">validateAssessmentReportIntegrityResponse_signatureValid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidateAssessmentReportIntegrityResponse -&gt; Maybe Bool)
+-&gt; (ValidateAssessmentReportIntegrityResponse
+    -&gt; Maybe Bool -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Lens
+     ValidateAssessmentReportIntegrityResponse
+     ValidateAssessmentReportIntegrityResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309659"><span class="annot"><span class="annottext">Maybe Bool
+signatureValid :: Maybe Bool
+$sel:signatureValid:ValidateAssessmentReportIntegrityResponse' :: ValidateAssessmentReportIntegrityResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679309659"><span class="hs-identifier hs-var hs-var">signatureValid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309659"><span class="hs-identifier hs-var">signatureValid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309658"><span class="annot"><span class="annottext">s :: ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309657"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureValid:ValidateAssessmentReportIntegrityResponse' :: Maybe Bool
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureValid%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureValid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Represents any errors that occurred when validating the assessment</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- report.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_validationErrors"><span class="hs-identifier hs-type">validateAssessmentReportIntegrityResponse_validationErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="validateAssessmentReportIntegrityResponse_validationErrors"><span class="annot"><span class="annottext">validateAssessmentReportIntegrityResponse_validationErrors :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ValidateAssessmentReportIntegrityResponse
+-&gt; f ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_validationErrors"><span class="hs-identifier hs-var hs-var">validateAssessmentReportIntegrityResponse_validationErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidateAssessmentReportIntegrityResponse -&gt; Maybe [Text])
+-&gt; (ValidateAssessmentReportIntegrityResponse
+    -&gt; Maybe [Text] -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Lens
+     ValidateAssessmentReportIntegrityResponse
+     ValidateAssessmentReportIntegrityResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309656"><span class="annot"><span class="annottext">Maybe [Text]
+validationErrors :: Maybe [Text]
+$sel:validationErrors:ValidateAssessmentReportIntegrityResponse' :: ValidateAssessmentReportIntegrityResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679309656"><span class="hs-identifier hs-var hs-var">validationErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679309656"><span class="hs-identifier hs-var">validationErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309655"><span class="annot"><span class="annottext">s :: ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309654"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679309654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationErrors:ValidateAssessmentReportIntegrityResponse' :: Maybe [Text]
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AvalidationErrors%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">validationErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679309654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ValidateAssessmentReportIntegrityResponse
+ -&gt; f ValidateAssessmentReportIntegrityResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ValidateAssessmentReportIntegrityResponse
+-&gt; f ValidateAssessmentReportIntegrityResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The date and time signature that specifies when the assessment report</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- was created.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureDateTime"><span class="hs-identifier hs-type">validateAssessmentReportIntegrityResponse_signatureDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="validateAssessmentReportIntegrityResponse_signatureDateTime"><span class="annot"><span class="annottext">validateAssessmentReportIntegrityResponse_signatureDateTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ValidateAssessmentReportIntegrityResponse
+-&gt; f ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureDateTime"><span class="hs-identifier hs-var hs-var">validateAssessmentReportIntegrityResponse_signatureDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text)
+-&gt; (ValidateAssessmentReportIntegrityResponse
+    -&gt; Maybe Text -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Lens
+     ValidateAssessmentReportIntegrityResponse
+     ValidateAssessmentReportIntegrityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309650"><span class="annot"><span class="annottext">Maybe Text
+signatureDateTime :: Maybe Text
+$sel:signatureDateTime:ValidateAssessmentReportIntegrityResponse' :: ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679309650"><span class="hs-identifier hs-var hs-var">signatureDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309650"><span class="hs-identifier hs-var">signatureDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309649"><span class="annot"><span class="annottext">s :: ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309648"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureDateTime:ValidateAssessmentReportIntegrityResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureDateTime%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The signature algorithm used to code sign the assessment report file.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureAlgorithm"><span class="hs-identifier hs-type">validateAssessmentReportIntegrityResponse_signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="validateAssessmentReportIntegrityResponse_signatureAlgorithm"><span class="annot"><span class="annottext">validateAssessmentReportIntegrityResponse_signatureAlgorithm :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ValidateAssessmentReportIntegrityResponse
+-&gt; f ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureAlgorithm"><span class="hs-identifier hs-var hs-var">validateAssessmentReportIntegrityResponse_signatureAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text)
+-&gt; (ValidateAssessmentReportIntegrityResponse
+    -&gt; Maybe Text -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Lens
+     ValidateAssessmentReportIntegrityResponse
+     ValidateAssessmentReportIntegrityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309647"><span class="annot"><span class="annottext">Maybe Text
+signatureAlgorithm :: Maybe Text
+$sel:signatureAlgorithm:ValidateAssessmentReportIntegrityResponse' :: ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679309647"><span class="hs-identifier hs-var hs-var">signatureAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309647"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309646"><span class="annot"><span class="annottext">s :: ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309645"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureAlgorithm:ValidateAssessmentReportIntegrityResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureAlgorithm%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The unique identifier for the validation signature key.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureKeyId"><span class="hs-identifier hs-type">validateAssessmentReportIntegrityResponse_signatureKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="validateAssessmentReportIntegrityResponse_signatureKeyId"><span class="annot"><span class="annottext">validateAssessmentReportIntegrityResponse_signatureKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ValidateAssessmentReportIntegrityResponse
+-&gt; f ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_signatureKeyId"><span class="hs-identifier hs-var hs-var">validateAssessmentReportIntegrityResponse_signatureKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text)
+-&gt; (ValidateAssessmentReportIntegrityResponse
+    -&gt; Maybe Text -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Lens
+     ValidateAssessmentReportIntegrityResponse
+     ValidateAssessmentReportIntegrityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309644"><span class="annot"><span class="annottext">Maybe Text
+signatureKeyId :: Maybe Text
+$sel:signatureKeyId:ValidateAssessmentReportIntegrityResponse' :: ValidateAssessmentReportIntegrityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679309644"><span class="hs-identifier hs-var hs-var">signatureKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309644"><span class="hs-identifier hs-var">signatureKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309643"><span class="annot"><span class="annottext">s :: ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureKeyId:ValidateAssessmentReportIntegrityResponse' :: Maybe Text
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AsignatureKeyId%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">signatureKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_httpStatus"><span class="hs-identifier hs-type">validateAssessmentReportIntegrityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="validateAssessmentReportIntegrityResponse_httpStatus"><span class="annot"><span class="annottext">validateAssessmentReportIntegrityResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ValidateAssessmentReportIntegrityResponse
+-&gt; f ValidateAssessmentReportIntegrityResponse
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#validateAssessmentReportIntegrityResponse_httpStatus"><span class="hs-identifier hs-var hs-var">validateAssessmentReportIntegrityResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidateAssessmentReportIntegrityResponse -&gt; Int)
+-&gt; (ValidateAssessmentReportIntegrityResponse
+    -&gt; Int -&gt; ValidateAssessmentReportIntegrityResponse)
+-&gt; Lens
+     ValidateAssessmentReportIntegrityResponse
+     ValidateAssessmentReportIntegrityResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309641"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ValidateAssessmentReportIntegrityResponse' :: ValidateAssessmentReportIntegrityResponse -&gt; Int
+</span><a href="#local-6989586621679309641"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309641"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309640"><span class="annot"><span class="annottext">s :: ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidateAssessmentReportIntegrityResponse
+</span><a href="#local-6989586621679309640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ValidateAssessmentReportIntegrityResponse' :: Int
+</span><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#%24sel%3AhttpStatus%3AValidateAssessmentReportIntegrityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679309637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.ValidateAssessmentReportIntegrity.html#ValidateAssessmentReportIntegrityResponse"><span class="hs-identifier hs-type">ValidateAssessmentReportIntegrityResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

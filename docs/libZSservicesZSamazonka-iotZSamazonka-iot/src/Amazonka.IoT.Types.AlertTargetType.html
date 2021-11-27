@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.AlertTargetType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.AlertTargetType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType"><span class="hs-identifier">AlertTargetType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType_SNS"><span class="hs-identifier">AlertTargetType_SNS</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | The type of alert target: one of \&quot;SNS\&quot;.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679773689"><span id="local-6989586621679773690"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlertTargetType"><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType"><span class="hs-identifier hs-var">AlertTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlertTargetType%27"><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType%27"><span class="hs-identifier hs-var">AlertTargetType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlertTargetType"><span class="annot"><span class="annottext">AlertTargetType -&gt; Text
+</span><a href="Amazonka.IoT.Types.AlertTargetType.html#fromAlertTargetType"><span class="hs-identifier hs-var hs-var">fromAlertTargetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773681"><span id="local-6989586621679773683"><span id="local-6989586621679773685"><span class="annot"><span class="annottext">Int -&gt; AlertTargetType -&gt; ShowS
+[AlertTargetType] -&gt; ShowS
+AlertTargetType -&gt; String
+(Int -&gt; AlertTargetType -&gt; ShowS)
+-&gt; (AlertTargetType -&gt; String)
+-&gt; ([AlertTargetType] -&gt; ShowS)
+-&gt; Show AlertTargetType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlertTargetType] -&gt; ShowS
+$cshowList :: [AlertTargetType] -&gt; ShowS
+show :: AlertTargetType -&gt; String
+$cshow :: AlertTargetType -&gt; String
+showsPrec :: Int -&gt; AlertTargetType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlertTargetType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679773672"><span id="local-6989586621679773674"><span id="local-6989586621679773676"><span id="local-6989586621679773678"><span class="annot"><span class="annottext">ReadPrec [AlertTargetType]
+ReadPrec AlertTargetType
+Int -&gt; ReadS AlertTargetType
+ReadS [AlertTargetType]
+(Int -&gt; ReadS AlertTargetType)
+-&gt; ReadS [AlertTargetType]
+-&gt; ReadPrec AlertTargetType
+-&gt; ReadPrec [AlertTargetType]
+-&gt; Read AlertTargetType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlertTargetType]
+$creadListPrec :: ReadPrec [AlertTargetType]
+readPrec :: ReadPrec AlertTargetType
+$creadPrec :: ReadPrec AlertTargetType
+readList :: ReadS [AlertTargetType]
+$creadList :: ReadS [AlertTargetType]
+readsPrec :: Int -&gt; ReadS AlertTargetType
+$creadsPrec :: Int -&gt; ReadS AlertTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679773667"><span id="local-6989586621679773669"><span class="annot"><span class="annottext">AlertTargetType -&gt; AlertTargetType -&gt; Bool
+(AlertTargetType -&gt; AlertTargetType -&gt; Bool)
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
+-&gt; Eq AlertTargetType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+$c/= :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+== :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+$c== :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679773651"><span id="local-6989586621679773653"><span id="local-6989586621679773655"><span id="local-6989586621679773657"><span id="local-6989586621679773659"><span id="local-6989586621679773661"><span id="local-6989586621679773663"><span class="annot"><span class="annottext">Eq AlertTargetType
+Eq AlertTargetType
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Ordering)
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; AlertTargetType)
+-&gt; (AlertTargetType -&gt; AlertTargetType -&gt; AlertTargetType)
+-&gt; Ord AlertTargetType
+AlertTargetType -&gt; AlertTargetType -&gt; Bool
+AlertTargetType -&gt; AlertTargetType -&gt; Ordering
+AlertTargetType -&gt; AlertTargetType -&gt; AlertTargetType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AlertTargetType -&gt; AlertTargetType -&gt; AlertTargetType
+$cmin :: AlertTargetType -&gt; AlertTargetType -&gt; AlertTargetType
+max :: AlertTargetType -&gt; AlertTargetType -&gt; AlertTargetType
+$cmax :: AlertTargetType -&gt; AlertTargetType -&gt; AlertTargetType
+&gt;= :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+$c&gt;= :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+&gt; :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+$c&gt; :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+&lt;= :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+$c&lt;= :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+&lt; :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+$c&lt; :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
+compare :: AlertTargetType -&gt; AlertTargetType -&gt; Ordering
+$ccompare :: AlertTargetType -&gt; AlertTargetType -&gt; Ordering
+$cp1Ord :: Eq AlertTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AlertTargetType -&gt; Rep AlertTargetType x)
+-&gt; (forall x. Rep AlertTargetType x -&gt; AlertTargetType)
+-&gt; Generic AlertTargetType
+forall x. Rep AlertTargetType x -&gt; AlertTargetType
+forall x. AlertTargetType -&gt; Rep AlertTargetType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlertTargetType x -&gt; AlertTargetType
+$cfrom :: forall x. AlertTargetType -&gt; Rep AlertTargetType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773643"><span id="local-6989586621679773645"><span class="annot"><span class="annottext">Int -&gt; AlertTargetType -&gt; Int
+AlertTargetType -&gt; Int
+(Int -&gt; AlertTargetType -&gt; Int)
+-&gt; (AlertTargetType -&gt; Int) -&gt; Hashable AlertTargetType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AlertTargetType -&gt; Int
+$chash :: AlertTargetType -&gt; Int
+hashWithSalt :: Int -&gt; AlertTargetType -&gt; Int
+$chashWithSalt :: Int -&gt; AlertTargetType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679773640"><span class="annot"><span class="annottext">AlertTargetType -&gt; ()
+(AlertTargetType -&gt; ()) -&gt; NFData AlertTargetType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AlertTargetType -&gt; ()
+$crnf :: AlertTargetType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679773637"><span class="annot"><span class="annottext">Text -&gt; Either String AlertTargetType
+(Text -&gt; Either String AlertTargetType) -&gt; FromText AlertTargetType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AlertTargetType
+$cfromText :: Text -&gt; Either String AlertTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679773634"><span class="annot"><span class="annottext">AlertTargetType -&gt; Text
+(AlertTargetType -&gt; Text) -&gt; ToText AlertTargetType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AlertTargetType -&gt; Text
+$ctoText :: AlertTargetType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679773631"><span class="annot"><span class="annottext">AlertTargetType -&gt; ByteString
+(AlertTargetType -&gt; ByteString) -&gt; ToByteString AlertTargetType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AlertTargetType -&gt; ByteString
+$ctoBS :: AlertTargetType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679773628"><span class="annot"><span class="annottext">AlertTargetType -&gt; ByteStringBuilder
+(AlertTargetType -&gt; ByteStringBuilder) -&gt; ToLog AlertTargetType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AlertTargetType -&gt; ByteStringBuilder
+$cbuild :: AlertTargetType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679773625"><span class="annot"><span class="annottext">HeaderName -&gt; AlertTargetType -&gt; [Header]
+(HeaderName -&gt; AlertTargetType -&gt; [Header])
+-&gt; ToHeader AlertTargetType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AlertTargetType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AlertTargetType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679773622"><span class="annot"><span class="annottext">AlertTargetType -&gt; QueryString
+(AlertTargetType -&gt; QueryString) -&gt; ToQuery AlertTargetType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AlertTargetType -&gt; QueryString
+$ctoQuery :: AlertTargetType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679773617"><span id="local-6989586621679773619"><span class="annot"><span class="annottext">Value -&gt; Parser [AlertTargetType]
+Value -&gt; Parser AlertTargetType
+(Value -&gt; Parser AlertTargetType)
+-&gt; (Value -&gt; Parser [AlertTargetType]) -&gt; FromJSON AlertTargetType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AlertTargetType]
+$cparseJSONList :: Value -&gt; Parser [AlertTargetType]
+parseJSON :: Value -&gt; Parser AlertTargetType
+$cparseJSON :: Value -&gt; Parser AlertTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679773612"><span id="local-6989586621679773614"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlertTargetType]
+FromJSONKeyFunction AlertTargetType
+FromJSONKeyFunction AlertTargetType
+-&gt; FromJSONKeyFunction [AlertTargetType]
+-&gt; FromJSONKey AlertTargetType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AlertTargetType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AlertTargetType]
+fromJSONKey :: FromJSONKeyFunction AlertTargetType
+$cfromJSONKey :: FromJSONKeyFunction AlertTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679773603"><span id="local-6989586621679773605"><span id="local-6989586621679773607"><span id="local-6989586621679773609"><span class="annot"><span class="annottext">[AlertTargetType] -&gt; Encoding
+[AlertTargetType] -&gt; Value
+AlertTargetType -&gt; Encoding
+AlertTargetType -&gt; Value
+(AlertTargetType -&gt; Value)
+-&gt; (AlertTargetType -&gt; Encoding)
+-&gt; ([AlertTargetType] -&gt; Value)
+-&gt; ([AlertTargetType] -&gt; Encoding)
+-&gt; ToJSON AlertTargetType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AlertTargetType] -&gt; Encoding
+$ctoEncodingList :: [AlertTargetType] -&gt; Encoding
+toJSONList :: [AlertTargetType] -&gt; Value
+$ctoJSONList :: [AlertTargetType] -&gt; Value
+toEncoding :: AlertTargetType -&gt; Encoding
+$ctoEncoding :: AlertTargetType -&gt; Encoding
+toJSON :: AlertTargetType -&gt; Value
+$ctoJSON :: AlertTargetType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679773598"><span id="local-6989586621679773600"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlertTargetType]
+ToJSONKeyFunction AlertTargetType
+ToJSONKeyFunction AlertTargetType
+-&gt; ToJSONKeyFunction [AlertTargetType] -&gt; ToJSONKey AlertTargetType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AlertTargetType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AlertTargetType]
+toJSONKey :: ToJSONKeyFunction AlertTargetType
+$ctoJSONKey :: ToJSONKeyFunction AlertTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679773595"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlertTargetType
+([Node] -&gt; Either String AlertTargetType)
+-&gt; FromXML AlertTargetType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AlertTargetType
+$cparseXML :: [Node] -&gt; Either String AlertTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679773592"><span class="annot"><span class="annottext">AlertTargetType -&gt; XML
+(AlertTargetType -&gt; XML) -&gt; ToXML AlertTargetType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AlertTargetType -&gt; XML
+$ctoXML :: AlertTargetType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType_SNS"><span class="hs-identifier hs-type">AlertTargetType_SNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType"><span class="hs-identifier hs-type">AlertTargetType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlertTargetType_SNS"><span id="%24mAlertTargetType_SNS"><span id="AlertTargetType_SNS"><span class="annot"><span class="annottext">$bAlertTargetType_SNS :: AlertTargetType
+$mAlertTargetType_SNS :: forall r. AlertTargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoT.Types.AlertTargetType.html#%24bAlertTargetType_SNS"><span class="hs-identifier hs-var hs-var hs-var">AlertTargetType_SNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType%27"><span class="hs-identifier hs-type">AlertTargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType_SNS"><span class="hs-pragma hs-type">AlertTargetType_SNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.AlertTargetType.html#AlertTargetType%27"><span class="hs-pragma hs-type">AlertTargetType'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

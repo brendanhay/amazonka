@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECRPublic.Types.RegistryAlias</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECRPublic.Types.RegistryAlias</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAliasStatus.html"><span class="hs-identifier">Amazonka.ECRPublic.Types.RegistryAliasStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object representing the aliases for a public registry. A public</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- registry is given an alias upon creation but a custom alias can be set</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- using the Amazon ECR console. For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html Registries&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon Elastic Container Registry User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newRegistryAlias' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679192321"><span id="local-6989586621679192322"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegistryAlias"><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-var">RegistryAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistryAlias%27"><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-var">RegistryAlias'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the registry alias.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3ARegistryAlias%27"><span class="annot"><span class="annottext">RegistryAlias -&gt; Text
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3Aname%3ARegistryAlias%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The status of the registry alias.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3ARegistryAlias%27"><span class="annot"><span class="annottext">RegistryAlias -&gt; RegistryAliasStatus
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3Astatus%3ARegistryAlias%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAliasStatus.html#RegistryAliasStatus"><span class="hs-identifier hs-type">RegistryAliasStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Whether or not the registry alias is the primary alias for the registry.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- If true, the alias is the primary registry alias and is displayed in</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- both the repository URL and the image URI used in the @docker pull@</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- commands on the Amazon ECR Public Gallery.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- A registry alias that is not the primary registry alias can be used in</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the repository URI in a @docker pull@ command.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AprimaryRegistryAlias%3ARegistryAlias%27"><span class="annot"><span class="annottext">RegistryAlias -&gt; Bool
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3AprimaryRegistryAlias%3ARegistryAlias%27"><span class="hs-identifier hs-var hs-var">primaryRegistryAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Whether or not the registry alias is the default alias for the registry.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- When the first public repository is created, your public registry is</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- assigned a default registry alias.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdefaultRegistryAlias%3ARegistryAlias%27"><span class="annot"><span class="annottext">RegistryAlias -&gt; Bool
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3AdefaultRegistryAlias%3ARegistryAlias%27"><span class="hs-identifier hs-var hs-var">defaultRegistryAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192312"><span id="local-6989586621679192314"><span class="annot"><span class="annottext">RegistryAlias -&gt; RegistryAlias -&gt; Bool
+(RegistryAlias -&gt; RegistryAlias -&gt; Bool)
+-&gt; (RegistryAlias -&gt; RegistryAlias -&gt; Bool) -&gt; Eq RegistryAlias
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegistryAlias -&gt; RegistryAlias -&gt; Bool
+$c/= :: RegistryAlias -&gt; RegistryAlias -&gt; Bool
+== :: RegistryAlias -&gt; RegistryAlias -&gt; Bool
+$c== :: RegistryAlias -&gt; RegistryAlias -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192303"><span id="local-6989586621679192305"><span id="local-6989586621679192307"><span id="local-6989586621679192309"><span class="annot"><span class="annottext">ReadPrec [RegistryAlias]
+ReadPrec RegistryAlias
+Int -&gt; ReadS RegistryAlias
+ReadS [RegistryAlias]
+(Int -&gt; ReadS RegistryAlias)
+-&gt; ReadS [RegistryAlias]
+-&gt; ReadPrec RegistryAlias
+-&gt; ReadPrec [RegistryAlias]
+-&gt; Read RegistryAlias
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegistryAlias]
+$creadListPrec :: ReadPrec [RegistryAlias]
+readPrec :: ReadPrec RegistryAlias
+$creadPrec :: ReadPrec RegistryAlias
+readList :: ReadS [RegistryAlias]
+$creadList :: ReadS [RegistryAlias]
+readsPrec :: Int -&gt; ReadS RegistryAlias
+$creadsPrec :: Int -&gt; ReadS RegistryAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192296"><span id="local-6989586621679192298"><span id="local-6989586621679192300"><span class="annot"><span class="annottext">Int -&gt; RegistryAlias -&gt; ShowS
+[RegistryAlias] -&gt; ShowS
+RegistryAlias -&gt; String
+(Int -&gt; RegistryAlias -&gt; ShowS)
+-&gt; (RegistryAlias -&gt; String)
+-&gt; ([RegistryAlias] -&gt; ShowS)
+-&gt; Show RegistryAlias
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegistryAlias] -&gt; ShowS
+$cshowList :: [RegistryAlias] -&gt; ShowS
+show :: RegistryAlias -&gt; String
+$cshow :: RegistryAlias -&gt; String
+showsPrec :: Int -&gt; RegistryAlias -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegistryAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegistryAlias -&gt; Rep RegistryAlias x)
+-&gt; (forall x. Rep RegistryAlias x -&gt; RegistryAlias)
+-&gt; Generic RegistryAlias
+forall x. Rep RegistryAlias x -&gt; RegistryAlias
+forall x. RegistryAlias -&gt; Rep RegistryAlias x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegistryAlias x -&gt; RegistryAlias
+$cfrom :: forall x. RegistryAlias -&gt; Rep RegistryAlias x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'RegistryAlias' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'registryAlias_name' - The name of the registry alias.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'status', 'registryAlias_status' - The status of the registry alias.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'primaryRegistryAlias', 'registryAlias_primaryRegistryAlias' - Whether or not the registry alias is the primary alias for the registry.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- If true, the alias is the primary registry alias and is displayed in</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- both the repository URL and the image URI used in the @docker pull@</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- commands on the Amazon ECR Public Gallery.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- A registry alias that is not the primary registry alias can be used in</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the repository URI in a @docker pull@ command.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'defaultRegistryAlias', 'registryAlias_defaultRegistryAlias' - Whether or not the registry alias is the default alias for the registry.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- When the first public repository is created, your public registry is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- assigned a default registry alias.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#newRegistryAlias"><span class="hs-identifier hs-type">newRegistryAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAliasStatus.html#RegistryAliasStatus"><span class="hs-identifier hs-type">RegistryAliasStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'primaryRegistryAlias'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'defaultRegistryAlias'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span>
+</span><span id="line-87"></span><span id="newRegistryAlias"><span class="annot"><span class="annottext">newRegistryAlias :: Text -&gt; RegistryAliasStatus -&gt; Bool -&gt; Bool -&gt; RegistryAlias
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#newRegistryAlias"><span class="hs-identifier hs-var hs-var">newRegistryAlias</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679192290"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192290"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679192289"><span class="annot"><span class="annottext">RegistryAliasStatus
+</span><a href="#local-6989586621679192289"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679192288"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192288"><span class="hs-identifier hs-var">pPrimaryRegistryAlias_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679192287"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192287"><span class="hs-identifier hs-var">pDefaultRegistryAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">RegistryAlias' :: Text -&gt; RegistryAliasStatus -&gt; Bool -&gt; Bool -&gt; RegistryAlias
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:RegistryAlias' :: Text
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3Aname%3ARegistryAlias%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192290"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:RegistryAlias' :: RegistryAliasStatus
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3Astatus%3ARegistryAlias%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistryAliasStatus
+</span><a href="#local-6989586621679192289"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:primaryRegistryAlias:RegistryAlias' :: Bool
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3AprimaryRegistryAlias%3ARegistryAlias%27"><span class="hs-identifier hs-var">primaryRegistryAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192288"><span class="hs-identifier hs-var">pPrimaryRegistryAlias_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultRegistryAlias:RegistryAlias' :: Bool
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3AdefaultRegistryAlias%3ARegistryAlias%27"><span class="hs-identifier hs-var">defaultRegistryAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192287"><span class="hs-identifier hs-var">pDefaultRegistryAlias_</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The name of the registry alias.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_name"><span class="hs-identifier hs-type">registryAlias_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="registryAlias_name"><span class="annot"><span class="annottext">registryAlias_name :: (Text -&gt; f Text) -&gt; RegistryAlias -&gt; f RegistryAlias
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_name"><span class="hs-identifier hs-var hs-var">registryAlias_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegistryAlias -&gt; Text)
+-&gt; (RegistryAlias -&gt; Text -&gt; RegistryAlias)
+-&gt; Lens RegistryAlias RegistryAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192283"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:RegistryAlias' :: RegistryAlias -&gt; Text
+</span><a href="#local-6989586621679192283"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192283"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192282"><span class="annot"><span class="annottext">s :: RegistryAlias
+</span><a href="#local-6989586621679192282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192281"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryAlias
+</span><a href="#local-6989586621679192282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RegistryAlias' :: Text
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3Aname%3ARegistryAlias%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The status of the registry alias.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_status"><span class="hs-identifier hs-type">registryAlias_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAliasStatus.html#RegistryAliasStatus"><span class="hs-identifier hs-type">RegistryAliasStatus</span></a></span><span>
+</span><span id="line-105"></span><span id="registryAlias_status"><span class="annot"><span class="annottext">registryAlias_status :: (RegistryAliasStatus -&gt; f RegistryAliasStatus)
+-&gt; RegistryAlias -&gt; f RegistryAlias
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_status"><span class="hs-identifier hs-var hs-var">registryAlias_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegistryAlias -&gt; RegistryAliasStatus)
+-&gt; (RegistryAlias -&gt; RegistryAliasStatus -&gt; RegistryAlias)
+-&gt; Lens
+     RegistryAlias RegistryAlias RegistryAliasStatus RegistryAliasStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192279"><span class="annot"><span class="annottext">RegistryAliasStatus
+status :: RegistryAliasStatus
+$sel:status:RegistryAlias' :: RegistryAlias -&gt; RegistryAliasStatus
+</span><a href="#local-6989586621679192279"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryAliasStatus
+</span><a href="#local-6989586621679192279"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192278"><span class="annot"><span class="annottext">s :: RegistryAlias
+</span><a href="#local-6989586621679192278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192277"><span class="annot"><span class="annottext">RegistryAliasStatus
+</span><a href="#local-6989586621679192277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryAlias
+</span><a href="#local-6989586621679192278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RegistryAlias' :: RegistryAliasStatus
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3Astatus%3ARegistryAlias%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistryAliasStatus
+</span><a href="#local-6989586621679192277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Whether or not the registry alias is the primary alias for the registry.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- If true, the alias is the primary registry alias and is displayed in</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- both the repository URL and the image URI used in the @docker pull@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- commands on the Amazon ECR Public Gallery.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- A registry alias that is not the primary registry alias can be used in</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- the repository URI in a @docker pull@ command.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_primaryRegistryAlias"><span class="hs-identifier hs-type">registryAlias_primaryRegistryAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-115"></span><span id="registryAlias_primaryRegistryAlias"><span class="annot"><span class="annottext">registryAlias_primaryRegistryAlias :: (Bool -&gt; f Bool) -&gt; RegistryAlias -&gt; f RegistryAlias
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_primaryRegistryAlias"><span class="hs-identifier hs-var hs-var">registryAlias_primaryRegistryAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegistryAlias -&gt; Bool)
+-&gt; (RegistryAlias -&gt; Bool -&gt; RegistryAlias)
+-&gt; Lens RegistryAlias RegistryAlias Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192275"><span class="annot"><span class="annottext">Bool
+primaryRegistryAlias :: Bool
+$sel:primaryRegistryAlias:RegistryAlias' :: RegistryAlias -&gt; Bool
+</span><a href="#local-6989586621679192275"><span class="hs-identifier hs-var hs-var">primaryRegistryAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192275"><span class="hs-identifier hs-var">primaryRegistryAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192274"><span class="annot"><span class="annottext">s :: RegistryAlias
+</span><a href="#local-6989586621679192274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192273"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryAlias
+</span><a href="#local-6989586621679192274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryRegistryAlias:RegistryAlias' :: Bool
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3AprimaryRegistryAlias%3ARegistryAlias%27"><span class="hs-identifier hs-var">primaryRegistryAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Whether or not the registry alias is the default alias for the registry.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- When the first public repository is created, your public registry is</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- assigned a default registry alias.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_defaultRegistryAlias"><span class="hs-identifier hs-type">registryAlias_defaultRegistryAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-121"></span><span id="registryAlias_defaultRegistryAlias"><span class="annot"><span class="annottext">registryAlias_defaultRegistryAlias :: (Bool -&gt; f Bool) -&gt; RegistryAlias -&gt; f RegistryAlias
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#registryAlias_defaultRegistryAlias"><span class="hs-identifier hs-var hs-var">registryAlias_defaultRegistryAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegistryAlias -&gt; Bool)
+-&gt; (RegistryAlias -&gt; Bool -&gt; RegistryAlias)
+-&gt; Lens RegistryAlias RegistryAlias Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192271"><span class="annot"><span class="annottext">Bool
+defaultRegistryAlias :: Bool
+$sel:defaultRegistryAlias:RegistryAlias' :: RegistryAlias -&gt; Bool
+</span><a href="#local-6989586621679192271"><span class="hs-identifier hs-var hs-var">defaultRegistryAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192271"><span class="hs-identifier hs-var">defaultRegistryAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192270"><span class="annot"><span class="annottext">s :: RegistryAlias
+</span><a href="#local-6989586621679192270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-type">RegistryAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192269"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryAlias
+</span><a href="#local-6989586621679192270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultRegistryAlias:RegistryAlias' :: Bool
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#%24sel%3AdefaultRegistryAlias%3ARegistryAlias%27"><span class="hs-identifier hs-var">defaultRegistryAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679192269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679192264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RegistryAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RegistryAlias)
+-&gt; Value
+-&gt; Parser RegistryAlias
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RegistryAlias&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679192261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; RegistryAliasStatus -&gt; Bool -&gt; Bool -&gt; RegistryAlias
+</span><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias%27"><span class="hs-identifier hs-var">RegistryAlias'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; RegistryAliasStatus -&gt; Bool -&gt; Bool -&gt; RegistryAlias)
+-&gt; Parser Text
+-&gt; Parser (RegistryAliasStatus -&gt; Bool -&gt; Bool -&gt; RegistryAlias)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (RegistryAliasStatus -&gt; Bool -&gt; Bool -&gt; RegistryAlias)
+-&gt; Parser RegistryAliasStatus
+-&gt; Parser (Bool -&gt; Bool -&gt; RegistryAlias)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RegistryAliasStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; Bool -&gt; RegistryAlias)
+-&gt; Parser Bool -&gt; Parser (Bool -&gt; RegistryAlias)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;primaryRegistryAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; RegistryAlias)
+-&gt; Parser Bool -&gt; Parser RegistryAlias
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultRegistryAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192255"><span id="local-6989586621679192257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.RegistryAlias.html#RegistryAlias"><span class="hs-identifier hs-type">RegistryAlias</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

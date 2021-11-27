@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Panorama.CreateJobForDevices</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a job to run on one or more devices.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Panorama.CreateJobForDevices</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier">CreateJobForDevices</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#newCreateJobForDevices"><span class="hs-identifier">newCreateJobForDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_deviceIds"><span class="hs-identifier">createJobForDevices_deviceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_deviceJobConfig"><span class="hs-identifier">createJobForDevices_deviceJobConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_jobType"><span class="hs-identifier">createJobForDevices_jobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier">CreateJobForDevicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#newCreateJobForDevicesResponse"><span class="hs-identifier">newCreateJobForDevicesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevicesResponse_httpStatus"><span class="hs-identifier">createJobForDevicesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevicesResponse_jobs"><span class="hs-identifier">createJobForDevicesResponse_jobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.html"><span class="hs-identifier">Amazonka.Panorama.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateJobForDevices' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679267990"><span id="local-6989586621679267991"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateJobForDevices"><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-var">CreateJobForDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateJobForDevices%27"><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-var">CreateJobForDevices'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | IDs of target devices.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeviceIds%3ACreateJobForDevices%27"><span class="annot"><span class="annottext">CreateJobForDevices -&gt; NonEmpty Text
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AdeviceIds%3ACreateJobForDevices%27"><span class="hs-identifier hs-var hs-var">deviceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Configuration settings for the job.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdeviceJobConfig%3ACreateJobForDevices%27"><span class="annot"><span class="annottext">CreateJobForDevices -&gt; DeviceJobConfig
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AdeviceJobConfig%3ACreateJobForDevices%27"><span class="hs-identifier hs-var hs-var">deviceJobConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.DeviceJobConfig.html#DeviceJobConfig"><span class="hs-identifier hs-type">DeviceJobConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The type of job to run.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AjobType%3ACreateJobForDevices%27"><span class="annot"><span class="annottext">CreateJobForDevices -&gt; JobType
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AjobType%3ACreateJobForDevices%27"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267982"><span id="local-6989586621679267984"><span class="annot"><span class="annottext">CreateJobForDevices -&gt; CreateJobForDevices -&gt; Bool
+(CreateJobForDevices -&gt; CreateJobForDevices -&gt; Bool)
+-&gt; (CreateJobForDevices -&gt; CreateJobForDevices -&gt; Bool)
+-&gt; Eq CreateJobForDevices
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateJobForDevices -&gt; CreateJobForDevices -&gt; Bool
+$c/= :: CreateJobForDevices -&gt; CreateJobForDevices -&gt; Bool
+== :: CreateJobForDevices -&gt; CreateJobForDevices -&gt; Bool
+$c== :: CreateJobForDevices -&gt; CreateJobForDevices -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267973"><span id="local-6989586621679267975"><span id="local-6989586621679267977"><span id="local-6989586621679267979"><span class="annot"><span class="annottext">ReadPrec [CreateJobForDevices]
+ReadPrec CreateJobForDevices
+Int -&gt; ReadS CreateJobForDevices
+ReadS [CreateJobForDevices]
+(Int -&gt; ReadS CreateJobForDevices)
+-&gt; ReadS [CreateJobForDevices]
+-&gt; ReadPrec CreateJobForDevices
+-&gt; ReadPrec [CreateJobForDevices]
+-&gt; Read CreateJobForDevices
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateJobForDevices]
+$creadListPrec :: ReadPrec [CreateJobForDevices]
+readPrec :: ReadPrec CreateJobForDevices
+$creadPrec :: ReadPrec CreateJobForDevices
+readList :: ReadS [CreateJobForDevices]
+$creadList :: ReadS [CreateJobForDevices]
+readsPrec :: Int -&gt; ReadS CreateJobForDevices
+$creadsPrec :: Int -&gt; ReadS CreateJobForDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267966"><span id="local-6989586621679267968"><span id="local-6989586621679267970"><span class="annot"><span class="annottext">Int -&gt; CreateJobForDevices -&gt; ShowS
+[CreateJobForDevices] -&gt; ShowS
+CreateJobForDevices -&gt; String
+(Int -&gt; CreateJobForDevices -&gt; ShowS)
+-&gt; (CreateJobForDevices -&gt; String)
+-&gt; ([CreateJobForDevices] -&gt; ShowS)
+-&gt; Show CreateJobForDevices
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateJobForDevices] -&gt; ShowS
+$cshowList :: [CreateJobForDevices] -&gt; ShowS
+show :: CreateJobForDevices -&gt; String
+$cshow :: CreateJobForDevices -&gt; String
+showsPrec :: Int -&gt; CreateJobForDevices -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateJobForDevices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateJobForDevices -&gt; Rep CreateJobForDevices x)
+-&gt; (forall x. Rep CreateJobForDevices x -&gt; CreateJobForDevices)
+-&gt; Generic CreateJobForDevices
+forall x. Rep CreateJobForDevices x -&gt; CreateJobForDevices
+forall x. CreateJobForDevices -&gt; Rep CreateJobForDevices x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateJobForDevices x -&gt; CreateJobForDevices
+$cfrom :: forall x. CreateJobForDevices -&gt; Rep CreateJobForDevices x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'CreateJobForDevices' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'deviceIds', 'createJobForDevices_deviceIds' - IDs of target devices.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'deviceJobConfig', 'createJobForDevices_deviceJobConfig' - Configuration settings for the job.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'jobType', 'createJobForDevices_jobType' - The type of job to run.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#newCreateJobForDevices"><span class="hs-identifier hs-type">newCreateJobForDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'deviceIds'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'deviceJobConfig'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.Types.DeviceJobConfig.html#DeviceJobConfig"><span class="hs-identifier hs-type">DeviceJobConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'jobType'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span>
+</span><span id="line-83"></span><span id="newCreateJobForDevices"><span class="annot"><span class="annottext">newCreateJobForDevices :: NonEmpty Text -&gt; DeviceJobConfig -&gt; JobType -&gt; CreateJobForDevices
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#newCreateJobForDevices"><span class="hs-identifier hs-var hs-var">newCreateJobForDevices</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679267961"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679267961"><span class="hs-identifier hs-var">pDeviceIds_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679267960"><span class="annot"><span class="annottext">DeviceJobConfig
+</span><a href="#local-6989586621679267960"><span class="hs-identifier hs-var">pDeviceJobConfig_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679267959"><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679267959"><span class="hs-identifier hs-var">pJobType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">CreateJobForDevices' :: NonEmpty Text -&gt; DeviceJobConfig -&gt; JobType -&gt; CreateJobForDevices
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceIds:CreateJobForDevices' :: NonEmpty Text
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AdeviceIds%3ACreateJobForDevices%27"><span class="hs-identifier hs-var">deviceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679267961"><span class="hs-identifier hs-var">pDeviceIds_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceJobConfig:CreateJobForDevices' :: DeviceJobConfig
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AdeviceJobConfig%3ACreateJobForDevices%27"><span class="hs-identifier hs-var">deviceJobConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceJobConfig
+</span><a href="#local-6989586621679267960"><span class="hs-identifier hs-var">pDeviceJobConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobType:CreateJobForDevices' :: JobType
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AjobType%3ACreateJobForDevices%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679267959"><span class="hs-identifier hs-var">pJobType_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | IDs of target devices.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_deviceIds"><span class="hs-identifier hs-type">createJobForDevices_deviceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="createJobForDevices_deviceIds"><span class="annot"><span class="annottext">createJobForDevices_deviceIds :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateJobForDevices -&gt; f CreateJobForDevices
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_deviceIds"><span class="hs-identifier hs-var hs-var">createJobForDevices_deviceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateJobForDevices -&gt; NonEmpty Text)
+-&gt; (CreateJobForDevices -&gt; NonEmpty Text -&gt; CreateJobForDevices)
+-&gt; Lens
+     CreateJobForDevices
+     CreateJobForDevices
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267954"><span class="annot"><span class="annottext">NonEmpty Text
+deviceIds :: NonEmpty Text
+$sel:deviceIds:CreateJobForDevices' :: CreateJobForDevices -&gt; NonEmpty Text
+</span><a href="#local-6989586621679267954"><span class="hs-identifier hs-var hs-var">deviceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679267954"><span class="hs-identifier hs-var">deviceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267953"><span class="annot"><span class="annottext">s :: CreateJobForDevices
+</span><a href="#local-6989586621679267953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267952"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679267952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateJobForDevices
+</span><a href="#local-6989586621679267953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceIds:CreateJobForDevices' :: NonEmpty Text
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AdeviceIds%3ACreateJobForDevices%27"><span class="hs-identifier hs-var">deviceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679267952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; CreateJobForDevices -&gt; f CreateJobForDevices)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateJobForDevices
+-&gt; f CreateJobForDevices
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Configuration settings for the job.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_deviceJobConfig"><span class="hs-identifier hs-type">createJobForDevices_deviceJobConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.DeviceJobConfig.html#DeviceJobConfig"><span class="hs-identifier hs-type">DeviceJobConfig</span></a></span><span>
+</span><span id="line-100"></span><span id="createJobForDevices_deviceJobConfig"><span class="annot"><span class="annottext">createJobForDevices_deviceJobConfig :: (DeviceJobConfig -&gt; f DeviceJobConfig)
+-&gt; CreateJobForDevices -&gt; f CreateJobForDevices
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_deviceJobConfig"><span class="hs-identifier hs-var hs-var">createJobForDevices_deviceJobConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateJobForDevices -&gt; DeviceJobConfig)
+-&gt; (CreateJobForDevices -&gt; DeviceJobConfig -&gt; CreateJobForDevices)
+-&gt; Lens
+     CreateJobForDevices
+     CreateJobForDevices
+     DeviceJobConfig
+     DeviceJobConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267950"><span class="annot"><span class="annottext">DeviceJobConfig
+deviceJobConfig :: DeviceJobConfig
+$sel:deviceJobConfig:CreateJobForDevices' :: CreateJobForDevices -&gt; DeviceJobConfig
+</span><a href="#local-6989586621679267950"><span class="hs-identifier hs-var hs-var">deviceJobConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceJobConfig
+</span><a href="#local-6989586621679267950"><span class="hs-identifier hs-var">deviceJobConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267949"><span class="annot"><span class="annottext">s :: CreateJobForDevices
+</span><a href="#local-6989586621679267949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267948"><span class="annot"><span class="annottext">DeviceJobConfig
+</span><a href="#local-6989586621679267948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateJobForDevices
+</span><a href="#local-6989586621679267949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceJobConfig:CreateJobForDevices' :: DeviceJobConfig
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AdeviceJobConfig%3ACreateJobForDevices%27"><span class="hs-identifier hs-var">deviceJobConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceJobConfig
+</span><a href="#local-6989586621679267948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The type of job to run.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_jobType"><span class="hs-identifier hs-type">createJobForDevices_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span>
+</span><span id="line-104"></span><span id="createJobForDevices_jobType"><span class="annot"><span class="annottext">createJobForDevices_jobType :: (JobType -&gt; f JobType)
+-&gt; CreateJobForDevices -&gt; f CreateJobForDevices
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevices_jobType"><span class="hs-identifier hs-var hs-var">createJobForDevices_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateJobForDevices -&gt; JobType)
+-&gt; (CreateJobForDevices -&gt; JobType -&gt; CreateJobForDevices)
+-&gt; Lens CreateJobForDevices CreateJobForDevices JobType JobType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267947"><span class="annot"><span class="annottext">JobType
+jobType :: JobType
+$sel:jobType:CreateJobForDevices' :: CreateJobForDevices -&gt; JobType
+</span><a href="#local-6989586621679267947"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679267947"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267946"><span class="annot"><span class="annottext">s :: CreateJobForDevices
+</span><a href="#local-6989586621679267946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267945"><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679267945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateJobForDevices
+</span><a href="#local-6989586621679267946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:CreateJobForDevices' :: JobType
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AjobType%3ACreateJobForDevices%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679267945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-type">CreateJobForDevicesResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679267941"><span class="annot"><span class="annottext">request :: CreateJobForDevices -&gt; Request CreateJobForDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateJobForDevices -&gt; Request CreateJobForDevices
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679267937"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateJobForDevices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateJobForDevices)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateJobForDevices))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateJobForDevices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateJobForDevices)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267934"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267934"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679267933"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679267933"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679267932"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [Job] -&gt; CreateJobForDevicesResponse
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse%27"><span class="hs-identifier hs-var">CreateJobForDevicesResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [Job] -&gt; CreateJobForDevicesResponse)
+-&gt; Either String Int
+-&gt; Either String ([Job] -&gt; CreateJobForDevicesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267934"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Job] -&gt; CreateJobForDevicesResponse)
+-&gt; Either String [Job] -&gt; Either String CreateJobForDevicesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Job])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Jobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Job]) -&gt; [Job] -&gt; Either String [Job]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Job]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267923"><span id="local-6989586621679267925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679267916"><span class="annot"><span class="annottext">toHeaders :: CreateJobForDevices -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateJobForDevices -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267906"><span id="local-6989586621679267908"><span id="local-6989586621679267910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679267904"><span class="annot"><span class="annottext">toJSON :: CreateJobForDevices -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices%27"><span class="hs-identifier hs-type">CreateJobForDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267900"><span id="local-6989586621679267901"><span id="local-6989586621679267902"><span class="annot"><span class="annottext">NonEmpty Text
+JobType
+DeviceJobConfig
+jobType :: JobType
+deviceJobConfig :: DeviceJobConfig
+deviceIds :: NonEmpty Text
+$sel:jobType:CreateJobForDevices' :: CreateJobForDevices -&gt; JobType
+$sel:deviceJobConfig:CreateJobForDevices' :: CreateJobForDevices -&gt; DeviceJobConfig
+$sel:deviceIds:CreateJobForDevices' :: CreateJobForDevices -&gt; NonEmpty Text
+</span><a href="#local-6989586621679267900"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679267902"><span class="hs-identifier hs-var">deviceIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceJobConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceJobConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeviceJobConfig
+</span><a href="#local-6989586621679267901"><span class="hs-identifier hs-var">deviceJobConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679267900"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679267894"><span class="annot"><span class="annottext">toPath :: CreateJobForDevices -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateJobForDevices -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobs&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevices"><span class="hs-identifier hs-type">CreateJobForDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679267890"><span class="annot"><span class="annottext">toQuery :: CreateJobForDevices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateJobForDevices -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newCreateJobForDevicesResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679267887"><span id="local-6989586621679267888"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateJobForDevicesResponse"><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-var">CreateJobForDevicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateJobForDevicesResponse%27"><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse%27"><span class="hs-identifier hs-var">CreateJobForDevicesResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateJobForDevicesResponse%27"><span class="annot"><span class="annottext">CreateJobForDevicesResponse -&gt; Int
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AhttpStatus%3ACreateJobForDevicesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | A list of jobs.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Ajobs%3ACreateJobForDevicesResponse%27"><span class="annot"><span class="annottext">CreateJobForDevicesResponse -&gt; [Job]
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3Ajobs%3ACreateJobForDevicesResponse%27"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267881"><span id="local-6989586621679267883"><span class="annot"><span class="annottext">CreateJobForDevicesResponse -&gt; CreateJobForDevicesResponse -&gt; Bool
+(CreateJobForDevicesResponse
+ -&gt; CreateJobForDevicesResponse -&gt; Bool)
+-&gt; (CreateJobForDevicesResponse
+    -&gt; CreateJobForDevicesResponse -&gt; Bool)
+-&gt; Eq CreateJobForDevicesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateJobForDevicesResponse -&gt; CreateJobForDevicesResponse -&gt; Bool
+$c/= :: CreateJobForDevicesResponse -&gt; CreateJobForDevicesResponse -&gt; Bool
+== :: CreateJobForDevicesResponse -&gt; CreateJobForDevicesResponse -&gt; Bool
+$c== :: CreateJobForDevicesResponse -&gt; CreateJobForDevicesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267873"><span id="local-6989586621679267875"><span id="local-6989586621679267877"><span id="local-6989586621679267879"><span class="annot"><span class="annottext">ReadPrec [CreateJobForDevicesResponse]
+ReadPrec CreateJobForDevicesResponse
+Int -&gt; ReadS CreateJobForDevicesResponse
+ReadS [CreateJobForDevicesResponse]
+(Int -&gt; ReadS CreateJobForDevicesResponse)
+-&gt; ReadS [CreateJobForDevicesResponse]
+-&gt; ReadPrec CreateJobForDevicesResponse
+-&gt; ReadPrec [CreateJobForDevicesResponse]
+-&gt; Read CreateJobForDevicesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateJobForDevicesResponse]
+$creadListPrec :: ReadPrec [CreateJobForDevicesResponse]
+readPrec :: ReadPrec CreateJobForDevicesResponse
+$creadPrec :: ReadPrec CreateJobForDevicesResponse
+readList :: ReadS [CreateJobForDevicesResponse]
+$creadList :: ReadS [CreateJobForDevicesResponse]
+readsPrec :: Int -&gt; ReadS CreateJobForDevicesResponse
+$creadsPrec :: Int -&gt; ReadS CreateJobForDevicesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267867"><span id="local-6989586621679267869"><span id="local-6989586621679267871"><span class="annot"><span class="annottext">Int -&gt; CreateJobForDevicesResponse -&gt; ShowS
+[CreateJobForDevicesResponse] -&gt; ShowS
+CreateJobForDevicesResponse -&gt; String
+(Int -&gt; CreateJobForDevicesResponse -&gt; ShowS)
+-&gt; (CreateJobForDevicesResponse -&gt; String)
+-&gt; ([CreateJobForDevicesResponse] -&gt; ShowS)
+-&gt; Show CreateJobForDevicesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateJobForDevicesResponse] -&gt; ShowS
+$cshowList :: [CreateJobForDevicesResponse] -&gt; ShowS
+show :: CreateJobForDevicesResponse -&gt; String
+$cshow :: CreateJobForDevicesResponse -&gt; String
+showsPrec :: Int -&gt; CreateJobForDevicesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateJobForDevicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateJobForDevicesResponse -&gt; Rep CreateJobForDevicesResponse x)
+-&gt; (forall x.
+    Rep CreateJobForDevicesResponse x -&gt; CreateJobForDevicesResponse)
+-&gt; Generic CreateJobForDevicesResponse
+forall x.
+Rep CreateJobForDevicesResponse x -&gt; CreateJobForDevicesResponse
+forall x.
+CreateJobForDevicesResponse -&gt; Rep CreateJobForDevicesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateJobForDevicesResponse x -&gt; CreateJobForDevicesResponse
+$cfrom :: forall x.
+CreateJobForDevicesResponse -&gt; Rep CreateJobForDevicesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'CreateJobForDevicesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'createJobForDevicesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'jobs', 'createJobForDevicesResponse_jobs' - A list of jobs.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#newCreateJobForDevicesResponse"><span class="hs-identifier hs-type">newCreateJobForDevicesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-type">CreateJobForDevicesResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newCreateJobForDevicesResponse"><span class="annot"><span class="annottext">newCreateJobForDevicesResponse :: Int -&gt; CreateJobForDevicesResponse
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#newCreateJobForDevicesResponse"><span class="hs-identifier hs-var hs-var">newCreateJobForDevicesResponse</span></a></span></span><span> </span><span id="local-6989586621679267864"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">CreateJobForDevicesResponse' :: Int -&gt; [Job] -&gt; CreateJobForDevicesResponse
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse%27"><span class="hs-identifier hs-type">CreateJobForDevicesResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateJobForDevicesResponse' :: Int
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AhttpStatus%3ACreateJobForDevicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobs:CreateJobForDevicesResponse' :: [Job]
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3Ajobs%3ACreateJobForDevicesResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Job]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevicesResponse_httpStatus"><span class="hs-identifier hs-type">createJobForDevicesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-type">CreateJobForDevicesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span id="createJobForDevicesResponse_httpStatus"><span class="annot"><span class="annottext">createJobForDevicesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateJobForDevicesResponse -&gt; f CreateJobForDevicesResponse
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevicesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createJobForDevicesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateJobForDevicesResponse -&gt; Int)
+-&gt; (CreateJobForDevicesResponse
+    -&gt; Int -&gt; CreateJobForDevicesResponse)
+-&gt; Lens
+     CreateJobForDevicesResponse CreateJobForDevicesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse%27"><span class="hs-identifier hs-type">CreateJobForDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267863"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateJobForDevicesResponse' :: CreateJobForDevicesResponse -&gt; Int
+</span><a href="#local-6989586621679267863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267862"><span class="annot"><span class="annottext">s :: CreateJobForDevicesResponse
+</span><a href="#local-6989586621679267862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse%27"><span class="hs-identifier hs-type">CreateJobForDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateJobForDevicesResponse
+</span><a href="#local-6989586621679267862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateJobForDevicesResponse' :: Int
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3AhttpStatus%3ACreateJobForDevicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-type">CreateJobForDevicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A list of jobs.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevicesResponse_jobs"><span class="hs-identifier hs-type">createJobForDevicesResponse_jobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-type">CreateJobForDevicesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span id="createJobForDevicesResponse_jobs"><span class="annot"><span class="annottext">createJobForDevicesResponse_jobs :: ([Job] -&gt; f [Job])
+-&gt; CreateJobForDevicesResponse -&gt; f CreateJobForDevicesResponse
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#createJobForDevicesResponse_jobs"><span class="hs-identifier hs-var hs-var">createJobForDevicesResponse_jobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateJobForDevicesResponse -&gt; [Job])
+-&gt; (CreateJobForDevicesResponse
+    -&gt; [Job] -&gt; CreateJobForDevicesResponse)
+-&gt; Lens
+     CreateJobForDevicesResponse CreateJobForDevicesResponse [Job] [Job]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse%27"><span class="hs-identifier hs-type">CreateJobForDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267860"><span class="annot"><span class="annottext">[Job]
+jobs :: [Job]
+$sel:jobs:CreateJobForDevicesResponse' :: CreateJobForDevicesResponse -&gt; [Job]
+</span><a href="#local-6989586621679267860"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Job]
+</span><a href="#local-6989586621679267860"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267859"><span class="annot"><span class="annottext">s :: CreateJobForDevicesResponse
+</span><a href="#local-6989586621679267859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse%27"><span class="hs-identifier hs-type">CreateJobForDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267858"><span class="annot"><span class="annottext">[Job]
+</span><a href="#local-6989586621679267858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateJobForDevicesResponse
+</span><a href="#local-6989586621679267859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:CreateJobForDevicesResponse' :: [Job]
+</span><a href="Amazonka.Panorama.CreateJobForDevices.html#%24sel%3Ajobs%3ACreateJobForDevicesResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Job]
+</span><a href="#local-6989586621679267858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-type">CreateJobForDevicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Job] -&gt; f [Job])
+ -&gt; CreateJobForDevicesResponse -&gt; f CreateJobForDevicesResponse)
+-&gt; (([Job] -&gt; f [Job]) -&gt; [Job] -&gt; f [Job])
+-&gt; ([Job] -&gt; f [Job])
+-&gt; CreateJobForDevicesResponse
+-&gt; f CreateJobForDevicesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Job] -&gt; f [Job]) -&gt; [Job] -&gt; f [Job]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateJobForDevices.html#CreateJobForDevicesResponse"><span class="hs-identifier hs-type">CreateJobForDevicesResponse</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

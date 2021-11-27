@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.GetRetentionSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the retention settings for the specified Amazon Chime Enterprise</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account. For more information about retention settings, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html Managing Chat Retention Policies&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /Amazon Chime Administration Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.GetRetentionSettings</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier">GetRetentionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#newGetRetentionSettings"><span class="hs-identifier">newGetRetentionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettings_accountId"><span class="hs-identifier">getRetentionSettings_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier">GetRetentionSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#newGetRetentionSettingsResponse"><span class="hs-identifier">newGetRetentionSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_retentionSettings"><span class="hs-identifier">getRetentionSettingsResponse_retentionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_initiateDeletionTimestamp"><span class="hs-identifier">getRetentionSettingsResponse_initiateDeletionTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_httpStatus"><span class="hs-identifier">getRetentionSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetRetentionSettings' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679540144"><span id="local-6989586621679540145"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRetentionSettings"><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-var">GetRetentionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRetentionSettings%27"><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings%27"><span class="hs-identifier hs-var">GetRetentionSettings'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AaccountId%3AGetRetentionSettings%27"><span class="annot"><span class="annottext">GetRetentionSettings -&gt; Text
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AaccountId%3AGetRetentionSettings%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540138"><span id="local-6989586621679540140"><span class="annot"><span class="annottext">GetRetentionSettings -&gt; GetRetentionSettings -&gt; Bool
+(GetRetentionSettings -&gt; GetRetentionSettings -&gt; Bool)
+-&gt; (GetRetentionSettings -&gt; GetRetentionSettings -&gt; Bool)
+-&gt; Eq GetRetentionSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRetentionSettings -&gt; GetRetentionSettings -&gt; Bool
+$c/= :: GetRetentionSettings -&gt; GetRetentionSettings -&gt; Bool
+== :: GetRetentionSettings -&gt; GetRetentionSettings -&gt; Bool
+$c== :: GetRetentionSettings -&gt; GetRetentionSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540129"><span id="local-6989586621679540131"><span id="local-6989586621679540133"><span id="local-6989586621679540135"><span class="annot"><span class="annottext">ReadPrec [GetRetentionSettings]
+ReadPrec GetRetentionSettings
+Int -&gt; ReadS GetRetentionSettings
+ReadS [GetRetentionSettings]
+(Int -&gt; ReadS GetRetentionSettings)
+-&gt; ReadS [GetRetentionSettings]
+-&gt; ReadPrec GetRetentionSettings
+-&gt; ReadPrec [GetRetentionSettings]
+-&gt; Read GetRetentionSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRetentionSettings]
+$creadListPrec :: ReadPrec [GetRetentionSettings]
+readPrec :: ReadPrec GetRetentionSettings
+$creadPrec :: ReadPrec GetRetentionSettings
+readList :: ReadS [GetRetentionSettings]
+$creadList :: ReadS [GetRetentionSettings]
+readsPrec :: Int -&gt; ReadS GetRetentionSettings
+$creadsPrec :: Int -&gt; ReadS GetRetentionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540122"><span id="local-6989586621679540124"><span id="local-6989586621679540126"><span class="annot"><span class="annottext">Int -&gt; GetRetentionSettings -&gt; ShowS
+[GetRetentionSettings] -&gt; ShowS
+GetRetentionSettings -&gt; String
+(Int -&gt; GetRetentionSettings -&gt; ShowS)
+-&gt; (GetRetentionSettings -&gt; String)
+-&gt; ([GetRetentionSettings] -&gt; ShowS)
+-&gt; Show GetRetentionSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRetentionSettings] -&gt; ShowS
+$cshowList :: [GetRetentionSettings] -&gt; ShowS
+show :: GetRetentionSettings -&gt; String
+$cshow :: GetRetentionSettings -&gt; String
+showsPrec :: Int -&gt; GetRetentionSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRetentionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetRetentionSettings -&gt; Rep GetRetentionSettings x)
+-&gt; (forall x. Rep GetRetentionSettings x -&gt; GetRetentionSettings)
+-&gt; Generic GetRetentionSettings
+forall x. Rep GetRetentionSettings x -&gt; GetRetentionSettings
+forall x. GetRetentionSettings -&gt; Rep GetRetentionSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetRetentionSettings x -&gt; GetRetentionSettings
+$cfrom :: forall x. GetRetentionSettings -&gt; Rep GetRetentionSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetRetentionSettings' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'accountId', 'getRetentionSettings_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#newGetRetentionSettings"><span class="hs-identifier hs-type">newGetRetentionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span>
+</span><span id="line-73"></span><span id="newGetRetentionSettings"><span class="annot"><span class="annottext">newGetRetentionSettings :: Text -&gt; GetRetentionSettings
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#newGetRetentionSettings"><span class="hs-identifier hs-var hs-var">newGetRetentionSettings</span></a></span></span><span> </span><span id="local-6989586621679540117"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679540117"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">GetRetentionSettings' :: Text -&gt; GetRetentionSettings
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings%27"><span class="hs-identifier hs-type">GetRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetRetentionSettings' :: Text
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AaccountId%3AGetRetentionSettings%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679540117"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettings_accountId"><span class="hs-identifier hs-type">getRetentionSettings_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="getRetentionSettings_accountId"><span class="annot"><span class="annottext">getRetentionSettings_accountId :: (Text -&gt; f Text) -&gt; GetRetentionSettings -&gt; f GetRetentionSettings
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettings_accountId"><span class="hs-identifier hs-var hs-var">getRetentionSettings_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRetentionSettings -&gt; Text)
+-&gt; (GetRetentionSettings -&gt; Text -&gt; GetRetentionSettings)
+-&gt; Lens GetRetentionSettings GetRetentionSettings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings%27"><span class="hs-identifier hs-type">GetRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540114"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:GetRetentionSettings' :: GetRetentionSettings -&gt; Text
+</span><a href="#local-6989586621679540114"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679540114"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540113"><span class="annot"><span class="annottext">s :: GetRetentionSettings
+</span><a href="#local-6989586621679540113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings%27"><span class="hs-identifier hs-type">GetRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679540112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetentionSettings
+</span><a href="#local-6989586621679540113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetRetentionSettings' :: Text
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AaccountId%3AGetRetentionSettings%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679540112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679540108"><span class="annot"><span class="annottext">request :: GetRetentionSettings -&gt; Request GetRetentionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRetentionSettings -&gt; Request GetRetentionSettings
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679540104"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetRetentionSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetRetentionSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetRetentionSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetRetentionSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetRetentionSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679540101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540101"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679540100"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679540100"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679540099"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679540099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+-&gt; Maybe POSIX -&gt; Int -&gt; GetRetentionSettingsResponse
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">GetRetentionSettingsResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RetentionSettings
+ -&gt; Maybe POSIX -&gt; Int -&gt; GetRetentionSettingsResponse)
+-&gt; Either String (Maybe RetentionSettings)
+-&gt; Either
+     String (Maybe POSIX -&gt; Int -&gt; GetRetentionSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679540099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RetentionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetentionSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; GetRetentionSettingsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; GetRetentionSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679540099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitiateDeletionTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetRetentionSettingsResponse)
+-&gt; Either String Int -&gt; Either String GetRetentionSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540101"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540091"><span id="local-6989586621679540093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679540084"><span class="annot"><span class="annottext">toHeaders :: GetRetentionSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRetentionSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679540079"><span class="annot"><span class="annottext">toPath :: GetRetentionSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings%27"><span class="hs-identifier hs-type">GetRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540077"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:GetRetentionSettings' :: GetRetentionSettings -&gt; Text
+</span><a href="#local-6989586621679540077"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679540077"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/retention-settings&quot;</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettings"><span class="hs-identifier hs-type">GetRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679540073"><span class="annot"><span class="annottext">toQuery :: GetRetentionSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRetentionSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newGetRetentionSettingsResponse' smart constructor.</span><span>
+</span><span id="line-113"></span><span id="local-6989586621679540070"><span id="local-6989586621679540071"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRetentionSettingsResponse"><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-var">GetRetentionSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRetentionSettingsResponse%27"><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">GetRetentionSettingsResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The retention settings.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AretentionSettings%3AGetRetentionSettingsResponse%27"><span class="annot"><span class="annottext">GetRetentionSettingsResponse -&gt; Maybe RetentionSettings
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AretentionSettings%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var hs-var">retentionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RetentionSettings.html#RetentionSettings"><span class="hs-identifier hs-type">RetentionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The timestamp representing the time at which the specified items are</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- permanently deleted, in ISO 8601 format.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AinitiateDeletionTimestamp%3AGetRetentionSettingsResponse%27"><span class="annot"><span class="annottext">GetRetentionSettingsResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AinitiateDeletionTimestamp%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var hs-var">initiateDeletionTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRetentionSettingsResponse%27"><span class="annot"><span class="annottext">GetRetentionSettingsResponse -&gt; Int
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AhttpStatus%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540063"><span id="local-6989586621679540065"><span class="annot"><span class="annottext">GetRetentionSettingsResponse
+-&gt; GetRetentionSettingsResponse -&gt; Bool
+(GetRetentionSettingsResponse
+ -&gt; GetRetentionSettingsResponse -&gt; Bool)
+-&gt; (GetRetentionSettingsResponse
+    -&gt; GetRetentionSettingsResponse -&gt; Bool)
+-&gt; Eq GetRetentionSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRetentionSettingsResponse
+-&gt; GetRetentionSettingsResponse -&gt; Bool
+$c/= :: GetRetentionSettingsResponse
+-&gt; GetRetentionSettingsResponse -&gt; Bool
+== :: GetRetentionSettingsResponse
+-&gt; GetRetentionSettingsResponse -&gt; Bool
+$c== :: GetRetentionSettingsResponse
+-&gt; GetRetentionSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540055"><span id="local-6989586621679540057"><span id="local-6989586621679540059"><span id="local-6989586621679540061"><span class="annot"><span class="annottext">ReadPrec [GetRetentionSettingsResponse]
+ReadPrec GetRetentionSettingsResponse
+Int -&gt; ReadS GetRetentionSettingsResponse
+ReadS [GetRetentionSettingsResponse]
+(Int -&gt; ReadS GetRetentionSettingsResponse)
+-&gt; ReadS [GetRetentionSettingsResponse]
+-&gt; ReadPrec GetRetentionSettingsResponse
+-&gt; ReadPrec [GetRetentionSettingsResponse]
+-&gt; Read GetRetentionSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRetentionSettingsResponse]
+$creadListPrec :: ReadPrec [GetRetentionSettingsResponse]
+readPrec :: ReadPrec GetRetentionSettingsResponse
+$creadPrec :: ReadPrec GetRetentionSettingsResponse
+readList :: ReadS [GetRetentionSettingsResponse]
+$creadList :: ReadS [GetRetentionSettingsResponse]
+readsPrec :: Int -&gt; ReadS GetRetentionSettingsResponse
+$creadsPrec :: Int -&gt; ReadS GetRetentionSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540049"><span id="local-6989586621679540051"><span id="local-6989586621679540053"><span class="annot"><span class="annottext">Int -&gt; GetRetentionSettingsResponse -&gt; ShowS
+[GetRetentionSettingsResponse] -&gt; ShowS
+GetRetentionSettingsResponse -&gt; String
+(Int -&gt; GetRetentionSettingsResponse -&gt; ShowS)
+-&gt; (GetRetentionSettingsResponse -&gt; String)
+-&gt; ([GetRetentionSettingsResponse] -&gt; ShowS)
+-&gt; Show GetRetentionSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRetentionSettingsResponse] -&gt; ShowS
+$cshowList :: [GetRetentionSettingsResponse] -&gt; ShowS
+show :: GetRetentionSettingsResponse -&gt; String
+$cshow :: GetRetentionSettingsResponse -&gt; String
+showsPrec :: Int -&gt; GetRetentionSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRetentionSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetRetentionSettingsResponse -&gt; Rep GetRetentionSettingsResponse x)
+-&gt; (forall x.
+    Rep GetRetentionSettingsResponse x -&gt; GetRetentionSettingsResponse)
+-&gt; Generic GetRetentionSettingsResponse
+forall x.
+Rep GetRetentionSettingsResponse x -&gt; GetRetentionSettingsResponse
+forall x.
+GetRetentionSettingsResponse -&gt; Rep GetRetentionSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetRetentionSettingsResponse x -&gt; GetRetentionSettingsResponse
+$cfrom :: forall x.
+GetRetentionSettingsResponse -&gt; Rep GetRetentionSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'GetRetentionSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'retentionSettings', 'getRetentionSettingsResponse_retentionSettings' - The retention settings.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'initiateDeletionTimestamp', 'getRetentionSettingsResponse_initiateDeletionTimestamp' - The timestamp representing the time at which the specified items are</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- permanently deleted, in ISO 8601 format.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'getRetentionSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#newGetRetentionSettingsResponse"><span class="hs-identifier hs-type">newGetRetentionSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newGetRetentionSettingsResponse"><span class="annot"><span class="annottext">newGetRetentionSettingsResponse :: Int -&gt; GetRetentionSettingsResponse
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#newGetRetentionSettingsResponse"><span class="hs-identifier hs-var hs-var">newGetRetentionSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679540046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">GetRetentionSettingsResponse' :: Maybe RetentionSettings
+-&gt; Maybe POSIX -&gt; Int -&gt; GetRetentionSettingsResponse
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-type">GetRetentionSettingsResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:retentionSettings:GetRetentionSettingsResponse' :: Maybe RetentionSettings
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AretentionSettings%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:initiateDeletionTimestamp:GetRetentionSettingsResponse' :: Maybe POSIX
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AinitiateDeletionTimestamp%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">initiateDeletionTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRetentionSettingsResponse' :: Int
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AhttpStatus%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The retention settings.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_retentionSettings"><span class="hs-identifier hs-type">getRetentionSettingsResponse_retentionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RetentionSettings.html#RetentionSettings"><span class="hs-identifier hs-type">RetentionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="getRetentionSettingsResponse_retentionSettings"><span class="annot"><span class="annottext">getRetentionSettingsResponse_retentionSettings :: (Maybe RetentionSettings -&gt; f (Maybe RetentionSettings))
+-&gt; GetRetentionSettingsResponse -&gt; f GetRetentionSettingsResponse
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_retentionSettings"><span class="hs-identifier hs-var hs-var">getRetentionSettingsResponse_retentionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRetentionSettingsResponse -&gt; Maybe RetentionSettings)
+-&gt; (GetRetentionSettingsResponse
+    -&gt; Maybe RetentionSettings -&gt; GetRetentionSettingsResponse)
+-&gt; Lens
+     GetRetentionSettingsResponse
+     GetRetentionSettingsResponse
+     (Maybe RetentionSettings)
+     (Maybe RetentionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-type">GetRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540045"><span class="annot"><span class="annottext">Maybe RetentionSettings
+retentionSettings :: Maybe RetentionSettings
+$sel:retentionSettings:GetRetentionSettingsResponse' :: GetRetentionSettingsResponse -&gt; Maybe RetentionSettings
+</span><a href="#local-6989586621679540045"><span class="hs-identifier hs-var hs-var">retentionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+</span><a href="#local-6989586621679540045"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540044"><span class="annot"><span class="annottext">s :: GetRetentionSettingsResponse
+</span><a href="#local-6989586621679540044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-type">GetRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540043"><span class="annot"><span class="annottext">Maybe RetentionSettings
+</span><a href="#local-6989586621679540043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetentionSettingsResponse
+</span><a href="#local-6989586621679540044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionSettings:GetRetentionSettingsResponse' :: Maybe RetentionSettings
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AretentionSettings%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+</span><a href="#local-6989586621679540043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The timestamp representing the time at which the specified items are</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- permanently deleted, in ISO 8601 format.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_initiateDeletionTimestamp"><span class="hs-identifier hs-type">getRetentionSettingsResponse_initiateDeletionTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="getRetentionSettingsResponse_initiateDeletionTimestamp"><span class="annot"><span class="annottext">getRetentionSettingsResponse_initiateDeletionTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetRetentionSettingsResponse -&gt; f GetRetentionSettingsResponse
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_initiateDeletionTimestamp"><span class="hs-identifier hs-var hs-var">getRetentionSettingsResponse_initiateDeletionTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRetentionSettingsResponse -&gt; Maybe POSIX)
+-&gt; (GetRetentionSettingsResponse
+    -&gt; Maybe POSIX -&gt; GetRetentionSettingsResponse)
+-&gt; Lens
+     GetRetentionSettingsResponse
+     GetRetentionSettingsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-type">GetRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540042"><span class="annot"><span class="annottext">Maybe POSIX
+initiateDeletionTimestamp :: Maybe POSIX
+$sel:initiateDeletionTimestamp:GetRetentionSettingsResponse' :: GetRetentionSettingsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679540042"><span class="hs-identifier hs-var hs-var">initiateDeletionTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679540042"><span class="hs-identifier hs-var">initiateDeletionTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540041"><span class="annot"><span class="annottext">s :: GetRetentionSettingsResponse
+</span><a href="#local-6989586621679540041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-type">GetRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540040"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679540040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetentionSettingsResponse
+</span><a href="#local-6989586621679540041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiateDeletionTimestamp:GetRetentionSettingsResponse' :: Maybe POSIX
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AinitiateDeletionTimestamp%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">initiateDeletionTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679540040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetRetentionSettingsResponse -&gt; f GetRetentionSettingsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetRetentionSettingsResponse
+-&gt; f GetRetentionSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_httpStatus"><span class="hs-identifier hs-type">getRetentionSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="getRetentionSettingsResponse_httpStatus"><span class="annot"><span class="annottext">getRetentionSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetRetentionSettingsResponse -&gt; f GetRetentionSettingsResponse
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#getRetentionSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getRetentionSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRetentionSettingsResponse -&gt; Int)
+-&gt; (GetRetentionSettingsResponse
+    -&gt; Int -&gt; GetRetentionSettingsResponse)
+-&gt; Lens
+     GetRetentionSettingsResponse GetRetentionSettingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-type">GetRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540036"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetRetentionSettingsResponse' :: GetRetentionSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679540036"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540036"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540035"><span class="annot"><span class="annottext">s :: GetRetentionSettingsResponse
+</span><a href="#local-6989586621679540035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse%27"><span class="hs-identifier hs-type">GetRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540034"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetentionSettingsResponse
+</span><a href="#local-6989586621679540035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRetentionSettingsResponse' :: Int
+</span><a href="Amazonka.Chime.GetRetentionSettings.html#%24sel%3AhttpStatus%3AGetRetentionSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetRetentionSettings.html#GetRetentionSettingsResponse"><span class="hs-identifier hs-type">GetRetentionSettingsResponse</span></a></span></span><span>
+</span><span id="line-164"></span></pre></body></html>

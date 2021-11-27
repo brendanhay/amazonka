@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaContainerParams.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types.LambdaContainerParams</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaIsolationMode.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types.LambdaIsolationMode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains parameters for a Linux process that contains an Lambda</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLambdaLinuxProcessParams' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679232082"><span id="local-6989586621679232083"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaLinuxProcessParams"><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-var">LambdaLinuxProcessParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaLinuxProcessParams%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams%27"><span class="hs-identifier hs-var">LambdaLinuxProcessParams'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameters for the container in which the Lambda function runs.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcontainerParams%3ALambdaLinuxProcessParams%27"><span class="annot"><span class="annottext">LambdaLinuxProcessParams -&gt; Maybe LambdaContainerParams
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#%24sel%3AcontainerParams%3ALambdaLinuxProcessParams%27"><span class="hs-identifier hs-var hs-var">containerParams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The isolation mode for the process that contains the Lambda function.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The process can run in an isolated runtime environment inside the IoT</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Greengrass container, or as a regular process outside any container.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Default: @GreengrassContainer@</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AisolationMode%3ALambdaLinuxProcessParams%27"><span class="annot"><span class="annottext">LambdaLinuxProcessParams -&gt; Maybe LambdaIsolationMode
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#%24sel%3AisolationMode%3ALambdaLinuxProcessParams%27"><span class="hs-identifier hs-var hs-var">isolationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaIsolationMode.html#LambdaIsolationMode"><span class="hs-identifier hs-type">LambdaIsolationMode</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232075"><span id="local-6989586621679232077"><span class="annot"><span class="annottext">LambdaLinuxProcessParams -&gt; LambdaLinuxProcessParams -&gt; Bool
+(LambdaLinuxProcessParams -&gt; LambdaLinuxProcessParams -&gt; Bool)
+-&gt; (LambdaLinuxProcessParams -&gt; LambdaLinuxProcessParams -&gt; Bool)
+-&gt; Eq LambdaLinuxProcessParams
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaLinuxProcessParams -&gt; LambdaLinuxProcessParams -&gt; Bool
+$c/= :: LambdaLinuxProcessParams -&gt; LambdaLinuxProcessParams -&gt; Bool
+== :: LambdaLinuxProcessParams -&gt; LambdaLinuxProcessParams -&gt; Bool
+$c== :: LambdaLinuxProcessParams -&gt; LambdaLinuxProcessParams -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232066"><span id="local-6989586621679232068"><span id="local-6989586621679232070"><span id="local-6989586621679232072"><span class="annot"><span class="annottext">ReadPrec [LambdaLinuxProcessParams]
+ReadPrec LambdaLinuxProcessParams
+Int -&gt; ReadS LambdaLinuxProcessParams
+ReadS [LambdaLinuxProcessParams]
+(Int -&gt; ReadS LambdaLinuxProcessParams)
+-&gt; ReadS [LambdaLinuxProcessParams]
+-&gt; ReadPrec LambdaLinuxProcessParams
+-&gt; ReadPrec [LambdaLinuxProcessParams]
+-&gt; Read LambdaLinuxProcessParams
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaLinuxProcessParams]
+$creadListPrec :: ReadPrec [LambdaLinuxProcessParams]
+readPrec :: ReadPrec LambdaLinuxProcessParams
+$creadPrec :: ReadPrec LambdaLinuxProcessParams
+readList :: ReadS [LambdaLinuxProcessParams]
+$creadList :: ReadS [LambdaLinuxProcessParams]
+readsPrec :: Int -&gt; ReadS LambdaLinuxProcessParams
+$creadsPrec :: Int -&gt; ReadS LambdaLinuxProcessParams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232059"><span id="local-6989586621679232061"><span id="local-6989586621679232063"><span class="annot"><span class="annottext">Int -&gt; LambdaLinuxProcessParams -&gt; ShowS
+[LambdaLinuxProcessParams] -&gt; ShowS
+LambdaLinuxProcessParams -&gt; String
+(Int -&gt; LambdaLinuxProcessParams -&gt; ShowS)
+-&gt; (LambdaLinuxProcessParams -&gt; String)
+-&gt; ([LambdaLinuxProcessParams] -&gt; ShowS)
+-&gt; Show LambdaLinuxProcessParams
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaLinuxProcessParams] -&gt; ShowS
+$cshowList :: [LambdaLinuxProcessParams] -&gt; ShowS
+show :: LambdaLinuxProcessParams -&gt; String
+$cshow :: LambdaLinuxProcessParams -&gt; String
+showsPrec :: Int -&gt; LambdaLinuxProcessParams -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaLinuxProcessParams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LambdaLinuxProcessParams -&gt; Rep LambdaLinuxProcessParams x)
+-&gt; (forall x.
+    Rep LambdaLinuxProcessParams x -&gt; LambdaLinuxProcessParams)
+-&gt; Generic LambdaLinuxProcessParams
+forall x.
+Rep LambdaLinuxProcessParams x -&gt; LambdaLinuxProcessParams
+forall x.
+LambdaLinuxProcessParams -&gt; Rep LambdaLinuxProcessParams x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LambdaLinuxProcessParams x -&gt; LambdaLinuxProcessParams
+$cfrom :: forall x.
+LambdaLinuxProcessParams -&gt; Rep LambdaLinuxProcessParams x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'LambdaLinuxProcessParams' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'containerParams', 'lambdaLinuxProcessParams_containerParams' - The parameters for the container in which the Lambda function runs.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'isolationMode', 'lambdaLinuxProcessParams_isolationMode' - The isolation mode for the process that contains the Lambda function.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The process can run in an isolated runtime environment inside the IoT</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Greengrass container, or as a regular process outside any container.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Default: @GreengrassContainer@</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#newLambdaLinuxProcessParams"><span class="hs-identifier hs-type">newLambdaLinuxProcessParams</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span><span>
+</span><span id="line-61"></span><span id="newLambdaLinuxProcessParams"><span class="annot"><span class="annottext">newLambdaLinuxProcessParams :: LambdaLinuxProcessParams
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#newLambdaLinuxProcessParams"><span class="hs-identifier hs-var hs-var">newLambdaLinuxProcessParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">LambdaLinuxProcessParams' :: Maybe LambdaContainerParams
+-&gt; Maybe LambdaIsolationMode -&gt; LambdaLinuxProcessParams
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams%27"><span class="hs-identifier hs-type">LambdaLinuxProcessParams'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerParams:LambdaLinuxProcessParams' :: Maybe LambdaContainerParams
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#%24sel%3AcontainerParams%3ALambdaLinuxProcessParams%27"><span class="hs-identifier hs-var">containerParams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe LambdaContainerParams
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:isolationMode:LambdaLinuxProcessParams' :: Maybe LambdaIsolationMode
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#%24sel%3AisolationMode%3ALambdaLinuxProcessParams%27"><span class="hs-identifier hs-var">isolationMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaIsolationMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The parameters for the container in which the Lambda function runs.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#lambdaLinuxProcessParams_containerParams"><span class="hs-identifier hs-type">lambdaLinuxProcessParams_containerParams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="lambdaLinuxProcessParams_containerParams"><span class="annot"><span class="annottext">lambdaLinuxProcessParams_containerParams :: (Maybe LambdaContainerParams -&gt; f (Maybe LambdaContainerParams))
+-&gt; LambdaLinuxProcessParams -&gt; f LambdaLinuxProcessParams
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#lambdaLinuxProcessParams_containerParams"><span class="hs-identifier hs-var hs-var">lambdaLinuxProcessParams_containerParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaLinuxProcessParams -&gt; Maybe LambdaContainerParams)
+-&gt; (LambdaLinuxProcessParams
+    -&gt; Maybe LambdaContainerParams -&gt; LambdaLinuxProcessParams)
+-&gt; Lens
+     LambdaLinuxProcessParams
+     LambdaLinuxProcessParams
+     (Maybe LambdaContainerParams)
+     (Maybe LambdaContainerParams)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams%27"><span class="hs-identifier hs-type">LambdaLinuxProcessParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232050"><span class="annot"><span class="annottext">Maybe LambdaContainerParams
+containerParams :: Maybe LambdaContainerParams
+$sel:containerParams:LambdaLinuxProcessParams' :: LambdaLinuxProcessParams -&gt; Maybe LambdaContainerParams
+</span><a href="#local-6989586621679232050"><span class="hs-identifier hs-var hs-var">containerParams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaContainerParams
+</span><a href="#local-6989586621679232050"><span class="hs-identifier hs-var">containerParams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232049"><span class="annot"><span class="annottext">s :: LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams%27"><span class="hs-identifier hs-type">LambdaLinuxProcessParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232048"><span class="annot"><span class="annottext">Maybe LambdaContainerParams
+</span><a href="#local-6989586621679232048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerParams:LambdaLinuxProcessParams' :: Maybe LambdaContainerParams
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#%24sel%3AcontainerParams%3ALambdaLinuxProcessParams%27"><span class="hs-identifier hs-var">containerParams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaContainerParams
+</span><a href="#local-6989586621679232048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The isolation mode for the process that contains the Lambda function.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The process can run in an isolated runtime environment inside the IoT</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Greengrass container, or as a regular process outside any container.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Default: @GreengrassContainer@</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#lambdaLinuxProcessParams_isolationMode"><span class="hs-identifier hs-type">lambdaLinuxProcessParams_isolationMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaIsolationMode.html#LambdaIsolationMode"><span class="hs-identifier hs-type">LambdaIsolationMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="lambdaLinuxProcessParams_isolationMode"><span class="annot"><span class="annottext">lambdaLinuxProcessParams_isolationMode :: (Maybe LambdaIsolationMode -&gt; f (Maybe LambdaIsolationMode))
+-&gt; LambdaLinuxProcessParams -&gt; f LambdaLinuxProcessParams
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#lambdaLinuxProcessParams_isolationMode"><span class="hs-identifier hs-var hs-var">lambdaLinuxProcessParams_isolationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaLinuxProcessParams -&gt; Maybe LambdaIsolationMode)
+-&gt; (LambdaLinuxProcessParams
+    -&gt; Maybe LambdaIsolationMode -&gt; LambdaLinuxProcessParams)
+-&gt; Lens
+     LambdaLinuxProcessParams
+     LambdaLinuxProcessParams
+     (Maybe LambdaIsolationMode)
+     (Maybe LambdaIsolationMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams%27"><span class="hs-identifier hs-type">LambdaLinuxProcessParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232046"><span class="annot"><span class="annottext">Maybe LambdaIsolationMode
+isolationMode :: Maybe LambdaIsolationMode
+$sel:isolationMode:LambdaLinuxProcessParams' :: LambdaLinuxProcessParams -&gt; Maybe LambdaIsolationMode
+</span><a href="#local-6989586621679232046"><span class="hs-identifier hs-var hs-var">isolationMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaIsolationMode
+</span><a href="#local-6989586621679232046"><span class="hs-identifier hs-var">isolationMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232045"><span class="annot"><span class="annottext">s :: LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams%27"><span class="hs-identifier hs-type">LambdaLinuxProcessParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232044"><span class="annot"><span class="annottext">Maybe LambdaIsolationMode
+</span><a href="#local-6989586621679232044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isolationMode:LambdaLinuxProcessParams' :: Maybe LambdaIsolationMode
+</span><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#%24sel%3AisolationMode%3ALambdaLinuxProcessParams%27"><span class="hs-identifier hs-var">isolationMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaIsolationMode
+</span><a href="#local-6989586621679232044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232040"><span id="local-6989586621679232042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232029"><span id="local-6989586621679232031"><span id="local-6989586621679232033"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679232027"><span class="annot"><span class="annottext">toJSON :: LambdaLinuxProcessParams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams%27"><span class="hs-identifier hs-type">LambdaLinuxProcessParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232024"><span id="local-6989586621679232025"><span class="annot"><span class="annottext">Maybe LambdaIsolationMode
+Maybe LambdaContainerParams
+isolationMode :: Maybe LambdaIsolationMode
+containerParams :: Maybe LambdaContainerParams
+$sel:isolationMode:LambdaLinuxProcessParams' :: LambdaLinuxProcessParams -&gt; Maybe LambdaIsolationMode
+$sel:containerParams:LambdaLinuxProcessParams' :: LambdaLinuxProcessParams -&gt; Maybe LambdaContainerParams
+</span><a href="#local-6989586621679232024"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerParams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaContainerParams -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">(LambdaContainerParams -&gt; Pair)
+-&gt; Maybe LambdaContainerParams -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaContainerParams
+</span><a href="#local-6989586621679232025"><span class="hs-identifier hs-var">containerParams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isolationMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaIsolationMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaIsolationMode -&gt; Pair)
+-&gt; Maybe LambdaIsolationMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaIsolationMode
+</span><a href="#local-6989586621679232024"><span class="hs-identifier hs-var">isolationMode</span></a></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

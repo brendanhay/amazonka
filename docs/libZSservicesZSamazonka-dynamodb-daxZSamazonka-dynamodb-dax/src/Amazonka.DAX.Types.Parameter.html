@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DAX.Types.Parameter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DAX.Types.Parameter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ChangeType.html"><span class="hs-identifier">Amazonka.DAX.Types.ChangeType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.IsModifiable.html"><span class="hs-identifier">Amazonka.DAX.Types.IsModifiable</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.NodeTypeSpecificValue.html"><span class="hs-identifier">Amazonka.DAX.Types.NodeTypeSpecificValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ParameterType.html"><span class="hs-identifier">Amazonka.DAX.Types.ParameterType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes an individual setting that controls some aspect of DAX</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- behavior.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newParameter' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679194938"><span id="local-6989586621679194939"></span></span><span class="hs-keyword">data</span><span> </span><span id="Parameter"><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-var">Parameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Parameter%27"><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-var">Parameter'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for the parameter.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AparameterValue%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterValue%3AParameter%27"><span class="hs-identifier hs-var hs-var">parameterValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Determines whether the parameter can be applied to any nodes, or only</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- nodes of a particular type.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AparameterType%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe ParameterType
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterType%3AParameter%27"><span class="hs-identifier hs-var hs-var">parameterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ParameterType.html#ParameterType"><span class="hs-identifier hs-type">ParameterType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | How the parameter is defined. For example, @system@ denotes a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- system-defined parameter.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Asource%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3Asource%3AParameter%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Whether the customer is allowed to modify the parameter.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AisModifiable%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe IsModifiable
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AisModifiable%3AParameter%27"><span class="hs-identifier hs-var hs-var">isModifiable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.IsModifiable.html#IsModifiable"><span class="hs-identifier hs-type">IsModifiable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The data type of the parameter. For example, @integer@:</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdataType%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AdataType%3AParameter%27"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A list of node types, and specific parameter values for each node.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnodeTypeSpecificValues%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe [NodeTypeSpecificValue]
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AnodeTypeSpecificValues%3AParameter%27"><span class="hs-identifier hs-var hs-var">nodeTypeSpecificValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DAX.Types.NodeTypeSpecificValue.html#NodeTypeSpecificValue"><span class="hs-identifier hs-type">NodeTypeSpecificValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A range of values within which the parameter can be set.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AallowedValues%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AallowedValues%3AParameter%27"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the parameter.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AparameterName%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterName%3AParameter%27"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | A description of the parameter</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Adescription%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3Adescription%3AParameter%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The conditions under which changes to this parameter can be applied. For</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- example, @requires-reboot@ indicates that a new value for this parameter</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- will only take effect if a node is rebooted.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AchangeType%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe ChangeType
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AchangeType%3AParameter%27"><span class="hs-identifier hs-var hs-var">changeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194923"><span id="local-6989586621679194925"><span class="annot"><span class="annottext">Parameter -&gt; Parameter -&gt; Bool
+(Parameter -&gt; Parameter -&gt; Bool)
+-&gt; (Parameter -&gt; Parameter -&gt; Bool) -&gt; Eq Parameter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Parameter -&gt; Parameter -&gt; Bool
+$c/= :: Parameter -&gt; Parameter -&gt; Bool
+== :: Parameter -&gt; Parameter -&gt; Bool
+$c== :: Parameter -&gt; Parameter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194914"><span id="local-6989586621679194916"><span id="local-6989586621679194918"><span id="local-6989586621679194920"><span class="annot"><span class="annottext">ReadPrec [Parameter]
+ReadPrec Parameter
+Int -&gt; ReadS Parameter
+ReadS [Parameter]
+(Int -&gt; ReadS Parameter)
+-&gt; ReadS [Parameter]
+-&gt; ReadPrec Parameter
+-&gt; ReadPrec [Parameter]
+-&gt; Read Parameter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Parameter]
+$creadListPrec :: ReadPrec [Parameter]
+readPrec :: ReadPrec Parameter
+$creadPrec :: ReadPrec Parameter
+readList :: ReadS [Parameter]
+$creadList :: ReadS [Parameter]
+readsPrec :: Int -&gt; ReadS Parameter
+$creadsPrec :: Int -&gt; ReadS Parameter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194907"><span id="local-6989586621679194909"><span id="local-6989586621679194911"><span class="annot"><span class="annottext">Int -&gt; Parameter -&gt; ShowS
+[Parameter] -&gt; ShowS
+Parameter -&gt; String
+(Int -&gt; Parameter -&gt; ShowS)
+-&gt; (Parameter -&gt; String)
+-&gt; ([Parameter] -&gt; ShowS)
+-&gt; Show Parameter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Parameter] -&gt; ShowS
+$cshowList :: [Parameter] -&gt; ShowS
+show :: Parameter -&gt; String
+$cshow :: Parameter -&gt; String
+showsPrec :: Int -&gt; Parameter -&gt; ShowS
+$cshowsPrec :: Int -&gt; Parameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Parameter -&gt; Rep Parameter x)
+-&gt; (forall x. Rep Parameter x -&gt; Parameter) -&gt; Generic Parameter
+forall x. Rep Parameter x -&gt; Parameter
+forall x. Parameter -&gt; Rep Parameter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Parameter x -&gt; Parameter
+$cfrom :: forall x. Parameter -&gt; Rep Parameter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'Parameter' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'parameterValue', 'parameter_parameterValue' - The value for the parameter.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'parameterType', 'parameter_parameterType' - Determines whether the parameter can be applied to any nodes, or only</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- nodes of a particular type.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'source', 'parameter_source' - How the parameter is defined. For example, @system@ denotes a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- system-defined parameter.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'isModifiable', 'parameter_isModifiable' - Whether the customer is allowed to modify the parameter.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'dataType', 'parameter_dataType' - The data type of the parameter. For example, @integer@:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nodeTypeSpecificValues', 'parameter_nodeTypeSpecificValues' - A list of node types, and specific parameter values for each node.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'allowedValues', 'parameter_allowedValues' - A range of values within which the parameter can be set.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'parameterName', 'parameter_parameterName' - The name of the parameter.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'description', 'parameter_description' - A description of the parameter</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'changeType', 'parameter_changeType' - The conditions under which changes to this parameter can be applied. For</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- example, @requires-reboot@ indicates that a new value for this parameter</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- will only take effect if a node is rebooted.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#newParameter"><span class="hs-identifier hs-type">newParameter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span>
+</span><span id="line-95"></span><span id="newParameter"><span class="annot"><span class="annottext">newParameter :: Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#newParameter"><span class="hs-identifier hs-var hs-var">newParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">Parameter' :: Maybe Text
+-&gt; Maybe ParameterType
+-&gt; Maybe Text
+-&gt; Maybe IsModifiable
+-&gt; Maybe Text
+-&gt; Maybe [NodeTypeSpecificValue]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChangeType
+-&gt; Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterValue:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterValue%3AParameter%27"><span class="hs-identifier hs-var">parameterValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterType:Parameter' :: Maybe ParameterType
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterType%3AParameter%27"><span class="hs-identifier hs-var">parameterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3Asource%3AParameter%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:isModifiable:Parameter' :: Maybe IsModifiable
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AisModifiable%3AParameter%27"><span class="hs-identifier hs-var">isModifiable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IsModifiable
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataType:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AdataType%3AParameter%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeTypeSpecificValues:Parameter' :: Maybe [NodeTypeSpecificValue]
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AnodeTypeSpecificValues%3AParameter%27"><span class="hs-identifier hs-var">nodeTypeSpecificValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeTypeSpecificValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowedValues:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AallowedValues%3AParameter%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterName:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterName%3AParameter%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3Adescription%3AParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeType:Parameter' :: Maybe ChangeType
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AchangeType%3AParameter%27"><span class="hs-identifier hs-var">changeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The value for the parameter.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_parameterValue"><span class="hs-identifier hs-type">parameter_parameterValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="parameter_parameterValue"><span class="annot"><span class="annottext">parameter_parameterValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_parameterValue"><span class="hs-identifier hs-var hs-var">parameter_parameterValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe Text)
+-&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
+-&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194898"><span class="annot"><span class="annottext">Maybe Text
+parameterValue :: Maybe Text
+$sel:parameterValue:Parameter' :: Parameter -&gt; Maybe Text
+</span><a href="#local-6989586621679194898"><span class="hs-identifier hs-var hs-var">parameterValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194898"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194897"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194896"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValue:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterValue%3AParameter%27"><span class="hs-identifier hs-var">parameterValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Determines whether the parameter can be applied to any nodes, or only</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- nodes of a particular type.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_parameterType"><span class="hs-identifier hs-type">parameter_parameterType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ParameterType.html#ParameterType"><span class="hs-identifier hs-type">ParameterType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="parameter_parameterType"><span class="annot"><span class="annottext">parameter_parameterType :: (Maybe ParameterType -&gt; f (Maybe ParameterType))
+-&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_parameterType"><span class="hs-identifier hs-var hs-var">parameter_parameterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe ParameterType)
+-&gt; (Parameter -&gt; Maybe ParameterType -&gt; Parameter)
+-&gt; Lens
+     Parameter Parameter (Maybe ParameterType) (Maybe ParameterType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194894"><span class="annot"><span class="annottext">Maybe ParameterType
+parameterType :: Maybe ParameterType
+$sel:parameterType:Parameter' :: Parameter -&gt; Maybe ParameterType
+</span><a href="#local-6989586621679194894"><span class="hs-identifier hs-var hs-var">parameterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterType
+</span><a href="#local-6989586621679194894"><span class="hs-identifier hs-var">parameterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194893"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194892"><span class="annot"><span class="annottext">Maybe ParameterType
+</span><a href="#local-6989586621679194892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterType:Parameter' :: Maybe ParameterType
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterType%3AParameter%27"><span class="hs-identifier hs-var">parameterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterType
+</span><a href="#local-6989586621679194892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | How the parameter is defined. For example, @system@ denotes a</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- system-defined parameter.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_source"><span class="hs-identifier hs-type">parameter_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="parameter_source"><span class="annot"><span class="annottext">parameter_source :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_source"><span class="hs-identifier hs-var hs-var">parameter_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe Text)
+-&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
+-&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194890"><span class="annot"><span class="annottext">Maybe Text
+source :: Maybe Text
+$sel:source:Parameter' :: Parameter -&gt; Maybe Text
+</span><a href="#local-6989586621679194890"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194890"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194889"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194888"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3Asource%3AParameter%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Whether the customer is allowed to modify the parameter.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_isModifiable"><span class="hs-identifier hs-type">parameter_isModifiable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.IsModifiable.html#IsModifiable"><span class="hs-identifier hs-type">IsModifiable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="parameter_isModifiable"><span class="annot"><span class="annottext">parameter_isModifiable :: (Maybe IsModifiable -&gt; f (Maybe IsModifiable))
+-&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_isModifiable"><span class="hs-identifier hs-var hs-var">parameter_isModifiable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe IsModifiable)
+-&gt; (Parameter -&gt; Maybe IsModifiable -&gt; Parameter)
+-&gt; Lens
+     Parameter Parameter (Maybe IsModifiable) (Maybe IsModifiable)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194886"><span class="annot"><span class="annottext">Maybe IsModifiable
+isModifiable :: Maybe IsModifiable
+$sel:isModifiable:Parameter' :: Parameter -&gt; Maybe IsModifiable
+</span><a href="#local-6989586621679194886"><span class="hs-identifier hs-var hs-var">isModifiable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IsModifiable
+</span><a href="#local-6989586621679194886"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194885"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194884"><span class="annot"><span class="annottext">Maybe IsModifiable
+</span><a href="#local-6989586621679194884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isModifiable:Parameter' :: Maybe IsModifiable
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AisModifiable%3AParameter%27"><span class="hs-identifier hs-var">isModifiable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IsModifiable
+</span><a href="#local-6989586621679194884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The data type of the parameter. For example, @integer@:</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_dataType"><span class="hs-identifier hs-type">parameter_dataType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="parameter_dataType"><span class="annot"><span class="annottext">parameter_dataType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_dataType"><span class="hs-identifier hs-var hs-var">parameter_dataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe Text)
+-&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
+-&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194882"><span class="annot"><span class="annottext">Maybe Text
+dataType :: Maybe Text
+$sel:dataType:Parameter' :: Parameter -&gt; Maybe Text
+</span><a href="#local-6989586621679194882"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194882"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194881"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AdataType%3AParameter%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | A list of node types, and specific parameter values for each node.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_nodeTypeSpecificValues"><span class="hs-identifier hs-type">parameter_nodeTypeSpecificValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DAX.Types.NodeTypeSpecificValue.html#NodeTypeSpecificValue"><span class="hs-identifier hs-type">NodeTypeSpecificValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="parameter_nodeTypeSpecificValues"><span class="annot"><span class="annottext">parameter_nodeTypeSpecificValues :: (Maybe [NodeTypeSpecificValue]
+ -&gt; f (Maybe [NodeTypeSpecificValue]))
+-&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_nodeTypeSpecificValues"><span class="hs-identifier hs-var hs-var">parameter_nodeTypeSpecificValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe [NodeTypeSpecificValue])
+-&gt; (Parameter -&gt; Maybe [NodeTypeSpecificValue] -&gt; Parameter)
+-&gt; Lens
+     Parameter
+     Parameter
+     (Maybe [NodeTypeSpecificValue])
+     (Maybe [NodeTypeSpecificValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194878"><span class="annot"><span class="annottext">Maybe [NodeTypeSpecificValue]
+nodeTypeSpecificValues :: Maybe [NodeTypeSpecificValue]
+$sel:nodeTypeSpecificValues:Parameter' :: Parameter -&gt; Maybe [NodeTypeSpecificValue]
+</span><a href="#local-6989586621679194878"><span class="hs-identifier hs-var hs-var">nodeTypeSpecificValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeTypeSpecificValue]
+</span><a href="#local-6989586621679194878"><span class="hs-identifier hs-var">nodeTypeSpecificValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194877"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194876"><span class="annot"><span class="annottext">Maybe [NodeTypeSpecificValue]
+</span><a href="#local-6989586621679194876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeTypeSpecificValues:Parameter' :: Maybe [NodeTypeSpecificValue]
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AnodeTypeSpecificValues%3AParameter%27"><span class="hs-identifier hs-var">nodeTypeSpecificValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeTypeSpecificValue]
+</span><a href="#local-6989586621679194876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodeTypeSpecificValue]
+  -&gt; f (Maybe [NodeTypeSpecificValue]))
+ -&gt; Parameter -&gt; f Parameter)
+-&gt; ((Maybe [NodeTypeSpecificValue]
+     -&gt; f (Maybe [NodeTypeSpecificValue]))
+    -&gt; Maybe [NodeTypeSpecificValue]
+    -&gt; f (Maybe [NodeTypeSpecificValue]))
+-&gt; (Maybe [NodeTypeSpecificValue]
+    -&gt; f (Maybe [NodeTypeSpecificValue]))
+-&gt; Parameter
+-&gt; f Parameter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NodeTypeSpecificValue]
+  [NodeTypeSpecificValue]
+  [NodeTypeSpecificValue]
+  [NodeTypeSpecificValue]
+-&gt; Iso
+     (Maybe [NodeTypeSpecificValue])
+     (Maybe [NodeTypeSpecificValue])
+     (Maybe [NodeTypeSpecificValue])
+     (Maybe [NodeTypeSpecificValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NodeTypeSpecificValue]
+  [NodeTypeSpecificValue]
+  [NodeTypeSpecificValue]
+  [NodeTypeSpecificValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | A range of values within which the parameter can be set.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_allowedValues"><span class="hs-identifier hs-type">parameter_allowedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="parameter_allowedValues"><span class="annot"><span class="annottext">parameter_allowedValues :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_allowedValues"><span class="hs-identifier hs-var hs-var">parameter_allowedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe Text)
+-&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
+-&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194871"><span class="annot"><span class="annottext">Maybe Text
+allowedValues :: Maybe Text
+$sel:allowedValues:Parameter' :: Parameter -&gt; Maybe Text
+</span><a href="#local-6989586621679194871"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194871"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194870"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedValues:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AallowedValues%3AParameter%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The name of the parameter.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_parameterName"><span class="hs-identifier hs-type">parameter_parameterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="parameter_parameterName"><span class="annot"><span class="annottext">parameter_parameterName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_parameterName"><span class="hs-identifier hs-var hs-var">parameter_parameterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe Text)
+-&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
+-&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194867"><span class="annot"><span class="annottext">Maybe Text
+parameterName :: Maybe Text
+$sel:parameterName:Parameter' :: Parameter -&gt; Maybe Text
+</span><a href="#local-6989586621679194867"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194867"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194866"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterName:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AparameterName%3AParameter%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A description of the parameter</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_description"><span class="hs-identifier hs-type">parameter_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="parameter_description"><span class="annot"><span class="annottext">parameter_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_description"><span class="hs-identifier hs-var hs-var">parameter_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe Text)
+-&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
+-&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194863"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Parameter' :: Parameter -&gt; Maybe Text
+</span><a href="#local-6989586621679194863"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194863"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194862"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Parameter' :: Maybe Text
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3Adescription%3AParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The conditions under which changes to this parameter can be applied. For</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- example, @requires-reboot@ indicates that a new value for this parameter</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- will only take effect if a node is rebooted.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#parameter_changeType"><span class="hs-identifier hs-type">parameter_changeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="parameter_changeType"><span class="annot"><span class="annottext">parameter_changeType :: (Maybe ChangeType -&gt; f (Maybe ChangeType))
+-&gt; Parameter -&gt; f Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#parameter_changeType"><span class="hs-identifier hs-var hs-var">parameter_changeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Parameter -&gt; Maybe ChangeType)
+-&gt; (Parameter -&gt; Maybe ChangeType -&gt; Parameter)
+-&gt; Lens Parameter Parameter (Maybe ChangeType) (Maybe ChangeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194859"><span class="annot"><span class="annottext">Maybe ChangeType
+changeType :: Maybe ChangeType
+$sel:changeType:Parameter' :: Parameter -&gt; Maybe ChangeType
+</span><a href="#local-6989586621679194859"><span class="hs-identifier hs-var hs-var">changeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679194859"><span class="hs-identifier hs-var">changeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194858"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679194858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194857"><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679194857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679194858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeType:Parameter' :: Maybe ChangeType
+</span><a href="Amazonka.DAX.Types.Parameter.html#%24sel%3AchangeType%3AParameter%27"><span class="hs-identifier hs-var">changeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679194857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194854"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679194852"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Parameter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Parameter) -&gt; Value -&gt; Parser Parameter
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Parameter&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194849"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ParameterType
+-&gt; Maybe Text
+-&gt; Maybe IsModifiable
+-&gt; Maybe Text
+-&gt; Maybe [NodeTypeSpecificValue]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChangeType
+-&gt; Parameter
+</span><a href="Amazonka.DAX.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-var">Parameter'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ParameterType
+ -&gt; Maybe Text
+ -&gt; Maybe IsModifiable
+ -&gt; Maybe Text
+ -&gt; Maybe [NodeTypeSpecificValue]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ChangeType
+ -&gt; Parameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ParameterType
+      -&gt; Maybe Text
+      -&gt; Maybe IsModifiable
+      -&gt; Maybe Text
+      -&gt; Maybe [NodeTypeSpecificValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParameterValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ParameterType
+   -&gt; Maybe Text
+   -&gt; Maybe IsModifiable
+   -&gt; Maybe Text
+   -&gt; Maybe [NodeTypeSpecificValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Parameter)
+-&gt; Parser (Maybe ParameterType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe IsModifiable
+      -&gt; Maybe Text
+      -&gt; Maybe [NodeTypeSpecificValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParameterType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParameterType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe IsModifiable
+   -&gt; Maybe Text
+   -&gt; Maybe [NodeTypeSpecificValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Parameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe IsModifiable
+      -&gt; Maybe Text
+      -&gt; Maybe [NodeTypeSpecificValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IsModifiable
+   -&gt; Maybe Text
+   -&gt; Maybe [NodeTypeSpecificValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Parameter)
+-&gt; Parser (Maybe IsModifiable)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [NodeTypeSpecificValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IsModifiable)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsModifiable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [NodeTypeSpecificValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Parameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [NodeTypeSpecificValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [NodeTypeSpecificValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Parameter)
+-&gt; Parser (Maybe [NodeTypeSpecificValue])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ChangeType -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [NodeTypeSpecificValue]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeTypeSpecificValues&quot;</span></span><span>
+</span><span id="line-165"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [NodeTypeSpecificValue]))
+-&gt; Maybe [NodeTypeSpecificValue]
+-&gt; Parser (Maybe [NodeTypeSpecificValue])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NodeTypeSpecificValue]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-166"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ChangeType -&gt; Parameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe ChangeType -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllowedValues&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe ChangeType -&gt; Parameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe ChangeType -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParameterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ChangeType -&gt; Parameter)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe ChangeType -&gt; Parameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ChangeType -&gt; Parameter)
+-&gt; Parser (Maybe ChangeType) -&gt; Parser Parameter
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194842"><span id="local-6989586621679194844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span></span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>
